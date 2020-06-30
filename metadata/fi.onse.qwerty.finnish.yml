@@ -1,0 +1,39 @@
+Categories:
+  - System
+License: Apache-2.0
+SourceCode: https://github.com/anssih/finqwerty
+IssueTracker: https://github.com/anssih/finqwerty/issues
+
+AutoName: FinQwerty
+Description: |-
+    Keyboard layouts for Android phones with physical keyboards
+
+    Various keyboard layouts for the physical QWERTY keyboards of the following Android phones:
+    * BlackBerry KEYone **Android 7.1 only** (Danish, Finnish, German, Norwegian, Swedish)
+    * BlackBerry Priv (Danish, Finnish, German, Norwegian, Swedish)
+    * F(x)tec Pro1 (Czech, Danish, Finnish, German, Greek, Hungarian, Italian, Norwegian, Polish, Portuguese, Swedish, Swiss French, Ukrainian, U.S., U.S. international)
+    * Gemini PDA (Finnish, Swedish)
+    * Livermorium Keyboard Moto Mod (Danish, Finnish, German, Norwegian, Swedish)
+    * Motorola Droid 4 (Finnish, Swedish)
+    * Motorola Photon Q 4G (Finnish, Swedish)
+    * Samsung Galaxy S Relay 4G (Finnish, Swedish)
+
+    See the [FinQwerty website](https://android.onse.fi/finqwerty/) for detailed layout maps.
+
+    The layouts are provided via the Android standard layouts mechanism and are selectable in Android settings - no root required.
+    An in-app workaround is also included for BlackBerry phones that do not have those settings.
+
+RepoType: git
+Repo: https://github.com/anssih/finqwerty
+
+Builds:
+  - versionName: 1.5.4
+    versionCode: 35
+    commit: v1.5.4
+    sudo: apt-get install -y -t testing python3 python3-lxml
+    subdir: finqwerty
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
