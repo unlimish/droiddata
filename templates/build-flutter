@@ -1,0 +1,26 @@
+    subdir: android/app
+    gradle:
+      - yes
+    output: ../../build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@1.22.5 ## specify the version you are using
+    prebuild:
+      - export flutter=$(realpath $$flutter$$)
+      - echo "flutter.sdk=$flutter" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release --verbose
+
+It is also possible to build without gradle and notice
+how the flavor is parth of the output apk path.
+
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@1.22.2
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+
+In general grep for "flutter" in the metadata directory to see other examples.
