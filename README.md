@@ -23,6 +23,12 @@ Clone fdroiddata (or your fork) and enter it:
 	git clone https://gitlab.com/fdroid/fdroiddata.git
 	cd fdroiddata
 
+Install prerequisite packages from OS repository:
+
+    # for debian
+	sudo apt install python3-git python3-yaml python3-qrcode \
+	    python3-pyasn1 python3-pyasn1-modules 
+
 Optionally create a base config.py and signing keys with:
 
     fdroid init
