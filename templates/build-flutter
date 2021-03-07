@@ -1,9 +1,15 @@
-    subdir: android/app
-    gradle:
-      - yes
-    output: ../../build/app/outputs/flutter-apk/app-release.apk
+Starting from the following template and grep for "flutter" in the metadata
+directory to see other examples.
+Flutter version needed can (sometimes/often/always?) be found in /flutter.version
+If you use different build flavors the output path might change.
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: v1.0
+    output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
-      - flutter@1.22.5 ## specify the version you are using
+      - flutter@1.22.5
     prebuild:
       - export flutter=$(realpath $$flutter$$)
       - echo "flutter.sdk=$flutter" >> ../local.properties
@@ -11,16 +17,3 @@
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk --release --verbose
-
-It is also possible to build without gradle and notice
-how the flavor is parth of the output apk path.
-
-    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
-    srclibs:
-      - flutter@1.22.2
-    build:
-      - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter build apk --flavor fdroid
-
-
-In general grep for "flutter" in the metadata directory to see other examples.
