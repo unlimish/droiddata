@@ -17,6 +17,7 @@ Builds:
     versionCode: 64
     commit: 2.4.10
     timeout: 20000
+    subdir: app
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y doxygen pkgconf python-pystache python-six yasm
@@ -24,10 +25,9 @@ Builds:
       - apt-get install -y -t stretch-backports cmake
     gradle:
       - alwaysOnline
-    output: app/build/outputs/apk/alwaysOnline/release/app-alwaysOnline-release-unsigned.apk
     srclibs:
       - linphone-sdk@4.4.24
-    prebuild: sed -i -e '/repositories/,+5d' app/build.gradle
+    prebuild: sed -i -e '/repositories/,+5d' build.gradle
     build:
       - pushd $$linphone-sdk$$
       - git submodule update --init --recursive
@@ -37,9 +37,9 @@ Builds:
         armv7, x86, x86_64" -DCMAKE_BUILD_TYPE=Release
       - cmake --build . --parallel $(nproc)
       - popd
-      - mkdir -p app/libs/
+      - mkdir -p libs/
       - cp $$linphone-sdk$$/build-sdk/linphone-sdk/bin/outputs/aar/linphone-sdk-android-release.aar
-        app/libs/
+        libs/
       - rm -rf $$linphone-sdk$$/build-sdk/
     ndk: r21e
     gradleprops:
