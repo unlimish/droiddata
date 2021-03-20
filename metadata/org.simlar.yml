@@ -29,7 +29,6 @@ Builds:
       - linphone-sdk@4.4.24
     prebuild: sed -i -e '/repositories/,+5d' app/build.gradle
     build:
-      - mkdir -p $$linphone-sdk$$
       - pushd $$linphone-sdk$$
       - git submodule update --init --recursive
       - mkdir build-sdk
