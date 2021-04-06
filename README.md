@@ -27,7 +27,7 @@ Install prerequisite packages from OS repository:
 
     # for debian
 	sudo apt install python3-git python3-yaml python3-qrcode \
-	    python3-pyasn1 python3-pyasn1-modules 
+	    python3-pyasn1 python3-pyasn1-modules androguard
 
 Optionally create a base config.py and signing keys with:
 
