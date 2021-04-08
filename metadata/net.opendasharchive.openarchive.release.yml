@@ -5,10 +5,10 @@ AuthorName: Guardian Project
 AuthorEmail: support@guardianproject.info
 AuthorWebSite: https://guardianproject.info
 WebSite: https://open-archive.net
-SourceCode: https://github.com/OpenArchive/openarchive-android
+SourceCode: https://github.com/OpenArchive/Save-app-android
 IssueTracker: https://github.com/OpenArchive/openarchive-android/issues
 
-AutoName: OpenArchive
+AutoName: Save
 Description: |
     Add metadata and Creative Commons licensing to your audiovisual
     media and then send it to the Internet Archive via Tor. It offers
@@ -17,7 +17,7 @@ Description: |
     reusing it in the future.
 
 RepoType: git
-Repo: https://github.com/OpenArchive/openarchive-android
+Repo: https://github.com/OpenArchive/Save-app-android
 
 Builds:
   - versionName: 0.0.16
@@ -36,12 +36,24 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 0.2.3-RC-1
+    versionCode: 20321
+    commit: 0.2.3-RC-1
+    subdir: app
+    submodules: true
+    patch:
+      - fix-application-id-suffix.patch
+    gradle:
+      - release
+    scanignore:
+      - art/ic_launcher.zip
+
 MaintainerNotes: |
     Binaries are here:
     https://github.com/OpenArchive/openarchive/releases/download/%v/openarchive-%v.apk
     but doesn't verify, so this is included via the normal process.
 
-AutoUpdateMode: None
+AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.0.17-beta-8
-CurrentVersionCode: 1718
+CurrentVersion: 0.2.3-RC-1
+CurrentVersionCode: 20321
