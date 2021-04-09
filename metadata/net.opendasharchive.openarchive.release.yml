@@ -43,6 +43,8 @@ Builds:
     subdir: app
     gradle:
       - release
+    prebuild: sed -i -e "/https:\/\/raw.githubusercontent.com\/guardianproject\/gpmaven\/master/d"
+        ../build.gradle
     scandelete:
       - art/ic_launcher.zip
 
