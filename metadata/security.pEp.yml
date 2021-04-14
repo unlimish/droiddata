@@ -583,7 +583,7 @@ Builds:
     prebuild:
       - wget https://sh.rustup.rs -O ~/rustup.sh
       - chmod +x ~/rustup.sh
-      - ~/rustup.sh -v -y --no-modify-path --default-toolchain nightly --default-host
+      - ~/rustup.sh -v -y --no-modify-path --default-toolchain 1.46.0 --default-host
         x86_64-unknown-linux-gnu -t i686-linux-android -t x86_64-linux-android -t
         armv7-linux-androideabi -t aarch64-linux-android
       - ~/.cargo/bin/rustup -v component add rust-src
@@ -610,8 +610,8 @@ Builds:
       - echo -e "DEBUG=0\nYML2_PATH=$$yml2$$\nENGINE_INC_PATH=$$pEpEngine$$/src\nAD_INC_PATH=$$pEpJNIAdapter$$/src/"
         > $$pEpJNIAdapter$$/local.conf
       - ln -s $$pEpEngine$$/src/ $$pEpEngine$$/src/pEp
-      - sed -i 's:cargo build:~/.cargo/bin/cargo build:' $$pEpJNIAdapter$$/android/external/**/Makefile
-      - sed -i 's:rustup run:~/.cargo/bin/rustup run:' $$pEpJNIAdapter$$/android/external/**/Makefile
+      - sed -i 's:rustup run nightly cargo:~/.cargo/bin/cargo:' $$pEpJNIAdapter$$/android/external/**/Makefile
+      - sed -i 's:\-Z build-std=core,alloc,std::' $$pEpJNIAdapter$$/android/external/**/Makefile
       - sed -i 's:downloads/::' $$pEpJNIAdapter$$/android/external/downloads/gmp-6.2.1.tar.bz2.md5
       - sed -i 's:Runtime.getRuntime().availableProcessors():1:' $$pEpJNIAdapter$$/android/build.gradle
     ndk: r20b
