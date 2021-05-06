@@ -16,11 +16,11 @@ Builds:
   - versionName: v2021-05-05
     versionCode: 20210505
     commit: v20210505
-    output: app/build/outputs/apk/release/app-release-unsigned.apk
     subdir: app
     build:
-      - cat build.gradle
-      - gradle assembleRelease
+      - sed -z -i -e 's/if(.*)[[:space:]]\?{.*}[[:space:]]\?else[[:space:]]\?{[^}]*}//' build.gradle
+    gradle:
+      - yes
 
 AutoUpdateMode: Version v%c
 UpdateCheckMode: Tags
