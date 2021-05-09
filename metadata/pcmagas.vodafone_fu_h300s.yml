@@ -17,14 +17,11 @@ Builds:
     versionCode: 20210505
     commit: v20210505
     subdir: app
-    prebuild:
-      - sed --version
-      - cat build.gradle
-      - sed -z -i -e 's/if(.*)[[:space:]]\?{.*}[[:space:]]\?else[[:space:]]\?{[^}]*}//'
-        build.gradle
-      - cat build.gradle
     gradle:
       - yes
+    prebuild:
+      - sed -z -i -e 's/if(.*)[[:space:]]\?{.*}[[:space:]]\?else[[:space:]]\?{[^}]*}//'
+        build.gradle
 
 AutoUpdateMode: Version v%c
 UpdateCheckMode: Tags
