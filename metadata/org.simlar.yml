@@ -13,9 +13,9 @@ RepoType: git
 Repo: https://github.com/simlar/simlar-android.git
 
 Builds:
-  - versionName: 2.4.10 (alwaysOnline)
-    versionCode: 64
-    commit: 2.4.10
+  - versionName: 2.5.1 (alwaysOnline)
+    versionCode: 66
+    commit: 2.5.1
     timeout: 20000
     subdir: app
     sudo:
@@ -26,7 +26,7 @@ Builds:
     gradle:
       - alwaysOnline
     srclibs:
-      - linphone-sdk@4.4.24
+      - linphone-sdk@4.4.35
     prebuild: sed -i -e '/repositories/,+5d' build.gradle
     build:
       - pushd $$linphone-sdk$$
@@ -48,5 +48,5 @@ Builds:
 
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 2.4.10 (alwaysOnline)
-CurrentVersionCode: 64
+CurrentVersion: 2.5.1 (alwaysOnline)
+CurrentVersionCode: 66
