@@ -19,7 +19,6 @@ Builds:
       - wget https://golang.org/dl/go1.16.4.linux-amd64.tar.gz -O go1.16.4.linux-amd64.tar.gz
       - rm -rf /usr/local/go
       - tar -C /usr/local -xzf go1.16.4.linux-amd64.tar.gz
-      - export PATH=$PATH:/usr/local/go/bin
     gradle:
       - foss
     output: app/build/outputs/apk/foss/release/app-foss-universal-release-unsigned.apk
@@ -28,6 +27,7 @@ Builds:
       - sed -i -e "s/^const val buildNdkVersion = .*$/const val buildNdkVersion =
         \"21.4.7075529\"/" ../buildSrc/src/main/java/Build.kt
       - sed -i -e '/distributionUrl/s/7.0.2-all/7.0.1-bin/g' ../gradle/wrapper/gradle-wrapper.properties
+    build: export PATH=$PATH:/usr/local/go/bin
     ndk: r21e
 
 AutoUpdateMode: Version v%v.foss
