@@ -30,6 +30,8 @@ Builds:
   - versionName: 1.5.4
     versionCode: 35
     commit: v1.5.4
+    srclibs:
+      - cpython@v3.9.5
     sudo:
       - apt-get update || apt-get update
       - pushd build/srclib/cpython
@@ -37,12 +39,12 @@ Builds:
       - make -j`nproc`
       - make altinstall
       - popd
-    output: app/build/outputs/apk/release/app-release-unsigned.apk
-    srclibs:
-      - cpython@v3.9.2
-    subdir: finqwerty
     gradle:
       - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    subdir: finqwerty
+    prebuild: sed -i -e 's/python3/python3.9/' build.gradle
+
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
