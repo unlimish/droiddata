@@ -27,12 +27,13 @@ Builds:
       - sed -i -e "s/^const val buildNdkVersion = .*$/const val buildNdkVersion =
         \"21.4.7075529\"/" ../buildSrc/src/main/java/Build.kt
       - sed -i -e '/distributionUrl/s/7.0.2-all/7.0.1-bin/g' ../gradle/wrapper/gradle-wrapper.properties
-    build: export PATH=$PATH:/usr/local/go/bin
+      - export PATH=$PATH:/usr/local/go/bin
     ndk: r21e
 
 AutoUpdateMode: Version v%v.foss
 UpdateCheckMode: HTTP
-UpdateCheckData: https://github.com/Kr328/ClashForAndroid/raw/main/buildSrc/src/main/java/Build.kt|const
-    val buildVersionCode = (\d+)|.|const val buildVersionName = "([\d.]+)"
+UpdateCheckData:
+  https://github.com/Kr328/ClashForAndroid/raw/main/buildSrc/src/main/java/Build.kt|const
+  val buildVersionCode = (\d+)|.|const val buildVersionName = "([\d.]+)"
 CurrentVersion: 2.4.1
 CurrentVersionCode: 204001
