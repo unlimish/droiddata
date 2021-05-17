@@ -30,7 +30,16 @@ Builds:
   - versionName: 1.5.4
     versionCode: 35
     commit: v1.5.4
-    sudo: apt-get install -y -t testing python3 python3-lxml
+    sudo:
+      - apt-get update || apt-get update
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - cpython@v3.9.2
     subdir: finqwerty
     gradle:
       - yes
