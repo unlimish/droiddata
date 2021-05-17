@@ -15,8 +15,8 @@ Builds:
       - foss
     prebuild:
       - echo "appcenter.key=" >> ../local.properties
-      - sed -i -e "s/^const val buildNdkVersion = .*$/const val buildNdkVersion =
-        \"21.4.7075529\"/" ../buildSrc/src/main/java/Build.kt
+      - sed -i -e 's/^const val buildNdkVersion = .*$/const val buildNdkVersion =
+        "21.4.7075529"/' ../buildSrc/src/main/java/Build.kt
     ndk: r21e
 
 AutoUpdateMode: Version v%v
