@@ -618,11 +618,8 @@ Builds:
     sudo:
       - apt-get update || apt-get update
       - apt-get purge asn1c
-      - apt-get install -y --no-install-recommends mercurial g++ clang capnproto libsqlite3-dev
-        libtool python3-lxml automake
-      - git clone https://github.com/vlm/asn1c /tmp/asn1c || true
-      - cd /tmp/asn1c
-      - git checkout v0.9.28
+      - apt-get install -y --no-install-recommends g++ clang capnproto libsqlite3-dev
+      - cd build/srclib/asn1c
       - autoreconf -iv
       - ./configure
       - make
@@ -630,6 +627,7 @@ Builds:
     gradle:
       - WithkeysyncFDroid
     srclibs:
+      - asn1c@v0.9.28
       - yml2@2.6.3
       - pEpEngine@Release_2.1.33
       - pEpJNIAdapter@Release_2.1.26
@@ -662,7 +660,6 @@ Builds:
       - ln -s $$pEpEngine$$/src/ $$pEpEngine$$/src/pEp
       - sed -i 's:rustup run nightly cargo:~/.cargo/bin/cargo:' $$pEpJNIAdapter$$/android/external/**/Makefile
       - sed -i 's:\-Z build-std=core,alloc,std::' $$pEpJNIAdapter$$/android/external/**/Makefile
-      - sed -i 's:downloads/::' $$pEpJNIAdapter$$/android/external/downloads/gmp-6.2.1.tar.bz2.md5
     ndk: r20b
 
 AutoUpdateMode: None
