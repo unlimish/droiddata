@@ -1,5 +1,5 @@
 Categories:
- - Multimedia
+  - Multimedia
 License: AGPL-3.0-only
 AuthorName: vishnu
 AuthorEmail: vishnu@ente.io
@@ -18,10 +18,8 @@ Builds:
     versionCode: 173
     commit: 8bd17ff
     output: build/app/outputs/apk/release/app-release.apk
-    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
-        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     srclibs:
-      - flutter@v2.0.6
+      - flutter@2.0.6
     build:
       - export PATH=$$flutter$$/bin:$PATH
       - flutter config --no-analytics
