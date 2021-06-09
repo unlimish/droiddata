@@ -10,6 +10,7 @@ AutoName: Covid Cert
 
 RepoType: git
 Repo: https://github.com/admin-ch/CovidCertificate-App-Android
+Binaries: https://github.com/admin-ch/CovidCertificate-App-Android/releases/download/v%v-versionCode-%c-wallet/wallet-prod-%v-%c-signed.apk
 
 Builds:
   - versionName: 1.0.0
@@ -18,14 +19,13 @@ Builds:
     subdir: wallet
     gradle:
       - prod
-    gradleprops:
-      - buildTimestamp=1622711652460
     rm:
       - wallet/testKeystore
       - eval/testKeystore
       - verifier/testKeystore
+    gradleprops:
+      - buildTimestamp=1622711652460
 
-Binaries: https://github.com/admin-ch/CovidCertificate-App-Android/releases/download/v%v-versionCode-%c-wallet/wallet-prod-%v-%c-signed.apk
 
 AutoUpdateMode: Version v%v-versionCode-%c-wallet
 UpdateCheckMode: Tags
