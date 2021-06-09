@@ -1,0 +1,29 @@
+Categories:
+  - Sports & Health
+License: MPL-2.0
+AuthorName: Swiss Admin
+AuthorWebSite: https://www.bit.admin.ch
+SourceCode: https://github.com/admin-ch/CovidCertificate-App-Android
+IssueTracker: https://github.com/admin-ch/CovidCertificate-App-Android/issues
+
+AutoName: Covid Cert
+
+RepoType: git
+Repo: https://github.com/admin-ch/CovidCertificate-App-Android
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1001
+    commit: v1.0.0-versionCode-1001-wallet
+    subdir: wallet
+    gradle:
+      - prod
+    rm:
+      - wallet/testKeystore
+      - eval/testKeystore
+      - verifier/testKeystore
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.0
+CurrentVersionCode: 1001
