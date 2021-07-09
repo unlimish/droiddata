@@ -28,8 +28,8 @@ Builds:
     gradle:
       - yes
     prebuild:
-      - sed -i -e 's/shouldPublish = .*/shouldPublish = false/' build.gradle
-      - sed -i -e "s/versionCode .*/versionCode $$VERCODE$$/" gradle/common/android-app.gradle
+      - sed -i -e 's/shouldPublish = .*/shouldPublish = false/' ../build.gradle
+      - echo "versionCode=$$VERCODE$$" > ../generated.properties
     scanignore:
       - gradle/common/publish.gradle
 
