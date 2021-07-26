@@ -1,0 +1,69 @@
+Categories:
+  - Games
+License: 0BSD
+AuthorName: Adam T. Ryder
+AuthorEmail: tryder@inventati.org
+website: https://www.inventati.org/1337gallery/games/carpediem/carpediem.html
+SourceCode: https://github.com/ATryder/CarpeDiem
+IssueTracker: https://github.com/ATryder/CarpeDiem/issues
+Changelog: https://github.com/ATryder/CarpeDiem/releases
+
+AutoName: Carpe Diem
+
+RepoType: git
+Repo: https://github.com/ATryder/CarpeDiem.git
+
+Builds:
+  - versionName: 1.0.7
+    versionCode: 10
+    commit: db233c34c02963bcfb0f34590c876f2925a91507
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++
+    output: carpediem.apk
+    srclibs:
+      - Godot@3.3.2-stable
+    prebuild:
+      - mkdir game
+      - bash -O extglob -c "mv !(game) game"
+      - cp -R $$Godot$$ godot
+      - rm godot/misc/dist/ios_xcode/libgodot.iphone.release.fat.a
+      - rm godot/misc/dist/ios_xcode/libgodot.iphone.debug.fat.a
+    build:
+      - cd godot
+      - sed -i "s|valid = false|valid = true|" ./platform/android/export/export.cpp
+      - mkdir -p ../fake_user_home/.config/godot/
+      - cp ../game/editor_settings-3.tres ../fake_user_home/.config/godot/
+      - mkdir -p ../fake_user_home/.android/
+      - keytool -genkey -v -keystore ../fake_user_home/.android/debug.keystore -storepass
+        android -alias androiddebugkey -keypass android -dname "CN=Android Debug,O=Android,C=US"
+      - pushd ../fake_user_home
+      - export HOME=$PWD
+      - sed -i "s|DEBUG_KEYSTORE|$PWD/.android/debug.keystore|" ./.config/godot/editor_settings-3.tres
+      - popd
+      - scons -j `nproc` platform=server unix_global_settings_path=".."
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - scons -j `nproc` platform=android target=release android_arch=armv7
+      - scons -j `nproc` platform=android target=release_debug android_arch=armv7
+      - scons -j `nproc` platform=android target=release android_arch=arm64v8
+      - scons -j `nproc` platform=android target=release_debug android_arch=arm64v8
+      - scons -j `nproc` platform=android target=release android_arch=x86
+      - scons -j `nproc` platform=android target=release_debug android_arch=x86
+      - scons -j `nproc` platform=android target=release android_arch=x86_64
+      - scons -j `nproc` platform=android target=release_debug android_arch=x86_64
+      - pushd platform/android/java/
+      - gradle generateGodotTemplates
+      - popd
+      - mkdir -p ../fake_user_home/.local/share/godot/templates/3.3.2.stable/
+      - echo "3.3.2.stable" > ../fake_user_home/.local/share/godot/templates/3.3.2.stable/version.txt
+      - cp ./bin/android_release.apk ../fake_user_home/.local/share/godot/templates/3.3.2.stable/
+      - cp ./bin/android_debug.apk ../fake_user_home/.local/share/godot/templates/3.3.2.stable/
+      - cp ./bin/android_source.zip ../fake_user_home/.local/share/godot/templates/3.3.2.stable/
+      - cd ../game
+      - ../godot/bin/godot_server.x11.tools.* --export Android ../carpediem.apk
+    ndk: r21d
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.7
+CurrentVersionCode: 10
