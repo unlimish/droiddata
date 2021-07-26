@@ -29,7 +29,7 @@ Builds:
       - cp -R $$Godot$$ godot
       - rm godot/misc/dist/ios_xcode/libgodot.iphone.release.fat.a
       - rm godot/misc/dist/ios_xcode/libgodot.iphone.debug.fat.a
-      - sed "/^String[] mavenRepos = getGodotPluginsMavenRepos()/,+7 d" ./godot/platform/android/java/app/build.gradle
+      - sed -i "/String\[] mavenRepos = getGodotPluginsMavenRepos()/,+7 d" ./godot/platform/android/java/app/build.gradle
     build:
       - cd godot
       - sed -i "s|valid = false|valid = true|" ./platform/android/export/export.cpp
