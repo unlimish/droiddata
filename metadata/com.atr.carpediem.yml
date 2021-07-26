@@ -29,9 +29,9 @@ Builds:
       - cp -R $$Godot$$ godot
       - rm godot/misc/dist/ios_xcode/libgodot.iphone.release.fat.a
       - rm godot/misc/dist/ios_xcode/libgodot.iphone.debug.fat.a
+      - sed "/^String[] mavenRepos = getGodotPluginsMavenRepos()/,+7 d" ./godot/platform/android/java/app/build.gradle
     build:
       - cd godot
-      - sed "/^String[] mavenRepos = getGodotPluginsMavenRepos()/,+7 d" ./platform/android/java/app/build.gradle
       - sed -i "s|valid = false|valid = true|" ./platform/android/export/export.cpp
       - mkdir -p ../fake_user_home/.config/godot/
       - cp ../game/editor_settings-3.tres ../fake_user_home/.config/godot/
