@@ -88,17 +88,18 @@ lint:
 
 schema validation:
   image: node:alpine
-  except:
-    - pipelines
-    - schedules
-    - triggers
+  only:
+    refs:
+      - branches
+      - external_pull_requests
+    changes:
+      - metadata/*.yml
   before_script:
     - set -xe
     - apk add git
     - npm -g install ajv-cli
   script:
     - set -xe
-    - if [ "$CI_PROJECT_NAMESPACE" = "fdroid" ]; then echo "not testing in fdroid"; exit 0; fi
     - git fetch https://gitlab.com/fdroid/fdroiddata.git
     - app_ids=$(git diff --name-only --diff-filter=d FETCH_HEAD...HEAD "metadata/*.yml")
     - if [ -n "$appids" ]; then
