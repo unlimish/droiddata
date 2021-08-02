@@ -42,7 +42,6 @@ Builds:
         android -alias androiddebugkey -keypass android -dname "CN=Android Debug,O=Android,C=US"
       - pushd ../fake_user_home
       - export HOME=$PWD
-      - sed -i "s|export/android/debug_keystore = \"\"|export/android/debug_keystore = \"$PWD/.android/debug.keystore\"|" ./.config/godot/editor_settings-3.tres
       - popd
       - scons -j `nproc` platform=server unix_global_settings_path=".."
       - export ANDROID_NDK_ROOT=$$NDK$$
