@@ -42,19 +42,22 @@ Builds:
         android -alias androiddebugkey -keypass android -dname "CN=Android Debug,O=Android,C=US"
       - pushd ../fake_user_home
       - export HOME=$PWD
+      - sed -i "s|DEBUG_KEYSTORE|$PWD/.android/debug.keystore|" ./.config/godot/editor_settings-3.tres
       - popd
       - scons -j `nproc` platform=server unix_global_settings_path=".."
       - export ANDROID_NDK_ROOT=$$NDK$$
       - scons -j `nproc` platform=android target=release android_arch=armv7
-      - scons -j `nproc` platform=android target=release android_arch=arm64v8
+      - scons -j `nproc` platform=android target=release_debug android_arch=armv7
       - pushd platform/android/java/
       - gradle generateGodotTemplates
       - popd
       - mkdir -p ../fake_user_home/.local/share/godot/templates/3.3.2.stable/
       - echo "3.3.2.stable" > ../fake_user_home/.local/share/godot/templates/3.3.2.stable/version.txt
       - cp ./bin/android_release.apk ../fake_user_home/.local/share/godot/templates/3.3.2.stable/
+      - cp ./bin/android_debug.apk ../fake_user_home/.local/share/godot/templates/3.3.2.stable/
       - cp ./bin/android_source.zip ../fake_user_home/.local/share/godot/templates/3.3.2.stable/
       - cd ../game
+      - sed -i "s|architectures/arm64-v8a=true|architectures/arm64-v8a=false|" export_presets.cfg
       - sed -i "s|architectures/x86=true|architectures/x86=false|" export_presets.cfg
       - sed -i "s|architectures/x86_64=true|architectures/x86_64=false|" export_presets.cfg
       - sed -i "s|package/signed=true|package/signed=false|" export_presets.cfg
