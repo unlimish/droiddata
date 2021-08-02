@@ -58,8 +58,8 @@ Builds:
       - sed -i "s|architectures/arm64-v8a=true|architectures/arm64-v8a=false|" export_presets.cfg
       - sed -i "s|architectures/x86=true|architectures/x86=false|" export_presets.cfg
       - sed -i "s|architectures/x86_64=true|architectures/x86_64=false|" export_presets.cfg
-      - sed -i 's|keystore/release="/home/adam/Android/Android_KEYSTORE/atr.keystore"|keystore/release=""|' export_presets.cfg
-      - sed -i 's|export_path="../../Carpe_Diem.apk"|export_path="../carpediem.apk"|' export_presets.cfg
+      - sed -i "s|keystore/release=\"/home/adam/Android/Android_KEYSTORE/atr.keystore\"|keystore/release=\"\"|" export_presets.cfg
+      - sed -i "s|export_path=\"../../Carpe_Diem.apk\"|export_path=\"../carpediem.apk\"|" export_presets.cfg
       - ../godot/bin/godot_server.x11.tools.* --export Android ../carpediem.apk
     ndk: r21e
 
