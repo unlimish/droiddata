@@ -20,7 +20,7 @@ Builds:
     timeout: 36000
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y g++
+      - apt-get install -y clang
     output: carpediem.apk
     srclibs:
       - Godot@3.3.2-stable
@@ -41,7 +41,7 @@ Builds:
       - pushd ../fake_user_home
       - export HOME=$PWD
       - popd
-      - scons -j `nproc` platform=server unix_global_settings_path=".."
+      - scons -j `nproc` platform=server target=release_debug tools=yes use_llvm=yes unix_global_settings_path=".."
       - export ANDROID_NDK_ROOT=$$NDK$$
       - scons -j `nproc` platform=android target=release android_arch=armv7
       - pushd platform/android/java/
