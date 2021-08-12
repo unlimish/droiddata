@@ -19,7 +19,7 @@ Builds:
     commit: db233c34c02963bcfb0f34590c876f2925a91507
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y clang
+      - apt-get install -y g++
     output: carpediem.apk
     srclibs:
       - Godot@3.3.2-stable
@@ -40,8 +40,7 @@ Builds:
       - pushd ../fake_user_home
       - export HOME=$PWD
       - popd
-      - scons -j `nproc` platform=server target=release_debug tools=yes use_llvm=yes
-        unix_global_settings_path=".."
+      - scons -j `nproc` platform=server target=release_debug tools=yes unix_global_settings_path=".."
       - export ANDROID_NDK_ROOT=$$NDK$$
       - scons -j `nproc` platform=android target=release android_arch=armv7
       - pushd platform/android/java/
@@ -56,7 +55,7 @@ Builds:
       - sed -i "s|architectures/x86=true|architectures/x86=false|" export_presets.cfg
       - sed -i "s|architectures/x86_64=true|architectures/x86_64=false|" export_presets.cfg
       - sed -i "s|package/signed=true|package/signed=false|" export_presets.cfg
-      - ../godot/bin/godot_server.x11.opt.tools.64.llvm --verbose --export Android ../carpediem.apk
+      - ../godot/bin/godot_server.x11.opt.tools.64 --verbose --export Android ../carpediem.apk
     ndk: r21e
 
 AutoUpdateMode: Version v%v
