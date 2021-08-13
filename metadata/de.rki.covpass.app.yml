@@ -25,12 +25,21 @@ Builds:
     versionCode: 480
     commit: v-1.82.0
     subdir: app-covpass-prod
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
     prebuild:
       - sed -i -e 's/shouldPublish = .*/shouldPublish = false/' ../build.gradle
       - echo "versionCode=$$VERCODE$$" > ../generated.properties
       - sed -i -e 's/url config.url/url "https:\/\/repo1.maven.org\/maven2"/' ../gradle/common/publish.gradle
+
+MaintainerNotes: |-
+    Checkout commit via tag and run following command manually to get versionCode:
+    echo $(($(git rev-list --count HEAD) + 80))
+    This is documented in upstream repo in /get-version-code.sh
 
 AutoUpdateMode: None
 UpdateCheckMode: Tags
