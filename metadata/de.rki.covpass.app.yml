@@ -21,9 +21,9 @@ RepoType: git
 Repo: https://github.com/Digitaler-Impfnachweis/covpass-android
 
 Builds:
-  - versionName: 1.82.0
-    versionCode: 480
-    commit: v-1.82.0
+  - versionName: 1.66.0
+    versionCode: 457
+    commit: v-1.66.0
     subdir: app-covpass-prod
     sudo:
       - apt-get update || apt-get update
@@ -35,6 +35,9 @@ Builds:
       - sed -i -e 's/shouldPublish = .*/shouldPublish = false/' ../build.gradle
       - echo "versionCode=$$VERCODE$$" > ../generated.properties
       - sed -i -e 's/url config.url/url "https:\/\/repo1.maven.org\/maven2"/' ../gradle/common/publish.gradle
+      - sed -i -e 's/https:\/\/nexus.open-insurance-platform.com\/repository\/covpass-releases/https:\/\/repo1.maven.org\/maven2/' ../build.gradle
+      - sed -i -e 's/https:\/\/maven.pkg.github.com\/ehn-dcc-development\/\*/https:\/\/repo1.maven.org\/maven2/' build.gradle
+      - export PUBLISH_APPS=false
 
 MaintainerNotes: |-
     Checkout commit via tag and run following command manually to get versionCode:
@@ -43,5 +46,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: None
 UpdateCheckMode: Tags
-CurrentVersion: 1.82.0
-CurrentVersionCode: 480
+CurrentVersion: 1.66.0
+CurrentVersionCode: 457
