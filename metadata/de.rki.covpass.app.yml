@@ -35,8 +35,8 @@ Builds:
       - sed -i -e 's/shouldPublish = .*/shouldPublish = false/' ../build.gradle
       - echo "versionCode=$$VERCODE$$" > ../generated.properties
       - sed -i -e 's/url config.url/url "https:\/\/repo1.maven.org\/maven2"/' ../gradle/common/publish.gradle
-      - sed -i -e 's/https:\/\/nexus.open-insurance-platform.com\/repository\/covpass-releases/https:\/\/repo1.maven.org\/maven2/' ../build.gradle
-      - sed -i -e 's/https:\/\/maven.pkg.github.com\/ehn-dcc-development\/\*/https:\/\/repo1.maven.org\/maven2/' build.gradle
+      - sed -i -e 's/nexus.open-insurance-platform.com\/repository\/covpass-releases/repo1.maven.org\/maven2/' ../build.gradle
+      - sed -i -e 's/maven.pkg.github.com\/ehn-dcc-development\/\*/repo1.maven.org\/maven2/' ../build.gradle
       - export PUBLISH_APPS=false
 
 MaintainerNotes: |-
