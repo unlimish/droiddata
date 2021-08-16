@@ -6,14 +6,6 @@ SourceCode: https://pari.math.u-bordeaux.fr/cgi-bin/gitweb.cgi?p=paridroid.git
 IssueTracker: https://pari.math.u-bordeaux.fr/Bugs
 
 AutoName: PariDroid
-Description: |-
-    PariDroid is a port of PARI/GP to Android.
-
-    PARI/GP is a widely used computer algebra system designed for fast computations
-    in number theory (factorizations, algebraic number theory, elliptic curves...),
-    but also contains a large number of other useful functions to compute with
-    mathematical entities such as matrices, polynomials, power series, algebraic
-    numbers etc., and a lot of transcendental functions.
 
 RepoType: git
 Repo: https://pari.math.u-bordeaux.fr/git/paridroid.git
@@ -195,6 +187,17 @@ Builds:
     srclibs:
       - gmp@18137:36c93153e71c
       - pari@pari-2.13.1
+    target: android-19
+    build: make fdroid
+    ndk: r12b
+
+  - versionName: 2.13.2.2.0
+    versionCode: 22
+    commit: 2.13.2.2.0
+    output: PariDroid/app/src/main/bin/PariDroid-release-unsigned.apk
+    srclibs:
+      - gmp@18137:36c93153e71c
+      - pari@pari-2.13.2
     target: android-19
     build: make fdroid
     ndk: r12b
