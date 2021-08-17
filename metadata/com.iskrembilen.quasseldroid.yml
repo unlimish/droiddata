@@ -479,7 +479,8 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: None
-UpdateCheckMode: None
+AutoUpdateMode: Version %v
+UpdateCheckMode: HTTP
+UpdateCheckData: https://s3.kuschku.de/releases/quasseldroid-ng/version.json|{(?:\s|\n)*"name":(?:\s|\n)*"([^"]*)",(?:\s|\n)*"code":(?:\s|\n)*[0-9]*(?:\s|\n)*}|.|{(?:\s|\n)*"name":(?:\s|\n)*"[^"]*",(?:\s|\n)*"code":(?:\s|\n)*([0-9]*)(?:\s|\n)*}
 CurrentVersion: 1.5.2
 CurrentVersionCode: 1299
