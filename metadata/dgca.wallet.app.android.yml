@@ -1,0 +1,28 @@
+Categories:
+  - Sports & Health
+License: Apache-2.0
+AuthorName: EUDCC
+AuthorWebSite: https://ec.europa.eu/health/ehealth/covid-19_en
+SourceCode: https://github.com/eu-digital-green-certificates/dgca-wallet-app-android
+IssueTracker: https://github.com/eu-digital-green-certificates/dgca-wallet-app-android/issues
+
+AutoName: Covid Cert
+
+RepoType: git
+Repo: https://github.com/eu-digital-green-certificates/dgca-wallet-app-android
+Binaries: https://github.com/eu-digital-green-certificates/dgca-wallet-app-android/releases/download/%v/app-acc-release-signed.apk
+
+Builds:
+  - versionName: 1.0.3-acc
+    versionCode: 3
+    commit: 1.0.3
+    subdir: app
+    gradle:
+      - acc
+    prebuild: git clone https://github.com/eu-digital-green-certificates/dgca-app-core-android ../../../dgca-app-core-android
+
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.3
+CurrentVersionCode: 3
