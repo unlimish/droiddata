@@ -1,0 +1,67 @@
+Categories:
+  - Internet
+License: GPL-3.0-only
+AuthorName: Daniel Wolf
+WebSite: https://nebulo.app
+SourceCode: https://git.frostnerd.com/PublicAndroidApps/smokescreen
+IssueTracker: https://git.frostnerd.com/PublicAndroidApps/smokescreen/-/issues
+Changelog: https://git.frostnerd.com/PublicAndroidApps/smokescreen/-/releases
+
+Summary: Encrypted DNS client
+Description: Nebulo is a free, open-source, no-root, light-weight dns-over-https,
+    dns-over-tls, and dns-over-http-over-quic client for Android with emphasis on
+    privacy and security. Nebulo is fast, highly-customizable, ad-free, efficient
+    on the battery, contains zero analytics / tracking.
+
+RepoType: git
+Repo: https://git.frostnerd.com/PublicAndroidApps/smokescreen
+
+Builds:
+  - versionName: 2.1.2-adblock
+    versionCode: 80
+    commit: c04f700596d95baedcb78ee949d8792a3b91c176
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroidofficial
+    srclibs:
+      - frostnerd-lifecycle@56297e75e48968696229f604710fa049cd823587
+      - frostnerd-preferences@6f9f6ffb0655b0184f5922a9eb9a901c9c95426e
+      - frostnerd-navigationdraweractivity@5e72b7173e337ca38b1b3efb6e21b3cc8cd8c69d
+      - frostnerd-vpntunnelproxy@d76c046d40967575bd5e8f3b3e79efd7eab1bff6
+      - frostnerd-dnstunnelproxy@27652dfd32cc9b362497b927061345c77a16e989
+      - frostnerd-encrypteddnstunnelproxy@247c668b9efb8a4c8b1255354261b90f9d052403
+      - frostnerd-general@e5050ea150cf9bc6983251e3804f9e5ab7fac1e1
+      - frostnerd-adapters@88828a6749a24b19c0055bb8764f72f3f236e024
+    prebuild:
+      - mkdir -p ../library
+      - for srclib in $$frostnerd-lifecycle$$ $$frostnerd-preferences$$ $$frostnerd-navigationdraweractivity$$
+        $$frostnerd-vpntunnelproxy$$ $$frostnerd-dnstunnelproxy$$ $$frostnerd-encrypteddnstunnelproxy$$
+        $$frostnerd-general$$ $$frostnerd-adapters$$; do pushd $srclib; sed -i -e
+        's|nexus.frostnerd.com/repository/libs-release/|jitpack.io|' -e '/repositories
+        {/a mavenLocal()' build.gradle library/build.gradle; popd; mv $srclib ../library;
+        done
+      - sed -i -e 's|nexus.frostnerd.com/repository/libs-release/|jitpack.io|' -e
+        '/repositories {/a mavenLocal()' ../build.gradle
+      - sed -i -e '/fun tryCheckUpdate()/,/^    }/d' -e '/tryCheckUpdate/d' -e '/com.google.android.play/d'
+        src/main/java/com/frostnerd/smokescreen/activity/MainActivity.kt
+      - sed -i -E -e '/com.google.android.(play|gms)/d' build.gradle
+    scandelete:
+      - library
+    build:
+      - export NEXUS_USER=user NEXUS_PASSWORD=password
+      - for srclib in frostnerd-lifecycle frostnerd-preferences frostnerd-navigationdraweractivity
+        frostnerd-vpntunnelproxy frostnerd-dnstunnelproxy frostnerd-encrypteddnstunnelproxy
+        frostnerd-general frostnerd-adapters; do pushd ../library/$srclib/library;
+        gradle assembleRelease publishToMavenLocal; popd; done
+
+MaintainerNotes: Export invalid credentials in case private maven repo in srclibs
+    are used accidently.
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 2.1.2-adblock
+CurrentVersionCode: 80
