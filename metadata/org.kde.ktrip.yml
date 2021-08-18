@@ -5,11 +5,11 @@ Categories:
   - Navigation
 License: GPL-2.0-or-later
 WebSite: https://kde.org
-SourceCode: https://invent.kde.org/kde/ktrip/
-IssueTracker: https://invent.kde.org/kde/ktrip/issues
+SourceCode: https://invent.kde.org/utilities/ktrip/
+IssueTracker: https://invent.kde.org/utilities/ktrip/issues
 
 RepoType: git
-Repo: https://invent.kde.org/kde/ktrip/
+Repo: https://invent.kde.org/utilities/ktrip/
 
 Builds:
   - versionName: 0.0.1
@@ -168,7 +168,294 @@ Builds:
         $BASE
     ndk: r18b
 
+  - versionName: 0.99.5-arm32
+    versionCode: 532
+    commit: v0.99.5
+    timeout: 12000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t bullseye cmake
+      - apt install -y libgl1-mesa-dev g++ zlib1g-dev
+    output: ktrip-*.apk
+    srclibs:
+      - QtBase@5.15.2
+      - OpenSSL@OpenSSL_1_1_1i
+    prebuild:
+      - sed -i s/"android:versionName=\"0.99.5\""/android:versionName=\"0.99.5-arm32\"/
+        android/AndroidManifest.xml
+      - sed -i s/"android:versionCode=\"5\""/android:versionCode=\"532\"/ android/AndroidManifest.xml
+    build:
+      - export MAKEFLAGS="-j$(nproc)"
+      - export ANDROID_NDK=$$NDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export QT_VERSION=5.15.2
+      - export KF5_VERSION=v5.76.0
+      - export BASE=$(pwd)
+      - export PREFIX=$BASE/install
+      - export PREFIX_HOST=$BASE/install-host
+      - export ANDROID_NDK_HOST=linux-x86_64
+      - export SDK_PLATFORM=android-21
+      - export ANDROID_NDK_PLATFORM=$SDK_PLATFORM
+      - mkdir ktrip
+      - mv * ktrip || true
+      - mkdir $PREFIX
+      - mkdir $PREFIX_HOST
+      - export QT=$BASE/qt
+      - mkdir $QT
+      - export QT_HOST=$BASE/qt-host
+      - export PATH=$PREFIX_HOST/bin:$PATH
+      - export QT_PREFIX=$BASE/qt-install
+      - mkdir $BASE/build-host
+      - mkdir $QT_PREFIX
+      - mkdir $QT_HOST
+      - pushd $QT_HOST
+      - export ANDROID_ARCH=arm
+      - export ANDROID_ARCH_ABI=armeabi-v7a
+      - cp -r $$QtBase$$ .
+      - pushd QtBase
+      - ./configure -nomake tests -nomake examples -no-warnings-are-errors -no-widgets
+        -opensource -confirm-license -prefix $PREFIX_HOST
+      - make -j$(nproc)
+      - make install
+      - popd
+      - git clone https://code.qt.io/qt/qtdeclarative.git --single-branch --branch
+        $QT_VERSION
+      - pushd qtdeclarative
+      - $PREFIX_HOST/bin/qmake .
+      - make -j$(nproc)
+      - make install
+      - popd
+      - git clone https://code.qt.io/qt/qttools.git --single-branch --branch $QT_VERSION
+      - pushd qttools
+      - $PREFIX_HOST/bin/qmake .
+      - make -j$(nproc)
+      - make install
+      - popd
+      - popd
+      - cd $BASE
+      - function build_kf5_module_host() { git clone https://invent.kde.org/frameworks/$1.git
+        --single-branch --branch=$KF5_VERSION
+      - cmake -S $1 -B build-host/$1 -DCMAKE_INSTALL_PREFIX=$PREFIX_HOST -DCMAKE_PREFIX_PATH=$PREFIX_HOST
+        -DBUILD_TESTING=Off
+      - cmake --build build-host/$1 -- install
+      - rm -r $1; }
+      - build_kf5_module_host extra-cmake-modules
+      - build_kf5_module_host kconfig
+      - build_kf5_module_host kcoreaddons
+      - pushd $PREFIX
+      - cp -r $$OpenSSL$$ .
+      - pushd OpenSSL
+      - PATH=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH ./Configure shared
+        android-arm -D__ANDROID_API__=21 --prefix=$PREFIX
+      - PATH=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH make depend
+      - PATH=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH make build_libs
+        SHLIB_VERSION_NUMBER= SHLIB_EXT=_1_1.so
+      - PATH=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH make install_sw
+        SHLIB_VERSION_NUMBER= SHLIB_EXT=_1_1.so
+      - popd
+      - popd
+      - cd $QT
+      - cp -r $$QtBase$$ .
+      - pushd QtBase
+      - ./configure -xplatform android-clang --disable-rpath -openssl-runtime -nomake
+        tests -nomake examples -android-ndk $$NDK$$ -android-sdk $$SDK$$ -android-abis
+        armeabi-v7a -no-warnings-are-errors -opensource -confirm-license -no-widgets
+        -prefix $QT_PREFIX -I$PREFIX/include
+      - make -j$(nproc)
+      - make install
+      - popd
+      - function build_qt_module() { git clone https://code.qt.io/qt/$1.git --single-branch
+        --branch=$QT_VERSION
+      - pushd $1
+      - QMAKESPEC=android-clang $QT_PREFIX/bin/qmake .
+      - make -j$(nproc)
+      - make install
+      - popd; }
+      - build_qt_module "qtdeclarative"
+      - build_qt_module "qtquickcontrols2"
+      - build_qt_module "qtsvg"
+      - build_qt_module "qtandroidextras"
+      - build_qt_module "qtgraphicaleffects"
+      - build_qt_module "qttools"
+      - cd $BASE
+      - function build_cmake() { cmake -S $1 -B build/$1 -DCMAKE_TOOLCHAIN_FILE=$PREFIX_HOST/share/ECM/toolchain/Android.cmake
+        -DBUILD_TESTING=Off -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_PREFIX_PATH="$QT_PREFIX;$PREFIX"
+        -DQt5LinguistTools_DIR=/usr/lib/x86_64-linux-gnu/cmake/Qt5LinguistTools
+      - cmake --build build/$1 -- install; }
+      - git clone https://github.com/j-jorge/libintl-lite.git
+      - build_cmake libintl-lite
+      - function build_kf5_module() { git clone https://invent.kde.org/frameworks/$1.git
+        --single-branch --branch=$KF5_VERSION
+      - build_cmake $1; }
+      - build_kf5_module kconfig
+      - build_kf5_module kcoreaddons
+      - build_kf5_module ki18n
+      - build_kf5_module kirigami
+      - build_kf5_module kitemmodels
+      - build_kf5_module kcodecs
+      - build_kf5_module kcontacts
+      - git clone https://invent.kde.org/libraries/kpublictransport.git --single-branch
+        --branch=v20.11.90
+      - build_cmake kpublictransport
+      - git clone https://invent.kde.org/libraries/kirigami-addons
+      - build_cmake kirigami-addons
+      - pushd kirigami-addons
+      - git checkout 6c01964621e227090b2a45608799548b5b2524e6
+      - popd
+      - cmake -S $BASE/ktrip -B build/ktrip -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_PREFIX_PATH="$QT_PREFIX;$PREFIX"
+        -DCMAKE_TOOLCHAIN_FILE=$PREFIX_HOST/share/ECM/toolchain/Android.cmake -DQTANDROID_EXPORTED_TARGET=ktrip
+        -DANDROID_APK_DIR=$BASE/ktrip/android -DKF5_HOST_TOOLING=$PREFIX_HOST/lib/x86_64-linux-gnu/cmake/
+      - cmake --build build/ktrip -- install
+      - cmake --build build/ktrip -- create-apk ARGS="--release"
+      - cp build/ktrip/ktrip_build_apk/ktrip-armeabi-v7a.apk $BASE
+    ndk: r20b
+
+  - versionName: 0.99.5-arm64
+    versionCode: 564
+    commit: v0.99.5
+    timeout: 12000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t bullseye cmake
+      - apt install -y libgl1-mesa-dev g++ zlib1g-dev
+    output: ktrip-*.apk
+    srclibs:
+      - QtBase@5.15.2
+      - OpenSSL@OpenSSL_1_1_1i
+    prebuild:
+      - sed -i s/"android:versionName=\"0.99.5\""/android:versionName=\"0.99.5-arm64\"/
+        android/AndroidManifest.xml
+      - sed -i s/"android:versionCode=\"5\""/android:versionCode=\"564\"/ android/AndroidManifest.xml
+    build:
+      - export MAKEFLAGS="-j$(nproc)"
+      - export ANDROID_NDK=$$NDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export QT_VERSION=5.15.2
+      - export KF5_VERSION=v5.76.0
+      - export BASE=$(pwd)
+      - export PREFIX=$BASE/install
+      - export PREFIX_HOST=$BASE/install-host
+      - export ANDROID_NDK_HOST=linux-x86_64
+      - export SDK_PLATFORM=android-21
+      - export ANDROID_NDK_PLATFORM=$SDK_PLATFORM
+      - mkdir ktrip
+      - mv * ktrip || true
+      - mkdir $PREFIX
+      - mkdir $PREFIX_HOST
+      - export QT=$BASE/qt
+      - mkdir $QT
+      - export QT_HOST=$BASE/qt-host
+      - export PATH=$PREFIX_HOST/bin:$PATH
+      - export QT_PREFIX=$BASE/qt-install
+      - mkdir $QT_PREFIX
+      - mkdir $QT_HOST
+      - pushd $BASE
+      - popd
+      - pushd $QT_HOST
+      - export ANDROID_ARCH=arm64
+      - export ANDROID_ARCH_ABI=arm64-v8a
+      - cp -r $$QtBase$$ .
+      - pushd QtBase
+      - ./configure -nomake tests -nomake examples -no-warnings-are-errors -no-widgets
+        -opensource -confirm-license -prefix $PREFIX_HOST
+      - make -j$(nproc)
+      - make install
+      - popd
+      - git clone https://code.qt.io/qt/qtdeclarative.git --single-branch --branch
+        $QT_VERSION
+      - pushd qtdeclarative
+      - $PREFIX_HOST/bin/qmake .
+      - make -j$(nproc)
+      - make install
+      - popd
+      - git clone https://code.qt.io/qt/qttools.git --single-branch --branch $QT_VERSION
+      - pushd qttools
+      - $PREFIX_HOST/bin/qmake .
+      - make -j$(nproc)
+      - make install
+      - popd
+      - popd
+      - cd $BASE
+      - function build_kf5_module_host() { git clone https://invent.kde.org/frameworks/$1.git
+        --single-branch --branch=$KF5_VERSION
+      - cmake -S $1 -B build-host/$1 -DCMAKE_INSTALL_PREFIX=$PREFIX_HOST -DCMAKE_PREFIX_PATH=$PREFIX_HOST
+        -DBUILD_TESTING=Off
+      - cmake --build build-host/$1 -- install
+      - rm -r $1; }
+      - build_kf5_module_host extra-cmake-modules
+      - build_kf5_module_host kconfig
+      - build_kf5_module_host kcoreaddons
+      - pushd $PREFIX
+      - cp -r $$OpenSSL$$ .
+      - pushd OpenSSL
+      - PATH=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH ./Configure shared
+        android-arm64 -D__ANDROID_API__=21 --prefix=$PREFIX
+      - PATH=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH make depend
+      - PATH=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH make build_libs
+        SHLIB_VERSION_NUMBER= SHLIB_EXT=_1_1.so
+      - PATH=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH make install_sw
+        SHLIB_VERSION_NUMBER= SHLIB_EXT=_1_1.so
+      - popd
+      - popd
+      - cd $QT
+      - cp -r $$QtBase$$ .
+      - pushd QtBase
+      - ./configure -xplatform android-clang --disable-rpath -openssl-runtime -nomake
+        tests -nomake examples -android-ndk $$NDK$$ -android-sdk $$SDK$$ -android-abis
+        arm64-v8a -no-warnings-are-errors -opensource -confirm-license -no-widgets
+        -prefix $QT_PREFIX -I$PREFIX/include
+      - make -j$(nproc)
+      - make install
+      - popd
+      - function build_qt_module() { git clone https://code.qt.io/qt/$1.git --single-branch
+        --branch=$QT_VERSION
+      - pushd $1
+      - QMAKESPEC=android-clang $QT_PREFIX/bin/qmake .
+      - make -j$(nproc)
+      - make install
+      - popd; }
+      - build_qt_module "qtdeclarative"
+      - build_qt_module "qtquickcontrols2"
+      - build_qt_module "qtsvg"
+      - build_qt_module "qtandroidextras"
+      - build_qt_module "qtgraphicaleffects"
+      - build_qt_module "qttools"
+      - cd $BASE
+      - function build_cmake() { cmake -S $1 -B build/$1 -DCMAKE_TOOLCHAIN_FILE=$PREFIX_HOST/share/ECM/toolchain/Android.cmake
+        -DBUILD_TESTING=Off -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_PREFIX_PATH="$QT_PREFIX;$PREFIX"
+        -DQt5LinguistTools_DIR=/usr/lib/x86_64-linux-gnu/cmake/Qt5LinguistTools
+      - cmake --build build/$1 -- install; }
+      - git clone https://github.com/j-jorge/libintl-lite.git
+      - build_cmake libintl-lite
+      - function build_kf5_module() { git clone https://invent.kde.org/frameworks/$1.git
+        --single-branch --branch=$KF5_VERSION
+      - build_cmake $1; }
+      - build_kf5_module kconfig
+      - build_kf5_module kcoreaddons
+      - build_kf5_module ki18n
+      - build_kf5_module kirigami
+      - build_kf5_module kitemmodels
+      - build_kf5_module kcodecs
+      - build_kf5_module kcontacts
+      - git clone https://invent.kde.org/libraries/kpublictransport.git --single-branch
+        --branch=v20.11.90
+      - build_cmake kpublictransport
+      - git clone https://invent.kde.org/libraries/kirigami-addons
+      - pushd kirigami-addons
+      - git checkout 6c01964621e227090b2a45608799548b5b2524e6
+      - popd
+      - build_cmake kirigami-addons
+      - cmake -S $BASE/ktrip -B build/ktrip -DCMAKE_INSTALL_PREFIX=$PREFIX -DCMAKE_PREFIX_PATH="$QT_PREFIX;$PREFIX"
+        -DCMAKE_TOOLCHAIN_FILE=$PREFIX_HOST/share/ECM/toolchain/Android.cmake -DQTANDROID_EXPORTED_TARGET=ktrip
+        -DANDROID_APK_DIR=$BASE/ktrip/android -DKF5_HOST_TOOLING=$PREFIX_HOST/lib/x86_64-linux-gnu/cmake/
+      - cmake --build build/ktrip -- install
+      - cmake --build build/ktrip -- create-apk ARGS="--release"
+      - cp build/ktrip/ktrip_build_apk/ktrip-arm64-v8a.apk $BASE
+    ndk: r20b
+
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 0.0.1
-CurrentVersionCode: 1
+CurrentVersion: 0.99.5-arm64
+CurrentVersionCode: 564
