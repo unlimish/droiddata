@@ -1,0 +1,47 @@
+Categories:
+  - Sports & Health
+License: Apache-2.0
+AuthorName: Robert Koch-Institut
+WebSite: https://digitaler-impfnachweis-app.de/
+SourceCode: https://github.com/Digitaler-Impfnachweis/covpass-android
+IssueTracker: https://github.com/Digitaler-Impfnachweis/covpass-android/issues
+Changelog: https://github.com/Digitaler-Impfnachweis/covpass-android/blob/main/CHANGELOG.md
+
+AutoName: Covpass
+Description: |-
+    With the app, the EU digital COVID certificates can be saved
+    directly on the smartphone. Those who use it can prove their
+    vaccination protection, their recovery or their negative test
+    result quickly, securely and digitally. The app can also be
+    used to verify the EU digital COVID certificates of other people
+    (e.g. family members) on the smartphone. The users of the app
+    decide when and to whom to show their information and data.
+
+RepoType: git
+Repo: https://github.com/Digitaler-Impfnachweis/covpass-android
+
+Builds:
+  - versionName: 1.43.0
+    versionCode: 430
+    commit: v-1.43.0
+    subdir: app-covpass-prod
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e 's/shouldPublish = .*/shouldPublish = false/' ../build.gradle
+      - echo "versionCode=$$VERCODE$$" > ../generated.properties
+      - sed -i -e 's!url config.url!url "https://repo1.maven.org/maven2"!' ../gradle/common/publish.gradle
+
+MaintainerNotes: |-
+    Checkout commit via tag and run following command manually to get versionCode:
+    echo $(($(git rev-list --count HEAD) + 80))
+    This is documented in upstream repo in /get-version-code.sh
+
+AutoUpdateMode: None
+UpdateCheckMode: Tags
+CurrentVersion: 1.43.0
+CurrentVersionCode: 430
