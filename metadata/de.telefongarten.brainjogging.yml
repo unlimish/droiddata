@@ -1,0 +1,35 @@
+Categories:
+  - Games
+License: GPL-3.0-or-later
+SourceCode: https://github.com/fkropfhamer/brainjogging
+IssueTracker: https://github.com/fkropfhamer/brainjogging/issues
+
+AutoName: brainjogging
+Summary: An application to train your brain
+Description: |-
+    Train your brain by playing mini games.
+    Brainjogging provides a collection of mini games, which aim to train your brain,
+    for exampe by solving math tasks or by remembering a sequence of numbers.
+
+RepoType: git
+Repo: https://github.com/fkropfhamer/brainjogging
+
+Builds:
+  - versionName: 0.1.0
+    versionCode: 1
+    commit: v0.1.0
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 0.1.0
+CurrentVersionCode: 1
