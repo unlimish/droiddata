@@ -926,6 +926,10 @@ Builds:
     commit: d95d1dbfa57b58c6399c299f0932a2d58a2257e7
     subdir: app
     submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
     rm:
