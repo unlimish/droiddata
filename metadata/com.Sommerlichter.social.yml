@@ -49,23 +49,20 @@ Builds:
     gradle:
       - yes
 
-  - versionName: '3.2'
-    versionCode: 3200
-    commit: af3bc32868b61aea67af065a62ee799f8ce2a51d
-    subdir: app
-    gradle:
-      - husky
-      - blue
-
   - versionName: '3.3'
     versionCode: 3300
-    commit: 32b223de7715fc20b85027ddd63252f32249e3aa
+    commit: 3a34a6ccf4fcac1e6f97690e561b94999062ec9f
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - husky
       - blue
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
+UpdateCheckName: Ignore
 CurrentVersion: '3.3'
 CurrentVersionCode: 3300
