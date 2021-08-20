@@ -18,8 +18,15 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: HTTP
-UpdateCheckData: https://github.com/leinardi/UbuntuCountdownWidget/raw/master/version.txt|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: v21.04
-CurrentVersionCode: 259
+  - versionName: v21.10.2
+    versionCode: 267
+    commit: v21.10.2
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: version.txt|\+(\d+)|.|(.+)\+
+CurrentVersion: v21.10.2
+CurrentVersionCode: 267

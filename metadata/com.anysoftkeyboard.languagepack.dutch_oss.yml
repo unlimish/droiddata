@@ -20,7 +20,7 @@ Description: |-
     Attribution 4.0 (unported) apply.
 
     Please, help us create free and open Dutch writing tools. Donate tax free to our
-    foundation at [https://www.opentaal.org/vrienden-van-opentaal]
+    foundation at <a href="https://www.opentaal.org/vrienden-van-opentaal">https://www.opentaal.org/vrienden-van-opentaal</a>
 
 RepoType: git
 Repo: https://github.com/AnySoftKeyboard/AnySoftKeyboard.git
@@ -36,7 +36,7 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - yes
-    output: ../../../outputs/apks/release/*
+    output: ../../../outputs/apks/release/addons-languages-*-$$VERCODE$$.apk
     prebuild:
       - echo "//gradleVersion = '6.8.3'" | tee build.gradle
       - sed -i -e '/Data\.versionCode/ c versionCode $$VERCODE$$' -e '/Data\.versionName/

@@ -1760,7 +1760,127 @@ Builds:
 
   - versionName: 30.3.0
     versionCode: 168
+    disable: https://github.com/juha-h/baresip-studio/issues/161
     commit: 30.3.0
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@20.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's!$(shell ls -d -1 /opt/Android/ndk/\* | tail -1)!$$NDK$$!' -e
+        's|/usr/src/baresip-studio|../../com.tutpro.baresip|' Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r21e
+
+  - versionName: 31.0.0
+    versionCode: 169
+    commit: 31.0.0
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@20.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's!$(shell ls -d -1 /opt/Android/ndk/\* | tail -1)!$$NDK$$!' -e
+        's|/usr/src/baresip-studio|../../com.tutpro.baresip|' Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r21e
+
+  - versionName: 31.1.0
+    versionCode: 170
+    commit: 58a1714931152cdb52a06d409a228f3c51f7da1f
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@20.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's!$(shell ls -d -1 /opt/Android/ndk/\* | tail -1)!$$NDK$$!' -e
+        's|/usr/src/baresip-studio|../../com.tutpro.baresip|' Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r21e
+
+  - versionName: 31.2.0
+    versionCode: 171
+    commit: b86a8e2b4268f57757d8267d25f307a3da3c81e0
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@20.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's!$(shell ls -d -1 /opt/Android/ndk/\* | tail -1)!$$NDK$$!' -e
+        's|/usr/src/baresip-studio|../../com.tutpro.baresip|' Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r21e
+
+  - versionName: 31.2.1
+    versionCode: 172
+    commit: 653470a2a7a72a5e14633ea3de15bdf5e4a8e5a4
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@20.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's!$(shell ls -d -1 /opt/Android/ndk/\* | tail -1)!$$NDK$$!' -e
+        's|/usr/src/baresip-studio|../../com.tutpro.baresip|' Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r21e
+
+  - versionName: 32.0.0
+    versionCode: 173
+    commit: 6702a61eba6fb57736316c2452acdb532e86a435
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@20.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's!$(shell ls -d -1 /opt/Android/ndk/\* | tail -1)!$$NDK$$!' -e
+        's|/usr/src/baresip-studio|../../com.tutpro.baresip|' Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r21e
+
+  - versionName: 32.1.0
+    versionCode: 174
+    commit: c275d3cbd007d8380051313858c68018b11aeeea
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@20.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's!$(shell ls -d -1 /opt/Android/ndk/\* | tail -1)!$$NDK$$!' -e
+        's|/usr/src/baresip-studio|../../com.tutpro.baresip|' Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r21e
+
+  - versionName: 32.2.0
+    versionCode: 175
+    commit: db5df4db8280a469c6b3dc8b9a4e8e66136968f4
     subdir: app
     gradle:
       - yes
@@ -1780,5 +1900,5 @@ MaintainerNotes: make download-sources checks out master branches of several lib
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags ^[0-9.]+$
-CurrentVersion: 30.3.0
-CurrentVersionCode: 168
+CurrentVersion: 32.2.0
+CurrentVersionCode: 175

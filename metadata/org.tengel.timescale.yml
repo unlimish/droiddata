@@ -37,7 +37,25 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 0.6.2
+    versionCode: 10
+    commit: b862bd3bf0180065808b95df5e53c21904be0c69
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.6.3
+    versionCode: 11
+    commit: 7a3ebdce15d2e3485f3a592fa2dd6cdca745611c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version fdroid-%v
 UpdateCheckMode: Tags fdroid-\d+\.\d+\.\d+
-CurrentVersion: 0.6.1
-CurrentVersionCode: 9
+CurrentVersion: 0.6.3
+CurrentVersionCode: 11

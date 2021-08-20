@@ -3,6 +3,34 @@ variables:
   pip: pip3 --timeout 100 --retries 10
 
 
+checkupdates:
+  image: registry.gitlab.com/fdroid/ci-images-checkupdates:latest
+  except:
+    - pipelines
+    - schedules
+    - triggers
+  before_script:
+    - |
+      set -xe
+      apt-get --allow-releaseinfo-change update
+      apt-get -qy dist-upgrade
+      cd ..
+      rm -rf fdroidserver
+      mkdir fdroidserver
+      git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
+      curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz | tar -xz --directory=fdroidserver --strip-components=1
+      export PATH="$PWD/fdroidserver:$PATH"
+      cd -
+  script: |
+    set -xe
+    if [ "$CI_PROJECT_NAMESPACE" = "fdroid" ]; then echo "not testing in fdroid"; exit 0; fi
+    git fetch https://gitlab.com/fdroid/fdroiddata.git
+    appids=$(git diff --name-only --diff-filter=d FETCH_HEAD...HEAD "metadata/*.yml" | sed -n -e 's,^metadata/\([^/][^/]*\)\.yml,\1,p')
+    if [ -n "$appids" ]; then
+      fdroid checkupdates --auto -v $appids
+      git --no-pager diff --color=always --exit-code
+    fi
+
 lint:
   image: registry.gitlab.com/fdroid/ci-images-base
   except:
@@ -18,7 +46,6 @@ lint:
     - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
         | tar -xz --directory=fdroidserver --strip-components=1
     - export PATH="$PWD/fdroidserver:$PATH"
-    - touch config.py
   script:
     # if this is a merge request fork, then only check relevant apps
     - if [ "$CI_PROJECT_NAMESPACE" != "fdroid" ]; then
@@ -29,19 +56,18 @@ lint:
            appid=`echo $f | sed -n -e 's,^metadata/\([^/][^/]*\)\.yml,\1,p'`;
            if [ -n "$appid" ]; then
              export CHANGED="$CHANGED $appid";
-             testcmd="git -C build clone `sed -En 's,^Repo\W +(https?://),\1u:p@,p' $f`";
            fi;
         done;
         set -x;
         apt-get install python3-colorama yamllint;
         for f in $files; do [[ $f == *'.yml' ]] && yamllint "$f"; done;
         ./tools/check-git-repo-availability.py $files;
-        ./tools/audit-gradle.py $CHANGED;
         set +x;
       fi
     - export EXITVALUE=0
+    - function set_error() { export EXITVALUE=1; printf "\x1b[31mERROR `history|tail -2|head -1|cut -b 6-500`\x1b[0m\n"; }
     - fdroid lint -f $CHANGED || {
-          export EXITVALUE=1;
+          set_error;
           printf "\nThese files have lint issues:\n";
           fdroid rewritemeta -l $CHANGED;
           printf "\nThese are the formatting issues:\n";
@@ -53,11 +79,11 @@ lint:
     - find metadata/ -name '*.jp*g' -o -name '*.png' | xargs exiftool -all=
     - echo "these images have EXIF that must be stripped:"
     - git --no-pager diff --stat
-    - git --no-pager diff --name-only --exit-code || export EXITVALUE=1
-    - ./tools/check-localized-metadata.py || export EXITVALUE=1
-    - ./tools/check-keyalias-collision.py || export EXITVALUE=1
-    - ./tools/check-metadata-summary-whitespace.py || export EXITVALUE=1
-    - ./tools/check-for-unattached-signatures.py || export EXITVALUE=1
+    - git --no-pager diff --name-only --exit-code || set_error
+    - ./tools/check-localized-metadata.py || set_error
+    - ./tools/check-keyalias-collision.py || set_error
+    - ./tools/check-metadata-summary-whitespace.py || set_error
+    - ./tools/check-for-unattached-signatures.py || set_error
     - exit $EXITVALUE
 
 trigger-issuebot:
@@ -130,7 +156,6 @@ checkupdates_runner:
     - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
         | tar -xz --directory=fdroidserver --strip-components=1
     - export PATH="$PWD/fdroidserver:$PATH"
-    - touch config.py
     - git config --global user.email "fdroidci@bubu1.eu"
     - git config --global user.name "F-Droid checkupdates bot"
     - mkdir -p ~/.ssh
@@ -142,10 +167,12 @@ checkupdates_runner:
     - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g')
     - git remote set-url --push origin "${url_host}"
   script:
-    - fdroid checkupdates --allow-dirty --auto --commit ${CHECKUPDATES_APPIDS}
+    - fdroid checkupdates --allow-dirty --auto --commit ${CHECKUPDATES_APPIDS} 2>&1 | tee /tmp/out || true
     - git pull --rebase origin master
     # when two jobs try to push at the same time they occasionally fail, so try one more time if it fails
     - git push origin HEAD:master || (git pull --rebase origin master && git push origin HEAD:master)
+    - echo "============== Summary ====================="
+    - 'grep -v "INFO: Processing" /tmp/out || true'
 
 fdroid build:
   image: registry.gitlab.com/fdroid/ci-images-client:latest
@@ -199,6 +226,8 @@ fdroid build:
           test -d $d || mkdir $d;
           chown -R vagrant $d;
       done
+    - mv $CI_PROJECT_DIR/build $VAGRANT_HOME/
+    - ln -s $VAGRANT_HOME/build $CI_PROJECT_DIR/build
 
     - bash fdroidserver/buildserver/setup-env-vars $ANDROID_HOME
     - bash fdroidserver/buildserver/provision-gradle
@@ -240,10 +269,13 @@ fdroid build:
           chown -R vagrant $VAGRANT_HOME;
           $fdroid fetchsrclibs $build --verbose;
           $fdroid build --verbose --test --scan-binary --on-server --no-tarball $build;
+          rm -rf build/$build;
           ./tools/build-contains-signatures.py $build || continue;
           apt-get install sudo;
           $fdroid publish --verbose $build;
       done
+
+    - ./tools/audit-gradle.py $CHANGED;
 
 
 # issuebot needs secrets to run, so it has to run under the 'fdroid'

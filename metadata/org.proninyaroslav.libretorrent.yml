@@ -6,7 +6,7 @@ AuthorEmail: proninyaroslav@gmail.com
 AuthorWebSite: https://proninyaroslav.ru/
 SourceCode: https://gitlab.com/proninyaroslav/libretorrent
 IssueTracker: https://gitlab.com/proninyaroslav/libretorrent/issues
-Changelog: https://gitlab.com/proninyaroslav/libretorrent/blob/HEAD/NEWS
+Changelog: https://gitlab.com/proninyaroslav/libretorrent/blob/HEAD/NEWS.md
 Donate: https://gitlab.com/proninyaroslav/libretorrent#donation
 LiberapayID: '1591834'
 Bitcoin: 1Af9DgxtWvVp6bFiYQw2MeWtRzTXshRYpB
@@ -130,7 +130,27 @@ Builds:
       - yes
     output: build/outputs/apk/release/app-universal-release-unsigned.apk
 
+  - versionName: '3.1'
+    versionCode: 20
+    commit: 9a872c17d35511e9ea6eb34967b9446feb76575d
+    subdir: app
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-universal-release-unsigned.apk
+
+  - versionName: 3.1.1
+    versionCode: 21
+    commit: 2f8a6359b11fdee56f9d64a4607de9f964c72f97
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-universal-release-unsigned.apk
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 3.0.1
-CurrentVersionCode: 19
+CurrentVersion: 3.1.1
+CurrentVersionCode: 21

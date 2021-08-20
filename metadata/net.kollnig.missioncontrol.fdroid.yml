@@ -3,9 +3,12 @@ Categories:
   - Security
 License: GPL-3.0-only
 AuthorName: Oxford HCC
-WebSite: https://hcc.cs.ox.ac.uk/projects/#TrackerControl
+AuthorEmail: hello@trackercontrol.org
+AuthorWebSite: https://hcc.cs.ox.ac.uk/
+WebSite: https://trackercontrol.org/
 SourceCode: https://github.com/OxfordHCC/tracker-control-android
 IssueTracker: https://github.com/OxfordHCC/tracker-control-android/issues
+Translation: https://crowdin.com/project/trackercontrol
 Changelog: https://github.com/OxfordHCC/tracker-control-android/releases
 
 AutoName: TrackerControl
@@ -217,7 +220,43 @@ Builds:
     prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
     ndk: r21e
 
+  - versionName: 2021.06.29-fdroid
+    versionCode: 2021062901
+    commit: a75f3f6e45c99a8fbdc040f834e55928d0b4a053
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: 2021.07.03-fdroid
+    versionCode: 2021070301
+    commit: 63d5945c1af8f3b4e822762a84a17d384cec3145
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: 2021.07.19-fdroid
+    versionCode: 2021071901
+    commit: bdd014cf21977b57aa316176347328bb972cc57d
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: 2021.07.23-fdroid
+    versionCode: 2021072301
+    commit: 6b9187e14c1d11ee647c2daa6f2a63975b3d2f36
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
+    ndk: r21e
+
 AutoUpdateMode: Version %c
 UpdateCheckMode: Tags ^[0-9]+$
-CurrentVersion: 2021.05.20-fdroid
-CurrentVersionCode: 2021052001
+CurrentVersion: 2021.07.23-fdroid
+CurrentVersionCode: 2021072301

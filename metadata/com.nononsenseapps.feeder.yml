@@ -877,7 +877,66 @@ Builds:
       - graphics
     prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
 
-AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: 1.13.1
-CurrentVersionCode: 102
+  - versionName: 1.13.2
+    versionCode: 103
+    commit: 1.13.2
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - graphics
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+
+  - versionName: 1.13.3
+    versionCode: 104
+    commit: aedf730417bc4ed7171830efaf41dcdf1a779fe1
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - graphics
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+
+  - versionName: 1.13.4
+    versionCode: 105
+    commit: 3a80c7a60a5cbc91cd4ff63df83ab89a5a3a656a
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - graphics
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+
+  - versionName: 1.13.5
+    versionCode: 106
+    commit: 5a4ae69485ab4e1868439b5d6109d062c0c538dd
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - graphics
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+
+  - versionName: 2.0.0-beta.1
+    versionCode: 201
+    commit: d95d1dbfa57b58c6399c299f0932a2d58a2257e7
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - graphics
+    prebuild: echo 'org.gradle.jvmargs=-Xmx2g' >> ../gradle.properties
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 1.13.5
+CurrentVersionCode: 106

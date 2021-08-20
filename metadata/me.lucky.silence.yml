@@ -1,0 +1,37 @@
+Categories:
+  - Phone & SMS
+License: GPL-3.0-only
+AuthorName: lucky
+AuthorEmail: 44uaanjm0@relay.firefox.com
+AuthorWebSite: https://github.com/x13a
+SourceCode: https://github.com/x13a/Silence
+IssueTracker: https://github.com/x13a/Silence/issues
+
+AutoName: Silence
+
+RepoType: git
+Repo: https://github.com/x13a/Silence.git
+
+Builds:
+  - versionName: 1.6.2
+    versionCode: 12
+    commit: v1.6.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.7.0
+    versionCode: 14
+    commit: 0739e84dae07bb1f3051c0dbc9d752862cb78d11
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 1.7.0
+CurrentVersionCode: 14

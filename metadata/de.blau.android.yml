@@ -958,7 +958,56 @@ Builds:
     scandelete:
       - src/androidTest/resources/fixtures/military.zip
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: 15.2.1.0
-CurrentVersionCode: 1703
+  - versionName: 15.2.3.0
+    versionCode: 1705
+    commit: 15.2.3.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+
+  - versionName: 15.2.4.0
+    versionCode: 1706
+    commit: 4a51cca8107e4482ff484d593f239f258e8cc33d
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+
+  - versionName: 15.2.5.0
+    versionCode: 1707
+    commit: 33ba62252764b94144dfa33fd2e2247f6448a2c0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+
+  - versionName: 15.2.6.0
+    versionCode: 1708
+    commit: 510339545571eb6d6424436d5c58938e4574e370
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^[0-9]+\.[0-9]+\.[0-9]+\.0$
+UpdateCheckData: src/main/AndroidManifest.xml|android:versionCode="(\d+)"||
+CurrentVersion: 15.2.6.0
+CurrentVersionCode: 1708

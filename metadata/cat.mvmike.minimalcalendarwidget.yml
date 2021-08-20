@@ -129,7 +129,51 @@ Builds:
       - yes
     prebuild: sed -i -e 's/5.2-/5.1-/' ../gradle/wrapper/gradle-wrapper.properties
 
+  - versionName: 2.0.1
+    versionCode: 26
+    commit: v2.0.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.0.2
+    versionCode: 27
+    commit: d2315aeac070a2be455409fba0530a32cb1eabc9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.1.0
+    versionCode: 28
+    commit: c69dd8f2eefc4e69c46ec97ff9e4b0c328643afb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.1.1
+    versionCode: 29
+    commit: e84cf742e10fab72a9253c4420e72d57c8f053e1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.0.0
-CurrentVersionCode: 25
+CurrentVersion: 2.1.1
+CurrentVersionCode: 29

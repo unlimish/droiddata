@@ -35,7 +35,25 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 0.1.8
+    versionCode: 9
+    commit: 7c12dd13102958d0567311cc5d5da8ffd5b14c99
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.1.9
+    versionCode: 10
+    commit: 7484e8cb258e5aa5bebbc25451fbd01774067276
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.1.7
-CurrentVersionCode: 7
+CurrentVersion: 0.1.9
+CurrentVersionCode: 10

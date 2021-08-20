@@ -128,7 +128,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 0.0.18-alpha
+    versionCode: 18
+    commit: 6c73ba6da96ab01e70fbac9042bea52335879c44
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.0.16-alpha
-CurrentVersionCode: 16
+CurrentVersion: 0.0.18-alpha
+CurrentVersionCode: 18

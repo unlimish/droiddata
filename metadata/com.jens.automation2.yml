@@ -63,8 +63,43 @@ Builds:
       - sed -i -e '/firebase/d' build.gradle
       - sed -i -e '/play-services-location/d' build.gradle
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: HTTP
-UpdateCheckData: https://git.server47.de/jens/Automation/raw/branch/master/app/build.gradle|versionCode\s(\d+)|.|versionName\s"([\d.]+)"
-CurrentVersion: 1.6.34
-CurrentVersionCode: 105
+  - versionName: 1.6.35
+    versionCode: 106
+    disable: cannot find symbol
+    commit: a845ea7c63b896b6658afaf52172b084b4a93a34
+    subdir: app
+    gradle:
+      - fdroidFlavor
+    prebuild:
+      - sed -i -e '/firebase/d' build.gradle
+      - sed -i -e '/play-services-location/d' build.gradle
+
+  - versionName: 1.6.36
+    versionCode: 107
+    disable: cannot find symbol
+    commit: 7415830dd774b641d33a9b010c8ad2d03f572323
+    subdir: app
+    gradle:
+      - fdroidFlavor
+    prebuild:
+      - sed -i -e '/firebase/d' build.gradle
+      - sed -i -e '/play-services-location/d' build.gradle
+
+  - versionName: 1.6.38
+    versionCode: 108
+    commit: 6593f6c9238d56bb8138eb8252f61f6783c5b62c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroidFlavor
+    prebuild:
+      - sed -i -e '/firebase/d' build.gradle
+      - sed -i -e '/play-services-location/d' build.gradle
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+CurrentVersion: 1.6.38
+CurrentVersionCode: 108

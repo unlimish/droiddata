@@ -5,6 +5,7 @@ AuthorName: OpenTracks Team
 WebSite: https://OpenTracksApp.com
 SourceCode: https://github.com/OpenTracksApp/OpenTracks
 IssueTracker: https://github.com/OpenTracksApp/OpenTracks/issues
+Translation: https://weblate.bubu1.eu/engage/OpenTracks/
 Changelog: https://github.com/OpenTracksApp/OpenTracks/releases
 Liberapay: OpenTracks
 Bitcoin: bc1qckpls3lpjlcpyxzm66hcy65hnesas9zgacy6yc
@@ -339,7 +340,51 @@ Builds:
     gradle:
       - yes
 
+  - versionName: v3.18.3
+    versionCode: 4143
+    commit: v3.18.3
+    gradle:
+      - yes
+
+  - versionName: v3.18.4
+    versionCode: 4151
+    commit: v3.18.4
+    gradle:
+      - yes
+
+  - versionName: v3.18.5
+    versionCode: 4176
+    commit: 823dc1c12b38a4fb6995a9b108837fb848f0fb82
+    gradle:
+      - yes
+
+  - versionName: v3.18.6
+    versionCode: 4253
+    commit: bfbe868487a9925503bf150703a5e0b1e4d92a5b
+    gradle:
+      - yes
+
+  - versionName: v3.19.0
+    versionCode: 4358
+    commit: 05c3a896826c7efa92bd818362e17bc5145945df
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: v3.19.1
+    versionCode: 4396
+    commit: 8433ed82febe349a095283318b1316f2de0488f5
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: v3.18.2
-CurrentVersionCode: 4098
+CurrentVersion: v3.19.1
+CurrentVersionCode: 4396

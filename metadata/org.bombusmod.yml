@@ -26,13 +26,34 @@ Builds:
       - ant antenna-preprocess
       - sed -i 's/${bombus.raw-revision}/-/g' AndroidManifest.xml
 
-  - versionName: 0.8.1321
-    versionCode: 1321
-    disable: not a release
-    commit: unknown - see disabled
-    subdir: android
+  - versionName: 0.9.1415
+    versionCode: 1416
+    commit: 0.9.1416
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - src/main/assets/smiles/animate.bin
 
-AutoUpdateMode: None
-UpdateCheckMode: RepoManifest
-CurrentVersion: 0.9.1415
-CurrentVersionCode: 1415
+  - versionName: 0.9.1419
+    versionCode: 1419
+    commit: 8710087ad7122639462f05a08f95d6d56133969c
+    subdir: android
+    gradle:
+      - yes
+    scanignore:
+      - android/src/main/assets/smiles/animate.bin
+
+  - versionName: 0.9.1420
+    versionCode: 1420
+    commit: a676cdd6206c29e5dd480a10f6c161dbc9fd3656
+    subdir: android
+    gradle:
+      - yes
+    scanignore:
+      - android/src/main/assets/smiles/animate.bin
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 0.9.1420
+CurrentVersionCode: 1420

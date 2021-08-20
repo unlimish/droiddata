@@ -44,7 +44,31 @@ Builds:
       - puzlib/src/test/resources/puz_110131aniston.puz
       - puzlib/src/test/resources/test.puz
 
+  - versionName: '8'
+    versionCode: 800000
+    commit: v8
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - puzlib/src/test
+    scanignore:
+      - gfx/*.icns
+      - gfx/*.opacity
+
+  - versionName: '9'
+    versionCode: 900000
+    commit: 3e5dca535c2f121bdd0d8f5493b37c7be16572df
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - puzlib/src/test
+    scanignore:
+      - gfx/*.icns
+      - gfx/*.opacity
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '6'
-CurrentVersionCode: 600000
+CurrentVersion: '9'
+CurrentVersionCode: 900000

@@ -559,7 +559,79 @@ Builds:
       - sed -i -e "s/':proprietary', //; s/':wear', //" ../settings.gradle
       - sed -i -e "/':proprietary'/d" build.gradle
 
+  - versionName: 12.0.0
+    versionCode: 1200001
+    commit: 12.0.0
+    subdir: app
+    gradle:
+      - foss
+    rm:
+      - proprietary
+      - wear
+    prebuild:
+      - sed -i -e "s/':proprietary', //; s/':wear', //" ../settings.gradle
+      - sed -i -e "/':proprietary'/d" build.gradle
+    ndk: r21
+
+  - versionName: 12.1.1
+    versionCode: 1201011
+    commit: d783258944ec1cab300e3a2ec8a7cb202d3b691f
+    subdir: app
+    gradle:
+      - foss
+    rm:
+      - proprietary
+      - wear
+    prebuild:
+      - sed -i -e "s/':proprietary', //; s/':wear', //" ../settings.gradle
+      - sed -i -e "/':proprietary'/d" build.gradle
+    ndk: r21
+
+  - versionName: 12.4.1
+    versionCode: 1204011
+    disable: https://github.com/lucasnlm/antimine-android/issues/298
+    commit: 1228791fd3a28cac09f04893af0a4176d89bc698
+    subdir: app
+    gradle:
+      - foss
+    rm:
+      - proprietary
+      - wear
+    prebuild:
+      - sed -i -e "s/':proprietary', //; s/':wear', //" ../settings.gradle
+      - sed -i -e "/':proprietary'/d" build.gradle
+    ndk: r21
+
+  - versionName: 12.4.2
+    versionCode: 1204021
+    commit: 3a1b71351fb4ffe44465d85cbb4fe7334435b6c9
+    subdir: app
+    gradle:
+      - foss
+    rm:
+      - proprietary
+      - wear
+    prebuild:
+      - sed -i -e "s/':proprietary', //; s/':wear', //" ../settings.gradle
+      - sed -i -e "/':proprietary'/d" build.gradle
+    ndk: r21
+
+  - versionName: 13.0.0
+    versionCode: 1300001
+    disable: https://github.com/lucasnlm/antimine-android/issues/298
+    commit: 7240a45aa2590ad71e75d3b8912ca3243172b062
+    subdir: app
+    gradle:
+      - foss
+    rm:
+      - proprietary
+      - wear
+    prebuild:
+      - sed -i -e "s/':proprietary', //; s/':wear', //" ../settings.gradle
+      - sed -i -e "/':proprietary'/d" build.gradle
+    ndk: r21
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 11.1.0
-CurrentVersionCode: 1101001
+CurrentVersion: 13.0.0
+CurrentVersionCode: 1300001

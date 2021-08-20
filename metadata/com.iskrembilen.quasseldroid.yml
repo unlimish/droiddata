@@ -8,16 +8,17 @@ Translation: https://www.transifex.com/quasseldroid-1/quasseldroid-1/
 Donate: https://www.patreon.com/justjanne
 
 Name: Quasseldroid
+AutoName: Quasseldroid
 Description: |-
     Chat comfortably. Everywhere.
 
-    '''REQUIRES A QUASSEL CORE – DOES NOT WORK AS STANDALONE IRC CLIENT'''
+    <b>REQUIRES A QUASSEL CORE – DOES NOT WORK AS STANDALONE IRC CLIENT</b>
 
     * Use IRC on the go – thanks to the Quassel core, you’ll never miss anything
     * Always have your entire chat history available – just scroll up to load older messages, the core keeps them for you
     * Be notified when someone messages you – even if you had no connection in the meantime
 
-    '''Requirements:'''
+    <b>Requirements:</b>
 
     You need to have an account on a Quassel core to use this app. If you have none, you can either set a core up yourself, or check if you can get an account on someone else’s core.
 
@@ -25,7 +26,7 @@ Description: |-
 
     To learn about how to set up a quassel core, see the wiki at http://bugs.quassel-irc.org/projects/quassel-irc/wiki
 
-    '''Contact:'''
+    <b>Contact:</b>
 
     You can find us in #quasseldroid on Freenode, or contact us under support@kuschku.de
 
@@ -472,7 +473,22 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: v1.4.3
-CurrentVersionCode: 1290
+  - versionName: 1.5.2
+    versionCode: 1299
+    commit: 1.5.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.5.3
+    versionCode: 1300
+    commit: 1.5.3
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: HTTP
+UpdateCheckData: https://s3.kuschku.de/releases/quasseldroid-ng/version.json|{\s*"name":\s*"[^"]*",\s*"code":\s*([0-9]*)\s*}|.|{\s*"name":\s*"([^"]*)",\s*"code":\s*[0-9]*\s*}
+CurrentVersion: 1.5.3
+CurrentVersionCode: 1300

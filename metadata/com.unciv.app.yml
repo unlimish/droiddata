@@ -29,9 +29,9 @@ Description: |-
     The world awaits! Will you build your civilization into an empire that will
     stand the test of time?
 
-    Internet permissions required in order to download large font files,
-    especially for Chinese, which, if included by default, would more than
-    double (!) the app size.
+    The 'have full network access' permission is required for user-initiated downloads and the multiplayer feature. All other listed permissions are included automatically by the API used to implement multiplayer turn notifications.
+    Network permissions are used to list mods, download mods, download music and to upload/download multiplayer games.
+    No other internet communication is initiated by Unciv.
 
 RepoType: git
 Repo: https://github.com/yairm210/UnCiv.git
@@ -1539,31 +1539,288 @@ Builds:
       - desktop
     prebuild: sed -i -e '/maven.aliyun.com/d' ../build.gradle.kts
 
-  - versionName: 3.14.7
-    versionCode: 565
-    disable: https://github.com/yairm210/Unciv/issues/3946
-    commit: 3.14.7
+  - versionName: 3.14.15
+    versionCode: 576
+    commit: 3.14.15-forFdroid
     subdir: android
     gradle:
       - yes
     rm:
       - desktop
-    prebuild: sed -i -e '/maven.aliyun.com/d' ../build.gradle.kts
 
-  - versionName: 3.14.8
-    versionCode: 566
-    disable: https://github.com/yairm210/Unciv/issues/3946
-    commit: 3.14.8
+  - versionName: 3.14.16
+    versionCode: 577
+    commit: 3.14.16
     subdir: android
     gradle:
       - yes
     rm:
       - desktop
-    prebuild: sed -i -e '/maven.aliyun.com/d' ../build.gradle.kts
 
-AutoUpdateMode: None
-UpdateCheckMode: HTTP
-UpdateCheckData: https://raw.githubusercontent.com/yairm210/Unciv/master/buildSrc/src/main/kotlin/BuildConfig.kt|appCodeNumber
-    = (.*)|.|appVersion = "(.*)"
-CurrentVersion: 3.14.13-patch1
-CurrentVersionCode: 573
+  - versionName: 3.15.0
+    versionCode: 578
+    commit: 3.15.0
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.1
+    versionCode: 580
+    commit: 3.15.1
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.2-patch1
+    versionCode: 582
+    commit: 8f19c27e036f1064efca38eb1618631d511b720c
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.3
+    versionCode: 583
+    commit: 837d78db21f23b679738b37b4653d39dfce71487
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.4
+    versionCode: 584
+    commit: 74e3b67afe8d40fb555d919674d49553eafdf833
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.5
+    versionCode: 585
+    commit: 7b7101b0b708b29c3b7b91d872e2e7c9732ec695
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.6
+    versionCode: 587
+    commit: 0b6510a39cc89393e713e9c81c3da5b48c45a270
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.7
+    versionCode: 588
+    commit: 95ae1cea3052e11f6efa4e4e69d3505340a8c788
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.8
+    versionCode: 589
+    commit: b748f92bb5cac27d5c86075b8498b13c7a273a63
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.9
+    versionCode: 590
+    commit: ecd5ae5128630bfc27f3fb35af24042836ae2843
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.10
+    versionCode: 591
+    commit: 5a0eb11bd0d1f0e10160c86116642c524b9b59ba
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.11
+    versionCode: 592
+    commit: 573eacb8c9135de207ce9c75a5fad447cf3522b1
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.12
+    versionCode: 593
+    commit: 6b73a3e9d7fb8819f1761688db9d7500118c1967
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.12-patch1
+    versionCode: 594
+    commit: 60bcc8f1cf29f4bd8a53b9506d746bb4468adc01
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.13
+    versionCode: 595
+    commit: bdf46ea66c1c917289c5a78afb4a5cf312da23c0
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.14
+    versionCode: 596
+    commit: f2697ee8a19de23e4e06c3665b1903759007d628
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.15
+    versionCode: 597
+    commit: bc1455de2a220bccc2caba9f917ea57ba9a9b51b
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.17
+    versionCode: 599
+    commit: 692cbaa84a05121ff1ec9ce6c17a08ea477a2d32
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.15.18
+    versionCode: 600
+    commit: 1ac10813bc2c0ca065a27fba878dad038f1f468f
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.16.0
+    versionCode: 601
+    commit: a3c9214500affb899b1068a4cfa9015e03bc805d
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.16.0-patch1
+    versionCode: 602
+    commit: 000ef80c0ffb06c78f77b86f24bad1c59ea9f88d
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.16.1
+    versionCode: 603
+    commit: 8394930d6d09550433b905d38d26e5fcd60ac70c
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.16.2
+    versionCode: 604
+    commit: 7cd368d02491266ff80b4ee61e45d0b44502f6a0
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.16.2-patch1
+    versionCode: 605
+    commit: b276250dfca1981cebfa184fba3898f61cab5e2a
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.16.3
+    versionCode: 606
+    commit: c100d5fb09b21059a7546798b66b25b66a341b92
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: '3.16.4  '
+    versionCode: 607
+    commit: c1acda6c6b237fdd9c1c0007b79848feab12d5c9
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.16.4-patch1
+    versionCode: 608
+    commit: 0436e67342dfc64b41e5183facfac4703ebe6f2c
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.16.4-patch2
+    versionCode: 609
+    commit: 5773afb6e18f592c4b831e9f4632f476d1a32f4b
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+  - versionName: 3.16.5-googlePlayPushTest
+    versionCode: 611
+    commit: a51af095d2be2854bd2e0cdf516e1296f00f4f6a
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: buildSrc/src/main/kotlin/BuildConfig.kt|appCodeNumber = (.*)|.|appVersion
+    = "(.*)"
+CurrentVersion: 3.16.5-googlePlayPushTest
+CurrentVersionCode: 611

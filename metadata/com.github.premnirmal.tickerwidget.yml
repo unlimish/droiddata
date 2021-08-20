@@ -11,7 +11,7 @@ Description: |-
     Widget that shows your stock portolio in a resizable grid. You can sort the list
     by drag-and-drop and the list can be exported and re-imported.
 
-    '''Features:'''
+    <b>Features:</b>
 
     * Completely resizable, it will fit the number columns base on the width you set.
     * Scrollable, so you don’t have to worry about adding more widgets
@@ -1188,13 +1188,80 @@ Builds:
         {/,/^}/d' build.gradle
       - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
 
+  - versionName: 3.9.739
+    versionCode: 300900739
+    commit: e4e65cbe9996271766218ba38fd01177b6cb63fc
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.740
+    versionCode: 300900740
+    commit: 9c7f41f6c702c0760978f767ab7e4e92bdab893d
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.745
+    versionCode: 300900745
+    commit: 4aabf5dba102f69852a88f974e4af708f7553af3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.746
+    versionCode: 300900746
+    commit: 64e4462f3ba13dc22811f6df206e9625a8375587
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.748
+    versionCode: 300900748
+    commit: ca73c3f8134f57ac7af98322483e01ec17e2dbd2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
 MaintainerNotes: |-
     We replace com.nbsp:library from http://dl.bintray.com/lukaville/maven with
     com.github.nbsp-team:MaterialFilePicker from
     https://jitpack.io/#com.github.nbsp-team/MaterialFilePicker.
 
-AutoUpdateMode: Version %c
-UpdateCheckMode: HTTP
-UpdateCheckData: https://raw.githubusercontent.com/premnirmal/StockTicker/master/app/version.properties|versionCode=(.*)|.|versionName=(.*)
-CurrentVersion: 3.9.738
-CurrentVersionCode: 300900738
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: app/version.properties|versionCode=(.*)|.|versionName=(.*)
+CurrentVersion: 3.9.748
+CurrentVersionCode: 300900748

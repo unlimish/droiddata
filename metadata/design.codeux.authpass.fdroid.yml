@@ -4,6 +4,8 @@ License: GPL-3.0-only
 WebSite: https://authpass.app/
 SourceCode: https://github.com/authpass/authpass
 IssueTracker: https://github.com/authpass/authpass/issues
+Translation: https://authpass.crowdin.com/authpass
+Changelog: https://github.com/authpass/authpass/releases
 Donate: https://github.com/sponsors/hpoul
 Bitcoin: 3NcBacCmJbYWpwxj6rWzpM7sx48etMrPtc
 
@@ -373,8 +375,141 @@ Builds:
       - tmp/flutter/bin/flutter build apk -t lib/env/fdroid.dart --flavor fdroid --release
     ndk: r21d
 
-AutoUpdateMode: Version fdroid-v%v
-UpdateCheckMode: HTTP
-UpdateCheckData: https://data.authpass.app/data/fdroid-version.txt|versionCode=(.*)|.|versionName=(.*)
-CurrentVersion: 1.7.11
-CurrentVersionCode: 150
+  - versionName: 1.8.0
+    versionCode: 151
+    commit: 22f9675adc762b5efc9a3c55f6ba81cb236bf835
+    subdir: authpass
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    rm:
+      - authpass/ios
+      - authpass/macos
+      - deps/kdbx.dart/libargon2*
+      - authpass/_tools/blackbox.go.linux
+    build:
+      - echo 'systemProp.design.codeux.ndkVersion=21.3.6528147' >> android/gradle.properties
+      - mkdir tmp
+      - DEPS=./tmp _tools/install_flutter.sh
+      - tmp/flutter/bin/flutter config --no-analytics
+      - tmp/flutter/bin/flutter build apk -t lib/env/fdroid.dart --flavor fdroid --release
+    ndk: r21d
+
+  - versionName: 1.8.1
+    versionCode: 152
+    commit: 93d3507d5aed0de6a17ff0a69903da3070e243fd
+    subdir: authpass
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    rm:
+      - authpass/ios
+      - authpass/macos
+      - deps/kdbx.dart/libargon2*
+      - authpass/_tools/blackbox.go.linux
+    build:
+      - echo 'systemProp.design.codeux.ndkVersion=21.3.6528147' >> android/gradle.properties
+      - mkdir tmp
+      - DEPS=./tmp _tools/install_flutter.sh
+      - tmp/flutter/bin/flutter config --no-analytics
+      - tmp/flutter/bin/flutter build apk -t lib/env/fdroid.dart --flavor fdroid --release
+    ndk: r21d
+
+  - versionName: 1.8.2
+    versionCode: 153
+    commit: 4a98acbb498fd378b92f7bb9dfa56894c00b4af9
+    subdir: authpass
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    rm:
+      - authpass/ios
+      - authpass/macos
+      - deps/kdbx.dart/libargon2*
+      - authpass/_tools/blackbox.go.linux
+    build:
+      - echo 'systemProp.design.codeux.ndkVersion=21.3.6528147' >> android/gradle.properties
+      - mkdir tmp
+      - DEPS=./tmp _tools/install_flutter.sh
+      - tmp/flutter/bin/flutter config --no-analytics
+      - tmp/flutter/bin/flutter build apk -t lib/env/fdroid.dart --flavor fdroid --release
+    ndk: r21d
+
+  - versionName: 1.9.0
+    versionCode: 154
+    commit: c934865a3bb809c9cb84b0fa0c2e1f1f63acda0e
+    subdir: authpass
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    rm:
+      - authpass/ios
+      - authpass/macos
+      - deps/kdbx.dart/libargon2*
+      - authpass/_tools/blackbox.go.linux
+    build:
+      - echo 'systemProp.design.codeux.ndkVersion=21.3.6528147' >> android/gradle.properties
+      - mkdir tmp
+      - DEPS=./tmp _tools/install_flutter.sh
+      - tmp/flutter/bin/flutter config --no-analytics
+      - tmp/flutter/bin/flutter build apk -t lib/env/fdroid.dart --flavor fdroid --release
+    ndk: r21d
+
+  - versionName: 1.9.1
+    versionCode: 155
+    commit: 4f73dfc79ba0473248284fab170496dc53d2a5d4
+    subdir: authpass
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    rm:
+      - authpass/ios
+      - authpass/macos
+      - deps/kdbx.dart/libargon2*
+      - authpass/_tools/blackbox.go.linux
+    build:
+      - echo 'systemProp.design.codeux.ndkVersion=21.3.6528147' >> android/gradle.properties
+      - mkdir tmp
+      - DEPS=./tmp _tools/install_flutter.sh
+      - tmp/flutter/bin/flutter config --no-analytics
+      - tmp/flutter/bin/flutter build apk -t lib/env/fdroid.dart --flavor fdroid --release
+    ndk: r21d
+
+  - versionName: 1.9.1
+    versionCode: 156
+    commit: 14527558d7c2635f0db9682ca882fccf93fd4d5a
+    subdir: authpass
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    rm:
+      - authpass/ios
+      - authpass/macos
+      - deps/kdbx.dart/libargon2*
+      - authpass/_tools/blackbox.go.linux
+    build:
+      - echo 'systemProp.design.codeux.ndkVersion=21.3.6528147' >> android/gradle.properties
+      - mkdir tmp
+      - DEPS=./tmp _tools/install_flutter.sh
+      - tmp/flutter/bin/flutter config --no-analytics
+      - tmp/flutter/bin/flutter build apk -t lib/env/fdroid.dart --flavor fdroid --release
+    ndk: r21d
+
+  - versionName: 1.9.2
+    versionCode: 157
+    commit: 0d8457ad99e0e804cb299ae5c83508a1875847fa
+    subdir: authpass
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    rm:
+      - authpass/ios
+      - authpass/macos
+      - deps/kdbx.dart/libargon2*
+      - authpass/_tools/blackbox.go.linux
+    build:
+      - echo 'systemProp.design.codeux.ndkVersion=21.3.6528147' >> android/gradle.properties
+      - mkdir tmp
+      - DEPS=./tmp _tools/install_flutter.sh
+      - tmp/flutter/bin/flutter config --no-analytics
+      - tmp/flutter/bin/flutter build apk -t lib/env/fdroid.dart --flavor fdroid --release
+    ndk: r21d
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^fdroid-v[0-9.]+$
+UpdateCheckData: authpass/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.9.2
+CurrentVersionCode: 157

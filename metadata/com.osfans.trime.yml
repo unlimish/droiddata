@@ -40,7 +40,30 @@ Builds:
       - app/src/main/jni/boost/libs/fiber/examples/cuda/multiple_streams
     ndk: r20
 
+  - versionName: 3.2.0
+    versionCode: 20210604
+    commit: v3.2.0
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get -y install g++
+      - pushd build/srclib/capnproto/c++
+      - autoreconf -i
+      - ./configure
+      - make -j`nproc` check
+      - make install
+      - popd
+    gradle:
+      - yes
+    srclibs:
+      - capnproto@v0.8.0
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1' > /dev/null
+    scandelete:
+      - app/src/main/jni
+    ndk: r22b
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 3.1.3
-CurrentVersionCode: 20181226
+CurrentVersion: 3.2.0
+CurrentVersionCode: 20210604

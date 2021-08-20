@@ -19,7 +19,7 @@ Description: |-
     source, and is packed with many unique features! Slide is for everyone, with a
     broad array of features for power users and sleek design for minimalists.
 
-    '''Highlights:'''
+    <b>Highlights:</b>
 
     * Gorgeous and unique design that is both pleasing to the eye, extremely easy to use, and fully configurable with over 12,000 theme combinations
     * Slide is fully offline-capable! Sync your subreddits automatically and enjoy Reddit where you don’t have internet, complete with images and gifs
@@ -32,7 +32,7 @@ Description: |-
     * Hundreds of customization options to make Slide work exactly how you like it
     * Lightweight and blazing fast
 
-    '''Other features that make Slide awesome:'''
+    <b>Other features that make Slide awesome:</b>
 
     * Many view types including desktop compact for dense information display and beautiful material card layout for enjoying photos
     * Gallery and shadowbox modes (pro) give you a new way to view your favorite subreddits
@@ -631,7 +631,16 @@ Builds:
     forceversion: true
     prebuild: sed -i -e '/withGPlayCompile/d' -e 's/8g/2g/' build.gradle
 
+  - versionName: 6.7.1
+    versionCode: 337
+    commit: 9f59f5328834d5a4fcddd69222ca4db80e902ac7
+    subdir: app
+    gradle:
+      - noGPlay
+    forceversion: true
+    prebuild: sed -i -e '/withGPlayCompile/d' -e 's/8g/2g/' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '6.7'
-CurrentVersionCode: 336
+CurrentVersion: 6.7.1
+CurrentVersionCode: 337
