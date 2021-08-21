@@ -18,8 +18,12 @@ Builds:
     versionCode: 8
     commit: '8'
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
-      - yes
+      - full
 
 AutoUpdateMode: Version %c
 UpdateCheckMode: Tags
