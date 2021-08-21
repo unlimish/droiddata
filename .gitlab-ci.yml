@@ -12,7 +12,7 @@ checkupdates:
   before_script:
     - |
       set -xe
-      apt-get update
+      apt-get --allow-releaseinfo-change update
       apt-get -qy dist-upgrade
       cd ..
       rm -rf fdroidserver
@@ -167,10 +167,12 @@ checkupdates_runner:
     - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g')
     - git remote set-url --push origin "${url_host}"
   script:
-    - fdroid checkupdates --allow-dirty --auto --commit ${CHECKUPDATES_APPIDS} || true
+    - fdroid checkupdates --allow-dirty --auto --commit ${CHECKUPDATES_APPIDS} 2>&1 | tee /tmp/out || true
     - git pull --rebase origin master
     # when two jobs try to push at the same time they occasionally fail, so try one more time if it fails
     - git push origin HEAD:master || (git pull --rebase origin master && git push origin HEAD:master)
+    - echo "============== Summary ====================="
+    - 'grep -v "INFO: Processing" /tmp/out || true'
 
 fdroid build:
   image: registry.gitlab.com/fdroid/ci-images-client:latest
@@ -267,6 +269,7 @@ fdroid build:
           chown -R vagrant $VAGRANT_HOME;
           $fdroid fetchsrclibs $build --verbose;
           $fdroid build --verbose --test --scan-binary --on-server --no-tarball $build;
+          rm -rf build/$build;
           ./tools/build-contains-signatures.py $build || continue;
           apt-get install sudo;
           $fdroid publish --verbose $build;
