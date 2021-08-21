@@ -7,8 +7,8 @@ IssueTracker: https://github.com/Sangwan5688/BlackHole/issues
 Changelog: https://github.com/Sangwan5688/BlackHole/releases
 Donate: http://buymeacoffee.com/ankitsangwan
 
-AutoName: Blackhole
-Description: A Music Player App for all your needs!
+AutoName: BlackHole
+
 RepoType: git
 Repo: https://github.com/Sangwan5688/BlackHole
 
@@ -16,7 +16,7 @@ Builds:
   - versionName: 1.10.1
     versionCode: 17
     commit: b8b6763d04e44688eae4191b0105b98b9c4e05a9
-    output: build/app/outputs/apk/fdroid/release/app-release.apk
+    output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.2.3
     rm:
@@ -24,7 +24,6 @@ Builds:
       - ios
       - test
       - windows
-    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
