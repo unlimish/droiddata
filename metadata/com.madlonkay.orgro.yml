@@ -139,6 +139,10 @@ Builds:
   - versionName: 1.20.0
     versionCode: 48
     commit: 1864886853bc5d1b23785363225706d24283d946
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.5.0-5.2.pre
