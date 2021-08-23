@@ -11,6 +11,10 @@ Bitcoin: bc1quxrwjhgvmx4rnyfzhvlqmjuh9nry7n54nhnfn9
 
 AutoName: Auditor
 
+MaintainerNotes: |
+  The files in scanignore are certificates.
+  See https://github.com/GrapheneOS/Auditor/issues/61#issuecomment-725701265.
+
 RepoType: git
 Repo: https://github.com/GrapheneOS/Auditor
 Binaries: https://github.com/GrapheneOS/Auditor/releases/download/%c/Auditor-%c.apk
@@ -24,6 +28,7 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk
       - update-alternatives --auto java
+    scanignore: app/src/main/res/raw
     gradle:
       - yes
 
