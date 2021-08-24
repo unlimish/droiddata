@@ -19,6 +19,7 @@ Builds:
     subdir: app
     gradle:
       - yes
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
