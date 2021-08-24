@@ -17,16 +17,22 @@ IssueTracker: https://github.com/sdex/ActivityManager/issues
 Donate: https://sdex.dev/donate.html
 Bitcoin: 17NABADZGJyvYNaX3gpJzMpdQyWnTRXCD
 
+AutoName: Activity Manager
+
 RepoType: git
 Repo: https://github.com/sdex/ActivityManager.git
 
 Builds:
   - versionName: '4.1.0'
     versionCode: 410
-    commit: 4.1.0
+    commit: 9a822878accc5f89bb40f3deedaad8699d4f9ac3
     subdir: app
     gradle:
       - yes
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
