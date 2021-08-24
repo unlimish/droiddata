@@ -1,41 +1,31 @@
 Categories:
   - System
+  - Development
 License: Apache-2.0
 AuthorName: Yuriy Mysochenko
-Description: |-
-    Activity Manager provides the list of all activities of all installed applications and ability to run them.
-    Features:
-    * Discover installed apps and their activities
-    * Launch exported activities
-    * Launch non-exported activities with ROOT
-    * Create custom shortcuts for activities
-    * Explore an app details with Manifest viewer
-    * Light/Dark theme support
 AuthorWebSite: https://sdex.dev/
 SourceCode: https://github.com/sdex/ActivityManager
 IssueTracker: https://github.com/sdex/ActivityManager/issues
 Donate: https://sdex.dev/donate.html
 Bitcoin: 17NABADZGJyvYNaX3gpJzMpdQyWnTRXCD
-
 AutoName: Activity Manager
-
 RepoType: git
 Repo: https://github.com/sdex/ActivityManager.git
 
 Builds:
-  - versionName: '4.1.0'
+  - versionName: 4.1.0
     versionCode: 410
-    commit: 9a822878accc5f89bb40f3deedaad8699d4f9ac3
+    commit: 34dbb3c420a846cdeefddbb09d3d5abd8f7a0285
     subdir: app
-    gradle:
-      - prod
-    output: build/outputs/apk/prod/release/app-prod-release-unsigned.apk
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+    gradle:
+      - prod
+    output: build/outputs/apk/prod/release/app-prod-release-unsigned.apk
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '4.1.0'
+CurrentVersion: 4.1.0
 CurrentVersionCode: 410
