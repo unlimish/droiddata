@@ -93,11 +93,11 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+    gradle:
+      - yes
     scandelete:
       - app/src/main/icu4c/prebuilt
     build: NDK=$$NDK$$ SDK=$$SDK$$ ./app/src/main/icu4c/floris-cc-icu4c.sh
-    gradle:
-      - yes
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ((?!alpha|beta|rc).)*$
