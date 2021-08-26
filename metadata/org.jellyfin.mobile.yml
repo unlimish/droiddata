@@ -49,6 +49,36 @@ Builds:
     versionCode: 2030099
     commit: v2.3.0
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.3.1
+    versionCode: 2030199
+    commit: v2.3.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.3.2
+    versionCode: 2030299
+    commit: v2.3.2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - libre
     output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
@@ -58,5 +88,5 @@ AutoUpdateMode: Version v%v
 UpdateCheckMode: HTTP
 UpdateCheckIgnore: (beta|rc)
 UpdateCheckData: https://repo.jellyfin.org/releases/client/android/version.txt|^v.*?=(\d+)|.|^v(.*?)=\d+
-CurrentVersion: 2.3.0
-CurrentVersionCode: 2030099
+CurrentVersion: 2.3.2
+CurrentVersionCode: 2030299

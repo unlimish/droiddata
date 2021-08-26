@@ -308,7 +308,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.6.1
+    versionCode: 57
+    commit: e99af665cddd40d2e85601ba22a43ebdea5a5cdd
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.7.0
+    versionCode: 58
+    commit: 4732bfadaa362c04d2c64b202cb18f4a737af093
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.5.2
-CurrentVersionCode: 55
+CurrentVersion: 2.7.0
+CurrentVersionCode: 58

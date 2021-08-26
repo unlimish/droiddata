@@ -20,7 +20,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.7.0
+    versionCode: 14
+    commit: 0739e84dae07bb1f3051c0dbc9d752862cb78d11
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.7.1
+    versionCode: 15
+    commit: 0d8e40177239121803c1290a9d2a369cfbe50bea
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.6.2
-CurrentVersionCode: 12
+CurrentVersion: 1.7.1
+CurrentVersionCode: 15

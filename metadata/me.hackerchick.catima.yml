@@ -2,7 +2,7 @@ Categories:
   - Money
 License: GPL-3.0-or-later
 AuthorName: Sylvia van Os
-AuthorEmail: sylvia@hackerchick.me
+AuthorEmail: catima.g9ex3@hackerchick.me
 AuthorWebSite: https://hackerchick.me/
 WebSite: https://catima.app/
 SourceCode: https://github.com/TheLastProject/Catima
@@ -210,10 +210,58 @@ Builds:
     versionCode: 76
     commit: 05dfd48f5727a77889e298149f622ae71af2daaa
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.2.1
+    versionCode: 77
+    commit: 44711043b90fe22a91383bdb5825dbc8ec0100de
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.2.2
+    versionCode: 78
+    commit: b8c022dc70bb25df057b1dad992f44fdee1b72ec
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.2.3
+    versionCode: 79
+    commit: 5be23086061d6d69d47ed1df78288d6b85abbb6f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.0
+    versionCode: 80
+    commit: 225058ab2b2df7c65886abd6a190e196b225fc13
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.2.0
-CurrentVersionCode: 76
+CurrentVersion: 2.3.0
+CurrentVersionCode: 80

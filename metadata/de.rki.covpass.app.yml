@@ -1,0 +1,33 @@
+Categories:
+  - Sports & Health
+License: Apache-2.0
+SourceCode: https://gitlab.com/covpass-android-foss/covpass-android
+IssueTracker: https://gitlab.com/covpass-android-foss/covpass-android/-/issues
+Changelog: https://gitlab.com/covpass-android-foss/covpass-android/-/blob/foss/CHANGELOG.md
+
+AutoName: CovPass
+
+RepoType: git
+Repo: https://gitlab.com/covpass-android-foss/covpass-android.git
+
+Builds:
+  - versionName: 1.82.0
+    versionCode: 480
+    commit: foss-v-1.82.0
+    subdir: app-covpass-prod
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - certlogic@v0.7.7-kotlin
+    prebuild: echo versionCode=$$VERCODE$$ >> ../generated.properties
+
+MaintainerNotes: certlogic is automatially built & installed to mavenLocal()
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 1.82.0
+CurrentVersionCode: 480

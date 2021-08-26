@@ -333,7 +333,25 @@ Builds:
     gradle:
       - productionFdroid
 
+  - versionName: 2.9.2
+    versionCode: 2090288
+    commit: 9081c31c1a2c2ff0bdc85126fe5a5e8699e29808
+    subdir: app
+    gradle:
+      - productionFdroid
+
+  - versionName: 2.9.2
+    versionCode: 2090389
+    commit: 3b372b3c06bd5d209418ac2fbb22e93752d22d0f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - productionFdroid
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.9.1
-CurrentVersionCode: 2090187
+CurrentVersion: 2.9.2
+CurrentVersionCode: 2090389

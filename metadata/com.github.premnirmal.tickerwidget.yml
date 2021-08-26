@@ -1210,10 +1210,44 @@ Builds:
         {/,/^}/d' build.gradle
       - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
 
-  - versionName: 3.9.742
-    versionCode: 300900742
-    commit: ab474b851fab9705fc6da54911f4d1ad4f47521a
+  - versionName: 3.9.745
+    versionCode: 300900745
+    commit: 4aabf5dba102f69852a88f974e4af708f7553af3
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.746
+    versionCode: 300900746
+    commit: 64e4462f3ba13dc22811f6df206e9625a8375587
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.748
+    versionCode: 300900748
+    commit: ca73c3f8134f57ac7af98322483e01ec17e2dbd2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - purefoss
     prebuild:
@@ -1229,5 +1263,5 @@ MaintainerNotes: |-
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: app/version.properties|versionCode=(.*)|.|versionName=(.*)
-CurrentVersion: 3.9.742
-CurrentVersionCode: 300900742
+CurrentVersion: 3.9.748
+CurrentVersionCode: 300900748
