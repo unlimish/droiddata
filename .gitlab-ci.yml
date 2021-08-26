@@ -94,15 +94,15 @@ schema validation:
       - merge_requests
     changes:
       - metadata/*.yml
+      - schemas/*.json
   except:
     refs:
       - master@fdroid/fdroiddata
   before_script:
-    - set -xe
     - apk add git
     - npm -g install ajv-cli
   script:
-    - set -xe
+    - ajv compile -s schemas/*.json || exit 1
     - git fetch https://gitlab.com/fdroid/fdroiddata.git
     - app_ids=$(git diff --name-only --diff-filter=d FETCH_HEAD...HEAD "metadata/*.yml")
     - if [ -n "$appids" ]; then
