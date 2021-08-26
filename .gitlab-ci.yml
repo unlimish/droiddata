@@ -104,6 +104,7 @@ schema validation:
   script:
     - ajv compile -s schemas/*.json || exit 1
     - git fetch https://gitlab.com/fdroid/fdroiddata.git
+    - set -xe
     - app_ids=$(git diff --name-only --diff-filter=d FETCH_HEAD...HEAD "metadata/*.yml")
     - if [ -n "$appids" ]; then
         for app_id in $app_ids; do
