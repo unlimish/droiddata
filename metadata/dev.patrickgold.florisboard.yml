@@ -86,18 +86,20 @@ Builds:
 
   - versionName: 0.3.13
     versionCode: 56
-    commit: v0.3.13
+    commit: bda9a2c93e0f4866fd01ca32b99d2c5977b0b756
     subdir: app
     submodules: true
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+    ndk: r22e
     gradle:
       - yes
     scandelete:
       - app/src/main/icu4c/prebuilt
-    build: NDK=$$NDK$$ SDK=$$SDK$$ ./app/src/main/icu4c/floris-cc-icu4c.sh
+      - app/src/main/icu4c/src/android/icu/icu4j
+    build: NDK=$$NDK$$ SDK=$$SDK$$ bash src/main/icu4c/floris-cc-icu4c.sh
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ((?!alpha|beta|rc).)*$
