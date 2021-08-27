@@ -1,0 +1,33 @@
+Categories:
+  - Time
+License: GPL-3.0-or-later
+AuthorName: eymeric
+AuthorEmail: eymericdechelette@gmail.com
+SourceCode: https://gitea.eymeric.eu/hatch01/klara.git
+IssueTracker: https://gitea.eymeric.eu/hatch01/klara/issues
+
+AutoName: klara
+
+RepoType: git
+Repo: https://gitea.eymeric.eu/hatch01/klara.git
+
+Builds:
+  - versionName: 1.0.3
+    versionCode: 1
+    commit: v1.0.3
+    output: /home/vagrant/build/fr.eymeric.klara/build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.3
+    rm:
+      - ios
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.0.3
+CurrentVersionCode: 1
