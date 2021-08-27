@@ -88,13 +88,12 @@ lint:
 
 schema validation:
   image: node:alpine
-  only:
-    refs:
-      - branches
-      - merge_requests
   except:
     refs:
       - master@fdroid/fdroiddata
+    - pipelines
+    - schedules
+    - triggers
   before_script:
     - apk add git
     - npm -g install ajv-cli
