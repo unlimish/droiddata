@@ -1,5 +1,6 @@
 AntiFeatures:
   - UpstreamNonFree
+  - NonFreeNet
 Categories:
   - Multimedia
   - Theming
@@ -21,6 +22,11 @@ Description: |-
     Alternatively, you can choose your favorite photos from your own gallery or
     other apps to use on your home screen. To keep your wallpaper fresh, Muzei will
     rotate through your favorite photos every few hours.
+
+    The default source downloads images from Google storage.
+    
+    The F-Droid version of this app is patched by F-Droid contributors
+    and not maintained by the origin developers.
 
 RepoType: git
 Repo: https://github.com/romannurik/muzei.git
@@ -155,7 +161,7 @@ Builds:
       - sed -i -e '/signing {/,/^}/d' -e '/afterEvaluate/,/^}/d' ../muzei-api/build.gradle
 
 MaintainerNotes: |-
-    Custom version format, so no UCM applies.
+    Custom version format, use the tag name as version name.
 
     Since 2.0, source code needs to be patched to get rid of Google Play Services.
     The "wearable" and "example-watchface" components should be removed
