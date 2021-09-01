@@ -2076,7 +2076,8 @@ Builds:
     submodules: true
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y ninja-build golang-go
+      - apt-get install -y openjdk-11-jdk ninja-build golang-go
+      - update-alternatives --auto java
     gradle:
       - armv7
     rm:
@@ -2103,7 +2104,8 @@ Builds:
     submodules: true
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y ninja-build golang-go
+      - apt-get install -y openjdk-11-jdk ninja-build golang-go
+      - update-alternatives --auto java
     gradle:
       - arm64
     rm:
