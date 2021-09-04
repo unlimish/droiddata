@@ -28,10 +28,9 @@ Builds:
     gradle:
       - yes
     srclibs:
-      - react-native-reanimated@2.2.0
+      - react-native-reanimated@2.0.0
     prebuild:
       - echo -e '\norg.gradle.jvmargs=-Xmx4g -XX:MaxPermSize=4g' >> ../gradle.properties
-      - echo -e "android { packagingOptions { pickFirst 'lib/**/*.so' } }" >> build.gradle
       - cd ../..
       - yarn install
       - yarn cache clean --all
