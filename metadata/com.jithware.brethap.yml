@@ -19,20 +19,20 @@ Repo: https://github.com/jithware/brethap
 Builds:
   - versionName: 1.0.0
     versionCode: 15
-    commit: 8078f6f366842f63561b2910472d79510c8844e8
+    commit: a0a1bf2dd7d6f7922a37c40108bf03903964590d
     subdir: android/app
     gradle:
       - yes
-    output: build/com.jithware.brethap/build/app/outputs/flutter-apk/app-release.apk
+    output: ../../build/app/outputs/apk/release/app-release-unsigned.apk
     srclibs:
-      - flutter@stable
+      - flutter@2.2.3
     prebuild:
       - rm -fr ios
       - echo "flutter.sdk=$$flutter$$" >> ../local.properties
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
-      - $$flutter$$/bin/flutter build apk
+      - $$flutter$$/bin/flutter build apk 
 
 AutoUpdateMode: None
 UpdateCheckMode: None
