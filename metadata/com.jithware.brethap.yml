@@ -20,19 +20,22 @@ Builds:
   - versionName: 1.0.0
     versionCode: 15
     commit: a0a1bf2dd7d6f7922a37c40108bf03903964590d
-    subdir: android/app
-    gradle:
-      - yes
-    output: ../../build/app/outputs/apk/release/app-release-unsigned.apk
+    output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.2.3
-    prebuild:
-      - rm -fr ios
-      - echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    rm:
+      - .vscode
+      - ios
+      - linux
+      - test
+      - web
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk
 
-AutoUpdateMode: None
-UpdateCheckMode: None
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.0.0
+CurrentVersionCode: 15
