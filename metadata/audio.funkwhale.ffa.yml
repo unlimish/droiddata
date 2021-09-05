@@ -1,0 +1,36 @@
+Categories:
+  - Multimedia
+License: MIT
+SourceCode: https://dev.funkwhale.audio/funkwhale/funkwhale-android
+IssueTracker: https://dev.funkwhale.audio/funkwhale/funkwhale-android/-/issues
+
+AutoName: Funkwhale
+Summary: Music player for Funkwhale
+Description: |-
+    This is the official Android music player for Funkwhale, native to both Android (developed in Kotlin)
+    and to Funkwhale (uses its native API instead of Subsonic).
+    It is based on the amazing Otter made by apognu and would not be possible without his groundwork!
+    You can get help and discuss Funkwhale on Matrix on #funkwhale-android:matrix.org.
+
+    Source code : https://dev.funkwhale.audio/funkwhale/funkwhale-android
+    Funkwhale : https://funkwhale.audio
+
+RepoType: git
+Repo: https://dev.funkwhale.audio/funkwhale/funkwhale-android.git
+
+Builds:
+  - versionName: 0.1.1
+    versionCode: 101000
+    commit: 0.1.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 0.1.1
+CurrentVersionCode: 101000
