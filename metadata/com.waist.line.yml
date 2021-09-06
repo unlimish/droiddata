@@ -465,7 +465,8 @@ Builds:
       - rm local.properties
       - gradle clean assembleRelease
       - popd
-      - cp $$BarcodeScanner$$/barcodescanner/build/outputs/aar/barcodescanner-release.aar platforms/android/app/libs/barcodescanner-release-2.1.5.aar
+      - cp $$BarcodeScanner$$/barcodescanner/build/outputs/aar/barcodescanner-release.aar
+        platforms/android/app/libs/barcodescanner-release-2.1.5.aar
       - npm install
       - cordova clean android
       - cordova build android --release || true
