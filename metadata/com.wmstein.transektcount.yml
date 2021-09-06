@@ -1,18 +1,12 @@
 Categories:
   - Science & Education
 License: Apache-2.0
+AuthorName: Wilhelm Stein
 SourceCode: https://github.com/wistein/TransektCount
 IssueTracker: https://github.com/wistein/TransektCount/issues
+Changelog: https://github.com/wistein/TransektCount/blob/HEAD/docs/History.md
 
 AutoName: TransektCount
-Description: |-
-    TransektCount is an application that supports transect counters in nature
-    preserving projects according to the Butterfly Monitoring Scheme methodology. It
-    allows a species-specific counting per transect section.
-
-    The integrated database is organized according to a single transect inspection.
-    That means, a new (prepared and importable) basic database instance will be used
-    per inspection.
 
 RepoType: git
 Repo: https://github.com/wistein/TransektCount.git
@@ -303,7 +297,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 3.2.8
+    versionCode: 328
+    commit: 4fee6987aeffb724aeddfa0d9fc296cd1c32866c
+    subdir: transektcount
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 3.2.7
-CurrentVersionCode: 327
+CurrentVersion: 3.2.8
+CurrentVersionCode: 328

@@ -331,9 +331,9 @@ Builds:
       - make TARGET=ANDROID7NEON DEBUG=n TESTING=n -j`nproc`
     ndk: r22b
 
-  - versionName: '7.12'
-    versionCode: 133
-    commit: 7688ae0689c0ede72893c8b609f52c5f164fabe4
+  - versionName: '7.15'
+    versionCode: 136
+    commit: ac7bf8c261fcc16b842ad3e3e6500b199ccd0ba5
     submodules: true
     sudo:
       - apt-get update || apt-get update
@@ -343,7 +343,7 @@ Builds:
       - make -j`nproc`
       - make altinstall
       - popd
-    output: output/ANDROID7NEON/opt/build/unsigned.apk
+    output: output/ANDROID/opt/build/unsigned.apk
     srclibs:
       - cpython@v3.9.6
     prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-29' 'build-tools;29.0.3'
@@ -354,10 +354,63 @@ Builds:
     build:
       - python3.9 -m venv .
       - source bin/activate
-      - make TARGET=ANDROID7NEON DEBUG=n TESTING=n -j`nproc`
+      - make TARGET=ANDROID DEBUG=n TESTING=n -j`nproc`
+    ndk: r22b
+
+  - versionName: '7.16'
+    versionCode: 137
+    disable: https://github.com/XCSoar/XCSoar/issues/704
+    commit: 58f0eb628e9c52bfdb0f7237f912c6891d14c8b1
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build g++ vorbis-tools librsvg2-bin imagemagick
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    output: output/ANDROID/opt/build/unsigned.apk
+    srclibs:
+      - cpython@v3.9.6
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-29' 'build-tools;29.0.3'
+        > /dev/null
+    scandelete:
+      - android/ioio
+      - android/UsbSerial/usbserial/eclipse_lib
+    build:
+      - python3.9 -m venv .
+      - source bin/activate
+      - make TARGET=ANDROID DEBUG=n TESTING=n -j`nproc`
+    ndk: r22b
+
+  - versionName: '7.17'
+    versionCode: 138
+    commit: 033c613796e31ccfb1a6cbecbcfc2989db5fd881
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build g++ vorbis-tools librsvg2-bin imagemagick
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    output: output/ANDROID/opt/build/unsigned.apk
+    srclibs:
+      - cpython@v3.9.6
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-29' 'build-tools;29.0.3'
+        > /dev/null
+    scandelete:
+      - android/ioio
+      - android/UsbSerial/usbserial/eclipse_lib
+    build:
+      - python3.9 -m venv .
+      - source bin/activate
+      - make TARGET=ANDROID DEBUG=n TESTING=n -j`nproc`
     ndk: r22b
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '7.12'
-CurrentVersionCode: 133
+CurrentVersion: '7.17'
+CurrentVersionCode: 138
