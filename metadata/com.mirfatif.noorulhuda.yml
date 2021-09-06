@@ -17,6 +17,10 @@ Builds:
     commit: v1.01
     subdir: app
     submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
 
