@@ -543,34 +543,36 @@ Builds:
       - curl -Lo node.tar.xz https://nodejs.org/download/release/v14.17.6/node-v14.17.6-linux-x64.tar.xz
       - tar xJf node.tar.xz
       - cp -a node-v14.17.6-linux-x64/. /usr/local/
+    init:
+      - echo "Using node version - "
+      - node -v
+      - npm install
+      - npm install --save-dev jetifier
+      - npm run jetify
     gradle:
       - yes
     srclibs:
       - react-native-reanimated@2.2.0
-    init:
-      - npm install
-      - npm install --save-dev jetifier
-      - npm run jetify
-    prebuild:
-      - cd $$react-native-reanimated$$
-      - echo -e "android { ndkVersion '23.0.7599858' }" >> build.gradle
-      - yarn add react-native@0.64.2
     rm:
       - node_modules/@react-native-community/cli-platform-android/node_modules/jetifier/lib
       - node_modules/bplist-parser
-      - node_modules/hermes-engine
       - node_modules/jetifier/lib/*.jar
       - node_modules/npm/node_modules/term-size/vendor
       - node_modules/react-native/ReactAndroid/src/main/third-party/java/buck-android-support/buck-android-support.jar
       - node_modules/react-native/template
       - functions
+    prebuild:
+      - cd $$react-native-reanimated$$
+      - echo -e "android { ndkVersion '23.0.7599858' }" >> build.gradle
+      - yarn add react-native@0.64.2
     scanignore:
       - android/build.gradle
+      - node_modules/hermes-engine
       - node_modules/jsc-android
       - node_modules/linkifyjs/dist/linkifyjs.zip
       - node_modules/react-native/android
       - node_modules/react-native-localize/android/build.gradle
-      - node_modules/react-native-reanimated/android
+      - node_modules/react-native-reanimated/android/
       - node_modules/react-native-safe-area-context/android/build.gradle
       - node_modules/react-native-screens/android/build.gradle
       - node_modules/react-native-secure-key-store/example/android/build.gradle
