@@ -563,7 +563,7 @@ Builds:
       - functions
     prebuild:
       - cd $$react-native-reanimated$$
-      - echo -e "android { ndkVersion '23.0.7599858' }" >> build.gradle
+      - echo -e "android { ndkVersion '23.0.7599858' \\n compileSdkVersion 30 }" >> build.gradle
       - npm install react-native@0.64.2
     scanignore:
       - android/build.gradle
