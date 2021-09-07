@@ -23,7 +23,6 @@ Builds:
       - flutter@2.2.3
     rm:
       - ios
-      - web
     prebuild: sed -i -e 's|git@github.com:|https://github.com/|' pubspec.lock pubspec.yaml
     build:
       - $$flutter$$/bin/flutter config --no-analytics
