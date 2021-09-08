@@ -79,6 +79,7 @@ Builds:
       - export ANDROID_SDK_HOME=$$SDK$$
       - export ANDROID_NDK_HOME=$$NDK$$
       - find ./../ffmpeg/ -type f -name "*.sh" -exec dos2unix {} \+
+      - find ./../ffmpeg/ -type f -name "*.sh" -exec chmod u+x {} \+
       - ./../ffmpeg/ffmpeg-android-maker/ffmpeg-android-maker.sh --android-api-level=21
         -lame
       - ./../ffmpeg/copy-ffmpeg-executables.sh
