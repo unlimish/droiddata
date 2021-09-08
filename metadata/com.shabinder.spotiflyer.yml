@@ -58,13 +58,23 @@ Builds:
     versionCode: 24
     commit: db87c8201efe5b2e7b14911c34a3fdea6ebf9529
     subdir: android
+    submodules: true
+    ndk: 21.4.7075529
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk
       - update-alternatives --auto java
+      - apt-get install -y ninja-build dos2unix autoconf automake build-essential libtool pkg-config yasm cmake meson nasm
+    build:
+      - export ANDROID_SDK_HOME=$$SDK$$
+      - export ANDROID_NDK_HOME=$$NDK$$
+      - find ./../ffmpeg/ -type f -name "*.sh" -exec dos2unix {} \+;
+      - ./../ffmpeg/ffmpeg-android-maker/ffmpeg-android-maker.sh --android-api-level=21 -lame
+      - ./../ffmpeg/copy-ffmpeg-executables.sh
     gradle:
       - yes
     rm:
+      - ffmpeg/android-ffmpeg/src/main/jniLibs
       - desktop
       - web-app
       - maintenance-tasks
@@ -72,7 +82,7 @@ Builds:
       - art
       - spotiflyer-ios
 
-MaintainerNotes: Contained Matomo & ACRA are configured opt-in
+MaintainerNotes: Contained Countly is configured opt-in
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
