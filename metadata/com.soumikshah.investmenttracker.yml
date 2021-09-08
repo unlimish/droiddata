@@ -17,6 +17,10 @@ Builds:
     versionCode: 2
     commit: d33e7bf63b6a6931a56b429044c80a1a04886505
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
 
