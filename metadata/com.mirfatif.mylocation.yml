@@ -12,14 +12,18 @@ RepoType: git
 Repo: https://github.com/mirfatif/MyLocation
 
 Builds:
-  - versionName: v1.01
-    versionCode: 101
-    commit: v1.01
+  - versionName: v1.03
+    versionCode: 103
+    commit: v1.03
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: v1.01
-CurrentVersionCode: 101
+CurrentVersion: v1.03
+CurrentVersionCode: 103
