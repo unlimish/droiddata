@@ -5,8 +5,9 @@ AuthorName: Guardian Project
 AuthorEmail: support@guardianproject.info
 AuthorWebSite: https://guardianproject.info
 WebSite: https://open-archive.net
-SourceCode: https://github.com/OpenArchive/openarchive-android
+SourceCode: https://github.com/OpenArchive/Save-app-android
 IssueTracker: https://github.com/OpenArchive/openarchive-android/issues
+Translation: https://www.transifex.com/projects/p/openarchive
 
 AutoName: Save
 Description: |
@@ -17,7 +18,7 @@ Description: |
     reusing it in the future.
 
 RepoType: git
-Repo: https://github.com/OpenArchive/openarchive-android
+Repo: https://github.com/OpenArchive/Save-app-android
 
 Builds:
   - versionName: 0.0.16
@@ -36,12 +37,23 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 0.2.3-RC-1
+    versionCode: 20321
+    commit: 0.2.3-RC-1
+    subdir: app
+    gradle:
+      - release
+    prebuild: sed -i -e "/https:\/\/raw.githubusercontent.com\/guardianproject\/gpmaven\/master/d"
+        ../build.gradle
+    scandelete:
+      - art/ic_launcher.zip
+
 MaintainerNotes: |
     Binaries are here:
     https://github.com/OpenArchive/openarchive/releases/download/%v/openarchive-%v.apk
     but doesn't verify, so this is included via the normal process.
 
-AutoUpdateMode: None
+AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
 UpdateCheckName: net.opendasharchive.openarchive
 CurrentVersion: 0.2.3-RC-1
