@@ -147,7 +147,20 @@ Builds:
     scandelete:
       - arts/ic_launcher.zip
 
+  - versionName: '2.4'
+    versionCode: 15
+    commit: RELEASE-2.4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - arts/ic_launcher.zip
+
 AutoUpdateMode: Version RELEASE-%v
 UpdateCheckMode: Tags RELEASE-[0-9.]+$
-CurrentVersion: '2.3'
-CurrentVersionCode: 14
+CurrentVersion: '2.4'
+CurrentVersionCode: 15
