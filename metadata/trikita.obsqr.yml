@@ -12,7 +12,7 @@ Description: |-
     Fast and simple QR code scanner that uses the zbar library. Minimalistic design
     allows you to access QR content with a single tap.
 
-    '''N.B''' QR codes only, not other kinds of barcodes.
+    <b>N.B</b> QR codes only, not other kinds of barcodes.
 
     QR types that can be decoded by Obsqr:
 
@@ -37,6 +37,7 @@ Builds:
     target: android-15
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '2.5'
     versionCode: 10
@@ -45,6 +46,7 @@ Builds:
     target: android-16
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '2.6'
     versionCode: 11
@@ -53,6 +55,7 @@ Builds:
     target: android-19
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '2.7'
     versionCode: 13
@@ -75,6 +78,7 @@ Builds:
       - NDK_PROJECT_PATH=$(pwd) ndk-build
       - cp -rv libs/* ../src/zbar/jniLibs/
       - popd
+    ndk: r12b
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags

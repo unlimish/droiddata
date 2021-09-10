@@ -1,7 +1,7 @@
 Categories:
   - Time
-License: MIT
-AuthorName: TwoPlus
+License: GPL-3.0-only
+AuthorName: Prem Nirmal
 AuthorEmail: stockswidget@gmail.com
 SourceCode: https://github.com/premnirmal/StockTicker
 IssueTracker: https://github.com/premnirmal/StockTicker/issues
@@ -11,16 +11,17 @@ Description: |-
     Widget that shows your stock portolio in a resizable grid. You can sort the list
     by drag-and-drop and the list can be exported and re-imported.
 
-    '''Features:'''
+    <b>Features:</b>
 
     * Completely resizable, it will fit the number columns base on the width you set.
     * Scrollable, so you don’t have to worry about adding more widgets
     * Stocks are sorted by change in percent (descending), or you can rearrange them yourself
     * You can set custom refresh intervals and start/end times
-    * You can import and export your portfolio from a textfile
+    * You can import and export your portfolio from a json or textfile
     * Add multiple portfolios to multiple widgets
     * View recent news for your tracked symbols
     * View graphs for your tracked symbols
+    * Notification alerts for your followed symbols
 
 RepoType: git
 Repo: https://github.com/premnirmal/StockTicker
@@ -202,6 +203,8 @@ Builds:
     gradle:
       - purefloss
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/play-services/d' build.gradle
+    antifeatures:
+      - Tracking
 
   - versionName: 1.30.24
     versionCode: 122
@@ -224,6 +227,8 @@ Builds:
         build.gradle
       - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.6/com.github.nbsp-team:MaterialFilePicker:5e0a4834/g'
         build.gradle
+    antifeatures:
+      - Tracking
 
   - versionName: 2.3.20
     versionCode: 220
@@ -237,6 +242,8 @@ Builds:
         build.gradle
       - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.6/com.github.nbsp-team:MaterialFilePicker:5e0a4834/g'
         build.gradle
+    antifeatures:
+      - Tracking
 
   - versionName: 2.3.21
     versionCode: 221
@@ -250,6 +257,8 @@ Builds:
         build.gradle
       - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.6/com.github.nbsp-team:MaterialFilePicker:5e0a4834/g'
         build.gradle
+    antifeatures:
+      - Tracking
 
   - versionName: 2.3.22
     versionCode: 222
@@ -263,6 +272,8 @@ Builds:
         build.gradle
       - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.6/com.github.nbsp-team:MaterialFilePicker:5e0a4834/g'
         build.gradle
+    antifeatures:
+      - Tracking
 
   - versionName: 2.3.27
     versionCode: 227
@@ -276,6 +287,8 @@ Builds:
         build.gradle
       - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.6/com.github.nbsp-team:MaterialFilePicker:5e0a4834/g'
         build.gradle
+    antifeatures:
+      - Tracking
 
   - versionName: 2.3.28
     versionCode: 228
@@ -289,6 +302,8 @@ Builds:
         build.gradle
       - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.6/com.github.nbsp-team:MaterialFilePicker:5e0a4834/g'
         build.gradle
+    antifeatures:
+      - Tracking
 
   - versionName: 2.3.29
     versionCode: 229
@@ -302,6 +317,8 @@ Builds:
         build.gradle
       - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.6/com.github.nbsp-team:MaterialFilePicker:5e0a4834/g'
         build.gradle
+    antifeatures:
+      - Tracking
 
   - versionName: 2.4.02
     versionCode: 232
@@ -810,13 +827,456 @@ Builds:
       - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.8/com.github.nbsp-team:MaterialFilePicker:7f3679fbbf/g'
         build.gradle
 
+  - versionName: 3.7.4
+    versionCode: 374
+    commit: '374'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - touch translate.properties
+      - sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/play-services/d' -e '/google-services/d'
+        build.gradle
+      - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.8/com.github.nbsp-team:MaterialFilePicker:7f3679fbbf/g'
+        build.gradle
+
+  - versionName: 3.7.6
+    versionCode: 376
+    commit: '376'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - touch translate.properties
+      - sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/play-services/d' -e '/google-services/d'
+        build.gradle
+      - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.8/com.github.nbsp-team:MaterialFilePicker:7f3679fbbf/g'
+        build.gradle
+
+  - versionName: 3.7.7
+    versionCode: 377
+    commit: '377'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - touch translate.properties
+      - sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/play-services/d' -e '/google-services/d'
+        build.gradle
+      - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.8/com.github.nbsp-team:MaterialFilePicker:7f3679fbbf/g'
+        build.gradle
+
+  - versionName: 3.7.8
+    versionCode: 378
+    commit: '378'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - touch translate.properties
+      - sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/play-services/d' -e '/google-services/d'
+        build.gradle
+      - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.8/com.github.nbsp-team:MaterialFilePicker:7f3679fbbf/g'
+        build.gradle
+
+  - versionName: 3.7.9
+    versionCode: 379
+    commit: '379'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - touch translate.properties
+      - sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/play-services/d' -e '/google-services/d'
+        build.gradle
+      - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.8/com.github.nbsp-team:MaterialFilePicker:7f3679fbbf/g'
+        build.gradle
+
+  - versionName: 3.8.0
+    versionCode: 380
+    commit: '380'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - touch translate.properties
+      - sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/play-services/d' -e '/google-services/d'
+        build.gradle
+      - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.8/com.github.nbsp-team:MaterialFilePicker:7f3679fbbf/g'
+        build.gradle
+
+  - versionName: 3.8.2
+    versionCode: 382
+    commit: '382'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - touch translate.properties
+      - sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/play-services/d' -e '/google-services/d'
+        build.gradle
+      - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.8/com.github.nbsp-team:MaterialFilePicker:7f3679fbbf/g'
+        build.gradle
+
+  - versionName: 3.8.3
+    versionCode: 383
+    commit: '383'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - touch translate.properties
+      - sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/play-services/d' -e '/google-services/d'
+        build.gradle
+      - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.8/com.github.nbsp-team:MaterialFilePicker:7f3679fbbf/g'
+        build.gradle
+
+  - versionName: 3.8.4
+    versionCode: 384
+    commit: '384'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - touch translate.properties
+      - sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/play-services/d' -e '/google-services/d'
+        build.gradle
+      - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.8/com.github.nbsp-team:MaterialFilePicker:7f3679fbbf/g'
+        build.gradle
+
+  - versionName: 3.8.5
+    versionCode: 385
+    commit: '385'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - touch translate.properties
+      - sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/play-services/d' -e '/google-services/d'
+        build.gradle
+      - sed -i -e '/dl.bintray.com\/lukaville/d' -e 's/com.nbsp:library:1.8/com.github.nbsp-team:MaterialFilePicker:7f3679fbbf/g'
+        build.gradle
+
+  - versionName: 3.9.713
+    versionCode: 300900713
+    commit: '300900713'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.715
+    versionCode: 300900715
+    commit: '300900715'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.716
+    versionCode: 300900716
+    commit: '300900716'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.717
+    versionCode: 300900717
+    commit: '300900717'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.718
+    versionCode: 300900718
+    commit: '300900718'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.719
+    versionCode: 300900719
+    commit: '300900719'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.720
+    versionCode: 300900720
+    commit: '300900720'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.722
+    versionCode: 300900722
+    commit: '300900722'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.724
+    versionCode: 300900724
+    commit: '300900724'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.726
+    versionCode: 300900726
+    commit: '300900726'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.727
+    versionCode: 300900727
+    commit: '300900727'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.729
+    versionCode: 300900729
+    commit: '300900729'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.730
+    versionCode: 300900730
+    commit: '300900730'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.731
+    versionCode: 300900731
+    commit: '300900731'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.732
+    versionCode: 300900732
+    commit: '300900732'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.733
+    versionCode: 300900733
+    commit: '300900733'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.734
+    versionCode: 300900734
+    commit: '300900734'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.735
+    versionCode: 300900735
+    commit: '300900735'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.736
+    versionCode: 300900736
+    commit: '300900736'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.737
+    versionCode: 300900737
+    commit: '300900737'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.738
+    versionCode: 300900738
+    commit: '300900738'
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.739
+    versionCode: 300900739
+    commit: e4e65cbe9996271766218ba38fd01177b6cb63fc
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.740
+    versionCode: 300900740
+    commit: 9c7f41f6c702c0760978f767ab7e4e92bdab893d
+    subdir: app
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.745
+    versionCode: 300900745
+    commit: 4aabf5dba102f69852a88f974e4af708f7553af3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.746
+    versionCode: 300900746
+    commit: 64e4462f3ba13dc22811f6df206e9625a8375587
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.748
+    versionCode: 300900748
+    commit: ca73c3f8134f57ac7af98322483e01ec17e2dbd2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.749
+    versionCode: 300900749
+    commit: 95ec34e794b09c473d8374f4c5fa62555d12d3c3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
 MaintainerNotes: |-
     We replace com.nbsp:library from http://dl.bintray.com/lukaville/maven with
     com.github.nbsp-team:MaterialFilePicker from
     https://jitpack.io/#com.github.nbsp-team/MaterialFilePicker.
 
-AutoUpdateMode: Version %c
-UpdateCheckMode: HTTP
-UpdateCheckData: https://raw.githubusercontent.com/premnirmal/StockTicker/master/app/version.properties|versionCode=(.*)|.|versionName=(.*)
-CurrentVersion: 3.7.3
-CurrentVersionCode: 373
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: app/version.properties|versionCode=(.*)|.|versionName=(.*)
+CurrentVersion: 3.9.749
+CurrentVersionCode: 300900749

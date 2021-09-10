@@ -29,11 +29,11 @@ Description: |-
 
     Before using GPG, be sure to launch the app and let it finish its installation
     process. Once it has completed, then you're ready to use it. The easiest way to
-    get started with GPG is to install [[jackpal.androidterm]]. GPG will
+    get started with GPG is to install https://f-droid.org/packages/jackpal.androidterm. GPG will
     automatically configure Android Terminal Emulator as long as you have the "Allow
     PATH extensions" settings enabled.
 
-    Status: Unmaintained, use [[org.sufficientlysecure.keychain]]
+    Status: Unmaintained, use https://f-droid.org/packages/org.sufficientlysecure.keychain
 
 RepoType: git
 Repo: https://github.com/guardianproject/gnupg-for-android
@@ -49,6 +49,7 @@ Builds:
       - make NDK_BASE=$$NDK$$ -C external/
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 0.3.1
     versionCode: 5
@@ -59,6 +60,7 @@ Builds:
     build: make NDK_BASE=$$NDK$$ -C external/ distclean clean-assets all
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 0.3.2
     versionCode: 3020
@@ -68,9 +70,10 @@ Builds:
     build: make NDK_BASE=$$NDK$$ -C external/ distclean clean-assets all
     buildjni:
       - yes
+    ndk: r12b
 
 ArchivePolicy: 0 versions
 AutoUpdateMode: None
-UpdateCheckMode: Tags
+UpdateCheckMode: None
 CurrentVersion: 0.3.2
 CurrentVersionCode: 3020

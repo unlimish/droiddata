@@ -17,7 +17,7 @@ Description: |-
     * Ability to copy and move files between its two panels
     * Create or extract (unzip) ZIP archives
     * Transfer files via SFTP - plugin required: Ghost Commander - SFTP plugin (available in F-Droid Archive repo)
-    * Transfer files via SMB - plugin required: [[com.ghostsq.commander.samba]]
+    * Transfer files via SMB - plugin required: https://f-droid.org/packages/com.ghostsq.commander.samba
     * Full-featured app manager able to access extra info and share apks
 
     Requires root: No, but if provided you can remount filesystems and mess around
@@ -511,6 +511,52 @@ Builds:
     scanignore:
       - src/main/java/com/ghostsq/commander/adapters/CA.java
 
+  - versionName: 1.60b1
+    versionCode: 396
+    commit: '34'
+    patch:
+      - build.patch
+    gradle:
+      - free
+    scanignore:
+      - src/main/java/com/ghostsq/commander/adapters/CA.java
+
+  - versionName: 1.60.4b5
+    versionCode: 420
+    commit: '73'
+    gradle:
+      - free
+    prebuild:
+      - sed -i -e '/task clean/,/^}/d' build.gradle.root
+      - cat build.gradle >> build.gradle.root
+      - mv build.gradle.root build.gradle
+    scanignore:
+      - src/main/java/com/ghostsq/commander/adapters/CA.java
+
+  - versionName: 1.60.5b2
+    versionCode: 422
+    commit: '74'
+    gradle:
+      - free
+    prebuild:
+      - sed -i -e '/task clean/,/^}/d' build.gradle.root
+      - cat build.gradle >> build.gradle.root
+      - mv build.gradle.root build.gradle
+    scanignore:
+      - src/main/java/com/ghostsq/commander/adapters/CA.java
+
+  - versionName: 1.60.5
+    versionCode: 424
+    commit: '75'
+    gradle:
+      - free
+    prebuild:
+      - sed -i -e '/task clean/,/^}/d' build.gradle.root
+      - cat build.gradle >> build.gradle.root
+      - mv build.gradle.root build.gradle
+    scanignore:
+      - src/main/java/com/ghostsq/commander/adapters/CA.java
+
 MaintainerNotes: |-
     No commit messages in source repo! No tags. Apks on website can be used to
     confirm a release is real. Commit where AndroidManifest is changed usually
@@ -520,7 +566,7 @@ MaintainerNotes: |-
 
     As of 1.60a the repo has changed from https://svn.code.sf.net/p/ghostcommander/code/ to https://svn.code.sf.net/p/ghostcommander/svn/
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: None
 UpdateCheckMode: RepoManifest
-CurrentVersion: 1.60a1
-CurrentVersionCode: 395
+CurrentVersion: 1.60.6b1
+CurrentVersionCode: 425

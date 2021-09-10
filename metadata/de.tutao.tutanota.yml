@@ -8,6 +8,7 @@ AuthorEmail: hello@tutao.de
 WebSite: https://tutanota.com
 SourceCode: https://github.com/tutao/tutanota
 IssueTracker: https://github.com/tutao/tutanota/issues
+Translation: https://tutanota.com/blog/posts/tutanota-translation-project
 Changelog: https://github.com/tutao/tutanota/releases
 Donate: https://tutanota.com/community#donate
 Bitcoin: 3MDrR5gaMvL8sphuQLX6BvPPKYNArdXsv6
@@ -727,7 +728,579 @@ Builds:
       - npm install
       - node dist prod
 
-AutoUpdateMode: Version tutanota-android-release-%v
+  - versionName: 3.68.1
+    versionCode: 368010
+    commit: tutanota-android-release-3.68.1
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    prebuild:
+      - cd ../..
+      - rm -rf app-ios
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+
+  - versionName: 3.69.2
+    versionCode: 369020
+    commit: tutanota-android-release-3.69.2
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    prebuild:
+      - cd ../..
+      - rm -rf app-ios
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+
+  - versionName: 3.69.5
+    versionCode: 369050
+    commit: tutanota-android-release-3.69.5
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    prebuild:
+      - cd ../..
+      - rm -rf app-ios
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+
+  - versionName: 3.72.0
+    versionCode: 372000
+    commit: tutanota-android-release-3.72.0
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    prebuild:
+      - cd ../..
+      - rm -rf app-ios
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+
+  - versionName: 3.73.1
+    versionCode: 373010
+    commit: tutanota-android-release-3.73.1
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    prebuild:
+      - cd ../..
+      - rm -rf app-ios
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+
+  - versionName: 3.75.3
+    versionCode: 375030
+    commit: tutanota-android-release-3.75.3
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/mithril/dist/archive/*/mithril.min.zip
+      - node_modules/semver/*.gz
+
+  - versionName: 3.76.7
+    versionCode: 376070
+    commit: tutanota-android-release-3.76.7
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/mithril/dist/archive/*/mithril.min.zip
+      - node_modules/semver/*.gz
+
+  - versionName: 3.76.9
+    versionCode: 376090
+    commit: tutanota-android-release-3.76.9
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/mithril/dist/archive/*/mithril.min.zip
+      - node_modules/semver/*.gz
+
+  - versionName: 3.76.10
+    versionCode: 376100
+    commit: tutanota-android-release-3.76.10
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/mithril/dist/archive/*/mithril.min.zip
+      - node_modules/semver/*.gz
+
+  - versionName: 3.77.3
+    versionCode: 377030
+    commit: tutanota-android-release-3.77.3
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/mithril/dist/archive/*/mithril.min.zip
+      - node_modules/traceur/node_modules/semver/*.gz
+
+  - versionName: 3.77.4
+    versionCode: 377040
+    commit: tutanota-android-release-3.77.4
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/mithril/dist/archive/*/mithril.min.zip
+      - node_modules/traceur/node_modules/semver/*.gz
+
+  - versionName: 3.78.2
+    versionCode: 378020
+    commit: tutanota-android-release-3.78.2
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/mithril/dist/archive/*/mithril.min.zip
+      - node_modules/traceur/node_modules/semver/*.gz
+
+  - versionName: 3.80.2
+    versionCode: 380020
+    commit: tutanota-android-release-3.80.2
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/mithril/dist/archive/*/mithril.min.zip
+      - node_modules/traceur/node_modules/semver/*.gz
+
+  - versionName: 3.80.4
+    versionCode: 380040
+    commit: tutanota-android-release-3.80.4
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/mithril/dist/archive/*/mithril.min.zip
+      - node_modules/traceur/node_modules/semver/*.gz
+
+  - versionName: 3.80.5
+    versionCode: 380050
+    commit: tutanota-android-release-3.80.5
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v10.11.0/node-v10.11.0-linux-x64.tar.xz
+      - echo "c2eab149e7f0712a6a3eb672a76d657b049a3b3ae0c2edc2e0571df5049fe82c node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v10.11.0-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/mithril/dist/archive/*/mithril.min.zip
+      - node_modules/traceur/node_modules/semver/*.gz
+
+  - versionName: 3.81.8
+    versionCode: 381080
+    commit: tutanota-android-release-3.81.8
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.15.5/node-v14.15.5-linux-x64.tar.xz
+      - echo "fa198afa9a2872cde991c3aa71796894bf7b5310d6eb178c3eafcf66e3ae79a7 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.15.5-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.82.1
+    versionCode: 382010
+    commit: tutanota-android-release-3.82.1
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.15.5/node-v14.15.5-linux-x64.tar.xz
+      - echo "fa198afa9a2872cde991c3aa71796894bf7b5310d6eb178c3eafcf66e3ae79a7 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.15.5-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.82.4
+    versionCode: 382040
+    commit: tutanota-android-release-3.82.4
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.15.5/node-v14.15.5-linux-x64.tar.xz
+      - echo "fa198afa9a2872cde991c3aa71796894bf7b5310d6eb178c3eafcf66e3ae79a7 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.15.5-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.82.7
+    versionCode: 382070
+    commit: tutanota-android-release-3.82.7
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.15.5/node-v14.15.5-linux-x64.tar.xz
+      - echo "fa198afa9a2872cde991c3aa71796894bf7b5310d6eb178c3eafcf66e3ae79a7 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.15.5-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.82.17
+    versionCode: 382170
+    commit: tutanota-android-release-3.82.17
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.15.5/node-v14.15.5-linux-x64.tar.xz
+      - echo "fa198afa9a2872cde991c3aa71796894bf7b5310d6eb178c3eafcf66e3ae79a7 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.15.5-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.82.18
+    versionCode: 382180
+    commit: tutanota-android-release-3.82.18
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.15.5/node-v14.15.5-linux-x64.tar.xz
+      - echo "fa198afa9a2872cde991c3aa71796894bf7b5310d6eb178c3eafcf66e3ae79a7 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.15.5-linux-x64/. /usr/local/
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.85.7
+    versionCode: 385070
+    commit: tutanota-android-release-3.85.7
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v14.17.2/node-v14.17.2-linux-x64.tar.xz
+      - echo "6cf9db7349407c177b36205feec949729d0ee9db485e19b10b0b1ffca65a3a46 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.17.2-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.85.10
+    versionCode: 385100
+    commit: 250fd35a9c49aef47b0c8bd5374380bac73827e2
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v14.17.2/node-v14.17.2-linux-x64.tar.xz
+      - echo "6cf9db7349407c177b36205feec949729d0ee9db485e19b10b0b1ffca65a3a46 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.17.2-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.86.3
+    versionCode: 386030
+    commit: c2992a643280cd26b34d8eb601428f7833d79337
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v14.17.2/node-v14.17.2-linux-x64.tar.xz
+      - echo "6cf9db7349407c177b36205feec949729d0ee9db485e19b10b0b1ffca65a3a46 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.17.2-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.86.4
+    versionCode: 386040
+    commit: ceaa7d2eaaba2d4d73ce7bb1637c3aaf49c63a6a
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v14.17.2/node-v14.17.2-linux-x64.tar.xz
+      - echo "6cf9db7349407c177b36205feec949729d0ee9db485e19b10b0b1ffca65a3a46 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.17.2-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.87.1
+    versionCode: 387010
+    commit: 28f01b54f00ea08c3cb01d14ddc507166590d4a3
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v14.17.2/node-v14.17.2-linux-x64.tar.xz
+      - echo "6cf9db7349407c177b36205feec949729d0ee9db485e19b10b0b1ffca65a3a46 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.17.2-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/**
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags tutanota-android-release-*
-CurrentVersion: 3.67.6
-CurrentVersionCode: 367060
+CurrentVersion: 3.87.1
+CurrentVersionCode: 387010

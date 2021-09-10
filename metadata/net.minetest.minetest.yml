@@ -4,6 +4,7 @@ License: LGPL-2.1-or-later
 WebSite: https://www.minetest.net/
 SourceCode: https://github.com/minetest/minetest
 IssueTracker: http://www.minetest.net/development/#reporting-issues
+Translation: https://hosted.weblate.org/projects/minetest/
 Changelog: https://dev.minetest.net/Changelog
 Donate: http://www.minetest.net/development/#donate
 
@@ -104,8 +105,8 @@ Builds:
     commit: 86e29ae5860f197b87d85e755475a445cb65b04c
     subdir: build/android
     sudo:
-      - apt update || apt update
-      - apt install -y wget dos2unix
+      - apt-get update || apt-get update
+      - apt-get install -y wget dos2unix
     output: build/outputs/apk/Minetest-release-unsigned.apk
     srclibs:
       - MinetestGame@d6a66860af6fc39957d8e947824b9c56c3686b8e
@@ -167,7 +168,22 @@ Builds:
       - make release
     ndk: r16b
 
+  - versionName: 5.2.0.26
+    versionCode: 26
+    commit: 5.2.0
+    subdir: build/android
+    output: build/outputs/apk/release/Minetest-release-unsigned.apk
+    srclibs:
+      - MinetestGame@5.2.0
+    prebuild:
+      - sed -i -e 's/\.\/gradlew/gradle/g' Makefile
+      - cp -R $$MinetestGame$$ ../../games/minetest_game
+    build:
+      - printf "%s\n%s" "ndk.dir = $$NDK$$" "sdk.dir = $$SDK$$" > local.properties
+      - make release
+    ndk: r16b
+
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 5.1.0.25
-CurrentVersionCode: 25
+CurrentVersion: 5.2.0.26
+CurrentVersionCode: 26

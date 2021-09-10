@@ -21,8 +21,8 @@ Builds:
     commit: v1.1.2
     submodules: true
     sudo:
-      - apt update || apt update
-      - apt install -y -t stretch-backports npm
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm
     output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
     build:
       - mkdir -p "$PWD/npm"
@@ -36,9 +36,8 @@ Builds:
 
 MaintainerNotes: This is an Ionic 3 / Cordova app, built from source.
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: HTTP
-UpdateCheckIgnore: alpha
-UpdateCheckData: https://raw.githubusercontent.com/sensebox/blockly-app/master/config.xml|version=\"([^\"]+)\"|https://raw.githubusercontent.com/sensebox/blockly-app/master/config.xml|android-versionCode=\"([^\"]+)\"
-CurrentVersion: 1.1.2
-CurrentVersionCode: 10102
+AutoUpdateMode: None
+UpdateCheckMode: Tags
+UpdateCheckData: config.xml|android-versionCode=\"([^\"]+)\"|.|version=\"([^\"]+)\"
+CurrentVersion: 1.1.4
+CurrentVersionCode: 10104

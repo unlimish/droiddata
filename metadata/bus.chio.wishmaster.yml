@@ -1,3 +1,5 @@
+AntiFeatures:
+  - NonFreeNet
 Categories:
   - Internet
 License: GPL-3.0-only
@@ -21,7 +23,7 @@ Description: |-
     * Support the tablet interface
     * Themes
 
-    This is a fork of the original app [[nya.miku.wishmaster]] which is no longer
+    This is a fork of the original app https://f-droid.org/packages/nya.miku.wishmaster which is no longer
     being developed by its author.
 
 RepoType: git
@@ -57,7 +59,18 @@ Builds:
       - libs/*
       - build.xml
 
-AutoUpdateMode: None
-UpdateCheckMode: Tags
-CurrentVersion: 1.0.2
-CurrentVersionCode: 1002
+  - versionName: 1.0.3
+    versionCode: 1003
+    commit: v1.0.3_fdroid
+    gradle:
+      - yes
+    rm:
+      - libs/*
+      - build.xml
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'cmake;3.6.4111459' > /dev/null
+    ndk: r21e
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*_fdroid$
+CurrentVersion: 1.0.3
+CurrentVersionCode: 1003

@@ -1,0 +1,88 @@
+Categories:
+  - Science & Education
+License: GPL-3.0-only
+AuthorName: Damiano Ferrari
+AuthorEmail: damianoferrari1998@gmail.com
+SourceCode: https://github.com/ferraridamiano/ConverterNOW
+IssueTracker: https://github.com/ferraridamiano/ConverterNOW/issues
+Translation: https://github.com/ferraridamiano/ConverterNOW/blob/master/CONTRIBUTING.md#translating-the-app
+Changelog: https://github.com/ferraridamiano/ConverterNOW/releases
+Donate: https://www.paypal.com/paypalme/DemApps
+
+AutoName: Converter NOW
+
+RepoType: git
+Repo: https://github.com/ferraridamiano/ConverterNOW
+
+Builds:
+  - versionName: 2.4.1
+    versionCode: 23
+    commit: 2.4.1
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@1.25.0-8.1.pre
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.4.2
+    versionCode: 24
+    commit: v2.4.2
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@1.22.5
+    prebuild: sed -i -e 's/signingConfig signingConfigs.release//' android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.4.3
+    versionCode: 25
+    commit: v2.4.3
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@1.22.5
+    prebuild: sed -i -e 's/signingConfig signingConfigs.release//' android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.5.0
+    versionCode: 26
+    commit: v2.5.0
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.0.1
+    prebuild: sed -i -e 's/signingConfig signingConfigs.release//' android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.5.1
+    versionCode: 27
+    commit: v2.5.1
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.0.1
+    prebuild: sed -i -e 's/signingConfig signingConfigs.release//' android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.6.0
+    versionCode: 28
+    commit: v2.6.0
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.0.1
+    prebuild: sed -i -e 's/signingConfig signingConfigs.release//' android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 2.6.0
+CurrentVersionCode: 28

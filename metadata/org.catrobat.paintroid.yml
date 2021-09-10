@@ -29,7 +29,51 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: None
-UpdateCheckMode: Tags
-CurrentVersion: 2.4.1
-CurrentVersionCode: 30
+  - versionName: 2.5.2
+    versionCode: 33
+    commit: v2.5.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.6.1
+    versionCode: 36
+    commit: v2.6.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.7.0
+    versionCode: 37
+    commit: v2.7.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.7.1
+    versionCode: 38
+    commit: 2.7.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.7.3
+    versionCode: 40
+    commit: v2.7.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.7.4
+    versionCode: 41
+    commit: 2e06cec260353a0603f3a8e2a3f2f334be3d172f
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: build.gradle|androidVersionCode = ([0-9]*)|.|androidVersionName =
+    '([0-9.]*)'
+CurrentVersion: 2.7.4
+CurrentVersionCode: 41

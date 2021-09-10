@@ -1,0 +1,62 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Internet
+  - Reading
+License: GPL-3.0-only
+AuthorName: CosmosApps
+AuthorEmail: cosmos.dev@protonmail.com
+SourceCode: https://gitlab.com/cosmosapps/stealth
+IssueTracker: https://gitlab.com/cosmosapps/stealth/-/issues
+Changelog: https://gitlab.com/cosmosapps/stealth/-/blob/master/CHANGELOG.md
+
+AutoName: Stealth
+
+RepoType: git
+Repo: https://gitlab.com/cosmosapps/stealth
+
+Builds:
+  - versionName: 1.0.1
+    versionCode: 4
+    commit: 1.0.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile/d' build.gradle
+
+  - versionName: 1.1.0
+    versionCode: 5
+    commit: 3d772733c43952b767e9959a3fac8b9325f8b763
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile/d' build.gradle
+
+  - versionName: 1.1.1
+    versionCode: 6
+    commit: 159e2a0d6f8f6aeadf875d610fb5607e6da0541c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile/d' build.gradle
+
+  - versionName: 1.1.2
+    versionCode: 7
+    commit: f2b60c1c3c89e7eeb020d8304c174529fc66e286
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile/d' build.gradle
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 1.1.2
+CurrentVersionCode: 7

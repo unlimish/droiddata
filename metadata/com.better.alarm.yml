@@ -96,9 +96,59 @@ Builds:
     rm:
       - alarmClock/libs/*
 
-MaintainerNotes: UCM does not work because upstream split the app into 3 repos.
+  - versionName: 3.05.05
+    versionCode: 30505
+    commit: 3.05.05
+    subdir: app
+    gradle:
+      - develop
+    prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: '0'
-CurrentVersionCode: 0
+  - versionName: 3.07.01
+    versionCode: 30701
+    commit: 3.07.01
+    subdir: app
+    gradle:
+      - develop
+    prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
+
+  - versionName: 3.08.08
+    versionCode: 30808
+    commit: 2a40bc584fbe19ab951416da812eb862b414bb7e
+    subdir: app
+    gradle:
+      - develop
+    prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
+
+  - versionName: 3.08.10
+    versionCode: 30810
+    commit: e25d9e98e291e14ab694cf777e8757cfdbbd8c86
+    subdir: app
+    gradle:
+      - develop
+    prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
+
+  - versionName: 3.09.01
+    versionCode: 30901
+    commit: b94bf3e13ef8846167dd05b1335e19b6be62e224
+    subdir: app
+    gradle:
+      - develop
+    prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
+
+  - versionName: 3.09.08
+    versionCode: 30908
+    commit: 06212b4ca9de606f50e71afbc830b771c4397ae9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - develop
+    prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 3.09.08
+CurrentVersionCode: 30908

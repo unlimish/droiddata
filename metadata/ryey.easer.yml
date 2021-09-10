@@ -26,12 +26,12 @@ Description: |-
 
     Reminder: Easer is still under development. It may contain bugs and the UI
     definitely needs to be improved. For more details or expansion of Easer, read
-    [https://renyuneyun.github.io/Easer/en/README README],
-    [https://renyuneyun.github.io/Easer/en/HOWTO HOWTO] (creating more events /
-    operations), [https://renyuneyun.github.io/Easer/en/TODO TODO] (or
-    [https://renyuneyun.github.io/Easer/zh/README README],
-    [https://renyuneyun.github.io/Easer/zh/HOWTO HOWTO],
-    [https://renyuneyun.github.io/Easer/zh/TODO TODO] if you can read Chinese)
+    <a href="https://renyuneyun.github.io/Easer/en/README">README</a>,
+    <a href="https://renyuneyun.github.io/Easer/en/HOWTO">HOWTO</a> (creating more events /
+    operations), <a href="https://renyuneyun.github.io/Easer/en/TODO">TODO</a> (or
+    <a href="https://renyuneyun.github.io/Easer/zh/README">README</a>,
+    <a href="https://renyuneyun.github.io/Easer/zh/HOWTO">HOWTO</a>,
+    <a href="https://renyuneyun.github.io/Easer/zh/TODO">TODO</a> if you can read Chinese)
     document in the repo.
 
 RepoType: git
@@ -811,8 +811,21 @@ Builds:
     gradle:
       - stable
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-UpdateCheckIgnore: beta
-CurrentVersion: '0.8'
-CurrentVersionCode: 123
+  - versionName: 0.8.1
+    versionCode: 124
+    commit: v0.8.1
+    subdir: app
+    gradle:
+      - stable
+
+  - versionName: 0.8.2
+    versionCode: 125
+    commit: b026c4162d185a425f551774f2118304f9c8457d
+    subdir: app
+    gradle:
+      - stable
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v[0-9.]*$
+CurrentVersion: 0.8.2
+CurrentVersionCode: 125

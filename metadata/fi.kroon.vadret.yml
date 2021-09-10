@@ -16,7 +16,7 @@ Description: |-
     Vädret means weather in Swedish and it is an open source weather app with
     open data from SMHI Open Data Meteorological Analysis licensed under CC-BY.
 
-    '''Features:'''
+    <b>Features:</b>
 
     * Location by GPS
     * Location by Nominatim (by-name)
@@ -145,7 +145,47 @@ Builds:
     prebuild: sed -i -e '/maven.fabric.io/d' -e '/io.fabric/d' -e '/signingConfigs/d'
         build.gradle ../build.gradle
 
+  - versionName: 1.2.8
+    versionCode: 24
+    commit: 1.2.8
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/maven.fabric.io/d' -e '/io.fabric/d' -e '/signingConfigs/d'
+        build.gradle ../build.gradle
+
+  - versionName: 1.2.9
+    versionCode: 25
+    commit: 1.2.9
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/maven.fabric.io/d' -e '/io.fabric/d' -e '/signingConfigs/d'
+        build.gradle ../build.gradle
+
+  - versionName: 2.0.0
+    versionCode: 27
+    commit: 2.0.0
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/com.google.gms/d; /com.google.firebase/d' ../build.gradle build.gradle
+      - sed -i -e '/signingConfigs/d; /com.google.gms.google-services/d; /com.google.firebase.crashlytics/d;
+        /googleImplementation/d; /firebaseCrashlytics {/,/}/d' build.gradle
+
+  - versionName: 2.0.2
+    versionCode: 29
+    commit: 2.0.2
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/com.google.gms/d; /com.google.firebase/d' ../build.gradle build.gradle
+      - sed -i -e '/signingConfigs/d; /com.google.gms.google-services/d; /com.google.firebase.crashlytics/d;
+        /googleImplementation/d; /firebaseCrashlytics {/,/}/d' build.gradle
+
 AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: 1.2.7
-CurrentVersionCode: 23
+UpdateCheckMode: Tags ^[0-9.]*$
+CurrentVersion: 2.0.2
+CurrentVersionCode: 29

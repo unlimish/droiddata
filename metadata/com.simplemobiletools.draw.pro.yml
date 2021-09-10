@@ -1,6 +1,6 @@
 Categories:
   - Graphics
-License: Apache-2.0
+License: GPL-3.0-only
 AuthorName: Tibor Kaputa
 AuthorEmail: hello@simplemobiletools.com
 WebSite: https://simplemobiletools.com
@@ -85,18 +85,71 @@ Builds:
       - echo "android.enableJetifier=true" >> gradle.properties
       - echo "android.useAndroidX=true" >> gradle.properties
 
-  - versionName: 6.1.2
-    versionCode: 51
-    commit: 6.1.2
+  - versionName: 6.2.0
+    versionCode: 53
+    commit: 6.2.0
     subdir: app
     gradle:
       - yes
-    prebuild:
-      - sed -i -e '/keystore/d' build.gradle
-      - echo "android.enableJetifier=true" >> gradle.properties
-      - echo "android.useAndroidX=true" >> gradle.properties
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.2.1
+    versionCode: 54
+    commit: 6.2.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.2.2
+    versionCode: 55
+    commit: 6.2.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.2.3
+    versionCode: 56
+    commit: 6.2.3
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.2.4
+    versionCode: 57
+    commit: 6.2.4
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.3.0
+    versionCode: 58
+    commit: 6.3.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.3.2
+    versionCode: 60
+    commit: 6.3.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.3.3
+    versionCode: 61
+    commit: 6.3.3
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 6.1.2
-CurrentVersionCode: 51
+CurrentVersion: 6.3.3
+CurrentVersionCode: 61

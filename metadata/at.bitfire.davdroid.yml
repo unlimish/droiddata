@@ -8,9 +8,8 @@ IssueTracker: https://www.davx5.com/forums
 Translation: https://www.transifex.com/bitfireAT/davx5/
 Changelog: https://forums.bitfire.at/category/4/davx?tag=announcement
 Donate: https://www.davx5.com/donate
-FlattrID: '2100160'
 LiberapayID: '14101'
-Bitcoin: 1KSCy7RHztKuhW9fLLaUYqdwdC2iwbejZU
+Bitcoin: bc1q0hvy0mknt9vce2f9hh829h72n3sht9llaltumk
 
 AutoName: DAVx⁵
 
@@ -1267,7 +1266,236 @@ Builds:
     gradle:
       - standard
 
+  - versionName: 2.6.5-ose
+    versionCode: 334
+    commit: v2.6.5-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 2.6.6-ose
+    versionCode: 206060000
+    commit: v2.6.6-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.0-ose2
+    versionCode: 300000004
+    commit: v3.0-ose2
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.1-beta3-ose
+    versionCode: 301000002
+    disable: replaced by newer beta
+    commit: v3.1-beta3-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.1-beta5-ose
+    versionCode: 301000004
+    commit: v3.1-beta5-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.1-ose
+    versionCode: 301000012
+    commit: v3.1-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.1.1-ose
+    versionCode: 301010002
+    commit: v3.1.1-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.2-ose
+    versionCode: 302000003
+    commit: v3.2-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.2.1-ose
+    versionCode: 302010000
+    commit: v3.2.1-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.2.1.1-ose
+    versionCode: 302010100
+    commit: v3.2.1.1-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.2.1.3-ose
+    versionCode: 302010300
+    commit: v3.2.1.3-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.2.1.4-ose
+    versionCode: 302010401
+    commit: v3.2.1.4-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3-ose
+    versionCode: 303000006
+    commit: v3.3-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3.1-ose
+    versionCode: 303010001
+    commit: v3.3.1-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3.2-ose
+    versionCode: 303020005
+    commit: v3.3.2-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3.3-ose
+    versionCode: 303030005
+    commit: v3.3.3-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3.4-ose
+    versionCode: 303040002
+    commit: v3.3.4-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3.4.1-ose
+    versionCode: 303040100
+    commit: v3.3.4.1-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3.5-ose
+    versionCode: 303050000
+    commit: v3.3.5-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3.6-ose
+    versionCode: 303060003
+    commit: v3.3.6-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3.7-ose
+    versionCode: 303070006
+    commit: v3.3.7-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3.8-ose
+    versionCode: 303080002
+    commit: v3.3.8-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3.9-ose
+    versionCode: 303090004
+    commit: v3.3.9-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3.10-ose
+    versionCode: 303100003
+    commit: v3.3.10-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3.11-ose
+    versionCode: 303110004
+    commit: v3.3.11-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e 's/com.google.android:flexbox/com.github.google:flexbox-layout/'
+        build.gradle
+      - sed -i -e '/flexbox-layout/d' ../build.gradle
+
+  - versionName: 3.3.12-ose
+    versionCode: 303120005
+    commit: 189d7a31d82cf171373aab1b92fb8036e07d1e64
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e 's/com.google.android:flexbox/com.github.google:flexbox-layout/'
+        build.gradle
+      - sed -i -e '/flexbox-layout/d' ../build.gradle
+
+  - versionName: 3.4-ose
+    versionCode: 304000003
+    commit: d8a70ca30cc337ce2c03d7140c23d002eb1a875d
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
 AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags ^v[0-9.]+-ose$
-CurrentVersion: 2.6.4-ose
-CurrentVersionCode: 331
+UpdateCheckMode: Tags ^v[0-9.]+-ose[0-9]*$
+CurrentVersion: 3.4-ose
+CurrentVersionCode: 304000003

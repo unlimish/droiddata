@@ -3,6 +3,8 @@ Categories:
 License: Apache-2.0
 SourceCode: https://github.com/helloworld1/FreeOTPPlus
 IssueTracker: https://github.com/helloworld1/FreeOTPPlus/issues
+Translation: https://crowdin.com/project/FreeOTPPlus
+Changelog: https://github.com/helloworld1/FreeOTPPlus/releases
 
 AutoName: FreeOTP Plus
 Description: |-
@@ -20,7 +22,7 @@ Description: |-
 
     FreeOTP implements open standards. This means that no proprietary server-side
     component is necessary: use any server-side component that implements these
-    standards — for example [http://www.freeipa.org FreeIPA], which uses TOTP. Any
+    standards — for example <a href="http://www.freeipa.org">FreeIPA</a>, which uses TOTP. Any
     standards-compliant implementation will work. Currently, FreeOTP provides
     implementations of HOTP (RFC 4226) and TOTP (RFC 6238).
 
@@ -34,6 +36,8 @@ Builds:
     subdir: app
     gradle:
       - yes
+    scandelete:
+      - arts/ic_launcher.zip
 
   - versionName: '1.2'
     versionCode: 3
@@ -41,6 +45,8 @@ Builds:
     subdir: app
     gradle:
       - yes
+    scandelete:
+      - arts/ic_launcher.zip
 
   - versionName: '1.3'
     versionCode: 4
@@ -48,6 +54,8 @@ Builds:
     subdir: app
     gradle:
       - yes
+    scandelete:
+      - arts/ic_launcher.zip
 
   - versionName: '1.4'
     versionCode: 5
@@ -56,7 +64,7 @@ Builds:
     gradle:
       - yes
     scandelete:
-      - .gradle
+      - arts/ic_launcher.zip
 
   - versionName: '1.5'
     versionCode: 6
@@ -65,7 +73,7 @@ Builds:
     gradle:
       - yes
     scandelete:
-      - .gradle
+      - arts/ic_launcher.zip
 
   - versionName: '1.6'
     versionCode: 7
@@ -74,7 +82,7 @@ Builds:
     gradle:
       - yes
     scandelete:
-      - .gradle
+      - arts/ic_launcher.zip
 
   - versionName: '1.7'
     versionCode: 8
@@ -83,7 +91,7 @@ Builds:
     gradle:
       - yes
     scandelete:
-      - .gradle
+      - arts/ic_launcher.zip
 
   - versionName: '1.8'
     versionCode: 9
@@ -92,9 +100,54 @@ Builds:
     gradle:
       - yes
     scandelete:
-      - .gradle
+      - arts/ic_launcher.zip
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: '1.8'
-CurrentVersionCode: 9
+  - versionName: '1.9'
+    versionCode: 10
+    commit: RELEASE-1.9
+    subdir: app
+    gradle:
+      - yes
+    scandelete:
+      - arts/ic_launcher.zip
+
+  - versionName: '2.0'
+    versionCode: 11
+    commit: RELEASE-2.0
+    subdir: app
+    gradle:
+      - yes
+    scandelete:
+      - arts/ic_launcher.zip
+
+  - versionName: '2.1'
+    versionCode: 12
+    commit: RELEASE-2.1
+    subdir: app
+    gradle:
+      - yes
+    scandelete:
+      - arts/ic_launcher.zip
+
+  - versionName: '2.2'
+    versionCode: 13
+    commit: RELEASE-2.2
+    subdir: app
+    gradle:
+      - yes
+    scandelete:
+      - arts/ic_launcher.zip
+
+  - versionName: '2.3'
+    versionCode: 14
+    commit: RELEASE-2.3
+    subdir: app
+    gradle:
+      - yes
+    scandelete:
+      - arts/ic_launcher.zip
+
+AutoUpdateMode: Version RELEASE-%v
+UpdateCheckMode: Tags RELEASE-[0-9.]+$
+CurrentVersion: '2.3'
+CurrentVersionCode: 14

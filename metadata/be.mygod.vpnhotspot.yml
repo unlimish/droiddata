@@ -11,6 +11,9 @@ FlattrID: e0ggg2
 
 AutoName: VPN Hotspot
 Description: |-
+    <b>Note:</b> This app won't be updated. Please use
+    https://f-droid.org/packages/be.mygod.vpnhotspot.foss instead.
+
     This app is useful for:
 
     * Connecting things that don’t support VPN like Chromecasts behind corporate firewalls;
@@ -384,17 +387,9 @@ Builds:
       - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
       - sed -i -e '6,9d' build.gradle
 
-  - versionName: 2.8.0
-    versionCode: 221
-    commit: v2.8.0
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 2.7.1
+CurrentVersionCode: 220
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-CurrentVersion: 2.8.0
-CurrentVersionCode: 221
+NoSourceSince: 2.7.1

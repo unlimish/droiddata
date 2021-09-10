@@ -14,8 +14,8 @@ Description: |-
     transport component and one module besides MAXS main in order to make use of
     MAXS.
 
-    '''Make sure to launch Maxs Main once before installing other MAXS
-    components!'''
+    <b>Make sure to launch Maxs Main once before installing other MAXS
+    components!</b>
 
 RepoType: srclib
 Repo: ProjectMAXS
@@ -47,7 +47,7 @@ Builds:
 
   - versionName: 0.0.1.4
     versionCode: 5
-    disable: build tools failure as per [https://bitbucket.org/projectmaxs/maxs/commits/7750c9add95016294c5be9afd84a8de4834f7f20]
+    disable: build tools failure as per <a href="https://bitbucket.org/projectmaxs/maxs/commits/7750c9add95016294c5be9afd84a8de4834f7f20">https://bitbucket.org/projectmaxs/maxs/commits/7750c9add95016294c5be9afd84a8de4834f7f20</a>
     commit: 0.0.1.4
     subdir: main
     prebuild: make prebuild
@@ -222,7 +222,9 @@ Builds:
     commit: 0.5.3
     subdir: main
     submodules: true
-    sudo: apt-get install -y python-gnupg libxml2-utils
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y python-gnupg libxml2-utils
     prebuild:
       - make prebuild
       - rm -rf ../module-shell/libraryProjects/root-commands/ExampleApp
@@ -233,7 +235,9 @@ Builds:
     commit: 0.5.4
     subdir: main
     submodules: true
-    sudo: apt-get install -y python-gnupg libxml2-utils
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y python-gnupg libxml2-utils
     prebuild:
       - make prebuild
       - rm -rf ../module-shell/libraryProjects/root-commands/ExampleApp
@@ -243,7 +247,9 @@ Builds:
     commit: 0.5.5
     subdir: main
     submodules: true
-    sudo: apt-get install -y python-gnupg libxml2-utils
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y python-gnupg libxml2-utils
     prebuild:
       - make prebuild
       - rm -rf ../module-shell/libraryProjects/root-commands/ExampleApp
@@ -253,7 +259,9 @@ Builds:
     commit: 2a64a6128f219fb07124a52c3ac6160691978873
     subdir: main
     submodules: true
-    sudo: apt-get install -y imagemagick libxml2-utils
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y imagemagick libxml2-utils
     gradle:
       - yes
     rm:
@@ -265,7 +273,79 @@ Builds:
     commit: 0.5.8
     subdir: main
     submodules: true
-    sudo: apt-get install -y imagemagick libxml2-utils
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y imagemagick libxml2-utils
+    gradle:
+      - yes
+    rm:
+      - module-shell/libraryProjects/root-commands/ExampleApp
+    prebuild: make prebuild
+
+  - versionName: 0.5.9
+    versionCode: 2000503279
+    commit: 0.5.9
+    subdir: main
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y imagemagick libxml2-utils
+    gradle:
+      - yes
+    rm:
+      - module-shell/libraryProjects/root-commands/ExampleApp
+    prebuild: make prebuild
+
+  - versionName: 0.5.10
+    versionCode: 2000503375
+    commit: 0.5.10
+    subdir: main
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y imagemagick libxml2-utils
+    gradle:
+      - yes
+    rm:
+      - module-shell/libraryProjects/root-commands/ExampleApp
+    prebuild: make prebuild
+
+  - versionName: 0.5.12
+    versionCode: 2000503575
+    commit: 0.5.12
+    subdir: main
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y imagemagick libxml2-utils
+    gradle:
+      - yes
+    rm:
+      - module-shell/libraryProjects/root-commands/ExampleApp
+    prebuild: make prebuild
+
+  - versionName: 0.5.13
+    versionCode: 2000503857
+    commit: 0.5.13
+    subdir: main
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y imagemagick libxml2-utils
+    gradle:
+      - yes
+    rm:
+      - module-shell/libraryProjects/root-commands/ExampleApp
+    prebuild: make prebuild
+
+  - versionName: 0.5.14
+    versionCode: 2000503969
+    commit: 0.5.14
+    subdir: main
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y imagemagick libxml2-utils
     gradle:
       - yes
     rm:
@@ -273,6 +353,6 @@ Builds:
     prebuild: make prebuild
 
 AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: 0.5.8
-CurrentVersionCode: 2000502507
+UpdateCheckMode: Tags .*[0-9]$
+CurrentVersion: 0.5.14
+CurrentVersionCode: 2000503969

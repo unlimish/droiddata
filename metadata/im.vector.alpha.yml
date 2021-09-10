@@ -16,6 +16,8 @@ Bitcoin: 1LxowEgsquZ3UPZ68wHf8v2MDZw82dVmAE
 
 AutoName: Riot.im
 Description: |-
+    <b>Note: This version is going to be discontinued and replaced with</b> <a href="https://f-droid.org/packages/im.vector.app/">Element</a>.
+
     Riot gathers all your conversations and app integrations into one single app.
 
     Built around group chatrooms, Riot lets you share messages, images, videos and
@@ -32,7 +34,7 @@ Description: |-
 
     * Instantly share messages, images, videos and files of any kind within groups of any size
     * Voice and video 1-1 and conference calling via WebRTC
-    * End-to-end encryption using Olm (<a href="https://matrix.org/git/olm"></a>)
+    * End-to-end encryption using <a href="https://matrix.org/git/olm">Olm</a>
     * See who’s reading your messages with read receipts
     * Communicate with users anywhere in the Matrix.org ecosystem - not just Riot users!
     * Discover and invite users by email address
@@ -53,9 +55,9 @@ Description: |-
     For developers:
 
     * Riot is a Matrix client - built on the Matrix.org open standard and ecosystem, providing interoperability with all other Matrix compatible apps, servers and integrations
-    * Entirely open sourced under the permissive Apache License - get the code from <a href="https://github.com/vector-im/riot-android"></a>. Pull requests welcome!
-    * Trivially extensible via the open Matrix Client-Server API (<a href="https://matrix.org/docs/spec"></a>)
-    * Run your own server! You can use the default matrix.org server or run your own Matrix home server (e.g. <a href="https://matrix.org/docs/projects/server/synapse.html"></a>)
+    * Entirely open sourced under the permissive Apache License - get the code from <a href="https://github.com/vector-im/riot-android">https://github.com/vector-im/riot-android</a>. Pull requests welcome!
+    * Trivially extensible via the open Matrix Client-Server API (<a href="https://matrix.org/docs/spec">https://matrix.org/docs/spec</a>)
+    * Run your own server! You can use the default matrix.org server or run your own Matrix home server (e.g. <a href="https://matrix.org/docs/projects/server/synapse.html">https://matrix.org/docs/projects/server/synapse.html</a>.
 
     Coming soon:
 
@@ -66,7 +68,7 @@ Description: |-
 
     Discover truly efficient and open collaboration with Riot!
 
-    '''AntiFeatures:'''
+    <b>AntiFeatures:</b>
 
     * NonFreeNet - Currently the integration server is not configurable in this client and linked to the non-free New Vector implementation. Free alternatives exists but supporting them in Riot Android is still being worked on.
 
@@ -1881,13 +1883,68 @@ Builds:
     scanignore:
       - build.gradle
 
-  - versionName: 0.9.4
-    versionCode: 20090400
-    commit: v0.9.4
+  - versionName: 0.9.10
+    versionCode: 10090910
+    commit: v0.9.10
     subdir: vector
     gradle:
       - appfdroid
-    output: build/outputs/apk/appfdroid/release/vector-appfdroid-arm64-v8a-release-unsigned.apk
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-armeabi-v7a-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - echo "org.gradle.jvmargs=-Xmx4g" >> ../gradle.properties
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.11
+    versionCode: 10090911
+    disable: 'yes'
+    commit: v0.9.11
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-armeabi-v7a-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.12
+    versionCode: 10090912
+    commit: v0.9.12
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-armeabi-v7a-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.13
+    versionCode: 10090913
+    commit: v0.9.13
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-armeabi-v7a-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.4
+    versionCode: 20090400
+    disable: 'yes'
+    commit: v0.9.8
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-x86-release-unsigned.apk
     prebuild:
       - sed -i -e '/com.google.firebase/,+5d' build.gradle
       - sed -i -e '/com.google.gms.google-services/d' build.gradle
@@ -1896,21 +1953,50 @@ Builds:
 
   - versionName: 0.9.8
     versionCode: 20090800
+    disable: 'yes'
     commit: v0.9.8
     subdir: vector
     gradle:
       - appfdroid
-    output: build/outputs/apk/appfdroid/release/vector-appfdroid-arm64-v8a-release-unsigned.apk
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-x86-release-unsigned.apk
     prebuild:
       - sed -i -e '/com.google.firebase/,+5d' build.gradle
       - sed -i -e '/com.google.gms.google-services/d' build.gradle
-      - echo "org.gradle.jvmargs=-Xmx4g" >> ../gradle.properties
     scanignore:
       - build.gradle
 
   - versionName: 0.9.9
     versionCode: 20090900
+    disable: 'yes'
     commit: v0.9.9
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-x86-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.10
+    versionCode: 20090910
+    disable: 'yes'
+    commit: v0.9.10
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-x86-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.11
+    versionCode: 20090911
+    disable: 'yes'
+    commit: v0.9.11
     subdir: vector
     gradle:
       - appfdroid
@@ -1918,13 +2004,39 @@ Builds:
     prebuild:
       - sed -i -e '/com.google.firebase/,+5d' build.gradle
       - sed -i -e '/com.google.gms.google-services/d' build.gradle
-      - echo "org.gradle.jvmargs=-Xmx4g" >> ../gradle.properties
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.12
+    versionCode: 20090912
+    commit: v0.9.12
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-arm64-v8a-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.13
+    versionCode: 20090913
+    commit: v0.9.13
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-arm64-v8a-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
     scanignore:
       - build.gradle
 
   - versionName: 0.9.4
     versionCode: 30090400
-    commit: v0.9.4
+    disable: 'yes'
+    commit: v0.9.8
     subdir: vector
     gradle:
       - appfdroid
@@ -1937,6 +2049,7 @@ Builds:
 
   - versionName: 0.9.8
     versionCode: 30090800
+    disable: 'yes'
     commit: v0.9.8
     subdir: vector
     gradle:
@@ -1945,12 +2058,12 @@ Builds:
     prebuild:
       - sed -i -e '/com.google.firebase/,+5d' build.gradle
       - sed -i -e '/com.google.gms.google-services/d' build.gradle
-      - echo "org.gradle.jvmargs=-Xmx4g" >> ../gradle.properties
     scanignore:
       - build.gradle
 
   - versionName: 0.9.9
     versionCode: 30090900
+    disable: 'yes'
     commit: v0.9.9
     subdir: vector
     gradle:
@@ -1959,13 +2072,67 @@ Builds:
     prebuild:
       - sed -i -e '/com.google.firebase/,+5d' build.gradle
       - sed -i -e '/com.google.gms.google-services/d' build.gradle
-      - echo "org.gradle.jvmargs=-Xmx4g" >> ../gradle.properties
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.10
+    versionCode: 30090910
+    disable: 'yes'
+    commit: v0.9.10
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-x86-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.11
+    versionCode: 30090911
+    disable: 'yes'
+    commit: v0.9.11
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-x86-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.12
+    versionCode: 30090912
+    commit: v0.9.12
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-x86-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.13
+    versionCode: 30090913
+    commit: v0.9.13
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-x86-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
     scanignore:
       - build.gradle
 
   - versionName: 0.9.4
     versionCode: 40090400
-    commit: v0.9.4
+    disable: 'yes'
+    commit: v0.9.8
     subdir: vector
     gradle:
       - appfdroid
@@ -1978,6 +2145,7 @@ Builds:
 
   - versionName: 0.9.8
     versionCode: 40090800
+    disable: 'yes'
     commit: v0.9.8
     subdir: vector
     gradle:
@@ -1986,12 +2154,12 @@ Builds:
     prebuild:
       - sed -i -e '/com.google.firebase/,+5d' build.gradle
       - sed -i -e '/com.google.gms.google-services/d' build.gradle
-      - echo "org.gradle.jvmargs=-Xmx4g" >> ../gradle.properties
     scanignore:
       - build.gradle
 
   - versionName: 0.9.9
     versionCode: 40090900
+    disable: 'yes'
     commit: v0.9.9
     subdir: vector
     gradle:
@@ -2000,15 +2168,68 @@ Builds:
     prebuild:
       - sed -i -e '/com.google.firebase/,+5d' build.gradle
       - sed -i -e '/com.google.gms.google-services/d' build.gradle
-      - echo "org.gradle.jvmargs=-Xmx4g" >> ../gradle.properties
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.10
+    versionCode: 40090910
+    disable: 'yes'
+    commit: v0.9.11
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-x86_64-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.11
+    versionCode: 40090911
+    disable: 'yes'
+    commit: v0.9.11
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-x86_64-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.12
+    versionCode: 40090912
+    commit: v0.9.12
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-x86_64-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+    scanignore:
+      - build.gradle
+
+  - versionName: 0.9.13
+    versionCode: 40090913
+    commit: v0.9.13
+    subdir: vector
+    gradle:
+      - appfdroid
+    output: build/outputs/apk/appfdroid/release/vector-appfdroid-x86_64-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
     scanignore:
       - build.gradle
 
 MaintainerNotes: Upstream builds and publishes a libre build of the jitsi sdk. The
     sdk build and riot use that sdk. The maven repo can be re=created by using ./build_jitsi_libs.sh
 
-ArchivePolicy: 12 versions
+ArchivePolicy: 0 versions
 AutoUpdateMode: None
-UpdateCheckMode: Tags
-CurrentVersion: 0.9.9
-CurrentVersionCode: 40090900
+UpdateCheckMode: None
+CurrentVersion: 0.9.13
+CurrentVersionCode: 40090913

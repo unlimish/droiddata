@@ -22,6 +22,7 @@ Builds:
       - jni/
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 0.9.23-beta
     versionCode: 2
@@ -32,6 +33,7 @@ Builds:
       - jni/
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 0.9.23-beta
     versionCode: 3
@@ -42,6 +44,7 @@ Builds:
       - jni/
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 0.9.23-beta
     versionCode: 5
@@ -52,6 +55,7 @@ Builds:
       - jni/
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 0.9.23-beta_6
     versionCode: 6
@@ -62,6 +66,7 @@ Builds:
       - jni/
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 0.9.23-beta_7
     versionCode: 7
@@ -75,6 +80,7 @@ Builds:
       - jni/
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 0.9.23-beta_8
     versionCode: 8
@@ -88,6 +94,7 @@ Builds:
       - jni/
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 0.9.23-beta_10
     versionCode: 10
@@ -187,7 +194,67 @@ Builds:
       - app/src/main/jni/
     ndk: r14b
 
+  - versionName: 0.9.24
+    versionCode: 924
+    commit: 0.9.24
+    subdir: app
+    gradle:
+      - yes
+    extlibs:
+      - android/android-support-v4.jar
+    prebuild:
+      - cd src/main/jni/tuxpaint/
+      - ./mkzip_assets.sh
+    scandelete:
+      - app/src/main/jni/
+    ndk: r19c
+
+  - versionName: 0.9.25
+    versionCode: 925
+    commit: 0.9.25
+    subdir: app
+    gradle:
+      - yes
+    extlibs:
+      - android/android-support-v4.jar
+    prebuild:
+      - cd src/main/jni/tuxpaint/
+      - ./mkzip_assets.sh
+    scandelete:
+      - app/src/main/jni/
+    ndk: r19c
+
+  - versionName: 0.9.25-bugfix-0
+    versionCode: 9250
+    commit: 0.9.25-bugfix-0
+    subdir: app
+    gradle:
+      - yes
+    extlibs:
+      - android/android-support-v4.jar
+    prebuild:
+      - cd src/main/jni/tuxpaint/
+      - ./mkzip_assets.sh
+    scandelete:
+      - app/src/main/jni/
+    ndk: r19c
+
+  - versionName: 0.9.26
+    versionCode: 9260
+    commit: ff5561b55944782cf745cbae63629c3f06fea20a
+    subdir: app
+    gradle:
+      - yes
+    extlibs:
+      - android/android-support-v4.jar
+    prebuild:
+      - cd src/main/jni/tuxpaint/
+      - ./mkzip_assets.sh
+    scandelete:
+      - app/src/main/jni/
+    ndk: r19c
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.9.23
-CurrentVersionCode: 923
+CurrentVersion: 0.9.26
+CurrentVersionCode: 9260

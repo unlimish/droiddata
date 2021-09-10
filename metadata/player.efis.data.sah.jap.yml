@@ -1,27 +1,24 @@
 Categories:
   - Navigation
 License: Apache-2.0
-WebSite: http://members.iinet.net.au/~ninelima/efis/
-SourceCode: https://gitlab.com/ninelima/kwikEFIS
-IssueTracker: https://gitlab.com/ninelima/kwikEFIS/issues
-Changelog: https://gitlab.com/ninelima/kwikEFIS/blob/HEAD/CHANGELOG.md
-Bitcoin: 1KKWRF25NwVgNdankr1vBphtkLbX766Ee1
+WebSite: https://ninelima.org/efis/
+SourceCode: https://gitlab.com/ninelima/kwikDEM
+IssueTracker: https://gitlab.com/ninelima/kwikDEM/issues
+Changelog: https://gitlab.com/ninelima/kwikDEM/blob/HEAD/CHANGELOG.md
 
-AutoName: Kwik DataPac (sah.jap)
+AutoName: Kwik DEM (sah.jap)
 Description: |-
     The synthetic vision terrain (DEM) data pack for use with
-    [[player.efis.pfd]],
-    [[player.efis.mfd]] and
-    [[player.efis.cfd]].
+    <a href="https://f-droid.org/en/packages/player.efis.pfd/">Kwik EFIS</a>
 
     * Sahara / North Africa
     * India / Indonesia
     * Japan
 
-    '''Screenshots''' [http://members.iinet.net.au/~ninelima/efis/datapac.html]
+    <a href="https://ninelima.org/efis/datapac.html">Help</a>
 
 RepoType: git
-Repo: https://gitlab.com/ninelima/kwikEFIS.git
+Repo: https://gitlab.com/ninelima/kwikDEM.git
 
 Builds:
   - versionName: '1.2'
@@ -31,7 +28,28 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: None
-UpdateCheckMode: Tags ^VER
-CurrentVersion: '1.2'
-CurrentVersionCode: 3
+  - versionName: '1.3'
+    versionCode: 4
+    commit: DEM_1.3
+    subdir: datapac
+    gradle:
+      - sah_jap
+
+  - versionName: '1.4'
+    versionCode: 5
+    commit: DEM_1.4
+    subdir: datapac
+    gradle:
+      - sah_jap
+
+  - versionName: '1.5'
+    versionCode: 6
+    commit: DEM_1.5
+    subdir: datapac
+    gradle:
+      - sah_jap
+
+AutoUpdateMode: Version DEM_%v
+UpdateCheckMode: Tags ^DEM
+CurrentVersion: '1.5'
+CurrentVersionCode: 6

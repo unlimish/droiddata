@@ -161,7 +161,73 @@ Builds:
     prebuild: sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' -e s/ClientId/\'\"f0f32f2ee4a709ba3640\"\'/
         -e s/ClientSecret/\'\"f94cffda88486696c2762ad986bc0b8b830c9cff\"\'/ build.gradle
 
-AutoUpdateMode: Version v%v
+  - versionName: 4.6.0
+    versionCode: 62
+    commit: 4.6.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.2
+    versionCode: 64
+    commit: 4.6.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.3
+    versionCode: 65
+    commit: 4.6.3
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.4
+    versionCode: 66
+    commit: 4.6.4
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.5
+    versionCode: 68
+    commit: b2b46f6ade91cfe0da318b20103ab33482d35b17
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.6
+    versionCode: 69
+    commit: 28b954f2ee8ebbea81de9ffca9a925cdf947e5f6
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 4.5.0
-CurrentVersionCode: 61
+CurrentVersion: 4.6.6
+CurrentVersionCode: 69

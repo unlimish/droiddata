@@ -15,7 +15,7 @@ Description: |-
     refills.
 
     Help with translating RxDroid to your language at
-    [https://crowdin.com/project/rxdroid crowdin.com]!
+    <a href="https://crowdin.com/project/rxdroid">crowdin.com</a>!
 
 RepoType: git
 Repo: https://github.com/jclehner/rxdroid
@@ -47,23 +47,26 @@ Builds:
     commit: v0.9.33.1
     gradle:
       - yes
-    srclibs:
-      - ShowCase-jclehner@fd3318b6a27f13159b57efa0c56d1c1e9d793c60
-    rm:
-      - .m2repo/
-    prebuild:
-      - sed -i -e 's#file://$pwd/.m2repo#https://jitpack.io#' -e "s/warning 'MissingTranslation'/checkReleaseBuilds
-        false/" -e "s/'at.jclehner.rxdroid.localmaven:ShowcaseView:9999'/(name:'ShowcaseView',
-        ext:'aar')/" -e '/theTask.dependsOn/d' build.gradle
-      - mkdir libs/
-      - echo "repositories { flatDir { dirs 'libs' } }" >> build.gradle
-    build:
-      - pushd $$ShowCase-jclehner$$
-      - gradle assembleRelease
-      - popd
-      - mv $$ShowCase-jclehner$$/library/build/libs/library.aar libs/ShowcaseView.aar
+
+  - versionName: 0.9.33.2
+    versionCode: 9332
+    commit: v0.9.33.2
+    gradle:
+      - yes
+
+  - versionName: 0.9.34
+    versionCode: 9340
+    commit: v0.9.34
+    gradle:
+      - yes
+
+  - versionName: 0.9.34.2
+    versionCode: 9342
+    commit: daf68a02116f854d0ec10053752667ce8a5f7072
+    gradle:
+      - yes
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.9.33.1
-CurrentVersionCode: 9331
+CurrentVersion: 0.9.34.2
+CurrentVersionCode: 9342

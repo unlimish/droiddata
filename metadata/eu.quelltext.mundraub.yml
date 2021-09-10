@@ -427,7 +427,25 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: v1.231
+    versionCode: 232
+    commit: v1.231
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: v1.236
+    versionCode: 237
+    commit: v1.236
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - app/libs
+    prebuild: sed -i -e "s|files('libs/commons-lang3-3.7.jar')|'org.apache.commons:commons-lang3:3.7'|"
+        build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: v1.230
-CurrentVersionCode: 231
+CurrentVersion: v1.236
+CurrentVersionCode: 237

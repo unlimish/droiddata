@@ -891,7 +891,49 @@ Builds:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' ../build.gradle build.gradle
 
-AutoUpdateMode: Version %v
-UpdateCheckMode: Tags ^[0-9.]+?$
-CurrentVersion: 3.6.2
-CurrentVersionCode: 213
+  - versionName: 4.3.3
+    versionCode: 3060327
+    commit: 4.3.3
+    subdir: app
+    gradle:
+      - opensource
+    prebuild:
+      - sed -i -e '/fabric/d' {..,.}/build.gradle.kts
+      - sed -i -e '/proprietaryImplementation.*{/,/}/d' ../crashreporting/build.gradle.kts
+      - sed -i -e '/lintOptions {/a\    isCheckReleaseBuilds = false' build.gradle.kts
+    scandelete:
+      - buildSrc
+    gradleprops:
+      - org.gradle.jvmargs=-Xmx1g
+
+  - versionName: 5.0.1
+    versionCode: 3060341
+    commit: 5.0.1
+    subdir: app
+    gradle:
+      - opensource
+    prebuild:
+      - sed -i -e '/fabric/d' {..,.}/build.gradle.kts
+      - sed -i -e '/proprietaryImplementation.*{/,/}/d' ../crashreporting/build.gradle.kts
+      - sed -i -e '/lintOptions {/a\    isCheckReleaseBuilds = false' build.gradle.kts
+    scandelete:
+      - buildSrc
+
+  - versionName: 5.0.2
+    versionCode: 3060342
+    commit: 5.0.2
+    subdir: app
+    gradle:
+      - opensource
+    prebuild:
+      - sed -i -e '/fabric/d' {..,.}/build.gradle.kts
+      - sed -i -e '/proprietaryImplementation.*{/,/}/d' ../crashreporting/build.gradle.kts
+      - sed -i -e '/lintOptions {/a\    isCheckReleaseBuilds = false' build.gradle.kts
+    scandelete:
+      - buildSrc
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: buildSrc/src/main/kotlin/deps/Deps.kt|versionCode\s*=\s*([0-9]+)|.|versionName\s*=\s*"(.+)"
+CurrentVersion: 5.0.2
+CurrentVersionCode: 3060342

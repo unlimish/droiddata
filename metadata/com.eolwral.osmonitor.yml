@@ -9,7 +9,7 @@ Donate: https://github.com/eolwral/OSMonitor
 
 AutoName: OS Monitor
 Description: |-
-    '''NOTE:''' This app is no longer maintained, its repo was archived.
+    <b>NOTE:</b> This app is no longer maintained, its repo was archived.
 
     OS Monitor is a tool for monitoring your Android system. It offers the following
     information:
@@ -19,7 +19,7 @@ Description: |-
     * Misc: monitor processor, battery and file system.
     * Message: check dmesg or logcat in real-time.
 
-    '''Note:''' Due to Android 7.0’s security enhancement, OS Monitor won’t support
+    <b>Note:</b> Due to Android 7.0’s security enhancement, OS Monitor won’t support
     Android 7.0 and following versions.
 
 RepoType: git
@@ -35,6 +35,7 @@ Builds:
       - name-no-gmaps.patch
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 3.0.6.4
     versionCode: 41
@@ -384,6 +385,7 @@ Builds:
       - mv libs/armeabi/osmcore_pie assets/osmcore_arm_pie
       - mv libs/mips/osmcore_pie assets/osmcore_mips_pie
       - mv libs/x86/osmcore_pie assets/osmcore_x86_pie
+    ndk: r12b
 
 MaintainerNotes: ndkMove doesn't work for some reason, so build the native stuff and
     move it ourselves.

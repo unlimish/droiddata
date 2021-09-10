@@ -313,7 +313,113 @@ Builds:
     prebuild: sed -i -e '/com.google.gms/d' -e '/com.google.firebase/d' -e '/fabric/d'
         -e '/crashlytics/d' ../build.gradle build.gradle
 
+  - versionName: '6.2'
+    versionCode: 63
+    commit: v6.2
+    subdir: app
+    gradle:
+      - regular
+    prebuild: sed -i -e '/com.google.gms/d' -e '/com.google.firebase/d' -e '/fabric/d'
+        -e '/crashlytics/d' ../build.gradle build.gradle
+
+  - versionName: '6.3'
+    versionCode: 64
+    commit: v6.3
+    subdir: app
+    gradle:
+      - regular
+    prebuild: sed -i -e '/com.google.gms/d' -e '/com.google.firebase/d' -e '/fabric/d'
+        -e '/crashlytics/d' ../build.gradle build.gradle
+
+  - versionName: '6.4'
+    versionCode: 65
+    commit: v6.4
+    subdir: app
+    gradle:
+      - regular
+    prebuild: sed -i -e '/com.google.gms/d' -e '/com.google.firebase/d' -e '/fabric/d'
+        -e '/crashlytics/d' ../build.gradle build.gradle
+
+  - versionName: '6.5'
+    versionCode: 66
+    commit: v6.5
+    subdir: app
+    gradle:
+      - regular
+    prebuild: sed -i -e '/com.google.gms/d' -e '/com.google.firebase/d' -e '/fabric/d'
+        -e '/crashlytics/d' ../build.gradle build.gradle
+
+  - versionName: '6.6'
+    versionCode: 67
+    commit: v6.6
+    subdir: app
+    gradle:
+      - regular
+    prebuild: sed -i -e '/com.google.gms/d' -e '/com.google.firebase/d' -e '/fabric/d'
+        -e '/crashlytics/d' ../build.gradle build.gradle
+
+  - versionName: '6.7'
+    versionCode: 68
+    commit: v6.7
+    subdir: app
+    gradle:
+      - regular
+    prebuild: sed -i -e '/com.google.gms/d' -e '/com.google.firebase/d' -e '/fabric/d'
+        -e '/crashlytics/d' ../build.gradle build.gradle
+
+  - versionName: '6.9'
+    versionCode: 70
+    commit: 6910790fa7bfce776e25c12a758d7e4ad153dd5f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - regular
+    prebuild: sed -i -e '/com.google.gms/d' -e '/com.google.firebase/d' -e '/fabric/d'
+        -e '/crashlytics/d' ../build.gradle build.gradle
+
+  - versionName: '6.10'
+    versionCode: 71
+    commit: 3afcfa17d0a3ea6474b531da132d9acec6928eb0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - regular
+    prebuild: sed -i -e '/com.google.gms/d' -e '/com.google.firebase/d' -e '/fabric/d'
+        -e '/crashlytics/d' ../build.gradle build.gradle
+
+  - versionName: '6.11'
+    versionCode: 72
+    commit: 94e094e6489cb8daba5209f4cffd2c27f56e93b0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - regular
+    prebuild: sed -i -e '/com.google.gms/d' -e '/com.google.firebase/d' -e '/fabric/d'
+        -e '/crashlytics/d' ../build.gradle build.gradle
+
+  - versionName: '6.12'
+    versionCode: 73
+    commit: 6dadf5e7c36e77a7ef3f45f0395e23b7cbc81ef1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - regular
+    prebuild: sed -i -e '/com.google.gms/d' -e '/com.google.firebase/d' -e '/fabric/d'
+        -e '/crashlytics/d' ../build.gradle build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '6.1'
-CurrentVersionCode: 62
+CurrentVersion: '6.12'
+CurrentVersionCode: 73

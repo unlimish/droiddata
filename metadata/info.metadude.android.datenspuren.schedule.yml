@@ -3,14 +3,15 @@ Categories:
 License: Apache-2.0
 SourceCode: https://github.com/johnjohndoe/CampFahrplan
 IssueTracker: https://github.com/EventFahrplan/EventFahrplan/issues
+Liberapay: EventFahrplan
 
-AutoName: Datenspuren 2019 Fahrplan
+AutoName: Datenspuren 2020 Fahrplan
 Description: |
-    Programm zur Datenspuren Konferenz im Zentralwerk Dresden
+    Programm zur Datenspuren Konferenz
 
-    [https://www.datenspuren.de]
+    <a href="https://www.datenspuren.de">https://www.datenspuren.de</a>
 
-    '''Funktionen'''
+    <b>Funktionen</b>
     * Tagesüberblick über alle Programmpunkte
     * Beschreibung von Veranstaltungen lesen
     * Veranstaltungen in persönlicher Favoritenliste verwalten
@@ -20,7 +21,19 @@ Description: |
     * Link zu Veranstaltungen mit anderen teilen
     * Programmänderungen einsehen
     * Veranstaltungen bewerten
-    * Unterstützte Sprachen: Deutsch, Englisch, Französisch, Portugiesisch (Programmtexte ausgenommen)
+    * Integration mit dem Engelsystem-Projekt <a href="https://engelsystem.de">https://engelsystem.de</a> - Online-Tool für Helfer- und Schichtplanung auf großen Events
+    * Integration mit Chaosflix <a href="https://github.com/NiciDieNase/chaosflix">https://github.com/NiciDieNase/chaosflix</a> - Android App für <a href="https://media.ccc.de">https://media.ccc.de</a>, teile Fahrplan-Favoriten mit Chaosflix und importiere sie als Bookmarks
+
+    🔤 <b>Unterstützte Sprachen</b>
+    (Programmtexte ausgenommen)
+    * Deutsch
+    * Englisch
+    * Französisch
+    * Italienisch
+    * Niederländisch
+    * Portugiesisch
+    * Russisch
+    * Spanisch
 
     💡 Inhaltliche Fragen zum Programm kann nur das Datenspuren-Team
     beantworten. Diese App stellt lediglich die Programmpunkte zur Verfügung.
@@ -28,7 +41,14 @@ Description: |
     💣 Fehlerberichte sind herzlich willkommen, aber achte darauf, dass
     du erklärst, wie man den Fehler reproduzieren kann. Der Issue-Tracker
     findet sich hier:
-    [https://github.com/EventFahrplan/EventFahrplan/issues]
+    <a href="https://github.com/EventFahrplan/EventFahrplan/issues">https://github.com/EventFahrplan/EventFahrplan/issues</a>
+
+    🏆 Die App basiert auf der <b>EventFahrplan-App</b>
+    <a href="https://f-droid.org/packages/info.metadude.android.congress.schedule/">https://f-droid.org/packages/info.metadude.android.congress.schedule/</a>
+    für den Kongress des Chaos Computer Clubs. Der Quellcode der Anwendung ist auf GitHub
+    <a href="https://github.com/johnjohndoe/CampFahrplan/tree/datenspuren-2020">https://github.com/johnjohndoe/CampFahrplan/tree/datenspuren-2020</a> zu finden.
+
+    🎨 Datenspuren-Design von nek0
 
 RepoType: git
 Repo: https://github.com/johnjohndoe/CampFahrplan.git
@@ -45,7 +65,18 @@ Builds:
       - buildSrc/build/*
       - buildSrc/.gradle/*
 
+  - versionName: 1.46.0-Datenspuren-Edition
+    versionCode: 75
+    commit: v.1.46.0-Datenspuren-Edition
+    subdir: app
+    gradle:
+      - datenspuren2020
+    prebuild:
+      - cp local.properties gradle.properties
+      - sed -i -e 's/6.6.1/6.5/' ../gradle/wrapper/gradle-wrapper.properties
+
+ArchivePolicy: 0 versions
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 1.40.0-Datenspuren-Edition
-CurrentVersionCode: 61
+CurrentVersion: 1.46.0-Datenspuren-Edition
+CurrentVersionCode: 75

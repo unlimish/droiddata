@@ -66,7 +66,65 @@ Builds:
       - ./rewrite.sh
       - ./binary.sh
 
-AutoUpdateMode: None
+  - versionName: 1.9.4 - neowisehack
+    versionCode: 1510
+    commit: 25e8ccf98f97692d9fd1a914b9b3b637506c70f6
+    subdir: app
+    gradle:
+      - Fdroid
+    rm:
+      - app/libs-src/*
+      - app/libs/*
+      - tools/libs/*
+    prebuild:
+      - sed -i -e 's/gms/fdroid/' ../tools/build.gradle
+      - sed -i -e "s/implementation fileTree.*/implementation 'com.google.protobuf:protobuf-java:2.6.1'/"
+        ../tools/build.gradle
+      - sed -i -e '/gms/d' ../build.gradle
+      - sed -i -e '/gmsCompile/d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e '/fdroid/,+2 s#//##' build.gradle
+      - sed -i -e "s/implementation fileTree.*/implementation 'com.google.protobuf:protobuf-java:2.3.0'/"
+        build.gradle
+      - cd ..
+      - gradle assembleFdroid installDist
+      - cd tools
+      - sed -i -e 's#CLASSPATH=#CLASSPATH=$APP_HOME/lib/:#g' build/install/datagen/bin/datagen
+      - ./generate.sh
+      - ./rewrite.sh
+      - ./binary.sh
+    scanignore:
+      - tools/build
+
+  - versionName: 1.9.6 - RC2
+    versionCode: 1519
+    commit: 6c5e604a571dc7f337c68568c4045246f107b6ca
+    subdir: app
+    gradle:
+      - Fdroid
+    prebuild:
+      - sed -i -e '/gms/d' ../build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - cd ..
+      - gradle installDist
+      - cd tools
+      - sed -i -e 's#CLASSPATH=#CLASSPATH=$APP_HOME/lib/:#g' build/install/datagen/bin/datagen
+      - ./generate.sh
+      - ./binary.sh
+    scanignore:
+      - tools/build
+
+  - versionName: 1.9.7 - RC1
+    versionCode: 1524
+    commit: 7775d5b7268301e3c148828c88f587faf7ea8f31
+    subdir: app
+    gradle:
+      - Fdroid
+    prebuild:
+      - sed -i -e '/gms/d' ../build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+
+AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.9.2
-CurrentVersionCode: 1480
+CurrentVersion: 1.9.7 - RC1
+CurrentVersionCode: 1524

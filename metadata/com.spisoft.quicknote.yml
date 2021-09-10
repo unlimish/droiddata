@@ -1,14 +1,14 @@
 Categories:
   - Writing
 License: GPL-3.0-only
-WebSite: https://github.com/PhieF/CarnetDocumentation/blob/HEAD/README.md
-SourceCode: https://github.com/PhieF/CarnetFdroid
-IssueTracker: https://github.com/PhieF/CarnetAndroid/issues
-Changelog: https://github.com/PhieF/CarnetAndroid/blob/HEAD/app/src/main/assets/CHANGELOG.md
+WebSite: https://github.com/CarnetApp/CarnetFdroid/blob/HEAD/README.md
+SourceCode: https://github.com/CarnetApp/CarnetFdroid
+IssueTracker: https://github.com/CarnetApp/CarnetFdroid/issues
+Changelog: https://github.com/CarnetApp/CarnetFdroid/blob/HEAD/app/src/main/assets/CHANGELOG.md
 LiberapayID: '34946'
 
 RepoType: git
-Repo: https://github.com/PhieF/CarnetFdroid.git
+Repo: https://github.com/CarnetApp/CarnetFdroid.git
 
 Builds:
   - versionName: '0.1'
@@ -364,7 +364,84 @@ Builds:
       - sed -i -e "s/, ':GoogleSync'//; /GoogleSync/d" ../settings.gradle
       - sed -i -e '/googleImplementation/d' build.gradle
 
+  - versionName: 0.21.0
+    versionCode: 210
+    commit: v0.21.0
+    subdir: app/CarnetAndroid/app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e "s/, ':GoogleSync'//; /GoogleSync/d" ../settings.gradle
+      - sed -i -e '/googleImplementation/d' build.gradle
+
+  - versionName: 0.22.0
+    versionCode: 220
+    commit: v0.22.0
+    subdir: app/CarnetAndroid/app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e "s/, ':GoogleSync'//; /GoogleSync/d" ../settings.gradle
+      - sed -i -e '/googleImplementation/d' build.gradle
+
+  - versionName: 0.22.1
+    versionCode: 221
+    commit: v0.22.1
+    subdir: app/CarnetAndroid/app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e "s/, ':GoogleSync'//; /GoogleSync/d" ../settings.gradle
+      - sed -i -e '/googleImplementation/d' build.gradle
+
+  - versionName: 0.22.2
+    versionCode: 222
+    commit: v0.22.2
+    subdir: app/CarnetAndroid/app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e "s/, ':GoogleSync'//; /GoogleSync/d" ../settings.gradle
+      - sed -i -e '/googleImplementation/d' build.gradle
+
+  - versionName: 0.23.0
+    versionCode: 230
+    commit: v0.23.0
+    subdir: app/CarnetAndroid/app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e "s/, ':GoogleSync'//; /GoogleSync/d" ../settings.gradle
+      - sed -i -e '/googleImplementation/d' build.gradle
+
+  - versionName: 0.23.1
+    versionCode: 231
+    commit: v0.23.1
+    subdir: app/CarnetAndroid/app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e "s/, ':GoogleSync'//; /GoogleSync/d" ../settings.gradle
+      - sed -i -e '/googleImplementation/d' build.gradle
+
+  - versionName: 0.24.1
+    versionCode: 241
+    commit: 9b3d72843f4a4f4a029322e4aaa526a759dd1549
+    subdir: app/CarnetAndroid/app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e "s/, ':GoogleSync'//; /GoogleSync/d" ../settings.gradle
+      - sed -i -e '/googleImplementation/d' build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.20.0
-CurrentVersionCode: 200
+CurrentVersion: 0.24.1
+CurrentVersionCode: 241

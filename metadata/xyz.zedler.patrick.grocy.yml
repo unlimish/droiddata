@@ -1,0 +1,73 @@
+Categories:
+  - Sports & Health
+License: GPL-3.0-only
+AuthorName: Patrick Zedler
+AuthorEmail: patrick@zedler.xyz
+WebSite: https://grocy.info/
+SourceCode: https://github.com/patzly/grocy-android
+IssueTracker: https://github.com/patzly/grocy-android/issues
+Changelog: https://github.com/patzly/grocy-android/releases
+
+AutoName: Grocy
+
+RepoType: git
+Repo: https://github.com/patzly/grocy-android
+
+Builds:
+  - versionName: 1.8.7
+    versionCode: 21
+    commit: v1.8.7
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.9.0
+    versionCode: 22
+    commit: v1.9.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.10.0
+    versionCode: 23
+    commit: v1.10.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.10.1
+    versionCode: 24
+    commit: v1.10.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.0-beta01
+    versionCode: 32
+    commit: v2.0.0-beta1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.0-beta02
+    versionCode: 33
+    commit: v2.0.0-beta2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.0-beta03
+    versionCode: 34
+    commit: e0c83f737dff0d15f7b2c439e6587627eb0ff169
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 2.0.0-beta03
+CurrentVersionCode: 34

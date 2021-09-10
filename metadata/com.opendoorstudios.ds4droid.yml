@@ -32,6 +32,7 @@ Builds:
     target: android-15
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '21'
     versionCode: 21
@@ -44,6 +45,7 @@ Builds:
     target: android-16
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '23'
     versionCode: 23
@@ -56,6 +58,7 @@ Builds:
     target: android-16
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '25'
     versionCode: 25
@@ -68,6 +71,7 @@ Builds:
     target: android-16
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '26'
     versionCode: 26
@@ -80,6 +84,7 @@ Builds:
     target: android-16
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '27'
     versionCode: 27
@@ -92,6 +97,7 @@ Builds:
     target: android-17
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '28'
     versionCode: 28
@@ -104,6 +110,7 @@ Builds:
     target: android-17
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '29'
     versionCode: 29
@@ -116,6 +123,7 @@ Builds:
     target: android-17
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '30'
     versionCode: 30
@@ -128,6 +136,7 @@ Builds:
     target: android-17
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '40'
     versionCode: 40
@@ -140,6 +149,7 @@ Builds:
     target: android-17
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '42'
     versionCode: 423
@@ -156,6 +166,7 @@ Builds:
       - jni/desmume
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '44'
     versionCode: 441
@@ -170,6 +181,7 @@ Builds:
       - jni/desmume
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '44'
     versionCode: 443
@@ -184,6 +196,7 @@ Builds:
       - jni/desmume
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '45'
     versionCode: 451
@@ -201,6 +214,7 @@ Builds:
       - libs
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '45'
     versionCode: 453
@@ -218,6 +232,7 @@ Builds:
       - libs
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '46'
     versionCode: 461
@@ -236,6 +251,7 @@ Builds:
       - jni/desmume
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '46'
     versionCode: 463
@@ -254,50 +270,7 @@ Builds:
       - jni/desmume
     buildjni:
       - yes
-
-  - versionName: '47'
-    versionCode: 471
-    disable: ndk-build issue
-    commit: release47
-    subdir: app
-    gradle:
-      - yes
-    forcevercode: true
-    rm:
-      - app/libs/ouya-sdk.jar
-    prebuild:
-      - echo 'APP_ABI=x86' >> src/main/jni/Application.mk
-      - sed -i 's/IS_OUYA =.*/IS_OUYA = false;/' src/main/java/com/opendoorstudios/ds4droid/MainActivity.java
-      - sed -i -e '/ouya/d' build.gradle
-    scanignore:
-      - app/src/main/jni/android-ndk-profiler
-    scandelete:
-      - app/src/main/jni/desmume
-    buildjni:
-      - yes
-    ndk: r10e
-
-  - versionName: '47'
-    versionCode: 473
-    disable: ndk-build issue
-    commit: release47
-    subdir: app
-    gradle:
-      - yes
-    forcevercode: true
-    rm:
-      - app/libs/ouya-sdk.jar
-    prebuild:
-      - echo 'APP_ABI=armeabi-v7a' >> src/main/jni/Application.mk
-      - sed -i 's/IS_OUYA =.*/IS_OUYA = false;/' src/main/java/com/opendoorstudios/ds4droid/MainActivity.java
-      - sed -i -e '/ouya/d' build.gradle
-    scanignore:
-      - app/src/main/jni/android-ndk-profiler
-    scandelete:
-      - app/src/main/jni/desmume
-    buildjni:
-      - yes
-    ndk: r10e
+    ndk: r12b
 
 MaintainerNotes: |-
     +0: - (upstream)
@@ -307,7 +280,7 @@ MaintainerNotes: |-
 
 ArchivePolicy: 6 versions
 AutoUpdateMode: None
-UpdateCheckMode: Tags
+UpdateCheckMode: None
 VercodeOperation: '%c*10 + 3'
-CurrentVersion: '47'
-CurrentVersionCode: 473
+CurrentVersion: '46'
+CurrentVersionCode: 463

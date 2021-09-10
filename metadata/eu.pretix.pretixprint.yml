@@ -1,3 +1,5 @@
+AntiFeatures:
+  - Tracking
 Categories:
   - Multimedia
 License: GPL-3.0-only
@@ -8,9 +10,9 @@ SourceCode: https://github.com/pretix/pretixprint-android
 IssueTracker: https://github.com/pretix/pretixprint-android/issues
 
 AutoName: pretixPRINT
-Description: Android app that drives the printers used by other pretix applications.
-    This contains all print logic, but no application logic. It is called by other
-    applications using system broadcasts.
+Description: |-
+    Android app that drives the printers used by other pretix applications. This contains all print logic, but no application logic. It is called by other applications using system broadcasts.
+    Tracking due to Sentry which cannot be disabled by the user.
 
 RepoType: git
 Repo: https://github.com/pretix/pretixprint-android
@@ -48,7 +50,72 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.5.2
+    versionCode: 15
+    commit: 1.5.2
+    subdir: pretixprint/app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 1.5.3
+    versionCode: 16
+    commit: 1.5.3
+    subdir: pretixprint/app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 1.5.4
+    versionCode: 18
+    commit: 1.5.4
+    subdir: pretixprint/app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 2.0.0
+    versionCode: 19
+    commit: 2.0.0
+    subdir: pretixprint/app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 2.1.1
+    versionCode: 21
+    commit: 2.1.1
+    subdir: pretixprint/app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 2.2.0
+    versionCode: 22
+    commit: 2.2.0
+    subdir: pretixprint/app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 2.3.2
+    versionCode: 26
+    disable: 'fails to build: USB.kt: (19, 27): Unresolved reference: io'
+    commit: 2.3.2
+    subdir: pretixprint/app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 2.3.3-foss
+    versionCode: 27
+    commit: 2.3.3
+    subdir: pretixprint/app
+    submodules: true
+    gradle:
+      - foss
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.5.1
-CurrentVersionCode: 14
+CurrentVersion: 2.3.3-foss
+CurrentVersionCode: 27

@@ -8,11 +8,11 @@ Changelog: https://github.com/nextcloud/news-android/blob/HEAD/CHANGELOG.md
 
 AutoName: News
 Description: |-
-    The [https://github.com/nextcloud/news-android Nextcloud News Reader App] makes
+    The <a href="https://github.com/nextcloud/news-android">Nextcloud News Reader App</a> makes
     it possible to synchronize feeds between Android and the Nextcloud/ownCloud News
     App and let’s you read RSS feeds on the go.
 
-    '''Features:'''
+    <b>Features:</b>
 
     * Offline reading
     * Cache images offline
@@ -1384,11 +1384,209 @@ Builds:
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
       - mv $$MaterialFilePicker$$/library/build/outputs/aar/library-release.aar libs/MaterialFilePicker-1.8.aar
 
+  - versionName: 0.9.9.37
+    versionCode: 153
+    commit: v.0.9.9.38
+    subdir: News-Android-App
+    init:
+      - sed -i -e '/com.nbsp:library/d' build.gradle
+      - sed -i -e '/com.gu:option/d' build.gradle
+      - sed -i -e '/guardian.github.com/d; /dl.bintray.com/d' build.gradle
+      - sed -i -e '/signingConfigs {/,+3d' build.gradle
+      - sed -i "/repositories {/a\    flatDir { dirs 'libs' }" build.gradle
+      - sed -i "/dependencies {/a\    implementation(name:'MaterialFilePicker-1.8',
+        ext:'aar')" build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - MaterialFilePicker@7f3679f
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - rm -rf $$MaterialFilePicker$$/app
+      - pushd $$MaterialFilePicker$$/library
+      - sed -i -e '/apply from/d' build.gradle
+      - gradle assembleRelease
+      - popd
+      - pushd $$JavaOptionClass$$
+      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+      - mv $$MaterialFilePicker$$/library/build/outputs/aar/library-release.aar libs/MaterialFilePicker-1.8.aar
+    scanignore:
+      - News-Android-App/libs/MaterialFilePicker-1.8.aar
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.40
+    versionCode: 156
+    commit: v.0.9.9.40
+    subdir: News-Android-App
+    init:
+      - sed -i -e '/com.nbsp:library/d' build.gradle
+      - sed -i -e '/com.gu:option/d' build.gradle
+      - sed -i -e '/guardian.github.com/d; /dl.bintray.com/d' build.gradle
+      - sed -i -e '/signingConfigs {/,+3d' build.gradle
+      - sed -i "/repositories {/a\    flatDir { dirs 'libs' }" build.gradle
+      - sed -i "/dependencies {/a\    implementation(name:'MaterialFilePicker-1.8',
+        ext:'aar')" build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - MaterialFilePicker@7f3679f
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - rm -rf $$MaterialFilePicker$$/app
+      - pushd $$MaterialFilePicker$$/library
+      - sed -i -e '/apply from/d' build.gradle
+      - gradle assembleRelease
+      - popd
+      - pushd $$JavaOptionClass$$
+      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+      - mv $$MaterialFilePicker$$/library/build/outputs/aar/library-release.aar libs/MaterialFilePicker-1.8.aar
+    scanignore:
+      - News-Android-App/libs/MaterialFilePicker-1.8.aar
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.50
+    versionCode: 158
+    commit: v.0.9.9.50
+    subdir: News-Android-App
+    init:
+      - sed -i -e '/com.nbsp:library/d' build.gradle
+      - sed -i -e '/com.gu:option/d' build.gradle
+      - sed -i -e '/guardian.github.com/d; /dl.bintray.com/d' build.gradle
+      - sed -i -e '/signingConfigs {/,+3d' build.gradle
+      - sed -i "/repositories {/a\    flatDir { dirs 'libs' }" build.gradle
+      - sed -i "/dependencies {/a\    implementation(name:'MaterialFilePicker-1.8',
+        ext:'aar')" build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - MaterialFilePicker@7f3679f
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - rm -rf $$MaterialFilePicker$$/app
+      - pushd $$MaterialFilePicker$$/library
+      - sed -i -e '/apply from/d' build.gradle
+      - gradle assembleRelease
+      - popd
+      - pushd $$JavaOptionClass$$
+      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+      - mv $$MaterialFilePicker$$/library/build/outputs/aar/library-release.aar libs/MaterialFilePicker-1.8.aar
+    scanignore:
+      - News-Android-App/libs/MaterialFilePicker-1.8.aar
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.60
+    versionCode: 163
+    commit: v.0.9.9.60
+    subdir: News-Android-App
+    init:
+      - sed -i -e '/com.nbsp:library/d' build.gradle
+      - sed -i -e '/com.gu:option/d' build.gradle
+      - sed -i -e '/guardian.github.com/d; /dl.bintray.com/d' build.gradle
+      - sed -i -e '/signingConfigs {/,+3d' build.gradle
+      - sed -i "/repositories {/a\    flatDir { dirs 'libs' }" build.gradle
+      - sed -i "/dependencies {/a\    implementation(name:'MaterialFilePicker-1.8',
+        ext:'aar')" build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - MaterialFilePicker@7f3679f
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - rm -rf $$MaterialFilePicker$$/app
+      - pushd $$MaterialFilePicker$$/library
+      - sed -i -e '/apply from/d' build.gradle
+      - gradle assembleRelease
+      - popd
+      - pushd $$JavaOptionClass$$
+      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+      - mv $$MaterialFilePicker$$/library/build/outputs/aar/library-release.aar libs/MaterialFilePicker-1.8.aar
+    scanignore:
+      - News-Android-App/libs/MaterialFilePicker-1.8.aar
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.61
+    versionCode: 164
+    commit: v.0.9.9.61
+    subdir: News-Android-App
+    init:
+      - sed -i -e '/com.nbsp:library/d' build.gradle
+      - sed -i -e '/com.gu:option/d' build.gradle
+      - sed -i -e '/guardian.github.com/d; /dl.bintray.com/d' build.gradle
+      - sed -i -e '/signingConfigs {/,+3d' build.gradle
+      - sed -i "/repositories {/a\    flatDir { dirs 'libs' }" build.gradle
+      - sed -i "/dependencies {/a\    implementation(name:'MaterialFilePicker-1.8',
+        ext:'aar')" build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - MaterialFilePicker@7f3679f
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - rm -rf $$MaterialFilePicker$$/app
+      - pushd $$MaterialFilePicker$$/library
+      - sed -i -e '/apply from/d' build.gradle
+      - gradle assembleRelease
+      - popd
+      - pushd $$JavaOptionClass$$
+      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+      - mv $$MaterialFilePicker$$/library/build/outputs/aar/library-release.aar libs/MaterialFilePicker-1.8.aar
+    scanignore:
+      - News-Android-App/libs/MaterialFilePicker-1.8.aar
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.62
+    versionCode: 165
+    commit: c2d97f496d6fcdfec13d56620c8e27d7aed5417f
+    subdir: News-Android-App
+    init:
+      - sed -i -e '/com.nbsp:library/d' build.gradle
+      - sed -i -e '/com.gu:option/d' build.gradle
+      - sed -i -e '/guardian.github.com/d; /dl.bintray.com/d' build.gradle
+      - sed -i -e '/signingConfigs {/,+3d' build.gradle
+      - sed -i "/repositories {/a\    flatDir { dirs 'libs' }" build.gradle
+      - sed -i "/dependencies {/a\    implementation(name:'MaterialFilePicker-1.8',
+        ext:'aar')" build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - MaterialFilePicker@7f3679f
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - rm -rf $$MaterialFilePicker$$/app
+      - pushd $$MaterialFilePicker$$/library
+      - sed -i -e '/apply from/d' build.gradle
+      - gradle assembleRelease
+      - popd
+      - pushd $$JavaOptionClass$$
+      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+      - mv $$MaterialFilePicker$$/library/build/outputs/aar/library-release.aar libs/MaterialFilePicker-1.8.aar
+    scanignore:
+      - News-Android-App/libs/MaterialFilePicker-1.8.aar
+      - News-Android-App/libs/option-1.3.jar
+
 MaintainerNotes: |-
     MaterialShowcaseView/build.gradle misses the google() repo but it's specified at top level.
     So deleting this file prevents it from overriding the top level one.
 
 AutoUpdateMode: Version v.%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.9.9.36
-CurrentVersionCode: 152
+CurrentVersion: 0.9.9.62
+CurrentVersionCode: 165

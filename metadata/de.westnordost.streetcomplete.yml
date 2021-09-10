@@ -3,11 +3,11 @@ Categories:
 License: GPL-3.0-only
 AuthorName: Tobias Zwick
 AuthorEmail: osm@westnordost.de
-WebSite: https://github.com/westnordost/StreetComplete/wiki
-SourceCode: https://github.com/westnordost/StreetComplete
-IssueTracker: https://github.com/westnordost/StreetComplete/issues
+WebSite: https://github.com/streetcomplete/StreetComplete/wiki
+SourceCode: https://github.com/streetcomplete/StreetComplete
+IssueTracker: https://github.com/streetcomplete/StreetComplete/issues
 Translation: https://poeditor.com/join/project/IE4GC127Ki
-Changelog: https://github.com/westnordost/StreetComplete/releases
+Changelog: https://github.com/streetcomplete/StreetComplete/releases
 LiberapayID: '1625952'
 
 AutoName: Street­Complete
@@ -22,7 +22,7 @@ Description: |-
     without the need to use another editor.
 
 RepoType: git
-Repo: https://github.com/westnordost/StreetComplete.git
+Repo: https://github.com/streetcomplete/StreetComplete.git
 
 Builds:
   - versionName: '0.4'
@@ -442,8 +442,367 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 18.0-beta1
+    versionCode: 1800
+    disable: beta
+    commit: v18.0-beta1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '18.0'
+    versionCode: 1801
+    commit: v18.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 19.0-alpha1
+    versionCode: 1900
+    disable: beta
+    commit: v19.0-alpha1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '19.0'
+    versionCode: 1902
+    commit: v19.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '19.1'
+    versionCode: 1903
+    commit: v19.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '19.2'
+    versionCode: 1904
+    commit: v19.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '20.0'
+    versionCode: 2002
+    commit: v20.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '20.1'
+    versionCode: 2003
+    commit: v20.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '20.2'
+    versionCode: 2004
+    commit: v20.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '21.0'
+    versionCode: 2101
+    commit: v21.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '21.1'
+    versionCode: 2102
+    commit: v21.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '21.2'
+    versionCode: 2103
+    commit: v21.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '22.0'
+    versionCode: 2201
+    commit: v22.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '22.1'
+    versionCode: 2202
+    commit: v22.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '22.2'
+    versionCode: 2203
+    commit: v22.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '22.3'
+    versionCode: 2204
+    commit: v22.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '23.0'
+    versionCode: 2302
+    commit: v23.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '24.0'
+    versionCode: 2401
+    commit: v24.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '24.1'
+    versionCode: 2402
+    commit: v24.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '25.1'
+    versionCode: 2501
+    commit: v25.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '26.0'
+    versionCode: 2603
+    commit: v26.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '26.1'
+    versionCode: 2604
+    commit: v26.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '26.2'
+    versionCode: 2605
+    commit: v26.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '27.0'
+    versionCode: 2703
+    commit: v27.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '27.1'
+    versionCode: 2704
+    commit: v27.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '27.2'
+    versionCode: 2705
+    commit: v27.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '28.0'
+    versionCode: 2802
+    commit: v28.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '28.1'
+    versionCode: 2803
+    commit: v28.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '29.0'
+    versionCode: 2901
+    commit: v29.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '29.1'
+    versionCode: 2902
+    commit: v29.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '30.0'
+    versionCode: 3001
+    commit: v30.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '30.1'
+    versionCode: 3002
+    commit: v30.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '31.0'
+    versionCode: 3101
+    commit: v31.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '31.1'
+    versionCode: 3102
+    commit: v31.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '31.2'
+    versionCode: 3103
+    commit: v31.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '31.3'
+    versionCode: 3104
+    commit: v31.3
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '32.0'
+    versionCode: 3203
+    commit: v32.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '32.1'
+    versionCode: 3204
+    commit: v32.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '32.2'
+    versionCode: 3205
+    commit: 8be04e2219b93419a74816f79b09dec0b72820ad
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '33.0'
+    versionCode: 3301
+    commit: ae9395fb27b24a0d8b4a7833bb8814b57299a0b0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '33.1'
+    versionCode: 3302
+    commit: 3ad9222308733f0cb5e5bf24a25c49d89cd3bbc1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '33.2'
+    versionCode: 3303
+    commit: 6b86eb09260f06858dd927e56c28939dbfe0961e
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '34.0'
+    versionCode: 3401
+    commit: 7299c041472b07646c747aa3e447f8249c6a7178
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '34.1'
+    versionCode: 3402
+    commit: 6c0db245b54b23e1e60c7354929f69fe7f04d41a
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
 AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-UpdateCheckIgnore: (alpha|beta|rc|RC)
-CurrentVersion: '17.3'
-CurrentVersionCode: 1706
+UpdateCheckMode: Tags ^v\d+(\.\d+)?$
+CurrentVersion: '34.1'
+CurrentVersionCode: 3402

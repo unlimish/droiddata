@@ -1,0 +1,37 @@
+AntiFeatures:
+  - NonFreeAdd
+Categories:
+  - System
+License: GPL-3.0-or-later
+AuthorName: Olga-Yakovleva
+WebSite: https://github.com/RHVoice/RHVoice/wiki
+SourceCode: https://github.com/RHVoice/RHVoice
+IssueTracker: https://github.com/RHVoice/RHVoice/issues
+
+RepoType: git
+Repo: https://github.com/RHVoice/RHVoice.git
+
+Builds:
+  - versionName: 1.2.3
+    versionCode: 10203
+    commit: 7973199ff4d064fd0602ed26ef2d69c10fe29ba7
+    subdir: src/android/RHVoice-core
+    gradle:
+      - yes
+    ndk: r21d
+
+  - versionName: 1.2.4
+    versionCode: 10204
+    commit: 1.2.4
+    subdir: src/android/RHVoice-core
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - src/third-party/cldr
+    ndk: r21e
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 1.2.4
+CurrentVersionCode: 10204

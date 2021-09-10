@@ -20,6 +20,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/fabric/d' build.gradle ../build.gradle
+    antifeatures:
+      - Tracking
 
   - versionName: 1.9.4.4
     versionCode: 139
@@ -28,6 +30,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/fabric/d' build.gradle ../build.gradle
+    antifeatures:
+      - Tracking
 
   - versionName: 1.9.4.5
     versionCode: 140
@@ -36,6 +40,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/fabric/d' build.gradle ../build.gradle
+    antifeatures:
+      - Tracking
 
   - versionName: 1.9.4.6
     versionCode: 141
@@ -44,6 +50,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/fabric/d' build.gradle ../build.gradle
+    antifeatures:
+      - Tracking
 
   - versionName: 1.10.2
     versionCode: 144
@@ -52,16 +60,287 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/fabric/d' build.gradle ../build.gradle
+    antifeatures:
+      - Tracking
 
   - versionName: 1.11.2
     versionCode: 146
+    disable: unknown maven
     commit: 1.11.2
     subdir: app
     gradle:
       - yes
     prebuild: sed -i -e '/fabric/d' build.gradle ../build.gradle
 
+  - versionName: 1.11.2.1
+    versionCode: 147
+    commit: 1.11.2.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/fabric/d' build.gradle ../build.gradle
+    antifeatures:
+      - Tracking
+
+  - versionName: 1.11.4.1
+    versionCode: 149
+    commit: 1.11.4.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/fabric/d' -e '/osborn/d' build.gradle ../build.gradle
+    antifeatures:
+      - Tracking
+
+  - versionName: 1.11.6
+    versionCode: 151
+    commit: 1.11.6
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/fabric/d' -e '/osborn/d' build.gradle ../build.gradle
+    antifeatures:
+      - Tracking
+
+  - versionName: 1.12.1
+    versionCode: 152
+    commit: 1.12.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/fabric/d' -e '/osborn/d' build.gradle ../build.gradle
+    antifeatures:
+      - Tracking
+
+  - versionName: 1.12.5
+    versionCode: 153
+    commit: 1.12.5
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/fabric/d' -e '/osborn/d' build.gradle ../build.gradle
+    antifeatures:
+      - Tracking
+
+  - versionName: 1.12.6
+    versionCode: 154
+    commit: 1.12.6
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/fabric/d' -e '/osborn/d' build.gradle ../build.gradle
+    antifeatures:
+      - Tracking
+
+  - versionName: 1.12.6.1
+    versionCode: 155
+    commit: 1.12.6.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/fabric/d' -e '/osborn/d' build.gradle ../build.gradle
+    antifeatures:
+      - Tracking
+
+  - versionName: 1.12.9
+    versionCode: 157
+    commit: 1.12.9
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+    antifeatures:
+      - Tracking
+
+  - versionName: 1.13.1
+    versionCode: 158
+    disable: firebase
+    commit: 1.13.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.13.1.1
+    versionCode: 159
+    commit: 1.13.1.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+    antifeatures:
+      - Tracking
+
+  - versionName: 1.13.2
+    versionCode: 160
+    commit: 1.13.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+    antifeatures:
+      - Tracking
+
+  - versionName: 1.13.4
+    versionCode: 162
+    commit: 1.13.4
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.13.5
+    versionCode: 163
+    commit: 1.13.5
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.13.8
+    versionCode: 164
+    commit: 1.13.8
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.14.0
+    versionCode: 165
+    disable: unknown maven
+    commit: 1.14.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.14.3
+    versionCode: 166
+    commit: 1.14.3
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.14.4
+    versionCode: 167
+    commit: 1.14.4
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.14.7
+    versionCode: 168
+    commit: 1.14.7
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.14.8
+    versionCode: 169
+    commit: 1.14.8
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.14.9
+    versionCode: 170
+    commit: 74302b2106c850c094bec371fb5f37591b03a9e8
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.14.10
+    versionCode: 171
+    commit: 2d684e2de2735a293a7a6a5b92c9bb397ff089c0
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.14.10.1
+    versionCode: 172
+    commit: 714b7ccf81a4767d96fcca93ecbc6ba9082b217d
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.14.10.2
+    versionCode: 173
+    commit: fbc66ddc7cc83f187d96004fc73dc4595eaa40c1
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.0
+    versionCode: 174
+    commit: 4b56c379e1da427b56f79bca9050d95405633021
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.1
+    versionCode: 175
+    commit: 2b512ce4dbd341c2309e47da3ff38cd254464cde
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.2
+    versionCode: 176
+    commit: 257e6798d06e44f9249162c3c902f4ef983baae1
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.11.2
-CurrentVersionCode: 146
+CurrentVersion: 1.15.2
+CurrentVersionCode: 176

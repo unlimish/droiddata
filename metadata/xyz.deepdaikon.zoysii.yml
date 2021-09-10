@@ -6,7 +6,10 @@ AuthorEmail: deepdaikon@tuta.io
 WebSite: https://gitlab.com/DeepDaikon/Zoysii
 SourceCode: https://gitlab.com/DeepDaikon/Zoysii/tree/HEAD
 IssueTracker: https://gitlab.com/DeepDaikon/Zoysii/issues
+Translation: https://translate.deepdaikon.xyz/engage/zoysii/
 Changelog: https://gitlab.com/DeepDaikon/Zoysii/tree/HEAD/CHANGELOG
+Donate: https://deepdaikon.xyz/donate
+Liberapay: deepdaikon
 
 AutoName: Zoysii
 
@@ -70,7 +73,63 @@ Builds:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk
 
+  - versionName: 2.0.1
+    versionCode: 8
+    commit: v2.0.1
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@v1.12.13+hotfix.5
+    rm:
+      - ios
+    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
+        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.1.0
+    versionCode: 9
+    commit: v2.1.0
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@v1.12.13+hotfix.5
+    rm:
+      - ios
+    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
+        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.2.0
+    versionCode: 10
+    commit: v2.2.0
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@1.22.5
+    rm:
+      - ios
+    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
+        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.3.0
+    versionCode: 11
+    commit: 88409a6ad77718ee34bf2c7c6600b96e149cca3d
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@1.22.5
+    rm:
+      - ios
+    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
+        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.0.0
-CurrentVersionCode: 7
+CurrentVersion: 2.3.0
+CurrentVersionCode: 11

@@ -28,25 +28,25 @@ Description: |-
 
     Dual-SIM and Multi-SIM phones are now fully supported by QKSMS!
 
-    '''Clean:''' A beautiful, intuitive, and clutter-free design that allows you to
+    <b>Clean:</b> A beautiful, intuitive, and clutter-free design that allows you to
     focus on what matters.
 
-    '''Customizable:''' Use any of the millions of colors to theme the entire app,
+    <b>Customizable:</b> Use any of the millions of colors to theme the entire app,
     or any particular conversation. Per-contact notifications allow you to easily
     prioritize and distinguish your messages. Manual and automatic night mode are
     great too.
 
-    '''Powerful:''' Use MMS to share photos, stickers, or join your friends in a
+    <b>Powerful:</b> Use MMS to share photos, stickers, or join your friends in a
     group chat. Conversation search allows you to find things easier than ever.
 
-    '''Private:''' Easily block conversations and manage your blacklist, or
+    <b>Private:</b> Easily block conversations and manage your blacklist, or
     automatically filter out spam with Should I Answer? integration.
 
-    '''Convenient:''' Reply to your messages from anywhere using the QK Reply popup,
+    <b>Convenient:</b> Reply to your messages from anywhere using the QK Reply popup,
     your Wear OS (Android Wear) watch, or directly from your notification shade
     (Android 7.0+)
 
-    '''Accessibility:''' High contrast black theme, and full support for TalkBack
+    <b>Accessibility:</b> High contrast black theme, and full support for TalkBack
     and Samsung Voice Assistant.
 
     We love hearing what you have to say, so always feel free to let us know
@@ -741,7 +741,59 @@ Builds:
       - sed -i -e '/io.fabric/d; /com.google.gms/d' ../build.gradle build.gradle
     ndk: r16b
 
+  - versionName: 3.9.0
+    versionCode: 2214
+    commit: v3.9.0
+    subdir: presentation
+    gradle:
+      - noAnalytics
+    prebuild:
+      - sed -i -e 's/enable true/enable false/' -e '/withAnalyticsImplementation/d'
+        build.gradle
+      - sed -i -e '/glide-snapshot/d; /maven.fabric.io/d' ../build.gradle
+      - sed -i -e '/io.fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+    ndk: r16b
+
+  - versionName: 3.9.1
+    versionCode: 2215
+    commit: v3.9.1
+    subdir: presentation
+    gradle:
+      - noAnalytics
+    prebuild:
+      - sed -i -e 's/enable true/enable false/' -e '/withAnalyticsImplementation/d'
+        build.gradle
+      - sed -i -e '/glide-snapshot/d; /maven.fabric.io/d' ../build.gradle
+      - sed -i -e '/io.fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+    ndk: r16b
+
+  - versionName: 3.9.2
+    versionCode: 2216
+    commit: v3.9.2
+    subdir: presentation
+    gradle:
+      - noAnalytics
+    prebuild:
+      - sed -i -e 's/enable true/enable false/' -e '/withAnalyticsImplementation/d'
+        build.gradle
+      - sed -i -e '/glide-snapshot/d; /maven.fabric.io/d' ../build.gradle
+      - sed -i -e '/io.fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+    ndk: r16b
+
+  - versionName: 3.9.4
+    versionCode: 2218
+    commit: v3.9.4
+    subdir: presentation
+    gradle:
+      - noAnalytics
+    prebuild:
+      - sed -i -e 's/enable true/enable false/' -e '/withAnalyticsImplementation/d'
+        build.gradle
+      - sed -i -e '/glide-snapshot/d; /maven.fabric.io/d' ../build.gradle
+      - sed -i -e '/io.fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+    ndk: r16b
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]+$
-CurrentVersion: 3.8.1
-CurrentVersionCode: 2213
+CurrentVersion: 3.9.4
+CurrentVersionCode: 2218

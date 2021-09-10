@@ -6,6 +6,7 @@ License: Apache-2.0
 WebSite: https://about.mattermost.com/
 SourceCode: https://github.com/mattermost/mattermost-mobile
 IssueTracker: https://github.com/mattermost/mattermost-mobile/issues
+Changelog: https://github.com/mattermost/mattermost-mobile/raw/HEAD/CHANGELOG.md
 
 AutoName: Mattermost Beta
 
@@ -305,15 +306,130 @@ Builds:
     scandelete:
       - node_modules
 
+  - versionName: 1.31.2
+    versionCode: 296
+    disable: vending, sentry
+    commit: v1.31.2
+    subdir: android/app/
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends -t stretch-backports npm
+      - npm -g install npm@6.4.1
+    init:
+      - sed -i -e '/react-native-youtube/d' ../../package.json build.gradle ../settings.gradle
+        ../../app/components/post_body_additional_content/post_body_additional_content.js
+      - rm ../../patches/react-native-youtube+2.0.0.patch
+      - make -C ../.. pre-run
+    gradle:
+      - yes
+    rm:
+      - node_modules/react-native-notifications/android/app/src/main/java/com/wix/reactnativenotifications/gcm/
+      - node_modules/xdate/build/compiler.jar
+      - node_modules/socketcluster/
+      - node_modules/shaka-player/third_party/closure/compiler.jar
+      - node_modules/.bin/socketcluster
+      - node_modules/react-native/template/
+      - node_modules/jetifier/lib/
+    prebuild:
+      - "sed -i -e '/play-services-gcm/,+2d' -e 's/bundleCommand: \"ram-bundle\",/bundleCommand:\
+        \ \"ram-bundle\", nodeExecutableAndArgs: [\"node\", \"--max-old-space-size=12000\"\
+        ],/' build.gradle"
+      - sed -i -e '/YouTubeStandaloneModule/d' src/main/java/com/mattermost/rnbeta/MainApplication.java
+      - sed -i -e '/com.google.android.gms.iid.InstanceID.getInstance/d' ../../node_modules/react-native-device-info/android/src/main/java/com/learnium/RNDeviceInfo/RNDeviceModule.java
+      - sed -i -e '/play-services/d' ../../node_modules/react-native-device-info/android/build.gradle
+      - sed -i -e '/firebase/d' ../../node_modules/react-native-notifications/android/app/build.gradle
+        build.gradle
+      - sed -i -e '/hasPermission/d' -e '/tokenFetchIntent/d' -e '/FcmInstance/d'
+        -e '/FirebaseApp/'d ../../node_modules/react-native-notifications/android/app/src/main/java/com/wix/reactnativenotifications/RNNotificationsModule.java
+        ../../node_modules/react-native-notifications/android/app/src/main/java/com/wix/reactnativenotifications/RNNotificationsPackage.java
+      - sed -i -e '/maven {/,+2d' ../../node_modules/react-native-document-picker/android/build.gradle
+      - truncate -s 0 ../../node_modules/react-native/node_modules/@react-native-community/cli/build/commands/server/external/xsel
+    scanignore:
+      - android/build.gradle
+      - node_modules/react-native-svg/android/build.gradle
+      - node_modules/react-native-image-picker/android/build.gradle
+      - node_modules/react-native-webview/android/build.gradle
+      - node_modules/react-native-permissions/android/build.gradle
+      - node_modules/react-native-keychain/android/build.gradle
+      - node_modules/react-native-screens/android/build.gradle
+      - node_modules/react-native-device-info/android/build.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/netinfo/android/build.gradle
+      - node_modules/react-native-notifications/android/build.gradle
+      - node_modules/react-native-navigation/lib/android/build.gradle
+    scandelete:
+      - node_modules
+
+  - versionName: 1.32.2
+    versionCode: 307
+    disable: fails to build
+    commit: v1.32.2
+    subdir: android/app/
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends -t stretch-backports npm
+      - npm -g install npm@6.4.1
+    init:
+      - sed -i -e '/react-native-youtube/d' ../../package.json build.gradle ../settings.gradle
+        ../../app/components/post_body_additional_content/post_body_additional_content.js
+      - rm ../../patches/react-native-youtube*
+      - make -C ../.. pre-run
+    gradle:
+      - yes
+    rm:
+      - node_modules/react-native-notifications/android/app/src/main/java/com/wix/reactnativenotifications/fcm/
+      - node_modules/xdate/build/compiler.jar
+      - node_modules/socketcluster/
+      - node_modules/shaka-player/third_party/closure/compiler.jar
+      - node_modules/.bin/socketcluster
+      - node_modules/react-native/template/
+      - node_modules/jetifier/lib/
+    prebuild:
+      - "sed -i -e '/play-services-gcm/,+2d' -e 's/bundleCommand: \"ram-bundle\",/bundleCommand:\
+        \ \"ram-bundle\", nodeExecutableAndArgs: [\"node\", \"--max-old-space-size=12000\"\
+        ],/' build.gradle"
+      - sed -i -e '/YouTubeStandaloneModule/d' src/main/java/com/mattermost/rnbeta/MainApplication.java
+      - sed -i -e '/com.google.android.gms.iid.InstanceID.getInstance/d' ../../node_modules/react-native-device-info/android/src/main/java/com/learnium/RNDeviceInfo/RNDeviceModule.java
+      - sed -i -e '/play-services/d' ../../node_modules/react-native-device-info/android/build.gradle
+      - sed -i -e '/firebase/d' ../../node_modules/react-native-notifications/android/app/build.gradle
+        build.gradle
+      - sed -i -e '/hasPermission/d' -e '/tokenFetchIntent/d' -e '/FcmInstance/d'
+        -e '/FirebaseApp/'d ../../node_modules/react-native-notifications/android/app/src/main/java/com/wix/reactnativenotifications/RNNotificationsModule.java
+        ../../node_modules/react-native-notifications/android/app/src/main/java/com/wix/reactnativenotifications/RNNotificationsPackage.java
+      - sed -i -e '/maven {/,+2d' ../../node_modules/react-native-document-picker/android/build.gradle
+      - truncate -s 0 ../../node_modules/react-native/node_modules/@react-native-community/cli/build/commands/server/external/xsel
+    scanignore:
+      - android/build.gradle
+      - node_modules/react-native-svg/android/build.gradle
+      - node_modules/react-native-image-picker/android/build.gradle
+      - node_modules/react-native-webview/android/build.gradle
+      - node_modules/react-native-permissions/android/build.gradle
+      - node_modules/react-native-keychain/android/build.gradle
+      - node_modules/react-native-screens/android/build.gradle
+      - node_modules/react-native-device-info/android/build.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/netinfo/android/build.gradle
+      - node_modules/react-native-notifications/android/build.gradle
+      - node_modules/react-native-navigation/lib/android/build.gradle
+    scandelete:
+      - node_modules
+
 MaintainerNotes: |-
     sed is used to:
-    * Remove push notifications (see [https://github.com/wix/react-native-notifications/issues/207 this issue])
-    * Remove the native Youtube player (see [https://github.com/inProgress-team/react-native-youtube/issues/288 this issue])
-    * Remove Play Services from Device Information (see [https://github.com/rebeccahughes/react-native-device-info/issues/381 this issue])
+    * Remove push notifications (see <a href="https://github.com/wix/react-native-notifications/issues/207">this issue</a>)
+    * Remove the native Youtube player (see <a href="https://github.com/inProgress-team/react-native-youtube/issues/288">this issue</a>)
+    * Remove Play Services from Device Information (see <a href="https://github.com/rebeccahughes/react-native-device-info/issues/381">this issue</a>)
 
     scanignore is used to allow the "node_modules/react-native/android" local Maven repository.
 
+    disabled 296 (Sentry.io and com.android.vending, the latter being proprietary), see https://gitlab.com/fdroid/fdroiddata/-/issues/2289
+
+ArchivePolicy: 0 versions
 AutoUpdateMode: None
 UpdateCheckMode: Tags
-CurrentVersion: 1.27.1
-CurrentVersionCode: 260
+CurrentVersion: 1.46.0
+CurrentVersionCode: 368

@@ -3,18 +3,13 @@ Categories:
   - Connectivity
   - Security
 License: GPL-3.0-only
-WebSite: https://bitbucket.org/bitbatzen/wlanscanner
-SourceCode: https://bitbucket.org/bitbatzen/wlanscanner/src
-IssueTracker: https://bitbucket.org/bitbatzen/wlanscanner/issues
+SourceCode: https://github.com/bewue/WLANScanner
+IssueTracker: https://github.com/bewue/WLANScanner/issues
 
 AutoName: WLANScanner
-Description: |-
-    WLANScanner is a tool with several possibilities to analyse the WLAN access
-    points in range. Listview shows SSID, BSSID, supported cryptographic techniques,
-    channel and level. There are also diagram views for 2.4 GHz and 5 GHz band.
 
-RepoType: hg
-Repo: https://bitbucket.org/bitbatzen/wlanscanner
+RepoType: git
+Repo: https://github.com/bewue/WLANScanner.git
 
 Builds:
   - versionName: 1.0.1
@@ -22,7 +17,21 @@ Builds:
     commit: v1.0.1
     target: android-19
 
-AutoUpdateMode: None
+  - versionName: 1.1.0
+    versionCode: 3
+    commit: v1.1.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.2.0
+    versionCode: 4
+    commit: v1.2.0
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.1
-CurrentVersionCode: 1
+CurrentVersion: 1.2.0
+CurrentVersionCode: 4

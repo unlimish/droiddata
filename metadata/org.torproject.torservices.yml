@@ -1,0 +1,70 @@
+Categories:
+  - Security
+License: GPL-3.0-or-later
+AuthorName: Guardian Project
+AuthorEmail: support@guardianproject.info
+AuthorWebSite: https://guardianproject.info
+SourceCode: https://gitlab.com/guardianproject/torservices
+IssueTracker: https://gitlab.com/guardianproject/torservices/issues
+Liberapay: GuardianProject
+Bitcoin: 1Fi5xUHiAPRKxHvyUGVFGt9extBe8Srdbk
+
+AutoName: TorServices
+
+RepoType: git
+Repo: https://gitlab.com/guardianproject/torservices.git
+
+Builds:
+  - versionName: '0.1'
+    versionCode: 1
+    commit: '0.1'
+    subdir: app
+    gradle:
+      - yes
+    ndk: r21e
+
+  - versionName: '0.2'
+    versionCode: 2001
+    commit: '0.2'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: echo 'abi-splits=x86' >> gradle.properties
+    ndk: r21e
+
+  - versionName: '0.2'
+    versionCode: 2002
+    commit: '0.2'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: echo 'abi-splits=x86_64' >> gradle.properties
+    ndk: r21e
+
+  - versionName: '0.2'
+    versionCode: 2003
+    commit: '0.2'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: echo 'abi-splits=armeabi-v7a' >> gradle.properties
+    ndk: r21e
+
+  - versionName: '0.2'
+    versionCode: 2004
+    commit: '0.2'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: echo 'abi-splits=arm64-v8a' >> gradle.properties
+    ndk: r21e
+
+MaintainerNotes: |
+    Each release has 8 APKs because there are 4 ABIs and 2 signing keys
+    (f-droid.org and upstream).
+
+ArchivePolicy: 16 versions
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: '0.2'
+CurrentVersionCode: 2004

@@ -1,0 +1,153 @@
+Categories:
+  - Reading
+License: Apache-2.0
+AuthorName: James HN Sears
+AuthorEmail: james.hn.sears@gmail.com
+SourceCode: https://github.com/jameshnsears/QuoteUnquote
+IssueTracker: https://github.com/jameshnsears/QuoteUnquote/issues
+
+AutoName: Quote… Unquote
+
+RepoType: git
+Repo: https://github.com/jameshnsears/QuoteUnquote
+
+Builds:
+  - versionName: 2.0.0-fdroid
+    versionCode: 43
+    commit: 2.0.0-fdroid
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+
+  - versionName: 2.0.1-fdroid
+    versionCode: 45
+    commit: 2.0.1-fdroid
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+
+  - versionName: 2.1.0-fdroid
+    versionCode: 48
+    commit: 2.1.0-fdroid
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+
+  - versionName: 2.1.1-fdroid
+    versionCode: 49
+    commit: 2.1.1-fdroid
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+
+  - versionName: 2.2.0-fdroid
+    versionCode: 50
+    commit: 2.2.0-fdroid
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+  - versionName: 2.3.0-fdroid
+    versionCode: 52
+    commit: 2.3.0-fdroid
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+  - versionName: 2.3.1-fdroid
+    versionCode: 54
+    commit: 2.3.1-fdroid
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+  - versionName: 2.3.2-fdroid
+    versionCode: 55
+    commit: 2.3.2-fdroid
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+  - versionName: 2.4.0-fdroid
+    versionCode: 59
+    commit: 2.4.0-fdroid
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+  - versionName: 2.4.5-fdroid
+    versionCode: 64
+    commit: 2.4.5-fdroid
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+  - versionName: 2.5.0-fdroid
+    versionCode: 69
+    commit: 2.5.0-fdroid
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+  - versionName: 2.5.2-fdroid
+    versionCode: 73
+    commit: 2.5.2-fdroid
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+  - versionName: 2.5.3-fdroid
+    versionCode: 74
+    commit: 2.5.3-fdroid
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+  - versionName: 2.6.0-fdroid
+    versionCode: 75
+    commit: 1e5aeaf664e67f40e078eef39a54aff30a59d75d
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+  - versionName: 2.6.2-fdroid
+    versionCode: 77
+    commit: 0b9ecadd65bad9332ca2f7579ec91e932c1553b3
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags .*-fdroid$
+CurrentVersion: 2.6.2-fdroid
+CurrentVersionCode: 77

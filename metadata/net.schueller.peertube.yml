@@ -4,17 +4,12 @@ License: AGPL-3.0-only
 AuthorName: Stefan Schueller
 SourceCode: https://github.com/sschueller/peertube-android
 IssueTracker: https://github.com/sschueller/peertube-android/issues
+Translation: https://hosted.weblate.org/projects/peertube/
 Changelog: https://raw.githubusercontent.com/sschueller/peertube-android/HEAD/CHANGELOG.md
 LiberapayID: '1570567'
 Bitcoin: 1LoTXo728HzYTtyfbkaf5ewSRvu8ABTDPm
 
 AutoName: Thorium
-Description: |
-    PeerTube is a federated video streaming platform that is community-owned and ad-free, with no vendor lock-in. This client allows you to watch and browse videos on a server of your choice in the PeerTube network.
-
-    This client comes preconfigured with one PeerTube server managed by the application creator - not the PeerTube project itself, which lists more on http://instances.joinpeertube.org/ - to allow you to have a taste of what the client is capable of. Choose your server to tune your experience!
-
-    Please note this is app is in beta and is stil missing a lot of features.
 
 RepoType: git
 Repo: https://github.com/sschueller/peertube-android
@@ -153,7 +148,124 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.0.34
+    versionCode: 1034
+    commit: v1.0.34
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.35
+    versionCode: 1035
+    commit: v1.0.35
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.36
+    versionCode: 1036
+    commit: v1.0.36
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.37
+    versionCode: 1037
+    commit: v1.0.37
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.41
+    versionCode: 1041
+    commit: v1.0.41
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.43
+    versionCode: 1043
+    commit: v1.0.43
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.44
+    versionCode: 1044
+    commit: v1.0.44
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.46
+    versionCode: 1046
+    commit: v1.0.46
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.47
+    versionCode: 1047
+    commit: v1.0.47
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.48
+    versionCode: 1048
+    commit: v1.0.48
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
+        -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
+
+  - versionName: 1.1.0-12d85f58
+    versionCode: 1056
+    commit: v1.1.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
+        -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
+
+  - versionName: 1.1.1
+    versionCode: 1057
+    commit: v1.1.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
+        -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
+
+  - versionName: 1.2.0
+    versionCode: 1058
+    commit: v1.2.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
+        -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
+
+  - versionName: 1.3.0
+    versionCode: 1059
+    commit: v1.3.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
+        -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
+
+  - versionName: 1.4.0
+    versionCode: 1060
+    commit: v1.4.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
+        -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.32
-CurrentVersionCode: 1032
+CurrentVersion: 1.4.0
+CurrentVersionCode: 1060

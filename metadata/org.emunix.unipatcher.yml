@@ -5,29 +5,12 @@ AuthorName: Boris Timofeev
 AuthorEmail: btimofeev@emunix.org
 SourceCode: https://github.com/btimofeev/UniPatcher
 IssueTracker: https://github.com/btimofeev/UniPatcher/issues
-Translation: https://www.transifex.com/unipatcher/unipatcher/
-Changelog: https://github.com/btimofeev/UniPatcher/blob/HEAD/app/src/main/res/raw/changelog.md
+Translation: https://hosted.weblate.org/engage/unipatcher/
+Changelog: https://github.com/btimofeev/UniPatcher/blob/HEAD/Changelog.md
 Donate: https://www.paypal.me/btimofeev
 Bitcoin: 16coztryz7xbNNDNhhf98wuHmi3hEintsW
 
 AutoName: UniPatcher
-Description: |-
-    UniPatcher allows you to apply patches to the game ROM. What is a patch? The
-    patch is a file with the modified data of the game. For example, a game
-    translated from Japanese to English. You download the patch containing the
-    translation. It must be applied to the Japanese version to get the English
-    version.
-
-    This program will not help you hack native android games, it was created for the
-    old console games (Super Nintendo, Sega MegaDrive, Game Boy Advance, Sony
-    PlayStation etc.)
-
-    Features:
-
-    * Supported formats of patches: IPS, IPS32, UPS, BPS, APS (GBA), APS (N64), PPF, DPS, EBP, XDelta 3
-    * Creating XDelta patches
-    * Fix checksum in Sega Mega Drive ROMs
-    * Add/Delete SMC header in Super Nintendo ROMs
 
 RepoType: git
 Repo: https://github.com/btimofeev/UniPatcher.git
@@ -105,7 +88,31 @@ Builds:
       - app/src/main/cpp/xdelta3/xdelta3/examples
     ndk: r16b
 
+  - versionName: 0.17.1
+    versionCode: 170100
+    commit: v0.17.1
+    subdir: app
+    gradle:
+      - free
+    scanignore:
+      - app/src/test
+    ndk: r21d
+    preassemble:
+      - downloadDependencies
+
+  - versionName: 0.17.2
+    versionCode: 170200
+    commit: v0.17.2
+    subdir: app
+    gradle:
+      - free
+    scanignore:
+      - app/src/test
+    ndk: r21d
+    preassemble:
+      - downloadDependencies
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.16.1
-CurrentVersionCode: 160100
+CurrentVersion: 0.17.2
+CurrentVersionCode: 170200
