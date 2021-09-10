@@ -102,6 +102,9 @@ Builds:
       - make fdroid-build-env
     init: nix/scripts/setup.sh
     output: result/app-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/com.android.vending.BILLING/d' android/app/src/main/AndroidManifest.xml
+      - echo >> .env.release
     scanignore:
       - android/build.gradle
     scandelete:
