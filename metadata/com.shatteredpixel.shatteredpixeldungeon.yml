@@ -879,9 +879,9 @@ Builds:
     scandelete:
       - android/libs/*
 
-  - versionName: 1.0.1
-    versionCode: 570
-    commit: 07ad3fcc384d9bdb3679a979dfa5e1423bfef009
+  - versionName: 1.0.3
+    versionCode: 574
+    commit: 4aed22a4f2ebea34e42fa961ee17f97588ca1acf
     subdir: android
     sudo:
       - apt-get update || apt-get update
@@ -889,11 +889,16 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - yes
+    rm:
+      - desktop
+      - ios
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
     scandelete:
       - android/libs/*
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
 UpdateCheckData: build.gradle|appVersionCode = (.*)|.|appVersionName = ['"](.*)['"]
-CurrentVersion: 1.0.1
-CurrentVersionCode: 570
+CurrentVersion: 1.0.3
+CurrentVersionCode: 574

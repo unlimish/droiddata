@@ -906,6 +906,23 @@ Builds:
     versionCode: 50372
     commit: a5bad6505d9d7f786c92eb59fb66f720dfd095ee
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
+  - versionName: r/2.7.50373-r-2021-09-07
+    versionCode: 50373
+    commit: 96ed0601cadd4ed40cbf97783d2c7a19d2d93faa
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - fdroid
     forceversion: true
@@ -921,5 +938,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags ^r
-CurrentVersion: r/2.7.50372-r-2021-08-26
-CurrentVersionCode: 50372
+CurrentVersion: r/2.7.50373-r-2021-09-07
+CurrentVersionCode: 50373

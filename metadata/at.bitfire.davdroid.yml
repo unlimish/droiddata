@@ -1483,7 +1483,31 @@ Builds:
         build.gradle
       - sed -i -e '/flexbox-layout/d' ../build.gradle
 
+  - versionName: 3.4-ose
+    versionCode: 304000003
+    commit: d8a70ca30cc337ce2c03d7140c23d002eb1a875d
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 3.4.0.1-ose
+    versionCode: 304000100
+    commit: 425a88f6f7ec6f0fe668d18563b6992f73afe126
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]+-ose[0-9]*$
-CurrentVersion: 3.3.12-ose
-CurrentVersionCode: 303120005
+CurrentVersion: 3.4.0.1-ose
+CurrentVersionCode: 304000100

@@ -35,7 +35,7 @@ Description: |-
     You can also install Jami on Windows, macOS, iOS and GNU/Linux.
 
 RepoType: git
-Repo: https://review.jami.net/ring-project
+Repo: https://git.jami.net/savoirfairelinux/ring-project
 
 Builds:
   - versionName: 2.0.003
@@ -1415,83 +1415,47 @@ Builds:
       - ./compile.sh --release --daemon
     ndk: r22b
 
-  - versionName: 20210611-01
-    versionCode: 314
-    commit: android/release_314
-    timeout: 10800
-    subdir: client-android/ring-android/app
-    submodules: true
-    sudo:
-      - apt-get update || apt-get update
-      - apt-get install -y -t testing swig
-      - apt-get install -y -t stretch-backports-sloppy libarchive13
-      - apt-get install -y -t stretch-backports cmake
-    gradle:
-      - noPush
-    rm:
-      - client-gnome
-      - client-ios
-      - client-macosx
-      - client-qt
-      - client-uwp
-      - lrc
-      - plugins
-      - docker
-      - docs
-      - guix
-      - packaging
-      - patches
-      - scripts
-    prebuild:
-      - $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
-      - sed -i -e "s/ndkVersion '.*'/ndkVersion '22.1.7171670'/" build.gradle
-    build:
-      - cd ../..
-      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
-      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
-      - ./compile.sh --release --daemon
-    ndk: r22b
-
-  - versionName: 20210813-01
-    versionCode: 316
-    commit: android/release_316
-    timeout: 10800
-    subdir: client-android/ring-android/app
-    submodules: true
-    sudo:
-      - apt-get update || apt-get update
-      - apt-get install -y -t testing swig
-      - apt-get install -y -t stretch-backports-sloppy libarchive13
-      - apt-get install -y -t stretch-backports cmake
-    gradle:
-      - noPush
-    rm:
-      - client-gnome
-      - client-ios
-      - client-macosx
-      - client-qt
-      - client-uwp
-      - lrc
-      - plugins
-      - docker
-      - docs
-      - guix
-      - packaging
-      - patches
-      - scripts
-    prebuild:
-      - $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
-      - sed -i -e "s/ndkVersion '.*'/ndkVersion '22.1.7171670'/" build.gradle
-    build:
-      - cd ../..
-      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
-      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
-      - ./compile.sh --release --daemon
-    ndk: r22b
-
   - versionName: 20210813-01
     versionCode: 317
+    disable: no such remote ref
     commit: android/release_317
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - noPush
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild:
+      - $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+      - sed -i -e "s/ndkVersion '.*'/ndkVersion '22.1.7171670'/" build.gradle
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r22b
+
+  - versionName: 20210908-01
+    versionCode: 318
+    commit: android/release_318
     timeout: 10800
     subdir: client-android/ring-android/app
     submodules: true
@@ -1536,5 +1500,5 @@ MaintainerNotes: |-
 AutoUpdateMode: Version android/release_%c
 UpdateCheckMode: HTTP
 UpdateCheckData: https://git.jami.net/savoirfairelinux/ring-project/-/tags?format=atom|<title>android/release_(\d+)|https://git.jami.net/savoirfairelinux/ring-client-android/-/raw/master/ring-android/app/build.gradle|versionName\s"([\d-]+)"
-CurrentVersion: 20210813-01
-CurrentVersionCode: 317
+CurrentVersion: 20210908-01
+CurrentVersionCode: 318

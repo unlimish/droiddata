@@ -1836,9 +1836,9 @@ Builds:
     rm:
       - desktop
 
-  - versionName: 3.16.7
-    versionCode: 616
-    commit: e62fdc22187264577167c7c558c3b2f984f983c9
+  - versionName: 3.16.12
+    versionCode: 621
+    commit: 3.16.12
     subdir: android
     sudo:
       - apt-get update || apt-get update
@@ -1848,28 +1848,57 @@ Builds:
       - yes
     rm:
       - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
 
-  - versionName: 3.16.8
-    versionCode: 617
-    commit: b74cd5c83e986d0b87b50c2aef87164502908f5b
+  - versionName: 3.16.13
+    versionCode: 622
+    commit: 1530389507449eed5c6799dd36c50d16376054b9
     subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
     rm:
       - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
 
-  - versionName: 3.16.9
-    versionCode: 618
-    commit: 6a3fddc757c4c748c0be1a12464dd7ef98146777
+  - versionName: 3.16.13-patch1
+    versionCode: 623
+    commit: 1e8afc10d4a92b3e54e79712a93e5d673dd46602
     subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
     rm:
       - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.16.14
+    versionCode: 624
+    commit: 70c3b4bd6504dcdcda13937f17fae570117562b7
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: buildSrc/src/main/kotlin/BuildConfig.kt|appCodeNumber = (.*)|.|appVersion
     = "(.*)"
-CurrentVersion: 3.16.9
-CurrentVersionCode: 618
+CurrentVersion: 3.16.14
+CurrentVersionCode: 624

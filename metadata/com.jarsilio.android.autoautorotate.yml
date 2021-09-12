@@ -182,13 +182,42 @@ Builds:
 
   - versionName: 0.11.3
     versionCode: 25
+    disable: https://gitlab.com/juanitobananas/auto-auto-rotate/-/issues/12
     commit: 15ab7fd34935d217920e28870d3f49afbe38dff7
     subdir: app
     submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.11.4
+    versionCode: 26
+    commit: 01f5bbbbf4a5e7163618639c0c531bae224acd4d
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.11.5
+    versionCode: 27
+    commit: ccadda9ebe81ce13804fd1d709d4306cccdf2683
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.11.3
-CurrentVersionCode: 25
+CurrentVersion: 0.11.5
+CurrentVersionCode: 27
