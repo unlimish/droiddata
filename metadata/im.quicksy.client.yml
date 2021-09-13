@@ -530,7 +530,21 @@ Builds:
         '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
     ndk: r21e
 
+  - versionName: 2.10.0-beta+fcr
+    versionCode: 42016
+    commit: 2819545a43e98cd1224262eb624b4b16a052e9ec
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 2.9.13+fcr
-CurrentVersionCode: 42015
+CurrentVersion: 2.10.0-beta+fcr
+CurrentVersionCode: 42016
