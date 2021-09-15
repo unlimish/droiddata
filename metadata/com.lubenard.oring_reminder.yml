@@ -17,6 +17,10 @@ Builds:
     versionCode: 7
     commit: b2114c2cb1d13f94cb0d08e53c04530f12469b43
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
 
