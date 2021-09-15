@@ -103,6 +103,10 @@ Builds:
     disable: https://github.com/admin-ch/CovidCertificate-App-Android/issues/260
     commit: 1f82fb34892c7bf8fbcc5fdc7760953635a29d3a
     subdir: verifier
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - prod
     rm:
