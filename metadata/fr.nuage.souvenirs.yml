@@ -58,12 +58,24 @@ Builds:
 
   - versionName: 2.2.0
     versionCode: 14
+    disable: https://github.com/zorgluf/souvenirs-android/issues/7
     commit: c9a982df5838c7fe23b7df4a1bb13ae8adc2f6ff
     subdir: app
     gradle:
       - yes
 
+  - versionName: 2.2.1
+    versionCode: 15
+    commit: 9c4380aaaef9aeed275df3160ff3129033600ed2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags v\d+\.\d+(\.\d+)?
-CurrentVersion: 2.2.0
-CurrentVersionCode: 14
+CurrentVersion: 2.2.1
+CurrentVersionCode: 15
