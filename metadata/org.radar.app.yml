@@ -55,8 +55,9 @@ Builds:
       - export DOWNLOAD_URL="https://f-droid.org/packages/org.radar.app/"
       - export ANDROID_NDK_PLATFORM=android-16
       - export ANDROID_API_VERSION=android-28
-      - echo "Generating QR Code for URL='${DDOWNLOAD_URL}' ..."
+      - echo "1. Generating QR Code for URL='${DOWNLOAD_URL}' ..."
       - python3-qr "${DOWNLOAD_URL}" > images/qrcode-apk.png
+      - echo "2. Building OpenSSL..."
       - pushd $$OpenSSL$$
       - PATH=$ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin:$ANDROID_NDK_ROOT/toolchains/arm-linux-androideabi-4.9/prebuilt/linux-x86_64/bin:$PATH
         ./Configure shared android-arm -D__ANDROID_API__=16
@@ -71,6 +72,7 @@ Builds:
       - ln -s libcrypto_1_1.so libcrypto.so
       - ln -s libssl_1_1.so libssl.so
       - popd
+      - echo "3. Configuring Qt..."
       - pushd ${QT_BUILD}
       - $$Qt5$$/configure -xplatform android-clang --disable-rpath -opensource -confirm-license
         -silent -prefix $PREFIX -release -nomake tests -nomake examples -no-sql-mysql
@@ -87,6 +89,7 @@ Builds:
         -no-feature-geoservices_esri -no-feature-geoservices_osm -no-feature-gif -no-feature-ico
         -no-feature-jpeg -no-feature-testlib -no-feature-xml -no-libjpeg -no-feature-debug
         -no-feature-qml-debug -no-feature-qml-profiler -no-feature-testlib -no-feature-itemmodeltester
+      - echo "4. Building Qt..."
       - make -s -j $(nproc)
       - make install
       - popd
@@ -96,6 +99,7 @@ Builds:
       - pushd "${OPENSSL_TARGET_DIR}"
       - rm libssl.so libcrypto.so
       - popd
+      - echo "5. Configuring Radar-App..."
       - install -d build-android
       - pushd build-android
       - ${CMAKE} -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
@@ -103,6 +107,7 @@ Builds:
         -DANDROID_TARGET_ARCH="armeabi-v7a" -DANDROID_ABI=${ANDROID_ABI} -DCMAKE_PREFIX_PATH:PATH="${PREFIX}/lib/cmake"
         -DANDROID_SSL_LIBS="${OPENSSL_TARGET_DIR}/libcrypto_1_1.so;${OPENSSL_TARGET_DIR}/libssl_1_1.so"
         -DCMAKE_FIND_ROOT_PATH="${PREFIX}/" -DDOWNLOAD_URL="${DOWNLOAD_URL}" ..
+      - echo "6. Building Radar-App..."
       - ${CMAKE} --build . -- -j $(nproc)
       - popd
     ndk: r19c
