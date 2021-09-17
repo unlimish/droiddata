@@ -90,7 +90,8 @@ Install [F-Droid Server](https://gitlab.com/fdroid/fdroidserver):
 ```shell
 git clone https://gitlab.com/fdroid/fdroidserver.git
 cd fdroidserver
-pip install -e .
+./setup.py compile_catalog
+pip install .
 ```
 
 Clone your fork of [F-Droid Data](https://gitlab.com/fdroid/fdroiddata/) and enter it:
@@ -99,7 +100,7 @@ git clone https://gitlab.com/YOUR_USERNAME/fdroiddata.git
 cd fdroiddata
 ```
 
-Make sure fdroid works and reads the metadata files properly:
+Make sure `fdroid` works and reads the metadata files properly:
 ```shell
 fdroid readmeta
 ```
