@@ -87,6 +87,10 @@ Builds:
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.5.1
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     prebuild: sed -i -e 's/signingConfig signingConfigs.release//' android/app/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
