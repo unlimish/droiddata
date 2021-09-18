@@ -1,11 +1,9 @@
 diff --git a/remove_billing_actual.patch b/remove_billing_actual.patch
 new file mode 100644
-index 0000000000..d1bea8e661
 --- /dev/null
 +++ b/remove_billing_actual.patch
-@@ -0,0 +1,406 @@
+@@ -0,0 +1,400 @@
 +diff --git a/libs/ui/KisWelcomePageWidget.cpp b/libs/ui/KisWelcomePageWidget.cpp
-+index b4077b5f0f..b65fe659e5 100644
 +--- a/libs/ui/KisWelcomePageWidget.cpp
 ++++ b/libs/ui/KisWelcomePageWidget.cpp
 +@@ -46,20 +46,6 @@
@@ -110,7 +108,6 @@ index 0000000000..d1bea8e661
 +-}
 +-#endif
 +diff --git a/libs/ui/KisWelcomePageWidget.h b/libs/ui/KisWelcomePageWidget.h
-+index 4b192325a8..b41b248eb1 100644
 +--- a/libs/ui/KisWelcomePageWidget.h
 ++++ b/libs/ui/KisWelcomePageWidget.h
 +@@ -52,10 +52,6 @@ public Q_SLOTS:
@@ -140,10 +137,9 @@ index 0000000000..d1bea8e661
 + private Q_SLOTS:
 +     void slotNewFileClicked();
 +diff --git a/packaging/android/apk/AndroidManifest.xml b/packaging/android/apk/AndroidManifest.xml
-+index 426a354914..2b5ab3da57 100644
 +--- a/packaging/android/apk/AndroidManifest.xml
 ++++ b/packaging/android/apk/AndroidManifest.xml
-+@@ -137,6 +137,5 @@
++@@ -157,6 +157,5 @@
 + 
 +     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 +     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -151,10 +147,9 @@ index 0000000000..d1bea8e661
 + 
 + </manifest>
 +diff --git a/packaging/android/apk/build.gradle b/packaging/android/apk/build.gradle
-+index 3ebdc632b3..30bd0c3ce8 100644
 +--- a/packaging/android/apk/build.gradle
 ++++ b/packaging/android/apk/build.gradle
-+@@ -143,8 +143,3 @@ android {
++@@ -131,8 +131,3 @@ android {
 +     preBuild.dependsOn(copyAssets)
 +     preBuild.dependsOn(removeDuplicateAssets)
 + }
@@ -164,20 +159,20 @@ index 0000000000..d1bea8e661
 +-}
 +-
 +diff --git a/packaging/android/apk/res/values/strings.xml b/packaging/android/apk/res/values/strings.xml
-+index 482f93ed44..c3545fe5f3 100644
 +--- a/packaging/android/apk/res/values/strings.xml
 ++++ b/packaging/android/apk/res/values/strings.xml
-+@@ -8,7 +8,5 @@
++@@ -8,8 +8,6 @@
 + 	<string name="remote_action_swiperight">Swipe Right</string>
 + 	<string name="remote_action_circlecw">Circle Clockwise</string>
 + 	<string name="remote_action_circleccw">Circle Counter-Clockwise</string>
 +-	<string name="something_wrong">Something went wrong...</string>
 +-	<string name="cancelled">Cancelled</string>
++     <string name="save_notification_text">Saving Document</string>
++     <string name="cancel_save_notification">Cancel</string>
 + </resources>
 + 
 +diff --git a/packaging/android/apk/src/org/krita/android/DonationHelper.java b/packaging/android/apk/src/org/krita/android/DonationHelper.java
 +deleted file mode 100644
-+index 43537f1312..0000000000
 +--- a/packaging/android/apk/src/org/krita/android/DonationHelper.java
 ++++ /dev/null
 +@@ -1,204 +0,0 @@
@@ -386,24 +381,22 @@ index 0000000000..d1bea8e661
 +-    }
 +-}
 +diff --git a/packaging/android/apk/src/org/krita/android/JNIWrappers.java b/packaging/android/apk/src/org/krita/android/JNIWrappers.java
-+index 781a6ac7cd..d91a899436 100644
 +--- a/packaging/android/apk/src/org/krita/android/JNIWrappers.java
 ++++ b/packaging/android/apk/src/org/krita/android/JNIWrappers.java
-+@@ -22,7 +22,6 @@ package org.krita.android;
++@@ -22,7 +22,6 @@
 + class JNIWrappers {
 + 	public static native void saveState();
-+ 	public static native void exitFullScreen();
++ 	public static native boolean exitFullScreen();
 +-	public static native void donationSuccessful();
 +     public static native void openFileFromIntent(String uri);
 + }
 + 
 +diff --git a/packaging/android/apk/src/org/krita/android/MainActivity.java b/packaging/android/apk/src/org/krita/android/MainActivity.java
-+index 9e7cb47280..4a4f9c8554 100644
 +--- a/packaging/android/apk/src/org/krita/android/MainActivity.java
 ++++ b/packaging/android/apk/src/org/krita/android/MainActivity.java
-+@@ -54,8 +54,6 @@ public class MainActivity extends QtActivity {
-+ 
++@@ -55,8 +55,6 @@
 + 		super.onCreate(savedInstanceState);
++         Log.d("KritaActivity", "LibsLoaded");
 + 		new ConfigsManager().handleAssets(this);
 +-
 +-        DonationHelper.getInstance();

@@ -27,6 +27,186 @@ RepoType: git
 Repo: https://invent.kde.org/graphics/krita
 
 Builds:
+  - versionName: 4.4.8
+    versionCode: 1040509
+    commit: v4.4.8
+    timeout: 30000
+    sudo:
+      - find ./android-sdk/platforms -type d -mindepth 1 -maxdepth 1 -not -name "android-21"
+        -not -name "android-28" -exec rm -rf {} \;
+      - apt update || apt update
+      - apt install -y build-essential
+      - apt install -y -t stretch-backports-sloppy libarchive13
+      - apt install -y -t stretch-backports cmake
+    patch:
+      - remove_billing.patch
+    output: build/krita_build_apk/build/outputs/apk/release/krita-armeabi-v7a-$$VERSION$$-release-unsigned.apk
+    scanignore:
+      - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
+      - libs/flake/tests/data/store.zip
+      - libs/flake/tests/data/odf_frame_resource_store.zip
+    build:
+      - export DEP_COMMIT=15c90fbeaa83bcc66e927f9b3b9b8723e281aee0
+      - export ANDROID_ABI=armeabi-v7a
+      - export BUILD_ROOT=$(pwd)
+      - export ANDROID_API_LEVEL=23
+      - export CMAKE_ANDROID_NDK=$$NDK$$
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export SUBDIR=${BUILD_ROOT}/packaging/android
+      - mkdir -p ${BUILD_ROOT}/build
+      - git reset --hard $DEP_COMMIT
+      - echo 'gradle "$@"' > ${SUBDIR}/apk/gradlew
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=boost
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=qt
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=3rdparty
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=kf5
+      - git reset --hard $$COMMIT$$
+      - git apply remove_billing_actual.patch
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=krita-bin
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=apk
+    ndk: r21d
+
+  - versionName: 4.4.8
+    versionCode: 2040509
+    commit: v4.4.8
+    timeout: 30000
+    sudo:
+      - find ./android-sdk/platforms -type d -mindepth 1 -maxdepth 1 -not -name "android-21"
+        -not -name "android-28" -exec rm -rf {} \;
+      - apt update || apt update
+      - apt install -y build-essential
+      - apt install -y -t stretch-backports-sloppy libarchive13
+      - apt install -y -t stretch-backports cmake
+    patch:
+      - remove_billing.patch
+    output: build/krita_build_apk/build/outputs/apk/release/krita-arm64-v8a-$$VERSION$$-release-unsigned.apk
+    scanignore:
+      - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
+      - libs/flake/tests/data/store.zip
+      - libs/flake/tests/data/odf_frame_resource_store.zip
+    build:
+      - export DEP_COMMIT=15c90fbeaa83bcc66e927f9b3b9b8723e281aee0
+      - export ANDROID_ABI=arm64-v8a
+      - export BUILD_ROOT=$(pwd)
+      - export ANDROID_API_LEVEL=23
+      - export CMAKE_ANDROID_NDK=$$NDK$$
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export SUBDIR=${BUILD_ROOT}/packaging/android
+      - mkdir -p ${BUILD_ROOT}/build
+      - git reset --hard $DEP_COMMIT
+      - echo 'gradle "$@"' > ${SUBDIR}/apk/gradlew
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=boost
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=qt
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=3rdparty
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=kf5
+      - git reset --hard $$COMMIT$$
+      - git apply remove_billing_actual.patch
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=krita-bin
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=apk
+    ndk: r21d
+
+  - versionName: 4.4.8
+    versionCode: 3040509
+    commit: v4.4.8
+    timeout: 30000
+    sudo:
+      - find ./android-sdk/platforms -type d -mindepth 1 -maxdepth 1 -not -name "android-21"
+        -not -name "android-28" -exec rm -rf {} \;
+      - apt update || apt update
+      - apt install -y build-essential
+      - apt install -y -t stretch-backports-sloppy libarchive13
+      - apt install -y -t stretch-backports cmake
+    patch:
+      - remove_billing.patch
+    output: build/krita_build_apk/build/outputs/apk/release/krita-x86-$$VERSION$$-release-unsigned.apk
+    scanignore:
+      - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
+      - libs/flake/tests/data/store.zip
+      - libs/flake/tests/data/odf_frame_resource_store.zip
+    build:
+      - export DEP_COMMIT=15c90fbeaa83bcc66e927f9b3b9b8723e281aee0
+      - export ANDROID_ABI=x86
+      - export BUILD_ROOT=$(pwd)
+      - export ANDROID_API_LEVEL=23
+      - export CMAKE_ANDROID_NDK=$$NDK$$
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export SUBDIR=${BUILD_ROOT}/packaging/android
+      - mkdir -p ${BUILD_ROOT}/build
+      - git reset --hard $DEP_COMMIT
+      - echo 'gradle "$@"' > ${SUBDIR}/apk/gradlew
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=boost
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=qt
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=3rdparty
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=kf5
+      - git reset --hard $$COMMIT$$
+      - git apply remove_billing_actual.patch
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=krita-bin
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=apk
+    ndk: r21d
+
+  - versionName: 4.4.8
+    versionCode: 4040509
+    commit: v4.4.8
+    timeout: 30000
+    sudo:
+      - find ./android-sdk/platforms -type d -mindepth 1 -maxdepth 1 -not -name "android-21"
+        -not -name "android-28" -exec rm -rf {} \;
+      - apt update || apt update
+      - apt install -y build-essential
+      - apt install -y -t stretch-backports-sloppy libarchive13
+      - apt install -y -t stretch-backports cmake
+    patch:
+      - remove_billing.patch
+    output: build/krita_build_apk/build/outputs/apk/release/krita-x86_64-$$VERSION$$-release-unsigned.apk
+    scanignore:
+      - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
+      - libs/flake/tests/data/store.zip
+      - libs/flake/tests/data/odf_frame_resource_store.zip
+    build:
+      - export DEP_COMMIT=15c90fbeaa83bcc66e927f9b3b9b8723e281aee0
+      - export ANDROID_ABI=x86_64
+      - export BUILD_ROOT=$(pwd)
+      - export ANDROID_API_LEVEL=23
+      - export CMAKE_ANDROID_NDK=$$NDK$$
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export SUBDIR=${BUILD_ROOT}/packaging/android
+      - mkdir -p ${BUILD_ROOT}/build
+      - git reset --hard $DEP_COMMIT
+      - echo 'gradle "$@"' > ${SUBDIR}/apk/gradlew
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=boost
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=qt
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=3rdparty
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=kf5
+      - git reset --hard $$COMMIT$$
+      - git apply remove_billing_actual.patch
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=krita-bin
+      - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
+        -p=apk
+    ndk: r21d
+
   - versionName: 4.4.2
     versionCode: 1040404
     commit: v4.4.2
@@ -223,5 +403,5 @@ MaintainerNotes: |-
 ArchivePolicy: 12 versions
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 4.4.2
-CurrentVersionCode: 4040404
+CurrentVersion: 4.4.8
+CurrentVersionCode: 2040509
