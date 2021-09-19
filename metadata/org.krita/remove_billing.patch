@@ -1,9 +1,11 @@
 diff --git a/remove_billing_actual.patch b/remove_billing_actual.patch
 new file mode 100644
+index 0000000..46187d2
 --- /dev/null
 +++ b/remove_billing_actual.patch
-@@ -0,0 +1,400 @@
+@@ -0,0 +1,407 @@
 +diff --git a/libs/ui/KisWelcomePageWidget.cpp b/libs/ui/KisWelcomePageWidget.cpp
++index 9607422b37..d092a4641b 100644
 +--- a/libs/ui/KisWelcomePageWidget.cpp
 ++++ b/libs/ui/KisWelcomePageWidget.cpp
 +@@ -46,20 +46,6 @@
@@ -108,6 +110,7 @@ new file mode 100644
 +-}
 +-#endif
 +diff --git a/libs/ui/KisWelcomePageWidget.h b/libs/ui/KisWelcomePageWidget.h
++index 4b192325a8..b41b248eb1 100644
 +--- a/libs/ui/KisWelcomePageWidget.h
 ++++ b/libs/ui/KisWelcomePageWidget.h
 +@@ -52,10 +52,6 @@ public Q_SLOTS:
@@ -137,6 +140,7 @@ new file mode 100644
 + private Q_SLOTS:
 +     void slotNewFileClicked();
 +diff --git a/packaging/android/apk/AndroidManifest.xml b/packaging/android/apk/AndroidManifest.xml
++index 72b366a2c9..78f7bd4268 100644
 +--- a/packaging/android/apk/AndroidManifest.xml
 ++++ b/packaging/android/apk/AndroidManifest.xml
 +@@ -157,6 +157,5 @@
@@ -147,6 +151,7 @@ new file mode 100644
 + 
 + </manifest>
 +diff --git a/packaging/android/apk/build.gradle b/packaging/android/apk/build.gradle
++index 0a6b32f8c4..7eca583b91 100644
 +--- a/packaging/android/apk/build.gradle
 ++++ b/packaging/android/apk/build.gradle
 +@@ -131,8 +131,3 @@ android {
@@ -159,6 +164,7 @@ new file mode 100644
 +-}
 +-
 +diff --git a/packaging/android/apk/res/values/strings.xml b/packaging/android/apk/res/values/strings.xml
++index 7ede48f146..c0586ad60e 100644
 +--- a/packaging/android/apk/res/values/strings.xml
 ++++ b/packaging/android/apk/res/values/strings.xml
 +@@ -8,8 +8,6 @@
@@ -170,9 +176,9 @@ new file mode 100644
 +     <string name="save_notification_text">Saving Document</string>
 +     <string name="cancel_save_notification">Cancel</string>
 + </resources>
-+ 
 +diff --git a/packaging/android/apk/src/org/krita/android/DonationHelper.java b/packaging/android/apk/src/org/krita/android/DonationHelper.java
 +deleted file mode 100644
++index 43537f1312..0000000000
 +--- a/packaging/android/apk/src/org/krita/android/DonationHelper.java
 ++++ /dev/null
 +@@ -1,204 +0,0 @@
@@ -381,9 +387,10 @@ new file mode 100644
 +-    }
 +-}
 +diff --git a/packaging/android/apk/src/org/krita/android/JNIWrappers.java b/packaging/android/apk/src/org/krita/android/JNIWrappers.java
++index 7068ca1e4f..ad3409ab88 100644
 +--- a/packaging/android/apk/src/org/krita/android/JNIWrappers.java
 ++++ b/packaging/android/apk/src/org/krita/android/JNIWrappers.java
-+@@ -22,7 +22,6 @@
++@@ -22,7 +22,6 @@ package org.krita.android;
 + class JNIWrappers {
 + 	public static native void saveState();
 + 	public static native boolean exitFullScreen();
@@ -392,9 +399,10 @@ new file mode 100644
 + }
 + 
 +diff --git a/packaging/android/apk/src/org/krita/android/MainActivity.java b/packaging/android/apk/src/org/krita/android/MainActivity.java
++index 12424fdc99..8232865e73 100644
 +--- a/packaging/android/apk/src/org/krita/android/MainActivity.java
 ++++ b/packaging/android/apk/src/org/krita/android/MainActivity.java
-+@@ -55,8 +55,6 @@
++@@ -55,8 +55,6 @@ public class MainActivity extends QtActivity {
 + 		super.onCreate(savedInstanceState);
 +         Log.d("KritaActivity", "LibsLoaded");
 + 		new ConfigsManager().handleAssets(this);
