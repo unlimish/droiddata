@@ -659,7 +659,35 @@ Builds:
       - sed -i -e "/':proprietary'/d" build.gradle
     ndk: r21
 
+  - versionName: 14.2.0
+    versionCode: 1402001
+    commit: 41919beae887149c2f2221a12f0e9caf518d96a0
+    subdir: app
+    gradle:
+      - foss
+    rm:
+      - proprietary
+      - wear
+    prebuild:
+      - sed -i -e "s/':proprietary', //; s/':wear', //" ../settings.gradle
+      - sed -i -e "/':proprietary'/d" build.gradle
+    ndk: r21
+
+  - versionName: 14.2.2
+    versionCode: 1402021
+    commit: cdcd07cf2cf12925f7297b0a28556399cc5e9f20
+    subdir: app
+    gradle:
+      - foss
+    rm:
+      - proprietary
+      - wear
+    prebuild:
+      - sed -i -e "s/':proprietary', //; s/':wear', //" ../settings.gradle
+      - sed -i -e "/':proprietary'/d" build.gradle
+    ndk: r21
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 14.0.1
-CurrentVersionCode: 1400011
+CurrentVersion: 14.2.2
+CurrentVersionCode: 1402021
