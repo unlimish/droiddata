@@ -16,10 +16,21 @@ RepoType: git
 Repo: https://github.com/OneTimePass/OneTimePass
 
 Builds:
+  - versionName: 1.2.2
+    versionCode: 1002002
+    commit: v1.2.2
+    subdir: app
+    gradle:
+      - yes
+
   - versionName: 1.2.3
     versionCode: 1002003
     commit: v1.2.3
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
 
