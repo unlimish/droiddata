@@ -209,7 +209,7 @@ Builds:
     submodules: true
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y -t testing golang-go
+      - apt-get install -y -t unstable golang-go
     output: build/app/outputs/flutter-apk/app-beta-release.apk
     srclibs:
       - flutter@2.2.3
@@ -226,8 +226,8 @@ Builds:
     build:
       - export GOPATH="$PWD/gopath"
       - export PATH=$PATH:$GOPATH/bin
-      - go get golang.org/x/mobile/cmd/gomobile
-      - gomobile init
+      - GO111MODULE=off go get golang.org/x/mobile/cmd/gomobile
+      - GO111MODULE=off gomobile init
       - gomobile bind -target android -o android/irmagobridge/irmagobridge.aar github.com/privacybydesign/irmamobile/irmagobridge
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
