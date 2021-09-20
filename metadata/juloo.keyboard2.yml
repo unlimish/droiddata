@@ -1,0 +1,38 @@
+Categories:
+  - Development
+  - Writing
+License: GPL-3.0-or-later
+AuthorEmail: juloo.dsi@gmail.com
+SourceCode: https://github.com/Julow/Unexpected-Keyboard
+IssueTracker: https://github.com/Julow/Unexpected-Keyboard/issues
+
+AutoName: Unexpected Keyboard
+Description: |-
+    A lightweight virtual keyboard for developers.
+
+    All the characters you might need are available on a single screen, as well
+    as control, alt, escape and many others.
+
+    Like any other keyboard app, you will need to activate it in the system
+    settings to be able to use it. This can be found in
+    System Settings > System > Languages & Input > Virtual keyboard > Manage keyboards.
+
+RepoType: git
+Repo: https://github.com/Julow/Unexpected-Keyboard
+
+Builds:
+  - versionName: 1.9.2
+    versionCode: 12
+    commit: ac1dd231442bba0f081598d257dfe4fd81a0a071
+    output: _build/juloo.keyboard2.unsigned-apk
+    prebuild: $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-29'
+    build: make _build/juloo.keyboard2.unsigned-apk
+
+MaintainerNotes: |-
+    Requires Android Build Tools <= 30.0.3. The build script uses 'dx' that
+    seems to be gone in 31.0.0.
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.9.2
+CurrentVersionCode: 12
