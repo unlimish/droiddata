@@ -68,6 +68,10 @@ Builds:
     versionCode: 12
     commit: 911d8b6e6dd96f1efe350f93e6f46ea9b1a2d1ea
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
 
