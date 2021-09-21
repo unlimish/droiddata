@@ -1631,6 +1631,8 @@ Builds:
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y -t testing golang-go
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
     output: app/build/outputs/apk/release/app-release-unsigned.apk
