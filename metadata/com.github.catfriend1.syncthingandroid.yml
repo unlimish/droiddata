@@ -1638,7 +1638,7 @@ Builds:
     output: app/build/outputs/apk/release/app-release-unsigned.apk
     rm:
       - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
-    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    prebuild: sed -i -e '/signingConfig/d' -e '/SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE/d' app/build.gradle
     ndk: r23
     preassemble:
       - buildNative
