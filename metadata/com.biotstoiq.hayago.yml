@@ -8,9 +8,10 @@ WebSite: https://biotstoiq.org/hayago.html
 SourceCode: https://gitlab.com/biotstoiq/hayago
 Donate: https://biotstoiq.org/donate.html
 Bitcoin: bc1qp7668qpa9kfq2r36t7lwzkrud2hzmdvvdmvfq0
-Summary: A minimalist go/chess clock
 
+Name: Hayago
 AutoName: Hayago
+Summary: A minimalist go/chess clock
 Description: |-
     Hayago is a completely free chess/go/shogi clock with all the features that you expect from a time clock.
 
@@ -21,7 +22,8 @@ Description: |-
     * time increment
     * fully customisable - for each player.
 
-Name: Hayago
+    <b>made by biotstoiq, with love.</b>
+
 RepoType: git
 Repo: https://gitlab.com/biotstoiq/hayago.git
 
@@ -30,12 +32,12 @@ Builds:
     versionCode: 17
     commit: v1.077
     subdir: app
-    gradle:
-      - yes
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+    gradle:
+      - yes
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
