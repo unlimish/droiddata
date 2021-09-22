@@ -65,7 +65,6 @@ Builds:
 
   - versionName: 3.2.2
     versionCode: 20210813
-    disable: Fails to compile NoClassDefFoundError javax/xml/bind/annotation/XmlSchema
     commit: 0c588c11aacf174b11324158a8f7eb971ced33be
     subdir: app
     submodules: true
@@ -83,10 +82,13 @@ Builds:
       - yes
     srclibs:
       - capnproto@v0.8.0
-    prebuild: $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1' > /dev/null
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+        > /dev/null
+      - sed -i -e "/maven { url 'https:\/\/maven.aliyun.com\/repository\/google' }/d"
+        ../build.gradle
     scandelete:
       - app/src/main/jni
-    ndk: r22b
 
   - versionName: 3.2.3
     versionCode: 20211002
