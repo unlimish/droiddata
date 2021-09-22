@@ -24,6 +24,9 @@ Builds:
     commit: tutanota-android-release-3.35.13
     subdir: app-android/app
     sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
       - curl -Lo node.tar.xz https://nodejs.org/dist/v8.11.3/node-v8.11.3-linux-x64.tar.xz
       - echo "08e2fcfea66746bd966ea3a89f26851f1238d96f86c33eaf6274f67fce58421a node.tar.xz"
         | sha256sum -c -
