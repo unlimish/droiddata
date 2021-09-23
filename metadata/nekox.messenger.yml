@@ -387,10 +387,10 @@ Builds:
     output: build/outputs/apk/mini/*/*.apk
     prebuild:
       - pushd ..
-      - ./run fdroid prebuild
       - $ANDROID_SDK_ROOT/tools/bin/sdkmanager "cmdline-tools;latest"
-      - $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "build-tools;30.0.3" "build-tools;31.0.0"
-        "platforms;android-31"
+      - $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "build-tools;30.0.3"
+        "build-tools;31.0.0" "platforms;android-31"
+      - ./run fdroid prebuild
     scandelete:
       - TMessagesProj
     build:
