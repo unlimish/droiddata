@@ -401,6 +401,7 @@ Builds:
       - TMessagesProj
     build:
       - pushd ..
+      - sed -i -e "s/lintOptions {/lintOptions {\ncheckReleaseBuilds false/" TMessagesProj/build.gradle
       - ./run fdroid build
     ndk: r21e
 
