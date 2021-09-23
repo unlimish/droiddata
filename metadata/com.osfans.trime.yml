@@ -85,8 +85,7 @@ Builds:
     prebuild:
       - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
         > /dev/null
-      - sed -i -e "/maven { url 'https:\/\/maven.aliyun.com\/repository\/google' }/d"
-        ../build.gradle
+      - sed -i -e "/maven.aliyun.com/d" ../build.gradle
     scandelete:
       - app/src/main/jni
 
