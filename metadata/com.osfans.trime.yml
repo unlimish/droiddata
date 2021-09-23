@@ -70,7 +70,7 @@ Builds:
     submodules: true
     sudo:
       - apt-get update || apt-get update
-      - apt-get -y install g++ openjdk-11-jdk
+      - apt-get -y install --no-install-recommends g++ openjdk-11-jdk-headless
       - update-alternatives --auto java
       - pushd build/srclib/capnproto/c++
       - autoreconf -i
