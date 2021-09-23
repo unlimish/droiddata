@@ -174,7 +174,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 8.16.1
+    versionCode: 81601
+    commit: e74a5c69409699d5befc05dadd12da9e756c5707
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 8.15.1
-CurrentVersionCode: 81501
+CurrentVersion: 8.16.1
+CurrentVersionCode: 81601
