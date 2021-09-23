@@ -375,6 +375,33 @@ Builds:
       - ./run fdroid build
     ndk: r21e
 
+  - versionName: 8.1.1-arm
+    versionCode: 420
+    commit: v8.1.1
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo: apt-get install -y ninja-build
+    gradle:
+      - miniFdroidArm
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - $ANDROID_SDK_ROOT/tools/bin/sdkmanager "cmdline-tools;latest"
+      - export PATH=${ANDROID_SDK_ROOT}/emulator:${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${ANDROID_SDK_ROOT}/tools:${ANDROID_SDK_ROOT}/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:${PATH}
+      - yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses
+      - yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --update
+      - $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "build-tools;30.0.3"
+        "build-tools;31.0.0" "platforms;android-31"
+      - pushd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - TMessagesProj
+    build:
+      - pushd ..
+      - sed -i -e "s/lintOptions {/lintOptions {\ncheckReleaseBuilds false/" TMessagesProj/build.gradle
+      - ./run fdroid build
+    ndk: r21e
+
   - versionName: 8.1.1-arm64
     versionCode: 420
     commit: v8.1.1
@@ -386,15 +413,12 @@ Builds:
       - miniFdroidArm64
     output: build/outputs/apk/mini/*/*.apk
     prebuild:
-      # Install specific SDKs
       - $ANDROID_SDK_ROOT/tools/bin/sdkmanager "cmdline-tools;latest"
       - export PATH=${ANDROID_SDK_ROOT}/emulator:${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${ANDROID_SDK_ROOT}/tools:${ANDROID_SDK_ROOT}/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:${PATH}
       - yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses
       - yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --update
-      # https://github.com/NekoX-Dev/NekoX/blob/dev/Dockerfile#L7
       - $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "build-tools;30.0.3"
         "build-tools;31.0.0" "platforms;android-31"
-
       - pushd ..
       - ./run fdroid prebuild
     scandelete:
