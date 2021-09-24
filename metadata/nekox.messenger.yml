@@ -391,8 +391,12 @@ Builds:
       - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip"
       - unzip -q /tmp/cmdline-tools.zip -d ${ANDROID_SDK_ROOT}/cmdline-tools
       - export PATH=${ANDROID_SDK_ROOT}/emulator:${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${ANDROID_SDK_ROOT}/tools:${ANDROID_SDK_ROOT}/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:${PATH}
+      - mkdir ~/.android
+      - echo '### User Sources for Android SDK Manager' > ~/.android/repositories.cfg
       - yes | sdkmanager --licenses
       - yes | sdkmanager --update
+      - which sdkmanager
+      - sdkmanager --version
       - sdkmanager --list
       - sdkmanager "build-tools;30.0.3" "build-tools;31.0.0" "platforms;android-31"
       - pushd ..
@@ -415,13 +419,17 @@ Builds:
       - miniFdroidArm64
     output: build/outputs/apk/mini/*/*.apk
     prebuild:
-      - $ANDROID_SDK_ROOT/tools/bin/sdkmanager "cmdline-tools;latest"
+      - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip"
+      - unzip -q /tmp/cmdline-tools.zip -d ${ANDROID_SDK_ROOT}/cmdline-tools
       - export PATH=${ANDROID_SDK_ROOT}/emulator:${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${ANDROID_SDK_ROOT}/tools:${ANDROID_SDK_ROOT}/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:${PATH}
-      - yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --licenses
-      - yes | $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --update
-      - $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager --list
-      - $ANDROID_SDK_ROOT/cmdline-tools/latest/bin/sdkmanager "build-tools;30.0.3"
-        "build-tools;31.0.0" "platforms;android-31"
+      - mkdir ~/.android
+      - echo '### User Sources for Android SDK Manager' > ~/.android/repositories.cfg
+      - yes | sdkmanager --licenses
+      - yes | sdkmanager --update
+      - which sdkmanager
+      - sdkmanager --version
+      - sdkmanager --list
+      - sdkmanager "build-tools;30.0.3" "build-tools;31.0.0" "platforms;android-31"
       - pushd ..
       - ./run fdroid prebuild
     scandelete:
