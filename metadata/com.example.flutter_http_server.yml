@@ -1,0 +1,31 @@
+Categories:
+ - Connectivity
+License: MIT
+AuthorName: Vignesh Nandakumar
+AuthorEmail: nviki001@gmail.com
+SourceCode: https://github.com/many-fac3d-g0d/ServeIt
+IssueTracker: https://github.com/many-fac3d-g0d/ServeIt/issues
+
+AutoName: ServeIt
+Summary:  simple http-server on android using flutter
+Description: |
+ A simple http-server on android using flutter.
+
+RepoType: git
+Repo: https://github.com/many-fac3d-g0d/ServeIt
+
+Builds:
+ - versionName: '1.0.0'
+   versionCode: 100
+   commit: bf8f9e9aedc0a7a2f09514ecc1072704e402ca2b
+   output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+   srclibs:
+       - flutter@dev
+   prebuild: rm -fr ios
+   build: |-
+       export PATH=$$flutter$$/bin:$PATH && flutter build apk --flavor fdroid
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags v\d+\.\d+(\.\d+)?
+CurrentVersion: 1.0.0
+CurrentVersionCode: 100
