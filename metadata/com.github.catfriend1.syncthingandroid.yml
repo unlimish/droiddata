@@ -1626,7 +1626,7 @@ Builds:
 
   - versionName: 1.18.2.1
     versionCode: 1180201
-    commit: 7d86953f325754eddff987f3a5a37ee6c1ebb177
+    commit: 8f777054830683f396c643ca17c909e7908812e5
     submodules: true
     sudo:
       - apt-get update || apt-get update
@@ -1638,8 +1638,7 @@ Builds:
     output: app/build/outputs/apk/release/app-release-unsigned.apk
     rm:
       - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
-    prebuild: sed -i -e '/signingConfig/d' -e '/SYNCTHING_RELEASE_PLAY_ACCOUNT_CONFIG_FILE/d' app/build.gradle
-    ndk: r23
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
     preassemble:
       - buildNative
 
