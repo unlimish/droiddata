@@ -1,0 +1,70 @@
+Categories:
+  - Multimedia
+License: MPL-2.0
+WebSite: https://wiki.documentfoundation.org/Android
+SourceCode: https://cgit.freedesktop.org/libreoffice/core/tree
+IssueTracker: https://bugs.documentfoundation.org
+Donate: https://donate.libreoffice.org
+
+Name: LibreOffice Viewer Beta
+Summary: Document Viewer
+Description: |-
+  LibreOffice Viewer uses the same engine as LibreOffice for Windows, Mac, and
+  Linux. This, combined with a new front-end based on Firefox for Android, reads
+  documents similarly to LibreOffice desktop.
+
+  Supported files:
+
+  * Open Document Format (.odt, .odp, .ods, .ots, .ott, .otp)
+  * Microsoft Office 2007/2010/2013 (.docx, .pptx, .xlsx, .dotx, .xltx, .ppsx)
+  * Microsoft Office 97/2000/XP/2003 (.doc, .ppt, .xls, .dot, .xlt, .pps)
+
+  Coming in future releases:
+
+  * Interactive document elements (e.g. URLs)
+  * Support for browsing external SD storage
+  * Many more features planned
+
+  Usability:
+
+  * Beta status, has crashing bugs
+
+  This package is the preview version. To download the last release see
+  https://f-droid.org/packages/org.documentfoundation.libreoffice.
+
+RepoType: git
+Repo: https://git.libreoffice.org/online
+
+Builds:
+  - versionName: 4.5.0.0.alpha0+/2d6e16f
+    versionCode: 12
+    commit: libreoffice-7.0.1.1
+    output: android/experimental/LOAndroid3/bin/LibreOfficeViewer-release-unsigned.apk
+    srclibs:
+      - Poco@poco-1.9.1
+    prebuild:
+      - sed -i -e 's/\/$(OOO_VENDOR)//g' android/Bootstrap/Makefile.shared
+      - sed -i -e 's/test_fontconfig=yes/test_fontconfig=no/g' configure.ac
+      - sed -i -e 's/test_freetype=yes/test_freetype=no/g' configure.ac
+      - echo "***HOTFIX***"
+      # - sed -i -e '/windowActionBar/d' android/experimental/LOAndroid3/res/values/themes.xml
+      # - sed -i -e 's/"Theme.AppCompat.Light"/"Theme.AppCompat.Light.NoActionBar"/g'
+      #   android/experimental/LOAndroid3/res/values/themes.xml
+    build:
+      - cat << EOF > autogen.input
+        --build=x86_64-unknown-linux-gnu
+        --with-android-ndk=$$NDK$$
+        --with-android-sdk=$$SDK$$
+        --with-distro=LibreOfficeAndroid
+        --with-vendor=F-Droid
+        --enable-sal-log
+        --enable-fetch-external=no
+        EOF
+      - ./autogen.sh && make
+    gradle: yes
+
+ArchivePolicy: 0 versions
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 4.5.0.0.alpha0+/2d6e16f
+CurrentVersionCode: 12

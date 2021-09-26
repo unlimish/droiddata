@@ -417,16 +417,14 @@ Builds:
       - miniFdroidArm64
     output: build/outputs/apk/mini/*/*.apk
     prebuild:
-      - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-6609375_latest.zip"
+      - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
       - unzip -q -o /tmp/cmdline-tools.zip -d /tmp/cmdline-tools
+      - rm /tmp/cmdline-tools.zip
+      - mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools/tools
+      - mv /tmp/cmdline-tools/cmdline-tools/* ${ANDROID_SDK_ROOT}/cmdline-tools/tools
       - export PATH=${ANDROID_SDK_ROOT}/emulator:${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${ANDROID_SDK_ROOT}/tools:${ANDROID_SDK_ROOT}/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:${PATH}
-      - mkdir ~/.android
-      - echo '### User Sources for Android SDK Manager' > ~/.android/repositories.cfg
       - yes | sdkmanager --licenses
       - yes | sdkmanager --update
-      - which sdkmanager
-      - sdkmanager --version
-      - sdkmanager --list
       - sdkmanager "build-tools;30.0.3" "build-tools;31.0.0" "platforms;android-31"
       - pushd ..
       - ./run fdroid prebuild
