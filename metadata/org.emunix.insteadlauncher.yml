@@ -96,24 +96,6 @@ Builds:
       - downloadDependencies
 
   - versionName: 0.8.6
-    versionCode: 80600
-    disable: https://github.com/btimofeev/instead-launcher-android/issues/18
-    commit: 3a4a352dfcb573542ac5290ad5b9e634cd6b294a
-    subdir: app
-    sudo:
-      - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk-headless
-      - update-alternatives --auto java
-    gradle:
-      - yes
-    prebuild:
-      - cd ../instead
-      - gradle downloadDependencies
-    scandelete:
-      - instead/src/main/c/libiconv/libiconv/tests/
-    ndk: r20b
-
-  - versionName: 0.8.6
     versionCode: 80601
     commit: a077744714c0233ed42628ffb1d673015484a5df
     subdir: app
