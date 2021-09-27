@@ -1632,12 +1632,6 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk
       - update-alternatives --auto java
-      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.1.linux-amd64.tar.gz
-      - echo "dab7d9c34361dc21ec237d584590d72500652e7c909bf082758fb63064fca0ef go.tar.gz"
-        | sha256sum -c -
-      - tar xzvf go.tar.gz
-      - export GOPATH=$(pwd)/go
-      - export GOROOT=$(pwd)/go
     gradle:
       - yes
     output: app/build/outputs/apk/release/app-release-unsigned.apk
