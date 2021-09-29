@@ -547,12 +547,15 @@ Builds:
 
   - versionName: '8.0'
     versionCode: 275
-    commit: 7328a8aeaa500b7cbb75ffe0e6f9b7322924fee3
+    commit: btc-8.0
     subdir: bitcoin
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
-      - yes
+      - fdroid
 
 AutoUpdateMode: Version btc-%v
 UpdateCheckMode: Tags
 CurrentVersion: '8.0'
-CurrentVersionCode: 275
