@@ -397,8 +397,8 @@ Builds:
       - mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools/tools
       - mv /tmp/cmdline-tools/cmdline-tools/* ${ANDROID_SDK_ROOT}/cmdline-tools/tools
         || true
-      - export PATH=${ANDROID_SDK_ROOT}/emulator:${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${ANDROID_SDK_ROOT}/tools:${ANDROID_SDK_ROOT}/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:${PATH}
-      - yes | sdkmanager --licenses
+      - export ${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:${PATH}      -
+        yes | sdkmanager --licenses
       - yes | sdkmanager --update
       - sdkmanager "build-tools;30.0.3" "build-tools;31.0.0" "platforms;android-31"
       - pushd ..
@@ -429,7 +429,7 @@ Builds:
       - mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools/tools
       - mv /tmp/cmdline-tools/cmdline-tools/* ${ANDROID_SDK_ROOT}/cmdline-tools/tools
         || true
-      - export PATH=${ANDROID_SDK_ROOT}/emulator:${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${ANDROID_SDK_ROOT}/tools:${ANDROID_SDK_ROOT}/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:${PATH}
+      - export ${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${ANDROID_SDK_ROOT}/platform-tools:${PATH}
       - yes | sdkmanager --licenses
       - yes | sdkmanager --update
       - sdkmanager "build-tools;30.0.3" "build-tools;31.0.0" "platforms;android-31"
