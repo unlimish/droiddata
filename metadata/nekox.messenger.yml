@@ -406,6 +406,7 @@ Builds:
     scandelete:
       - TMessagesProj
     build:
+      - export NINJA_PATH=/usr/bin/ninja
       - pushd ..
       - ./run fdroid build
     ndk: r21e
@@ -441,8 +442,8 @@ Builds:
     scandelete:
       - TMessagesProj
     build:
+      - export NINJA_PATH=/usr/bin/ninja
       - pushd ..
-      - sed -i -e "s/lintOptions {/lintOptions {\ncheckReleaseBuilds false/" TMessagesProj/build.gradle
       - ./run fdroid build
     ndk: r21e
 
