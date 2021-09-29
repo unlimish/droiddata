@@ -397,7 +397,7 @@ Builds:
       - mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools/tools
       - mv /tmp/cmdline-tools/cmdline-tools/* ${ANDROID_SDK_ROOT}/cmdline-tools/tools
         || true
-      - export ${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${PATH}
+      - export PATH=${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${PATH}
       - yes | sdkmanager --licenses
       - yes | sdkmanager --update
       - sdkmanager "build-tools;30.0.3" "build-tools;31.0.0" "platforms;android-31"
@@ -429,9 +429,9 @@ Builds:
       - mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools/tools
       - mv /tmp/cmdline-tools/cmdline-tools/* ${ANDROID_SDK_ROOT}/cmdline-tools/tools
         || true
-      - export ${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${PATH}
+      - export PATH=${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${PATH}
       - yes | sdkmanager --licenses
-      - yes | sdkmanager --updatee x
+      - yes | sdkmanager --update
       - sdkmanager "build-tools;30.0.3" "build-tools;31.0.0" "platforms;android-31"
       - pushd ..
       - ./run fdroid prebuild
