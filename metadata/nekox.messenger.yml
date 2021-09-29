@@ -409,7 +409,10 @@ Builds:
       - export NINJA_PATH=/usr/bin/ninja
       - pushd ..
       - ./run fdroid build
+      - source bin/init/env.sh
       - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
     ndk: r21e
 
   - versionName: 8.1.1-arm64
@@ -446,7 +449,10 @@ Builds:
       - export NINJA_PATH=/usr/bin/ninja
       - pushd ..
       - ./run fdroid build
+      - source bin/init/env.sh
       - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
     ndk: r21e
 
 ArchivePolicy: 6 versions
