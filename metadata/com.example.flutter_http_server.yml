@@ -7,26 +7,25 @@ SourceCode: https://github.com/many-fac3d-g0d/ServeIt
 IssueTracker: https://github.com/many-fac3d-g0d/ServeIt/issues
 
 AutoName: ServeIt
-Summary: simple http-server on android using flutter
-Description: |
-    A simple http-server on android using flutter.
 
 RepoType: git
 Repo: https://github.com/many-fac3d-g0d/ServeIt
 
 Builds:
-  - versionName: 1.0.0
+  - versionName: v1.0.0
     versionCode: 1
     commit: c547bc59ae2a59fe840ef6dd8e14ea2e9536f428
     output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
     srclibs:
       - flutter@dev
-    prebuild: rm -fr ios
+    rm:
+      -ios
     build:
       - export PATH=$$flutter$$/bin:$PATH
       - flutter build apk --flavor fdroid
 
 AutoUpdateMode: Version v%v
-UpdateCheckMode: None
-CurrentVersion: 1.0.0
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: v1.0.0
 CurrentVersionCode: 1
