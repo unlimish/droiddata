@@ -72,6 +72,10 @@ Builds:
     versionCode: 11
     commit: d9ff1e189d35e6b75ebf5c91ef350bd33b0956d6
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     submodules: true
     gradle:
       - yes
