@@ -16,6 +16,10 @@ Builds:
     versionCode: 2
     commit: v1.1
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
 
