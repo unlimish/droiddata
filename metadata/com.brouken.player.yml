@@ -296,6 +296,10 @@ Builds:
     versionCode: 64
     commit: v0.64
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - latest
     srclibs:
@@ -328,8 +332,10 @@ Builds:
       - ./gradlew :extension-{ffmpeg,av1}:bundleReleaseAar
       - ./gradlew :library-{core,extractor,ui}:bundleReleaseAar
       - popd
-      - cp $$ExoPlayer-moneytoo$$/extensions/{ffmpeg,av1}/buildout/outputs/aar/*.aar libs/
-      - cp $$ExoPlayer-moneytoo$$/library/{core,extractor,ui}/buildout/outputs/aar/*.aar libs/
+      - cp $$ExoPlayer-moneytoo$$/extensions/{ffmpeg,av1}/buildout/outputs/aar/*.aar
+        libs/
+      - cp $$ExoPlayer-moneytoo$$/library/{core,extractor,ui}/buildout/outputs/aar/*.aar
+        libs/
     ndk: r21e
 
 MaintainerNotes: 'Extensions build instructions: https://github.com/google/ExoPlayer/blob/r2.15.1/extensions/ffmpeg/README.md
