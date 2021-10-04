@@ -9,27 +9,6 @@ Translation: https://www.transifex.com/equeim/tremotesf-android
 Changelog: https://github.com/equeim/tremotesf-android/blob/HEAD/CHANGELOG.md
 
 AutoName: Tremotesf
-Description: |-
-    Remote GUI for the <a href="https://transmissionbt.com/">Transmission</a> BitTorrent client.
-
-    Features:
-
-    * View torrent list
-    * Sort torrents
-    * Filter torrents by name, status and trackers
-    * Start/stop/verify torrents with multi-selection
-    * Add torrents from torrent files and magnet links
-    * Select which files to download when adding torrent
-    * Manage torrent files
-    * Add and remove torrent trackers
-    * View torrent peers
-    * Set torrent limits
-    * Change remote server settings
-    * View server statistics
-    * Multiple servers
-    * Supports HTTPS connection
-    * Can connect to servers with self-signed certificates (you need to add certificate to server settings)
-    * Client certificate authentication
 
 RepoType: git
 Repo: https://github.com/equeim/tremotesf-android
@@ -563,15 +542,25 @@ Builds:
     submodules: true
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y g++
+      - apt-get install -y clang-7 libc++-7-dev libc++abi-7-dev ninja-build make patch
+        perl
     gradle:
       - fdroid
     prebuild: "\"$$SDK$$/tools/bin/sdkmanager\" 'cmake;3.18.1'"
+    scanignore:
+      - gradle-plugin/build
     scandelete:
       - 3rdparty
-    build: ANDROID_SDK_ROOT="$$SDK$$" ANDROID_NDK_ROOT="$$NDK$$" ../build-native.sh
-        -j $(nproc)
     ndk: r22b
+    gradleprops:
+      - org.equeim.tremotesf.use-cmake-from-sdk=true
+      - org.equeim.tremotesf.host-qt-cmake-flags=-DCMAKE_C_COMPILER=clang-7 -DCMAKE_CXX_COMPILER=clang++-7
+        -DCMAKE_CXX_FLAGS=-stdlib=libc++
+
+MaintainerNotes: |
+    We need host C++ compiler with C++17 support, so we use clang-7 as it is the only one available in Debian Stretch
+    Tremotesf also uses Gradle plugin in its build process, which is compiled from source on first Gradle invocation
+    Since it happens before scanning for binaries, we need to scanignore plugin's build directory
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
