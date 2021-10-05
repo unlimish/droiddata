@@ -1632,10 +1632,25 @@ Builds:
     prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
     build: gradle :myExpenses:packageConscriptExternReleaseUniversalApk
 
+  - versionName: 3.3.4.1
+    versionCode: 499
+    commit: 29129e3cc04b11339b8a76f992a19ac15a67667f
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/conscriptExternRelease/myExpenses-conscript-extern-release-universal-unsigned.apk
+    rm:
+      - mlkit
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    build: gradle :myExpenses:packageConscriptExternReleaseUniversalApk
+
 MaintainerNotes: '* Ads: https://github.com/mtotschnig/MyExpenses/tree/b4237aabf8924614251d14fb18ce274ec0f934f7/myExpenses/src/main/java/org/totschnig/myexpenses/util/ads'
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^r.*$
 UpdateCheckData: build.gradle|versionCode = (.*)|.|versionName = '(.*)'
-CurrentVersion: 3.3.3.1
-CurrentVersionCode: 495
+CurrentVersion: 3.3.4.1
+CurrentVersionCode: 499
