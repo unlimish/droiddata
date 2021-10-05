@@ -915,7 +915,7 @@ Builds:
       - libbaresip-android@v14.0
     build:
       - pushd $$libbaresip-android$$
-      - sed -i -e 's!$(shell ls -d -1 /opt/Android/ndk/\* | tail -1)!$$NDK$$!' -e
+      - sed -i -e 's!$(shell ls -d -1 /opt/Android/ndk/23\* | tail -1)!$$NDK$$!' -e
         's|/usr/src/baresip-studio|../../com.tutpro.baresip.plus|' Makefile
       - make download-sources
       - make install-all
