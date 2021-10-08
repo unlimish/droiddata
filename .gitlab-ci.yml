@@ -288,6 +288,8 @@ fdroid build slim:
   extends: fdroid build
   variables:
     GIT_DEPTH: 10
+    VAGRANT_HOME: /home/vagrant
+    GRADLE_USER_HOME: $VAGRANT_HOME/.gradle
   script:
     - git fetch https://gitlab.com/fdroid/fdroiddata.git;
     - test -d build || mkdir build
