@@ -1,0 +1,35 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Security
+License: GPL-3.0-only
+WebSite: https://www.ivpn.net/
+SourceCode: https://github.com/ivpn/android-app
+IssueTracker: https://github.com/ivpn/android-app/issues
+Changelog: https://github.com/ivpn/android-app/releases
+
+AutoName: IVPN
+
+RepoType: git
+Repo: https://github.com/ivpn/android-app
+
+Builds:
+  - versionName: 2.6.0
+    versionCode: 100
+    commit: v2.6.0
+    subdir: fdroid
+    submodules: true
+    gradle:
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    ndk: r21e
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 2.6.0
+CurrentVersionCode: 100

@@ -4,16 +4,17 @@ Categories:
   - System
   - Security
 License: GPL-3.0-only
+AuthorName: Marcel Bokhorst (M66B)
 SourceCode: https://github.com/M66B/XPrivacyLua
 IssueTracker: https://forum.xda-developers.com/xposed/modules/xprivacylua6-0-android-privacy-manager-t3730663
+Translation: https://crowdin.com/project/xprivacylua/
 Changelog: https://github.com/M66B/XPrivacyLua/releases
 Donate: https://lua.xprivacy.eu/
 Bitcoin: 1GePXhRPgLhwQmBwRHhX1nSCgvfnCY97Gg
 
 AutoName: XPrivacyLua
-Summary: Really simple to use privacy manager for Marshmallow (6.0) and later
 Description: |-
-    '''XPosed Module''', get [[de.robv.android.xposed.installer]].
+    <b>XPosed Module</b>, get https://f-droid.org/packages/de.robv.android.xposed.installer.
 
     Really simple to use privacy manager for Android 6.0 Marshmallow and later
     (successor of XPrivacy).
@@ -21,7 +22,7 @@ Description: |-
     Revoking Android permissions from apps often let apps crash or malfunction.
     XPrivacyLua solves this by feeding apps fake data instead of real data.
 
-    '''Features:'''
+    <b>Features:</b>
 
     * Simple to use
     * Manage any user or system app
@@ -29,7 +30,7 @@ Description: |-
     * Multi-user support
     * Free and open source
 
-    '''Restrictions:'''
+    <b>Restrictions:</b>
 
     * Determine activity (fake unknown activity)
     * Get applications (hide installed apps and widgets)
@@ -62,16 +63,16 @@ Description: |-
     * Fake: return empty or fake value
 
     When using the proprietary "Pro Companion App" it is possible to add custom restriction definitions
-    See this [https://github.com/M66B/XPrivacyLua/blob/master/FAQ.md#FAQ8 FAQ] for details.
+    See this <a href="https://github.com/M66B/XPrivacyLua/blob/master/FAQ.md#FAQ8">FAQ</a> for details.
 
-    '''Notes:'''
+    <b>Notes:</b>
 
     * Some apps will start the camera app to take pictures. This cannot be restricted and there is no need for this, because only you can take pictures in this scenario, not the app.
     * Some apps will use OpenSL ES for Android to record audio, an example is WhatsApp. Xposed cannot hook into native code, so this cannot be prevented.
     * The get applications restriction will not restrict getting information about individual apps for stability and performance reasons.
     * The telephony data restriction will result in apps seeing a fake IMEI. However, this doesn't change the IMEI address of your device.
 
-    '''Compatibility:'''
+    <b>Compatibility:</b>
 
     XPrivacyLua is supported on Android 6.0 Marshmallow and later. For Android 4.0.3
     KitKat to Android 5.1.1 Lollipop you can use XPrivacy.
@@ -138,7 +139,68 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.23.22
+    versionCode: 123
+    commit: 1.23.22
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.23.23
+    versionCode: 124
+    commit: 1.23.23
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.24'
+    versionCode: 125
+    commit: '1.24'
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.25'
+    versionCode: 126
+    commit: '1.25'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore/d' build.gradle
+
+  - versionName: '1.26'
+    versionCode: 127
+    commit: '1.26'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore/d' build.gradle
+
+  - versionName: '1.27'
+    versionCode: 128
+    commit: '1.27'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore/d' build.gradle
+
+  - versionName: '1.29'
+    versionCode: 130
+    commit: '1.29'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore/d' build.gradle
+
+  - versionName: '1.30'
+    versionCode: 131
+    commit: '1.30'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore/d' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.23.20
-CurrentVersionCode: 121
+CurrentVersion: '1.30'
+CurrentVersionCode: 131

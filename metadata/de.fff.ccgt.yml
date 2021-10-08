@@ -1,0 +1,47 @@
+Categories:
+  - Multimedia
+License: GPL-3.0-only
+AuthorName: pterodactylus42
+WebSite: http://blog.form-follows-function.de/
+SourceCode: https://github.com/pterodactylus42/ccgt
+IssueTracker: https://github.com/pterodactylus42/ccgt/issues
+
+AutoName: ccgt
+
+RepoType: git
+Repo: https://github.com/pterodactylus42/ccgt/
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: v1.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.1'
+    versionCode: 11
+    commit: v1.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.2'
+    versionCode: 12
+    disable: duplicate be.tarsos.dsp.io.android.* classes
+    commit: v1.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.3'
+    versionCode: 13
+    commit: v1.3
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '1.3'
+CurrentVersionCode: 13

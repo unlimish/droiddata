@@ -1,0 +1,81 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Internet
+License: GPL-3.0-or-later
+AuthorName: CentaurusApps
+AuthorEmail: apps_centaurus@protonmail.com
+SourceCode: https://github.com/Lacerte/clima
+IssueTracker: https://github.com/Lacerte/clima/issues
+
+AutoName: Clima
+
+RepoType: git
+Repo: https://github.com/Lacerte/clima
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 3
+    commit: v1.0
+    subdir: android/app
+    gradle:
+      - yes
+    output: ../../build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@1.22.5
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: '1.1'
+    versionCode: 4
+    commit: v1.1
+    subdir: android/app
+    gradle:
+      - yes
+    output: ../../build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@1.22.5
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: '1.2'
+    versionCode: 5
+    commit: v1.2
+    subdir: packages/clima_ui/android/app
+    gradle:
+      - yes
+    output: ../../build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@1.22.5
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.2.1
+    versionCode: 6
+    commit: v1.2.1
+    subdir: packages/clima_ui/android/app
+    gradle:
+      - yes
+    output: ../../build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@1.22.5
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: packages/clima_ui/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.2.1
+CurrentVersionCode: 6

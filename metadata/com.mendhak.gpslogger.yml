@@ -1,0 +1,124 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Navigation
+License: GPL-2.0-only
+SourceCode: https://github.com/mendhak/gpslogger
+IssueTracker: https://github.com/mendhak/gpslogger/issues
+Changelog: https://github.com/mendhak/gpslogger/releases
+
+AutoName: GPSLogger
+
+RepoType: git
+Repo: https://github.com/mendhak/gpslogger.git
+
+Builds:
+  - versionName: '23'
+    versionCode: 23
+    disable: can't find apk fedb6b7d8b
+    commit: unknown - see disabled
+    subdir: GPSLogger
+    maven: 'yes'
+
+  - versionName: 27-fdroid
+    versionCode: 27
+    commit: 0633f2947
+    subdir: GPSLogger
+    forceversion: true
+    extlibs:
+      - json-simple/json_simple-1.1.jar
+      - mime4j/apache-mime4j-0.6.1.jar
+      - oauth-signpost/signpost-commonshttp4-1.2.1.1.jar
+      - oauth-signpost/signpost-core-1.2.1.1.jar
+      - httpmime/httpmime-4.0.3.jar
+      - commons-net/commons-net-2.2.jar
+
+  - versionName: 107-fdroid
+    versionCode: 107
+    commit: 1a3f98348823fc0377cf13c332618429fc778148
+    subdir: gpslogger
+    gradle:
+      - yes
+
+  - versionName: '109'
+    versionCode: 109
+    commit: v109
+    subdir: gpslogger
+    gradle:
+      - yes
+
+  - versionName: '110'
+    versionCode: 110
+    commit: v110
+    subdir: gpslogger
+    gradle:
+      - yes
+
+  - versionName: '111'
+    versionCode: 111
+    commit: v111
+    subdir: gpslogger
+    gradle:
+      - yes
+
+  - versionName: '112'
+    versionCode: 112
+    commit: e7fbe30d533ab3f58585d8cc015b8ef048ca456a
+    subdir: gpslogger
+    gradle:
+      - yes
+
+  - versionName: '113'
+    versionCode: 113
+    commit: 210093b9b200e044df0aca321cbb5b230442efa1
+    subdir: gpslogger
+    gradle:
+      - yes
+
+  - versionName: '114'
+    versionCode: 114
+    commit: 80b9068c1ea54262c5c76aa022eb077964ed4c27
+    subdir: gpslogger
+    gradle:
+      - yes
+
+  - versionName: '115'
+    versionCode: 115
+    commit: 5f21945695421b06866de1f5de79666b6dec3f44
+    subdir: gpslogger
+    gradle:
+      - yes
+
+  - versionName: '116'
+    versionCode: 116
+    commit: c4adc77beda1e30e26590362e8dfe870854d8455
+    subdir: gpslogger
+    gradle:
+      - yes
+
+  - versionName: '117'
+    versionCode: 117
+    commit: bd918c1bc83bb623d020ab369569bc18dc308e55
+    subdir: gpslogger
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '118'
+    versionCode: 118
+    commit: f2cccc347f9f597e224b294c9ff05d1e40c0dfcc
+    subdir: gpslogger
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%c
+UpdateCheckMode: Tags ^v[.0-9]*$
+CurrentVersion: '118'
+CurrentVersionCode: 118

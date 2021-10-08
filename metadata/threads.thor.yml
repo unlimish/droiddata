@@ -1,0 +1,91 @@
+Categories:
+  - Connectivity
+License: GPL-3.0-or-later
+SourceCode: https://gitlab.com/remmer.wilts/thor
+IssueTracker: https://gitlab.com/remmer.wilts/thor/issues
+
+AutoName: Thor
+
+RepoType: git
+Repo: https://gitlab.com/remmer.wilts/thor.git
+
+Builds:
+  - versionName: 0.6.9
+    versionCode: 69
+    commit: 0.6.9
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.7.0
+    versionCode: 70
+    commit: 0.7.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.7.1
+    versionCode: 71
+    commit: 0.7.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.7.2
+    versionCode: 72
+    commit: 0.7.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.7.3
+    versionCode: 73
+    commit: 0.7.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.7.4
+    versionCode: 74
+    commit: 0.7.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.7.8
+    versionCode: 78
+    commit: 813b62eece27c764c7b163f6dd316632e5dce58c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.7.9
+    versionCode: 79
+    commit: 34d987fce259954ae2ca356efc548a038af2c689
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.8.0
+    versionCode: 80
+    commit: 6d2fafa0ae64442eac81daf2b9c859c4999470f0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 0.8.0
+CurrentVersionCode: 80

@@ -1,0 +1,57 @@
+Categories:
+  - Science & Education
+License: GPL-3.0-or-later
+AuthorName: Michael Moessner
+SourceCode: https://github.com/thetwom/Tuner
+IssueTracker: https://github.com/thetwom/Tuner/issues
+Changelog: https://github.com/thetwom/Tuner/releases
+
+AutoName: Tuner
+
+RepoType: git
+Repo: https://github.com/thetwom/Tuner
+
+Builds:
+  - versionName: 1.2.0
+    versionCode: 4
+    commit: v1.2.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.2.1
+    versionCode: 5
+    commit: v1.2.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.2.3
+    versionCode: 7
+    commit: v1.2.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.2.4
+    versionCode: 8
+    commit: d2ed41cea7ac97af0be2a2546f54979f1120563a
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.3.0
+    versionCode: 9
+    commit: a88412ee140cda01fda7ec68a3cadc046e84c384
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags ^v[0-9.]*$
+CurrentVersion: 1.3.0
+CurrentVersionCode: 9

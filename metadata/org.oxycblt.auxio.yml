@@ -1,0 +1,49 @@
+Categories:
+  - Multimedia
+License: GPL-3.0-only
+AuthorName: OxygenCobalt
+WebSite: https://github.com/OxygenCobalt/Auxio
+SourceCode: https://github.com/OxygenCobalt/Auxio
+IssueTracker: https://github.com/OxygenCobalt/Auxio/issues
+Translation: https://github.com/OxygenCobalt/Auxio/issues/3
+Changelog: https://github.com/OxygenCobalt/Auxio/releases
+
+AutoName: Auxio
+
+RepoType: git
+Repo: https://github.com/OxygenCobalt/Auxio
+
+Builds:
+  - versionName: 1.4.0
+    versionCode: 6
+    commit: v1.4.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.4.1
+    versionCode: 7
+    commit: cd0167405eeba492470632c508ab9150b0e068a1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.4.2
+    versionCode: 8
+    commit: ad2c02936adfcef2132674994b16ef0314134247
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 1.4.2
+CurrentVersionCode: 8
