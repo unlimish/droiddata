@@ -289,6 +289,7 @@ fdroid build slim:
   variables:
     GIT_DEPTH: 10
   script:
+    - git fetch https://gitlab.com/fdroid/fdroiddata.git;
     - test -d build || mkdir build
     - for f in
           `git diff --name-only --diff-filter=d FETCH_HEAD...HEAD -- metadata/*.yml`
