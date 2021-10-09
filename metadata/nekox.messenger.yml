@@ -455,6 +455,48 @@ Builds:
       - git gc --prune=now
     ndk: r21e
 
+  - versionName: 8.1.2-arm
+    versionCode: 430
+    commit: v8.1.2
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo: apt-get install -y ninja-build
+    gradle:
+      - miniFdroidArm
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager "build-tools;30.0.3" "build-tools;31.0.0"
+      - pushd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - TMessagesProj
+    build:
+      - pushd ..
+      - ./run fdroid build
+    ndk: r21e
+
+  - versionName: 8.1.2-arm
+    versionCode: 429
+    commit: v8.1.2
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo: apt-get install -y ninja-build
+    gradle:
+      - miniFdroidArm
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - ${ANDROID_SDK_ROOT}/cmdline-tools/latest/bin/sdkmanager "build-tools;30.0.3" "build-tools;31.0.0"
+      - pushd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - TMessagesProj
+    build:
+      - pushd ..
+      - ./run fdroid build
+    ndk: r21e
+
 ArchivePolicy: 6 versions
 AutoUpdateMode: None
 UpdateCheckMode: None
