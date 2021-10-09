@@ -250,6 +250,9 @@ fdroid build:
     - apt-get purge fdroidserver
 
     - export GRADLE_USER_HOME=$VAGRANT_HOME/.gradle
+    - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
+          $GRADLE_USER_HOME/gradle.properties
+
     # each `fdroid build --on-server` run expects sudo, then uninstalls it
     - export fdroid="sudo --preserve-env --user vagrant
           env PATH=$VAGRANT_HOME/fdroidserver:$PATH
