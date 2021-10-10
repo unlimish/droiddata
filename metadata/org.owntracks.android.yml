@@ -1,0 +1,34 @@
+Categories:
+  - Navigation
+License: EPL-1.0
+WebSite: https://owntracks.org/
+SourceCode: https://github.com/owntracks/android/
+IssueTracker: https://github.com/owntracks/android/issues/
+Translation: https://poeditor.com/join/project?hash=xe6LPP0Jnx
+Changelog: https://github.com/owntracks/android/blob/HEAD/CHANGELOG.md
+Liberapay: OwnTracks.org
+
+AutoName: OwnTracks
+
+RepoType: git
+Repo: https://github.com/owntracks/android/
+
+Builds:
+  - versionName: 2.4.8
+    versionCode: 20408000
+    commit: 9c6909d0
+    subdir: project
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - oss
+    output: app/build/outputs/apk/oss/release/app-oss-release-unsigned.apk
+    forceversion: true
+    forcevercode: true
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: v2.4.8
+CurrentVersionCode: 20408000
