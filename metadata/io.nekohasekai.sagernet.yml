@@ -212,8 +212,27 @@ Builds:
       - ./run fdroid build
     ndk: r21e
 
+  - versionName: 0.5-rc23
+    versionCode: 590
+    commit: 0.5-rc23
+    subdir: app
+    patch:
+      - disable-splits-abi.patch
+    gradle:
+      - oss
+    prebuild:
+      - pushd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - library
+      - external
+    build:
+      - pushd ..
+      - ./run fdroid build
+    ndk: r21e
+
 ArchivePolicy: 12 versions
-AutoUpdateMode: None
-UpdateCheckMode: None
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
 CurrentVersion: 0.2-rc03-arm64
 CurrentVersionCode: 285

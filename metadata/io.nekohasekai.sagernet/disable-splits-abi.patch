@@ -1,0 +1,26 @@
+diff --git a/buildSrc/src/main/kotlin/Helpers.kt b/buildSrc/src/main/kotlin/Helpers.kt
+index 440dbdf..d1ec4a2 100644
+--- a/buildSrc/src/main/kotlin/Helpers.kt
++++ b/buildSrc/src/main/kotlin/Helpers.kt
+@@ -335,8 +335,8 @@ fun Project.setupPlugin(projectName: String) {
+         }
+ 
+         splits.abi {
+-            isEnable = true
+-            isUniversalApk = false
++            isEnable = false
++            isUniversalApk = true
+ 
+             if (targetAbi.isNotBlank()) {
+                 reset()
+@@ -453,8 +453,8 @@ fun Project.setupApp() {
+         }
+ 
+         splits.abi {
+-            isEnable = true
+-            isUniversalApk = false
++            isEnable = false
++            isUniversalApk = true
+ 
+             if (targetAbi.isNotBlank()) {
+                 reset()
