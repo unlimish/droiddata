@@ -1,0 +1,34 @@
+Categories:
+  - Reading
+License: GPL-3.0-only
+AuthorName: Saverio Morelli
+AuthorEmail: saverio.morelli@protonmail.com
+AuthorWebSite: https://saveriomorelli.com
+WebSite: https://www.saveriomorelli.com/projects/sav-pdf-viewer/
+SourceCode: https://github.com/Sav22999/sav-pdf-viewer-pro
+IssueTracker: https://github.com/Sav22999/sav-pdf-viewer-pro/issues
+Changelog: https://github.com/Sav22999/sav-pdf-viewer-pro/releases
+Donate: https://www.paypal.com/pools/c/8yl6auiU6e
+LiberaPay: https://liberapay.com/Sav22999/
+
+AutoName: Sav PDF Viewer
+
+RepoType: git
+Repo: https://github.com/Sav22999/sav-pdf-viewer-pro.git
+
+Builds:
+  - versionName: 1.8.0.1
+    versionCode: 31
+    commit: 1.8.0.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 1.8.0.1
+CurrentVersionCode: 31
