@@ -460,7 +460,40 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 74.4.1
+    versionCode: 80
+    commit: a6ad96330eede0e506ed7be5a761fdec49c46f18
+    subdir: ffupdater
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 74.4.3
+    versionCode: 82
+    commit: c2292227aab15630e2034d947e20f962b1b762be
+    subdir: ffupdater
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 74.4.5
+    versionCode: 84
+    commit: 485c219ec889fc9c390b488aeabd219f5250ba03
+    subdir: ffupdater
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 74.4.0
-CurrentVersionCode: 79
+CurrentVersion: 74.4.5
+CurrentVersionCode: 84
