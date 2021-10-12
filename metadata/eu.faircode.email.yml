@@ -5092,8 +5092,104 @@ Builds:
       - app/lib
     ndk: r21e
 
+  - versionName: '1.1754'
+    versionCode: 1754
+    commit: 16b55f9f2ef90c4921b718d7e4219aca48863fe5
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r21e
+
+  - versionName: '1.1755'
+    versionCode: 1755
+    commit: 24b6494a532e612661bd9e805f6b68440453c7cc
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r21e
+
+  - versionName: '1.1756'
+    versionCode: 1756
+    commit: 9f30391f95dcaf12236341e943a92f60159d56b7
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r21e
+
+  - versionName: '1.1757'
+    versionCode: 1757
+    commit: 7bb3dd3150c4b6f84581b05dd23e1193dfdc9876
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r21e
+
+  - versionName: '1.1760'
+    versionCode: 1760
+    commit: bdfac62d50645db51f2783e74c26c331ebbf2124
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r21e
+
+  - versionName: '1.1761'
+    versionCode: 1761
+    commit: 62b7036ed364e868c21fee1831e36108eb630b5a
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r21e
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: app/build.gradle|getVersionCode.*return (\d+)||
-CurrentVersion: '1.1753'
-CurrentVersionCode: 1753
+CurrentVersion: '1.1761'
+CurrentVersionCode: 1761

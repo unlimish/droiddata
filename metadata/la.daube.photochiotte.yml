@@ -133,7 +133,27 @@ Builds:
         .
     ndk: r21e
 
+  - versionName: '1.15'
+    versionCode: 16
+    commit: 2e9b87092bdef696ab82cc5ade14948112dfd84b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r22b
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.14'
-CurrentVersionCode: 15
+CurrentVersion: '1.15'
+CurrentVersionCode: 16
