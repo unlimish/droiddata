@@ -1300,7 +1300,57 @@ Builds:
     scandelete:
       - node_modules/**
 
+  - versionName: 3.88.0
+    versionCode: 388000
+    commit: 439d605dc5b3876717374b20f8adc8d7e889ab0d
+    subdir: app-android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v14.17.2/node-v14.17.2-linux-x64.tar.xz
+      - echo "6cf9db7349407c177b36205feec949729d0ee9db485e19b10b0b1ffca65a3a46 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.17.2-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - yes
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node fdroid-fix-deps
+      - npm install
+      - node dist prod
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.88.3
+    versionCode: 388030
+    commit: 7dfcfe769455dafa59aa78031b9748a6ac7dfb17
+    subdir: app-android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
+      - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.3.0-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - fdroid
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node buildSrc/fixFdroidDeps.js
+      - npm install
+      - node dist prod
+      - node buildSrc/prepareMobileBuild.js dist
+    scandelete:
+      - node_modules/**
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags tutanota-android-release-*
-CurrentVersion: 3.87.1
-CurrentVersionCode: 387010
+CurrentVersion: 3.88.3
+CurrentVersionCode: 388030
