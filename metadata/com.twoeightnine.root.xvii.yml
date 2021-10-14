@@ -1,0 +1,30 @@
+Categories:
+  - Internet
+License: GPL-3.0-or-later
+AuthorName: TwoEightNine
+AuthorEmail: twoeightnine@list.ru
+SourceCode: https://github.com/TwoEightNine/XVII
+IssueTracker: https://github.com/TwoEightNine/XVII/issues
+Changelog: https://github.com/TwoEightNine/XVII/releases
+
+AutoName: xvii messenger for vk
+
+RepoType: git
+Repo: https://github.com/TwoEightNine/XVII
+
+Builds:
+  - versionName: 6.1.4
+    versionCode: 189
+    commit: v6.1.4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: None
+UpdateCheckMode: Tags
+CurrentVersion: 6.1.4
+CurrentVersionCode: 189
