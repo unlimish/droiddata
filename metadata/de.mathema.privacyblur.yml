@@ -15,7 +15,7 @@ RepoType: git
 Repo: https://github.com/MATHEMA-GmbH/privacyblur
 
 Builds:
-  - versionName: 2.1.2
+  - versionName: 2.1.2-foss
     versionCode: 37
     commit: c50c45f061e260f02afc022037a2882f7668d231
     sudo:
@@ -33,8 +33,8 @@ Builds:
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk --flavor foss -t lib/main-foss.dart
 
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version +-fdroid v%v
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 2.1.2
+CurrentVersion: 2.1.2-foss
 CurrentVersionCode: 37
