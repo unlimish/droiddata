@@ -17,7 +17,7 @@ Repo: https://github.com/MATHEMA-GmbH/privacyblur
 Builds:
   - versionName: 2.1.2
     versionCode: 37
-    commit: 253dc6ead168b9d37a3c96fcf5da3d5f51ffea86
+    commit: c50c45f061e260f02afc022037a2882f7668d231
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk
@@ -27,7 +27,6 @@ Builds:
       - flutter@2.5.2
     rm:
       - ios
-      - assets.tmp.zip
     prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
     build:
       - $$flutter$$/bin/flutter config --no-analytics
