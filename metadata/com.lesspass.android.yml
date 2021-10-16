@@ -232,7 +232,6 @@ Builds:
       - yes
     rm:
       - mobile/node_modules/react-native/template/android/build.gradle
-      - mobile/node_modules/react-native-reanimated/android/react-native-reanimated-6*
     prebuild:
       - sed -i -e 's#../package.json#../../package.json#' ../build.gradle
       - sed -i -e '/enable enableSeparateBuildPerCPUArchitecture/d' build.gradle
@@ -242,7 +241,6 @@ Builds:
       - mobile/node_modules/react-native/android/com/facebook/react/react-native
       - mobile/node_modules/jsc-android/dist/org/webkit/android-jsc
       - mobile/node_modules/react-native-screens/android/build.gradle
-      - mobile/node_modules/react-native-reanimated/android/build.gradle
       - mobile/node_modules/@react-native-community/async-storage/android/build.gradle
       - mobile/node_modules/react-native-vector-icons/android/build.gradle
       - mobile/node_modules/@react-native-community/masked-view/android/build.gradle
