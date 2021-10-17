@@ -33,6 +33,7 @@ Builds:
       - test
       - .vscode
     build:
+      - sed -i 's/minSdkVersion 16/minSdkVersion 21/' android/app/build.gradle
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter -v build apk
