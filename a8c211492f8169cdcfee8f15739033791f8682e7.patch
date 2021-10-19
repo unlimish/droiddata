@@ -1,0 +1,43 @@
+From a8c211492f8169cdcfee8f15739033791f8682e7 Mon Sep 17 00:00:00 2001
+From: Shilo <mmm_45@walla.com>
+Date: Tue, 12 Oct 2021 13:48:02 +0000
+Subject: [PATCH] Update io.homeassistant.companion.android.minimal.yml
+
+---
+ ...omeassistant.companion.android.minimal.yml | 21 +++++++++++++++++--
+ 1 file changed, 19 insertions(+), 2 deletions(-)
+
+diff --git a/metadata/io.homeassistant.companion.android.minimal.yml b/metadata/io.homeassistant.companion.android.minimal.yml
+index 4f8353ad7e6..f2bbb63d1be 100644
+--- a/metadata/io.homeassistant.companion.android.minimal.yml
++++ b/metadata/io.homeassistant.companion.android.minimal.yml
+@@ -160,7 +160,24 @@ Builds:
+       - sed -i -e '/-minimal/d' -e 's/\:\ "LOCAL"/\:\ "$$VERSION$$\"/' -e 's/\?\:\
+         1/\?\:\ $$VERCODE$$/' build.gradle.kts
+ 
++  - versionName: 2021.10.0-minimal
++    versionCode: 761
++    commit: 2021.10.0
++    subdir: app
++    sudo:
++      - apt-get update || apt-get update
++      - apt-get install -y openjdk-11-jdk
++      - update-alternatives --auto java
++    gradle:
++      - minimal
++    prebuild:
++      - sed -i -e '/appDistribution/d' ../build.gradle.kts
++      - sed -i -e '/com.google.firebase/d; /com.google.gms/d; /firebaseAppDistribution/,/}/d;
++        /GoogleServicesPluginConfig/,/}/d' build.gradle.kts
++      - sed -i -e '/-minimal/d' -e 's/\:\ "LOCAL"/\:\ "$$VERSION$$\"/' -e 's/\?\:\
++        1/\?\:\ $$VERCODE$$/' build.gradle.kts
++
+ AutoUpdateMode: None
+ UpdateCheckMode: None
+-CurrentVersion: 2021.9.0-minimal
+-CurrentVersionCode: 723
++CurrentVersion: 2021.10.0-minimal
++CurrentVersionCode: 761
+-- 
+GitLab
+
