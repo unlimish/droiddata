@@ -16,9 +16,9 @@ RepoType: git
 Repo: https://github.com/Sesu8642/InfusionTimer
 
 Builds:
-  - versionName: 1.0.1
-    versionCode: 101
-    commit: a8cc1c0
+  - versionName: 1.0.2
+    versionCode: 102
+    commit: 1.0.2
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
@@ -33,7 +33,6 @@ Builds:
       - test
       - .vscode
     build:
-      - sed -i 's/minSdkVersion 16/minSdkVersion 21/' android/app/build.gradle
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter -v build apk
@@ -41,5 +40,5 @@ Builds:
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.0.1
-CurrentVersionCode: 101
+CurrentVersion: 1.0.2
+CurrentVersionCode: 102
