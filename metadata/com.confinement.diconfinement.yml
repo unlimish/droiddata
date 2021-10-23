@@ -1,0 +1,29 @@
+Categories:
+  - Science & Education
+License: GPL-3.0-only
+AuthorName: Antoine FLINOIS
+SourceCode: https://github.com/Flinou/Dico
+IssueTracker: https://github.com/Flinou/Dico/issues
+Changelog: https://github.com/Flinou/Dico/releases
+
+AutoName: Diconfinement
+
+RepoType: git
+Repo: https://github.com/Flinou/Dico
+
+Builds:
+  - versionName: '7.2'
+    versionCode: 15
+    commit: 3ff2b3f18f4275d2f2beb42aa70d7da9b96b4474
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '7.2'
+CurrentVersionCode: 15
