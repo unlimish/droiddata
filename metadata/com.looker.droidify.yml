@@ -1,0 +1,49 @@
+Categories:
+  - System
+License: GPL-3.0-or-later
+AuthorName: Iamlooker
+AuthorEmail: mohit2002ss@gmail.com
+SourceCode: https://github.com/Iamlooker/Droid-ify
+IssueTracker: https://github.com/Iamlooker/Droid-ify/issues
+Changelog: https://github.com/Iamlooker/Droid-ify/releases
+
+AutoName: Droid-ify
+
+RepoType: git
+Repo: https://github.com/Iamlooker/Droid-ify.git
+
+Builds:
+  - versionName: 0.3.1
+    versionCode: 31
+    commit: v0.3.1
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.3.2
+    versionCode: 32
+    commit: 6be7b2cb74247c9e4f7dfe999e331c860d19ad7b
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.3.3
+    versionCode: 33
+    commit: 081a959e092ac10b0023642cf0e876215cad5007
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 0.3.3
+CurrentVersionCode: 33
