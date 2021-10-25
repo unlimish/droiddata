@@ -1,0 +1,37 @@
+Categories:
+  - Money
+License: MIT
+AuthorName: Velas Network AG
+AuthorEmail: info@velas.com
+AuthorWebSite: https://velas.com
+WebSite: https://velas.com
+SourceCode: https://github.com/velas/mobile-wallet
+IssueTracker: https://github.com/velas/mobile-wallet/issues
+Changelog: https://github.com/velas/mobile-wallet/releases
+
+AutoName: Velas Wallet
+
+RepoType: git
+Repo: https://github.com/velas/mobile-wallet
+
+Builds:
+  - versionName: 2.0.8
+    versionCode: 198
+    commit: 818b2db1d451726cfc7c25e22a2b433a0ea0b176
+    subdir: android/app/
+    gradle:
+      - yes
+    init: yarn install
+    prebuild:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.gz https://nodejs.org/dist/v14.16.0/node-v14.16.0-linux-x64.tar.gz
+      - echo "7212031d7468718d7c8f5e1766380daaabe09d54611675338e7a88a97c3e31b6 node.tar.gz"
+        | sha256sum -c -
+      - tar xf node.tar.gz
+      - cp -a node-v14.16.0-linux-x64/. /usr/local/
+      - npm -g install yarn
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 2.0.8
+CurrentVersionCode: 198
