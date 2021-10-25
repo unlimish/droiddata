@@ -1300,6 +1300,81 @@ Builds:
         {/,/^}/d' build.gradle
       - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
 
+  - versionName: 3.9.753
+    versionCode: 300900753
+    commit: 8ab203e3852ed5fad2955a23049ac75fbf55b434
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.754
+    versionCode: 300900754
+    commit: 457a8a0e023e4a9ac745d54b9e1d2f3e43154fcd
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.755
+    versionCode: 300900755
+    commit: f39134b17d2496cca24d4bb1c94ecc4a0947f4f8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.756
+    versionCode: 300900756
+    commit: b5a9b99bfefe990b2dc569d2e96d3501bc334d29
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
+  - versionName: 3.9.757
+    versionCode: 300900757
+    commit: 0bdbbdc4a3a6117ed63d424ed8a074c0bba9f92a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - purefoss
+    prebuild:
+      - sed -i -e '/google-services/d; /firebase/d; /dl.bintray.com/d; /android.applicationVariants.all
+        {/,/^}/d' build.gradle
+      - echo 'android { lintOptions { checkReleaseBuilds false } }' >> build.gradle
+
 MaintainerNotes: |-
     We replace com.nbsp:library from http://dl.bintray.com/lukaville/maven with
     com.github.nbsp-team:MaterialFilePicker from
@@ -1308,5 +1383,5 @@ MaintainerNotes: |-
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: app/version.properties|versionCode=(.*)|.|versionName=(.*)
-CurrentVersion: 3.9.751
-CurrentVersionCode: 300900751
+CurrentVersion: 3.9.757
+CurrentVersionCode: 300900757
