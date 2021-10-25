@@ -18,8 +18,10 @@ Builds:
   - versionName: 2.0.8
     versionCode: 198
     commit: 818b2db1d451726cfc7c25e22a2b433a0ea0b176
+    subdir: android/app/
     gradle:
       - yes
+    init: yarn install
     prebuild:
       - sysctl fs.inotify.max_user_watches=524288
       - curl -Lo node.tar.gz https://nodejs.org/dist/v14.16.0/node-v14.16.0-linux-x64.tar.gz
