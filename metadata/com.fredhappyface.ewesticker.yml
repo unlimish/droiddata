@@ -30,7 +30,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2021.09.09
+    versionCode: 20210909
+    commit: 52b81ebad23c38104265215b75b7fc14576fda1f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2021.10.11
+    versionCode: 20211011
+    commit: c3e528de91fd870ebdd7f73561329d4dd2b2c035
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %c
 UpdateCheckMode: Tags
-CurrentVersion: 2021.08.10
-CurrentVersionCode: 20210810
+CurrentVersion: 2021.10.11
+CurrentVersionCode: 20211011

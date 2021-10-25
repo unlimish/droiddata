@@ -9,7 +9,6 @@ IssueTracker: https://github.com/OpenTracksApp/OSMDashboard/issues
 Translation: https://weblate.bubu1.eu/engage/open-tracks-osm-dashboard/
 Changelog: https://github.com/OpenTracksApp/OSMDashboard/releases
 Liberapay: OpenTracks
-Bitcoin: bc1qckpls3lpjlcpyxzm66hcy65hnesas9zgacy6yc
 
 AutoName: OSM Dashboard for OpenTracks
 
@@ -153,7 +152,17 @@ Builds:
     gradle:
       - full
 
+  - versionName: 2.12.0
+    versionCode: 24
+    commit: 5f2d276ce1ab2e7743f7170eefcf4c291fe2cd3a
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - full
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.11.0
-CurrentVersionCode: 23
+CurrentVersion: 2.12.0
+CurrentVersionCode: 24
