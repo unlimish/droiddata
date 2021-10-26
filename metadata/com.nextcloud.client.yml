@@ -1645,6 +1645,10 @@ Builds:
   - versionName: 3.18.0 RC1
     versionCode: 30180051
     commit: rc-3.18.0-01
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - generic
     rm:
