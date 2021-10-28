@@ -167,7 +167,20 @@ Builds:
     gradle:
       - fdroid
 
-AutoUpdateMode: Version %v
+  - versionName: 4.0.32
+    versionCode: 40003201
+    disable: https://github.com/Infomaniak/android-kDrive/issues/265
+    commit: 7e6c7e080761fd9810c0e1fe7a148babdb8252f4
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+AutoUpdateMode: None
 UpdateCheckMode: Tags
-CurrentVersion: 4.0.28
-CurrentVersionCode: 40002801
+CurrentVersion: 4.0.37
+CurrentVersionCode: 40003702

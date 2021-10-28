@@ -1,4 +1,5 @@
 AntiFeatures:
+  - Ads
   - NonFreeNet
 Categories:
   - Reading
@@ -340,7 +341,91 @@ Builds:
       - sed -i -e '/osborn/d' ../build.gradle
       - sed -i -e '/fabric/d; /firebase/d;' build.gradle
 
+  - versionName: 1.15.4
+    versionCode: 177
+    commit: 8fbaba0aecb3a5fb93bdf23f64e02b7ed55268fd
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.6
+    versionCode: 178
+    commit: ff69de7810715cfbe00a799fefbe4cce928c91cc
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.7
+    versionCode: 179
+    commit: b9e3453c3e8898f9e1f4d01982157c8833a082ae
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.8
+    versionCode: 180
+    commit: 5ea7b797778b2980c67d4fdabb95215a8329604e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.9
+    versionCode: 181
+    commit: 911bb0af0657326a566a6a36abaeec5bb6abc575
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.10
+    versionCode: 182
+    commit: c0d4f4f68458926bb6a3a3c5d05aaac4d41f5c9e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.15.2
-CurrentVersionCode: 176
+CurrentVersion: 1.15.10
+CurrentVersionCode: 182
