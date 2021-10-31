@@ -43,7 +43,28 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 0.3.4
+    versionCode: 34
+    disable: https://github.com/Iamlooker/Droid-ify/issues/77
+    commit: 12f4cdde6cd58cfea1ebad15427ce7353e0d82d5
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.3.5
+    versionCode: 35
+    commit: 3296feecbef4c64a5fd4324e732290900acd044d
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.3.3
-CurrentVersionCode: 33
+CurrentVersion: 0.3.5
+CurrentVersionCode: 35

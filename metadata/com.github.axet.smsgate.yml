@@ -311,7 +311,20 @@ Builds:
     scanignore:
       - app/build.gradle
 
+  - versionName: 1.10.26
+    versionCode: 255
+    commit: 4f3d50e7b29ca7691c060955e037f0b58148eeed
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/com.google/d' -e "s/\/\/ implementation 'com.github.axet:android-firebase-fake/implementation
+        'com.github.axet:android-firebase-fake/" build.gradle
+      - sed -i -e '/com.google/d' ../build.gradle
+    scanignore:
+      - app/build.gradle
+
 AutoUpdateMode: Version smsgate-%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.10.25
-CurrentVersionCode: 254
+CurrentVersion: 1.10.26
+CurrentVersionCode: 255
