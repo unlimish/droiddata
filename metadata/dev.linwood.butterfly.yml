@@ -18,13 +18,14 @@ Builds:
     versionCode: 4
     commit: v1.0.0-rc.1
     subdir: app
-    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.5.3
     rm:
       - app/ios
       - app/linux
       - app/macos
+      - app/web
       - app/windows
     build:
       - $$flutter$$/bin/flutter config --no-analytics
