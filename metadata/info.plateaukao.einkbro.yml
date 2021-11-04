@@ -167,7 +167,69 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 8.15.1
+    versionCode: 81501
+    commit: 16587011eeaf935af6f2313e702766d0e8c80361
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 8.16.1
+    versionCode: 81601
+    commit: e74a5c69409699d5befc05dadd12da9e756c5707
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 8.16.2
+    versionCode: 81602
+    commit: 884ca001bfa565fc68b15a3f7d0500db05357048
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 8.17.0
+    versionCode: 81700
+    commit: 8f4c0d9b6d9cfe9284cfe9f8d3c78926b36ddd8d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 8.18.0
+    versionCode: 81800
+    commit: c7b5c91e1a87e8d4147187b590bfe25713a36609
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 8.18.1
+    versionCode: 81801
+    commit: fd5e4d744861894e1697f836179edb791a3b7cc4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 8.14.0
-CurrentVersionCode: 81400
+CurrentVersion: 8.18.1
+CurrentVersionCode: 81801

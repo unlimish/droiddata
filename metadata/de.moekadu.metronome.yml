@@ -174,7 +174,51 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 4.1.3
+    versionCode: 40
+    commit: fd5408d3b155b14cb09efca97119e42f3de8bd61
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.1.4
+    versionCode: 41
+    commit: 601ef2ffca6194606aa320ee849b2800db3e0a0a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.2.0
+    versionCode: 42
+    commit: f265d378532aad6ca3aebe58d4ec76a691618b88
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.3.0
+    versionCode: 44
+    commit: ee73837edc6ff170355e3f03d89807687d148dc5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]*$
-CurrentVersion: 4.1.2
-CurrentVersionCode: 39
+CurrentVersion: 4.3.0
+CurrentVersionCode: 44

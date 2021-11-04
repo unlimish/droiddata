@@ -65,6 +65,7 @@ Builds:
 
   - versionName: 3.2.2
     versionCode: 20210813
+    disable: Fails to compile NoClassDefFoundError javax/xml/bind/annotation/XmlSchema
     commit: 0c588c11aacf174b11324158a8f7eb971ced33be
     subdir: app
     submodules: true
@@ -87,7 +88,33 @@ Builds:
       - app/src/main/jni
     ndk: r22b
 
+  - versionName: 3.2.3
+    versionCode: 20211002
+    disable: need ndk r23
+    commit: 8ea42b889aadc7c9268f88846df8f5487d32dae9
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get -y install g++ openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/capnproto/c++
+      - autoreconf -i
+      - ./configure
+      - make -j`nproc` check
+      - make install
+      - popd
+    gradle:
+      - yes
+    srclibs:
+      - capnproto@v0.8.0
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1' > /dev/null
+    scandelete:
+      - app/src/main/jni
+    ndk: r23
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 3.2.2
-CurrentVersionCode: 20210813
+CurrentVersion: 3.2.3
+CurrentVersionCode: 20211002

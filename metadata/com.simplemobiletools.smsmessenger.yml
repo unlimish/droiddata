@@ -233,7 +233,35 @@ Builds:
       - yes
     prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
 
+  - versionName: 5.10.1
+    versionCode: 36
+    commit: 52ebeeedc6842126495662ce93bb11a4d4ca7869
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.10.2
+    versionCode: 37
+    commit: 1a4ceadbeeae385430681b9a334cdf72f2c4ff70
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.10.3
+    versionCode: 38
+    commit: 5366eadcde33ca6adf11677f88fd9234d0398e1f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 5.10.0
-CurrentVersionCode: 35
+CurrentVersion: 5.10.3
+CurrentVersionCode: 38
