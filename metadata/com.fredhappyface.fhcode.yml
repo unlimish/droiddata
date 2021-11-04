@@ -16,6 +16,10 @@ Builds:
     versionCode: 20211104
     commit: '20211104'
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
