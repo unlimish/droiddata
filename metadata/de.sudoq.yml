@@ -5,11 +5,6 @@ SourceCode: https://github.com/timo-a/SudoQ
 IssueTracker: https://github.com/timo-a/SudoQ/issues
 
 AutoName: SudoQ
-Description: |-
-    Play many sudoku types such as 16x16, squiggly or Samurai. There are many
-    assistances available, like back and forth, solve specific field ore back to
-    last correct status. Also, every state of the game is recorded in the history.
-    Also supported is gesture input (draw number on the screen).
 
 RepoType: git
 Repo: https://github.com/timo-a/SudoQ
@@ -121,7 +116,39 @@ Builds:
     scanignore:
       - sudoq-app/sudoqapp/src/main/res/raw/gestures
 
+  - versionName: 2.0.0
+    versionCode: 33
+    commit: ee2c662c831d44f9b30e22da841f78c1e3d60623
+    subdir: sudoq-app/sudoqapp
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - sudoq-app/sudoqmodel/libs
+      - utilities
+    scanignore:
+      - sudoq-app/sudoqapp/src/main/res/raw/gestures
+
+  - versionName: 2.0.4
+    versionCode: 38
+    commit: 8ba577aab4a67e9fe31089cd16716697f0204296
+    subdir: sudoq-app/sudoqapp
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - sudoq-app/sudoqmodel/libs
+      - utilities
+    scanignore:
+      - sudoq-app/sudoqapp/src/main/res/raw/gestures
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.2.0
-CurrentVersionCode: 31
+CurrentVersion: 2.0.4
+CurrentVersionCode: 38
