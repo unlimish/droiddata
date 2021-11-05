@@ -1,0 +1,27 @@
+Categories:
+  - Internet
+License: GPL-3.0-only
+AuthorName: OpenAppDevs
+SourceCode: https://gitlab.com/openappdevs/NoRedditMail
+IssueTracker: https://gitlab.com/openappdevs/NoRedditMail/issues
+
+AutoName: NoRedditMail
+Summary: Disables the Reddit trackers in E-mail links
+Description: |
+    This app aims to remove all trackers from emails that are sent by Reddit. The emails contain a link to click.redditmail.com, with in the URL some trackers. This app removes all paramters in the URL only leaving a normal Reddit link.
+
+RepoType: git
+Repo: https://gitlab.com/openappdevs/NoRedditMail.git
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: f8be834e98d37e7b9685af4a09d55d78c0ee0aa0
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: '1.0'
+CurrentVersionCode: 1
