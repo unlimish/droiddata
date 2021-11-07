@@ -4,19 +4,19 @@ License: GPL-3.0-only
 AuthorName: Ben Armstead
 AuthorEmail: benarmstead@protonmail.com
 AuthorWebSite: https://benarmstead.co.uk
-SourceCode: https://github.com/benarmstead/SimpleCooking
-IssueTracker: https://github.com/benarmstead/SimpleCooking/issues
-Changelog: https://github.com/benarmstead/SimpleCooking/releases
+SourceCode: https://github.com/benarmstead/OfflineCookBook
+IssueTracker: https://github.com/benarmstead/OfflineCookBook/issues
+Changelog: https://github.com/benarmstead/OfflineCookBook/releases
 
 AutoName: SimpleCooking
 
 RepoType: git
-Repo: https://github.com/benarmstead/SimpleCooking.git
+Repo: https://github.com/benarmstead/OfflineCookBook.git
 
 Builds:
   - versionName: 1.0.2
     versionCode: 3
-    commit: 1.0.2
+    commit: v1.0.3
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -26,6 +26,6 @@ Builds:
       - yes
 
 AutoUpdateMode: Version
-UpdateCheckMode: Tags
+UpdateCheckMode: Tags ^v[0-9.]+$
 CurrentVersion: 1.0.2
 CurrentVersionCode: 3
