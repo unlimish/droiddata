@@ -25,13 +25,13 @@ Builds:
       - version=$$VERSION$$
       - sed -ri '/fireBase/,/}/d' app/build.gradle
       - sed -ri 's!def patchVersion =.*!def patchVersion = '${version##*.}'!' app/build.gradle
-      - sed -ri 's!versionCode getUnixTimestamp\(\) as Integer!versionCode $$VERCODE$$!' app/build.gradle
+      - sed -ri 's!versionCode getUnixTimestamp\(\) as Integer!versionCode $$VERCODE$$!'
+        app/build.gradle
     scandelete:
       - scripts/custombuild.gradle
     ndk: r20b
 
-MaintainerNotes: |-
-    FIXME: replace sed replacement with propper versioncode from file
+MaintainerNotes: 'FIXME: replace sed replacement with propper versioncode from file'
 
 AutoUpdateMode: None
 UpdateCheckMode: None
