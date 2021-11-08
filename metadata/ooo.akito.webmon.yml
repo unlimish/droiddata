@@ -52,7 +52,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.4.0
+    versionCode: 9
+    commit: 2.4.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.3.0
-CurrentVersionCode: 8
+CurrentVersion: 2.4.0
+CurrentVersionCode: 9
