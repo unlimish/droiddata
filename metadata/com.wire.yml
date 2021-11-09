@@ -22,18 +22,13 @@ Builds:
       - fdroid
     prebuild:
       - cd ..
-      #- version=$$VERSION$$
       - sed -ri '/fireBase/,/}/d' app/build.gradle
       - curl -sL https://github.com/wireapp/wire-android/releases/download/$$COMMIT$$/version.txt >> app/version.txt
-      #- sed -ri 's!def patchVersion =.*!def patchVersion = '${version##*.}'!' app/build.gradle
-      #- sed -ri 's!versionCode getUnixTimestamp\(\) as Integer!versionCode $$VERCODE$$!'
-      #  app/build.gradle
     scandelete:
       - scripts/custombuild.gradle
     ndk: r20b
 
-MaintainerNotes: |-
-  'FIXME: replace hardcoded version tag with correct reference'
+MaintainerNotes: 'None right now'
 
 AutoUpdateMode: None
 UpdateCheckMode: None
