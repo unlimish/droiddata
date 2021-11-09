@@ -16,13 +16,14 @@ Repo: https://codeberg.org/keyoxide/keyoxide-flutter
 
 Builds:
   - versionName: 1.0.0
-    versionCode: 1
+    versionCode: 100
     commit: 1.0.0
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.5.3
     rm:
-      - .ios
+      - ios
+      - test
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
@@ -32,4 +33,4 @@ AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
 CurrentVersion: 1.0.0
-CurrentVersionCode: 1
+CurrentVersionCode: 100
