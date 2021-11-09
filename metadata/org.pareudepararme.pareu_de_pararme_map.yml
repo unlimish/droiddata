@@ -14,6 +14,20 @@ Repo: https://gitlab.com/pareudepararme/pareu-de-pararme-map/
 
 Builds:
   - versionName: 1.0.0
+    versionCode: 2
+    commit: v1.0.1
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.0.3
+    rm:
+      - ios
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.0.0
     versionCode: 4
     commit: v1.0.4
     output: build/app/outputs/flutter-apk/app-release.apk
