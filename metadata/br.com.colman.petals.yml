@@ -20,8 +20,13 @@ Builds:
     versionCode: 105
     commit: v1.0.5
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
-      - yes
+      - fdroid
+    prebuild: echo 'android { lintOptions { isAbortOnError = false }}' >> build.gradle.kts
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
