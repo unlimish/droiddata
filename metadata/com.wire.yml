@@ -15,17 +15,17 @@ Repo: https://github.com/wireapp/wire-android.git
 
 Builds:
   - versionName: 3.76.3
-      versionCode: 1759182
-      commit: '3.76.3'
-      subdir: app
-      gradle:
-        - fdroid
-      prebuild:
-        - cd ..
-        - sed -ri '/fireBase/,/}/d' app/build.gradle
-        - curl -sL https://github.com/wireapp/wire-android/releases/download/$$COMMIT$$/version.txt
-          >> app/version.txt
-      ndk: r20b
+    versionCode: 1759182
+    commit: '3.76.3'
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - sed -ri '/fireBase/,/}/d' app/build.gradle
+      - curl -sL https://github.com/wireapp/wire-android/releases/download/$$COMMIT$$/version.txt
+        >> app/version.txt
+    ndk: r20b
 
 AutoUpdateMode: None
 UpdateCheckMode: None
