@@ -14,18 +14,18 @@ RepoType: git
 Repo: https://github.com/wireapp/wire-android.git
 
 Builds:
-  - versionName: 3.76.2
-    versionCode: 1698480
-    commit: feature/version-file-implementation
-    subdir: app
-    gradle:
-      - fdroid
-    prebuild:
-      - cd ..
-      - sed -ri '/fireBase/,/}/d' app/build.gradle
-      - curl -sL https://github.com/wireapp/wire-android/releases/download/3.76/version.txt
-        >> app/version.txt
-    ndk: r20b
+  - versionName: 3.76.3
+      versionCode: 1759182
+      commit: '3.76.3'
+      subdir: app
+      gradle:
+        - fdroid
+      prebuild:
+        - cd ..
+        - sed -ri '/fireBase/,/}/d' app/build.gradle
+        - curl -sL https://github.com/wireapp/wire-android/releases/download/$$COMMIT$$/version.txt
+          >> app/version.txt
+      ndk: r20b
 
 MaintainerNotes: |-
     'FIXME: replace commit branch with propper tag'
@@ -33,5 +33,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 3.76.2
-CurrentVersionCode: 1698480
+CurrentVersion: 3.76.3
+CurrentVersionCode: 1759182
