@@ -1,0 +1,38 @@
+AntiFeatures:
+  - NonFreeAssets
+Categories:
+  - Internet
+  - Phone & SMS
+License: GPL-3.0-or-later
+SourceCode: https://github.com/wireapp/wire-android
+IssueTracker: https://github.com/wireapp/wire-android/issues
+Changelog: https://github.com/wireapp/wire-android/releases
+
+AutoName: Wire
+
+RepoType: git
+Repo: https://github.com/wireapp/wire-android.git
+
+Builds:
+  - versionName: 3.76.3
+    versionCode: 1759182
+    commit: '3.76.3'
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - sed -ri '/fireBase/,/}/d' app/build.gradle
+      - curl -sL https://github.com/wireapp/wire-android/releases/download/$$COMMIT$$/version.txt
+        >> app/version.txt
+    ndk: r20b
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+<<<<<<< HEAD
+CurrentVersion: 3.76.3
+CurrentVersionCode: 1759182
+=======
+CurrentVersion: 3.76.2
+CurrentVersionCode: 1698480
+>>>>>>> bc1f27cefd (add eof line)
