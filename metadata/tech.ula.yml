@@ -232,6 +232,16 @@ Builds:
       - echo "tracepotHttpsEndpoint=\"\"" >> tracepot.properties
       - sed -i -e 's/versionCode vcode/versionCode $$VERCODE$$/' build.gradle
 
+  - versionName: 2.8.3
+    versionCode: 7438725
+    commit: v2.8.3
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - echo "tracepotHttpsEndpoint=\"\"" >> tracepot.properties
+      - sed -i -e 's/versionCode vcode/versionCode $$VERCODE$$/' build.gradle
+
 MaintainerNotes: |-
     We can't enable AUM since 2.5.14, versionCode is generated at build time and depends on the actual date.
     Actual versionCode is copied from the upstream release.
@@ -240,5 +250,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 2.7.2
-CurrentVersionCode: 2927098
+CurrentVersion: 2.8.3
+CurrentVersionCode: 7438725
