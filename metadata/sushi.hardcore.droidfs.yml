@@ -148,9 +148,9 @@ Builds:
       - FFmpeg@n4.4
     prebuild: touch fdroid
     build:
-      - (cd libgocryptfs
-      - OPENSSL_PATH="$$OpenSSL$$" ./build.sh)
-      - cd ffmpeg
+      - cd libgocryptfs
+      - OPENSSL_PATH="$$OpenSSL$$" ./build.sh
+      - cd ../ffmpeg
       - ./build.sh $$FFmpeg$$
     ndk: r23
 
