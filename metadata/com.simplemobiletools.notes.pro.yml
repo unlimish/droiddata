@@ -250,7 +250,39 @@ Builds:
       - yes
     prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
 
+  - versionName: 6.8.2
+    versionCode: 85
+    commit: dd70cfe9a9be1a01eb96f37baccd254bc266f09f
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.9.0
+    versionCode: 86
+    commit: 86b43ede04fa3d9444b0044b440d80a8a46898b5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.9.1
+    versionCode: 87
+    commit: 57731207eb43a20d026fc999f59b6b13513883ed
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 6.8.1
-CurrentVersionCode: 84
+CurrentVersion: 6.9.1
+CurrentVersionCode: 87

@@ -10,7 +10,7 @@ AutoName: Ltt.rs
 
 RepoType: git
 Repo: https://github.com/inputmice/lttrs-android
-Binaries: https://ltt.rs/fdroid/repo/Ltt.rs-%v-release.apk
+Binaries: https://ltt.rs/fdroid/repo/Ltt.rs-%v-fdroid-release.apk
 
 Builds:
   - versionName: 0.1.2
@@ -27,29 +27,13 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 0.1.4
-    versionCode: 5
-    disable: not reproducible
-    commit: 0.1.4
-    subdir: app
-    init:
-      - cd ../..
-      - mv rs.ltt.android rs.ltt.android_underlying
-      - mkdir rs.ltt.android
-      - disorderfs --sort-dirents=yes --reverse-dirents=no rs.ltt.android_underlying
-        rs.ltt.android
-      - cd rs.ltt.android
-    gradle:
-      - yes
-
-  - versionName: 0.2.0
-    versionCode: 6
-    disable: Upstream binary not available
-    commit: 513925ab0cdfa75dd0f58a3c4308e348ade78784
+  - versionName: 0.2.3
+    versionCode: 9
+    commit: 793c5bc13e934ef10e8e67d03abab57ca18b6106
     subdir: app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk
+      - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     init:
       - cd ../..
@@ -61,14 +45,14 @@ Builds:
     gradle:
       - fdroid
 
-  - versionName: 0.2.2
-    versionCode: 8
-    disable: Upstream binary not available
-    commit: abe3eecd4a81104cd45776ac0e810af8dd3312c2
+  - versionName: 0.2.4
+    versionCode: 10
+    disable: https://github.com/iNPUTmice/lttrs-android/issues/127
+    commit: 96cc327594bec679d6b94a46fde6599a4b0f4ecb
     subdir: app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk
+      - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     init:
       - cd ../..
@@ -82,5 +66,5 @@ Builds:
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.2.2
-CurrentVersionCode: 8
+CurrentVersion: 0.2.4
+CurrentVersionCode: 10
