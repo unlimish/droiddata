@@ -4361,7 +4361,7 @@ Builds:
       - fat
     srclibs:
       - icu50-2-1-patched@0d825a9779eeb8ee35977ddf8bb4bea4119bf638
-      - osmand-external-skia@android/oreo
+      - skia@android/11-release
     rm:
       - android/OsmAnd-java/libs/*.jar
       - android/OsmAnd/libs/*.jar
@@ -4390,8 +4390,8 @@ Builds:
       - sed -i "s/# Extract/sha256sum \$SRCLOC\/upstream.tar.bz2 | grep 13bfc5ae543cf3aa180ac2485c0bc89495e3ae711fc6fab4f8ffe90dfb4bb677
         || { echo 'Failed checksum' 1>\&2; exit; }/" protobuf/configure.sh
       - sed -i "/# Download/,+8d" skia/configure.sh
-      - sed -i "s/# Patch/cp -r $(echo $$osmand-external-skia$$ | sed 's/\//\\\//g')
-        \$SRCLOC\/upstream.original/" skia/configure.sh
+      - sed -i "s/# Patch/cp -r $(echo $$skia$$ | sed 's/\//\\\//g') \$SRCLOC\/upstream.original/"
+        skia/configure.sh
       - popd
       - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
       - sed -i -e "/.*com.google.android.play.*/d" build-common.gradle
