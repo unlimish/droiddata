@@ -217,13 +217,24 @@ Builds:
     prebuild:
       - echo "tracepotHttpsEndpoint=\"\"" >> tracepot.properties
       - sed -i -e 's/versionCode vcode/versionCode $$VERCODE$$/' build.gradle
-    ndk: r22b
+      - sed -i -e '/com.google.firebase/d' -e '/firebaseCrashlytics/d' -e '/com.google.android.play/d'
+        -e '/com.google.gms/d' -e '/com.google.android.gms/d' -e '/billingclient/d'
+        build.gradle
+      - sed -i -e "s/buildConfigField 'boolean', 'ENABLE_PLAY_SERVICES', 'true'/buildConfigField
+        'boolean', 'ENABLE_PLAY_SERVICES', 'false'/" build.gradle
+    ndk: r21b
+    buildjni:
+      - ../termux-app/terminal-emulator/src/main/jni
+    preassemble:
+      - androidDependencies
+    patch:
+      - disable-gms-billing.patch
 
 MaintainerNotes: |-
-    We can't enable AUM since 2.5.14, versionCode is generated at build time and depends on the actual date.
-    Actual versionCode is copied from the upstream release.
+  We can't enable AUM since 2.5.14, versionCode is generated at build time and depends on the actual date.
+  Actual versionCode is copied from the upstream release.
 
-    App comes with Sentry.io but it is opt-in, so no Tracking AntiFeature needed.
+  App comes with Sentry.io but it is opt-in, so no Tracking AntiFeature needed.
 
 AutoUpdateMode: None
 UpdateCheckMode: None
