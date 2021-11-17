@@ -628,8 +628,6 @@ Builds:
     srclibs:
       - jitsi-meet@android-sdk-3.1.0
     prebuild:
-      - sed -i -e '/org.gradle.jvmargs/d' ../gradle.properties
-      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
       - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
       - sed -i -e 's/enable true/enable false/g' build.gradle
       - sed -i -e '/Jitsi repo/,/}/d' ../build.gradle
