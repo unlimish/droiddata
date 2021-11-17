@@ -20,6 +20,10 @@ Builds:
     versionCode: 1
     commit: 1258127b56cad7d4bc438fa5a7237e1a18fd3d05
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
