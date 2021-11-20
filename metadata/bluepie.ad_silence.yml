@@ -1,0 +1,32 @@
+Categories:
+  - System
+License: GPL-3.0-only
+AuthorName: BluePie
+AuthorEmail: iambluepie@gmail.com
+AuthorWebSite: https://github.com/aghontpi
+WebSite: https://github.com/aghontpi/ad-silence
+SourceCode: https://github.com/aghontpi/ad-silence
+IssueTracker: https://github.com/aghontpi/ad-silence/issues
+
+AutoName: Ad-silence
+Summary: Silence ads in Accuradio app (Android 9 & above)
+
+RepoType: git
+Repo: https://github.com/aghontpi/ad-silence.git
+
+Builds:
+  - versionName: 0.0.1
+    versionCode: 1
+    commit: 8948070245f2736a7cb1066f2412826093917f83
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 0.0.1
+CurrentVersionCode: 1
