@@ -660,7 +660,7 @@ Builds:
       - go clean -cache
       - git rev-parse HEAD
       - git gc --prune=now
-    buildjni: yes
+      - gradle :react-native-quick-base64:externalNativeBuildRelease --rerun-tasks
     ndk: r21e
 
   - versionName: 8.2.7-arm64
@@ -702,8 +702,11 @@ Builds:
       - go clean -cache
       - git rev-parse HEAD
       - git gc --prune=now
-    buildjni: yes
+      - gradle :react-native-quick-base64:externalNativeBuildRelease --rerun-tasks
     ndk: r21e
+
+MaintainerNotes: |
+    Due to `android_gradle_build.json (No such file or directory)` error, temperarily we run `--rerun-tasks` to clear caches. Should be removed later.
 
 ArchivePolicy: 6 versions
 AutoUpdateMode: None
