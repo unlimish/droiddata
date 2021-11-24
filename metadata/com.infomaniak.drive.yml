@@ -167,8 +167,8 @@ Builds:
     gradle:
       - fdroid
 
-  - versionName: 4.0.32
-    versionCode: 40003201
+  - versionName: 4.0.37
+    versionCode: 40003702
     disable: https://github.com/Infomaniak/android-kDrive/issues/265
     commit: 7e6c7e080761fd9810c0e1fe7a148babdb8252f4
     subdir: app
@@ -180,7 +180,55 @@ Builds:
     gradle:
       - fdroid
 
-AutoUpdateMode: None
+  - versionName: 4.0.38
+    versionCode: 40003801
+    commit: a6b2de3d0d3bd5b6e9eaaeceba4f9e253e1d8178
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 4.0.39
+    versionCode: 40003901
+    commit: 2df66a0096ff2919c3cfa7409982a1b51d3127a3
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 4.0.40
+    versionCode: 40004001
+    commit: 8512591472cbc183fd9cc1478f2284cda0f3aab7
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 4.0.41
+    versionCode: 40004101
+    commit: 9caef891e9c19d07784b6e919bdca1d8ce88d2ca
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 4.0.37
-CurrentVersionCode: 40003702
+CurrentVersion: 4.0.41
+CurrentVersionCode: 40004101

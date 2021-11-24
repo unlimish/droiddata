@@ -6,6 +6,7 @@ AuthorEmail: 44uaanjm0@relay.firefox.com
 AuthorWebSite: https://github.com/x13a
 SourceCode: https://github.com/x13a/Silence
 IssueTracker: https://github.com/x13a/Silence/issues
+Translation: https://hosted.weblate.org/engage/me-lucky-silence/
 
 AutoName: Silence
 
@@ -64,7 +65,51 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.7.5
+    versionCode: 19
+    commit: 9ddbbb3fa686aa3f5b354dc8d911d8de3997fcea
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.7.6
+    versionCode: 20
+    commit: 5373526486496d4612750c9c7cf70ed8a459ea02
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.7.7
+    versionCode: 21
+    commit: 533be2df931723fb2a22ce8cb84bfc1c37916b95
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.7.8
+    versionCode: 22
+    commit: 9fe056dffd70eb931b4629d9fc13e542f958d307
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.7.4
-CurrentVersionCode: 18
+CurrentVersion: 1.7.8
+CurrentVersionCode: 22
