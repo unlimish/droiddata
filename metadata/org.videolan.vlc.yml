@@ -4274,6 +4274,9 @@ Builds:
       - git apply ../libvlc/patches/vlc3/*.patch
       - cd ../medialibrary/medialibrary/libvlcpp
       - git apply ../../../buildsystem/patches/libvlcpp/*.patch
+      - export GRADLE_VERSION=7.0.2
+      - echo distributionUrl=https\://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip
+        > /gradle/wrapper/gradle-wrapper.properties
     build:
       - export FD_TARGET_TUPLE=x86_64-linux-android
       - export FD_TARGET_ARCH=x86_64
@@ -4328,6 +4331,11 @@ MaintainerNotes: |-
     compile-medialibrary.sh:
 
     * https://code.videolan.org/videolan/vlc-android/-/blob/<TAG>/buildsystem/compile-medialibrary.sh
+
+    Since the upstream repo doesn't have a gradle wrapper, we inject the gradle version into a dummy wrapper properties file.
+    The gradle version can be found in:
+
+    * https://code.videolan.org/videolan/vlc-android/-/blob/<TAG>/buildsystem/compile.sh
 
     For recommended versions of the build tools, see:
 
