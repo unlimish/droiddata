@@ -4,11 +4,13 @@ Categories:
 License: GPL-3.0-or-later
 AuthorName: sunilpaulmathew
 AuthorEmail: smartpack.org@gmail.com
-AuthorWebSite: https://smartpack.github.io
+AuthorWebSite: https://sunilpaulmathew.github.io/sNotz/
 SourceCode: https://github.com/sunilpaulmathew/sNotz
 IssueTracker: https://github.com/sunilpaulmathew/sNotz/issues
+Translation: https://poeditor.com/join/project?hash=LOg2GmFfbV
 Changelog: https://github.com/sunilpaulmathew/sNotz/releases
 Donate: https://smartpack.github.io/donation
+Liberapay: sunilpaulmathew
 
 AutoName: sNotz
 
@@ -82,7 +84,40 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: v0.19
+    versionCode: 19
+    commit: 294861987347059c526efb5336f452ad3d5c8d45
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: v0.20
+    versionCode: 20
+    commit: 73bbace14fee9e1f49261063ade4ffc6d52fb02b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: v0.21
+    versionCode: 21
+    commit: d95d69c1fb3c91102282524aadea4bb780d4dcc0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: v0.18
-CurrentVersionCode: 18
+CurrentVersion: v0.21
+CurrentVersionCode: 21

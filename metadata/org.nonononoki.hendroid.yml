@@ -425,7 +425,64 @@ Builds:
       - sed -i -e '/osborn/d' ../build.gradle
       - sed -i -e '/fabric/d; /firebase/d;' build.gradle
 
+  - versionName: 1.15.11
+    versionCode: 183
+    commit: b2ec8343782161b7506718609712a3eef3edd59a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.13
+    versionCode: 185
+    disable: https://github.com/Nonononoki/Hendroid/issues/47
+    commit: 6b20cd4424e397d6928a1f0c0a719474809bf6a7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.13a
+    versionCode: 186
+    commit: 402d9f50393824f680428f9d491469a7317dbd9d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.14
+    versionCode: 187
+    commit: 9620a1031e88386f811a84b099cadd41367d475a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.15.10
-CurrentVersionCode: 182
+CurrentVersion: 1.15.14
+CurrentVersionCode: 187
