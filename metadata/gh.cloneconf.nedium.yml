@@ -1,0 +1,36 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Internet
+  - Connectivity
+  - Reading
+  - Science & Education
+License: MIT
+AuthorName: Clone Conflict
+AuthorEmail: cloneconf@gmail.com
+SourceCode: https://github.com/cloneconf/Nedium
+IssueTracker: https://github.com/cloneconf/Nedium/issues
+
+Name: Nedium
+AutoName: Nedium
+
+RepoType: git
+Repo: https://github.com/cloneconf/Nedium
+
+Builds:
+  - versionName: '0.1'
+    versionCode: 1
+    commit: v0.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '0.1'
+CurrentVersionCode: 1
