@@ -23,6 +23,8 @@ Builds:
     subdir: app
     gradle:
       - fdroid
+    prebuild: 
+      - sed -i -e '/google-services/d' build.gradle
 
 AutoUpdateMode: Version V%v
 UpdateCheckMode: Tags v\d+\.\d+\.\d+
