@@ -631,10 +631,6 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y ninja-build openjdk-11-jdk-headless
       - update-alternatives --auto java
-      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
-      - echo "550f9845451c0c94be679faf116291e7807a8d78b43149f9506c1b15eb89008c go.tar.gz"
-        | sha256sum -c -
-      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
     gradle:
       - miniFdroidArm
     output: build/outputs/apk/mini/*/*.apk
@@ -665,7 +661,6 @@ Builds:
       - go clean -cache
       - git rev-parse HEAD
       - git gc --prune=now
-      - gradle :TMessagesProj:externalNativeBuildMiniFdroidArmRelease --rerun-tasks
     ndk: r21e
 
   - versionName: 8.2.7-arm64
@@ -678,10 +673,6 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y ninja-build openjdk-11-jdk-headless
       - update-alternatives --auto java
-      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
-      - echo "550f9845451c0c94be679faf116291e7807a8d78b43149f9506c1b15eb89008c go.tar.gz"
-        | sha256sum -c -
-      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
     gradle:
       - miniFdroidArm64
     output: build/outputs/apk/mini/*/*.apk
@@ -712,7 +703,6 @@ Builds:
       - go clean -cache
       - git rev-parse HEAD
       - git gc --prune=now
-      - gradle :TMessagesProj:externalNativeBuildMiniFdroidArm64Release --rerun-tasks
     ndk: r21e
 
 MaintainerNotes: |
