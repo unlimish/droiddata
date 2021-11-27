@@ -661,6 +661,8 @@ Builds:
       - go clean -cache
       - git rev-parse HEAD
       - git gc --prune=now
+      - export NATIVE_TARGET=armeabi-v7a
+      - ./run libs native
     ndk: r21e
 
   - versionName: 8.2.7-arm64
@@ -703,6 +705,8 @@ Builds:
       - go clean -cache
       - git rev-parse HEAD
       - git gc --prune=now
+      - export NATIVE_TARGET=arm64-v8a
+      - ./run libs native
     ndk: r21e
 
 MaintainerNotes: |
