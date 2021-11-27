@@ -649,8 +649,8 @@ Builds:
       - go clean -cache
       - git rev-parse HEAD
       - git gc --prune=now
-      - sed -i -e "s/def disableCMakeRelWithDebInfo = System.getenv("COMPILE_NATIVE")
-        == null/def disableCMakeRelWithDebInfo = true/" TMessagesProj/build.gradle
+      - sed -i -e 's/def disableCMakeRelWithDebInfo = System.getenv("COMPILE_NATIVE")
+        == null/def disableCMakeRelWithDebInfo = true/' TMessagesProj/build.gradle
     ndk: r21e
 
   - versionName: 8.2.7-arm64
@@ -681,8 +681,8 @@ Builds:
       - go clean -cache
       - git rev-parse HEAD
       - git gc --prune=now
-      - sed -i -e "s/def disableCMakeRelWithDebInfo = System.getenv("COMPILE_NATIVE")
-        == null/def disableCMakeRelWithDebInfo = true/" TMessagesProj/build.gradle
+      - sed -i -e 's/def disableCMakeRelWithDebInfo = System.getenv("COMPILE_NATIVE")
+        == null/def disableCMakeRelWithDebInfo = true/' TMessagesProj/build.gradle
     ndk: r21e
 
 ArchivePolicy: 6 versions
