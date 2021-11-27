@@ -661,8 +661,8 @@ Builds:
       - go clean -cache
       - git rev-parse HEAD
       - git gc --prune=now
-      - export NATIVE_TARGET=armeabi-v7a
-      - ./run libs native
+      - sed -i -e "s/def disableCMakeRelWithDebInfo = System.getenv("COMPILE_NATIVE")
+        == null/def disableCMakeRelWithDebInfo = true/" TMessagesProj/build.gradle
     ndk: r21e
 
   - versionName: 8.2.7-arm64
@@ -705,8 +705,8 @@ Builds:
       - go clean -cache
       - git rev-parse HEAD
       - git gc --prune=now
-      - export NATIVE_TARGET=arm64-v8a
-      - ./run libs native
+      - sed -i -e "s/def disableCMakeRelWithDebInfo = System.getenv("COMPILE_NATIVE")
+        == null/def disableCMakeRelWithDebInfo = true/" TMessagesProj/build.gradle
     ndk: r21e
 
 MaintainerNotes: |
