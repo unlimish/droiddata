@@ -7,23 +7,6 @@ Translation: https://www.transifex.com/nextcloud/nextcloud/
 Changelog: https://github.com/nextcloud/news-android/blob/HEAD/CHANGELOG.md
 
 AutoName: News
-Description: |-
-    The <a href="https://github.com/nextcloud/news-android">Nextcloud News Reader App</a> makes
-    it possible to synchronize feeds between Android and the Nextcloud/ownCloud News
-    App and let’s you read RSS feeds on the go.
-
-    <b>Features:</b>
-
-    * Offline reading
-    * Cache images offline
-    * Background synchronization
-    * Customizable Listview
-    * Mark as read while scrolling
-    * Dark/Light Theme
-    * Customizable font
-    * Widget
-    * Pull-To-Refresh
-    * and many more!
 
 RepoType: git
 Repo: https://github.com/nextcloud/news-android.git
@@ -1582,11 +1565,107 @@ Builds:
       - News-Android-App/libs/MaterialFilePicker-1.8.aar
       - News-Android-App/libs/option-1.3.jar
 
+  - versionName: 0.9.9.63
+    versionCode: 166
+    commit: f922eccbb66539c481b8c2f6ca6ca796c6e41470
+    subdir: News-Android-App
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.64
+    versionCode: 167
+    commit: 2547e36a8d7146a7a987eafe2ade6446c425a99a
+    subdir: News-Android-App
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.65
+    versionCode: 168
+    commit: f7831fa5d869b47b5148c726feb3164f022faa2c
+    subdir: News-Android-App
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.66
+    versionCode: 169
+    commit: f8270fb3132d8848a0ea1d4a7203f25af82bc1c0
+    subdir: News-Android-App
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
 MaintainerNotes: |-
     MaterialShowcaseView/build.gradle misses the google() repo but it's specified at top level.
     So deleting this file prevents it from overriding the top level one.
 
 AutoUpdateMode: Version v.%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.9.9.62
-CurrentVersionCode: 165
+CurrentVersion: 0.9.9.66
+CurrentVersionCode: 169

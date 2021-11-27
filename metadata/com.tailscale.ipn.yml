@@ -537,7 +537,92 @@ Builds:
       - make -C .. release_aar
     ndk: r21e
 
+  - versionName: 1.17.52-t9af27ba82-g82ea8df1dc8
+    versionCode: 71
+    commit: a4a3ae6eff9e3434e2fcd0edc5c4f3d8d85b2292
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
+  - versionName: 1.16.1-t4f4000fbe-g0e7d23df47d
+    versionCode: 72
+    commit: d7e93b3f426764ddd60610cea9a0ff47553e2e31
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
+  - versionName: 1.17.81-tc60806b55-g61f90a1975b
+    versionCode: 73
+    commit: fe76bef85b8386f1c74edd831d701f312047eed2
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
+  - versionName: 1.16.2-tb56ba2054-g377795b3b67
+    versionCode: 74
+    commit: 1d5a46d490ac612a83f3c9a5f73975a7bb1658f2
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
+  - versionName: 1.18.0-t71f1dd5aa-g6e464cc68f9
+    versionCode: 78
+    commit: cbd98238f24f4a936e1a0487726515beed82c77d
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.16.0-tb0f4f3161-g2840d54aade
-CurrentVersionCode: 70
+CurrentVersion: 1.18.0-t71f1dd5aa-g6e464cc68f9
+CurrentVersionCode: 78

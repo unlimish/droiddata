@@ -212,8 +212,79 @@ Builds:
       - ./run fdroid build
     ndk: r21e
 
-ArchivePolicy: 12 versions
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: 0.2-rc03-arm64
-CurrentVersionCode: 285
+  - versionName: 0.5-rc23
+    versionCode: 590
+    commit: 0.5-rc23
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    patch:
+      - disable-splits-abi.patch
+    gradle:
+      - fdroid
+    prebuild:
+      - pushd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - library
+      - external
+    build:
+      - pushd ..
+      - ./run fdroid build
+    ndk: r21e
+
+  - versionName: 0.5-rc24
+    versionCode: 595
+    commit: a3c77c9f1a5bdced982c440679d5e8e4fbeb8c19
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    patch:
+      - disable-splits-abi.patch
+    gradle:
+      - fdroid
+    prebuild:
+      - pushd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - library
+      - external
+    build:
+      - pushd ..
+      - ./run fdroid build
+    ndk: r21e
+
+  - versionName: 0.6-beta09
+    versionCode: 635
+    disable: ndk r23b
+    commit: c7b39544e1da792815d2c03fe8916d7d0287ec61
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    patch:
+      - disable-splits-abi.patch
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - library
+      - external
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^\d.*
+VercodeOperation: '%c * 5'
+UpdateCheckData: sager.properties|VERSION_CODE=(\d+)||
+CurrentVersion: 0.6-beta09
+CurrentVersionCode: 635

@@ -278,7 +278,59 @@ Builds:
     prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
         -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
 
+  - versionName: 1.5.1
+    versionCode: 1062
+    commit: 70f92742e606f01fef656c54ab890fb2766d8728
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
+        -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
+
+  - versionName: 1.5.2
+    versionCode: 1063
+    commit: 37d0157d3cc2fbc19a2ac13fdbd64318842fd15b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
+        -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
+
+  - versionName: 1.6.0
+    versionCode: 1064
+    commit: b14eb3981f49bb92d340fd0c7ae950b19181deb9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
+        -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
+
+  - versionName: 1.7.1
+    versionCode: 1065
+    commit: 2838d4201d1cedbc34935bc61badfc07c486da70
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
+        -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.5.0
-CurrentVersionCode: 1061
+CurrentVersion: 1.7.1
+CurrentVersionCode: 1065

@@ -85,7 +85,40 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 0.8.2
+    versionCode: 82
+    commit: 7036106dc8b17fc86f29f66b6bd775b91bc40659
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.8.4
+    versionCode: 84
+    commit: 616529c688258c40d3b6dd0b89685ce4fc386f11
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.8.8
+    versionCode: 88
+    commit: ce534e786edfa6632e58092285a16103e24409c9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.8.0
-CurrentVersionCode: 80
+CurrentVersion: 0.8.8
+CurrentVersionCode: 88

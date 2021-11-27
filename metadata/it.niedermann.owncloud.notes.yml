@@ -864,7 +864,31 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 3.4.14
+    versionCode: 3004014
+    commit: e3408a0c67d08e07bc63c7a9293ed1ce7cfd52ea
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 3.4.16
+    versionCode: 3004016
+    commit: 057430b3b091f1d8b454324d83e93310e96cf1cb
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 3.4.13
-CurrentVersionCode: 3004013
+CurrentVersion: 3.4.16
+CurrentVersionCode: 3004016
