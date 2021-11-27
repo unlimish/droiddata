@@ -629,9 +629,8 @@ Builds:
     submodules: true
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y ninja-build openjdk-11-jdk-headless
+      - apt-get install -y ninja-build openjdk-11-jdk-headless golang-go
       - update-alternatives --auto java
-      - apt-get install -y -t testing golang-go
     gradle:
       - miniFdroidArm
     output: build/outputs/apk/mini/*/*.apk
@@ -673,9 +672,8 @@ Builds:
     submodules: true
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y ninja-build openjdk-11-jdk-headless
+      - apt-get install -y ninja-build openjdk-11-jdk-headless golang-go
       - update-alternatives --auto java
-      - apt-get install -y -t testing golang-go
     gradle:
       - miniFdroidArm64
     output: build/outputs/apk/mini/*/*.apk
