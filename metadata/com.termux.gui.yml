@@ -20,9 +20,10 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+      - $$SDK$$/tools/bin/sdkmanager --install "ndk;"
+      - $$SDK$$/tools/bin/sdkmanager --install "cmake;3.10.2.4988404"
     gradle:
       - yes
-    ndk: r23b
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
