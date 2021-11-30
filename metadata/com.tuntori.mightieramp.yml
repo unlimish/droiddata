@@ -7,34 +7,22 @@ IssueTracker: https://github.com/tuntorius/mightier_amp/issues
 Donate: https://www.paypal.com/donate?hosted_button_id=FZWWAM4NUFRPC
 
 AutoName: Mightier Amp
-Description: |-
-    An alternative app for controlling NUX Mighty amps series.
-
-    The following features have been removed
-
-    * Tuner (needs included jar of unknown origin)
-    * YouTube (did not build)
-    * Sentry (analytics)
-    Since there is no reason for internet permission after removing YouTube and
-    analytics supprt, it has also been removed.
 
 RepoType: git
 Repo: https://github.com/tuntorius/mightier_amp.git
 
 Builds:
-  - versionName: 0.9.0+d5f3db04
+  - versionName: 0.9.0
     versionCode: 16
     commit: d5f3db043ad46e2e8fdd2fa08db692b8f322192f
     patch:
-      - remove_tuner_youtube_sentry_support.diff
+      - remove_youtube_sentry_support.diff
       - remove_internet_permission.diff
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.5.3
     rm:
       - ios
-      - pitchdetector
-      - lib/UI/pages/tuner.dart
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --release

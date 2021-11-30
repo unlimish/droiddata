@@ -1,34 +1,3 @@
-diff --git a/lib/UI/pages/settings.dart b/lib/UI/pages/settings.dart
-index 0028e17..1a3fb34 100644
---- a/lib/UI/pages/settings.dart
-+++ b/lib/UI/pages/settings.dart
-@@ -3,7 +3,6 @@
- 
- import 'package:flutter/material.dart';
- import 'package:mighty_plug_manager/UI/pages/UsbSettings.dart';
--import 'package:mighty_plug_manager/UI/pages/tuner.dart';
- import 'package:mighty_plug_manager/UI/popups/alertDialogs.dart';
- import '../../bluetooth/NuxDeviceControl.dart';
- import '../../bluetooth/devices/NuxDevice.dart';
-@@ -133,18 +132,6 @@ class _SettingsState extends State<Settings> {
-                   );
-                 },
-               ),
--              if (kDebugMode)
--                ListTile(
--                  title: Text("Guitar Tuner"),
--                  subtitle: Text("Uses Phone Mic"),
--                  trailing: Icon(Icons.keyboard_arrow_right),
--                  onTap: () {
--                    //if (midiHandler.connectedDevice != null) {
--                    Navigator.of(context).push(
--                        MaterialPageRoute(builder: (context) => GuitarTuner()));
--                    //}
--                  },
--                ),
-               ListTile(
-                 enabled: !device.deviceControl.isConnected,
-                 title: Text("Device"),
 diff --git a/lib/audio/tracksPage.dart b/lib/audio/tracksPage.dart
 index 20a6a38..5f2bb77 100644
 --- a/lib/audio/tracksPage.dart
@@ -86,7 +55,7 @@ index 20a6a38..5f2bb77 100644
                                Bubble(
                                  title: "Online Source",
 diff --git a/lib/bluetooth/NuxDeviceControl.dart b/lib/bluetooth/NuxDeviceControl.dart
-index 30beac6..c8cd568 100644
+index b4d1f0c..c8cd568 100644
 --- a/lib/bluetooth/NuxDeviceControl.dart
 +++ b/lib/bluetooth/NuxDeviceControl.dart
 @@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
@@ -97,12 +66,16 @@ index 30beac6..c8cd568 100644
  import 'package:undo/undo.dart';
  
  import 'bleMidiHandler.dart';
-@@ -628,8 +627,6 @@ class NuxDeviceControl extends ChangeNotifier {
+@@ -628,12 +627,6 @@ class NuxDeviceControl extends ChangeNotifier {
  
      diagData.device = "${_device.productName} ${_device.productVersion}";
      if (connected != null) diagData.connected = connected;
--    Sentry.configureScope(
--        (scope) => scope.setContexts('NUX', diagData.toMap(includeJsonPreset)));
+-
+-    Sentry.configureScope((scope) {
+-      scope.setTag(
+-          "nuxDevice", "${_device.productName} ${_device.productVersion}");
+-      scope.setContexts('NUX', diagData.toMap(includeJsonPreset));
+-    });
    }
  
    NuxDevice get device => _device;
@@ -181,10 +154,10 @@ index adcfaa7..9570ef8 100644
  
  mainRunApp() {
 diff --git a/pubspec.lock b/pubspec.lock
-index fb2f689..4eaa6c9 100644
+index b29468b..63c54c7 100644
 --- a/pubspec.lock
 +++ b/pubspec.lock
-@@ -527,20 +527,6 @@ packages:
+@@ -506,20 +506,6 @@ packages:
        url: "https://pub.dartlang.org"
      source: hosted
      version: "1.2.3"
@@ -205,17 +178,3 @@ index fb2f689..4eaa6c9 100644
    share_plus:
      dependency: "direct main"
      description:
-diff --git a/pubspec.yaml b/pubspec.yaml
-index b87ed56..f26f879 100644
---- a/pubspec.yaml
-+++ b/pubspec.yaml
-@@ -57,9 +57,6 @@ dependencies:
-   page_view_indicators: ^2.0.0
-   uuid: ^3.0.1
-   marquee_text: ^2.0.0
--  sentry_flutter: ^6.0.1
--  pitchdetector:
--    path: ./pitchdetector
- 
-   #some fixes added to flutter_blue library,
-   flutter_blue:
