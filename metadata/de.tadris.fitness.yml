@@ -1,10 +1,12 @@
 Categories:
   - Sports & Health
 License: GPL-3.0-or-later
+AuthorName: Jannis
+AuthorEmail: fitotrack@tadris.de
 WebSite: https://codeberg.org/jannis/FitoTrack
 SourceCode: https://codeberg.org/jannis/FitoTrack
 IssueTracker: https://codeberg.org/jannis/FitoTrack/issues
-Changelog: https://codeberg.org/jannis/FitoTrack/src/branch/master/CHANGELOG.md
+Changelog: https://codeberg.org/jannis/FitoTrack/releases
 Bitcoin: 3BSbGRbJaiSxVg3D6nVRK5C1SZEezhjtK5
 
 AutoName: FitoTrack
@@ -192,6 +194,10 @@ Builds:
     versionCode: 1300
     commit: c65df8985d82cf859b52987c5a095ccfe1e86762
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
 
