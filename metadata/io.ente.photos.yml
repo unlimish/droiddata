@@ -1,0 +1,36 @@
+Categories:
+  - Multimedia
+License: AGPL-3.0-only
+AuthorName: vishnu
+AuthorEmail: vishnu@ente.io
+AuthorWebSite: https://ente.io
+WebSite: https://ente.io
+SourceCode: https://github.com/ente-io/frame
+IssueTracker: https://roadmap.ente.io
+
+AutoName: ente
+
+RepoType: git
+Repo: https://github.com/ente-io/frame
+
+Builds:
+  - versionName: 0.2.22
+    versionCode: 188
+    commit: v0.2.22
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.0.6
+    build:
+      - cd thirdparty/transistor-background-fetch/android
+      - gradle :tsbackgroundfetch:publishRelease
+      - cd ../../../
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter config --no-analytics
+      - flutter packages pub get
+      - flutter packages pub run flutter_launcher_icons:main
+      - flutter build apk
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 0.2.22
+CurrentVersionCode: 188
