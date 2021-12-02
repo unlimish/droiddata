@@ -400,7 +400,11 @@ sast:
   variables:
     MOBSF_API_KEY: key
     SAST_EXPERIMENTAL_FEATURES: "true"
-    SAST_DEFAULT_ANALYZERS: mobsf
+    SAST_EXCLUDED_ANALYZERS:
+      bandit, brakeman, eslint, flawfinder, gosec, kubesec,
+      nodejs-scan, phpcs-security-audit, pmd-apex, security-code-scan, semgrep, sobelow,
+      spotbugs
+
     # Make sure the apk is searched before the manifest
     ANALYZER_TARGET_DIR: $CI_PROJECT_DIR/tmp/
   needs:
