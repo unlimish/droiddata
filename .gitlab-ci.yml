@@ -3,7 +3,11 @@ include:
 
 variables:
   pip: pip3 --timeout 100 --retries 10
-
+  MOBSF_API_KEY: key
+  SAST_EXPERIMENTAL_FEATURES: "true"
+  SAST_EXCLUDED_ANALYZERS: bandit, brakeman, eslint, flawfinder, gosec, kubesec,
+    nodejs-scan, phpcs-security-audit, pmd-apex, security-code-scan, semgrep, sobelow,
+    spotbugs
 
 checkupdates:
   image: registry.gitlab.com/fdroid/ci-images-checkupdates:latest
@@ -46,35 +50,35 @@ lint:
     - mkdir fdroidserver
     - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
     - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-        | tar -xz --directory=fdroidserver --strip-components=1
+      | tar -xz --directory=fdroidserver --strip-components=1
     - export PATH="$PWD/fdroidserver:$PATH"
   script:
     # if this is a merge request fork, then only check relevant apps
     - if [ "$CI_PROJECT_NAMESPACE" != "fdroid" ]; then
-        git fetch https://gitlab.com/fdroid/fdroiddata.git;
-        test -d build || mkdir build;
-        files=`git diff --name-only --diff-filter=d FETCH_HEAD...HEAD`;
-        for f in $files; do
-           appid=`echo $f | sed -n -e 's,^metadata/\([^/][^/]*\)\.yml,\1,p'`;
-           if [ -n "$appid" ]; then
-             export CHANGED="$CHANGED $appid";
-           fi;
-        done;
-        set -x;
-        apt-get install python3-colorama yamllint;
-        for f in $files; do [[ $f == *'.yml' ]] && yamllint "$f"; done;
-        ./tools/check-git-repo-availability.py $files;
-        set +x;
+      git fetch https://gitlab.com/fdroid/fdroiddata.git;
+      test -d build || mkdir build;
+      files=`git diff --name-only --diff-filter=d FETCH_HEAD...HEAD`;
+      for f in $files; do
+      appid=`echo $f | sed -n -e 's,^metadata/\([^/][^/]*\)\.yml,\1,p'`;
+      if [ -n "$appid" ]; then
+      export CHANGED="$CHANGED $appid";
+      fi;
+      done;
+      set -x;
+      apt-get install python3-colorama yamllint;
+      for f in $files; do [[ $f == *'.yml' ]] && yamllint "$f"; done;
+      ./tools/check-git-repo-availability.py $files;
+      set +x;
       fi
     - export EXITVALUE=0
     - function set_error() { export EXITVALUE=1; printf "\x1b[31mERROR `history|tail -2|head -1|cut -b 6-500`\x1b[0m\n"; }
     - fdroid lint -f $CHANGED || {
-          set_error;
-          printf "\nThese files have lint issues:\n";
-          fdroid rewritemeta -l $CHANGED;
-          printf "\nThese are the formatting issues:\n";
-          fdroid rewritemeta $CHANGED;
-          git --no-pager diff --color=always;
+      set_error;
+      printf "\nThese files have lint issues:\n";
+      fdroid rewritemeta -l $CHANGED;
+      printf "\nThese are the formatting issues:\n";
+      fdroid rewritemeta $CHANGED;
+      git --no-pager diff --color=always;
       }
     - apt-get -qy update
     - apt-get -qy install --no-install-recommends exiftool
@@ -178,7 +182,7 @@ checkupdates_runner:
     - mkdir fdroidserver
     - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
     - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-        | tar -xz --directory=fdroidserver --strip-components=1
+      | tar -xz --directory=fdroidserver --strip-components=1
     - export PATH="$PWD/fdroidserver:$PATH"
     - git config --global user.email "fdroidci@bubu1.eu"
     - git config --global user.name "F-Droid checkupdates bot"
@@ -227,23 +231,23 @@ fdroid build:
     - git fetch https://gitlab.com/fdroid/fdroiddata.git;
     - test -d build || mkdir build
     - for f in
-          `git diff --name-only --diff-filter=d FETCH_HEAD...HEAD -- metadata/*.yml`
-          `git diff --name-only --diff-filter=d FETCH_HEAD...HEAD -- metadata/*/signatures`;
+      `git diff --name-only --diff-filter=d FETCH_HEAD...HEAD -- metadata/*.yml`
+      `git diff --name-only --diff-filter=d FETCH_HEAD...HEAD -- metadata/*/signatures`;
       do
-          diff=$(git diff FETCH_HEAD...HEAD -- $f);
-          echo "$diff";
-          test $(echo "$diff" | grep '^[+-] ' | grep -v '^+  *disable:' | wc -l) = 0 && continue;
-          echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue;
-          appid=`echo $f | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p'`;
-          export CHANGED="$CHANGED $appid";
+      diff=$(git diff FETCH_HEAD...HEAD -- $f);
+      echo "$diff";
+      test $(echo "$diff" | grep '^[+-] ' | grep -v '^+  *disable:' | wc -l) = 0 && continue;
+      echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue;
+      appid=`echo $f | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p'`;
+      export CHANGED="$CHANGED $appid";
       done;
     - test -n "$(printf "$CHANGED" | tr -d '[:space:]')"
-          || { echo "no packages need processing, exiting"; exit 0; }
+      || { echo "no packages need processing, exiting"; exit 0; }
 
     - test -d fdroidserver || mkdir fdroidserver
     - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
     - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-          | tar -xz --directory=fdroidserver --strip-components=1
+      | tar -xz --directory=fdroidserver --strip-components=1
 
     - adduser --disabled-password --gecos "" vagrant
     - test -d /etc/sudoers.d || mkdir /etc/sudoers.d
@@ -253,8 +257,8 @@ fdroid build:
     - ln -s $CI_PROJECT_DIR/fdroidserver $VAGRANT_HOME/fdroidserver
     - cp -r $HOME/.android $VAGRANT_HOME/.android
     - for d in build logs tmp unsigned $ANDROID_HOME $VAGRANT_HOME/.android; do
-          test -d $d || mkdir $d;
-          chown -R vagrant $d;
+      test -d $d || mkdir $d;
+      chown -R vagrant $d;
       done
     - mv $CI_PROJECT_DIR/build $VAGRANT_HOME/
     - ln -s $VAGRANT_HOME/build $CI_PROJECT_DIR/build
@@ -268,21 +272,21 @@ fdroid build:
     # install fdroidserver from git, with deps from Debian, until fdroidserver
     # is stable enough to include all the things needed here
     - apt-get install -t stretch-backports
-         fdroidserver
-         python3-asn1crypto
-         python3-ruamel.yaml
-         yamllint
+      fdroidserver
+      python3-asn1crypto
+      python3-ruamel.yaml
+      yamllint
     - apt-get purge fdroidserver
 
     - export GRADLE_USER_HOME=$VAGRANT_HOME/.gradle
     # each `fdroid build --on-server` run expects sudo, then uninstalls it
     - export fdroid="sudo --preserve-env --user vagrant
-          env PATH=$VAGRANT_HOME/fdroidserver:$PATH
-          env PYTHONPATH=$VAGRANT_HOME/fdroidserver:$VAGRANT_HOME/fdroidserver/examples
-          env PYTHONUNBUFFERED=true
-          env TERM=$TERM
-          env HOME=$VAGRANT_HOME
-          fdroid"
+      env PATH=$VAGRANT_HOME/fdroidserver:$PATH
+      env PYTHONPATH=$VAGRANT_HOME/fdroidserver:$VAGRANT_HOME/fdroidserver/examples
+      env PYTHONUNBUFFERED=true
+      env TERM=$TERM
+      env HOME=$VAGRANT_HOME
+      fdroid"
 
     # use fdroidserver test keystore as placeholder since `fdroid publish` requires it
     - printf 'repo_keyalias\x3a sova\n' >> config.yml
@@ -294,19 +298,18 @@ fdroid build:
     - chown vagrant $keystore
 
     - for build in `./tools/find-changed-builds.py`; do
-          set -x;
-          apt-get install sudo;
-          chown -R vagrant $VAGRANT_HOME;
-          $fdroid fetchsrclibs $build --verbose;
-          $fdroid build --verbose --test --scan-binary --on-server --no-tarball $build;
-          rm -rf "build/${build%:*}";
-          ./tools/build-contains-signatures.py $build || continue;
-          apt-get install sudo;
-          $fdroid publish --verbose $build;
+      set -x;
+      apt-get install sudo;
+      chown -R vagrant $VAGRANT_HOME;
+      $fdroid fetchsrclibs $build --verbose;
+      $fdroid build --verbose --test --scan-binary --on-server --no-tarball $build;
+      rm -rf "build/${build%:*}";
+      ./tools/build-contains-signatures.py $build || continue;
+      apt-get install sudo;
+      $fdroid publish --verbose $build;
       done
 
     - ./tools/audit-gradle.py $CHANGED;
-
 
 # issuebot needs secrets to run, so it has to run under the 'fdroid'
 # group, therefore needs the trigger without secrets, there would be
@@ -344,15 +347,15 @@ pages:
     # install fdroidserver from git, with deps from Debian, until fdroidserver
     # is stable enough to include all the things needed here
     - apt-get install -t stretch-backports
-         fdroidserver
-         python3-asn1crypto
-         python3-ruamel.yaml
-         python3-venv
+      fdroidserver
+      python3-asn1crypto
+      python3-ruamel.yaml
+      python3-venv
     - apt-get purge fdroidserver
     - test -d fdroidserver || mkdir fdroidserver
     - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
     - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-        | tar -xz --directory=$CI_PROJECT_DIR/fdroidserver --strip-components=1
+      | tar -xz --directory=$CI_PROJECT_DIR/fdroidserver --strip-components=1
     - export PATH="$CI_PROJECT_DIR/fdroidserver:$PATH"
     - export PYTHONPATH="$CI_PROJECT_DIR/fdroidserver:$CI_PROJECT_DIR/fdroidserver/examples"
     - export PYTHONUNBUFFERED=true
@@ -362,11 +365,11 @@ pages:
     - mkdir -p $GRADLE_USER_HOME/fdroid
     - git ls-remote https://gitlab.com/fdroid/gradle-plugins.git master
     - curl --silent https://gitlab.com/fdroid/gradle-plugins/-/archive/master/gradle-plugins-master.tar.gz
-        | tar -xz --directory=$GRADLE_USER_HOME/fdroid --strip-components=1
+      | tar -xz --directory=$GRADLE_USER_HOME/fdroid --strip-components=1
 
     - git ls-remote https://gitlab.com/fdroid/issuebot.git master
     - curl --silent https://gitlab.com/fdroid/issuebot/-/archive/master/issuebot-master.tar.gz
-        | tar -xz --strip-components=1
+      | tar -xz --strip-components=1
     - pyvenv --system-site-packages --clear issuebot-env
     - . issuebot-env/bin/activate
     - pip3 install wheel # get rid of the bdist_wheel error messages
@@ -375,8 +378,7 @@ pages:
 
     # git_stats used to run here, redirect to new location
     - echo '<html><head><meta http-equiv="refresh" content="0;URL=https://fdroid.gitlab.io/"></head></html>'
-        > public/index.html
-
+      > public/index.html
 
 check_git_repos:
   image: debian:buster-slim
