@@ -407,7 +407,7 @@ sast:
       nodejs-scan, phpcs-security-audit, pmd-apex, security-code-scan, semgrep, sobelow,
       spotbugs
 
-    # Make sure the apk is searched before the manifest
+    # Make sure the apk is searched before the manifest, so only apks are scanned
     ANALYZER_TARGET_DIR: $CI_PROJECT_DIR/tmp/
   needs:
     - fdroid build
