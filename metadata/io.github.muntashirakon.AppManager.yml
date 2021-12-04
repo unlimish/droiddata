@@ -49,7 +49,7 @@ Builds:
 
   - versionName: 2.5.20
     versionCode: 375
-    disable: fails to build, see upstream issue 202
+    disable: fails to clone submodule toybox
     commit: v2.5.20
     subdir: app
     submodules: true
@@ -58,11 +58,80 @@ Builds:
     scanignore:
       - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
     scandelete:
-      - app/src/main/jniLibs
       - toybox
-    ndk: r21d
+    ndk: r21e
+
+  - versionName: 2.6.0
+    versionCode: 385
+    commit: v2.6.0
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.1
+    versionCode: 387
+    commit: v2.6.1
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.2
+    versionCode: 389
+    commit: be6363d2f9cb9d21be30bd49b998fdeb1aa15f84
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.3
+    versionCode: 392
+    commit: 64b5330ce343e347df15d58001e0ce8bde22dab4
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.4
+    versionCode: 394
+    commit: 1751bb0027e812c5a2eb2c558e527229c41cb249
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.5
+    versionCode: 396
+    commit: 8b67b87ce29db15a105d5da41494bb6d188f9d9c
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v
-CurrentVersion: 2.5.20
-CurrentVersionCode: 375
+CurrentVersion: 2.6.5
+CurrentVersionCode: 396

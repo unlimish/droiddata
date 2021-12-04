@@ -147,7 +147,43 @@ Builds:
       - yes
     ndk: r17c
 
+  - versionName: 3.5.4
+    versionCode: 354
+    commit: v3.5.4
+    subdir: term
+    gradle:
+      - yes
+    ndk: r17c
+
+  - versionName: 3.6.0
+    versionCode: 360
+    commit: v3.6.0
+    subdir: term
+    gradle:
+      - yes
+    ndk: r17c
+
+  - versionName: 3.6.1
+    versionCode: 361
+    commit: b9917f83c1960624bfb247ff00d8dc5f86de18c2
+    subdir: term
+    gradle:
+      - yes
+    ndk: r17c
+
+  - versionName: 3.6.2
+    versionCode: 362
+    commit: 249573c3bb7462bfd0e4ee48c62889f66f7d7bd7
+    subdir: term
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    ndk: r21e
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 3.5.3
-CurrentVersionCode: 353
+CurrentVersion: 3.6.2
+CurrentVersionCode: 362

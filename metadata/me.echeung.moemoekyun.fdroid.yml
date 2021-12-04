@@ -209,8 +209,40 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 5.3.1
+    versionCode: 93
+    commit: v5.3.1
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 5.3.2
+    versionCode: 94
+    commit: v5.3.2
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 5.3.3
+    versionCode: 95
+    commit: v5.3.3
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 5.4.0
+    versionCode: 96
+    commit: a8a967ad248f4e16e898be351cd357c19154cf77
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
 UpdateCheckName: me.echeung.moemoekyun
-CurrentVersion: 5.2.2
-CurrentVersionCode: 92
+CurrentVersion: 5.4.0
+CurrentVersionCode: 96

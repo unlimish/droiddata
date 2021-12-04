@@ -14,8 +14,8 @@ Description: |-
     transport component and one module besides MAXS main in order to make use of
     MAXS.
 
-    '''Make sure to launch Maxs Main once before installing other MAXS
-    components!'''
+    <b>Make sure to launch Maxs Main once before installing other MAXS
+    components!</b>
 
 RepoType: srclib
 Repo: ProjectMAXS
@@ -47,7 +47,7 @@ Builds:
 
   - versionName: 0.0.1.4
     versionCode: 5
-    disable: build tools failure as per [https://bitbucket.org/projectmaxs/maxs/commits/7750c9add95016294c5be9afd84a8de4834f7f20]
+    disable: build tools failure as per <a href="https://bitbucket.org/projectmaxs/maxs/commits/7750c9add95016294c5be9afd84a8de4834f7f20">https://bitbucket.org/projectmaxs/maxs/commits/7750c9add95016294c5be9afd84a8de4834f7f20</a>
     commit: 0.0.1.4
     subdir: main
     prebuild: make prebuild
@@ -324,7 +324,35 @@ Builds:
       - module-shell/libraryProjects/root-commands/ExampleApp
     prebuild: make prebuild
 
+  - versionName: 0.5.13
+    versionCode: 2000503857
+    commit: 0.5.13
+    subdir: main
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y imagemagick libxml2-utils
+    gradle:
+      - yes
+    rm:
+      - module-shell/libraryProjects/root-commands/ExampleApp
+    prebuild: make prebuild
+
+  - versionName: 0.5.14
+    versionCode: 2000503969
+    commit: 0.5.14
+    subdir: main
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y imagemagick libxml2-utils
+    gradle:
+      - yes
+    rm:
+      - module-shell/libraryProjects/root-commands/ExampleApp
+    prebuild: make prebuild
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags .*[0-9]$
-CurrentVersion: 0.5.12
-CurrentVersionCode: 2000503575
+CurrentVersion: 0.5.14
+CurrentVersionCode: 2000503969

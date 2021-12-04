@@ -308,6 +308,7 @@ Builds:
 
   - versionName: 1.31.2
     versionCode: 296
+    disable: vending, sentry
     commit: v1.31.2
     subdir: android/app/
     sudo:
@@ -419,13 +420,16 @@ Builds:
 
 MaintainerNotes: |-
     sed is used to:
-    * Remove push notifications (see [https://github.com/wix/react-native-notifications/issues/207 this issue])
-    * Remove the native Youtube player (see [https://github.com/inProgress-team/react-native-youtube/issues/288 this issue])
-    * Remove Play Services from Device Information (see [https://github.com/rebeccahughes/react-native-device-info/issues/381 this issue])
+    * Remove push notifications (see <a href="https://github.com/wix/react-native-notifications/issues/207">this issue</a>)
+    * Remove the native Youtube player (see <a href="https://github.com/inProgress-team/react-native-youtube/issues/288">this issue</a>)
+    * Remove Play Services from Device Information (see <a href="https://github.com/rebeccahughes/react-native-device-info/issues/381">this issue</a>)
 
     scanignore is used to allow the "node_modules/react-native/android" local Maven repository.
 
+    disabled 296 (Sentry.io and com.android.vending, the latter being proprietary), see https://gitlab.com/fdroid/fdroiddata/-/issues/2289
+
+ArchivePolicy: 0 versions
 AutoUpdateMode: None
 UpdateCheckMode: Tags
-CurrentVersion: 1.39.0
-CurrentVersionCode: 341
+CurrentVersion: 1.47.2
+CurrentVersionCode: 377

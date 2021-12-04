@@ -236,18 +236,20 @@ Builds:
       - popd
       - cp $$aefyr-android-filepicker$$/build/outputs/aar/filepicker-release.aar libs/filepicker-release.aar
 
-  - versionName: '4.4'
-    versionCode: 59
-    commit: '4.4'
+  - versionName: '4.5'
+    versionCode: 60
+    commit: '4.5'
     subdir: app
     gradle:
       - fdroid
     srclibs:
-      - aefyr-android-filepicker@f145f0c896400ddf7cfc3439d4a9291d8cc4ade1
+      - aefyr-android-filepicker@f50f1bcbd8c8a5cb109cad28511466d40f2d47c8
     rm:
       - app/libs/filepicker-release.aar
-    prebuild: sed -i -e '/io.fabric/d' -e '/google-services/d' -e '/maven {$/,+6d'
-        build.gradle ../build.gradle
+    prebuild:
+      - sed -i -e '/com.google.gms/d' -e '/com.google.firebase/d' build.gradle ../build.gradle
+      - sed -i -e '/maven {$/,+5d' ../build.gradle
+      - sed -i -e '/com.android.billingclient/d' build.gradle
     build:
       - pushd $$aefyr-android-filepicker$$
       - gradle assembleRelease
@@ -256,5 +258,5 @@ Builds:
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '4.4'
-CurrentVersionCode: 59
+CurrentVersion: '4.5'
+CurrentVersionCode: 60

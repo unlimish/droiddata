@@ -16,7 +16,7 @@ Description: |-
     is basically an images to PDF Converter. The simplicity of this app makes
     it an ultimate PDF Converter for your device.
 
-    '''Some major features of PDF Converter app:'''
+    <b>Some major features of PDF Converter app:</b>
 
     * No internet connection required ( ⭐)
     * Smooth and easy to use interface
@@ -36,7 +36,7 @@ Description: |-
     * Share the created PDFs with your friends
     * Easily manage the PDFs created by our app
 
-    '''Supported input types:'''
+    <b>Supported input types:</b>
 
     * JPG
     * PNG
@@ -131,19 +131,20 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 8.6.3
-    versionCode: 90
-    disable: unknown maven repo 'https://repository.aspose.com/repo/'
-    commit: 8.6.3
+  - versionName: 8.8.1
+    versionCode: 108
+    commit: 8.8.1
     subdir: app
     gradle:
       - yes
+    rm:
+      - app/libs
+      - app/src/main/java/swati4star/createpdf/util/ExcelToPDFAsync.java
+    prebuild:
+      - sed -i -e '/aspose/d' build.gradle
+      - sed -i -e '/ExcelToPDFAsync/d' src/main/java/swati4star/createpdf/fragment/ExceltoPdfFragment.java
 
-MaintainerNotes: Depends on proprietary Aspose.Cells library since 8.6.3.
-
-AutoUpdateMode: None
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: 8.8.1
 CurrentVersionCode: 108
-
-NoSourceSince: 8.6.3

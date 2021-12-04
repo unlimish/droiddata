@@ -204,15 +204,97 @@ Builds:
       - yes
     prebuild: sed -i -e 's/6.4-rc-4-all/6.4-all/' -e '/Sha256Sum/d' ../gradle/wrapper/gradle-wrapper.properties
 
-  - versionName: 2.7.7-beta
-    versionCode: 277
-    commit: 2.7.7-beta
+  - versionName: 2.7.6-stable-release
+    versionCode: 276
+    commit: 2.7.6
     subdir: app
     gradle:
       - yes
-    prebuild: sed -i -e 's/6.4-rc-4-all/6.4-all/' -e '/Sha256Sum/d' ../gradle/wrapper/gradle-wrapper.properties
 
-AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: 2.7.7-beta
-CurrentVersionCode: 277
+  - versionName: 2.8.0-stable-release
+    versionCode: 280
+    commit: 2.8.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.8.1-stable-release
+    versionCode: 281
+    commit: 2.8.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.8.2-stable-release
+    versionCode: 282
+    commit: 2.8.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.8.3-stable-release
+    versionCode: 283
+    commit: 2.8.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.8.4-stable-release
+    versionCode: 284
+    commit: 2.8.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.8.5-stable-release
+    versionCode: 285
+    commit: 2.8.5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.8.6-stable-release
+    versionCode: 286
+    commit: 2.8.6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.8.7-stable-release
+    versionCode: 287
+    commit: 2.8.7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.8.8-stable-release
+    versionCode: 288
+    commit: 2.8.8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+MaintainerNotes: UpdateCheckMode stays as HTTP as beta version are not reflected in
+    git tags.
+
+AutoUpdateMode: Version +-stable-release %v
+UpdateCheckMode: HTTP
+UpdateCheckData: https://raw.githubusercontent.com/Dar9586/NClientV2/master/app/build.gradle|versionCode\s+(\d+)|.|versionName\s"([\d.]+)-stable"
+CurrentVersion: 2.8.8
+CurrentVersionCode: 288

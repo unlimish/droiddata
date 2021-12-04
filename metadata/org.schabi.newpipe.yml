@@ -6,12 +6,12 @@ Categories:
 License: GPL-3.0-or-later
 AuthorName: Team NewPipe
 AuthorEmail: tnp@schabi.org
-WebSite: https://newpipe.schabi.org
+WebSite: https://newpipe.net
 SourceCode: https://github.com/TeamNewPipe/NewPipe
 IssueTracker: https://github.com/TeamNewPipe/NewPipe/issues
 Translation: https://hosted.weblate.org/projects/newpipe/
 Changelog: https://github.com/TeamNewPipe/NewPipe/releases
-Donate: https://newpipe.schabi.org/donate
+Donate: https://newpipe.net/donate
 LiberapayID: '34969'
 Bitcoin: 16A9J59ahMRqkLSZjhYj33n9j3fMztFxnh
 
@@ -659,12 +659,119 @@ Builds:
 
   - versionName: 0.20.6
     versionCode: 960
+    disable: signing of reproducible builds is broken
     commit: v0.20.6
     subdir: app
     gradle:
       - yes
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: 0.20.6
-CurrentVersionCode: 960
+  - versionName: 0.20.11
+    versionCode: 965
+    commit: v0.20.11
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.21.0
+    versionCode: 966
+    commit: v0.21.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.21.1
+    versionCode: 967
+    commit: v0.21.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.21.2
+    versionCode: 968
+    commit: v0.21.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.21.3
+    versionCode: 969
+    commit: v0.21.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.21.4
+    versionCode: 970
+    commit: v0.21.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.21.5
+    versionCode: 971
+    commit: a98c0bdec7aa42c2b590293d920282e6b361ba4b
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.21.6
+    versionCode: 972
+    commit: b795c5f0171853d2626e6eba38af51559be44cdc
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.21.7
+    versionCode: 973
+    commit: b58f7856a14b01b9721d53560d0949252be764a1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.21.8
+    versionCode: 974
+    commit: 8f6d608a43d4efdf7655e27d5c4d8e390293111e
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.21.9
+    versionCode: 975
+    commit: 94b4c76749a1ecadcd7ecaecb6633d5101b14541
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.21.10
+    versionCode: 976
+    commit: ba6fdecbae6ea8dccd9fa8bfaaaf94a95ee7028b
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.21.12
+    versionCode: 978
+    commit: 7eb13a9b930c6d88000cf92426a9196436172147
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.21.13
+    versionCode: 979
+    commit: 0ae04b8ead565631dc3e55b42c675f367505ee3f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags .*[0-9]$
+CurrentVersion: 0.21.13
+CurrentVersionCode: 979

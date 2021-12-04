@@ -434,17 +434,18 @@ Builds:
     gradle:
       - yes
 
-  - versionName: v1.234
-    versionCode: 235
-    disable: Failed to transform file 'commons-lang3-3.7.jar' to match attributes
-    commit: v1.234
+  - versionName: v1.236
+    versionCode: 237
+    commit: v1.236
     subdir: app
     gradle:
       - yes
     rm:
-      - app/libs/*.jar
+      - app/libs
+    prebuild: sed -i -e "s|files('libs/commons-lang3-3.7.jar')|'org.apache.commons:commons-lang3:3.7'|"
+        build.gradle
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: v1.234
-CurrentVersionCode: 235
+CurrentVersion: v1.236
+CurrentVersionCode: 237

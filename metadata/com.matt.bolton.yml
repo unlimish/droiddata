@@ -20,7 +20,25 @@ Builds:
       - yes
     output: app/build/outputs/apk/release/app-release-unsigned.apk
 
+  - versionName: '3'
+    versionCode: 3
+    commit: v3
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+
+  - versionName: '4'
+    versionCode: 4
+    commit: 7235bf7055aa3bcd1fbef6570d9d9c4544c222ff
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '2'
-CurrentVersionCode: 2
+CurrentVersion: '4'
+CurrentVersionCode: 4

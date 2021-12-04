@@ -1,6 +1,6 @@
 Categories:
   - Multimedia
-License: MIT
+License: GPL-3.0-only
 AuthorEmail: info@antennapod.org
 WebSite: https://antennapod.org
 SourceCode: https://github.com/AntennaPod/AntennaPod
@@ -705,15 +705,65 @@ Builds:
     gradleprops:
       - freeBuild
 
-  - versionName: 2.1.3
-    versionCode: 2010395
-    commit: 2.1.3
+  - versionName: 2.1.4
+    versionCode: 2010495
+    commit: 2.1.4
     subdir: app
-    init: sed -i '/playCompile/d' ../core/build.gradle
     gradle:
       - free
-    gradleprops:
-      - freeBuild
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+
+  - versionName: 2.2.0
+    versionCode: 2020095
+    commit: 2.2.0
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+
+  - versionName: 2.2.1
+    versionCode: 2020195
+    commit: 2.2.1
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+
+  - versionName: 2.3.0
+    versionCode: 2030095
+    commit: e83f746b3657109947978476bf50afa3544946db
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.3.1
+    versionCode: 2030195
+    commit: 8b183915bee1419a0577196b19414529fca75432
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.3.2
+    versionCode: 2030295
+    commit: 7b87b9cd03c4596adbdf383ac540e83d7f4650c1
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.4.0
+    versionCode: 2040095
+    commit: f4d3ebb22de54985466c5776e22ca4da8b3c7acc
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
 
 MaintainerNotes: |-
     Summary and Description have been moved to the new localizable text files:
@@ -721,5 +771,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags .*[0-9]$
-CurrentVersion: 2.1.3
-CurrentVersionCode: 2010395
+CurrentVersion: 2.4.0
+CurrentVersionCode: 2040095

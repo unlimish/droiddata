@@ -35,7 +35,57 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: '1.8'
+    versionCode: 14
+    commit: '1.8'
+    subdir: SimpleLogin/app
+    gradle:
+      - fdroid
+
+  - versionName: '1.9'
+    versionCode: 15
+    commit: '1.9'
+    subdir: SimpleLogin/app
+    gradle:
+      - fdroid
+
+  - versionName: '1.10'
+    versionCode: 16
+    commit: 955c93824596058a7e4fea99abbde5e3aea99e2c
+    subdir: SimpleLogin/app
+    gradle:
+      - fdroid
+
+  - versionName: '1.11'
+    versionCode: 17
+    commit: 9d052c97d79fea1a27c91374906d5ea138dc0284
+    subdir: SimpleLogin/app
+    gradle:
+      - fdroid
+
+  - versionName: '1.12'
+    versionCode: 18
+    commit: 82fd88193d8958947675eab115a3f1db299171d7
+    subdir: SimpleLogin/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: '1.13'
+    versionCode: 19
+    commit: 214a61b20ba6bb7211c1b60e0782314a9133f874
+    subdir: SimpleLogin/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '1.7'
-CurrentVersionCode: 13
+CurrentVersion: '1.13'
+CurrentVersionCode: 19

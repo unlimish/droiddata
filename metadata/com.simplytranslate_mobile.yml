@@ -1,0 +1,65 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Science & Education
+  - Reading
+License: GPL-3.0-or-later
+AuthorName: ManeraKai
+SourceCode: https://github.com/ManeraKai/simplytranslate_mobile
+IssueTracker: https://github.com/ManeraKai/simplytranslate_mobile/issues
+
+AutoName: SimplyTranslate Mobile
+
+RepoType: git
+Repo: https://github.com/ManeraKai/simplytranslate_mobile
+
+Builds:
+  - versionName: 1.1.1
+    versionCode: 3
+    commit: v1.1.1
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - .vscode
+      - ios
+    prebuild: sed -i -e 's|git@github.com:|https://github.com/|' pubspec.lock pubspec.yaml
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 1.1.2
+    versionCode: 4
+    commit: f9c60c962acb2bfe412bea52cf64d91509d1f470
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - .vscode
+      - ios
+    prebuild: sed -i -e 's|git@github.com:|https://github.com/|' pubspec.lock pubspec.yaml
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 1.1.3
+    versionCode: 5
+    commit: bc4eeab8afc93e9e5af2c967efe3e07692d6b154
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - .vscode
+      - ios
+    prebuild: sed -i -e 's|git@github.com:|https://github.com/|' pubspec.lock pubspec.yaml
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.1.3
+CurrentVersionCode: 5

@@ -8,13 +8,6 @@ IssueTracker: https://github.com/markusfisch/BinaryEye/issues
 Changelog: https://github.com/markusfisch/BinaryEye/blob/HEAD/CHANGELOG.md
 
 AutoName: Binary Eye
-Description: |-
-    ''Binary Eye'' works in portrait and landscape orientation, can read
-    inverted codes, is Material Design and doesn't do anything else but
-    decoding a barcode. It uses the ZXing ("Zebra Crossing") barcode scanning
-    library. Supported barcode formats are: AZTEC, CODABAR, CODE 39, CODE 93,
-    CODE 128, DATA MATRIX, EAN 8, EAN 13, ITF, MAXICODE, PDF417, QR CODE, RSS
-    14, RSS EXPANDED, UPC A, UPC E and UPC EAN EXTENSION.
 
 RepoType: git
 Repo: https://github.com/markusfisch/BinaryEye
@@ -429,7 +422,109 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.39.0
+    versionCode: 78
+    commit: 1.39.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends libc++1-7
+    gradle:
+      - yes
+
+  - versionName: 1.40.0
+    versionCode: 79
+    commit: 1.40.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends libc++1-7
+    gradle:
+      - yes
+
+  - versionName: 1.41.0
+    versionCode: 80
+    commit: 1.41.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends libc++1-7
+    gradle:
+      - yes
+
+  - versionName: 1.41.1
+    versionCode: 81
+    commit: 1.41.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends libc++1-7
+    gradle:
+      - yes
+
+  - versionName: 1.42.0
+    versionCode: 82
+    commit: 1.42.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends libc++1-7
+    gradle:
+      - yes
+
+  - versionName: 1.43.0
+    versionCode: 83
+    commit: 1.43.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends libc++1-7
+    gradle:
+      - yes
+
+  - versionName: 1.44.0
+    versionCode: 84
+    commit: 1.44.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends libc++1-7
+    gradle:
+      - yes
+
+  - versionName: 1.44.1
+    versionCode: 85
+    commit: 4a9e700d2086fcbedf908c5afe14cad6c1efe5e9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends libc++1-7
+    gradle:
+      - yes
+
+  - versionName: 1.45.0
+    versionCode: 86
+    commit: c88d5cf4cd66cf70e4c4f0a859cf24e2a114d7a7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends libc++1-7 openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.46.0
+    versionCode: 87
+    commit: c492897fa9b1d1b2ec60aa81ee9b381357b1cccb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends libc++1-7 openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.38.0
-CurrentVersionCode: 77
+CurrentVersion: 1.46.0
+CurrentVersionCode: 87

@@ -239,7 +239,39 @@ Builds:
       - app/src/main/jni/
     ndk: r19c
 
+  - versionName: 0.9.26
+    versionCode: 9260
+    commit: ff5561b55944782cf745cbae63629c3f06fea20a
+    subdir: app
+    gradle:
+      - yes
+    extlibs:
+      - android/android-support-v4.jar
+    prebuild:
+      - cd src/main/jni/tuxpaint/
+      - ./mkzip_assets.sh
+    scandelete:
+      - app/src/main/jni/
+    ndk: r19c
+
+  - versionName: 0.9.27
+    versionCode: 9270
+    commit: 7171f5d27892f5130eccb44acab396f03b36d8c9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - cd src/main/jni/tuxpaint/
+      - ./mkzip_assets.sh
+    scandelete:
+      - app/src/main/jni/
+    ndk: r19c
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.9.25-bugfix-0
-CurrentVersionCode: 9250
+CurrentVersion: 0.9.27
+CurrentVersionCode: 9270

@@ -3,16 +3,17 @@ AntiFeatures:
 Categories:
   - Internet
   - Science & Education
-License: GPL-3.0-or-later
+License: GPL-3.0-only
 AuthorName: Vít Skalický
 AuthorEmail: vit.skalicky@email.cz
-SourceCode: https://github.com/vitSkalicky/lepsi-rozvrh
-IssueTracker: https://github.com/vitSkalicky/lepsi-rozvrh/issues
+WebSite: https://vitskalicky.gitlab.io/lepsi-rozvrh
+SourceCode: https://gitlab.com/vitSkalicky/lepsi-rozvrh
+IssueTracker: https://gitlab.com/vitSkalicky/lepsi-rozvrh/-/issues
 
 AutoName: Better schedule
 
 RepoType: git
-Repo: https://github.com/vitSkalicky/lepsi-rozvrh.git
+Repo: https://gitlab.com/vitSkalicky/lepsi-rozvrh.git
 
 Builds:
   - versionName: '1.0'
@@ -88,8 +89,42 @@ Builds:
     gradle:
       - fdroid
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-UpdateCheckIgnore: beta preview
-CurrentVersion: 1.7.3
-CurrentVersionCode: 19
+  - versionName: '1.8'
+    versionCode: 25
+    commit: v1.8
+    subdir: app
+    gradle:
+      - official
+
+  - versionName: 1.8.1
+    versionCode: 26
+    commit: v1.8.1
+    subdir: app
+    gradle:
+      - official
+
+  - versionName: 1.8.2
+    versionCode: 27
+    commit: v1.8.2
+    subdir: app
+    gradle:
+      - official
+
+  - versionName: 1.8.3
+    versionCode: 28
+    commit: 4b69e7fff616e30bfe0b6cea71f7f73d85760465
+    subdir: app
+    gradle:
+      - official
+
+  - versionName: 1.8.4
+    versionCode: 29
+    commit: c6f8301b89ba5c56365e292e20ce4eb376f65b34
+    subdir: app
+    gradle:
+      - official
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+CurrentVersion: 1.8.4
+CurrentVersionCode: 29

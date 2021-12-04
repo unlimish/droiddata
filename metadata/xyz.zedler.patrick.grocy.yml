@@ -42,7 +42,54 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.0.0-beta01
+    versionCode: 32
+    commit: v2.0.0-beta1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.0-beta02
+    versionCode: 33
+    commit: v2.0.0-beta2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.0-beta03
+    versionCode: 34
+    commit: e0c83f737dff0d15f7b2c439e6587627eb0ff169
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.0.0-beta04
+    versionCode: 35
+    commit: 186d0c29f5dbd5bb141043e8b4a2b1850f12c703
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.0.0-beta05
+    versionCode: 36
+    commit: 8c76c483d84ee88f824215ab0e41478b80a2be65
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.10.1
-CurrentVersionCode: 24
+CurrentVersion: 2.0.0-beta05
+CurrentVersionCode: 36

@@ -38,19 +38,6 @@ Builds:
       - $$flutter$$/bin/flutter packages pub run flutter_oss_licenses:generate.dart
       - $$flutter$$/bin/flutter build apk --build-number 20210127
 
-  - versionName: 1.1.1
-    versionCode: 20210128
-    commit: 5d7b536f670581f5b2aa58e76154ed858779f0bc
-    output: build/app/outputs/apk/release/app-release-unsigned.apk
-    srclibs:
-      - flutter@1.22.5
-    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
-    build:
-      - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter packages pub get
-      - $$flutter$$/bin/flutter packages pub run flutter_oss_licenses:generate.dart
-      - $$flutter$$/bin/flutter build apk --build-number 20210127
-
   - versionName: 1.2.0
     versionCode: 20210205
     commit: v1.2.0
@@ -77,8 +64,138 @@ Builds:
       - $$flutter$$/bin/flutter packages pub run flutter_oss_licenses:generate.dart
       - $$flutter$$/bin/flutter build apk
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: HTTP
-UpdateCheckData: https://raw.githubusercontent.com/blockbasti/just_another_workout_timer/main/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.3.0
-CurrentVersionCode: 20210209
+  - versionName: 1.4.0
+    versionCode: 20210221
+    commit: v1.4.0
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@1.22.6
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter packages pub run flutter_oss_licenses:generate.dart
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.4.1
+    versionCode: 20210226
+    commit: v1.4.1
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@1.22.6
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter packages pub run flutter_oss_licenses:generate.dart
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.4.2
+    versionCode: 20210227
+    commit: v1.4.2
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@1.22.6
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter packages pub run flutter_oss_licenses:generate.dart
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.5.0
+    versionCode: 20210307
+    commit: v1.5.0
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@1.22.6
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter packages pub run flutter_oss_licenses:generate.dart
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.6.0
+    versionCode: 20210311
+    commit: v1.6.0
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@1.22.6
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter packages pub run flutter_oss_licenses:generate.dart
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.7.0
+    versionCode: 20210518
+    commit: v1.7.0
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@1.22.6
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter pub run flutter_oss_licenses:generate.dart
+      - $$flutter$$/bin/flutter pub run intl_utils:generate
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.8.0
+    versionCode: 20210830
+    disable: Can't import old data
+    commit: 6c2894a965af517ba982ebaa26cb7a603a5144a5
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@2.2.3
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter pub run flutter_oss_licenses:generate.dart
+      - $$flutter$$/bin/flutter pub run intl_utils:generate
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.9.0
+    versionCode: 20210922
+    commit: 8c78a425cfb3986f995b9738e7216ce30fb83aa2
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@2.5.1
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter pub run flutter_oss_licenses:generate.dart
+      - $$flutter$$/bin/flutter pub run intl_utils:generate
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.9.1
+    versionCode: 20211114
+    commit: 2d2bcf4981c0bd9fc522fd9c4610be18bc778d57
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@2.5.1
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter pub run flutter_oss_licenses:generate.dart
+      - $$flutter$$/bin/flutter pub run intl_utils:generate
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.9.1
+CurrentVersionCode: 20211114

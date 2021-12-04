@@ -17,7 +17,43 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.2'
+    versionCode: 3
+    commit: v1.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.3'
+    versionCode: 4
+    commit: v1.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.4-beta1
+    versionCode: 5
+    commit: v1.4-beta1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.4-alpha1
+    versionCode: 6
+    commit: v1.4-alpha1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-CurrentVersion: '1.1'
-CurrentVersionCode: 2
+UpdateCheckMode: Tags ^v[0-9.]+$
+CurrentVersion: '1.3'
+CurrentVersionCode: 4

@@ -6,7 +6,6 @@ AuthorEmail: corenting@gmail.com
 SourceCode: https://github.com/corenting/ParisTransportTraffic
 IssueTracker: https://github.com/corenting/ParisTransportTraffic/issues
 Changelog: https://github.com/corenting/ParisTransportTraffic/releases
-Bitcoin: 3JmaEkuviReVdCG8fjqCs5LwQkaEGcTMtZ
 
 AutoName: Paris transport traffic
 
@@ -49,7 +48,32 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '4.5'
+    versionCode: 23
+    commit: v4.5
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '4.6'
+    versionCode: 24
+    commit: v4.6
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '4.7'
+    versionCode: 25
+    commit: 56a5750750f9fd0641b59d9bd73eddc6bd0d8005
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '4.4'
-CurrentVersionCode: 22
+CurrentVersion: '4.7'
+CurrentVersionCode: 25

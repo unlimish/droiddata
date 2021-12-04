@@ -167,7 +167,39 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '11.0'
+    versionCode: 1100
+    commit: v11.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '12.0'
+    versionCode: 1200
+    commit: v12.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '12.1'
+    versionCode: 1210
+    commit: v12.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '13.0'
+    versionCode: 1300
+    commit: c65df8985d82cf859b52987c5a095ccfe1e86762
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '10.2'
-CurrentVersionCode: 1020
+CurrentVersion: '13.0'
+CurrentVersionCode: 1300

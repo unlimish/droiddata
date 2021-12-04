@@ -10,7 +10,7 @@ SourceCode: https://github.com/amake/orgro
 IssueTracker: https://github.com/amake/orgro/issues
 Donate: https://github.com/sponsors/amake
 
-AutoName: ${displayName}
+AutoName: Orgro
 
 RepoType: git
 Repo: https://github.com/amake/orgro
@@ -52,8 +52,140 @@ Builds:
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk
 
-AutoUpdateMode: Version v%v+%c
-UpdateCheckMode: HTTP
-UpdateCheckData: https://raw.githubusercontent.com/amake/orgro/master/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.14.0
-CurrentVersionCode: 39
+  - versionName: 1.15.0
+    versionCode: 40
+    commit: v1.15.0+40
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.0.0
+    prebuild: touch android/key.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.16.0
+    versionCode: 41
+    commit: v1.16.0+41
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.0.0
+    prebuild: touch android/key.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.17.0
+    versionCode: 42
+    commit: v1.17.0+42
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.1.0-12.2.pre
+    prebuild: touch android/key.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.18.1
+    versionCode: 44
+    commit: v1.18.1+44
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.0-10.1.pre
+    prebuild: touch android/key.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.18.2
+    versionCode: 45
+    commit: v1.18.2+45
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.0-10.2.pre
+    prebuild: touch android/key.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.18.3
+    versionCode: 46
+    commit: v1.18.3+46
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.0-10.2.pre
+    prebuild: touch android/key.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.19.0
+    versionCode: 47
+    commit: v1.19.0+47
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.0-10.3.pre
+    prebuild: touch android/key.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.20.1
+    versionCode: 49
+    commit: 25740231857a8ca9c85aa501e08ccdbb9cc57062
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.0-5.2.pre
+    prebuild: touch android/key.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.21.1
+    versionCode: 52
+    commit: 276db7fac46127990688af787f4db18149c4859f
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.0-5.3.pre
+    prebuild: touch android/key.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.22.1
+    versionCode: 54
+    commit: 2b18f4cac548f9bda30db04dce0c6c02a9a7ab5d
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.7.0-3.1.pre
+    prebuild: touch android/key.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.22.1
+CurrentVersionCode: 54

@@ -53,7 +53,57 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.9'
+    versionCode: 9
+    commit: '1.9'
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.10'
+    versionCode: 10
+    commit: '1.10'
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.11'
+    versionCode: 11
+    commit: '1.11'
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.12'
+    versionCode: 12
+    commit: '1.12'
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.13'
+    versionCode: 13
+    commit: c077528c54620a45e897e749f598e1d6116ae4e3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.14'
+    versionCode: 14
+    commit: 305cd647ecbb4c148faa9831031f02ae98318a3a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '1.8'
-CurrentVersionCode: 8
+CurrentVersion: '1.14'
+CurrentVersionCode: 14

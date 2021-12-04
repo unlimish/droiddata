@@ -1113,7 +1113,112 @@ Builds:
         build.gradle
     build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
+  - versionName: 2.2.34
+    versionCode: 109
+    commit: 2.2.34
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.35
+    versionCode: 110
+    commit: 2.2.35
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.36
+    versionCode: 111
+    commit: 2.2.36
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.38
+    versionCode: 113
+    commit: 2.2.38
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.39
+    versionCode: 114
+    commit: da6bc0cc96a2fd081439bf2ad32565b422160b6c
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.40
+    versionCode: 115
+    commit: 034ced81276227eca3b3dc492d8b67622e7c6aee
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.41
+    versionCode: 116
+    commit: 45dad57995a500b566c702d5c6b7174cd9d33fee
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.2.33
-CurrentVersionCode: 108
+CurrentVersion: 2.2.41
+CurrentVersionCode: 116

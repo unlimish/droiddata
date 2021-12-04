@@ -4,7 +4,7 @@ License: Apache-2.0
 WebSite: http://vespucci.io/
 SourceCode: https://github.com/MarcusWolschon/osmeditor4android
 IssueTracker: https://github.com/MarcusWolschon/osmeditor4android/issues
-Changelog: https://github.com/MarcusWolschon/osmeditor4android/blob/HEAD/CHANGELOG.txt
+Changelog: https://github.com/MarcusWolschon/osmeditor4android/releases
 
 AutoName: Vespucci
 Description: |-
@@ -923,6 +923,7 @@ Builds:
 
   - versionName: 15.1.0.1
     versionCode: 1600
+    disable: beta
     commit: 15.1.0.1
     gradle:
       - current
@@ -933,7 +934,140 @@ Builds:
     scandelete:
       - src/androidTest/resources/fixtures/military.zip
 
-AutoUpdateMode: None
+  - versionName: 15.1.7.0
+    versionCode: 1610
+    commit: 15.1.7.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+
+  - versionName: 15.2.1.0
+    versionCode: 1703
+    commit: 15.2.1.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+
+  - versionName: 15.2.3.0
+    versionCode: 1705
+    commit: 15.2.3.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+
+  - versionName: 15.2.4.0
+    versionCode: 1706
+    commit: 4a51cca8107e4482ff484d593f239f258e8cc33d
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+
+  - versionName: 15.2.5.0
+    versionCode: 1707
+    commit: 33ba62252764b94144dfa33fd2e2247f6448a2c0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+
+  - versionName: 15.2.6.0
+    versionCode: 1708
+    commit: 510339545571eb6d6424436d5c58938e4574e370
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+
+  - versionName: 15.2.7.0
+    versionCode: 1709
+    commit: 0eb6405fd7cdc191840fbea11bdf469fc68a880b
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+
+  - versionName: 15.2.8.0
+    versionCode: 1710
+    commit: b70fa088a9b7f48b76310b8eb21302e18451af46
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+
+  - versionName: 16.0.0.0
+    versionCode: 1802
+    disable: https://github.com/MarcusWolschon/osmeditor4android/issues/1459
+    commit: 73911f0bf29adc1a22634cf0e433e9592f8a1475
+    gradle:
+      - current
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+      - src/androidTest/resources/fixtures/military2.zip
+
+  - versionName: 16.0.1.0
+    versionCode: 1803
+    disable: https://github.com/MarcusWolschon/osmeditor4android/issues/1459
+    commit: 27a9861c233ae9ff58d704a7a46829135bcca6c1
+    gradle:
+      - current
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+      - src/androidTest/resources/fixtures/military2.zip
+
+  - versionName: 16.1.0.0
+    versionCode: 1902
+    disable: https://github.com/MarcusWolschon/osmeditor4android/issues/1459
+    commit: 9423570ddd2410e7e0c63c094c089bd7d03bc746
+    gradle:
+      - current
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+      - src/androidTest/resources/fixtures/military2.zip
+
+MaintainerNotes: synonyms.so is a translation file for Somali.
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9]+\.[0-9]+\.[0-9]+\.0$
-CurrentVersion: Unknown
-CurrentVersionCode: 1610
+UpdateCheckData: src/main/AndroidManifest.xml|android:versionCode="(\d+)"||
+CurrentVersion: 16.1.0.0
+CurrentVersionCode: 1902

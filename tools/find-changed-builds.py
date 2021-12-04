@@ -3,6 +3,7 @@
 import os
 import subprocess
 import sys
+
 import yaml
 from colorama import Fore, Style
 
@@ -66,6 +67,18 @@ for appid in sorted(changed):
             data = yaml.safe_load(fp)
         for build in data['Builds']:
             to_build.append(build['versionCode'])
+
+    signatures_dir = 'metadata/%s/signatures/' % appid
+    diff = subprocess.check_output(
+        (
+            'git diff --name-only --no-color --diff-filter=d FETCH_HEAD...HEAD -- '
+            + signatures_dir
+        ).split(' ')
+    )
+    for f in diff.split():
+        vc = int(os.path.basename(os.path.dirname(f)))
+        if vc not in to_build:
+            to_build.append(vc)
 
     for vc in to_build:
         print('%s:%d' % (appid, vc), end=' ')

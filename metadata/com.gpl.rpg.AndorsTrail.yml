@@ -2,12 +2,12 @@ AntiFeatures:
   - NonFreeAssets
 Categories:
   - Games
-License: GPL-2.0-or-later
+License: GPL-2.0-only
 AuthorName: Andor’s Trail Project Team
 AuthorEmail: andor@andorstrail.com
 WebSite: https://andorstrail.com
 SourceCode: https://github.com/AndorsTrailRelease/andors-trail
-IssueTracker: https://github.com/Zukero/andors-trail/issues
+IssueTracker: https://github.com/AndorsTrailRelease/andors-trail/issues
 Translation: https://hosted.weblate.org/projects/andors-trail/
 
 AutoName: Andor's Trail
@@ -153,7 +153,31 @@ Builds:
 
   - versionName: 0.7.13
     versionCode: 58
+    disable: fails to build
     commit: v0.7.13
+    subdir: AndorsTrail
+    rm:
+      - AndorsTrail/libs/android-support-v4.jar
+    extlibs:
+      - android/android-support-v4r11.jar
+    scanignore:
+      - AndorsTrail/libs/android-support-v4r11.jar
+
+  - versionName: 0.7.13.1
+    versionCode: 59
+    commit: v0.7.13.1
+    subdir: AndorsTrail
+    rm:
+      - AndorsTrail/libs/android-support-v4.jar
+    extlibs:
+      - android/android-support-v4r11.jar
+    scanignore:
+      - AndorsTrail/libs/android-support-v4r11.jar
+
+  - versionName: 0.7.14
+    versionCode: 61
+    disable: ant is not supported anymore
+    commit: 98efee7e46c00125cdbc7f0b0449bf9b1fb22ffb
     subdir: AndorsTrail
     rm:
       - AndorsTrail/libs/android-support-v4.jar
@@ -164,5 +188,5 @@ Builds:
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.7.13
-CurrentVersionCode: 58
+CurrentVersion: 0.7.14
+CurrentVersionCode: 61

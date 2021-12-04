@@ -2,15 +2,19 @@ Categories:
   - Science & Education
 License: GPL-3.0-or-later
 AuthorName: BanDev
-AuthorEmail: help@computub.com
-SourceCode: https://gitlab.com/bandev/buddha-quotes
-IssueTracker: https://gitlab.com/bandev/buddha-quotes/issues
-Changelog: https://gitlab.com/bandev/buddha-quotes/-/blob/master/CHANGELOG.md
+AuthorEmail: hello@bandev.uk
+AuthorWebSite: https://bandev.uk
+SourceCode: https://github.com/BanDev/Buddha-Quotes
+IssueTracker: https://github.com/BanDev/Buddha-Quotes/issues
+Translation: https://hosted.weblate.org/projects/buddha-quotes/
+Changelog: https://github.com/BanDev/Buddha-Quotes/blob/main/CHANGELOG.md
+Donate: https://www.buymeacoffee.com/bandev
+Liberapay: bandev
 
 AutoName: Buddha Quotes
 
 RepoType: git
-Repo: https://gitlab.com/bandev/buddha-quotes.git
+Repo: https://github.com/BanDev/Buddha-Quotes.git
 
 Builds:
   - versionName: v1.3.0
@@ -67,7 +71,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: v2.1.0
+    versionCode: 1012
+    commit: v2.1.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: v2.1.1
+    versionCode: 1013
+    commit: v2.1.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: v2.0.0
-CurrentVersionCode: 1011
+CurrentVersion: v2.1.1
+CurrentVersionCode: 1013

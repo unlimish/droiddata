@@ -9,10 +9,6 @@ Translation: https://hosted.weblate.org/projects/transistor/strings/
 Changelog: https://github.com/y20k/transistor/releases
 
 AutoName: Transistor
-Description: |-
-    Transistor is a bare bones app for listening to radio programs over the
-    internet. The app stores stations as files on your device’s external storage. It
-    currently understands streams embedded within m3u and pls links.
 
 RepoType: git
 Repo: https://github.com/y20k/transistor.git
@@ -498,7 +494,64 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 4.0.11
+    versionCode: 82
+    commit: v4.0.11
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.0.12
+    versionCode: 83
+    commit: v4.0.12
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.0.13
+    versionCode: 84
+    commit: v4.0.13
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.0.14
+    versionCode: 85
+    commit: v4.0.14
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.0.15
+    versionCode: 86
+    commit: 07562994fcedf180604b5f0929e50044e51321e4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.0.16
+    versionCode: 87
+    commit: e2cd323720849c899902f0a0a82a5b6c6f1c1346
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.0.17
+    versionCode: 88
+    commit: de2eb7a4c195439396fa3aaa0dd9f162630883a8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 4.0.10
-CurrentVersionCode: 81
+CurrentVersion: 4.0.17
+CurrentVersionCode: 88
