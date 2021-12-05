@@ -16,12 +16,12 @@ RepoType: git
 Repo: https://github.com/muety/anchr-android.git
 
 Builds:
-  - versionName: 1.2.1
-    versionCode: 29
-    commit: 1.2.1
+  - versionName: 1.2.2
+    versionCode: 4
+    commit: 1.2.2
     output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
     srclibs:
-      - flutter@2.0.2
+      - flutter@2.5.3
     rm:
       - ios
     prebuild: $$flutter$$/bin/flutter pub get
@@ -30,5 +30,5 @@ Builds:
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.2.1
-CurrentVersionCode: 29
+CurrentVersion: 1.2.2
+CurrentVersionCode: 30
