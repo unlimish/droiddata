@@ -24,8 +24,7 @@ Builds:
     prebuild:
       - cd ..
       - sed -ri '/fireBase/,/}/d' app/build.gradle
-      - curl -sL https://github.com/wireapp/wire-android/releases/download/$$VERSION$$/version.txt
-        >> app/version.txt
+      - printf 'VersionCode: $$VERCODE$$\nVersionName: $$VERSION$$\n' > app/version.txt
     ndk: r20b
 
   - versionName: 3.77.10
@@ -37,8 +36,7 @@ Builds:
     prebuild:
       - cd ..
       - sed -ri '/fireBase/,/}/d' app/build.gradle
-      - curl -sL https://github.com/wireapp/wire-android/releases/download/$$VERSION$$/version.txt
-        >> app/version.txt
+      - printf 'VersionCode: $$VERCODE$$\nVersionName: $$VERSION$$\n' > app/version.txt
     ndk: r20b
 
 AutoUpdateMode: Version %v
