@@ -24,7 +24,7 @@ Builds:
     prebuild:
       - cd ..
       - sed -ri '/fireBase/,/}/d' app/build.gradle
-      - printf 'VersionCode: $$VERCODE$$\nVersionName: $$VERSION$$\n' > app/version.txt
+      - 'printf "VersionCode: $$VERCODE$$\nVersionName: $$VERSION$$\n" > app/version.txt'
     ndk: r20
 
 AutoUpdateMode: Version %v
