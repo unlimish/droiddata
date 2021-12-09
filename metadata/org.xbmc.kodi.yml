@@ -287,7 +287,7 @@ Builds:
       - apt-get install -y build-essential default-jdk gawk lib32stdc++6 lib32z1 lib32z1-dev
         libcurl4-openssl-dev zlib1g-dev groovy libcommons-lang-java python-dev
     patch:
-      - 19.0-groovy.patch
+      - 19.3-groovy.patch
     output: build/tools/android/packaging/xbmc/build/outputs/apk/releaseUnsigned/xbmc-releaseUnsigned-unsigned.apk
     rm:
       - tools/codegenerator/groovy/
@@ -313,7 +313,6 @@ Builds:
       - make -C build -j`nproc`
       - make -C build apk-unsigned
     ndk: r20b
-
 
 MaintainerNotes: |-
     18.0-groovy.patch was <a href="https://github.com/xbmc/xbmc/issues/6860#issuecomment-461122155">provided by upstream</a>; it makes the build use the Debian groovy package instead of a prebuilt JAR.
