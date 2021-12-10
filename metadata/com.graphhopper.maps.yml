@@ -23,7 +23,15 @@ Builds:
       - cp -a node-v16.2.0-linux-x64/. /usr/local/
     init:
       - cd ../..
-      - build.sh
+      - cp config.js graphhopper-maps/
+      - cd graphhopper-maps
+      - npm install
+      - npm run build
+      - cd ..
+      - npm install
+      - npm run build
+      - npx cap sync
+
     gradle:
       - yes
     scandelete:
