@@ -1,0 +1,44 @@
+Categories:
+  - Reading
+  - Internet
+License: GPL-3.0-only
+AuthorName: Ondřej Foltýn & Richard Klapáč
+SourceCode: https://gitlab.com/ondrejfoltyn/nunti
+IssueTracker: https://gitlab.com/ondrejfoltyn/nunti/issues
+
+RepoType: git
+Repo: https://gitlab.com/ondrejfoltyn/nunti.git
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: 62a989ba4c35bff4ce2d474530bef1f890478fcd
+    subdir: Nunti/android
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v17.2.0/node-v17.2.0-linux-x64.tar.xz
+      - echo "0b5a6db351f31edf5282c63be7b923e40064ac6d54b5222fdd419ab8f1bedf61 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v17.2.0-linux-x64/. /usr/local/
+    init:
+      - cd ..
+      - npm install --no-optional
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    scanignore:
+      - Nunti/android/build.gradle
+      - Nunti/node_modules/jsc-android
+      - Nunti/node_modules/react-native/*/
+      - Nunti/node_modules/jetifier
+      - Nunti/node_modules/hermes-engine
+      - Nunti/node_modules/react-native-reanimated
+      - Nunti/node_modules/react-native-vector-icons/android/build.gradle
+      - Nunti/node_modules/react-native-safe-area-context/android/build.gradle
+      - Nunti/node_modules/react-native-pager-view/android/build.gradle
+      - Nunti/node_modules/@react-native-community/netinfo/android/build.gradle
+      - Nunti/node_modules/@react-native-community/masked-view/android/build.gradle
+      - Nunti/node_modules/react-native-screens/android/build.gradle
+
+AutoUpdateMode: Version v%c
+UpdateCheckMode: Tags
