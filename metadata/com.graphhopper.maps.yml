@@ -20,7 +20,15 @@ Builds:
         | sha256sum -c -
       - tar xJf node.tar.xz
       - cp -a node-v16.2.0-linux-x64/. /usr/local/
-    init: build.sh
+    init:
+      - cp config.js graphhopper-maps/
+      - cd graphhopper-maps
+      - npm install
+      - npm run build
+      - cd ..
+      - npm install
+      - npm run build
+      - npx cap sync
     gradle:
       - yes
     scandelete:
