@@ -1994,11 +1994,11 @@ Builds:
     subdir: android/app/
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
-      - curl -Lo node.tar.gz https://nodejs.org/dist/v14.16.0/node-v14.16.0-linux-x64.tar.gz
-      - echo "7212031d7468718d7c8f5e1766380daaabe09d54611675338e7a88a97c3e31b6 node.tar.gz"
+      - curl -Lo node.tar.gz https://nodejs.org/download/release/v14.18.2/node-v14.18.2-linux-x64.tar.gz
+      - echo "83fa18a0e3642235446b66653eb27c169224ae9c1a15a32d6c3d9ddefb154ed4 node.tar.gz"
         | sha256sum -c -
       - tar xf node.tar.gz
-      - cp -a node-v14.16.0-linux-x64/. /usr/local/
+      - cp -a node-v*-linux-x64/. /usr/local/
       - npm -g install yarn
     init:
       - cd ../..
