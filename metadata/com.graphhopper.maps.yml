@@ -13,6 +13,7 @@ Builds:
     versionCode: 1
     commit: v1.0
     subdir: android/app
+    submodules: true
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
       - curl -Lo node.tar.xz https://nodejs.org/dist/v16.2.0/node-v16.2.0-linux-x64.tar.xz
@@ -21,6 +22,8 @@ Builds:
       - tar xJf node.tar.xz
       - cp -a node-v16.2.0-linux-x64/. /usr/local/
     init:
+      # We start at /home/vagrant/build/com.graphhopper.maps/android/app but need to go to the root to build the app
+      - cd ../..
       - pwd
       - ls -l
       - cp config.js graphhopper-maps/
