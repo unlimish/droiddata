@@ -2004,6 +2004,8 @@ Builds:
       - cd ../..
       - yarn cache clean snjs
       - npm_config_build_from_source=true yarn --force
+    patch:
+      - bugsnag-3.9.4.patch
     gradle:
       - prod
     srclibs:
@@ -2040,8 +2042,6 @@ Builds:
       - ./dist-build/android-x86_64.sh
       - popd
     ndk: r21e
-    antifeatures:
-      - Tracking
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: HTTP
