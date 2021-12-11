@@ -1,0 +1,33 @@
+Categories:
+  - Internet
+  - Reading
+License: MPL-2.0
+AuthorName: floccus
+AuthorWebSite: https://floccus.org/
+WebSite: https://floccus.org/
+SourceCode: https://github.com/floccusaddon/floccus
+IssueTracker: https://github.com/floccusaddon/floccus/issues
+Changelog: https://github.com/floccusaddon/floccus/releases
+OpenCollective: floccus
+
+AutoName: floccus bookmark sync
+
+RepoType: git
+Repo: https://github.com/floccusaddon/floccus
+
+Builds:
+  - versionName: 4.8.7
+    versionCode: 4008007
+    commit: v4.8.7
+    subdir: android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 4.8.7
+CurrentVersionCode: 4008007
