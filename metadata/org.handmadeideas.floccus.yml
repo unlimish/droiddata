@@ -26,6 +26,10 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - yes
+    prebuild:
+      - npm install
+      - npx gulp build
+      - npx cap sync
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
