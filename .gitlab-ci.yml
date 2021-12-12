@@ -213,11 +213,16 @@ fdroid build:
       - tmp/
     when: always
     expire_in: 1 month
-  except:
-    - master@fdroid/fdroiddata
-    - pipelines
-    - schedules
-    - triggers
+  rules:
+    - if: '$CI_DEFAULT_BRANCH && $CI_PROJECT_PATH == "fdroid/fdroiddata"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "pipeline"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+      when: never
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'
+      when: never
+    - when: always
   cache:
     key: "$CI_JOB_NAME"
     paths:
