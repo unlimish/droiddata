@@ -10,6 +10,50 @@ RepoType: git
 Repo: https://github.com/yausername/dvd
 
 Builds:
+  - versionName: 0.1.2
+    versionCode: 10201
+    commit: 0.1.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i 's/ versionCode .*/ versionCode $$VERCODE$$/' build.gradle
+    gradleprops:
+      - noSplits
+      - ABI_FILTERS=x86
+
+  - versionName: 0.1.2
+    versionCode: 10202
+    commit: 0.1.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i 's/ versionCode .*/ versionCode $$VERCODE$$/' build.gradle
+    gradleprops:
+      - noSplits
+      - ABI_FILTERS=x86_64
+
+  - versionName: 0.1.2
+    versionCode: 10203
+    commit: 0.1.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i 's/ versionCode .*/ versionCode $$VERCODE$$/' build.gradle
+    gradleprops:
+      - noSplits
+      - ABI_FILTERS=armeabi-v7a
+
+  - versionName: 0.1.2
+    versionCode: 10204
+    commit: 0.1.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i 's/ versionCode .*/ versionCode $$VERCODE$$/' build.gradle
+    gradleprops:
+      - noSplits
+      - ABI_FILTERS=arm64-v8a
+
   - versionName: 0.1.3
     versionCode: 10301
     commit: 0.1.3
