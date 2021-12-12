@@ -413,8 +413,6 @@ sast:
 
     # Make sure the apk is searched before the manifest, so only apks are scanned
     ANALYZER_TARGET_DIR: $CI_PROJECT_DIR/tmp/
-  needs:
-    - fdroid build
   rules:
     - if: '$CI_DEFAULT_BRANCH && $CI_PROJECT_PATH == "fdroid/fdroiddata"'
       when: never
