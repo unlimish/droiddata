@@ -46,7 +46,18 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 2.8.1
+    versionCode: 50
+    commit: afb291e95e01523a98ac0e77869aea506a0db39c
+    subdir: StinglePhotos
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version v%c-%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.7.2
-CurrentVersionCode: 48
+CurrentVersion: 2.8.1
+CurrentVersionCode: 50

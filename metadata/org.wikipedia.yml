@@ -1019,6 +1019,58 @@ Builds:
     forceversion: true
     prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
 
+  - versionName: r/2.7.50384-r-2021-11-09
+    versionCode: 50384
+    commit: 554329e02ed9fa9abfa93209f8adb031c6eb93ee
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
+  - versionName: r/2.7.50386-r-2021-11-15
+    versionCode: 50386
+    commit: 45caade82816b6cab35530ccf55b5aa86bc3e305
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
+  - versionName: r/2.7.50387-r-2021-11-24
+    versionCode: 50387
+    commit: 9937e53971ce0d065a3e234d58dc41abc1d9eed1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
+  - versionName: r/2.7.50388-r-2021-12-02
+    versionCode: 50388
+    commit: 27e68e40fc36be240da04084375433cc0bc19a70
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
 MaintainerNotes: |-
     * whitelist app/build.gradle for microsoft appcenter SDK. It's actually open source but might
       pull in google dependencies. In this case it doesn't
@@ -1029,5 +1081,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags ^r
-CurrentVersion: r/2.7.50382-r-2021-10-25
-CurrentVersionCode: 50382
+CurrentVersion: r/2.7.50388-r-2021-12-02
+CurrentVersionCode: 50388

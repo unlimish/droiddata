@@ -112,7 +112,39 @@ Builds:
       - gfx/*.icns
       - gfx/*.opacity
 
+  - versionName: '13'
+    versionCode: 1300000
+    commit: 23b51da90f08a3381d598f0faf707e025f6b32b3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - puzlib/src/test
+    scanignore:
+      - gfx/*.icns
+      - gfx/*.opacity
+
+  - versionName: '14'
+    versionCode: 1400000
+    commit: fc5ca7dcb42124dc820f7fa99636567b5cc895e3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - puzlib/src/test
+    scanignore:
+      - gfx/*.icns
+      - gfx/*.opacity
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '12'
-CurrentVersionCode: 1200000
+CurrentVersion: '14'
+CurrentVersionCode: 1400000

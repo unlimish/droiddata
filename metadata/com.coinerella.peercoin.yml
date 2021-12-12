@@ -4,7 +4,6 @@ License: AGPL-3.0-only
 AuthorName: Peercoin Foundation
 AuthorEmail: foundation@peercoin.net
 AuthorWebSite: https://www.peercoin.net/
-WebSite: https://github.com/peercoin/peercoin_flutter
 SourceCode: https://github.com/peercoin/peercoin_flutter
 IssueTracker: https://github.com/peercoin/peercoin_flutter/issues
 Translation: https://weblate.ppc.lol/
@@ -123,10 +122,9 @@ Builds:
       - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
       - $$flutter$$/bin/flutter build apk
 
-  - versionName: 0.7.0
-    versionCode: 63
-    disable: https://github.com/peercoin/peercoin_flutter/issues/107
-    commit: b022c96ecbafe1c71c11e1d5b87a0c1db5f6bb00
+  - versionName: 0.7.3
+    versionCode: 69
+    commit: 2ac6ba31a830d364a9907e608a2db47b93e37d7d
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.5.1
@@ -134,6 +132,8 @@ Builds:
       - ios/build
       - test_driver
     prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
@@ -142,9 +142,9 @@ Builds:
       - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
       - $$flutter$$/bin/flutter build apk
 
-  - versionName: 0.7.0
-    versionCode: 65
-    commit: bbbb6b6770479dd5272e50340824a92ca46cc041
+  - versionName: 0.7.4
+    versionCode: 70
+    commit: 3dff98f46c08199ce4576921fb8762c1ee6e0c65
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.5.1
@@ -152,6 +152,8 @@ Builds:
       - ios/build
       - test_driver
     prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
@@ -159,9 +161,11 @@ Builds:
       - $$flutter$$/bin/flutter pub run flutter_native_splash:create
       - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
       - $$flutter$$/bin/flutter build apk
+
+MaintainerNotes: Ignore local maven repo for flutter_background_fetch.
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 0.7.0
-CurrentVersionCode: 65
+CurrentVersion: 0.7.4
+CurrentVersionCode: 70
