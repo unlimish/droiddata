@@ -1,6 +1,11 @@
 include:
   - template: Security/SAST.gitlab-ci.yml
 
+stages:
+  - build
+  - test
+  - report
+
 variables:
   pip: pip3 --timeout 100 --retries 10
 
@@ -204,7 +209,6 @@ checkupdates_runner:
     - 'grep -v "INFO: Processing" /tmp/out || true'
 
 fdroid build:
-  stage: build
   image: registry.gitlab.com/fdroid/ci-images-client:latest
   artifacts:
     name: "${CI_PROJECT_PATH}_${CI_JOB_STAGE}_${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHA}"
@@ -400,6 +404,7 @@ check_git_repos:
     - exit $EXITVALUE
 
 sast:
+  stage: report
   variables:
     MOBSF_API_KEY: key
     SAST_EXPERIMENTAL_FEATURES: "true"
