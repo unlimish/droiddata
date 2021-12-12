@@ -214,15 +214,11 @@ fdroid build:
       - tmp/
     when: always
     expire_in: 1 month
-  rules:
-    - if: '$CI_DEFAULT_BRANCH && $CI_PROJECT_PATH == "fdroid/fdroiddata"'
-      when: never
-    - if: '$CI_PIPELINE_SOURCE == "pipeline"'
-      when: never
-    - if: '$CI_PIPELINE_SOURCE == "schedule"'
-      when: never
-    - if: '$CI_PIPELINE_SOURCE == "trigger"'
-      when: never
+  except:
+    - master@fdroid/fdroiddata
+    - pipelines
+    - schedules
+    - triggers
   cache:
     key: "$CI_JOB_NAME"
     paths:
@@ -423,6 +419,7 @@ sast:
       when: never
     - if: '$CI_PIPELINE_SOURCE == "trigger"'
       when: never
+  allow_failure: true
 
 mobsf-ios-sast:
   rules:
