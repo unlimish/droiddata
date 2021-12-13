@@ -805,8 +805,8 @@ Builds:
       - sed -i 's:cargo:~/.cargo/bin/cargo:' $$pEpJNIAdapter$$/android/external/**/Makefile
     ndk: r21
 
-  - versionName: 1.1.273
-    versionCode: 97
+  - versionName: v1.1.273
+    versionCode: 470
     commit: v1.1.273
     subdir: k9mail
     sudo:
@@ -850,11 +850,10 @@ Builds:
       - sed -i 's:../:../srclib/:' ../settings.gradle
       - sed -i 's:cargo:~/.cargo/bin/cargo:' $$pEpJNIAdapter$$/android/external/**/Makefile
       - sed -i 's/grgit-gradle:4.1.0/grgit-gradle:4.1.1/' ../gradle/plugins/utils/git-version.gradle
-      - env
-      - javac -version
+      - sed -i 's/appVersionOffset = 50/appVersionOffset = 423/' ../gradle/plugins/utils/git-version.gradle
     ndk: r21
 
 AutoUpdateMode: None
 UpdateCheckMode: None
 CurrentVersion: v1.1.273
-CurrentVersionCode: 97
+CurrentVersionCode: 470
