@@ -685,6 +685,8 @@ Builds:
       - update-alternatives --auto java
       - sysctl fs.inotify.max_user_watches=524288
       - sysctl -p
+    patch:
+      - build_gradle_remove_jitsi_repo.patch
     gradle:
       - fdroid
     srclibs:
@@ -692,7 +694,6 @@ Builds:
     prebuild:
       - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
       - sed -i -e 's/enable true/enable false/g' build.gradle
-      - sed -i -e '/Jitsi repo/,/}/d' ../build.gradle
       - sed -i -e '/google()/a\        mavenLocal()' ../build.gradle
       - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
     build:
