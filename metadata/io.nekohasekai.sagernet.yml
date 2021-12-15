@@ -389,9 +389,9 @@ Builds:
     gradle:
       - fdroid
     prebuild:
-      - echo "android { splits { abi { enable false } } }" >> build.gradle
       - cd ..
       - ./run fdroid prebuild
+      - perl -i -p0e 's/splits.abi \{\n\s+isEnable = true/splits.abi { isEnable = false/se' buildSrc/src/main/kotlin/Helpers.kt
     scandelete:
       - external
       - plugin
