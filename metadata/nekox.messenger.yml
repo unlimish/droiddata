@@ -749,7 +749,7 @@ Builds:
         == null/def disableCMakeRelWithDebInfo = false/' TMessagesProj/build.gradle
     ndk: r21e
 
-  - versionName: 8.3.0-preview01-arm64
+  - versionName: 8.3.0-preview01
     versionCode: 500
     commit: 159ced55449a392b45e184c778f8f022d79ab63e
     timeout: 10800
@@ -760,13 +760,14 @@ Builds:
       - apt-get install -y ninja-build openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
-      - miniFdroidArm64
+      - miniFdroid
     output: build/outputs/apk/mini/*/*.apk
     prebuild:
       - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
         ../gradle.properties
       - pushd ..
       - ./run fdroid prebuild
+      - echo "android { splits { abi { enable false } } }" >> build.gradle
     scandelete:
       - TMessagesProj
     build:
@@ -792,7 +793,7 @@ MaintainerNotes: |
       - Change gradle task to miniFdroidArm
 
 ArchivePolicy: 6 versions
-AutoUpdateMode: Version +-arm64 %v
+AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
 UpdateCheckData: TMessagesProj/build.gradle|verCode\s=\s(\d+)|.|verName\s=\s"(.+)"
 CurrentVersion: 8.3.0-preview01

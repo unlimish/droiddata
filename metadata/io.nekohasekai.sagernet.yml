@@ -363,13 +363,12 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
-    patch:
-      - disable-splits-abi.patch
     gradle:
       - fdroid
     prebuild:
       - cd ..
       - ./run fdroid prebuild
+      - echo "android { splits { abi { enable false } } }" >> build.gradle
     scandelete:
       - external
       - plugin
