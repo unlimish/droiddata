@@ -366,9 +366,9 @@ Builds:
     gradle:
       - fdroid
     prebuild:
+      - echo "android { splits { abi { enable false } } }" >> build.gradle
       - cd ..
       - ./run fdroid prebuild
-      - echo "android { splits { abi { enable false } } }" >> build.gradle
     scandelete:
       - external
       - plugin
@@ -389,9 +389,9 @@ Builds:
     gradle:
       - fdroid
     prebuild:
+      - echo "android { splits { abi { enable false } } }" >> build.gradle
       - cd ..
       - ./run fdroid prebuild
-      - echo "android { splits { abi { enable false } } }" >> build.gradle
     scandelete:
       - external
       - plugin
