@@ -363,6 +363,29 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - echo "android { splits { abi { enable false } } }" >> build.gradle
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.6-beta14
+    versionCode: 660
+    commit: b6278c36cc719e3a92153cd4eb65348923f05ee3
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     patch:
       - disable-splits-abi.patch
     gradle:
