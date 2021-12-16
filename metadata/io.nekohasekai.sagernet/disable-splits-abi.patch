@@ -1,8 +1,8 @@
 diff --git a/buildSrc/src/main/kotlin/Helpers.kt b/buildSrc/src/main/kotlin/Helpers.kt
-index 440dbdf..b950f35 100644
+index 4230e1c..7df1ab4 100644
 --- a/buildSrc/src/main/kotlin/Helpers.kt
 +++ b/buildSrc/src/main/kotlin/Helpers.kt
-@@ -335,7 +335,7 @@ fun Project.setupPlugin(projectName: String) {
+@@ -336,7 +336,7 @@ fun Project.setupPlugin(projectName: String) {
          }
  
          splits.abi {
@@ -11,7 +11,7 @@ index 440dbdf..b950f35 100644
              isUniversalApk = false
  
              if (targetAbi.isNotBlank()) {
-@@ -347,6 +347,7 @@ fun Project.setupPlugin(projectName: String) {
+@@ -348,6 +348,7 @@ fun Project.setupPlugin(projectName: String) {
          flavorDimensions("vendor")
          productFlavors {
              create("oss")
@@ -19,12 +19,24 @@ index 440dbdf..b950f35 100644
              create("fdroidArm64") {
                  versionNameSuffix = "-arm64"
              }
-@@ -453,7 +454,7 @@ fun Project.setupApp() {
+@@ -454,7 +455,7 @@ fun Project.setupApp() {
          }
+ 
+         splits.abi {
+-            isEnable = true
++            isEnable = false
+             isUniversalApk = false
+ 
+             if (targetAbi.isNotBlank()) {
+@@ -467,6 +468,7 @@ fun Project.setupApp() {
+         productFlavors {
+             create("oss")
+             create("expert")
++            create("fdroid")
              create("fdroidArm64") {
                  versionNameSuffix = "-arm64"
              }
-@@ -525,4 +527,4 @@ fun Project.setupApp() {
+@@ -523,4 +525,4 @@ fun Project.setupApp() {
      }
  
      setupPlay()

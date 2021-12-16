@@ -1,32 +1,32 @@
 diff --git a/TMessagesProj/build.gradle b/TMessagesProj/build.gradle
-index 8a70b7ca..f3c33856 100644
+index f3c33856..8a70b7ca 100644
 --- a/TMessagesProj/build.gradle
 +++ b/TMessagesProj/build.gradle
 @@ -89,7 +89,7 @@ android {
  
          abi {
  
--            enable false
-+            enable true
+-            enable true
++            enable false
              universalApk false
  
              if (!targetAbi.isBlank()) {
-@@ -245,11 +245,6 @@ android {
+@@ -245,6 +245,11 @@ android {
              matchingFallbacks = ["release", "debug"]
          }
  
--        fdroidRelease {
--            initWith foss
--            matchingFallbacks = ["release", "debug"]
--        }
--
++        fdroidRelease {
++            initWith foss
++            matchingFallbacks = ["release", "debug"]
++        }
++
          fdroidArmRelease {
              initWith foss
              matchingFallbacks = ["release", "debug"]
-@@ -454,4 +449,4 @@ android {
+@@ -449,4 +454,4 @@ android {
          }
      }
  
 -}
-+}
 \ No newline at end of file
++}
