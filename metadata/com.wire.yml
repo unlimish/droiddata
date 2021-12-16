@@ -23,6 +23,7 @@ Builds:
       - fdroid
     prebuild:
       - cd ..
+      - sed -ri '/fireBase/,/}/d' app/build.gradle
       - sed -ri '/com.google.android.c2dm/d' app/src/main/AndroidManifest.xml
       - 'printf "VersionCode: $$VERCODE$$\nVersionName: $$VERSION$$\n" > app/version.txt'
     ndk: r20
