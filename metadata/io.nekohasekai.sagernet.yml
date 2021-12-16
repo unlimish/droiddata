@@ -386,13 +386,13 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+    patch:
+      - disable-splits-abi.patch
     gradle:
       - fdroid
     prebuild:
       - cd ..
       - ./run fdroid prebuild
-      - perl -i -p0e 's/splits.abi \{\n\s+isEnable = true/splits.abi { isEnable =
-        false/s' buildSrc/src/main/kotlin/Helpers.kt
     scandelete:
       - external
       - plugin
