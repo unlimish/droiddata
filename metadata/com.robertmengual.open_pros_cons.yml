@@ -12,7 +12,7 @@ AutoName: open-pros-cons
 Summary: A simple Pros and Cons application free of malware, trackers and adds.
 Description: |-
     Make your own lists of pros and cons free of trackers, adds and malware.
-    
+
     Add your own arguments and make better decisions.
 
 RepoType: git
@@ -23,8 +23,6 @@ Builds:
     versionCode: 10000
     commit: v1.0.0
     subdir: android/app
-    gradle:
-      - fdroid
     sudo:
       - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
       - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
@@ -32,13 +30,15 @@ Builds:
       - tar xJf node.tar.xz
       - cp -a node-v16.3.0-linux-x64/. /usr/local/
       - npm install -g yarn
-    scandelete:
-      - node_modules/
+    gradle:
+      - yes
     prebuild:
       - cd ../..
       - yarn install
       - PUBLIC_URL=. yarn build
       - npx cap sync android
+    scandelete:
+      - node_modules/
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
