@@ -35,7 +35,7 @@ Description: |-
     You can also install Jami on Windows, macOS, iOS and GNU/Linux.
 
 RepoType: git
-Repo: https://git.jami.net/savoirfairelinux/ring-project
+Repo: https://review.jami.net/ring-project
 
 Builds:
   - versionName: 2.0.003
@@ -1562,7 +1562,8 @@ Builds:
       - packaging
       - patches
       - scripts
-    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'platforms;android-31'
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-31' 'build-tools;31.0.0'
         'build-tools;31.0.0'
     build:
       - cd ../..
