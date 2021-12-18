@@ -29,10 +29,21 @@ RepoType: git
 Repo: https://github.com/garmax1/material-flashlight.git
 
 Builds:
+  - versionName: '2.5'
+    versionCode: 27
+    commit: v2.5
+    subdir: app
+    gradle:
+      - yes
+
   - versionName: '2.7'
     versionCode: 29
     commit: v2.7
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
