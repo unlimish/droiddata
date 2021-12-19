@@ -30,9 +30,9 @@ Builds:
       - npm install --no-optional
     gradle:
       - yes
+    output: build/outputs/apk/release/app-release-unsigned.apk
     srclibs:
       - react-native-reanimated@2.3.1
-    output: build/outputs/apk/release/app-release-unsigned.apk
     prebuild:
       - echo -e "android { packagingOptions { pickFirst 'lib/**/*.so' } }" >> build.gradle
       - cd $$react-native-reanimated$$
