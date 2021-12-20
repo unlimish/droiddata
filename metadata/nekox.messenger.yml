@@ -781,6 +781,19 @@ Builds:
       - git gc --prune=now
       - sed -i -e 's/def disableCMakeRelWithDebInfo = System.getenv("COMPILE_NATIVE")
         == null/def disableCMakeRelWithDebInfo = false/' TMessagesProj/build.gradle
+      - DIR=$PWD
+      - pushd $$libvpx$$
+      - export PATH=$$NDK$$/toolchains/x86-4.9/prebuilt/linux-x86_64/bin:$PATH
+      - ASFLAGS="-D__ANDROID__" CROSS=i686-linux-android- LDFLAGS="--sysroot=$$NDK$$/platforms/android-30/arch-x86"
+        ./configure --target=x86-android-gcc --enable-external-build --enable-postproc --enable-multi-res-encoding --enable-temporal-denoising --enable-vp9-temporal-denoising --enable-vp9-postproc --size-limit=16384x16384 --enable-realtime-only --disable-install-docs --disable-libyuv --enable-pic --as=yasm --disable-avx512 --enable-vp9-highbitdept --sdk-path=$$NDK$$ --extra-cflags="--sysroot=$$NDK$$/platforms/android-30/arch-x86"
+      - make
+      - mv libvpx_x86_yasm.a $DIR/jni/third_party/libvpx/source/libvpx/vpx_dsp/x86/
+      - make distclean
+      - export PATH=$$NDK$$/toolchains/x86_64-4.9/prebuilt/linux-x86_64/bin:$PATH
+      - ASFLAGS="-D__ANDROID__" CROSS=x86_64-linux-android- LDFLAGS="--sysroot=$$NDK$$/platforms/android-30/arch-x86_64"
+        ./configure --target=x86_64-android-gcc --enable-external-build --enable-postproc --enable-multi-res-encoding --enable-temporal-denoising --enable-vp9-temporal-denoising --enable-vp9-postproc --size-limit=16384x16384 --enable-realtime-only --disable-install-docs --disable-libyuv --enable-pic --as=yasm --disable-avx512 --enable-vp9-highbitdepth --sdk-path=$$NDK$$ --extra-cflags="--sysroot=$$NDK$$/platforms/android-30/arch-x86_64"
+      - make
+      - mv libvpx_x86_64_yasm.a $DIR/jni/third_party/libvpx/source/libvpx/vpx_dsp/x86/
     ndk: r21e
 
 MaintainerNotes: |
