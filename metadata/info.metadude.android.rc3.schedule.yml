@@ -96,6 +96,10 @@ Builds:
     versionCode: 85
     commit: v.1.53.0
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - rc3
     prebuild: cp local.properties gradle.properties
