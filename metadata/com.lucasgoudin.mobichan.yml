@@ -20,6 +20,7 @@ Builds:
       - flutter@2.2.3
     rm:
       - ios
+    prebuild: $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-31'
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
