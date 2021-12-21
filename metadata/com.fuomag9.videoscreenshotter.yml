@@ -1,0 +1,28 @@
+Categories:
+  - Multimedia
+License: GPL-3.0-only
+AuthorName: fuomag9
+SourceCode: https://git.fuo.ninja/fuomag9/videoscreenshotter
+IssueTracker: https://git.fuo.ninja/fuomag9/videoscreenshotter/-/issues
+
+AutoName: VideoScreenshotter
+
+RepoType: git
+Repo: https://git.fuo.ninja/fuomag9/videoscreenshotter.git
+
+Builds:
+  - versionName: 1.2.0
+    versionCode: 10
+    commit: 1.2.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.2.0
+CurrentVersionCode: 10
