@@ -24,6 +24,7 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+    prebuild: $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-31'
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
