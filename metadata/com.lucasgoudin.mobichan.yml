@@ -33,6 +33,7 @@ Builds:
       - yes | sdkmanager --licenses
       - sdkmanager "build-tools;30.0.3" "build-tools;31.0.0" "platforms;android-31"
     build:
+      - $$flutter$$/bin/flutter pub cache clean
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk
