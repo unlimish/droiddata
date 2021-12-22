@@ -219,8 +219,7 @@ Builds:
     srclibs:
       - gmp@18137:36c93153e71c
       - pari@pari-2.13.3
-    prebuild:
-      - sed -i -e 's/android:minSdkVersion=\".*\"//' src/main/AndroidManifest.xml
+    prebuild: sed -i -e 's/android:minSdkVersion=\".*\"//' src/main/AndroidManifest.xml
     build:
       - cd ../..
       - make pari
