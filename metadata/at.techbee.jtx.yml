@@ -21,6 +21,10 @@ Builds:
     versionCode: 100010000
     commit: f6669f2b9ae51f975a123720ffaed5e053b58ac4
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - oseRelease
 
