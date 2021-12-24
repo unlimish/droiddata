@@ -27,7 +27,7 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - oseRelease
-    prebuild: sed '/huawei/d' ../build.gradle
+    prebuild: sed '/huawei/!d' ../build.gradle
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]*$
