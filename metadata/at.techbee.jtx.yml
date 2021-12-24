@@ -25,9 +25,9 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk
       - update-alternatives --auto java
-    prebuild: sed -i -e 'https://developer.huawei.com/repo/!d' ../build.gradle
     gradle:
       - oseRelease
+    prebuild: sed -i -e 'https://developer.huawei.com/repo/!d' ../build.gradle
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]*$
