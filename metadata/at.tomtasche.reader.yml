@@ -174,7 +174,7 @@ Builds:
         HelpManager; do echo "package at.tomtasche.reader.nonfree; public class ${class}
         {}" > nonfree/${class}.java; sed -i -e "/${class}\./Id" background/*.java
         ui/*/*.java ui/*.java; done
-      - $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1' > /dev/null
+      - sdkmanager 'cmake;3.18.1' > /dev/null
     ndk: r23b
 
 MaintainerNotes: Init submodule manully because there is private recursive submodule
