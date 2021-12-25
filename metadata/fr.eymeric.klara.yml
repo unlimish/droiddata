@@ -1,0 +1,39 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Time
+License: 0BSD
+AuthorName: eymeric
+AuthorEmail: eymericdechelette@gmail.com
+SourceCode: https://gitea.eymeric.eu/hatch01/klara.git
+IssueTracker: https://gitea.eymeric.eu/hatch01/klara/issues
+
+AutoName: klara
+
+RepoType: git
+Repo: https://gitea.eymeric.eu/hatch01/klara.git
+
+Builds:
+  - versionName: 4.0.2
+    versionCode: 1
+    commit: v4.0.2
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.0
+    rm:
+      - ios
+      - linux
+      - test
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter doctor
+      - $$flutter$$/bin/flutter clean
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 4.0.2
+CurrentVersionCode: 1
