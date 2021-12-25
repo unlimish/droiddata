@@ -169,7 +169,7 @@ Builds:
       - sed -i -e '/void initializeProprietaryLibraries/,/^    }/d' -e '/initializeProprietaryLibraries/d'
         -e '/void buyAdRemoval/,/^    }/d' -e '/buyAdRemoval/d' -e 's/billingManager.hasPurchased()/true/'
         -e 's/billingManager.isEnabled()/false/' -e 's/configManager.isLoaded()/false/'
-        ui/activity/MainActivity.java
+        -e 's/isShowIntro/false/' ui/activity/MainActivity.java
       - for class in AdManager AnalyticsManager BillingManager ConfigManager CrashManager
         HelpManager; do echo "package at.tomtasche.reader.nonfree; public class ${class}
         {}" > nonfree/${class}.java; sed -i -e "/${class}\./Id" background/*.java
