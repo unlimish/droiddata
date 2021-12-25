@@ -135,6 +135,10 @@ Builds:
     versionCode: 164
     commit: bcf48e2fe55fd0ec7c675b7043d18b7f5d939311
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     init: git submodule update --init
     gradle:
       - pro
