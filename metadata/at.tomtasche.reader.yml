@@ -133,7 +133,6 @@ Builds:
 
   - versionName: '3.12'
     versionCode: 164
-    disable: need clean up
     commit: bcf48e2fe55fd0ec7c675b7043d18b7f5d939311
     subdir: app
     init: git submodule update --init
@@ -142,7 +141,7 @@ Builds:
     prebuild:
       - sed -i -e '/com.google/d' ../build.gradle
       - sed -i -e '/com.google.firebase/d' -e '/firebaseCrashlytics/d' -e '/com.google.android.play/d'
-        -e '/com.android.billingclient/d' -e '/com.google.gms/d' -e '/pro"/d' build.gradle
+        -e '/com.android.billingclient/d' -e '/com.google.gms/d' -e '/pro"/d' -e '/com.google.android.gms/d' build.gradle
       - sed -i -e '/INTERNET/d' -e '/BILLING/d' -e '/^        <meta-data/,+5d' src/main/AndroidManifest.xml
       - cd src/main/java/at/tomtasche/reader
       - sed -i -e '/com.google.firebase/d' background/FileLoader.java
