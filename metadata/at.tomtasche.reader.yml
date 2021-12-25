@@ -143,17 +143,6 @@ Builds:
     gradle:
       - pro
     prebuild:
-      - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
-      - echo "124f2d5115eee365df6cf3228ffbca6fc3911d16f8025bebd5b1c6e2fcfa7faf /tmp/cmdline-tools.zip"  |
-        sha256sum -c -
-      - unzip -q -o /tmp/cmdline-tools.zip -d /tmp/cmdline-tools
-      - rm /tmp/cmdline-tools.zip
-      - mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools/tools
-      - mv /tmp/cmdline-tools/cmdline-tools/* ${ANDROID_SDK_ROOT}/cmdline-tools/tools
-        || true
-      - export PATH=${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${PATH}
-      - yes | sdkmanager --licenses
-      - sdkmanager "build-tools;31.0.0" "platforms;android-31"
       - sed -i -e '/com.google/d' ../build.gradle
       - sed -i -e '/com.google.firebase/d' -e '/firebaseCrashlytics/d' -e '/com.google.android.play/d'
         -e '/com.android.billingclient/d' -e '/com.google.gms/d' -e '/pro"/d' -e '/com.google.android.gms/d'
@@ -174,7 +163,8 @@ Builds:
         HelpManager; do echo "package at.tomtasche.reader.nonfree; public class ${class}
         {}" > nonfree/${class}.java; sed -i -e "/${class}\./Id" background/*.java
         ui/*/*.java ui/*.java; done
-      - sdkmanager 'cmake;3.18.1' > /dev/null
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+        > /dev/null
     ndk: r23b
 
 MaintainerNotes: Init submodule manully because there is private recursive submodule
