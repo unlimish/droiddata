@@ -17,9 +17,9 @@ RepoType: git
 Repo: https://gitlab.com/techbeeat1/jtx.git
 
 Builds:
-  - versionName: 1.00.01-release.ose
-    versionCode: 100010000
-    commit: f6669f2b9ae51f975a123720ffaed5e053b58ac4
+  - versionName: 1.00.02-release.ose
+    versionCode: 100020000
+    commit: ce3271bd625576c52f4b8fe58fe65b72fa700d91
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -29,7 +29,7 @@ Builds:
       - ose
     prebuild: sed -i -e '/developer.huawei.com/d' ../build.gradle
 
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]*$
-CurrentVersion: 1.00.01-release.ose
-CurrentVersionCode: 100010000
+CurrentVersion: 1.00.02-release.ose
+CurrentVersionCode: 100020000
