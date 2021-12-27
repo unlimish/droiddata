@@ -1,0 +1,29 @@
+Categories:
+  - Navigation
+License: GNU GENERAL PUBLIC LICENSE
+SourceCode: https://github.com/RHeimb/berlin-bike-theft-warning
+IssueTracker: https://github.com/RHeimb/berlin-bike-theft-warning/issues
+
+AutoName: bikethefts_berlin
+Description: Fahrraddiebstähle in Berlin.
+
+RepoType: git
+Repo: https://github.com/RHeimb/berlin-bike-theft-warning
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: aa8d1da961b464a99d816afe86237a49d40bb013
+    subdir: android/app
+    gradle:
+      - yes
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@stable
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags pubspec.yaml|version:\s.\+\+(\d+)|.|version:\s(.+)\+
