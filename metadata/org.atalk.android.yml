@@ -1559,25 +1559,15 @@ Builds:
       - aTalk/jni/openssl/android/
       - aTalk/jni/vpx/android/
     prebuild:
-      - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
-      - echo "124f2d5115eee365df6cf3228ffbca6fc3911d16f8025bebd5b1c6e2fcfa7faf /tmp/cmdline-tools.zip"  |
-        sha256sum -c -
-      - unzip -q -o /tmp/cmdline-tools.zip -d /tmp/cmdline-tools
-      - rm /tmp/cmdline-tools.zip
-      - mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools/tools
-      - mv /tmp/cmdline-tools/cmdline-tools/* ${ANDROID_SDK_ROOT}/cmdline-tools/tools
-        || true
-      - export PATH=${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${PATH}
-      - yes | sdkmanager --licenses
-      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045' > /dev/null
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;31.0.0' 'build-tools;30.0.3' 'platforms;android-31' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
       - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
       - cd jni/static_library_built
       - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
       - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
         libvpx/_settings.sh
-      - sdkmanager 'build-tools;31.0.0' 'build-tools;30.0.3' 'platforms;android-31' > /dev/null
-      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
-      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
     scanignore:
       - aTalk/build.gradle
     scandelete:
@@ -1585,7 +1575,7 @@ Builds:
       - aTalk/third_party/m2
     build:
       - cd jni/static_library_built
-      - ./build-jnilibs4atalk.sh > /dev/null
+      - ./build-jnilibs4atalk.sh
     ndk: r20
 
 MaintainerNotes: scanignore is used to allow the local "third_party/m2" Gradle repository
