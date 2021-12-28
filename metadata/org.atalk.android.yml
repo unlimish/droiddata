@@ -1601,7 +1601,8 @@ Builds:
       - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
         libvpx/_settings.sh
       - sdkmanager 'build-tools;31.0.0' 'build-tools;30.0.3' > /dev/null
-      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx $$SDK$$/build-tools/31.0.0/dx
     scanignore:
       - aTalk/build.gradle
     scandelete:
@@ -1609,7 +1610,6 @@ Builds:
       - aTalk/third_party/m2
     build:
       - cd jni/static_library_built
-      - ./build-jnilibs4atalk.sh > /dev/null
     ndk: r20
 
 MaintainerNotes: scanignore is used to allow the local "third_party/m2" Gradle repository
