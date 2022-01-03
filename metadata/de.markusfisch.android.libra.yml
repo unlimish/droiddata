@@ -35,7 +35,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.12.2
+    versionCode: 18
+    commit: e2fcee03b8ead10b592280d4f5ccffedcb4c49b7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.12.1
-CurrentVersionCode: 17
+CurrentVersion: 1.12.2
+CurrentVersionCode: 18

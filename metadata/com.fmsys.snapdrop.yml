@@ -37,7 +37,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.8.3
+    versionCode: 17
+    commit: a0eb43489ca01a949e4ad893c803fb35df22a576
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.9.0
+    versionCode: 18
+    commit: 71a339ffc5b294f1c13c49f39f94530319330c43
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.8.0
-CurrentVersionCode: 14
+CurrentVersion: 1.9.0
+CurrentVersionCode: 18

@@ -8,14 +8,6 @@ IssueTracker: https://github.com/billthefarmer/crossword/issues
 Changelog: https://github.com/billthefarmer/crossword/releases
 
 AutoName: Crossword
-Description: |-
-    Simple crossword solver.
-
-    * Words up to 22 letters
-
-    * 58,000 word dictionary
-
-    * Web search word definitions
 
 RepoType: git
 Repo: https://github.com/billthefarmer/crossword
@@ -129,7 +121,17 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.18'
+    versionCode: 118
+    commit: a223df80d944da0fc8c1dca14f631a28a9f073ac
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.17'
-CurrentVersionCode: 117
+CurrentVersion: '1.18'
+CurrentVersionCode: 118
