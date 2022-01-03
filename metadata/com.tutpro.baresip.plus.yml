@@ -1113,8 +1113,7 @@ Builds:
       - libbaresip-android@v16.0
     build:
       - pushd $$libbaresip-android$$
-      - sed -i -e 's!/opt/Android/ndk/$(shell sed -n "/ndkVersion/p" ../../com.tutpro.baresip.plus/app/build.gradle | sed "s/[^0-9.]*//g")!$$NDK$$!' -e
-        's|/usr/src/baresip-studio|../../com.tutpro.baresip.plus|' Makefile
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip.plus|' Makefile
       - make download-sources
       - make install-all
       - popd
