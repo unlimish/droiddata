@@ -20,7 +20,7 @@ Description: |-
     * Easy sorting of list items (through 5 movement options)
     * Collaboration between multiple devices through fast and automatic synchronization
     * Share lists via URL
-    * Export lists as Markdown, Clipboard, Messenger, JSON and more
+    * Export lists as Markdown, Clipboard, Message, JSON and more
     * Different servers for synchronization per list is possible
     * Server can/must be self-hosted (we don't collect data!)
 
@@ -34,6 +34,10 @@ Builds:
     subdir: Android_Client/OpenSyncedLists/app
     gradle:
       - yes
+    sudo:  
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
