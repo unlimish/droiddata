@@ -1,0 +1,74 @@
+Categories:
+  - Security
+License: GPL-3.0-only
+AuthorName: lucky
+AuthorEmail: 44uaanjm0@relay.firefox.com
+AuthorWebSite: https://github.com/x13a
+SourceCode: https://github.com/x13a/Wasted
+IssueTracker: https://github.com/x13a/Wasted/issues
+
+AutoName: Wasted
+
+RepoType: git
+Repo: https://github.com/x13a/Wasted.git
+
+Builds:
+  - versionName: 1.0.5
+    versionCode: 6
+    commit: v1.0.5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.0
+    versionCode: 7
+    commit: 169acb84dd999441adeb4704410d1514f05ffda7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.2
+    versionCode: 9
+    commit: afce3f24dfd0a7e1f9b98b3d1f48174166abee27
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.3
+    versionCode: 10
+    commit: 1381da6e26f1ac682dad103381b33af899702434
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.2.0
+    versionCode: 12
+    commit: a8d497e3d034273aa254715bf283a36f893b6b66
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 1.2.0
+CurrentVersionCode: 12

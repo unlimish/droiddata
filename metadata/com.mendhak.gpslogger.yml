@@ -89,9 +89,47 @@ Builds:
     gradle:
       - yes
 
-MaintainerNotes: No longer using Google Play services.
+  - versionName: '116'
+    versionCode: 116
+    commit: c4adc77beda1e30e26590362e8dfe870854d8455
+    subdir: gpslogger
+    gradle:
+      - yes
+
+  - versionName: '117'
+    versionCode: 117
+    commit: bd918c1bc83bb623d020ab369569bc18dc308e55
+    subdir: gpslogger
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '118'
+    versionCode: 118
+    commit: f2cccc347f9f597e224b294c9ff05d1e40c0dfcc
+    subdir: gpslogger
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '119'
+    versionCode: 119
+    commit: 95b631bda92c58b38c9bdec6202487f3782f7640
+    subdir: gpslogger
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
 
 AutoUpdateMode: Version v%c
-UpdateCheckMode: Tags
-CurrentVersion: '115'
-CurrentVersionCode: 115
+UpdateCheckMode: Tags ^v[.0-9]*$
+CurrentVersion: '119'
+CurrentVersionCode: 119
