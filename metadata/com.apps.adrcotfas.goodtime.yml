@@ -228,10 +228,9 @@ Builds:
     gradle:
       - fdroid
 
-  - versionName: 2.5.0
-    versionCode: 137
-    disable: com.google.android.gms:play-services-oss-licenses
-    commit: 708d8c05b819a40267e95a7ff42ada0ac94896bb
+  - versionName: 2.5.2
+    versionCode: 140
+    commit: 173f71372de3aecd0230d3d7329cf673125cfceb
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -240,9 +239,20 @@ Builds:
     gradle:
       - fdroid
 
-  - versionName: 2.5.1
-    versionCode: 139
-    commit: 26b81d67b47d9749791158a6102cacfcc4b98bea
+  - versionName: 2.5.3
+    versionCode: 141
+    commit: fe0c2a1004e7347b5cdfa39314d74be876a9d81e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 2.5.4
+    versionCode: 142
+    commit: c32b0e1b7ae8e3475a3ae22e002d98eeddc9a359
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -253,5 +263,5 @@ Builds:
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.5.1
-CurrentVersionCode: 139
+CurrentVersion: 2.5.4
+CurrentVersionCode: 142

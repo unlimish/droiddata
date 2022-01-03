@@ -74,7 +74,40 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.6.1
+    versionCode: 20601
+    commit: 99ac662eba6088c8b6608ec08ef846ef07899c4a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.6.2
+    versionCode: 20602
+    commit: 21c2dcd79054df20d2602122901b09a1fa2130ae
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.6.3
+    versionCode: 20603
+    commit: fc8620ffda5484743c5421b2586483c97edefe2e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.5.1
-CurrentVersionCode: 20501
+CurrentVersion: 2.6.3
+CurrentVersionCode: 20603

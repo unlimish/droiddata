@@ -745,7 +745,40 @@ Builds:
     prebuild: sed -i -e "/:proprietary/d" ../settings.gradle build.gradle
     ndk: r21
 
+  - versionName: 15.1.1
+    versionCode: 1501011
+    commit: 541a0f0ba586e1ddcc0144c7bee639d93f24510c
+    subdir: app
+    gradle:
+      - foss
+    rm:
+      - proprietary
+    prebuild: sed -i -e "/:proprietary/d" ../settings.gradle build.gradle
+    ndk: r21
+
+  - versionName: 15.2.0
+    versionCode: 1502001
+    commit: 43184fd265c9f4f4e9552a7e38acf6e634f383f6
+    subdir: app
+    gradle:
+      - foss
+    rm:
+      - proprietary
+    prebuild: sed -i -e "/:proprietary/d" ../settings.gradle build.gradle
+    ndk: r21
+
+  - versionName: 15.3.0
+    versionCode: 1503001
+    commit: 3d2e781af2815dd05a5fb3f1e7843aec4ff25a93
+    subdir: app
+    gradle:
+      - foss
+    rm:
+      - proprietary
+    prebuild: sed -i -e "/:proprietary/d" ../settings.gradle build.gradle
+    ndk: r21
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 15.1.0
-CurrentVersionCode: 1501001
+CurrentVersion: 15.3.0
+CurrentVersionCode: 1503001
