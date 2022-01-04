@@ -30,9 +30,16 @@ Builds:
       - tar xJf node.tar.xz
       - cp -a node-v16.3.0-linux-x64/. /usr/local/
       - npm install -g npm@latest
+      - cd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
     gradle:
       - yes
+    srclibs:
+      - cpython@v3.8.12
     prebuild:
+      - export PYTHON=/usr/local/bin/python3.8
       - npm install
       - npx gulp build
       - npx cap sync
