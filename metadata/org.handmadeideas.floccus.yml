@@ -1,0 +1,50 @@
+Categories:
+  - Internet
+  - Reading
+License: MPL-2.0
+AuthorName: floccus
+AuthorWebSite: https://floccus.org/
+WebSite: https://floccus.org/
+SourceCode: https://github.com/floccusaddon/floccus
+IssueTracker: https://github.com/floccusaddon/floccus/issues
+Changelog: https://github.com/floccusaddon/floccus/releases
+OpenCollective: floccus
+
+AutoName: floccus
+
+RepoType: git
+Repo: https://github.com/floccusaddon/floccus
+
+Builds:
+  - versionName: 4.8.7
+    versionCode: 4008007
+    commit: v4.8.7
+    subdir: android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk g++
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
+      - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.3.0-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+      - cd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+    gradle:
+      - yes
+    srclibs:
+      - cpython@v3.8.12
+    prebuild:
+      - export PYTHON=/usr/local/bin/python3.8
+      - npm install
+      - npx gulp build
+      - npx cap sync
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 4.8.7
+CurrentVersionCode: 4008007
