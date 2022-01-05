@@ -211,6 +211,23 @@ Builds:
       - sed -i -e '/-minimal/d' -e 's/\:\ "LOCAL"/\:\ "$$VERSION$$\"/' -e 's/\?\:\
         1/\?\:\ $$VERCODE$$/' build.gradle.kts
 
+  - versionName: 2022.1.1-minimal
+    versionCode: 1890
+    commit: 2022.1.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - minimal
+    prebuild:
+      - sed -i -e '/appDistribution/d' ../build.gradle.kts
+      - sed -i -e '/com.google.firebase/d; /com.google.gms/d; /firebaseAppDistribution/,/}/d;
+        /GoogleServicesPluginConfig/,/}/d' build.gradle.kts
+      - sed -i -e '/-minimal/d' -e 's/\:\ "LOCAL"/\:\ "$$VERSION$$\"/' -e 's/\?\:\
+        1/\?\:\ $$VERCODE$$/' build.gradle.kts
+
 MaintainerNotes: |-
     6 versions, due to the rapid release there may be a trailing error
     (which bothers only some users) and it takes time to fix.
@@ -218,5 +235,6 @@ MaintainerNotes: |-
 ArchivePolicy: 6 versions
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[\d.]+$
-CurrentVersion: 2021.12.13-minimal
-CurrentVersionCode: 1854
+UpdateCheckData: version_code.txt
+CurrentVersion: 2022.1.1-minimal
+CurrentVersionCode: 1890
