@@ -14,10 +14,13 @@ Builds:
     versionCode: 3
     commit: ce5baf19e23094ca9898e00f011edee953915e1e
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
-AutoUpdateMode: None
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: '0.2'
