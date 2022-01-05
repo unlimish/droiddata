@@ -204,12 +204,19 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - minimal
+    rm:
+      - wear
+      - app/src/minimal/java/io/homeassistant/companion/android/settings/wear
+      - app/src/main/java/io/homeassistant/companion/android/onboarding/WearOnboardingListener.kt
     prebuild:
-      - sed -i -e '/appDistribution/d' ../build.gradle.kts
-      - sed -i -e '/com.google.firebase/d; /com.google.gms/d; /firebaseAppDistribution/,/}/d;
-        /GoogleServicesPluginConfig/,/}/d' build.gradle.kts
-      - sed -i -e '/-minimal/d' -e 's/\:\ "LOCAL"/\:\ "$$VERSION$$\"/' -e 's/\?\:\
-        1/\?\:\ $$VERCODE$$/' build.gradle.kts
+      - sed -i -e '/com.google.firebase/d; /gms/d' ../build.gradle.kts build.gradle.kts
+      - sed -i -e '/firebaseAppDistribution/,/}/d; /GoogleServicesPluginConfig/,/}/d'
+        build.gradle.kts
+      - sed -i -e '/-minimal/d' -e 's/System.getenv("VERSION")/"$$VERSION$$"/' -e
+        's/System.getenv("VERSION_CODE")/"$$VERCODE$$"/' build.gradle.kts
+      - sed -i -e 's/, ":wear"//' ../settings.gradle.kts
+      - sed -i -e '/SettingsWearActivity/d' src/main/java/io/homeassistant/companion/android/settings/SettingsFragment.kt
+      - sed -i -e '/WearOnboardingListener/,/<\/service>/d' src/main/AndroidManifest.xml
 
 MaintainerNotes: |-
     6 versions, due to the rapid release there may be a trailing error
