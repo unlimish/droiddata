@@ -88,10 +88,7 @@ Please read the [General Recommendations](#general-recommendations) before you s
 
 Install [F-Droid Server](https://gitlab.com/fdroid/fdroidserver):
 ```shell
-git clone https://gitlab.com/fdroid/fdroidserver.git
-cd fdroidserver
-./setup.py compile_catalog
-pip install .
+pip install git+https://gitlab.com/fdroid/fdroidserver.git
 ```
 
 Clone your fork of [F-Droid Data](https://gitlab.com/fdroid/fdroiddata/) and enter it:
