@@ -522,6 +522,8 @@ Builds:
       - yes
     output: outputs/apks/release/ime-app-7137.apk
     forceversion: true
+    rm:
+      - addons
     prebuild: sed -i -e '/versionCode/d' -e '/versionName/aversionCode $$VERCODE$$'
         build.gradle
     scanignore:
