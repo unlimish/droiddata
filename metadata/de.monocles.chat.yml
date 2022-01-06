@@ -130,8 +130,7 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - git
-    prebuild:
-      - sed -i -e '/signingConfigs./d' build.gradle
+    prebuild: sed -i -e '/signingConfigs./d' build.gradle
       
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v\d+\.\d+(\.\d+)?$
