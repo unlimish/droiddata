@@ -1,0 +1,27 @@
+Categories:
+  - Connectivity
+License: MIT
+SourceCode: https://github.com/9001/party-up
+IssueTracker: https://github.com/9001/party-up/issues
+
+AutoName: Party UP!
+
+RepoType: git
+Repo: https://github.com/9001/party-up
+
+Builds:
+  - versionName: 1.2.1
+    versionCode: 10201
+    commit: v1.2.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags ^v[0-9\.]+$
+CurrentVersion: 1.2.1
+CurrentVersionCode: 10201
