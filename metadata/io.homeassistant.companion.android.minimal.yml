@@ -215,8 +215,8 @@ Builds:
       - sed -i -e '/-minimal/d' -e 's/System.getenv("VERSION")/"$$VERSION$$"/' -e
         's/System.getenv("VERSION_CODE")/"$$VERCODE$$"/' build.gradle.kts
       - sed -i -e 's/, ":wear"//' ../settings.gradle.kts
-      - sed -i -e '/SettingsWearActivity/d' src/main/java/io/homeassistant/companion/android/settings/SettingsFragment.kt
-      - sed -i -e '/WearOnboardingListener/,/<\/service>/d' src/main/AndroidManifest.xml
+      - sed -i -e '/SettingsWearActivity/d' app/src/main/java/io/homeassistant/companion/android/settings/SettingsFragment.kt
+      - sed -i -e '/WearOnboardingListener/,/<\/service>/d' app/src/main/AndroidManifest.xml
 
 MaintainerNotes: |-
     6 versions, due to the rapid release there may be a trailing error
