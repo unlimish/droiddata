@@ -209,6 +209,7 @@ Builds:
       - app/src/minimal/java/io/homeassistant/companion/android/settings/wear
       - app/src/main/java/io/homeassistant/companion/android/onboarding/WearOnboardingListener.kt
     prebuild:
+      - cp ../.github/mock-google-services.json google-services.json
       - sed -i -e '/com.google.firebase/d; /gms/d' ../build.gradle.kts build.gradle.kts
       - sed -i -e '/firebaseAppDistribution/,/}/d; /GoogleServicesPluginConfig/,/}/d'
         build.gradle.kts
