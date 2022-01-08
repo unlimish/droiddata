@@ -1,0 +1,30 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Internet
+License: AGPL-3.0
+AuthorName: Plexer
+SourceCode: https://gitlab.com/Plexer0/Nitter-Android
+IssueTracker: https://gitlab.com/Plexer0/Nitter-Android/issues
+
+AutoName: Nitter
+
+RepoType: git
+Repo: https://gitlab.com/Plexer0/Nitter-Android.git
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: v1.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '1.0'
+CurrentVersionCode: 1
