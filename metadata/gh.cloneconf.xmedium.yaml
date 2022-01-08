@@ -1,0 +1,35 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Internet
+  - Science & Education
+  - Reading
+License: GPL-3.0-only
+AuthorName: Clone Conflict
+AuthorEmail: cloneconf@gmail.com
+SourceCode: https://github.com/cloneconf/xmedium
+IssueTracker: https://github.com/cloneconf/xmedium/issues
+Liberapay: cloneconf
+
+AutoName: XMedium
+
+RepoType: git
+Repo: https://github.com/cloneconf/xmedium
+
+Builds:
+  - versionName: 0.0.1
+    versionCode: 1
+    commit: v0.0.1
+    subdir: app
+    gradle:
+      - yes
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@stable
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
