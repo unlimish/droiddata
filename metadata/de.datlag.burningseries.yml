@@ -14,15 +14,17 @@ RepoType: git
 Repo: https://github.com/DATL4G/BurningSeries-Android.git
 
 Builds:
-  - versionName: '1.1.1'
+  - versionName: 1.1.1
     versionCode: 111
     commit: v1.1.1
     subdir: app
-    sudo: apt-get install openjdk-11-jdk && update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
+    sudo: 
+      - apt-get install openjdk-11-jdk
+      - update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java
     gradle:
       - yes
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.1.1'
+CurrentVersion: 1.1.1
 CurrentVersionCode: 111
