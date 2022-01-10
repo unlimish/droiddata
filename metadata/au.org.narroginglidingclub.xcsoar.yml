@@ -7,7 +7,7 @@ IssueTracker: https://github.com/Exadios/xcsoar-exp/issues
 Translation: https://hosted.weblate.org/projects/xcsoar
 Changelog: https://github.com/Exadios/xcsoar-exp/blob/HEAD/NEWS.txt
 
-AutoName: XCSoar
+AutoName: XCSoar - Narrogin Gliding Club Fork
 Description: |-
     XCSoar is a tactical glide computer for soaring and para glider pilots. It
     supports navigation, airspace warnings, final glide calculations, wind
@@ -24,7 +24,7 @@ Builds:
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y g++ vorbis-tools librsvg2-bin imagemagick
-    output: output/ANDROID7/opt/build/unsigned.apk
+    output: output/ANDROID/opt/build/unsigned.apk
     rm:
       - android/ioio/release/*.zip
       - android/ioio/release/apps/*.zip
@@ -35,8 +35,9 @@ Builds:
       - android/ioio/software/IOIOLib/target/pc/lib
       - android/ioio/software/applications/IOIOConnectionTester/lib
       - android/ioio/software/applications/pc/jar-in-jar-loader.zip
+      - android/UsbSerial/usbserial/eclipse_lib/usbserial.jar
     build: make TARGET=ANDROID7 DEBUG=n TESTING=n -j`nproc`
-    ndk: r23
+    ndk: r23b
 
 AutoUpdateMode: Version v%v%v%v%v
 UpdateCheckMode: Tags
