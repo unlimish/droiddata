@@ -1,0 +1,35 @@
+Categories:
+  - Navigation
+License: MIT
+AuthorName: Tür an Tür - Digitalfabrik gGmbH
+AuthorEmail: digitalfabrik@tuerantuer.org
+AuthorWebSite: https://tuerantuer.de/digitalfabrik/
+WebSite: https://www.ehrenamtskarte.bayern.de/
+SourceCode: https://github.com/digitalfabrik/ehrenamtskarte
+IssueTracker: https://github.com/digitalfabrik/ehrenamtskarte/issues
+Changelog: https://github.com/digitalfabrik/ehrenamtskarte/blob/main/CHANGELOG.md
+
+AutoName:
+
+RepoType: git
+Repo: https://github.com/digitalfabrik/ehrenamtskarte.git
+Builds:
+  - versionName: 2.0.2
+    versionCode: 53
+    commit: v2.0.2
+    subdir: frontend
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.2
+    rm:
+      - ios
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release -t lib/main_prod.dart --dart-define=ANDROID_FLOSS=true --dart-define=EXCLUDE_X86=true
+
+AutoUpdateMode: v%v
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 2.0.2
+CurrentVersionCode: 53
