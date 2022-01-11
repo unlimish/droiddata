@@ -519,8 +519,11 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install openjdk-11-jdk-headless
       - update-alternatives --auto java
+    gradle:
+      - yes
     output: ../../outputs/apks/release/ime-app-*.apk
     forceversion: true
+    forcevercode: true
     prebuild:
       - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
       - echo "124f2d5115eee365df6cf3228ffbca6fc3911d16f8025bebd5b1c6e2fcfa7faf /tmp/cmdline-tools.zip"  |
@@ -536,12 +539,8 @@ Builds:
         'build-tools;30.0.3' 'platforms;android-31' > /dev/null
       - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
       - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
-      - sed -i -e '/versionCode/d' -e '/versionName/aversionCode $$VERCODE$$' build.gradle
     scanignore:
       - addons/languages/*/pack/dictionary/*.gz
-    build:
-      - gradle assembleRelease -PforceVersionBuildCount=832
-      - ls -R ../../outputs
     ndk: r23
 
 MaintainerNotes: |-
