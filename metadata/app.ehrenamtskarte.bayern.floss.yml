@@ -13,6 +13,7 @@ AutoName: Ehrenamtskarte Bayern
 
 RepoType: git
 Repo: https://github.com/digitalfabrik/ehrenamtskarte.git
+
 Builds:
   - versionName: 2.0.2
     versionCode: 53
@@ -26,10 +27,11 @@ Builds:
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
-      - $$flutter$$/bin/flutter build apk --release -t lib/main_prod.dart --dart-define=ANDROID_FLOSS=true --dart-define=EXCLUDE_X86=true
+      - $$flutter$$/bin/flutter build apk --release -t lib/main_prod.dart --dart-define=ANDROID_FLOSS=true
+        --dart-define=EXCLUDE_X86=true
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+UpdateCheckData: frontend/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
 CurrentVersion: 2.0.2
 CurrentVersionCode: 53
