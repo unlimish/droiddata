@@ -1,0 +1,30 @@
+Categories:
+  - Phone & SMS
+License: GPL-3.0-only
+AuthorName: lucky
+AuthorEmail: 44uaanjm0@relay.firefox.com
+AuthorWebSite: https://github.com/x13a
+SourceCode: https://github.com/x13a/Vibe
+IssueTracker: https://github.com/x13a/Vibe/issues
+
+AutoName: Vibe
+
+RepoType: git
+Repo: https://github.com/x13a/Vibe.git
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    commit: b44b2a94f2c8f0caa751c6249b133c940787d332
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.0
+CurrentVersionCode: 1
