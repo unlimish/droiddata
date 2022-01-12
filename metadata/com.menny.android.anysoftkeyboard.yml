@@ -522,8 +522,6 @@ Builds:
     gradle:
       - yes
     output: ../../outputs/apks/release/ime-app-*.apk
-    forceversion: true
-    forcevercode: true
     prebuild:
       - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
       - echo "124f2d5115eee365df6cf3228ffbca6fc3911d16f8025bebd5b1c6e2fcfa7faf /tmp/cmdline-tools.zip"  |
@@ -542,6 +540,8 @@ Builds:
     scanignore:
       - addons/languages/*/pack/dictionary/*.gz
     ndk: r23
+    gradleprops:
+      - forceVersionBuildCount=832
 
 MaintainerNotes: |-
     * Prior to 1.9.2629, generates english dictionary binary (src/main/res/raw/words_*.dict) from source files (under `english_dictionary` folder. Mostly AOSP word-list)
