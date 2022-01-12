@@ -514,12 +514,11 @@ Builds:
   - versionName: 1.11.177
     versionCode: 7137
     commit: 2f7fd6e13e9375047768320c4bf2509cb0736e15
-    subdir: ime/app
     sudo:
       - apt-get update || apt-get update
       - apt-get install openjdk-11-jdk-headless
       - update-alternatives --auto java
-    output: ../../outputs/apks/release/ime-app-*.apk
+    output: outputs/apks/release/ime-app-*.apk
     prebuild:
       - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
       - echo "124f2d5115eee365df6cf3228ffbca6fc3911d16f8025bebd5b1c6e2fcfa7faf /tmp/cmdline-tools.zip"  |
@@ -537,7 +536,7 @@ Builds:
       - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
     scanignore:
       - addons/languages/*/pack/dictionary/*.gz
-    build: BUILD_COUNT_FOR_VERSION=832 gradle assembleRelease
+    build: BUILD_COUNT_FOR_VERSION=832 gradle ime:app:assembleRelease
     ndk: r23
 
 MaintainerNotes: |-
