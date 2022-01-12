@@ -519,8 +519,6 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install openjdk-11-jdk-headless
       - update-alternatives --auto java
-    gradle:
-      - yes
     output: ../../outputs/apks/release/ime-app-*.apk
     prebuild:
       - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
@@ -539,9 +537,8 @@ Builds:
       - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
     scanignore:
       - addons/languages/*/pack/dictionary/*.gz
+    build: BUILD_COUNT_FOR_VERSION=832 gradle assembleRelease
     ndk: r23
-    gradleprops:
-      - forceVersionBuildCount=832
 
 MaintainerNotes: |-
     * Prior to 1.9.2629, generates english dictionary binary (src/main/res/raw/words_*.dict) from source files (under `english_dictionary` folder. Mostly AOSP word-list)
