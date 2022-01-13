@@ -143,7 +143,8 @@ Builds:
     commit: 4a0e711c36e4095154b46af69e0dd9b2a528b579
     subdir: app
     sudo:
-      - apt install -y openjdk-11-jdk
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
       - yes
