@@ -1,6 +1,6 @@
 Categories:
   - Games
-License: GPL-3.0-or-later
+License: GPL-3.0-only
 SourceCode: https://github.com/fkropfhamer/brainjogging
 IssueTracker: https://github.com/fkropfhamer/brainjogging/issues
 
@@ -18,6 +18,8 @@ Builds:
       - flutter@2.8.1
     rm:
       - ios
+      - test
+      - web
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
