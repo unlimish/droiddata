@@ -7,14 +7,14 @@ Categories:
 License: MIT
 AuthorName: Clone Conflict
 AuthorEmail: cloneconf@gmail.com
-SourceCode: https://github.com/cloneconf/Nedium
-IssueTracker: https://github.com/cloneconf/Nedium/issues
+SourceCode: https://github.com/cloneconf/nedium
+IssueTracker: https://github.com/cloneconf/nedium/issues
 Liberapay: cloneconf
 
-AutoName: Nedium
+AutoName: nedium
 
 RepoType: git
-Repo: https://github.com/cloneconf/Nedium
+Repo: https://github.com/cloneconf/nedium
 
 Builds:
   - versionName: '0.1'
@@ -60,8 +60,35 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - yes
+  
+  - versionName: 0.0.5
+    versionCode: 5
+    commit: v0.0.5
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.8.1
+    prebuild:
+      - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
+      - echo "124f2d5115eee365df6cf3228ffbca6fc3911d16f8025bebd5b1c6e2fcfa7faf /tmp/cmdline-tools.zip"  |
+        sha256sum -c -
+      - unzip -q -o /tmp/cmdline-tools.zip -d /tmp/cmdline-tools
+      - rm /tmp/cmdline-tools.zip
+      - mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools/tools
+      - mv /tmp/cmdline-tools/cmdline-tools/* ${ANDROID_SDK_ROOT}/cmdline-tools/tools
+        || true
+      - export PATH=${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${PATH}
+      - yes | sdkmanager --licenses
+      - sdkmanager "build-tools;30.0.3" "build-tools;31.0.0" "platforms;android-31"
+        > /dev/null
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter packages pub run build_runner build
+      - $$flutter$$/bin/flutter build apk --release
+
 
 AutoUpdateMode: Version
-UpdateCheckMode: Tags
-CurrentVersion: '0.4'
-CurrentVersionCode: 4
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 0.0.5
+CurrentVersionCode: 5
