@@ -1,0 +1,52 @@
+Categories:
+  - Connectivity
+License: LGPL-3.0-only
+AuthorName: Dr. Matthias Jung
+AuthorEmail: jungma@eit.uni-kl.de
+AuthorWebSite: https://www.jung.ms/
+SourceCode: https://github.com/myzinsky/cloudLogOffline
+IssueTracker: https://github.com/myzinsky/cloudLogOffline/issues
+
+RepoType: git
+Repo: https://github.com/myzinsky/cloudLogOffline
+
+Builds:
+  - versionName: 1.0.9
+    versionCode: 9
+    commit: 1.0.9
+    sudo:
+      - apt-get update > /tmp/build.log 2>&1 || tail -n 200 /tmp/build.log
+      - apt-get install -y build-essential > /tmp/build.log 2>&1 || tail -n 200 /tmp/build.log
+    output: fdroid-build/android-build/build/outputs/apk/release/android-build-release-unsigned.apk
+    prebuild:
+      - sed -i -e "s/Playground.qml/playground.qml/g" qml.qrc
+      - sed -i -e "/<uses-sdk/d" android/AndroidManifest.xml
+    target: android-30
+    build:
+      - $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-30"
+      - mkdir -pv build-qt
+      - cd build-qt
+      - wget -cq https://download.qt.io/official_releases/qt/5.15/5.15.2/single/qt-everywhere-src-5.15.2.tar.xz
+      - echo "3a530d1b243b5dec00bc54937455471aaa3e56849d2593edb8ded07228202240 qt-everywhere-src-5.15.2.tar.xz"
+        | sha256sum -c -
+      - tar -xkf qt-everywhere-src-5.15.2.tar.xz
+      - mkdir build
+      - cd build
+      - ../qt-everywhere-src-5.15.2/configure -xplatform android-clang -prefix $(pwd)/../qt5
+        -android-ndk $$NDK$$ -android-sdk $$SDK$$ -opensource -confirm-license -release
+        -nomake examples -nomake tests > ../../build.log 2>&1 || tail -n 200 ../../build.log
+      - make -j$(nproc) > ../../build.log 2>&1 || tail -n 200 ../../build.log
+      - make -j$(nproc) install > /dev/null ../../build.log 2>&1 || tail -n 200 ../../build.log
+      - cd ../../
+      - mkdir -pv fdroid-build
+      - cd fdroid-build
+      - ../build-qt/qt5/bin/qmake ../CloudLogOffline.pro
+      - make -j$(nproc) apk_install_target
+      - ../build-qt/qt5/bin/androiddeployqt --release --output android-build/ --input
+        android-CloudLogOffline-deployment-settings.json
+    ndk: r21e
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.9
+CurrentVersionCode: 9
