@@ -363,6 +363,12 @@ pages:
     - echo '<html><head><meta http-equiv="refresh" content="0;URL=https://fdroid.gitlab.io/"></head></html>'
         > public/index.html
 
+    # links to all apps
+    - cd metadata
+    - for i in *.yml; do
+        echo "<a href=\"https://gitlab.com/fdroid/fdroiddata/-/raw/master/metadata/$i\">${i%.yml}<a/></br>" >> ../public/fdroiddata.html;
+      done
+
 
 check_git_repos:
   image: debian:buster-slim
