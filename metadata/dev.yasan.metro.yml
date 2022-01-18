@@ -1,6 +1,7 @@
 Categories:
   - Navigation
 License: GPL-3.0-or-later
+AuthorName: YASAN
 SourceCode: https://github.com/yasandev/tehro-android
 IssueTracker: https://github.com/yasandev/tehro-android/issues
 
@@ -14,6 +15,10 @@ Builds:
     versionCode: 204
     commit: 99c4dd14ddbaca33c6de357e402a923fc9b1a92a
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - fdroid
 
