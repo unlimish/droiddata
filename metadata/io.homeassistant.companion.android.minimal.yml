@@ -210,7 +210,7 @@ Builds:
       - app/src/main/java/io/homeassistant/companion/android/onboarding/WearOnboardingListener.kt
       - common/src/main/java/io/homeassistant/companion/android/database/wear
     prebuild:
-      - sed -i -e '/com.google.firebase/d; /gms/d; /exoplayer/d; /wear/d' ../build.gradle.kts build.gradle.kts
+      - sed -i -e '/com.google.firebase/d; /gms/d; /extension-cronet/d; /wear/d' ../build.gradle.kts build.gradle.kts
       - sed -i -e '/firebaseAppDistribution/,/}/d; /GoogleServicesPluginConfig/,/}/d'
         build.gradle.kts
       - sed -i -e '/-minimal/d' -e 's/System.getenv("VERSION")/"$$VERSION$$"/' -e
