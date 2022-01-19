@@ -209,7 +209,7 @@ Builds:
       - app/src/minimal/java/io/homeassistant/companion/android/settings/wear
       - app/src/main/java/io/homeassistant/companion/android/onboarding/WearOnboardingListener.kt
     prebuild:
-      - sed -i -e '/com.google.firebase/d; /gms/d; /cronet/d; /wear/d' ../build.gradle.kts build.gradle.kts
+      - sed -i -e '/com.google.firebase/d; /gms/d; /wear/d' ../build.gradle.kts build.gradle.kts
       - sed -i -e '/firebaseAppDistribution/,/}/d; /GoogleServicesPluginConfig/,/}/d'
         build.gradle.kts
       - sed -i -e '/-minimal/d' -e 's/System.getenv("VERSION")/"$$VERSION$$"/' -e
