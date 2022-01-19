@@ -208,15 +208,16 @@ Builds:
       - wear
       - app/src/minimal/java/io/homeassistant/companion/android/settings/wear
       - app/src/main/java/io/homeassistant/companion/android/onboarding/WearOnboardingListener.kt
+      - common/src/main/java/io/homeassistant/companion/android/database/wear
     prebuild:
-      - sed -i -e '/com.google.firebase/d; /gms/d; /wear/d' ../build.gradle.kts build.gradle.kts
+      - sed -i -e '/com.google.firebase/d; /gms/d; /exoplayer/d; /wear/d' ../build.gradle.kts build.gradle.kts
       - sed -i -e '/firebaseAppDistribution/,/}/d; /GoogleServicesPluginConfig/,/}/d'
         build.gradle.kts
       - sed -i -e '/-minimal/d' -e 's/System.getenv("VERSION")/"$$VERSION$$"/' -e
         's/System.getenv("VERSION_CODE")/"$$VERCODE$$"/' build.gradle.kts
       - sed -i -e 's/, ":wear"//' ../settings.gradle.kts
       - sed -i -e '/SettingsWearActivity/d' src/main/java/io/homeassistant/companion/android/settings/SettingsFragment.kt
-      - sed -i -e '/WearOnboardingListener/,/<\/service>/d; /androidx.wear.remote.interactions/d' src/main/AndroidManifest.xml
+      - sed -i -e '/WearOnboardingListener/,/<\/service>/d' src/main/AndroidManifest.xml
 
 MaintainerNotes: |-
     6 versions, due to the rapid release there may be a trailing error
