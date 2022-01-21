@@ -265,7 +265,46 @@ Builds:
     prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
         -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
 
+  - versionName: 1.5.0
+    versionCode: 1061
+    commit: 0a733d5ca654d6f94dbf4aef2cc9d225c705ce1f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
+        -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
+
+  - versionName: 1.5.1
+    versionCode: 1062
+    commit: 70f92742e606f01fef656c54ab890fb2766d8728
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
+        -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
+
+  - versionName: 1.5.2
+    versionCode: 1063
+    commit: 37d0157d3cc2fbc19a2ac13fdbd64318842fd15b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/versionCode Integer.valueOf.*/versionCode $$VERCODE$$/g"
+        -e "s/versionName System.getenv.*/versionName \"$$VERSION$$\"/g" build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.4.0
-CurrentVersionCode: 1060
+CurrentVersion: 1.5.2
+CurrentVersionCode: 1063
