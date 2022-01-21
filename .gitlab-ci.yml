@@ -288,3 +288,24 @@ check_git_repos:
     - test -d public || mkdir public
     - cp `git status | grep -Eo 'metadata/.*\.yml'` public/ || true
     - exit $EXITVALUE
+
+sast:
+  stage: report
+  variables:
+    MOBSF_API_KEY: key
+    SAST_EXPERIMENTAL_FEATURES: "true"
+    SAST_EXCLUDED_ANALYZERS:
+      bandit, brakeman, eslint, flawfinder, gosec, kubesec,
+      nodejs-scan, phpcs-security-audit, pmd-apex, security-code-scan, semgrep, sobelow,
+      spotbugs
+
+    # Make sure the apk is searched before the manifest, so only apks are scanned
+    ANALYZER_TARGET_DIR: $CI_PROJECT_DIR/tmp/
+  rules:
+    - if: '$CI_PIPELINE_SOURCE != "merge_request_event"'
+      when: never
+  allow_failure: true
+
+mobsf-ios-sast:
+  rules:
+    - when: never
