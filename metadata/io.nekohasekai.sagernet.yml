@@ -3,8 +3,11 @@ Categories:
 License: GPL-3.0-or-later
 AuthorName: nekohasekai
 AuthorEmail: sekai@neko.services
+WebSite: https://sagernet.org/
 SourceCode: https://github.com/SagerNet/SagerNet
 IssueTracker: https://github.com/SagerNet/SagerNet/issues
+Translation: https://hosted.weblate.org/projects/sagernet/
+Changelog: https://sagernet.org/#changelog
 
 AutoName: SagerNet
 
@@ -330,9 +333,302 @@ Builds:
       - ./run fdroid build
     ndk: r23b
 
+  - versionName: 0.6-beta12
+    versionCode: 650
+    commit: a5834b019b5d9f8e300ee9887f26f313b362ed6a
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    patch:
+      - disable-splits-abi.patch
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.6-beta13
+    versionCode: 655
+    commit: 284112a60b2daf28d9b612be0d4d399e025519c4
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    patch:
+      - disable-splits-abi.patch
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.6-beta14
+    versionCode: 660
+    commit: b6278c36cc719e3a92153cd4eb65348923f05ee3
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    patch:
+      - disable-splits-abi.patch
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.6-beta16
+    versionCode: 670
+    commit: 7dfdc7ff622c443406d22a688689483a491066ac
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.6-beta18
+    versionCode: 680
+    commit: a6e243f78a6f3a71a52a03fb98d679c142d4a36b
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.6-beta19
+    versionCode: 685
+    commit: 49bbb9f5e918bb7cb648b432af3dbceaff71b456
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.6-beta20
+    versionCode: 690
+    commit: a950b92448806bdaa4e382c4d20b844e8d7020f5
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.6-rc02
+    versionCode: 700
+    commit: a07b8387714e34cfc32824a71af2a712a62d87dc
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.6-rc03
+    versionCode: 705
+    commit: 4a08a505b87de8ddb45ebe3cf612af731141fef1
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.6-rc04
+    versionCode: 710
+    commit: e5e5ddb9961b9518a66e908d6c4a85a017a3be9f
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.7-beta02
+    versionCode: 720
+    commit: c964a0064d82456f230e5b2f3d131aa650f5b346
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.7-beta03
+    versionCode: 725
+    commit: 174257e1520933f17f77879692bf7f644b303f89
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.7-rc02
+    versionCode: 750
+    disable: https://github.com/SagerNet/SagerNet/issues/346
+    commit: f1cb7e67ad2c84bc5956cc2460935f7eb272544f
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^\d.*
 VercodeOperation: '%c * 5'
 UpdateCheckData: sager.properties|VERSION_CODE=(\d+)||
-CurrentVersion: 0.6-beta11
-CurrentVersionCode: 645
+CurrentVersion: 0.7-rc02
+CurrentVersionCode: 750

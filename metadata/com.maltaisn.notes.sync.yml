@@ -43,7 +43,19 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.4.2
+    versionCode: 10402
+    disable: https://github.com/maltaisn/another-notes-app/issues/58
+    commit: 1a343ef826d212de2d29bd52fe33f6007cb55360
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags v.*[0-9]$
-CurrentVersion: 1.4.1
-CurrentVersionCode: 10401
+CurrentVersion: 1.4.2
+CurrentVersionCode: 10402

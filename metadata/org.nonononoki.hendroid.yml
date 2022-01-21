@@ -482,7 +482,49 @@ Builds:
       - sed -i -e '/osborn/d' ../build.gradle
       - sed -i -e '/fabric/d; /firebase/d;' build.gradle
 
+  - versionName: 1.15.15
+    versionCode: 188
+    commit: 5026c4a3afbad6610084a45b9d3a5ccc12ca475a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.17
+    versionCode: 189
+    commit: 7f0f8de52fa1a882ae227b4788b364734dbdd682
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.18
+    versionCode: 190
+    commit: 07801f2206eba448809bf0557969fa9459b956e6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.15.14
-CurrentVersionCode: 187
+CurrentVersion: 1.15.18
+CurrentVersionCode: 190

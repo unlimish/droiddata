@@ -47,8 +47,25 @@ Builds:
 
   - versionName: 0.2.4
     versionCode: 10
-    disable: https://github.com/iNPUTmice/lttrs-android/issues/127
     commit: 96cc327594bec679d6b94a46fde6599a4b0f4ecb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - mv rs.ltt.android rs.ltt.android_underlying
+      - mkdir rs.ltt.android
+      - disorderfs --sort-dirents=yes --reverse-dirents=no rs.ltt.android_underlying
+        rs.ltt.android
+      - cd rs.ltt.android
+    gradle:
+      - fdroid
+
+  - versionName: 0.3.0
+    versionCode: 11
+    commit: e38db0b2765d401c2dcea1c914a276d71005f6cd
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -66,5 +83,5 @@ Builds:
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.2.4
-CurrentVersionCode: 10
+CurrentVersion: 0.3.0
+CurrentVersionCode: 11

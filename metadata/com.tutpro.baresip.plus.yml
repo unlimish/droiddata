@@ -1032,10 +1032,120 @@ Builds:
       - popd
     ndk: r23
 
+  - versionName: 24.0.1
+    versionCode: 68
+    commit: 8bd963c6b16f153cb3d0d01e513eb531ed441fc0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends -t testing nasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@v15.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's!$(shell ls -d -1 /opt/Android/ndk/\* | tail -1)!$$NDK$$!' -e
+        's|/usr/src/baresip-studio|../../com.tutpro.baresip.plus|' Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23
+
+  - versionName: 24.3.0
+    versionCode: 71
+    commit: 3c84a55ce7087917e3b640f47fd4ee1ff1346e21
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends -t testing nasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@v15.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's!$(shell ls -d -1 /opt/Android/ndk/\* | tail -1)!$$NDK$$!' -e
+        's|/usr/src/baresip-studio|../../com.tutpro.baresip.plus|' Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23
+
+  - versionName: 24.4.0
+    versionCode: 72
+    commit: 82428a787cb0cd63d159602da4f9448fa5467d49
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends -t testing nasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@v15.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's!$(shell ls -d -1 /opt/Android/ndk/\* | tail -1)!$$NDK$$!' -e
+        's|/usr/src/baresip-studio|../../com.tutpro.baresip.plus|' Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23
+
+  - versionName: 24.5.0
+    versionCode: 73
+    commit: 95cd8c3c028c6f9f151f644f826edd9ffc55276b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends -t testing nasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@v16.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip.plus|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 25.0.0
+    versionCode: 74
+    commit: bee5b6c7782cb7cb8bf2252d6cf4eced2c401583
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends -t testing nasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@v16.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip.plus|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
 MaintainerNotes: make download-sources checks out master branches of several libraries;
     this can cause build failures.
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags v.*[0-9]$
-CurrentVersion: 24.0.0
-CurrentVersionCode: 67
+CurrentVersion: 25.0.0
+CurrentVersionCode: 74

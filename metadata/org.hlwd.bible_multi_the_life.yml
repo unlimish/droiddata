@@ -236,7 +236,27 @@ Builds:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk
 
+  - versionName: 1.18.0
+    versionCode: 20220116
+    commit: b5da8fb56c618485b6b48f7875d942b94348f590
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.8.1
+    rm:
+      - apk
+      - ios
+      - linux
+      - macos
+      - snap
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.15.0
-CurrentVersionCode: 20211118
+CurrentVersion: 1.18.0
+CurrentVersionCode: 20220116

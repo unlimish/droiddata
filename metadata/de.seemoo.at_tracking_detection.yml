@@ -27,7 +27,43 @@ Builds:
       - yes
     prebuild: sed -i -e '/applicationIdSuffix/d' build.gradle
 
+  - versionName: 1.0.6
+    versionCode: 18
+    commit: 0d197b88f26a3529e63e7162deb74ade02408a4b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/applicationIdSuffix/d' build.gradle
+
+  - versionName: 1.1.0
+    versionCode: 19
+    commit: b89a2aec549604fa26b0e7dcd2c93e0b9c71adaf
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/applicationIdSuffix/d' build.gradle
+
+  - versionName: 1.1.1
+    versionCode: 20
+    commit: 1214230bd4b4059c5521068d6c96b6e21d8b07d2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/applicationIdSuffix/d' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.4
-CurrentVersionCode: 16
+CurrentVersion: 1.1.1
+CurrentVersionCode: 20
