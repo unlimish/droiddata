@@ -38,103 +38,103 @@ checkupdates:
       git --no-pager diff --color=always --exit-code
     fi
 
-lint:
-  image: registry.gitlab.com/fdroid/ci-images-base
-  except:
-    - pipelines
-    - schedules
-    - triggers
-  before_script:
-    - apt-get update
-    - apt-get -qy dist-upgrade
-    - rm -rf fdroidserver
-    - mkdir fdroidserver
-    - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
-    - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-        | tar -xz --directory=fdroidserver --strip-components=1
-    - export PATH="$PWD/fdroidserver:$PATH"
-  script:
-    # if this is a merge request fork, then only check relevant apps
-    - if [ "$CI_PROJECT_NAMESPACE" != "fdroid" ]; then
-        git fetch https://gitlab.com/fdroid/fdroiddata.git;
-        test -d build || mkdir build;
-        files=`git diff --name-only --diff-filter=d FETCH_HEAD...HEAD`;
-        for f in $files; do
-           appid=`echo $f | sed -n -e 's,^metadata/\([^/][^/]*\)\.yml,\1,p'`;
-           if [ -n "$appid" ]; then
-             export CHANGED="$CHANGED $appid";
-           fi;
-        done;
-        set -x;
-        apt-get install python3-colorama yamllint;
-        for f in $files; do [[ $f == *'.yml' ]] && yamllint "$f"; done;
-        ./tools/check-git-repo-availability.py $files;
-        set +x;
-      fi
-    - export EXITVALUE=0
-    - function set_error() { export EXITVALUE=1; printf "\x1b[31mERROR `history|tail -2|head -1|cut -b 6-500`\x1b[0m\n"; }
-    - fdroid lint -f $CHANGED || {
-          set_error;
-          printf "\nThese files have lint issues:\n";
-          fdroid rewritemeta -l $CHANGED;
-          printf "\nThese are the formatting issues:\n";
-          fdroid rewritemeta $CHANGED;
-          git --no-pager diff --color=always;
-      }
-    - apt-get -qy update
-    - apt-get -qy install --no-install-recommends exiftool
-    - find metadata/ -name '*.jp*g' -o -name '*.png' | xargs exiftool -all=
-    - echo "these images have EXIF that must be stripped:"
-    - git --no-pager diff --stat
-    - git --no-pager diff --name-only --exit-code || set_error
-    - ./tools/check-localized-metadata.py || set_error
-    - ./tools/check-keyalias-collision.py || set_error
-    - ./tools/check-metadata-summary-whitespace.py || set_error
-    - ./tools/check-for-unattached-signatures.py || set_error
-    - exit $EXITVALUE
+# lint:
+#   image: registry.gitlab.com/fdroid/ci-images-base
+#   except:
+#     - pipelines
+#     - schedules
+#     - triggers
+#   before_script:
+#     - apt-get update
+#     - apt-get -qy dist-upgrade
+#     - rm -rf fdroidserver
+#     - mkdir fdroidserver
+#     - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
+#     - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
+#         | tar -xz --directory=fdroidserver --strip-components=1
+#     - export PATH="$PWD/fdroidserver:$PATH"
+#   script:
+#     # if this is a merge request fork, then only check relevant apps
+#     - if [ "$CI_PROJECT_NAMESPACE" != "fdroid" ]; then
+#         git fetch https://gitlab.com/fdroid/fdroiddata.git;
+#         test -d build || mkdir build;
+#         files=`git diff --name-only --diff-filter=d FETCH_HEAD...HEAD`;
+#         for f in $files; do
+#            appid=`echo $f | sed -n -e 's,^metadata/\([^/][^/]*\)\.yml,\1,p'`;
+#            if [ -n "$appid" ]; then
+#              export CHANGED="$CHANGED $appid";
+#            fi;
+#         done;
+#         set -x;
+#         apt-get install python3-colorama yamllint;
+#         for f in $files; do [[ $f == *'.yml' ]] && yamllint "$f"; done;
+#         ./tools/check-git-repo-availability.py $files;
+#         set +x;
+#       fi
+#     - export EXITVALUE=0
+#     - function set_error() { export EXITVALUE=1; printf "\x1b[31mERROR `history|tail -2|head -1|cut -b 6-500`\x1b[0m\n"; }
+#     - fdroid lint -f $CHANGED || {
+#           set_error;
+#           printf "\nThese files have lint issues:\n";
+#           fdroid rewritemeta -l $CHANGED;
+#           printf "\nThese are the formatting issues:\n";
+#           fdroid rewritemeta $CHANGED;
+#           git --no-pager diff --color=always;
+#       }
+#     - apt-get -qy update
+#     - apt-get -qy install --no-install-recommends exiftool
+#     - find metadata/ -name '*.jp*g' -o -name '*.png' | xargs exiftool -all=
+#     - echo "these images have EXIF that must be stripped:"
+#     - git --no-pager diff --stat
+#     - git --no-pager diff --name-only --exit-code || set_error
+#     - ./tools/check-localized-metadata.py || set_error
+#     - ./tools/check-keyalias-collision.py || set_error
+#     - ./tools/check-metadata-summary-whitespace.py || set_error
+#     - ./tools/check-for-unattached-signatures.py || set_error
+#     - exit $EXITVALUE
 
-schema validation:
-  image: node:alpine
-  except:
-    - master@fdroid/fdroiddata
-    - pipelines
-    - schedules
-    - triggers
-  allow_failure:
-    exit_codes: 128
-  before_script:
-    - apk add git
-    - npm -g install ajv-cli
-  script:
-    - ajv compile -s schemas/*.json || exit 1
-    - git fetch https://gitlab.com/fdroid/fdroiddata.git
-    - set -xe
-    - for file in
-        $(git diff --name-only --diff-filter=d FETCH_HEAD...HEAD -- "metadata/*.yml");
-      do
-        ajv validate -s schemas/metadata.json -d "$file";
-      done
+# schema validation:
+#   image: node:alpine
+#   except:
+#     - master@fdroid/fdroiddata
+#     - pipelines
+#     - schedules
+#     - triggers
+#   allow_failure:
+#     exit_codes: 128
+#   before_script:
+#     - apk add git
+#     - npm -g install ajv-cli
+#   script:
+#     - ajv compile -s schemas/*.json || exit 1
+#     - git fetch https://gitlab.com/fdroid/fdroiddata.git
+#     - set -xe
+#     - for file in
+#         $(git diff --name-only --diff-filter=d FETCH_HEAD...HEAD -- "metadata/*.yml");
+#       do
+#         ajv validate -s schemas/metadata.json -d "$file";
+#       done
 
-trigger-issuebot:
-  image: alpine
-  except:
-    - master@fdroid/fdroiddata
-    - pipelines
-    - schedules
-    - triggers
-  variables:
-    GIT_DEPTH: "1"
-  artifacts:
-    name: "${CI_PROJECT_PATH}_${CI_JOB_STAGE}_${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHA}"
-    paths:
-      - logs/
-    when: always
-    expire_in: 1 week
-  script:
-    - mkdir logs
-    - export | grep -F CI_ | grep -vFi -e password -e token > logs/export.txt
-    - apk add --no-cache bash curl
-    - ./tools/trigger-issuebot
+# trigger-issuebot:
+#   image: alpine
+#   except:
+#     - master@fdroid/fdroiddata
+#     - pipelines
+#     - schedules
+#     - triggers
+#   variables:
+#     GIT_DEPTH: "1"
+#   artifacts:
+#     name: "${CI_PROJECT_PATH}_${CI_JOB_STAGE}_${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHA}"
+#     paths:
+#       - logs/
+#     when: always
+#     expire_in: 1 week
+#   script:
+#     - mkdir logs
+#     - export | grep -F CI_ | grep -vFi -e password -e token > logs/export.txt
+#     - apk add --no-cache bash curl
+#     - ./tools/trigger-issuebot
 
 schedule-issuebot:
   image: alpine
@@ -314,7 +314,7 @@ fdroid build:
 pages:
   image: registry.gitlab.com/fdroid/fdroidserver:buildserver
   only:
-    refs:
+    refs: g
       - branches
     variables:
       - $FROM_CI_MERGE_REQUEST_IID
