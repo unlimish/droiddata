@@ -14,16 +14,34 @@ RepoType: git
 Repo: https://github.com/Infomaniak/android-infomaniak-meet.git
 
 Builds:
-  - versionName: 2.3.2
-    versionCode: 15
-    commit: 2.3.2
+  - versionName: 2.3.3
+    versionCode: 16
+    commit: 2.3.3
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=1048576
+      - sysctl -p
+      - export NODE_OPTIONS=--max_old_space_size=8192
     gradle:
       - yes
-    scanignore:
-      - build.gradle
+    srclibs:
+      - jitsi-meet@android-sdk-3.10.2
+    prebuild:
+      - sed -i -e '/maven {/,/}/d' ../build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install webpack-bundle-analyzer
+      - npm install
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.3.2
-CurrentVersionCode: 15
+CurrentVersion: 2.3.3
+CurrentVersionCode: 16
