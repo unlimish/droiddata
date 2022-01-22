@@ -25,6 +25,7 @@ Builds:
       - update-alternatives --auto java
     init:
       - sed -i -e '/signingConfigs {/,+7d' build.gradle
+      - sed -i -e '/keystoreProperties.load/d' build.gradle
     gradle:
       - yes
 
