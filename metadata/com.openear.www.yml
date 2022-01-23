@@ -1,0 +1,60 @@
+Categories:
+  - Science & Education
+License: MIT
+AuthorName: Shachar Har-Shuv
+AuthorEmail: shachar.harshuv@gmail.com
+SourceCode: https://github.com/ShacharHarshuv/open-ear
+IssueTracker: https://github.com/ShacharHarshuv/open-ear/issues
+
+AutoName: OpenEar
+Description: |-
+    OpenEar is an open source ear training app for musicians. It's goal is to provide a flexible variety of exercises so musicians will be able to master recognizing any musical pattern that might help them become better musicians.
+    Currently includes the following built in exercises:
+
+    1. Identify interval
+    2. Identify note in a tonal context
+    3. Identify chord & chord progressions in a tonal context
+    4. Identify a triad chord inversion in close position
+
+RepoType: git
+Repo: https://github.com/proletarius101/open-ear
+
+Builds:
+  - versionName: v1.0.1
+    versionCode: 3000310
+    commit: fdroid-build
+    subdir: android
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.gz https://nodejs.org/dist/v16.13.2/node-v16.13.2-linux-x64.tar.xz
+      - echo "7f5e9a42d6e86147867d35643c7b1680c27ccd45db85666fc52798ead5e74421 node.tar.gz"
+        | sha256sum -c -
+      - tar xf node.tar.gz
+      - cp -a node-v*-linux-x64/. /usr/local/
+      - npm -g install yarn
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild:
+      - cd ..
+      - npm_config_build_from_source=true yarn --force
+      - sed -i '/com.google.android.gms:play-services-location/d' node_modules/@capacitor/android/capacitor/build.gradle
+      - sed -i '/com.google.firebase:firebase-messaging/d' node_modules/@capacitor/android/capacitor/build.gradle
+      - sed -i '/import com.getcapacitor.plugin.Geolocation;/d' node_modules/@capacitor/android/capacitor/src/main/java/com/getcapacitor/Bridge.java
+      - sed -i '/import com.getcapacitor.plugin.PushNotifications;/d' node_modules/@capacitor/android/capacitor/src/main/java/com/getcapacitor/Bridge.java
+      - sed -i '/this.registerPlugin(Geolocation.class);/d' node_modules/@capacitor/android/capacitor/src/main/java/com/getcapacitor/Bridge.java
+      - sed -i '/this.registerPlugin(PushNotifications.class);/d' node_modules/@capacitor/android/capacitor/src/main/java/com/getcapacitor/Bridge.java
+      - rm -rf node_modules/@capacitor/android/capacitor/src/main/java/com/getcapacitor/CapacitorFirebaseMessagingService.java
+      - rm -rf node_modules/@capacitor/android/capacitor/src/main/java/com/getcapacitor/plugin/PushNotifications.java
+      - rm -rf node_modules/@capacitor/android/capacitor/src/main/java/com/getcapacitor/plugin/Geolocation.java
+      - yarn run ionic capacitor sync android
+    scandelete:
+      - node_modules/
+    ndk: r21e
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: HTTP
+VercodeOperation: 3000220 + %c
+UpdateCheckData: https://github.com/standardnotes/mobile/actions/workflows/build-prod.yml|(\d+)\sworkflow\sruns|https://github.com/standardnotes/mobile/releases/latest|tree/([\d.]+)
+CurrentVersion: 3.9.2
+CurrentVersionCode: 3000310
