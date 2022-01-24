@@ -29,7 +29,9 @@ Builds:
       - yes
     srclibs:
       - jitsi-meet@android-sdk-3.10.2
-    prebuild: sed -i -e '/maven {/,/}/d' ../build.gradle
+    prebuild:
+      - sed -i -e '/maven {/,/}/d' ../build.gradle
+      - sed -i -e '/repositories {/a\        mavenLocal()' ../build.gradle
     build:
       - cd $$jitsi-meet$$
       - export LIBRE_BUILD=true
