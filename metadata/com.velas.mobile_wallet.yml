@@ -9,7 +9,7 @@ SourceCode: https://github.com/velas/mobile-wallet
 IssueTracker: https://github.com/velas/mobile-wallet/issues
 Changelog: https://github.com/velas/mobile-wallet/releases
 
-AutoName: Velas Wallet
+AutoName: Velas wallet
 
 RepoType: git
 Repo: https://github.com/velas/mobile-wallet
@@ -42,11 +42,11 @@ Builds:
       - yes
     srclibs:
       - react-native-reanimated@2.2.0
+    encoding: utf-8
     prebuild:
       - sed -E -i '/installreferrer/,+11d' ../../node_modules/react-native-device-info/android/build.gradle
       - cd $$react-native-reanimated$$
       - yarn install
-    encoding: utf-8
     scanignore:
       - android/build.gradle
       - node_modules/hermes-engine
