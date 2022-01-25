@@ -36,7 +36,6 @@ Builds:
       - 225.patch
     gradle:
       - yes
-    encoding: utf-8
     prebuild:
       - sed -E -i '/installreferrer/,+11d' ../../node_modules/react-native-device-info/android/build.gradle
     scanignore:
@@ -67,7 +66,6 @@ Builds:
     scandelete:
       - node_modules/
     build:
-      - FOR_HERMES=True gradle :assembleRelease
       - popd
     ndk: r21e
 
