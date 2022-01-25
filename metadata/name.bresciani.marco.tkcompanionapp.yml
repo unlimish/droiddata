@@ -33,9 +33,9 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i 's#<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="name.bresciani.marco.tkcompanionapp">#<manifest xmlns:tools="http://schemas.android.com/tools"
-        xmlns:android="http://schemas.android.com/apk/res/android" package="name.bresciani.marco.tkcompanionapp">#'
-        build/name.bresciani.marco.tkcompanionapp/android/app/scr/main/AndroidManifest.xml
+      package="name.bresciani.marco.tkcompanionapp">#<manifest xmlns:tools="http://schemas.android.com/tools"
+      xmlns:android="http://schemas.android.com/apk/res/android" package="name.bresciani.marco.tkcompanionapp">#'
+      scr/main/AndroidManifest.xml
     scanignore:
       - android/build.gradle
       - node_modules/jsc-android
@@ -49,7 +49,7 @@ Builds:
     ndk: r21d
 
 MaintainerNotes: scanignore is used to allow the "node_modules/react-native/android"
-    local Maven repository.
+  local Maven repository.
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
