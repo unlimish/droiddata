@@ -32,8 +32,8 @@ Builds:
     init: yarn install
     gradle:
       - yes
-    prebuild: sed -i 's!xmlns:android!xmlns:tools="http://schemas.android.com/tools" xmlns:android!'
-        scr/main/AndroidManifest.xml
+    prebuild: sed -i 's!xmlns:android!xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android!' scr/main/AndroidManifest.xml
     scanignore:
       - android/build.gradle
       - node_modules/jsc-android
@@ -47,7 +47,7 @@ Builds:
     ndk: r21e
 
 MaintainerNotes: scanignore is used to allow the "node_modules/react-native/android"
-  local Maven repository.
+    local Maven repository.
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
