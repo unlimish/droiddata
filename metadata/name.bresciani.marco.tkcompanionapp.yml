@@ -17,9 +17,9 @@ RepoType: git
 Repo: https://github.com/marcoXbresciani/TKCompanionApp
 
 Builds:
-  - versionName: 0.1.11
-    versionCode: 12
-    commit: 0.1.11
+  - versionName: 0.1.12
+    versionCode: 13
+    commit: 0.1.12
     subdir: android/app
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
@@ -29,6 +29,8 @@ Builds:
       - tar xJf node.tar.xz
       - cp -a node-v16.13.2-linux-x64/. /usr/local/
       - npm -g install yarn
+    prebuild:
+      - sed -i 's#<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="name.bresciani.marco.tkcompanionapp">#<manifest xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android" package="name.bresciani.marco.tkcompanionapp">#' android/app/scr/main/AndroidManifest.xml
     init: yarn install
     gradle:
       - yes
@@ -49,5 +51,5 @@ MaintainerNotes: scanignore is used to allow the "node_modules/react-native/andr
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.1.11
-CurrentVersionCode: 12
+CurrentVersion: 0.1.12
+CurrentVersionCode: 13
