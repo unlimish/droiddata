@@ -1,16 +1,11 @@
 Categories:
-  - Telephony
-  - Videocall
-  - NFC
-  - P2P
-  - filetransfer
-License: GPL3
+  - Internet
+License: GPL-3.0-only
 AuthorName: Timur
 AuthorEmail: timur@timur.mobi
-WebSite: timur.mobi
+AuthorWebSite: https://timur.mobi
 SourceCode: https://github.com/mehrvarz/webcall-android
 IssueTracker: https://github.com/mehrvarz/webcall-android/issues
-Changelog:
 
 AutoName: Timur
 
@@ -21,6 +16,10 @@ Builds:
   - versionName: '0.9.60'
     versionCode: 60
     commit: v0.9.60
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
