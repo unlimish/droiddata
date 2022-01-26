@@ -12,18 +12,20 @@ Builds:
     versionCode: 7
     commit: v0.6.1
     subdir: app
+    srclibs:
+      - Nim@v1.6.2
+      - Nim-csources@561b417
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk
+      - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
       - yes
     prebuild: sed -i '29,36d' build.gradle
     build:
       - export ANDROID_NDK=$$NDK$$
-      - git clone --quiet --depth=1 --branch=v1.6.2 https://github.com/nim-lang/Nim.git src/main/jni/nim
-      - git clone --quiet --depth=1 https://github.com/nim-lang/csources_v1.git src/main/jni/nim/csources_v1
-      - cd src/main/jni/nim/csources_v1
+      - cp --recursive $$Nim-csources$$ $$Nim$$/csources_v1
+      - cd $$Nim$$/csources_v1
       - make --jobs
       - cd ..
       - ./bin/nim compile ./koch.nim
@@ -51,7 +53,7 @@ Builds:
       - ./tool build wrapper --architecture:amd64
     ndk: r23b
 
-AutoUpdateMode: None
-UpdateCheckMode: None
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
 CurrentVersion: 0.6.1
 CurrentVersionCode: 7
