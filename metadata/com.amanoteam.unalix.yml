@@ -24,6 +24,7 @@ Builds:
     prebuild: sed -i '29,36d' build.gradle
     build:
       - export ANDROID_NDK=$$NDK$$
+      - export TOOL_DIR=$(realpath ./src/main/jni/tool)
       - cp --recursive $$Nim-csources$$ $$Nim$$/csources_v1
       - cd $$Nim$$/csources_v1
       - make --jobs
@@ -32,7 +33,7 @@ Builds:
       - ./koch boot
       - ./koch nimble
       - export PATH=$(realpath ./bin):${PATH}
-      - cd ../tool
+      - cd ${TOOL_DIR}
       - nimble install --define:ssl --accept
       - ./tool download pcre
       - chmod 777 --recursive ../pcre
