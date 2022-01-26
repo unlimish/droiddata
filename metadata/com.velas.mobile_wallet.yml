@@ -37,6 +37,7 @@ Builds:
       - yarn jetify
     patch:
       - 227.patch
+      - remove-google-services-dependencies-from-expo-barcode-scanner.patch
     gradle:
       - yes
     prebuild: sed -E -i '/installreferrer/,+11d' ../../node_modules/react-native-device-info/android/build.gradle
