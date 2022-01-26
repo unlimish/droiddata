@@ -1,0 +1,37 @@
+Categories:
+  - System
+License: GPL-3.0-only
+SourceCode: https://github.com/surajKc12/open_clear
+IssueTracker: https://github.com/surajKc12/open_clear/issues
+
+AutoName: OpenClear
+Description: |-
+    The OpenClear™ Pass Wallet mobile app provides simple and secure digital credential
+    management, for example for COVID-19 vaccination records and test results. Add a
+    photo of your vaccination card, health test results and othertypes of data or
+    documents to keep your personal information easily accessible on your mobile phone.
+    Display your records when you’re on the go, traveling through airports or train
+    stations, at retail stores, restaurants, workplaces, schools, businesses, theaters,
+    conferences, sports venues and more.
+
+RepoType: git
+Repo: https://github.com/surajKc12/open_clear.git
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: 37950b6
+    gradle:
+      - yes
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@stable
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: None
+UpdateCheckMode: RepoManifest
+CurrentVersion: '1.0'
+CurrentVersionCode: 1
