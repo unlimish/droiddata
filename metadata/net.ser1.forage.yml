@@ -1,0 +1,44 @@
+Categories:
+  - Sports & Health
+License: 3-Clause BSD
+AuthorName: Sean E. Russell
+AuthorEmail: ser@ser1.net
+AuthorWebSite: https://www.ser1.net
+WebSite: https://hg.sr.ht/~ser/forage
+SourceCode: https://hg.sr.ht/~ser/forage
+IssueTracker: https://todo.sr.ht/~ser/forage
+Changelog: https://hg.sr.ht/~ser/forage/raw/CHANGELOG.md
+Bitcoin: 1Fecf9PDu96iwwwV7ueRAiCEYVwWnttFdz
+Description: |
+A shopping list front-end to your self-hosted
+<a href="https://hay-kot.github.io/mealie/">Mealie</a> instance.
+
+Mealie is a self-hosted recipe, menu planner, and shopping list web app.
+Forage provides an easier, native interface to the shopping list feature;
+it is most useful for when you are out doing the shopping, but it can be
+easier and faster to use than the web interface.
+
+AutoName: Forage
+
+RepoType: hg
+Repo: https://hg.sr.ht/~ser/forage
+
+Builds:
+  - versionName: '0.4.0'
+    versionCode: 4
+    commit: v0.4.0
+    sudo:
+      - apt-get update
+      - apt-get install -y mercurial golang gcc libgl1-mesa-dev xorg-dev svg2png
+    prebuild:
+      - go install fyne.io/fyne/v2/cmd/fyne@latest
+      - svg2png assets/shopping_cart-blue.svg assets/shopping_cart-blue.png
+    build:
+      - ${HOME}/go/bin/fyne package -os android
+    output:
+      - Forage.apk
+
+AutoUpdateMode: Version +-fdroid v%v
+UpdateCheckMode: Tags ^v[0-9].[0-9].[0-9]
+CurrentVersion: '0.4.0'
+CurrentVersionCode: 4
