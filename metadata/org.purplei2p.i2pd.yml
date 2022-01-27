@@ -36,19 +36,18 @@ Repo: https://github.com/PurpleI2P/i2pd-android.git
 Builds:
   - versionName: 2.40.0
     versionCode: 24000
+    commit: 2.40.0-srclib
+    subdir: app
+    submodules: true
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y rename
-    submodules: true
-    commit: 2.40.0-srclib
-    subdir: app
-    gradle: yes
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/enable true/enable false/' build.gradle
     scanignore:
-      # sources of openssl contains files, which detected as binaries
       - app/jni/openssl/fuzz
       - app/jni/openssl/boringssl/fuzz
-    prebuild:
-      - sed -i -e 's/enable true/enable false/' build.gradle
     build:
       - export ANDORID_SDK_ROOT=$$SDK$$
       - export ANDORID_NDK_HOME=$$NDK$$
