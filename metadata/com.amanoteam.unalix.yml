@@ -1,8 +1,12 @@
 Categories:
   - Internet
 License: LGPL-3.0-only
+AuthorName: Amano Team
+AuthorWebSite: https://amanoteam.com/
+AuthorEmail: contact@amanoteam.com
 SourceCode: https://github.com/AmanoTeam/UnalixAndroid
 IssueTracker: https://github.com/AmanoTeam/UnalixAndroid/issues
+Changelog: https://github.com/AmanoTeam/UnalixAndroid/releases
 
 AutoName: Unalix
 
@@ -23,9 +27,8 @@ Builds:
     srclibs:
       - Nim@v1.6.2
       - Nim-csources@561b417
-    prebuild: sed -i '29,36d' build.gradle
+    prebuild: sed -i '/splits {/,/^    }/d' build.gradle
     build:
-      - export ANDROID_NDK=$$NDK$$
       - export TOOL_DIR=$(realpath ./src/main/jni/tool)
       - cp --recursive $$Nim-csources$$ $$Nim$$/csources_v1
       - cd $$Nim$$/csources_v1
