@@ -42,9 +42,12 @@ Builds:
       - yes
     srclibs:
       - react-native-reanimated@2.2.0
+      - expo-camera@11.2.2
     prebuild:
       - sed -E -i '/installreferrer/,+11d' ../../node_modules/react-native-device-info/android/build.gradle
       - cd $$react-native-reanimated$$
+      - yarn install
+      - cd $$expo-camera$$
       - yarn install
     scanignore:
       - android/build.gradle
@@ -79,6 +82,9 @@ Builds:
       - FOR_HERMES=True gradle :assembleRelease
       - popd
       - mv $$react-native-reanimated$$/build/outputs/aar/android-release.aar ../../node_modules/react-native-reanimated/android/react-native-reanimated-66-hermes.aar
+      - pushd $$expo-camera$$
+      - popd
+      - mv $$expo-camera$$/build/outputs/aar/android-release.aar ../../node_modules/expo-camera/android/maven/com/google/android/cameraview/1.0.0/cameraview-1.0.0.aar
     ndk: r21e
 
 AutoUpdateMode: Version v%v
