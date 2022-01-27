@@ -7,15 +7,13 @@ Categories:
 License: GPL-3.0-only
 AuthorName: Clone Conflict
 AuthorEmail: cloneconf@gmail.com
-SourceCode: https://github.com/cloneconf/nedium
-IssueTracker: https://github.com/cloneconf/nedium/issues
-Donate: https://ko-fi.com/cloneconf
-Liberapay: cloneconf
+SourceCode: https://codeberg.org/cloneconf/nedium
+IssueTracker: https://codeberg.org/cloneconf/nedium/issues
 
 AutoName: nedium
 
 RepoType: git
-Repo: https://github.com/cloneconf/nedium
+Repo: https://codeberg.org/cloneconf/nedium
 
 Builds:
   - versionName: '0.1'
@@ -98,6 +96,7 @@ Builds:
       - $$flutter$$/bin/flutter packages pub run build_runner build
       - $$flutter$$/bin/flutter build apk --release
 
+ArchivePolicy: 1 versions
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
