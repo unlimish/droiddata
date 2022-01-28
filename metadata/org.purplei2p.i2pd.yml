@@ -12,23 +12,7 @@ Changelog: https://github.com/PurpleI2P/i2pd/blob/openssl/ChangeLog
 Bitcoin: 3MDoGJW9TLMTCDGrR9bLgWXfm6sjmgy86f
 Litecoin: LKQirrYrDeTuAPnpYq5y7LVKtywfkkHi59
 
-Name: i2pd
 AutoName: i2pd
-Summary: Full-featured C++ implementation of I2P client
-Description: |-
-    <b>I2P</b> (Invisible Internet Protocol) is a universal anonymous network layer.
-    All communications over I2P are anonymous and end-to-end encrypted, participants
-    don't reveal their real IP addresses.
-
-    <b>I2P client</b> is a software used for building and using anonymous I2P
-    networks. Such networks are commonly used for anonymous peer-to-peer
-    applications (filesharing, cryptocurrencies) and anonymous client-server
-    applications (websites, instant messengers, chat-servers).
-
-    <b>I2P</b> allows people from all around the world to communicate and share information
-    without restrictions.
-
-    For more information about <b>I2P</b>, you can read <a href="https://en.m.wikipedia.org/wiki/I2P">article on Wikipedia</a>.
 
 RepoType: git
 Repo: https://github.com/PurpleI2P/i2pd-android.git
@@ -36,12 +20,12 @@ Repo: https://github.com/PurpleI2P/i2pd-android.git
 Builds:
   - versionName: 2.40.0
     versionCode: 24000
-    commit: 2.40.0-srclib
+    commit: 292a67d1be6ab88a08c076e3c0464143467a2026
     subdir: app
     submodules: true
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y gcc g++ rename
+      - apt-get install -y g++ rename
     gradle:
       - yes
     rm:
@@ -51,16 +35,12 @@ Builds:
       - sed -i -e 's/enable true/enable false/' build.gradle
       - sed -i -e 's/d+2/d+0/' jni/boost/build-android.sh
     build:
-      - export ANDORID_SDK_ROOT=$$SDK$$
-      - export ANDORID_NDK_HOME=$$NDK$$
       - pushd jni
       - ./build_boost.sh
       - ./build_openssl.sh
       - ./build_miniupnpc.sh
       - popd
     ndk: r21e
-
-MaintainerNotes: Repo has metadata structure for description, title, images, etc
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
