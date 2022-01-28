@@ -49,7 +49,7 @@ Builds:
       - app/jni/openssl/boringssl/fuzz
     prebuild:
       - sed -i -e 's/enable true/enable false/' build.gradle
-      - sed -i -e 's/d\+2/d\+0/' jni/boost/build-android.sh
+      - sed -i -e 's/d+2/d+0/' jni/boost/build-android.sh
     build:
       - export ANDORID_SDK_ROOT=$$SDK$$
       - export ANDORID_NDK_HOME=$$NDK$$
