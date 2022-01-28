@@ -12,6 +12,10 @@ Builds:
     versionCode: 70
     commit: 5d5be31572dafed5d899210c7ab425019c6a2bc7
     subdir: koler
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
