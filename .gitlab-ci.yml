@@ -117,11 +117,16 @@ schema validation:
 
 trigger-issuebot:
   image: alpine
-  except:
-    - master@fdroid/fdroiddata
-    - pipelines
-    - schedules
-    - triggers
+  # https://docs.gitlab.com/ee/ci/yaml/README.html#ruleschanges
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+      # Could be changed to `on_success` to only run if fdroid build succeeded
+      when: always
+    # Run only when merge request touches metadata/*
+    # https://docs.gitlab.com/ee/ci/yaml/README.html#ruleschanges
+    #- if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    #  changes:
+    #    - metadata/*
   variables:
     GIT_DEPTH: "1"
   artifacts:
