@@ -1,8 +1,9 @@
 Categories:
   - Games
-License: GPL-3.0-only
+License: GPL-3.0-or-later
 AuthorName: J.FORESTIER
 AuthorEmail: app@palmeteo.com
+WebSite: https://github.com/psa-jforestier/makesomenoise
 SourceCode: https://github.com/psa-jforestier/makesomenoise
 IssueTracker: https://github.com/psa-jforestier/makesomenoise/issues
 
@@ -12,6 +13,17 @@ RepoType: git
 Repo: https://github.com/psa-jforestier/makesomenoise.git
 
 Builds:
+  - versionName: '1.2'
+    versionCode: 12
+    commit: '1.2'
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
   - versionName: 1.2.1
     versionCode: 121
     commit: 1.2.1
@@ -23,9 +35,9 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 1.2.2
-    versionCode: 122
-    commit: 3dfa4b133c7e1e5a6d8ffa787e7b53a74c34cc88
+  - versionName: 1.2.3
+    versionCode: 123
+    commit: 1.2.3
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -36,5 +48,5 @@ Builds:
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.2.2
-CurrentVersionCode: 122
+CurrentVersion: 1.2.3
+CurrentVersionCode: 123
