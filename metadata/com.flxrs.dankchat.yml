@@ -862,7 +862,9 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - free
-    prebuild: sed -i -e '/maven.localazy.com/d' ../build.gradle && sed -i -e 'com.localazy:gradle/d' ../build.gradle
+    prebuild:
+      - sed -i -e '/maven.localazy.com/d' ../build.gradle
+      - sed -i -e '/com.localazy:gradle/d' ../build.gradle
     ndk: r21e
 
 AutoUpdateMode: Version v%v
