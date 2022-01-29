@@ -1,0 +1,31 @@
+Categories:
+  - System
+  - Security
+License: GPL-3.0-only
+AuthorName: lucky
+AuthorEmail: 44uaanjm0@relay.firefox.com
+AuthorWebSite: https://github.com/x13a
+SourceCode: https://github.com/x13a/Clipeus
+IssueTracker: https://github.com/x13a/Clipeus/issues
+
+AutoName: Clipeus
+
+RepoType: git
+Repo: https://github.com/x13a/Clipeus.git
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    commit: 0b2af87a8cdeed5963d25309cb94af9599c1b674
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.0
+CurrentVersionCode: 1
