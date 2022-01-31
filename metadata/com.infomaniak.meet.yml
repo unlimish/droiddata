@@ -14,21 +14,20 @@ RepoType: git
 Repo: https://github.com/Infomaniak/android-infomaniak-meet.git
 
 Builds:
-  - versionName: 2.3.3
-    versionCode: 16
-    commit: 2.3.3
+  - versionName: 2.4
+    versionCode: 17
+    commit: 2.4
     subdir: app
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y -t stretch-backports npm jq openjdk-11-jdk-headless openjdk-11-jre-headless
       - update-alternatives --auto java
-      - sysctl fs.inotify.max_user_watches=1048576
+      - sysctl fs.inotify.max_user_watches=524288
       - sysctl -p
-      - export NODE_OPTIONS=--max_old_space_size=8192
     gradle:
       - yes
     srclibs:
-      - jitsi-meet@android-sdk-3.10.2
+      - jitsi-meet@android-sdk-4.1
     prebuild:
       - sed -i -e '/maven {/,/}/d' ../build.gradle
       - sed -i -e '/repositories {/a\        mavenLocal()' ../build.gradle
@@ -44,5 +43,5 @@ Builds:
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.3.3
-CurrentVersionCode: 16
+CurrentVersion: 2.4
+CurrentVersionCode: 17
