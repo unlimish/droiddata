@@ -1,0 +1,30 @@
+Categories:
+  - Phone & SMS
+License: GPL-3.0-only
+AuthorName: lucky
+AuthorEmail: 44uaanjm0@relay.firefox.com
+AuthorWebSite: https://github.com/x13a
+SourceCode: https://github.com/x13a/Re
+IssueTracker: https://github.com/x13a/Re/issues
+
+AutoName: Re
+
+RepoType: git
+Repo: https://github.com/x13a/Re.git
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    commit: 9b3c582337be2654202e43a2f2b6ddd47c1e60dd
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.0
+CurrentVersionCode: 1
