@@ -1,0 +1,32 @@
+Categories:
+  - Navigation
+License: GPL-3.0-or-later
+AuthorName: Mate Con Jengibre
+AuthorEmail: mateConJengibre@disroot.org
+SourceCode: https://gitlab.com/jilguerillo/registro-espionaje
+IssueTracker: https://gitlab.com/jilguerillo/registro-espionaje/issues
+Changelog: https://gitlab.com/jilguerillo/registro-espionaje/-/tags
+
+AutoName: RegisCat
+Summary: Registro-de-cámaras-vigilancia-en-Chile
+Description: Esta aplicación tiene la finalidad de llevar a cabo un registro de las
+    cámaras de televigilancia en Chile.
+
+RepoType: git
+Repo: https://gitlab.com/jilguerillo/registro-espionaje.git
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: 91080f09d834cfa1b0ca64eee200bf437e8aa7df
+    subdir: r3g1st3r_2/app
+    gradle:
+      - yes
+    build:
+      - cd ../..
+      - make android-pre-fdroid
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '1.0'
+CurrentVersionCode: 1
