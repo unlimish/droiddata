@@ -7,14 +7,14 @@ Categories:
 License: MIT
 AuthorName: Clone Conflict
 AuthorEmail: cloneconf@gmail.com
-SourceCode: https://github.com/cloneconf/Ardicter
-IssueTracker: https://github.com/cloneconf/Ardicter/issues
+SourceCode: https://codeberg.org/cloneconf/Ardicter
+IssueTracker: https://codeberg.org/cloneconf/Ardicter/issues
 
 Name: Ardicter
 AutoName: Ardicter
 
 RepoType: git
-Repo: https://github.com/cloneconf/Ardicter
+Repo: https://codeberg.org/cloneconf/Ardicter
 
 Builds:
   - versionName: '1.0'
@@ -50,7 +50,40 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '7.0'
+    versionCode: 7
+    commit: d29c31335ab7a1d94b80bf0b7b7f9effc2cbb815
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '8.0'
+    versionCode: 8
+    commit: 0c015078158fc9728528828bc1778281718cdafc
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '9.0'
+    versionCode: 9
+    commit: fcec202abef5becf8f20368eb7618de78f8e1393
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '3.0'
-CurrentVersionCode: 3
+CurrentVersion: '9.0'
+CurrentVersionCode: 9
