@@ -1508,7 +1508,7 @@ Builds:
       - node buildSrc/fixFdroidDeps.js
       - npm install
       - npm run build-packages
-      - node dist prod
+      - node --max-old-space-size=4096 dist prod
       - node buildSrc/prepareMobileBuild.js dist
     scandelete:
       - node_modules/**
