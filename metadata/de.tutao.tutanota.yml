@@ -1487,7 +1487,7 @@ Builds:
 
   - versionName: 3.91.6
     versionCode: 391060
-    commit: 037de9051bafe4af9cd0a34e2957b8e67dc4d249
+    commit: 769063171d2edfc74b932f7fb5bbb281a398b33c
     subdir: app-android/app
     sudo:
       - apt-get update || apt-get update
@@ -1506,7 +1506,7 @@ Builds:
     prebuild:
       - cd ../..
       - node buildSrc/fixFdroidDeps.js
-      - npm ci
+      - npm install 
       - npm run build-packages
       - node dist prod
       - node buildSrc/prepareMobileBuild.js dist
