@@ -105,6 +105,8 @@ Builds:
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y g++
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
       - pushd build/srclib/cpython
       - ./configure
       - make -j`nproc`
@@ -117,9 +119,9 @@ Builds:
     prebuild:
       - echo -e 'version=$$VERSION$$' > ./config.prop
       - sed -i -e 's/versionCode=.\+/versionCode=$$VERCODE$$/' gradle.properties
-      - sed -i -e '/buildTypes/,+11d' ./build.gradle.kts
+      - sed -i -e '/buildTypes/,+11d' ./buildSrc/src/main/java/Setup.kt
       - sed -i -e 's/ndkPath.*/ndkPath = "${System.getenv("ANDROID_NDK_HOME")}"/'
-        ./build.gradle.kts
+        ./buildSrc/src/main/java/Setup.kt
       - sed -i -e '/android.ndkPath/d' -e '/ndk.dir/d' ./local.properties
       - sed -i -e "s/op.join(ndk_root, 'magisk')/os.environ['ANDROID_NDK_HOME']/"
         ./build.py
@@ -161,8 +163,10 @@ Builds:
       - vboot@release-R91-13904.B
     prebuild:
       - echo -e 'version=$$VERSION$$' > ./config.prop
-      - sed -i -e '/buildTypes/,+11d' -e 's/ndkPath.*/ndkPath = "${System.getenv("ANDROID_NDK_HOME")}"/'
-        buildSrc/src/main/java/Setup.kt
+      - sed -i -e 's/versionCode=.\+/versionCode=$$VERCODE$$/' gradle.properties
+      - sed -i -e '/buildTypes/,+11d' ./buildSrc/src/main/java/Setup.kt
+      - sed -i -e 's/ndkPath.*/ndkPath = "${System.getenv("ANDROID_NDK_HOME")}"/'
+        ./buildSrc/src/main/java/Setup.kt
       - sed -i -e '/android.ndkPath/d' -e '/ndk.dir/d' ./local.properties
       - sed -i -e "s/op.join(ndk_root, 'magisk')/os.environ['ANDROID_NDK_HOME']/"
         ./build.py
