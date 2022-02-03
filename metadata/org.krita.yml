@@ -218,7 +218,7 @@ Builds:
       - apt install -y -t stretch-backports-sloppy libarchive13
       - apt install -y -t stretch-backports cmake
     patch:
-      - remove_billing_4.4.8.patch
+      - v4.4.8.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-armeabi-v7a-$$VERSION$$-release-unsigned.apk
     scanignore:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
@@ -246,7 +246,7 @@ Builds:
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=kf5
       - git reset --hard $$COMMIT$$
-      - git apply remove_billing_actual.patch
+      - git apply 0001-remove_billing.patch
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=krita-bin
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
@@ -264,7 +264,7 @@ Builds:
       - apt install -y -t stretch-backports-sloppy libarchive13
       - apt install -y -t stretch-backports cmake
     patch:
-      - remove_billing_4.4.8.patch
+      - v4.4.8.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-arm64-v8a-$$VERSION$$-release-unsigned.apk
     scanignore:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
@@ -292,7 +292,7 @@ Builds:
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=kf5
       - git reset --hard $$COMMIT$$
-      - git apply remove_billing_actual.patch
+      - git apply 0001-remove_billing.patch
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=krita-bin
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
@@ -310,7 +310,7 @@ Builds:
       - apt install -y -t stretch-backports-sloppy libarchive13
       - apt install -y -t stretch-backports cmake
     patch:
-      - remove_billing_4.4.8.patch
+      - v4.4.8.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-x86-$$VERSION$$-release-unsigned.apk
     scanignore:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
@@ -338,7 +338,7 @@ Builds:
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=kf5
       - git reset --hard $$COMMIT$$
-      - git apply remove_billing_actual.patch
+      - git apply 0001-remove_billing.patch
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=krita-bin
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
@@ -356,7 +356,7 @@ Builds:
       - apt install -y -t stretch-backports-sloppy libarchive13
       - apt install -y -t stretch-backports cmake
     patch:
-      - remove_billing_4.4.8.patch
+      - v4.4.8.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-x86_64-$$VERSION$$-release-unsigned.apk
     scanignore:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
@@ -384,7 +384,7 @@ Builds:
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=kf5
       - git reset --hard $$COMMIT$$
-      - git apply remove_billing_actual.patch
+      - git apply 0001-remove_billing.patch
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=krita-bin
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
