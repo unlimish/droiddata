@@ -39,14 +39,12 @@ Builds:
       - apt install -y -t stretch-backports-sloppy libarchive13
       - apt install -y -t stretch-backports cmake
     patch:
-      - remove_billing_4.4.2.patch
+      - remove_billing.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita_build_apk-release-unsigned.apk
     scanignore:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
       - libs/flake/tests/data/odf_frame_resource_store.zip
-    prebuild:
-      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     build:
       - export DEP_COMMIT=460108860d50af4a2e4205453c1549fc10ff89a3
       - export ANDROID_ABI=armeabi-v7a
@@ -86,14 +84,12 @@ Builds:
       - apt install -y -t stretch-backports-sloppy libarchive13
       - apt install -y -t stretch-backports cmake
     patch:
-      - remove_billing_4.4.2.patch
+      - remove_billing.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita_build_apk-release-unsigned.apk
     scanignore:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
       - libs/flake/tests/data/odf_frame_resource_store.zip
-    prebuild:
-      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     build:
       - export DEP_COMMIT=0945e06a20d830d33ff0b9b5a1b03c71fc745ae9
       - export ANDROID_ABI=arm64-v8a
@@ -133,14 +129,12 @@ Builds:
       - apt install -y -t stretch-backports-sloppy libarchive13
       - apt install -y -t stretch-backports cmake
     patch:
-      - remove_billing_4.4.2.patch
+      - remove_billing.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita_build_apk-release-unsigned.apk
     scanignore:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
       - libs/flake/tests/data/odf_frame_resource_store.zip
-    prebuild:
-      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     build:
       - export DEP_COMMIT=460108860d50af4a2e4205453c1549fc10ff89a3
       - export ANDROID_ABI=x86
@@ -180,14 +174,12 @@ Builds:
       - apt install -y -t stretch-backports-sloppy libarchive13
       - apt install -y -t stretch-backports cmake
     patch:
-      - remove_billing_4.4.2.patch
+      - remove_billing.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita_build_apk-release-unsigned.apk
     scanignore:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
       - libs/flake/tests/data/odf_frame_resource_store.zip
-    prebuild:
-      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     build:
       - export DEP_COMMIT=460108860d50af4a2e4205453c1549fc10ff89a3
       - export ANDROID_ABI=x86_64
