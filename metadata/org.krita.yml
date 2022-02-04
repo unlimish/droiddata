@@ -236,6 +236,7 @@ Builds:
       - export SUBDIR=${BUILD_ROOT}/packaging/android
       - mkdir -p ${BUILD_ROOT}/build
       - git reset --hard $DEP_COMMIT
+      - git apply 0001-fix_exiv2_url.patch
       - echo 'gradle "$@"' > ${SUBDIR}/apk/gradlew
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=boost
@@ -282,6 +283,7 @@ Builds:
       - export SUBDIR=${BUILD_ROOT}/packaging/android
       - mkdir -p ${BUILD_ROOT}/build
       - git reset --hard $DEP_COMMIT
+      - git apply 0001-fix_exiv2_url.patch
       - echo 'gradle "$@"' > ${SUBDIR}/apk/gradlew
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=boost
@@ -328,6 +330,7 @@ Builds:
       - export SUBDIR=${BUILD_ROOT}/packaging/android
       - mkdir -p ${BUILD_ROOT}/build
       - git reset --hard $DEP_COMMIT
+      - git apply 0001-fix_exiv2_url.patch
       - echo 'gradle "$@"' > ${SUBDIR}/apk/gradlew
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=boost
@@ -374,6 +377,7 @@ Builds:
       - export SUBDIR=${BUILD_ROOT}/packaging/android
       - mkdir -p ${BUILD_ROOT}/build
       - git reset --hard $DEP_COMMIT
+      - git apply 0001-fix_exiv2_url.patch
       - echo 'gradle "$@"' > ${SUBDIR}/apk/gradlew
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=boost
