@@ -7,14 +7,14 @@ Categories:
 License: MIT
 AuthorName: Clone Conflict
 AuthorEmail: cloneconf@gmail.com
-SourceCode: https://github.com/cloneconf/Apkpurer
-IssueTracker: https://github.com/cloneconf/Apkpurer/issues
+SourceCode: https://codeberg.org/cloneconf/Apkpurer
+IssueTracker: https://codeberg.org/cloneconf/Apkpurer/issues
 
 Name: Apkpurer
 AutoName: Apkpurer
 
 RepoType: git
-Repo: https://github.com/cloneconf/Apkpurer
+Repo: https://codeberg.org/cloneconf/Apkpurer
 
 Builds:
   - versionName: '1.0'
@@ -39,7 +39,73 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '3.0'
+    versionCode: 3
+    commit: c2fae7dd4ef5f61bce7ddc483acc753bf904b5f2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '4.0'
+    versionCode: 4
+    commit: b17cfa1d36615e2df4353804dfac9db0d99ccca8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '5.0'
+    versionCode: 5
+    commit: 92f73b5110fbff4c632b485056a0ac919783a14f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '9.0'
+    versionCode: 9
+    commit: c679eee99c7160626b4a07b022c586311290edbb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '10.0'
+    versionCode: 10
+    commit: 3be3ae37f9ad7f2ea74dbf5e685b3626b07dc37d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '11.0'
+    versionCode: 11
+    commit: 98daa46ac43411fb2091da6305f0cd1d35b91c71
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '2.0'
-CurrentVersionCode: 2
+CurrentVersion: '11.0'
+CurrentVersionCode: 11

@@ -11,15 +11,6 @@ Changelog: https://github.com/streetcomplete/StreetComplete/releases
 LiberapayID: '1625952'
 
 AutoName: Street­Complete
-Description: |-
-    Help to improve the OpenStreetMap with StreetComplete!
-
-    This app finds incomplete and extendable data in your vicinity and displays it
-    on a map as markers. Each of those is solvable by answering a simple question to
-    complete the info on site.
-
-    The info you enter is then directly added to the OpenStreetMap in your name,
-    without the need to use another editor.
 
 RepoType: git
 Repo: https://github.com/streetcomplete/StreetComplete.git
@@ -802,7 +793,133 @@ Builds:
     prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
         build.gradle.kts
 
+  - versionName: '34.2'
+    versionCode: 3403
+    commit: 471693ac3fb62f0c711cb633c062d3ab1bb02834
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '35.0'
+    versionCode: 3501
+    commit: 36b236c2cd3639b9b71f0a50b0b9e428977bb107
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '35.2'
+    versionCode: 3503
+    commit: fb55e0d23ed40dd6f73ffe5836d550553ed5d2e3
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '36.0'
+    versionCode: 3602
+    commit: d339626ecdd4deb8cf174cbfe9ca125989821236
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '36.1'
+    versionCode: 3603
+    commit: 40992d002d8e0a7f3be2cf19a9c105bf3b30be7b
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '37.0'
+    versionCode: 3701
+    commit: 758693a08a2a70a63b25e160a89c5096d073c8ff
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '37.1'
+    versionCode: 3702
+    commit: 7dcdc936b814d6f4d51c397c86a80f00a84e6e7b
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '37.2'
+    versionCode: 3703
+    commit: 6afe5cf94841611b53022eb482c3b2661621e958
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '38.0'
+    versionCode: 3801
+    commit: c288b8e03ef1262d76b721db543911667c69549d
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '38.1'
+    versionCode: 3802
+    commit: 74f37cd32c15bcff59c7c1c5c4f94525f10ef851
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '38.2'
+    versionCode: 3803
+    commit: 64e97ec9fecb60e79c9d73efbbd8049c8e00a78e
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '39.0'
+    versionCode: 3901
+    disable: https://github.com/streetcomplete/StreetComplete/issues/3667
+    commit: 5cec01cdafcd9d14a2c0a9e55ec67352855fbfdf
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '39.1'
+    versionCode: 3902
+    commit: fa1a2fc230cd1604f1ab85184795fbac9a33152e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v\d+(\.\d+)?$
-CurrentVersion: '34.1'
-CurrentVersionCode: 3402
+CurrentVersion: '39.1'
+CurrentVersionCode: 3902

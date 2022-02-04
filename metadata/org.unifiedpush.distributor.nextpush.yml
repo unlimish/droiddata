@@ -1,0 +1,54 @@
+Categories:
+  - Connectivity
+  - System
+License: AGPL-3.0-only
+AuthorName: UnifiedPush
+WebSite: https://unifiedpush.org/
+SourceCode: https://github.com/UP-NextPush/android
+IssueTracker: https://github.com/UP-NextPush/android/issues
+Changelog: https://github.com/UP-NextPush/android/releases
+
+Name: NextPush
+AutoName: NextPush
+
+RepoType: git
+Repo: https://github.com/UP-NextPush/android.git
+
+Builds:
+  - versionName: 1.0.1
+    versionCode: 6
+    commit: 1.0.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.0
+    versionCode: 7
+    commit: 02bb2c03180a5b0fd338556982814ccb1b1aaa78
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.1
+    versionCode: 8
+    commit: d6384c5d82aa55e4ed7c5598e852a9c1a6ff36e9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags \d+\.\d+(\.\d+)?
+CurrentVersion: 1.1.1
+CurrentVersionCode: 8

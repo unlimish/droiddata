@@ -548,7 +548,60 @@ Builds:
     rm:
       - project/gradle
 
+  - versionName: 4.4.8
+    versionCode: 171
+    commit: 97b45997bb9b316874cfe6835744dd58c3178261
+    subdir: project/app
+    gradle:
+      - yes
+    rm:
+      - project/gradle
+
+  - versionName: 4.4.9
+    versionCode: 172
+    commit: b8ac4787ae558fddaafa6d8a1e096021d21e1ff0
+    subdir: project/app
+    gradle:
+      - yes
+    rm:
+      - project/gradle
+
+  - versionName: 4.4.10
+    versionCode: 173
+    commit: 4bbe3f467a49dd7f42a655746cf9685ab740da24
+    subdir: project/app
+    gradle:
+      - yes
+    rm:
+      - project/gradle
+
+  - versionName: 4.4.11
+    versionCode: 174
+    commit: 393a19435cb84b848c464e1abcba19a840fbf213
+    subdir: project/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - project/gradle
+
+  - versionName: 4.4.12
+    versionCode: 175
+    commit: 5a88bf3396db4bfd3e429fa34567e33dc2f94d69
+    subdir: project/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - project/gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 4.4.7
-CurrentVersionCode: 170
+CurrentVersion: 4.4.12
+CurrentVersionCode: 175

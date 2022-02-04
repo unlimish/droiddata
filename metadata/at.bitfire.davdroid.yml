@@ -14,7 +14,7 @@ Bitcoin: bc1q0hvy0mknt9vce2f9hh829h72n3sht9llaltumk
 AutoName: DAVx⁵
 
 RepoType: git
-Repo: https://gitlab.com/bitfireAT/davx5-ose.git
+Repo: https://github.com/bitfireAT/davx5-ose.git
 
 Builds:
   - versionName: 0.3.2-alpha
@@ -1507,7 +1507,55 @@ Builds:
     gradle:
       - standard
 
+  - versionName: 4.0-beta1-ose
+    versionCode: 400000001
+    commit: 231e54db4ff0691d51e66ae87f14a3fcac85abcb
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.0-ose
+    versionCode: 400000005
+    commit: 265d75b2902dd6d5d7dfd5f9066a1fda849df0d6
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.1-ose
+    versionCode: 401000005
+    commit: 32d215b3a40004eba77159a6c378b0cfa7e1e9e7
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.1.1-ose
+    versionCode: 401010002
+    commit: 19be3c34bd44985d2bb4d5af327399af7da79a31
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]+-ose[0-9]*$
-CurrentVersion: 3.4.0.1-ose
-CurrentVersionCode: 304000100
+CurrentVersion: 4.1.1-ose
+CurrentVersionCode: 401010002
