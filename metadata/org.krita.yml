@@ -220,6 +220,7 @@ Builds:
     patch:
       - v4.4.8.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-armeabi-v7a-$$VERSION$$-release-unsigned.apk
+    prebuild: sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     scanignore:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
@@ -265,6 +266,7 @@ Builds:
     patch:
       - v4.4.8.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-arm64-v8a-$$VERSION$$-release-unsigned.apk
+    prebuild: sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     scanignore:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
@@ -310,6 +312,7 @@ Builds:
     patch:
       - v4.4.8.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-x86-$$VERSION$$-release-unsigned.apk
+    prebuild: sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     scanignore:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
@@ -355,6 +358,7 @@ Builds:
     patch:
       - v4.4.8.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-x86_64-$$VERSION$$-release-unsigned.apk
+    prebuild: sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     scanignore:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
