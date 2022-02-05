@@ -656,7 +656,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 5.0.4
+    versionCode: 109
+    commit: 7750b3224a704306df03026818f5a4d35f369f45
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 5.0.5
+    versionCode: 110
+    commit: 33032edac20dd0b2eaca79046a1b386c80242176
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 5.0.3
-CurrentVersionCode: 108
+CurrentVersion: 5.0.5
+CurrentVersionCode: 110

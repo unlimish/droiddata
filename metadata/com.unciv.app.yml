@@ -2526,9 +2526,84 @@ Builds:
     prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
         'platforms;android-30' 'build-tools;30.0.2' > /dev/null
 
+  - versionName: 3.19.0
+    versionCode: 670
+    commit: 7e4a2944c3132e4c98739cb24c1f14785deb8630
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.19.1
+    versionCode: 671
+    commit: 336e190ff03a12d13a4a5370a6d89089f3273ff8
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.19.2
+    versionCode: 672
+    commit: 6855a524665910b000ec4e2fb457cc1485ebeed5
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.19.3
+    versionCode: 673
+    commit: 0f4449f2e96a15cb8481872971797edd2e956a8d
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.19.5
+    versionCode: 675
+    commit: 3661ad8d5b6b749511ad7e52b992d73a648a4c74
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: buildSrc/src/main/kotlin/BuildConfig.kt|appCodeNumber = (.*)|.|appVersion
     = "(.*)"
-CurrentVersion: 3.18.19
-CurrentVersionCode: 669
+CurrentVersion: 3.19.5
+CurrentVersionCode: 675
