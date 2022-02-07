@@ -217,6 +217,8 @@ Builds:
       - apt-get install -y build-essential
       - apt-get install -y -t stretch-backports-sloppy libarchive13
       - apt-get install -y -t stretch-backports cmake
+    init:
+      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     patch:
       - v5.0.0.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-armeabi-v7a-$$VERSION$$-release-unsigned.apk
@@ -224,8 +226,6 @@ Builds:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
       - libs/flake/tests/data/odf_frame_resource_store.zip
-    prebuild:
-      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     build:
       - export DEP_COMMIT=919442fba589bcf3ab85479ec9b27d48568c2ee3
       - export ANDROID_ABI=armeabi-v7a
@@ -264,6 +264,8 @@ Builds:
       - apt-get install -y build-essential
       - apt-get install -y -t stretch-backports-sloppy libarchive13
       - apt-get install -y -t stretch-backports cmake
+    init:
+      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     patch:
       - v5.0.0.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-arm64-v8a-$$VERSION$$-release-unsigned.apk
@@ -271,8 +273,6 @@ Builds:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
       - libs/flake/tests/data/odf_frame_resource_store.zip
-    prebuild:
-      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     build:
       - export DEP_COMMIT=c6af6b4e0846959169140d0bd4f143fcbba402aa
       - export ANDROID_ABI=arm64-v8a
@@ -311,6 +311,8 @@ Builds:
       - apt-get install -y build-essential
       - apt-get install -y -t stretch-backports-sloppy libarchive13
       - apt-get install -y -t stretch-backports cmake
+    init:
+      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     patch:
       - v5.0.0.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-x86-$$VERSION$$-release-unsigned.apk
@@ -318,8 +320,6 @@ Builds:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
       - libs/flake/tests/data/odf_frame_resource_store.zip
-    prebuild:
-      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     build:
       - export DEP_COMMIT=c6af6b4e0846959169140d0bd4f143fcbba402aa
       - export ANDROID_ABI=x86
@@ -358,6 +358,8 @@ Builds:
       - apt-get install -y build-essential
       - apt-get install -y -t stretch-backports-sloppy libarchive13
       - apt-get install -y -t stretch-backports cmake
+    init:
+      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     patch:
       - v5.0.0.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-x86_64-$$VERSION$$-release-unsigned.apk
@@ -365,8 +367,6 @@ Builds:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
       - libs/flake/tests/data/odf_frame_resource_store.zip
-    prebuild:
-      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     build:
       - export DEP_COMMIT=c6af6b4e0846959169140d0bd4f143fcbba402aa
       - export ANDROID_ABI=x86_64
@@ -405,6 +405,8 @@ Builds:
       - apt-get install -y build-essential
       - apt-get install -y -t stretch-backports-sloppy libarchive13
       - apt-get install -y -t stretch-backports cmake
+    init:
+      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     patch:
       - v5.0.2.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-armeabi-v7a-$$VERSION$$-release-unsigned.apk
@@ -412,8 +414,6 @@ Builds:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
       - libs/flake/tests/data/odf_frame_resource_store.zip
-    prebuild:
-      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     build:
       - export DEP_COMMIT=3ce8590a94407ea17a6f3ce8d2772ea8a7e86075
       - export ANDROID_ABI=armeabi-v7a
@@ -452,6 +452,8 @@ Builds:
       - apt-get install -y build-essential
       - apt-get install -y -t stretch-backports-sloppy libarchive13
       - apt-get install -y -t stretch-backports cmake
+    init:
+      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     patch:
       - v5.0.2.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-arm64-v8a-$$VERSION$$-release-unsigned.apk
@@ -459,8 +461,6 @@ Builds:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
       - libs/flake/tests/data/odf_frame_resource_store.zip
-    prebuild:
-      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     build:
       - export DEP_COMMIT=3ce8590a94407ea17a6f3ce8d2772ea8a7e86075
       - export ANDROID_ABI=arm64-v8a
@@ -499,6 +499,8 @@ Builds:
       - apt-get install -y build-essential
       - apt-get install -y -t stretch-backports-sloppy libarchive13
       - apt-get install -y -t stretch-backports cmake
+    init:
+      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     patch:
       - v5.0.2.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-x86-$$VERSION$$-release-unsigned.apk
@@ -506,8 +508,6 @@ Builds:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
       - libs/flake/tests/data/odf_frame_resource_store.zip
-    prebuild:
-      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     build:
       - export DEP_COMMIT=7175ca9c9f4cea94cea11f6709a74e25f31ff137
       - export ANDROID_ABI=x86
@@ -546,6 +546,8 @@ Builds:
       - apt-get install -y build-essential
       - apt-get install -y -t stretch-backports-sloppy libarchive13
       - apt-get install -y -t stretch-backports cmake
+    init:
+      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     patch:
       - v5.0.2.patch
     output: build/krita_build_apk/build/outputs/apk/release/krita-x86_64-$$VERSION$$-release-unsigned.apk
@@ -553,8 +555,6 @@ Builds:
       - plugins/extensions/pykrita/plugin/krita/sceditor/rope.zip
       - libs/flake/tests/data/store.zip
       - libs/flake/tests/data/odf_frame_resource_store.zip
-    prebuild:
-      - sed -i '/com.android.billingclient/d' packaging/android/apk/build.gradle
     build:
       - export DEP_COMMIT=3ce8590a94407ea17a6f3ce8d2772ea8a7e86075
       - export ANDROID_ABI=x86_64
