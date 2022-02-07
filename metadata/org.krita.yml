@@ -247,6 +247,8 @@ Builds:
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=kf5
       - git reset --hard $$COMMIT$$
+      - mkdir ${BUILD_ROOT}/po
+      - python3 ${BUILD_ROOT}/build-tools/copy_po.py
       - git apply 0001-remove_billing.patch
       - git apply 0002-restore_abi.patch
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
@@ -295,6 +297,8 @@ Builds:
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=kf5
       - git reset --hard $$COMMIT$$
+      - mkdir ${BUILD_ROOT}/po
+      - python3 ${BUILD_ROOT}/build-tools/copy_po.py
       - git apply 0001-remove_billing.patch
       - git apply 0002-restore_abi.patch
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
@@ -343,6 +347,8 @@ Builds:
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=kf5
       - git reset --hard $$COMMIT$$
+      - mkdir ${BUILD_ROOT}/po
+      - python3 ${BUILD_ROOT}/build-tools/copy_po.py
       - git apply 0001-remove_billing.patch
       - git apply 0002-restore_abi.patch
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
@@ -391,6 +397,8 @@ Builds:
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=kf5
       - git reset --hard $$COMMIT$$
+      - mkdir ${BUILD_ROOT}/po
+      - python3 ${BUILD_ROOT}/build-tools/copy_po.py
       - git apply 0001-remove_billing.patch
       - git apply 0002-restore_abi.patch
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
@@ -439,6 +447,8 @@ Builds:
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=kf5
       - git reset --hard $$COMMIT$$
+      - mkdir ${BUILD_ROOT}/po
+      - python3 ${BUILD_ROOT}/build-tools/copy_po.py
       - git apply 0001-remove_billing.patch
       - git apply 0002-restore_abi.patch
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
@@ -487,6 +497,8 @@ Builds:
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=kf5
       - git reset --hard $$COMMIT$$
+      - mkdir ${BUILD_ROOT}/po
+      - python3 ${BUILD_ROOT}/build-tools/copy_po.py
       - git apply 0001-remove_billing.patch
       - git apply 0002-restore_abi.patch
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
@@ -535,6 +547,8 @@ Builds:
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=kf5
       - git reset --hard $$COMMIT$$
+      - mkdir ${BUILD_ROOT}/po
+      - python3 ${BUILD_ROOT}/build-tools/copy_po.py
       - git apply 0001-remove_billing.patch
       - git apply 0002-restore_abi.patch
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
@@ -583,6 +597,8 @@ Builds:
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
         -p=kf5
       - git reset --hard $$COMMIT$$
+      - mkdir ${BUILD_ROOT}/po
+      - python3 ${BUILD_ROOT}/build-tools/copy_po.py
       - git apply 0001-remove_billing.patch
       - git apply 0002-restore_abi.patch
       - ${SUBDIR}/androidbuild.sh --src=${BUILD_ROOT} --build-type=Release --build-root=${BUILD_ROOT}/build
@@ -597,13 +613,16 @@ MaintainerNotes: |-
     - New versions and exact commits for deps and the app itself can be found on KDE jenkins:
     -   https://binary-factory.kde.org/job/Krita_Release_Android_arm64-v8a_Build
     -   https://binary-factory.kde.org/job/Krita_Android_arm64-v8a_Dependency_Build
-    - (3) Patches at metadata/org.krita/v$$VERSION$$.patch actually create another patches in the project's
+    - (3) Translations are downloaded as part of the release process. They are included in the release
+    - tarball, and the official builds are based upon it.
+    - We can add FETCH_TRANSLATIONS to the build options or just run copy_po.py before building krita.
+    - (4) Patches at metadata/org.krita/v$$VERSION$$.patch actually create another patches in the project's
     - root directory, since otherwise fdroid lint fails with unused file.
-    - (4) All google play donation code was added in 5e323fb7 (for branch 4) and 23b73112 (for branch 5),
+    - (5) All google play donation code was added in 5e323fb7 (for branch 4) and 23b73112 (for branch 5),
     - and remove-billing patches are based on those commits.
-    - (5) Starting from the commit b517d988, which went to the version 5, versionCode no longer depends on
+    - (6) Starting from the commit b517d988, which went to the version 5, versionCode no longer depends on
     - abi; we revert that with restore-abi patches.
-    - (6) Version code schema, taken from build.gradle:
+    - (7) Version code schema, taken from build.gradle:
     - project.ext.versionCodes = ['armeabi-v7a': 1, 'arm64-v8a': 2, 'x86': 3, 'x86_64': 4]
     - project.ext.versionCodes[abi] * 1000000 + versionMajor * 10000 + versionMinor * 100 + versionRelease
 
