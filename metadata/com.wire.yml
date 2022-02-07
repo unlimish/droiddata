@@ -24,9 +24,8 @@ Builds:
     prebuild:
       - cd ..
       - sed -ri '/fireBase/,/}/d' app/build.gradle
-      - sed -ri '/com.google.android.c2dm/d' app/src/main/AndroidManifest.xml
-      - 'printf "VersionCode: $$VERCODE$$\nVersionName: $$VERSION$$\n" > app/version.txt'
     ndk: r20
+
   - versionName: 3.78.13
     versionCode: 2493557
     commit: 3.78
