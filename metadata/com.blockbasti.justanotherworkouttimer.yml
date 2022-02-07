@@ -215,6 +215,10 @@ Builds:
   - versionName: 1.11.0
     versionCode: 20220207
     commit: b48f04766615435eb631894a127cd4e659aee2d8
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     output: build/app/outputs/apk/release/app-release-unsigned.apk
     srclibs:
       - flutter@2.10.0
