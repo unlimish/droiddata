@@ -1,5 +1,6 @@
 AntiFeatures:
   - NonFreeNet
+  - NoSourceSince
 Categories:
   - Internet
   - Connectivity
@@ -11,7 +12,6 @@ SourceCode: https://codeberg.org/cloneconf/Apkpurer
 IssueTracker: https://codeberg.org/cloneconf/Apkpurer/issues
 
 Name: Apkpurer
-AutoName: Endgame
 
 RepoType: git
 Repo: https://codeberg.org/cloneconf/Apkpurer
@@ -75,6 +75,7 @@ Builds:
   - versionName: '9.0'
     versionCode: 9
     commit: c679eee99c7160626b4a07b022c586311290edbb
+    disable: "Endgame build"
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -86,6 +87,7 @@ Builds:
   - versionName: '10.0'
     versionCode: 10
     commit: 3be3ae37f9ad7f2ea74dbf5e685b3626b07dc37d
+    disable: "Endgame build"
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -97,6 +99,7 @@ Builds:
   - versionName: '11.0'
     versionCode: 11
     commit: 98daa46ac43411fb2091da6305f0cd1d35b91c71
+    disable: "Endgame build"
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -108,6 +111,7 @@ Builds:
   - versionName: '12.0'
     versionCode: 12
     commit: fe665425a32db4ce78bbac0c790de1b1b476ad4f
+    disable: "Endgame build"
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -116,7 +120,9 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version
-UpdateCheckMode: Tags
-CurrentVersion: '12.0'
-CurrentVersionCode: 12
+MaintainerNotes: Developer overwrote upstream repo with a single broken "Endgame" commit.
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: '5.0'
+CurrentVersionCode: 5
