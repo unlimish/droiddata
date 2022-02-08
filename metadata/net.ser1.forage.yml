@@ -26,30 +26,13 @@ Repo: https://hg.sr.ht/~ser/forage
 Builds:
   - versionName: 0.7.0
     versionCode: 8
-    commit: 6a8b11b7217b3867627275a1c2c9c330cb7f38ea
+    commit: v0.7.0
     sudo:
       - apt-get update
       - apt-get install -y mercurial golang gcc libgl1-mesa-dev xorg-dev svg2png
-    prebuild:
-      - go install fyne.io/fyne/v2/cmd/fyne@latest
-    build:
-      - ${HOME}/go/bin/fyne package -os android
-    output:
-      - Forage.apk
-
-  - versionName: '0.4.0'
-    versionCode: 4
-    commit: v0.4.0
-    sudo:
-      - apt-get update
-      - apt-get install -y mercurial golang gcc libgl1-mesa-dev xorg-dev svg2png
-    prebuild:
-      - go install fyne.io/fyne/v2/cmd/fyne@latest
-      - svg2png assets/shopping_cart-blue.svg assets/shopping_cart-blue.png
-    build:
-      - ${HOME}/go/bin/fyne package -os android
-    output:
-      - Forage.apk
+    output: Forage.apk
+    prebuild: go install fyne.io/fyne/v2/cmd/fyne@latest
+    build: ${HOME}/go/bin/fyne package -os android
 
 AutoUpdateMode: Version +-fdroid v%v
 UpdateCheckMode: Tags ^v[0-9].[0-9].[0-9]
