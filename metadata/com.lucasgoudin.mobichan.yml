@@ -12,12 +12,12 @@ RepoType: git
 Repo: https://github.com/Rukkaitto/mobichan.git
 
 Builds:
-  - versionName: 2.0.1
-    versionCode: 21
-    commit: v2.0.1
+  - versionName: 2.0.2
+    versionCode: 22
+    commit: v2.0.2
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
-      - flutter@2.8.0
+      - flutter@2.10.0
     rm:
       - ios
     prebuild:
@@ -35,7 +35,7 @@ Builds:
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
-      - $$flutter$$/bin/flutter build apk
+      - $$flutter$$/bin/flutter build apk --dart-define=env=play_store
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
