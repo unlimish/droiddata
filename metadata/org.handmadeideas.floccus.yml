@@ -16,13 +16,13 @@ RepoType: git
 Repo: https://github.com/floccusaddon/floccus
 
 Builds:
-  - versionName: 4.8.7
-    versionCode: 4008007
-    commit: v4.8.7
+  - versionName: 4.10.1
+    versionCode: 4010001
+    commit: ba9e0dcc039353a5aafef6c6a5ca1bb93b2b502e
     subdir: android/app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk build-essential python3
+      - apt-get install -y openjdk-11-jdk-headless build-essential
       - update-alternatives --auto java
       - curl -Lo node.tar.xz https://nodejs.org/dist/v14.18.2/node-v14.18.2-linux-x64.tar.xz
       - echo "dae683f911fe5af11f1dc9d7746d80fccdb1e7b4bef31a570f5daffadd897c42 node.tar.xz"
