@@ -257,7 +257,8 @@ Builds:
     gradle:
       - officialFoss
     srclibs:
-      - jitsi-meet@android-sdk-3.6.0
+      - jitsi-meet-rocket-chat@fd3688fc6494cea61a5bf9d10a8573f700e6a1c5
+      - react-native-reanimated@1.9.0
     rm:
       - ios
     prebuild: sed -E -i 's/VERSIONCODE*/$$VERCODE$$/' build.gradle
@@ -272,7 +273,7 @@ Builds:
       - node_modules/react-native-jitsi-meet/android/build.gradle
       - node_modules/react-native-localize/android/build.gradle
       - node_modules/react-native-prompt-android/android/build.gradle
-      - node_modules/react-native-reanimated/android/build.gradle
+      - node_modules/react-native-reanimated/android
       - node_modules/react-native-safe-area-context/android/build.gradle
       - node_modules/react-native-screens/android/build.gradle
       - node_modules/react-native-vector-icons/android/build.gradle
@@ -285,21 +286,16 @@ Builds:
     scandelete:
       - node_modules
     build:
-      - rm -rf "${HOME}/.m2" jitsi-meet
-      - mkdir -p "${HOME}/.m2"
-      - echo "building jitsi-meet@android-sdk-3.6.0 SDK from rocketChat's fork - with
-        hermes support"
-      - rm -rf $$jitsi-meet$$
-      - git clone https://github.com/RocketChat/jitsi-meet.git -b mobile $$jitsi-meet$$
-      - pushd $$jitsi-meet$$
-      - echo "checkout to specific commit ID to avoid using HEAD"
-      - git checkout fd3688fc6494cea61a5bf9d10a8573f700e6a1c5
-      - echo "fix the build version to 3.6.0"
+      - pushd $$react-native-reanimated$$
+      - FOR_HERMES=True gradle :assembleRelease
+      - popd
+      - mv $$react-native-reanimated$$/build/outputs/aar/android-release.aar ../../node_modules/react-native-reanimated/android/react-native-reanimated-66-hermes.aar
+      - pushd $$jitsi-meet-rocket-chat$$
       - sed -i '/^sdkVersion/s/=.*/=3.6.0/' ./android/gradle.properties
-      - echo "remove auto-sign for the release"
       - sed -i '/signingConfigs.release/d' ./android/app/build.gradle
       - export LIBRE_BUILD=true
       - npm install
+      - mkdir -p "${HOME}/.m2"
       - bash ./android/scripts/release-sdk.sh "$HOME/.m2/repository"
       - popd
     gradleprops:
