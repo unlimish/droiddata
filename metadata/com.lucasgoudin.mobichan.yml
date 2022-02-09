@@ -32,10 +32,10 @@ Builds:
       - export PATH=${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${PATH}
       - yes | sdkmanager --licenses
       - sdkmanager "build-tools;30.0.3" "build-tools;31.0.0" "platforms;android-31"
-      - echo $$SECRETS_FILE$$ | base64 --decode > lib/secrets.dart
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
+      - echo $SECRETS_FILE | base64 --decode > lib/secrets.dart
       - $$flutter$$/bin/flutter build apk --dart-define=env=play_store
 
 AutoUpdateMode: Version v%v
