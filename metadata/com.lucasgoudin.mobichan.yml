@@ -35,8 +35,8 @@ Builds:
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
-      - echo Y2xhc3MgU2VjcmV0cyB7CiAgc3RhdGljIFN0cmluZyBzdXBhYmFzZVVybCA9ICdodHRwczovL3dsZW1zcHdudmhja3BveGZlaXlwLnN1cGFiYXNlLmNvJzsKICBzdGF0aWMgU3RyaW5nIHN1cGFiYXNlS2V5ID0KICAgICAgJ2V5SmhiR2NpT2lKSVV6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUp5YjJ4bElqb2ljMlZ5ZG1salpWOXliMnhsSWl3aWFXRjBJam94TmpRd01UWTNNVGMyTENKbGVIQWlPakU1TlRVM05ETXhOelo5LnEzd3I3R0dTaVFoLUZRTV9DX0N0MFo1ZGo1TEQtclNmdTVob2FwUkIwUHcnOwp9Cg== 
-        | base64 --decode > lib/secrets.dart
+      - echo "Y2xhc3MgU2VjcmV0cyB7CiAgc3RhdGljIFN0cmluZyBzdXBhYmFzZVVybCA9ICdodHRwczovL3dsZW1zcHdudmhja3BveGZlaXlwLnN1cGFiYXNlLmNvJzsKICBzdGF0aWMgU3RyaW5nIHN1cGFiYXNlS2V5ID0KICAgICAgJ2V5SmhiR2NpT2lKSVV6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUp5YjJ4bElqb2ljMlZ5ZG1salpWOXliMnhsSWl3aWFXRjBJam94TmpRd01UWTNNVGMyTENKbGVIQWlPakU1TlRVM05ETXhOelo5LnEzd3I3R0dTaVFoLUZRTV9DX0N0MFo1ZGo1TEQtclNmdTVob2FwUkIwUHcnOwp9Cg==" | 
+        base64 --decode > lib/secrets.dart
       - $$flutter$$/bin/flutter build apk --dart-define=env=play_store
 
 AutoUpdateMode: Version v%v
