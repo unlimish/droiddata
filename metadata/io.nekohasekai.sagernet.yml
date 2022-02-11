@@ -605,8 +605,95 @@ Builds:
 
   - versionName: 0.7-rc02
     versionCode: 750
-    disable: https://github.com/SagerNet/SagerNet/issues/346
-    commit: f1cb7e67ad2c84bc5956cc2460935f7eb272544f
+    commit: 82cc9fde7e4de5e4244845e34ea3b2f3f32e0f7b
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.7-rc04
+    versionCode: 760
+    commit: e562890ad7531a722421373ef4a4e40e4dc1d2ea
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.7-rc05
+    versionCode: 765
+    commit: a84b9ddcba9fba4d008b4473baa15fb31453898f
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.7-rc06
+    versionCode: 767
+    commit: a5d5e1647791dde25943445643c9c8703f39fbdf
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.7-rc07
+    versionCode: 771
+    commit: a13465535c4a0c500778100715be93af9a86c914
     subdir: app
     submodules: true
     sudo:
@@ -628,7 +715,7 @@ Builds:
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^\d.*
-VercodeOperation: '%c * 5'
+VercodeOperation: 459 + %c * 2
 UpdateCheckData: sager.properties|VERSION_CODE=(\d+)||
-CurrentVersion: 0.7-rc02
-CurrentVersionCode: 750
+CurrentVersion: 0.7-rc07
+CurrentVersionCode: 771

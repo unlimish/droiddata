@@ -331,7 +331,29 @@ Builds:
     gradle:
       - dark
 
+  - versionName: 3.6.0
+    versionCode: 81
+    commit: 7865ae68db1972d0fb28dbd48cf2877c2c8d0631
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - dark
+
+  - versionName: 3.7.3
+    versionCode: 82
+    commit: ff96d4e7c778b91fb4fd0121e056ce765eb2413e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - dark
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 3.5.0
-CurrentVersionCode: 80
+CurrentVersion: 3.7.3
+CurrentVersionCode: 82

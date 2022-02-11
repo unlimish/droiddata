@@ -306,10 +306,34 @@ Builds:
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
-      - yes
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.12.1
+    versionCode: 43
+    commit: b8801e23902e33c66b9ea402270f9f855979f34a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.12.3
+    versionCode: 45
+    commit: 2fed3885cd8c3d4204cc13e4bb70550fd898015d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
     prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 5.12.0
-CurrentVersionCode: 42
+CurrentVersion: 5.12.3
+CurrentVersionCode: 45

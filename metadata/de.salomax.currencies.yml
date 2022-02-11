@@ -5,6 +5,7 @@ AuthorName: Maximilian Salomon
 AuthorEmail: msal.coding@gmail.com
 SourceCode: https://github.com/sal0max/currencies
 IssueTracker: https://github.com/sal0max/currencies/issues
+Translation: https://weblate.bubu1.eu/projects/currencies/
 Changelog: https://github.com/sal0max/currencies/releases
 Donate: https://www.paypal.com/donate/?hosted_button_id=2JCY7E99V9DGC
 
@@ -166,7 +167,40 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 1.12.0
+    versionCode: 11200
+    commit: 2aab3f1e4b7231ce58479ebacfe207fb6ce9f5fa
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 1.12.1
+    versionCode: 11201
+    commit: 89ba81f4f866ece7e811c68d248c2c7180b115c6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 1.13.0
+    versionCode: 11300
+    commit: 1d9996e175a8243ef512ab3d02b169e6f8c5633f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags \d+\.\d+\.\d+
-CurrentVersion: 1.11.0
-CurrentVersionCode: 11100
+CurrentVersion: 1.13.0
+CurrentVersionCode: 11300
