@@ -242,8 +242,8 @@ Builds:
     commit: 4.20.0
     subdir: android/app
     sudo:
-      - apt update
-      - apt install -yqq jq
+      - apt-get update || apt-get update
+      - apt-get install -yqq jq
       - sysctl fs.inotify.max_user_watches=524288
       - curl -Lo node.tar.xz https://nodejs.org/dist/v12.22.7/node-v12.22.7-linux-x64.tar.xz
       - echo "2768bc01d2f97ab8135b8c03b275b9689573964b426b5dd9082334fd70dcc583 node.tar.xz"
