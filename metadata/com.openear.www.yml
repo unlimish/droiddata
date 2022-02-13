@@ -32,6 +32,9 @@ Builds:
       - tar xf node.tar.gz
       - cp -a node-v*-linux-x64/. /usr/local/
       - npm -g install yarn
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
     output: app/build/outputs/apk/release/app-release-unsigned.apk
