@@ -10,54 +10,60 @@ IssueTracker: https://github.com/MovingBlocks/DestinationSol/issues
 AutoName: Destination Sol
 Summary: Pilot your ship in the seamless open world made of space, planets, and more.
     Find new ships and equipment, find allies and beat all the enemies in this open
-    space shooter!
+    space shooter.
 Description: |
     Destination Sol is a free-to-play hardcode space arcade/RPG. You start as a pilot of a small fighter ship on the edge of a star system, and you're free to explore the game world, land on planets, fight with enemies, upgrade your ship and equipment, hire mercenaries, mine asteroids, and more.
 
     Key Features:
-      * Randomly generated open world, consisting of up to 9 star systems, planets, asteroid belts and mazes.
-      * Ability to seamlessly land of planets.
-      * 3 planet types.
-      * Enemies of many different types, ally fighters, traders and outposts.
-      * 6 ship types to pilot.
-      * Over 50 items to equip -- weapons, shields, armour, special abilities, and so on.
+    * Randomly generated open world, consisting of up to 9 star systems, planets, asteroid belts and mazes.
+    * Ability to seamlessly land of planets.
+    * 3 planet types.
+    * Enemies of many different types, ally fighters, traders and outposts.
+    * 6 ship types to pilot.
+    * Over 50 items to equip -- weapons, shields, armour, special abilities, and so on.
 
     Free & open source. Also available on PC, Linux and Mac: https://store.steampowered.com/app/342980/
 
 RepoType: git
-Repo: https://github.com/MovingBlocks/DestinationSol
+Repo: https://github.com/MovingBlocks/DestSolAndroid
 
 Builds:
   - versionName: 2.0.0
     versionCode: 10
-    commit: v2.0.0
+    commit: a3f1804
     init:
-      - git clone https://github.com/MovingBlocks/DestSolAndroid.git android
-      - pushd android
-      - git checkout a3f1804
+      - git clone https://github.com/MovingBlocks/DestinationSol.git engine_workspace
+      - pushd engine_workspace
+      - git checkout v$$VERSION$$
+      - echo 'includeBuild("$rootDir/libs/gestalt")' >> settings.gradle
+      - echo 'includeBuild("$rootDir/libs/reflections")' >> settings.gradle
       - popd
-      - echo 'includeBuild("libs/gestalt")' >> settings.gradle
-      - echo 'includeBuild("libs/reflections")' >> settings.gradle
+      - ln -s engine_workspace/gradle gradle
+      - "cat << EOF >> settings.gradle\nrootProject.projectDir = file(\"engine_workspace\"\
+        )\ninclude \":android\"\nproject(\":android\").projectDir = file(\".\")\n\
+        project(\":android\").buildFileName = \"android.gradle\"\napply from: \"engine_workspace/settings.gradle\"\
+        \nEOF"
     gradle:
       - yes
-    output: android/build/outputs/apk/release/android-release-unsigned.apk
+    output: build/outputs/apk/release/android-release-unsigned.apk
     srclibs:
       - MovingBlocks-gestalt@df875f0
       - MovingBlocks-org-reflections-fork@4fe6bd5
     rm:
-      - desktop
-      - launcher
+      - engine_workspace/desktop
+      - engine_workspace/launcher
     prebuild:
+      - mv build.gradle android.gradle
+      - sed -i 's/maven {.*terasology\.org.*}//g' android.gradle
+      - "sed -i \"s/, ext: 'aar'//g\" android.gradle"
+      - pushd engine_workspace
       - sed -i 's/maven {.*terasology\.org.*}//g' build.gradle
       - sed -i 's/maven {.*terasology\.org.*}//g' config/gradle/common.gradle
       - sed -i 's/maven {.*terasology\.org.*}//g' engine/build.gradle
-      - sed -i 's/maven {.*terasology\.org.*}//g' android/build.gradle
-      - "sed -i \"s/, ext: 'aar'//g\" android/build.gradle"
       - mkdir libs
       - ln -s $$MovingBlocks-gestalt$$ libs/gestalt
-      - grep 'com.\android.\tools\.build:gradle:.*' android/build.gradle
       - sed -i "s/.*com\.android\.tools\.build:gradle:.*/$(grep 'com\.android\.tools\.build:gradle:.*'
-        android/build.gradle)/g" libs/gestalt/build.gradle
+        ../android.gradle)/g" libs/gestalt/build.gradle
       - sed -i 's/variant.javaCompileProvider.get()/variant.getJavaCompiler()/g' libs/gestalt/gestalt-android/build.gradle
       - sed -i 's/variant.assembleProvider.get()/variant.assemble/g' libs/gestalt/gestalt-android-testbed/build.gradle
       - ln -s $$MovingBlocks-org-reflections-fork$$ libs/reflections
@@ -66,41 +72,54 @@ Builds:
       - popd
       - echo 'sdk.dir=$$SDK$$' > local.properties
       - echo 'sdk.dir=$$SDK$$' > libs/gestalt/local.properties
+      - popd
     scanignore:
-      - android/libs
+      - libs
     scandelete:
-      - gradle/wrapper/groovy-wrapper.jar
+      - engine_workspace/gradle/wrapper/groovy-wrapper.jar
 
-  - versionName: 2.1.0
+  - versionName: 2.1.0-SNAPSHOT
     versionCode: 11
-    disable: not released yet but this should build the latest develop version.
+    disable: not anywhere near release yet but this is to make sure it builds at least
+        under the current development branch.
     commit: develop
-    init: git clone https://github.com/MovingBlocks/DestSolAndroid.git android
+    init:
+      - git clone https://github.com/MovingBlocks/DestinationSol.git engine_workspace
+      - git -C engine_workspace checkout develop
+      - ln -s engine_workspace/gradle gradle
+      - "cat << EOF >> settings.gradle\nrootProject.projectDir = file(\"engine_workspace\"\
+        )\ninclude \":android\"\nproject(\":android\").projectDir = file(\".\")\n\
+        project(\":android\").buildFileName = \"android.gradle\"\napply from: \"engine_workspace/settings.gradle\"\
+        \nEOF"
     gradle:
       - yes
-    output: android/build/outputs/apk/release/android-release-unsigned.apk
+    output: build/outputs/apk/release/android-release-unsigned.apk
     srclibs:
       - MovingBlocks-gestalt@release/v7.x
       - MovingBlocks-nui@v3.1.0
       - MovingBlocks-joml-ext@v0.1.0
       - MovingBlocks-org-reflections-fork@4fe6bd5
       - antilaby-jsemver-fork@0.10.0
+    forceversion: true
+    forcevercode: true
     rm:
-      - desktop
-      - launcher
+      - engine_workspace/desktop
+      - engine_workspace/launcher
     prebuild:
+      - mv build.gradle android.gradle
+      - pushd engine_workspace
       - sed -i 's/maven {.*terasology\.org.*}//g' build.gradle
       - sed -i 's/maven {.*terasology\.org.*}//g' config/gradle/common.gradle
       - sed -i 's/maven {.*terasology\.org.*}//g' engine/build.gradle
-      - sed -i 's/maven {.*terasology\.org.*}//g' android/build.gradle
+      - sed -i 's/maven {.*terasology\.org.*}//g' ../android.gradle
       - sed -i 's/maven {.*heisluft\.de.*}//g' build.gradle
       - sed -i 's/maven {.*heisluft\.de.*}//g' config/gradle/common.gradle
       - sed -i 's/maven {.*heisluft\.de.*}//g' engine/build.gradle
-      - sed -i 's/maven {.*heisluft\.de.*}//g' android/build.gradle
+      - sed -i 's/maven {.*heisluft\.de.*}//g' ../android.gradle
       - ln -s $$MovingBlocks-gestalt$$ libs/gestalt
-      - grep 'com.\android.\tools\.build:gradle:.*' android/build.gradle
+      - grep 'com.\android.\tools\.build:gradle:.*' ../android.gradle
       - sed -i "s/.*com\.android\.tools\.build:gradle:.*/$(grep 'com\.android\.tools\.build:gradle:.*'
-        android/build.gradle)/g" libs/gestalt/build.gradle
+        ../android.gradle)/g" libs/gestalt/build.gradle
       - ln -s $$MovingBlocks-nui$$ libs/TeraNUI
       - ln -s $$MovingBlocks-joml-ext$$ libs/joml-ext
       - ln -s $$MovingBlocks-org-reflections-fork$$ libs/reflections
@@ -110,25 +129,37 @@ Builds:
       - popd
       - echo 'sdk.dir=$$SDK$$' > local.properties
       - echo 'sdk.dir=$$SDK$$' > libs/gestalt/local.properties
+      - popd
     scanignore:
-      - android/libs
+      - libs
     scandelete:
-      - gradle/wrapper/groovy-wrapper.jar
+      - engine_workspace/gradle/wrapper/groovy-wrapper.jar
 
 MaintainerNotes: |
     The main engine code is at https://github.com/MovingBlocks/DestinationSol but the actual android application
-    can be found at https://github.com/MovingBlocks/DestSolAndroid. The android application gradle build depends on
-    being a sub-project of the main DestinationSol build. This can be achieved by cloning the DestSolAndroid repository
+    can be found at https://github.com/MovingBlocks/DestSolAndroid.
+    The android app build depends on being a sub-project of the main DestinationSol gradle build.
+    This can normally be achieved by cloning the DestSolAndroid repository
     into a sub-directory of the main root DestinationSol directory.
 
-    Destination Sol depends on a couple of MovingBlocks libraries that you won't find published elsewhere.
-    Normally they can be found in the Terasology Artifactory (http://artifactory.terasology.org/artifactory),
-    however, that repository has been patched-out for f-droid builds.
+    In this particular instance though, we want to store the F-Droid/Fastlane metadata in the android repository itself,
+    so the DestSolAndroid repository will be fetched as the source.
+    A problem with this though is that the DestinationSol repository is needed as the gradle root for the project to build successfully.
+    With a bit of extra gradle configuration though, it is possible to change the directory of the gradle root project,
+    allowing for a sub-directory to act as the effective root.
+    To prevent any confusion with gradle though, the root android build.gradle is re-named to android.gradle.
+    The Android repository (the actual root) is then established as a gradle sub-project of the project root.
+    The last thing done is to include the settings.gradle of the effective project root, as this does not occur automatically.
+
+    Destination Sol depends on a couple of MovingBlocks libraries that are not published elsewhere.
+    Normally they can be found in the Terasology Artifactory (http://artifactory.terasology.org/artifactory), however,
+    that repository has been patched-out for the F-Droid builds.
+    It may be possible to use jitpack.io to replace these custom builds?
 
     The MovingBlocks libraries needed are as follows:
       * org.terasology.gestalt - https://github.com/MovingBlocks/gestalt
-      * org.terasology.nui - https://github.com/MovingBlocks/TeraNui (app >= v2.1.0)
-      * org.terasology.joml-ext - https://github.com/MovingBlocks/joml-ext (app >= v2.1.0)
+      * org.terasology.nui - https://github.com/MovingBlocks/TeraNui (app >= v2.1.0-SNAPSHOT)
+      * org.terasology.joml-ext - https://github.com/MovingBlocks/joml-ext (app >= v2.1.0-SNAPSHOT)
     [app >= v2.1.0] Gestalt also depends on a fork of jsemver containing fixes and improvments to the original code.
     The forked jsemver can be found at https://github.com/AntiLaby/jsemver. Version 0.10.0 is used.
 
