@@ -35,6 +35,11 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make altinstall
+      - popd
     gradle:
       - yes
     output: app/build/outputs/apk/release/app-release-unsigned.apk
