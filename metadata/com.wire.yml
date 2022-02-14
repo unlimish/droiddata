@@ -29,19 +29,6 @@ Builds:
 
   - versionName: 3.78.13
     versionCode: 2493557
-    commit: 3.78.13
-    subdir: app
-    gradle:
-      - fdroid
-    prebuild:
-      - cd ..
-      - sed -ri '/fireBase/,/}/d' app/build.gradle
-      - sed -ri '/com.google.android.c2dm/d' app/src/main/AndroidManifest.xml
-      - 'printf "VersionCode: $$VERCODE$$\nVersionName: $$VERSION$$\n" > app/version.txt'
-    ndk: r20
-
-  - versionName: 3.78.13
-    versionCode: 2493557
     disable: https://gitlab.com/fdroid/fdroiddata/-/merge_requests/10237
     commit: 3.78.13
     subdir: app
@@ -53,8 +40,21 @@ Builds:
       - 'printf "VersionCode: $$VERCODE$$\nVersionName: $$VERSION$$\n" > app/version.txt'
     ndk: r20
 
+  - versionName: 3.78.14
+    versionCode: 2535123
+    commit: 3.78.13
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - sed -ri '/fireBase/,/}/d' app/build.gradle
+      - sed -ri '/com.google.android.c2dm/d' app/src/main/AndroidManifest.xml
+      - 'printf "VersionCode: $$VERCODE$$\nVersionName: $$VERSION$$\n" > app/version.txt'
+    ndk: r20
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: HTTP
 UpdateCheckData: https://github.com/wireapp/wire-android/releases/latest/download/version.txt|VersionCode:\s(\d+)|.|VersionName:\s([\d.]+)
-CurrentVersion: 3.78.13
-CurrentVersionCode: 2493557
+CurrentVersion: 3.78.14
+CurrentVersionCode: 2535123
