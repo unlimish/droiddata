@@ -20,9 +20,9 @@ RepoType: git
 Repo: https://github.com/ShacharHarshuv/open-ear
 
 Builds:
-  - versionName: v1.0.1
-    versionCode: 3000310
-    commit: 18ffe537453eaef366c2e26b91d9a80711fa9cc0
+  - versionName: 1.2.1
+    versionCode: 8
+    commit: 019a5ec063568daeb458d1446011b085c644bfee
     subdir: android
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
@@ -63,8 +63,6 @@ Builds:
     ndk: r21e
 
 AutoUpdateMode: Version %v
-UpdateCheckMode: HTTP
-VercodeOperation: 3000220 + %c
-UpdateCheckData: https://github.com/standardnotes/mobile/actions/workflows/build-prod.yml|(\d+)\sworkflow\sruns|https://github.com/standardnotes/mobile/releases/latest|tree/([\d.]+)
-CurrentVersion: 3.9.2
-CurrentVersionCode: 3000310
+UpdateCheckMode: Tags
+CurrentVersion: 1.2.1
+CurrentVersionCode: 8
