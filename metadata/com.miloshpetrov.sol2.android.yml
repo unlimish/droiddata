@@ -54,12 +54,10 @@ Builds:
       - engine_workspace/launcher
     prebuild:
       - mv build.gradle android.gradle
-      - sed -i 's/maven {.*terasology\.org.*}//g' android.gradle
       - "sed -i \"s/, ext: 'aar'//g\" android.gradle"
       - pushd engine_workspace
-      - sed -i 's/maven {.*terasology\.org.*}//g' build.gradle
-      - sed -i 's/maven {.*terasology\.org.*}//g' config/gradle/common.gradle
-      - sed -i 's/maven {.*terasology\.org.*}//g' engine/build.gradle
+      - sed -i 's/maven {.*terasology\.org.*}//g' ../android.gradle build.gradle config/gradle/common.gradle
+        engine/build.gradle
       - mkdir libs
       - ln -s $$MovingBlocks-gestalt$$ libs/gestalt
       - sed -i "s/.*com\.android\.tools\.build:gradle:.*/$(grep 'com\.android\.tools\.build:gradle:.*'
@@ -108,16 +106,11 @@ Builds:
     prebuild:
       - mv build.gradle android.gradle
       - pushd engine_workspace
-      - sed -i 's/maven {.*terasology\.org.*}//g' build.gradle
-      - sed -i 's/maven {.*terasology\.org.*}//g' config/gradle/common.gradle
-      - sed -i 's/maven {.*terasology\.org.*}//g' engine/build.gradle
-      - sed -i 's/maven {.*terasology\.org.*}//g' ../android.gradle
-      - sed -i 's/maven {.*heisluft\.de.*}//g' build.gradle
-      - sed -i 's/maven {.*heisluft\.de.*}//g' config/gradle/common.gradle
-      - sed -i 's/maven {.*heisluft\.de.*}//g' engine/build.gradle
-      - sed -i 's/maven {.*heisluft\.de.*}//g' ../android.gradle
+      - sed -i 's/maven {.*terasology\.org.*}//g' build.gradle config/gradle/common.gradle
+        engine/build.gradle ../android.gradle
+      - sed -i 's/maven {.*heisluft\.de.*}//g' build.gradle config/gradle/common.gradle
+        engine/build.gradle ../android.gradle
       - ln -s $$MovingBlocks-gestalt$$ libs/gestalt
-      - grep 'com.\android.\tools\.build:gradle:.*' ../android.gradle
       - sed -i "s/.*com\.android\.tools\.build:gradle:.*/$(grep 'com\.android\.tools\.build:gradle:.*'
         ../android.gradle)/g" libs/gestalt/build.gradle
       - ln -s $$MovingBlocks-nui$$ libs/TeraNUI
