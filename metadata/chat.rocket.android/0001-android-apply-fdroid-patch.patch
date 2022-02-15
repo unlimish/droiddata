@@ -1,0 +1,234 @@
+From 6f18b34a68086899c0440a3d22cf50db5b043afc Mon Sep 17 00:00:00 2001
+From: Mathieu Tortuyaux <mathieu.tortuyaux@isf-france.org>
+Date: Sat, 16 Oct 2021 12:51:32 +0200
+Subject: [PATCH] android: apply fdroid patch
+
+* remove playImplementation
+* remove react notification, crash analytics, firebase dependencies
+* make notifications optionals
+* remove logs
+* force jitsi version to 3.6.0
+
+Signed-off-by: Mathieu Tortuyaux <mathieu.tortuyaux@isf-france.org>
+---
+ android/app/build.gradle               |  5 ---
+ android/build.gradle                   |  7 +---
+ android/settings.gradle                |  8 ----
+ app/notifications/push/push.android.js | 10 ++---
+ app/utils/log/index.js                 | 56 ++++----------------------
+ react-native.config.js                 | 15 +++++++
+ 6 files changed, 28 insertions(+), 73 deletions(-)
+
+diff --git a/android/app/build.gradle b/android/app/build.gradle
+index d18b7869..e2c36f64 100644
+--- a/android/app/build.gradle
++++ b/android/app/build.gradle
+@@ -262,14 +262,9 @@ dependencies {
+     addUnimodulesDependencies()
+     implementation project(':watermelondb')
+     implementation project(':@react-native-community_viewpager')
+-    playImplementation project(':reactnativenotifications')
+-    playImplementation project(':@react-native-firebase_app')
+-    playImplementation project(':@react-native-firebase_analytics')
+-    playImplementation project(':@react-native-firebase_crashlytics')
+     implementation fileTree(dir: "libs", include: ["*.jar"])
+     //noinspection GradleDynamicVersion
+     implementation "com.facebook.react:react-native:+"  // From node_modules
+-    playImplementation "com.google.firebase:firebase-messaging:18.0.0"
+     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
+       exclude group:'com.facebook.fbjni'
+diff --git a/android/build.gradle b/android/build.gradle
+index 8c987ef8..6dc3d553 100644
+--- a/android/build.gradle
++++ b/android/build.gradle
+@@ -17,8 +17,7 @@ buildscript {
+         kotlin_version = "1.3.50"
+         supportLibVersion = "28.0.0"
+         libre_build = !(isPlay.toBoolean())
+-        jitsi_url = isPlay ? "https://github.com/RocketChat/jitsi-maven-repository/raw/master/releases" : "https://github.com/RocketChat/jitsi-maven-repository/raw/libre/releases"
+-        jitsi_version = isPlay ? "3.6.0" : "3.6.0-libre"
++        jitsi_version = "3.6.0"
+     }
+ 
+     repositories {
+@@ -53,10 +52,6 @@ allprojects {
+             url("$rootDir/../node_modules/jsc-android/dist")
+         }
+ 
+-        maven {
+-            url jitsi_url
+-        }
+-
+         google()
+         jcenter()
+         maven { url 'https://maven.google.com' }
+diff --git a/android/settings.gradle b/android/settings.gradle
+index d50ac213..e4555add 100644
+--- a/android/settings.gradle
++++ b/android/settings.gradle
+@@ -4,15 +4,7 @@ includeUnimodulesProjects()
+ rootProject.name = 'RocketChatRN'
+ include ':watermelondb'
+ project(':watermelondb').projectDir = new File(rootProject.projectDir, '../node_modules/@nozbe/watermelondb/native/android')
+-include ':reactnativenotifications'
+-project(':reactnativenotifications').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-notifications/android/app')
+ include ':@react-native-community_viewpager'
+ project(':@react-native-community_viewpager').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-community/viewpager/android')
+-include ':@react-native-firebase_app'
+-project(':@react-native-firebase_app').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-firebase/app/android')
+-include ':@react-native-firebase_analytics'
+-project(':@react-native-firebase_analytics').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-firebase/analytics/android')
+-include ':@react-native-firebase_crashlytics'
+-project(':@react-native-firebase_crashlytics').projectDir = new File(rootProject.projectDir, '../node_modules/@react-native-firebase/crashlytics/android')
+ apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+ include ':app'
+diff --git a/app/notifications/push/push.android.js b/app/notifications/push/push.android.js
+index 51e767ad..589125c4 100644
+--- a/app/notifications/push/push.android.js
++++ b/app/notifications/push/push.android.js
+@@ -1,4 +1,4 @@
+-import { NotificationsAndroid, PendingNotifications } from 'react-native-notifications';
++const { NotificationsAndroid, PendingNotifications } = {};
+ 
+ class PushNotification {
+ 	constructor() {
+@@ -6,11 +6,11 @@ class PushNotification {
+ 		this.onNotification = null;
+ 		this.deviceToken = null;
+ 
+-		NotificationsAndroid.setRegistrationTokenUpdateListener(deviceToken => {
++		NotificationsAndroid?.setRegistrationTokenUpdateListener(deviceToken => {
+ 			this.deviceToken = deviceToken;
+ 		});
+ 
+-		NotificationsAndroid.setNotificationOpenedListener(notification => {
++		NotificationsAndroid?.setNotificationOpenedListener(notification => {
+ 			this.onNotification(notification);
+ 		});
+ 	}
+@@ -24,8 +24,8 @@ class PushNotification {
+ 	configure(params) {
+ 		this.onRegister = params.onRegister;
+ 		this.onNotification = params.onNotification;
+-		NotificationsAndroid.refreshToken();
+-		return PendingNotifications.getInitialNotification();
++		NotificationsAndroid?.refreshToken();
++		return PendingNotifications?.getInitialNotification();
+ 	}
+ }
+ 
+diff --git a/app/utils/log/index.js b/app/utils/log/index.js
+index 41074832..2aae0b6a 100644
+--- a/app/utils/log/index.js
++++ b/app/utils/log/index.js
+@@ -1,33 +1,16 @@
+-import firebaseAnalytics from '@react-native-firebase/analytics';
+-
+ import { isFDroidBuild } from '../../constants/environment';
+ import events from './events';
+ 
+-const analytics = firebaseAnalytics || '';
+-let bugsnag = '';
+-let crashlytics;
+ let reportCrashErrors = true;
+ let reportAnalyticsEvents = true;
+ 
++const analytics = () => {};
++const crashlytics = () => {};
++const bugsnag = {};
++
+ export const getReportCrashErrorsValue = () => reportCrashErrors;
+ export const getReportAnalyticsEventsValue = () => reportAnalyticsEvents;
+ 
+-if (!isFDroidBuild) {
+-	bugsnag = require('@bugsnag/react-native').default;
+-	bugsnag.start({
+-		onBreadcrumb() {
+-			return reportAnalyticsEvents;
+-		},
+-		onError(error) {
+-			if (!reportAnalyticsEvents) {
+-				error.breadcrumbs = [];
+-			}
+-			return reportCrashErrors;
+-		}
+-	});
+-	crashlytics = require('@react-native-firebase/crashlytics').default;
+-}
+-
+ export { analytics };
+ export const loggerConfig = bugsnag.config;
+ export { events };
+@@ -40,23 +23,9 @@ export const logServerVersion = serverVersion => {
+ 	};
+ };
+ 
+-export const logEvent = (eventName, payload) => {
+-	try {
+-		if (!isFDroidBuild) {
+-			analytics().logEvent(eventName, payload);
+-			bugsnag.leaveBreadcrumb(eventName, payload);
+-		}
+-	} catch {
+-		// Do nothing
+-	}
+-};
++export const logEvent = (eventName, payload) => {};
+ 
+-export const setCurrentScreen = currentScreen => {
+-	if (!isFDroidBuild) {
+-		analytics().setCurrentScreen(currentScreen);
+-		bugsnag.leaveBreadcrumb(currentScreen, { type: 'navigation' });
+-	}
+-};
++export const setCurrentScreen = currentScreen => {};
+ 
+ export const toggleCrashErrorsReport = value => {
+ 	crashlytics().setCrashlyticsCollectionEnabled(value);
+@@ -68,15 +37,4 @@ export const toggleAnalyticsEventsReport = value => {
+ 	return (reportAnalyticsEvents = value);
+ };
+ 
+-export default e => {
+-	if (e instanceof Error && bugsnag && e.message !== 'Aborted' && !__DEV__) {
+-		bugsnag.notify(e, event => {
+-			event.addMetadata('details', { ...metadata });
+-		});
+-		if (!isFDroidBuild) {
+-			crashlytics().recordError(e);
+-		}
+-	} else {
+-		console.log(e);
+-	}
+-};
++export default e => {};
+diff --git a/react-native.config.js b/react-native.config.js
+index f90e1e79..2a86c6e4 100644
+--- a/react-native.config.js
++++ b/react-native.config.js
+@@ -25,6 +25,21 @@ module.exports = {
+ 			platforms: {
+ 				android: null
+ 			}
++		},
++		'@bugsnag/react-native': {
++			platforms: {
++				android: null
++			}
++		},
++		'@react-native-community/netinfo': {
++			platforms: {
++				android: null
++			}
++		},
++		'react-native-restart': {
++			platforms: {
++				android: null
++			}
+ 		}
+ 	}
+ };
+-- 
+2.31.1
+
