@@ -27,7 +27,7 @@ Builds:
   - versionName: 0.8.1
     versionCode: 10
     commit: v0.8.1
-    ndk: r23b
+    ndk: r12b
     sudo:
       - apt-get update
       - apt-get install -y mercurial gcc libgl1-mesa-dev xorg-dev
@@ -48,7 +48,7 @@ Builds:
       - export PATH=${PATH}:${GOROOT}/bin
       - export ANDROID_HOME=$$SDK$$
       - export ANDROID_NDK_HOME=$$NDK$$
-      - ${HOME}/go/bin/fyne package -os android
+      - ${HOME}/go/bin/fyne package -os android -release
 
 AutoUpdateMode: Version +-fdroid v%v
 UpdateCheckMode: Tags ^v[0-9].[0-9].[0-9]
