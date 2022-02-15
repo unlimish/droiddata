@@ -31,37 +31,32 @@ Builds:
   - versionName: 2.0.0
     versionCode: 10
     commit: a3f1804
-    init:
-      - git clone https://github.com/MovingBlocks/DestinationSol.git engine_workspace
-      - pushd engine_workspace
-      - git checkout v$$VERSION$$
-      - echo 'includeBuild("$rootDir/libs/gestalt")' >> settings.gradle
-      - echo 'includeBuild("$rootDir/libs/reflections")' >> settings.gradle
-      - popd
-      - ln -s engine_workspace/gradle gradle
-      - "cat << EOF >> settings.gradle\nrootProject.projectDir = file(\"engine_workspace\"\
-        )\ninclude \":android\"\nproject(\":android\").projectDir = file(\".\")\n\
-        project(\":android\").buildFileName = \"android.gradle\"\napply from: \"engine_workspace/settings.gradle\"\
-        \nEOF"
     gradle:
       - yes
     output: build/outputs/apk/release/android-release-unsigned.apk
     srclibs:
       - MovingBlocks-gestalt@df875f0
       - MovingBlocks-org-reflections-fork@4fe6bd5
-    rm:
-      - engine_workspace/desktop
-      - engine_workspace/launcher
+      - MovingBlocks-DestinationSol-engine@v2.0.0
     prebuild:
+      - "printf 'rootProject.projectDir = file(\"engine_workspace\")\\n include \"\
+        :android\"\\n project(\":android\\\").projectDir = file(\".\")\\n project(\"\
+        :android\").buildFileName = \"android.gradle\"\\n apply from: \"engine_workspace/settings.gradle\"\
+        \\n' >> settings.gradle"
       - mv build.gradle android.gradle
       - "sed -i \"s/, ext: 'aar'//g\" android.gradle"
+      - sed -i 's/file("libs\/armeabi\/")\.mkdirs();/doFirst { file("libs\/armeabi\/")\.mkdirs();/g'
+        android.gradle
+      - sed -i 's/include "\*\.so"/include "\*\.so"}/g' android.gradle
+      - echo "tasks.whenTaskAdded { packageTask -> if (packageTask.name.contains(\"package\"))
+        { packageTask.dependsOn 'copyAndroidNatives' } }" >> android.gradle
+      - ln -s $$MovingBlocks-DestinationSol-engine$$ engine_workspace
+      - ln -s engine_workspace/gradle gradle
       - pushd engine_workspace
-      - sed -i 's/maven {.*terasology\.org.*}//g' ../android.gradle build.gradle config/gradle/common.gradle
-        engine/build.gradle
+      - echo 'includeBuild("$rootDir/libs/gestalt")' >> settings.gradle
+      - echo 'includeBuild("$rootDir/libs/reflections")' >> settings.gradle
       - mkdir libs
       - ln -s $$MovingBlocks-gestalt$$ libs/gestalt
-      - sed -i "s/.*com\.android\.tools\.build:gradle:.*/$(grep 'com\.android\.tools\.build:gradle:.*'
-        ../android.gradle)/g" libs/gestalt/build.gradle
       - sed -i 's/variant.javaCompileProvider.get()/variant.getJavaCompiler()/g' libs/gestalt/gestalt-android/build.gradle
       - sed -i 's/variant.assembleProvider.get()/variant.assemble/g' libs/gestalt/gestalt-android-testbed/build.gradle
       - ln -s $$MovingBlocks-org-reflections-fork$$ libs/reflections
@@ -71,28 +66,21 @@ Builds:
       - echo 'sdk.dir=$$SDK$$' > local.properties
       - echo 'sdk.dir=$$SDK$$' > libs/gestalt/local.properties
       - popd
-    scanignore:
-      - libs
-    scandelete:
-      - engine_workspace/gradle/wrapper/groovy-wrapper.jar
+      - sed -i 's/maven {.*terasology\.org.*}//g' android.gradle engine_workspace/build.gradle
+        engine_workspace/config/gradle/common.gradle engine_workspace/engine/build.gradle
+      - sed -i "s/.*com\.android\.tools\.build:gradle:.*/$(grep 'com\.android\.tools\.build:gradle:.*'
+        android.gradle)/g" engine_workspace/libs/gestalt/build.gradle
 
   - versionName: 2.1.0-SNAPSHOT
     versionCode: 11
     disable: not anywhere near release yet but this is to make sure it builds at least
         under the current development branch.
     commit: develop
-    init:
-      - git clone https://github.com/MovingBlocks/DestinationSol.git engine_workspace
-      - git -C engine_workspace checkout develop
-      - ln -s engine_workspace/gradle gradle
-      - "cat << EOF >> settings.gradle\nrootProject.projectDir = file(\"engine_workspace\"\
-        )\ninclude \":android\"\nproject(\":android\").projectDir = file(\".\")\n\
-        project(\":android\").buildFileName = \"android.gradle\"\napply from: \"engine_workspace/settings.gradle\"\
-        \nEOF"
     gradle:
       - yes
     output: build/outputs/apk/release/android-release-unsigned.apk
     srclibs:
+      - MovingBlocks-DestinationSol-engine@develop
       - MovingBlocks-gestalt@release/v7.x
       - MovingBlocks-nui@v3.1.0
       - MovingBlocks-joml-ext@v0.1.0
@@ -100,19 +88,16 @@ Builds:
       - antilaby-jsemver-fork@0.10.0
     forceversion: true
     forcevercode: true
-    rm:
-      - engine_workspace/desktop
-      - engine_workspace/launcher
     prebuild:
+      - "printf 'rootProject.projectDir = file(\"engine_workspace\")\\n include \"\
+        :android\"\\n project(\":android\\\").projectDir = file(\".\")\\n project(\"\
+        :android\").buildFileName = \"android.gradle\"\\n apply from: \"engine_workspace/settings.gradle\"\
+        \\n' >> settings.gradle"
       - mv build.gradle android.gradle
+      - ln -s $$MovingBlocks-DestinationSol-engine$$ engine_workspace
+      - ln -s engine_workspace/gradle gradle
       - pushd engine_workspace
-      - sed -i 's/maven {.*terasology\.org.*}//g' build.gradle config/gradle/common.gradle
-        engine/build.gradle ../android.gradle
-      - sed -i 's/maven {.*heisluft\.de.*}//g' build.gradle config/gradle/common.gradle
-        engine/build.gradle ../android.gradle
       - ln -s $$MovingBlocks-gestalt$$ libs/gestalt
-      - sed -i "s/.*com\.android\.tools\.build:gradle:.*/$(grep 'com\.android\.tools\.build:gradle:.*'
-        ../android.gradle)/g" libs/gestalt/build.gradle
       - ln -s $$MovingBlocks-nui$$ libs/TeraNUI
       - ln -s $$MovingBlocks-joml-ext$$ libs/joml-ext
       - ln -s $$MovingBlocks-org-reflections-fork$$ libs/reflections
@@ -123,10 +108,12 @@ Builds:
       - echo 'sdk.dir=$$SDK$$' > local.properties
       - echo 'sdk.dir=$$SDK$$' > libs/gestalt/local.properties
       - popd
-    scanignore:
-      - libs
-    scandelete:
-      - engine_workspace/gradle/wrapper/groovy-wrapper.jar
+      - sed -i 's/maven {.*terasology\.org.*}//g' engine_workspace/build.gradle engine_workspace/config/gradle/common.gradle
+        engine_workspace/engine/build.gradle android.gradle
+      - sed -i 's/maven {.*heisluft\.de.*}//g' engine_workspace/build.gradle engine_workspace/config/gradle/common.gradle
+        engine_workspace/engine/build.gradle android.gradle
+      - sed -i "s/.*com\.android\.tools\.build:gradle:.*/$(grep 'com\.android\.tools\.build:gradle:.*'
+        android.gradle)/g" engine_workspace/libs/gestalt/build.gradle
 
 MaintainerNotes: |
     The main engine code is at https://github.com/MovingBlocks/DestinationSol but the actual android application
