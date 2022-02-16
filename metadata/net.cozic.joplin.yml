@@ -20,11 +20,12 @@ RepoType: git
 Repo: https://github.com/laurent22/joplin.git
 
 Builds:
-  - versionName: 2.6.9
-    versionCode: 2097665
-    commit: android-v2.6.9
+  - versionName: 2.7.2
+    versionCode: 2097667
+    commit: android-v2.7.2
     subdir: packages/app-mobile/android/app
     sudo:
+      - sysctl fs.inotify.max_user_watches=524288
       - apt-get update || apt-get update
       - apt-get install -y --no-install-recommends g++ jq
       - apt-get install -y --no-install-recommends -t stretch-backports openjdk-8-jre-headless
@@ -70,7 +71,10 @@ Builds:
         > fic.tmp
       - mv fic.tmp packages/renderer/package.json
       - yarn install
+      - sed -i -e '13,15d' packages/app-mobile/node_modules/react-native-rsa-native/android/build.gradle
     scanignore:
+      - .yarn/cache/
+      - .yarn/install-state.gz
       - packages/app-mobile/android/build.gradle
       - packages/app-mobile/node_modules/joplin-rn-alarm-notification/android/build.gradle
       - packages/app-mobile/node_modules/@react-native-community/netinfo/android/build.gradle
@@ -84,6 +88,9 @@ Builds:
       - packages/app-mobile/node_modules/react-native-share/android/build.gradle
       - packages/app-mobile/node_modules/react-native/android
       - packages/app-mobile/node_modules/jsc-android
+      - packages/app-mobile/node_modules/hermes-engine
+      - packages/app-mobile/node_modules/react-native/ReactAndroid/build.gradle
+      - packages/app-mobile/node_modules/react-native-rsa-native/android/bin/build.gradle
     scandelete:
       - packages/fork-htmlparser2/node_modules/**
       - packages/generator-joplin/node_modules/**
@@ -102,5 +109,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: None
 UpdateCheckMode: Tags android-.*
-CurrentVersion: 2.6.9
-CurrentVersionCode: 2097665
+CurrentVersion: 2.7.2
+CurrentVersionCode: 2097667
