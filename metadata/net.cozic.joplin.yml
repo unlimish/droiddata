@@ -45,6 +45,9 @@ Builds:
       - packages/app-clipper
       - packages/server
     prebuild:
+      - sed -i -e '\!ACCESS_NETWORK_STATE!a<uses-permission android:name="com.android.vending.CHECK_LICENSE"
+        tools:node="remove" />' -e 's!xmlns:android!xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android!' src/main/AndroidManifest.xml
       - cd ../../../..
       - find -name "package-lock.json" -delete
       - sed -i 's#DomHandlerOptions, Node,#DomHandlerOptions,#' packages/fork-htmlparser2/src/FeedHandler.ts
