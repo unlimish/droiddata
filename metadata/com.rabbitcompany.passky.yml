@@ -14,17 +14,21 @@ OpenCollective: rabbit-company
 AutoName: Passky
 
 RepoType: git
-Repo: https://github.com/Rabbit-Company/Passky-Android
+Repo: https://github.com/Rabbit-Company/Passky-Android.git
 
 Builds:
-  - versionName: 1.0.2
-    versionCode: 3
-    commit: v1.0.2
+  - versionName: 5.0.0
+    versionCode: 9
+    commit: 7232d5e6380d3a61940384300646fb1ad4b4eb3a
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.2
-CurrentVersionCode: 3
+CurrentVersion: 5.0.0
+CurrentVersionCode: 9
