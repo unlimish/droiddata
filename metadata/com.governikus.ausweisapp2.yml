@@ -203,6 +203,7 @@ Builds:
     rm:
       - test/fixture
       - resources/packaging/macos
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3' > /dev/null
     build:
       - export ANDROID_SDK_ROOT=$$SDK$$
       - mkdir libs/build build
