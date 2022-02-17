@@ -204,7 +204,7 @@ Builds:
       - test/fixture
       - resources/packaging/macos
     prebuild:
-      - $$SDK$$/tools/bin/sdkmanager 'build-tools;32.0.0' 'build-tools;30.0.3'
+      - $$SDK$$/tools/bin/sdkmanager 'build-tools;32.0.0' 'build-tools;30.0.3' "platforms;android-31"
         > /dev/null
       - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
       - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
