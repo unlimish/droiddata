@@ -17,17 +17,17 @@ RepoType: git
 Repo: https://github.com/marcoXbresciani/TKCompanionApp
 
 Builds:
-  - versionName: 0.1.12
-    versionCode: 13
-    commit: 0.1.12
+  - versionName: 0.2.0
+    versionCode: 20
+    commit: 0.2.0
     subdir: android/app
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
-      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.13.2/node-v16.13.2-linux-x64.tar.xz
-      - echo "7f5e9a42d6e86147867d35643c7b1680c27ccd45db85666fc52798ead5e74421 node.tar.xz"
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.0/node-v16.14.0-linux-x64.tar.xz
+      - echo "0570b9354959f651b814e56a4ce98d4a067bf2385b9a0e6be075739bc65b0fae node.tar.xz"
         | sha256sum -c -
       - tar xJf node.tar.xz
-      - cp -a node-v16.13.2-linux-x64/. /usr/local/
+      - cp -a node-v16.14.0-linux-x64/. /usr/local/
       - npm -g install yarn
     init: yarn install
     gradle:
@@ -53,5 +53,5 @@ MaintainerNotes: scanignore is used to allow the "node_modules/react-native/andr
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.1.12
-CurrentVersionCode: 13
+CurrentVersion: 0.2.0
+CurrentVersionCode: 20
