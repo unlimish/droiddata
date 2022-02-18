@@ -84,13 +84,15 @@ Builds:
       - ./koch nimble
       - export PATH=$(realpath ./bin):${PATH}
       - cd ${TOOL_DIR}
-      - nimble install --accept
+      - nimble install --define:ssl --accept
       - ./tool download pcre
+      - chmod 777 --recursive ../pcre
       - ./tool build pcre --architecture:arm
       - ./tool build pcre --architecture:arm64
       - ./tool build pcre --architecture:i386
       - ./tool build pcre --architecture:amd64
       - ./tool download libressl
+      - chmod 777 --recursive ../libressl
       - ./tool patch libressl
       - ./tool build libressl --architecture:arm
       - ./tool build libressl --architecture:arm64
