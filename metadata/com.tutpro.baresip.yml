@@ -2329,6 +2329,7 @@ Builds:
       - yes
     srclibs:
       - libbaresip-android@23.0
+    prebuild: sed -i -e '/lintOptions/a disable "ExtraTranslation"' build.gradle
     build:
       - pushd $$libbaresip-android$$
       - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
