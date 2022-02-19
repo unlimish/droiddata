@@ -1,0 +1,91 @@
+Categories:
+  - Development
+  - Writing
+License: GPL-3.0-only
+AuthorEmail: juloo.dsi@gmail.com
+SourceCode: https://github.com/Julow/Unexpected-Keyboard
+IssueTracker: https://github.com/Julow/Unexpected-Keyboard/issues
+
+AutoName: Unexpected Keyboard
+
+RepoType: git
+Repo: https://github.com/Julow/Unexpected-Keyboard
+
+Builds:
+  - versionName: 1.9.2
+    versionCode: 12
+    commit: ac1dd231442bba0f081598d257dfe4fd81a0a071
+    output: unsigned.apk
+    prebuild: $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-29' > /dev/null
+    build:
+      - make _build/juloo.keyboard2.unsigned-apk
+      - mv _build/juloo.keyboard2.unsigned-apk unsigned.apk
+
+  - versionName: 1.10.0
+    versionCode: 13
+    commit: d787d982cf4f9376b5b4fe0cb71b95c52b7eb377
+    output: unsigned.apk
+    prebuild: $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-29' > /dev/null
+    build:
+      - make _build/juloo.keyboard2.unsigned-apk
+      - mv _build/juloo.keyboard2.unsigned-apk unsigned.apk
+
+  - versionName: 1.11.0
+    versionCode: 14
+    commit: 96c4b165ac73ae43c4e462456fba083d04827363
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: unsigned.apk
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'platforms;android-30'
+        'build-tools;31.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
+    build:
+      - make _build/juloo.keyboard2.unsigned-apk
+      - mv _build/juloo.keyboard2.unsigned-apk unsigned.apk
+
+  - versionName: 1.11.1
+    versionCode: 15
+    commit: aa12466767178dca4ae9d84bb54cc20330fac638
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: unsigned.apk
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'platforms;android-30'
+        'build-tools;31.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
+    build:
+      - make _build/juloo.keyboard2.unsigned-apk
+      - mv _build/juloo.keyboard2.unsigned-apk unsigned.apk
+
+  - versionName: 1.12.0
+    versionCode: 16
+    commit: 93b4cc2e7bb0a7873e13ad332207d9aa76da7289
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: unsigned.apk
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'platforms;android-30'
+        'build-tools;31.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
+    build:
+      - make _build/juloo.keyboard2.unsigned-apk
+      - mv _build/juloo.keyboard2.unsigned-apk unsigned.apk
+
+MaintainerNotes: |-
+    Requires Android Build Tools <= 30.0.3. The build script uses 'dx' that
+    seems to be gone in 31.0.0.
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.12.0
+CurrentVersionCode: 16

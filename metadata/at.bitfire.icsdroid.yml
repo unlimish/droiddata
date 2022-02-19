@@ -12,7 +12,7 @@ Bitcoin: 1KSCy7RHztKuhW9fLLaUYqdwdC2iwbejZU
 AutoName: ICSx⁵
 
 RepoType: git
-Repo: https://gitlab.com/bitfireAT/icsx5.git
+Repo: https://github.com/bitfireAT/icsx5.git
 
 Builds:
   - versionName: '0.9'
@@ -279,7 +279,19 @@ Builds:
     gradle:
       - standard
 
+  - versionName: 1.9.4
+    versionCode: 56
+    commit: 95c0a7bc666cbc75e0d9529d2b3b954185e015a4
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]*$
-CurrentVersion: 1.9.3
-CurrentVersionCode: 54
+CurrentVersion: 1.9.4
+CurrentVersionCode: 56

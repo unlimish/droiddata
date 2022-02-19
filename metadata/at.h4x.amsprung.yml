@@ -1,0 +1,41 @@
+Categories:
+  - Navigation
+License: GPL-3.0-or-later
+AuthorName: Michael Pöhn
+AuthorEmail: michael.poehn@fsfe.org
+WebSite: https://codeberg.org/uniqx/AmSprung
+SourceCode: https://codeberg.org/uniqx/AmSprung
+IssueTracker: https://codeberg.org/uniqx/AmSprung/issues
+
+AutoName: Am Sprung
+
+RepoType: git
+Repo: https://codeberg.org/uniqx/AmSprung.git
+
+Builds:
+  - versionName: 0.1.0
+    versionCode: 100
+    commit: v0.1.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.1.1
+    versionCode: 101
+    commit: 9d8132c7647039f0c420b6e862853665c9ace5e6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 0.1.1
+CurrentVersionCode: 101
