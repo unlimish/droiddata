@@ -16,16 +16,16 @@ RepoType: git
 Repo: https://gitlab.com/k0tyk/osmtram
 
 Builds:
- - versionName: '1.0'
-   versionCode: 1
-   commit: v1.0
-   sudo:
-     - apt-get update || apt-get update
-     - apt-get install -y librsvg2-bin
-   gradle:
-     - yes
+  - versionName: '1.0'
+    versionCode: 1
+    commit: v1.0
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y librsvg2-bin
+    gradle:
+      - yes
 
-UpdateCheckMode: Tags v\d+\.\d+(\.\d+)?
-AutoUpdateMode: Version v%v
-CurrentVersion: 1.0
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '1.0'
 CurrentVersionCode: 1
