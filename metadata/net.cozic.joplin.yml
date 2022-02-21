@@ -27,14 +27,14 @@ Builds:
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
       - apt-get update || apt-get update
-      - apt-get install -y --no-install-recommends g++ jq build-essential libexpat1-dev
-        meson gtk-doc-tools gobject-introspection libtiff5-dev libjpeg62-turbo-dev
-        libpng-dev librsvg2-dev
-      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.13.2/node-v16.13.2-linux-x64.tar.xz
-      - echo "7f5e9a42d6e86147867d35643c7b1680c27ccd45db85666fc52798ead5e74421 node.tar.xz"
+      - apt-get install -y --no-install-recommends g++ build-essential libexpat1-dev
+        gtk-doc-tools gobject-introspection libtiff5-dev libjpeg62-turbo-dev libpng-dev
+        librsvg2-dev libexif-dev libgif-dev libpoppler-glib-dev liblcms2-dev libpango1.0-dev
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.0/node-v16.14.0-linux-x64.tar.xz
+      - echo "0570b9354959f651b814e56a4ce98d4a067bf2385b9a0e6be075739bc65b0fae node.tar.xz"
         | sha256sum -c -
       - tar xJf node.tar.xz
-      - cp -a node-v16.13.2-linux-x64/. /usr/local/
+      - cp -a node-v16.14.0-linux-x64/. /usr/local/
       - corepack enable
     gradle:
       - yes
@@ -43,7 +43,7 @@ Builds:
       - libvips@v8.10.0
     rm:
       - packages/tools/PortableAppsLauncher/
-      - packages/app-cli/tests/support/syncTargetSnapshots/
+      - packages/app-cli
       - packages/plugin-repo-cli
       - packages/app-desktop
       - packages/app-clipper
@@ -52,38 +52,20 @@ Builds:
       - sed -i -e '\!ACCESS_NETWORK_STATE!a<uses-permission android:name="com.android.vending.CHECK_LICENSE"
         tools:node="remove" />' -e 's!xmlns:android!xmlns:tools="http://schemas.android.com/tools"
         xmlns:android!' src/main/AndroidManifest.xml
-      - cd ../../../..
+      - pushd ../../../..
       - find -name "package-lock.json" -delete
-      - sed -i 's#DomHandlerOptions, Node,#DomHandlerOptions,#' packages/fork-htmlparser2/src/FeedHandler.ts
-      - sed -i 's#Node | Node\[\]#any#g' packages/fork-htmlparser2/src/FeedHandler.ts
-      - jq '.devDependencies."@typescript-eslint/eslint-plugin"="^2.34.0"' packages/fork-htmlparser2/package.json
-        > fic.tmp
-      - mv fic.tmp packages/fork-htmlparser2/package.json
-      - jq '.devDependencies."@typescript-eslint/parser"="^2.34.0"' packages/fork-htmlparser2/package.json
-        > fic.tmp
-      - mv fic.tmp packages/fork-htmlparser2/package.json
-      - jq '.devDependencies."ts-jest"="^26.5.6"' packages/fork-htmlparser2/package.json
-        > fic.tmp
-      - mv fic.tmp packages/fork-htmlparser2/package.json
-      - jq '.dependencies."react-native-webview"="^11.15.0"' packages/app-mobile/package.json
-        > fic.tmp
-      - mv fic.tmp packages/app-mobile/package.json
-      - jq '.dependencies."react-redux"="^7.2.6"' packages/app-mobile/package.json
-        > fic.tmp
-      - mv fic.tmp packages/app-mobile/package.json
-      - jq '.dependencies."react-native"="~0.67"' packages/app-mobile/package.json
-        > fic.tmp
-      - mv fic.tmp packages/app-mobile/package.json
-      - jq '.dependencies."highlight.js"="11.1.0"' packages/renderer/package.json
-        > fic.tmp
-      - mv fic.tmp packages/renderer/package.json
       - yarn install
       - sed -i -e '13,15d' packages/app-mobile/node_modules/react-native-rsa-native/android/build.gradle
-      - rm -fr packages/app-mobile/node_modules/sharp/vendor/lib/*
+      - sed -i -e '10,12d' packages/app-mobile/node_modules/react-native-rsa-native/android/bin/build.gradle
+      - rm -rf packages/app-mobile/node_modules/sharp/vendor/lib/*
       - rm -rf packages/tools/node_modules/sharp/vendor/lib/*
+      - rm packages/app-mobile/node_modules/sharp/build/Release/sharp.node
+      - rm packages/app-mobile/node_modules/sqlite3/lib/binding/napi-v3-linux-x64/node_sqlite3.node
+      - rm packages/lib/node_modules/sharp/build/Release/sharp.node
+      - rm packages/lib/node_modules/sqlite3/lib/binding/napi-v3-linux-x64/node_sqlite3.node
+      - rm packages/tools/node_modules/sharp/build/Release/sharp.node
+      - rm packages/tools/node_modules/sqlite3/lib/binding/napi-v3-linux-x64/node_sqlite3.node
     scanignore:
-      - .yarn/cache/
-      - .yarn/install-state.gz
       - packages/app-mobile/android/build.gradle
       - packages/app-mobile/node_modules/joplin-rn-alarm-notification/android/build.gradle
       - packages/app-mobile/node_modules/@react-native-community/netinfo/android/build.gradle
@@ -101,14 +83,15 @@ Builds:
       - packages/app-mobile/node_modules/react-native/ReactAndroid/build.gradle
       - packages/app-mobile/node_modules/react-native-rsa-native/android/bin/build.gradle
     scandelete:
-      - packages/fork-htmlparser2/node_modules/**
-      - packages/generator-joplin/node_modules/**
-      - packages/app-mobile/node_modules/**
-      - packages/renderer/node_modules/**
-      - packages/app-cli/node_modules/**
-      - packages/tools/node_modules/**
-      - packages/lib/node_modules/**
-      - node_modules/**
+      - packages/fork-htmlparser2/node_modules
+      - packages/generator-joplin/node_modules
+      - packages/app-mobile/node_modules
+      - packages/renderer/node_modules
+      - packages/tools/node_modules
+      - packages/lib/node_modules
+      - node_modules
+      - .yarn/cache/
+      - .yarn/install-state.gz
     build:
       - pushd $$libvips$$
       - mkdir build
@@ -125,6 +108,7 @@ MaintainerNotes: |-
     * "g++" is needed for a dependency built by "npm install".
     * "scanignore" of "build.gradle" are for local Maven repositories, the React Native folder
       is for "react-native-0.66.1.aar", and the JSC Android folder for "android-jsc-intl-r241213.jar".
+    - we build libvips from source for the sharp library
 
 AutoUpdateMode: None
 UpdateCheckMode: Tags android-.*
