@@ -189,6 +189,26 @@ Builds:
       - ../libraries/humla/src/main/jni
     ndk: r21e
 
+  - versionName: 3.5.9-beta1
+    versionCode: 93
+    commit: 3.5.9-beta1
+    subdir: app
+    submodules: true
+    gradle:
+      - official
+    rm:
+      - libraries/humla/tools
+      - libraries/humla/libs/humla-spongycastle/core/src/test/data
+    prebuild: cp -r ../libraries/humla/gradle ../libraries/humla/libs/humla-spongycastle
+    build:
+      - export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+      - printf >../local.properties "sdk.dir=%s\nndk.dir=%s" "$$SDK$$" "$$NDK$$"
+      - cd ../libraries/humla/libs/humla-spongycastle
+      - gradle jar
+    buildjni:
+      - ../libraries/humla/src/main/jni
+    ndk: r22b
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags ^[^-]*$
 CurrentVersion: 3.5.8
