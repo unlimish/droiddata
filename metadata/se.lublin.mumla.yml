@@ -205,7 +205,6 @@ Builds:
       - libraries/humla/libs/humla-spongycastle/core/src/test/data
     prebuild: cp -r ../libraries/humla/gradle ../libraries/humla/libs/humla-spongycastle
     build:
-      - export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
       - printf >../local.properties "sdk.dir=%s\nndk.dir=%s" "$$SDK$$" "$$NDK$$"
       - cd ../libraries/humla/libs/humla-spongycastle
       - gradle jar
