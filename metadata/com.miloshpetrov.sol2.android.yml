@@ -8,28 +8,13 @@ SourceCode: https://github.com/MovingBlocks/DestinationSol
 IssueTracker: https://github.com/MovingBlocks/DestinationSol/issues
 
 AutoName: Destination Sol
-Summary: Pilot your ship in the seamless open world made of space, planets, and more.
-    Find new ships and equipment, find allies and beat all the enemies in this open
-    space shooter.
-Description: |
-    Destination Sol is a free-to-play hardcode space arcade/RPG. You start as a pilot of a small fighter ship on the edge of a star system, and you're free to explore the game world, land on planets, fight with enemies, upgrade your ship and equipment, hire mercenaries, mine asteroids, and more.
-
-    Key Features:
-    * Randomly generated open world, consisting of up to 9 star systems, planets, asteroid belts and mazes.
-    * Ability to seamlessly land of planets.
-    * 3 planet types.
-    * Enemies of many different types, ally fighters, traders and outposts.
-    * 6 ship types to pilot.
-    * Over 50 items to equip -- weapons, shields, armour, special abilities, and so on.
-
-    Free & open source. Also available on PC, Linux and Mac: https://store.steampowered.com/app/342980/
 
 RepoType: git
 Repo: https://github.com/MovingBlocks/DestSolAndroid
 
 Builds:
   - versionName: 2.0.0
-    versionCode: 10
+    versionCode: 11
     commit: a3f1804
     gradle:
       - yes
@@ -38,6 +23,7 @@ Builds:
       - MovingBlocks-gestalt@df875f0
       - MovingBlocks-org-reflections-fork@4fe6bd5
       - MovingBlocks-DestinationSol-engine@v2.0.0
+    forcevercode: true
     prebuild:
       - "printf 'rootProject.projectDir = file(\"engine_workspace\")\\n include \"\
         :android\"\\n project(\":android\\\").projectDir = file(\".\")\\n project(\"\
@@ -72,7 +58,7 @@ Builds:
         android.gradle)/g" engine_workspace/libs/gestalt/build.gradle
 
   - versionName: 2.1.0-SNAPSHOT
-    versionCode: 11
+    versionCode: 13
     disable: not anywhere near release yet but this is to make sure it builds at least
         under the current development branch.
     commit: develop
@@ -143,7 +129,10 @@ MaintainerNotes: |
     [app >= v2.1.0] Gestalt also depends on a fork of jsemver containing fixes and improvments to the original code.
     The forked jsemver can be found at https://github.com/AntiLaby/jsemver. Version 0.10.0 is used.
 
+    Version 2.0.0 was never officially released on Google Play and so the version code in the source tree is out-of-date.
+    A version code of 11 has been forced, since that is the one used for the upstream fastlane metadata when added.
+
 AutoUpdateMode: None
 UpdateCheckMode: Tags
 CurrentVersion: 2.0.0
-CurrentVersionCode: 10
+CurrentVersionCode: 11
