@@ -48,6 +48,8 @@ Builds:
       - sed -i 's/variant.javaCompileProvider.get()/variant.getJavaCompiler()/g' libs/gestalt/gestalt-android/build.gradle
       - sed -i 's/variant.assembleProvider.get()/variant.assemble/g' libs/gestalt/gestalt-android-testbed/build.gradle
       - sed -i 's/allowInsecureProtocol true//g' libs/gestalt/gestalt-android/build.gradle
+      - sed -i "s/dependencies {/dependencies { compileOnly 'org\.javassist:javassist:3\.20\.0-GA'/g"
+        libs/gestalt/gestalt-module/build.gradle
       - sed -i 's/ThreadLocal\.withInitial(Queues::newArrayDeque);/new ThreadLocal<Deque<Name>>()
         { @Override protected Deque<Name> initialValue() { return Queues\.newArrayDeque();
         } };/g' libs/gestalt/gestalt-asset-core/src/main/java/org/terasology/gestalt/assets/management/ContextManager.java
