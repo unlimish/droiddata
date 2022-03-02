@@ -1,0 +1,30 @@
+Categories:
+  - Multimedia
+  - Internet
+License: GPL-3.0-or-later
+AuthorName: Team LibreTube
+SourceCode: https://github.com/libre-tube/LibreTube
+IssueTracker: https://github.com/libre-tube/LibreTube/issues
+
+AutoName: LibreTube
+
+RepoType: git
+Repo: https://github.com/libre-tube/LibreTube
+
+Builds:
+  - versionName: 0.2.2
+    versionCode: 4
+    commit: v0.2.2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags .*[0-9]$
+UpdateCheckName: com.github.libretube
+CurrentVersion: 0.2.2
+CurrentVersionCode: 4
