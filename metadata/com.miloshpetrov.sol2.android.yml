@@ -50,6 +50,8 @@ Builds:
       - sed -i 's/allowInsecureProtocol true//g' libs/gestalt/gestalt-android/build.gradle
       - sed -i "s/dependencies {/dependencies { compileOnly 'org\.javassist:javassist:3\.20\.0-GA'/g"
         libs/gestalt/gestalt-module/build.gradle
+      - sed -i 's/implementation "com\.google\.guava:guava:\$guava_version"/api "com\.google\.guava:guava:\$guava_version"/g'
+        libs/gestalt/gestalt-module/build.gradle
       - sed -i 's/ThreadLocal\.withInitial(Queues::newArrayDeque);/new ThreadLocal<Deque<Name>>()
         { @Override protected Deque<Name> initialValue() { return Queues\.newArrayDeque();
         } };/g' libs/gestalt/gestalt-asset-core/src/main/java/org/terasology/gestalt/assets/management/ContextManager.java
