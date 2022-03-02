@@ -15,14 +15,18 @@ Repo: https://github.com/MovingBlocks/DestSolAndroid
 Builds:
   - versionName: 2.0.0
     versionCode: 11
-    commit: a3f1804
+    commit: 1b1c0db
+    patch:
+      - 2.0.0-android-backport.patch
     gradle:
       - yes
     output: build/outputs/apk/release/android-release-unsigned.apk
     srclibs:
       - MovingBlocks-gestalt@df875f0
+      - MovingBlocks-gestalt-android@c077a11
       - MovingBlocks-org-reflections-fork@4fe6bd5
       - MovingBlocks-DestinationSol-engine@v2.0.0
+    forceversion: true
     forcevercode: true
     prebuild:
       - "printf 'rootProject.projectDir = file(\"engine_workspace\")\\n include \"\
@@ -30,12 +34,6 @@ Builds:
         :android\").buildFileName = \"android.gradle\"\\n apply from: \"engine_workspace/settings.gradle\"\
         \\n' >> settings.gradle"
       - mv build.gradle android.gradle
-      - "sed -i \"s/, ext: 'aar'//g\" android.gradle"
-      - sed -i 's/file("libs\/armeabi\/")\.mkdirs();/doFirst { file("libs\/armeabi\/")\.mkdirs();/g'
-        android.gradle
-      - sed -i 's/include "\*\.so"/include "\*\.so"}/g' android.gradle
-      - echo "tasks.whenTaskAdded { packageTask -> if (packageTask.name.contains(\"package\"))
-        { packageTask.dependsOn 'copyAndroidNatives' } }" >> android.gradle
       - ln -s $$MovingBlocks-DestinationSol-engine$$ engine_workspace
       - ln -s engine_workspace/gradle gradle
       - pushd engine_workspace
@@ -43,8 +41,14 @@ Builds:
       - echo 'includeBuild("$rootDir/libs/reflections")' >> settings.gradle
       - mkdir libs
       - ln -s $$MovingBlocks-gestalt$$ libs/gestalt
+      - rm -rf libs/gestalt/gestalt-android
+      - ln -s $$MovingBlocks-gestalt-android$$ libs/gestalt/gestalt-android
       - sed -i 's/variant.javaCompileProvider.get()/variant.getJavaCompiler()/g' libs/gestalt/gestalt-android/build.gradle
       - sed -i 's/variant.assembleProvider.get()/variant.assemble/g' libs/gestalt/gestalt-android-testbed/build.gradle
+      - sed -i 's/allowInsecureProtocol true//g' libs/gestalt/gestalt-android/build.gradle
+      - sed -i 's/ThreadLocal\.withInitial(Queues::newArrayDeque);/new ThreadLocal<Deque<Name>>()
+        { @Override protected Deque<Name> initialValue() { return Queues\.newArrayDeque();
+        } };/g' libs/gestalt/gestalt-asset-core/src/main/java/org/terasology/gestalt/assets/management/ContextManager.java
       - ln -s $$MovingBlocks-org-reflections-fork$$ libs/reflections
       - pushd $$MovingBlocks-org-reflections-fork$$
       - gradle init --type pom
@@ -54,7 +58,9 @@ Builds:
       - popd
       - sed -i 's/maven {.*terasology\.org.*}//g' android.gradle engine_workspace/build.gradle
         engine_workspace/config/gradle/common.gradle engine_workspace/engine/build.gradle
-      - sed -i "s/.*com\.android\.tools\.build:gradle:.*/$(grep 'com\.android\.tools\.build:gradle:.*'
+      - sed -i 's/maven {.*heisluft\.de.*}//g' android.gradle
+      - sed -i 's/implementation "com.github.zafarkhaja:java-semver:.*//g' android.gradle
+      - sed -i "s/.*com\.android\.tools\.build:gradle:.*/$(grep 'com\.android\.tools\.build:gradle:3.*'
         android.gradle)/g" engine_workspace/libs/gestalt/build.gradle
 
   - versionName: 2.1.0-SNAPSHOT
@@ -129,8 +135,9 @@ MaintainerNotes: |
     [app >= v2.1.0] Gestalt also depends on a fork of jsemver containing fixes and improvments to the original code.
     The forked jsemver can be found at https://github.com/AntiLaby/jsemver. Version 0.10.0 is used.
 
-    Version 2.0.0 was never officially released on Google Play and so the version code in the source tree is out-of-date.
-    A version code of 11 has been forced, since that is the one used for the upstream fastlane metadata when added.
+    For 2.0.0, a later version of the DestSolAndroid repository is used than was used for the original release.
+    A minor patch is applied to make the newer DestSolAndroid version compatible with Destination Sol 2.0.0 again.
+    Because the newer commit was intended for a later version, the version and version code need to be forced here.
 
 AutoUpdateMode: None
 UpdateCheckMode: Tags v\d+\.\d+\.\d+$
