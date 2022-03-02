@@ -39,6 +39,8 @@ Builds:
       - ln -s $$MovingBlocks-DestinationSol-engine$$ engine_workspace
       - ln -s engine_workspace/gradle gradle
       - pushd engine_workspace
+      - sed -i 's/^dependencies {/dependencies { compile("org\.slf4j:slf4j-api:1\.7\.25");
+        compile("com\.google\.code\.gson:gson:2\.6\.2");/g' engine/build.gradle
       - echo 'includeBuild("$rootDir/libs/gestalt")' >> settings.gradle
       - echo 'includeBuild("$rootDir/libs/reflections")' >> settings.gradle
       - mkdir libs
