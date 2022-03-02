@@ -1192,8 +1192,10 @@ Builds:
     output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
     rm:
       - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
     scandelete:
       - app/src/androidTest
+      - build-cache/
     ndk: r21
 
 MaintainerNotes: Cannot use AUM/UCM because version code and version name are dynamic.
