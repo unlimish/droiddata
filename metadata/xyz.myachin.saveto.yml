@@ -4,7 +4,7 @@ License: CDDL-1.0
 SourceCode: https://notabug.org/Umnik/SaveTo
 IssueTracker: https://notabug.org/Umnik/SaveTo/issues
 
-AutoName: Save to…
+AutoName: Save to… [NO WAR!!!]
 
 RepoType: git
 Repo: https://notabug.org/Umnik/SaveTo.git
@@ -120,7 +120,51 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.15.4
+    versionCode: 19
+    commit: 895d2c08763b4fba55cf3690dce2f212a91409d9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.15.6
+    versionCode: 21
+    commit: a2691b433fd9f56eb52966e58592bef61e801095
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.15.7
+    versionCode: 22
+    commit: 3d92e4cc2d98dc0598f82af3c67058a83bd13ba9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.15.7 NO WAR!!!
+    versionCode: 23
+    commit: ff592f638fb553f018ccca3536a5808a3ef374b8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.15.3
-CurrentVersionCode: 18
+CurrentVersion: 1.15.7 NO WAR!!!
+CurrentVersionCode: 23

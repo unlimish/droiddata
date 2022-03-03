@@ -647,9 +647,141 @@ Builds:
       - ./run fdroid build
     ndk: r23b
 
+  - versionName: 0.7-rc05
+    versionCode: 765
+    commit: a84b9ddcba9fba4d008b4473baa15fb31453898f
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.7-rc06
+    versionCode: 767
+    commit: a5d5e1647791dde25943445643c9c8703f39fbdf
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.7-rc07
+    versionCode: 771
+    commit: a13465535c4a0c500778100715be93af9a86c914
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.7-rc08
+    versionCode: 773
+    commit: 406b497813405972029c7888ca8d5c47b4fa5768
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.7-rc09
+    versionCode: 775
+    commit: 551e8402828e8862ef2cdf9e0dae77d35eb3d195
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.7-rc10
+    versionCode: 777
+    commit: 9af61f3ceb1d12445966d13e428831aa5eea640e
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^\d.*
-VercodeOperation: '%c * 5'
+VercodeOperation: 459 + %c * 2
 UpdateCheckData: sager.properties|VERSION_CODE=(\d+)||
-CurrentVersion: 0.7-rc04
-CurrentVersionCode: 760
+CurrentVersion: 0.7-rc10
+CurrentVersionCode: 777

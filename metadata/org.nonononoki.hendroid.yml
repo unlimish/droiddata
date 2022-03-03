@@ -1,6 +1,7 @@
 AntiFeatures:
   - Ads
   - NonFreeNet
+  - NSFW
 Categories:
   - Reading
 License: Apache-2.0
@@ -524,7 +525,35 @@ Builds:
       - sed -i -e '/osborn/d' ../build.gradle
       - sed -i -e '/fabric/d; /firebase/d;' build.gradle
 
+  - versionName: 1.15.20
+    versionCode: 191
+    commit: af4aa77854d49df0f4a8ffeb0b529848660bc15b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
+  - versionName: 1.15.21
+    versionCode: 192
+    commit: a71396d50db5ae6a33e683e4e144c251a4e6e76f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/osborn/d' ../build.gradle
+      - sed -i -e '/fabric/d; /firebase/d;' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.15.18
-CurrentVersionCode: 190
+CurrentVersion: 1.15.21
+CurrentVersionCode: 192

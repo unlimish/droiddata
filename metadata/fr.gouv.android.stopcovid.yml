@@ -629,6 +629,146 @@ Builds:
     scanignore:
       - stopcovid/src/main/assets/CertList-Plus/*.pb.gz
 
+  - versionName: 4.2.0
+    versionCode: 468
+    commit: bc378e9f91312e7488bbbff546cbc2dc46f20084
+    subdir: stopcovid
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - coreui/src/main/res/font/marianne_*.otf
+      - coreui/src/main/res/font/marianne.xml
+    prebuild:
+      - sed -i -e '/fontFamily.*marianne/d' ../coreui/src/main/res/values/styles_text.xml
+        ../coreui/src/main/res/values/styles.xml ../stopcovid/src/main/res/layout/dcc_widget_no_fav_widget.xml
+      - sed -i -e 's/<lint>/<lint>\n    <issue id="NullSafeMutableLiveData" severity="warning"
+        \/>/g' ../lint.xml
+
+  - versionName: 4.2.1
+    versionCode: 474
+    commit: 62bffe1a5fa4074413c73503e4971dbe652cd25a
+    subdir: stopcovid
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - coreui/src/main/res/font/marianne_*.otf
+      - coreui/src/main/res/font/marianne.xml
+    prebuild:
+      - sed -i -e '/fontFamily.*marianne/d' ../coreui/src/main/res/values/styles_text.xml
+        ../coreui/src/main/res/values/styles.xml ../stopcovid/src/main/res/layout/dcc_widget_no_fav_widget.xml
+      - sed -i -e 's/<lint>/<lint>\n    <issue id="NullSafeMutableLiveData" severity="warning"
+        \/>/g' ../lint.xml
+
+  - versionName: 4.2.3
+    versionCode: 482
+    commit: ed25ca502f9f37f5bab307401f3d5941856e17dc
+    subdir: stopcovid
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - coreui/src/main/res/font/marianne_*.otf
+      - coreui/src/main/res/font/marianne.xml
+    prebuild:
+      - sed -i -e '/fontFamily.*marianne/d' ../coreui/src/main/res/values/styles_text.xml
+        ../coreui/src/main/res/values/styles.xml ../stopcovid/src/main/res/layout/dcc_widget_no_fav_widget.xml
+      - sed -i -e 's/<lint>/<lint>\n    <issue id="NullSafeMutableLiveData" severity="warning"
+        \/>/g' ../lint.xml
+
+  - versionName: 4.2.4
+    versionCode: 486
+    commit: 2f605d806dd9987916c16af10600af5b371465dc
+    subdir: stopcovid
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - coreui/src/main/res/font/marianne_*.otf
+      - coreui/src/main/res/font/marianne.xml
+    prebuild:
+      - sed -i -e '/fontFamily.*marianne/d' ../coreui/src/main/res/values/styles_text.xml
+        ../coreui/src/main/res/values/styles.xml ../stopcovid/src/main/res/layout/dcc_widget_no_fav_widget.xml
+      - sed -i -e 's/<lint>/<lint>\n    <issue id="NullSafeMutableLiveData" severity="warning"
+        \/>/g' ../lint.xml
+
+  - versionName: 4.2.5
+    versionCode: 490
+    commit: 71ff1b1948209a7526d23cdeb425fba5c1757310
+    subdir: stopcovid
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - coreui/src/main/res/font/marianne_*.otf
+      - coreui/src/main/res/font/marianne.xml
+    prebuild:
+      - sed -i -e '/fontFamily.*marianne/d' ../coreui/src/main/res/values/styles_text.xml
+        ../coreui/src/main/res/values/styles.xml ../stopcovid/src/main/res/layout/dcc_widget_no_fav_widget.xml
+      - sed -i -e 's/<lint>/<lint>\n    <issue id="NullSafeMutableLiveData" severity="warning"
+        \/>/g' ../lint.xml
+
+  - versionName: 4.2.6
+    versionCode: 492
+    commit: a36bd3debabaf66747d33d9465737672793810b6
+    subdir: stopcovid
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - coreui/src/main/res/font/marianne_*.otf
+      - coreui/src/main/res/font/marianne.xml
+    prebuild:
+      - sed -i -e '/fontFamily.*marianne/d' ../coreui/src/main/res/values/styles_text.xml
+        ../coreui/src/main/res/values/styles.xml ../stopcovid/src/main/res/layout/dcc_widget_no_fav_widget.xml
+      - sed -i -e 's/<lint>/<lint>\n    <issue id="NullSafeMutableLiveData" severity="warning"
+        \/>/g' ../lint.xml
+
+  - versionName: 4.2.7
+    versionCode: 494
+    commit: b2d4ddc73965c9f8016128ff401d91e2689faafc
+    subdir: stopcovid
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - coreui/src/main/res/font/marianne_*.otf
+      - coreui/src/main/res/font/marianne.xml
+    prebuild:
+      - sed -i -e '/fontFamily.*marianne/d' ../coreui/src/main/res/values/styles_text.xml
+        ../coreui/src/main/res/values/styles.xml ../stopcovid/src/main/res/layout/dcc_widget_no_fav_widget.xml
+      - sed -i -e 's/<lint>/<lint>\n    <issue id="NullSafeMutableLiveData" severity="warning"
+        \/>/g' ../lint.xml
+
 MaintainerNotes: |-
     * Tracking – uses custom Analytics
     * NonFreeNet – uses proprietary backend server
@@ -636,5 +776,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^tousanticovid_prod_[0-9.]+#[0-9]+$
-CurrentVersion: 4.1.3
-CurrentVersionCode: 458
+CurrentVersion: 4.2.7
+CurrentVersionCode: 494

@@ -4,17 +4,17 @@ Categories:
   - Internet
 License: EUPL-1.2
 AuthorName: Beowulf
-AuthorEmail: incoming+beowuif-weather-20598585-issue-@incoming.gitlab.com
-WebSite: https://gitlab.com/BeowuIf/weather/-/wikis/home
-SourceCode: https://gitlab.com/BeowuIf/weather
-IssueTracker: https://gitlab.com/BeowuIf/weather/issues
-Translation: https://gitlab.com/BeowuIf/weather/-/wikis/Translation
-Changelog: https://gitlab.com/BeowuIf/weather/-/blob/HEAD/CHANGELOG
+AuthorEmail: weather@beocode.eu
+WebSite: https://codeberg.org/Beowulf/Weather/wiki
+SourceCode: https://codeberg.org/Beowulf/Weather
+IssueTracker: https://codeberg.org/Beowulf/Weather/issues
+Translation: https://poeditor.com/join/project?hash=WhLrkxFJUt
+Changelog: https://codeberg.org/Beowulf/Weather/raw/branch/main/CHANGELOG
 
 AutoName: Weather
 
 RepoType: git
-Repo: https://gitlab.com/BeowuIf/weather.git
+Repo: https://codeberg.org/Beowulf/Weather.git
 
 Builds:
   - versionName: '2.01'
@@ -202,7 +202,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 3.15-pre1
+    versionCode: 47
+    commit: 9d273f8c7a3b073fc06baa958533b762a7d4e94b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '3.14'
-CurrentVersionCode: 46
+CurrentVersion: 3.15-pre1
+CurrentVersionCode: 47

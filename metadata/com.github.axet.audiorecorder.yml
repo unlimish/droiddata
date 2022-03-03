@@ -919,7 +919,25 @@ Builds:
       - yes
     prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
 
+  - versionName: 3.5.3
+    versionCode: 359
+    commit: e22f7894d3b6d8cc4affe8356ec34f48a47147c7
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+    ndk: r16b
+
+  - versionName: 3.5.4
+    versionCode: 360
+    commit: 07e51485ac0fa00fe5fd7ec13ab9775cb52f33b3
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+    ndk: r16b
+
 AutoUpdateMode: Version audiorecorder-%v
 UpdateCheckMode: Tags
-CurrentVersion: 3.4.5
-CurrentVersionCode: 355
+CurrentVersion: 3.5.4
+CurrentVersionCode: 360
