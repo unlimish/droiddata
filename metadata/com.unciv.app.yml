@@ -2646,9 +2646,73 @@ Builds:
     prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
         'platforms;android-30' 'build-tools;30.0.3' > /dev/null
 
+  - versionName: 3.19.9
+    versionCode: 679
+    commit: 9d0db40bbfb9b59c105c4280d82b63081938dac2
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+
+  - versionName: 3.19.10
+    versionCode: 680
+    commit: 99e913ba24c946221a0e7923411c3edabd4265be
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+
+  - versionName: 3.19.12
+    versionCode: 682
+    commit: db1304ee3568341a7fb3265e6843c64f1f499897
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 3.19.13
+    versionCode: 683
+    commit: 00c5ecb6a690585bca3d7682ac3540ffd16dd9e6
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: buildSrc/src/main/kotlin/BuildConfig.kt|appCodeNumber = (.*)|.|appVersion
     = "(.*)"
-CurrentVersion: 3.19.8
-CurrentVersionCode: 678
+CurrentVersion: 3.19.13
+CurrentVersionCode: 683

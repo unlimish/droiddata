@@ -1,0 +1,41 @@
+Categories:
+  - Science & Education
+License: GPL-3.0-only
+AuthorName: MLKYH
+AuthorEmail: mlkyh@disroot.org
+SourceCode: https://gitlab.com/tribology/hertz
+IssueTracker: https://gitlab.com/tribology/hertz/issues
+Changelog: https://gitlab.com/tribology/hertz/releases
+
+AutoName: Hertz contact
+
+RepoType: git
+Repo: https://gitlab.com/tribology/hertz
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: '1.0'
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '2.0'
+    versionCode: 2
+    commit: 3317ab983970c15af8132e97672d374dc7e68cc7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: '2.0'
+CurrentVersionCode: 2
