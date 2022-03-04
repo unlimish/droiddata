@@ -39,7 +39,7 @@ Builds:
     srclibs:
       - react-native-reanimated@2.2.3
     prebuild:
-     - sed -i -e "/swiperefreshlayout/a implementation(project(':react-native-camera'))
+      - sed -i -e "/swiperefreshlayout/a implementation(project(':react-native-camera'))
         { exclude group\x3a 'com.google.firebase'\\ exclude group\x3a 'com.google.android.gms'\\
         }" build.gradle
       - sed -e -i '/play-services/,+4d' ../../node_modules/react-native-camera/android/build.gradle
