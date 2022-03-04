@@ -42,7 +42,6 @@ Builds:
       - sed -i -e "/swiperefreshlayout/a implementation(project(':react-native-camera'))
         { exclude group\x3a 'com.google.firebase'\\ exclude group\x3a 'com.google.android.gms'\\
         }" build.gradle
-      - sed -e -i '/play-services/,+4d' ../../node_modules/react-native-camera/android/build.gradle
       - sed -E -i '/installreferrer/,+11d' ../../node_modules/react-native-device-info/android/build.gradle
       - cd $$react-native-reanimated$$
       - yarn install
