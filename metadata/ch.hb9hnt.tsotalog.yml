@@ -1,0 +1,39 @@
+Categories:
+  - Science & Education
+License: MIT
+SourceCode: https://codeberg.org/hb9hnt/tSotaLog 
+IssueTracker: https://codeberg.org/hb9hnt/tSotaLog/issues 
+Changelog: https://codeberg.org/hb9hnt/tSotaLog/releases 
+
+RepoType: git
+Repo: https://codeberg.org/hb9hnt/tSotaLog 
+
+Builds:
+  - versionName: 0.1.0
+    versionCode: 102
+    commit: v0.1.0
+    sudo:
+      - cat /etc/apt/sources.list
+      - apt-get -y install -t stretch-backports init-system-helpers
+      - apt-get -y install gpg-agent
+      - apt-get -y install -t stretch-backports g++
+      - apt-get -y install libvips-dev
+      - curl -sL https://deb.nodesource.com/setup_15.x | bash -
+      - apt install -y nodejs
+      - npm i npm@latest -g
+      - npm install -g @ionic/cli cordova
+      - npm install -g cordova-res
+    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    build:
+      - npm install
+      - ionic cordova platform remove android
+      - ionic cordova resources --cordova-res
+      - ionic cordova platform add android
+      - ionic cordova resources android --force
+      - ionic cordova build --release android
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: config.xml|android-versionCode="(\d+)"|.|version="(.*)"
+CurrentVersion: 0.1.0
+CurrentVersionCode: 102
