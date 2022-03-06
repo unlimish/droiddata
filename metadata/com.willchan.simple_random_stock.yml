@@ -1,0 +1,30 @@
+Categories:
+  - Money
+License: MIT
+AuthorName: William Chan
+AuthorEmail: WillWcchan@gmail.com
+SourceCode: https://github.com/WillWcchan/Simple-Random-Stock
+IssueTracker: https://github.com/WillWcchan/Simple-Random-Stock/issues
+Changelog: https://github.com/WillWcchan/Simple-Random-Stock/releases
+
+AutoName: Simple Random Stock
+
+RepoType: git
+Repo: https://github.com/WillWcchan/Simple-Random-Stock
+
+Builds:
+  - versionName: '1.1'
+    versionCode: 3
+    commit: b5957cc0335f42085342db37d993f0e690113691
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: None
+UpdateCheckMode: Tags
+CurrentVersion: '1.1'
+CurrentVersionCode: 3
