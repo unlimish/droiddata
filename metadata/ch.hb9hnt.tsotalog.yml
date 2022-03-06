@@ -24,9 +24,8 @@ Builds:
       - npm install -g @ionic/cli cordova
       - npm install -g cordova-res
     output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
-    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/ $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3' > /dev/null
     build:
-      - export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
       - npm install
       - ionic cordova platform remove android
       - ionic cordova resources --cordova-res
