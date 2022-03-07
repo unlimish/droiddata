@@ -16,7 +16,7 @@ Repo: https://github.com/2bllw8/anemo
 Builds:
   - versionName: '2.0'
     versionCode: 8
-    commit: v2.0
+    commit: 2f6c53a706537c02aff8822a2ab214e9171e5ef4
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -24,10 +24,11 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - yes
-    prebuild: sed -i -e '43,46d' ../build.gradle
+    prebuild:
+      - sed -i -e '/keyStoreFile/,+3d' ../build.gradle
+      - sed -i -e '/keyStoreFile/,+1d' build.gradle
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-UpdateCheckData: build.gradle|versionCode = (.*)|.|versionName = '(.*)'
 CurrentVersion: '2.0'
 CurrentVersionCode: 8
