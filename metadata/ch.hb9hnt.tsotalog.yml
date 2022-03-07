@@ -11,7 +11,7 @@ Repo: https://codeberg.org/hb9hnt/tSotaLog
 Builds:
   - versionName: 0.1.0
     versionCode: 1
-    commit: 71474f3f7047eecf801d4092df3c3fef70aa6269
+    commit: v0.1.0
     sudo:
       - cat /etc/apt/sources.list
       - apt-get -y install -t stretch-backports init-system-helpers
@@ -23,7 +23,7 @@ Builds:
       - npm i npm@latest -g
       - npm install -g @ionic/cli cordova
       - npm install -g cordova-res
-    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    output: platforms/android/app/build/outputs/bundle/release/app-release.aab
     prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
         > /dev/null
     build:
