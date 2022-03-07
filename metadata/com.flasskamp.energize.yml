@@ -2,7 +2,7 @@ Categories:
   - Sports & Health
   - Science & Education
   - Internet
-License: GPLv3
+License: GPL-3.0-only
 AuthorName: Christian Flaßkamp
 SourceCode: https://codeberg.org/epinez/Energize/
 IssueTracker: https://codeberg.org/epinez/Energize/issues
@@ -14,21 +14,20 @@ RepoType: git
 Repo: https://codeberg.org/epinez/Energize.git
 
 Builds:
-  - versionName: '0.1.3'
+  - versionName: 0.1.3
     versionCode: 8
     commit: v0.1.3
-    output: build/app/outputs/apk/release/app-release.apk
     sudo:
       - apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+    output: build/app/outputs/apk/release/app-release.apk
     srclibs:
       - flutter@2.8.1
     rm:
       - ios
-    prebuild:
-      - echo 'android.applicationVariants.all { variant -> variant.outputs.all { output
-        -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
+        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     build:
       - export PATH=$$flutter$$/bin:$PATH
       - flutter config --no-analytics
@@ -38,5 +37,5 @@ Builds:
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '0.1.3'
+CurrentVersion: 0.1.3
 CurrentVersionCode: 8
