@@ -1,0 +1,29 @@
+Categories:
+  - Internet
+License: GPL-3.0-only
+AuthorName: Timur
+AuthorEmail: timur@timur.mobi
+AuthorWebSite: https://timur.mobi/webcall/android
+SourceCode: https://github.com/mehrvarz/webrtc-check
+IssueTracker: https://github.com/mehrvarz/webrtc-check/issues
+
+AutoName: WebRTC-Check
+
+RepoType: git
+Repo: https://github.com/mehrvarz/webrtc-check.git
+
+Builds:
+  - versionName: 1.0.1
+    versionCode: 1
+    commit: v1.0.1
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.1
+CurrentVersionCode: 1
