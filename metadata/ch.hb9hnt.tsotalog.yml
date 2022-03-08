@@ -13,14 +13,16 @@ Builds:
     versionCode: 1
     commit: v0.1.0
     sudo:
-      - cat /etc/apt/sources.list
-      - apt-get -y install -t stretch-backports init-system-helpers
-      - apt-get -y install gpg-agent
-      - apt-get -y install -t stretch-backports g++
-      - apt-get -y install libvips-dev
-      - curl -sL https://deb.nodesource.com/setup_14.x | bash -
-      - apt install -y nodejs
-      - npm i npm@latest -g
+      - apt-get update || apt-get update
+      - apt-get -y install -t stretch-backports g++ init-system-helpers
+      - apt-get -y install gpg-agent libvips-dev
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.18.2/node-v14.18.2-linux-x64.tar.xz
+      - echo "dae683f911fe5af11f1dc9d7746d80fccdb1e7b4bef31a570f5daffadd897c42 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.18.2-linux-x64/. /usr/local/
+      - npm i -g npm@latest
       - npm install -g @ionic/cli cordova
       - npm install -g cordova-res
     output: platforms/android/app/build/outputs/bundle/release/app-release.aab
