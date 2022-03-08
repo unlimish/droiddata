@@ -69,14 +69,14 @@ Builds:
       - node_modules/
     build:
       - pushd $$react-native-reanimated$$
-      - FOR_HERMES=True gradle :assembleRelease
-      - popd
-      - mv $$react-native-reanimated$$/build/outputs/aar/android-release.aar ../../node_modules/react-native-reanimated/android/react-native-reanimated-63-hermes.aar
-      - pushd $$react-native-reanimated$$
-      - gradle clean
       - gradle assembleRelease
       - popd
       - mv $$react-native-reanimated$$/build/outputs/aar/android-release.aar ../../node_modules/react-native-reanimated/android/react-native-reanimated-63-jsc.aar
+      - pushd $$react-native-reanimated$$
+      - gradle clean
+      - FOR_HERMES=True gradle :assembleRelease
+      - popd
+      - mv $$react-native-reanimated$$/build/outputs/aar/android-release.aar ../../node_modules/react-native-reanimated/android/react-native-reanimated-63-hermes.aar
     ndk: r21e
 
 AutoUpdateMode: Version v%v
