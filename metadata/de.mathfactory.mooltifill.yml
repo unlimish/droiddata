@@ -15,6 +15,10 @@ Builds:
     versionCode: 1
     commit: v1.0
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - mathfactory
 
