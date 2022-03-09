@@ -37,7 +37,7 @@ Builds:
     gradle:
       - yes
     srclibs:
-      - react-native-reanimated@2.2.0
+      - react-native-reanimated@2.2.3
     prebuild:
       - sed -E -i '/installreferrer/,+11d' ../../node_modules/react-native-device-info/android/build.gradle
       - cd $$react-native-reanimated$$
@@ -73,7 +73,6 @@ Builds:
       - popd
       - mv $$react-native-reanimated$$/build/outputs/aar/android-release.aar ../../node_modules/react-native-reanimated/android/react-native-reanimated-63-hermes.aar
       - pushd $$react-native-reanimated$$
-      - export ANDROID_NDK=$$NDK$$/../21.4.7075529
       - gradle assembleRelease
       - popd
       - mv $$react-native-reanimated$$/build/outputs/aar/android-release.aar ../../node_modules/react-native-reanimated/android/react-native-reanimated-63-jsc.aar
