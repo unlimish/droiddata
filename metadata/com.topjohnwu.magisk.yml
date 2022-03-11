@@ -9,13 +9,14 @@ IssueTracker: https://github.com/topjohnwu/Magisk/issues
 Changelog: https://topjohnwu.github.io/Magisk/changes.html
 Donate: https://paypal.me/magiskdonate
 
+AutoName: Magisk
 Description: |-
-    Magisk is a suite of open source tools for customizing Android, supporting devices higher than Android 4.2. It covers fundamental parts of Android customization: root, boot scripts, SELinux patches, AVB2.0 / dm-verity / forceencrypt removals etc.
-
-    Here are some feature highlights:
-    * MagiskSU: Provide root access to your device
+    Magisk is a suite of open source software for customizing Android, supporting devices higher than Android 5.0.
+    Some highlight features:
+    * MagiskSU: Provide root access for applications
     * Magisk Modules: Modify read-only partitions by installing modules
-    * MagiskHide: Hide Magisk from root detections / system integrity checks
+    * MagiskBoot: The most complete tool for unpacking and repacking Android boot images
+    * Zygisk: Run code in every Android applications' processes
 
 RequiresRoot: 'yes'
 
@@ -203,8 +204,6 @@ Builds:
     srclibs:
       - cpython@v3.9.10
       - vboot@release-R91-13904.B
-    rm:
-      - native/jni/utils/compat/compat.cpp
     prebuild:
       - echo -e 'version=$$VERSION$$' > ./config.prop
       - sed -i -e '/buildTypes/,+11d' -e 's/ndkPath.*/ndkPath = "${System.getenv("ANDROID_NDK_HOME")}"/'
