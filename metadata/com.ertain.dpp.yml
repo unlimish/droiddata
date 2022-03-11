@@ -18,11 +18,11 @@ Builds:
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y g++
+      - dpkg-reconfigure locales
     output: output.apk
     srclibs:
       - Godot@3.3.3-stable
     prebuild:
-      - dpkg-reconfigure locales
       - mkdir game
       - bash -O extglob -c "mv !(game) game"
       - cp -R $$Godot$$ godot
