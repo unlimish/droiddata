@@ -212,6 +212,7 @@ Builds:
       - sed -i -e '/android.ndkPath/d' -e '/ndk.dir/d' ./local.properties
       - sed -i -e "s/op.join(ndk_root, 'magisk')/os.environ['ANDROID_NDK_HOME']/"
         ./build.py
+      - sed -i -e '/compat.cpp/d' native/jni/utils/Android.mk
       - sed -i -e 's/Key.CHECK_UPDATES, true/Key.CHECK_UPDATES, false/' ./app/src/main/java/com/topjohnwu/magisk/core/Config.kt
     scanignore:
       - app/shared/src/main/java/com/topjohnwu/magisk/utils/DynamicClassLoader.java
