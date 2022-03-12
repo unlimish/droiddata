@@ -395,12 +395,10 @@ Builds:
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y -t testing nasm
-      - apt-get install -y ninja-build maven build-essential
-      - apt-get install -y openjdk-8-jdk-headless
+      - apt-get install -y ninja-build build-essential
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
-      - apt-get install -y python3 python3-pip python3-setuptools python3-wheel
-      - apt-get install -y file git wget curl unzip pkg-config
+      - apt-get install -y python3-wheel wget
       - pip3 install meson==0.53.2
     gradle:
       - noamazon
@@ -412,7 +410,6 @@ Builds:
       - MediaLib/libs/*jar
       - native/opus-android-builder/lib
       - native/openssl-android-builder/dist-*
-    prebuild: rm -f FileCoreLibrary/libs/*jar
     ndk: r23b
     gradleprops:
       - universal
@@ -426,5 +423,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version v%v_c%c
 UpdateCheckMode: Tags
-CurrentVersion: 6.0.49
-CurrentVersionCode: 600049
+CurrentVersion: 6.0.52
+CurrentVersionCode: 600052
