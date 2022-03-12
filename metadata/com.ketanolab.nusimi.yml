@@ -6,8 +6,10 @@ License: GPL-3.0-only
 WebSite: http://ketanolab.com
 SourceCode: https://github.com/KetanoLab/Nusimi-android/
 IssueTracker: https://github.com/KetanoLab/Nusimi-android/issues
-Changelog: https://github.com/KetanoLab/Nusimi-android/blob/master/CHANGELOG.md
+Changelog: https://github.com/KetanoLab/Nusimi-android/blob/HEAD/CHANGELOG.md
 Bitcoin: 16rVdKggFrREa8CgcPbz9E4JvMVysAgSna
+
+AutoName: NuSimi
 
 RepoType: git
 Repo: https://github.com/KetanoLab/Nusimi-android.git
@@ -17,6 +19,10 @@ Builds:
     versionCode: 6
     commit: 1.0.0.1
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
