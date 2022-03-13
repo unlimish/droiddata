@@ -1618,10 +1618,16 @@ Builds:
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
-      - apt-get install -y swig
       - apt-get install -y -t stretch-backports-sloppy libarchive13
       - apt-get install -y -t stretch-backports cmake
       - update-alternatives --auto java
+      - pushd build/srclib/swig
+      - ./configure
+      - make -j`nproc`
+      - make install
+      - popd
+    srclibs:
+      - swig@v4.0.2
     gradle:
       - noPush
     rm:
