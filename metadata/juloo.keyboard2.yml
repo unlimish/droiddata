@@ -89,11 +89,8 @@ Builds:
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     output: unsigned.apk
-    prebuild:
-      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'platforms;android-30'
-        'build-tools;31.0.0' 'build-tools;30.0.3' > /dev/null
-      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
-      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' > /dev/null
     build:
       - make _build/juloo.keyboard2.unsigned-apk
       - mv _build/juloo.keyboard2.unsigned-apk unsigned.apk
@@ -106,18 +103,11 @@ Builds:
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     output: unsigned.apk
-    prebuild:
-      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'platforms;android-30'
-        'build-tools;31.0.0' 'build-tools;30.0.3' > /dev/null
-      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
-      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' > /dev/null
     build:
       - make _build/juloo.keyboard2.unsigned-apk
       - mv _build/juloo.keyboard2.unsigned-apk unsigned.apk
-
-MaintainerNotes: |-
-    Requires Android Build Tools <= 30.0.3. The build script uses 'dx' that
-    seems to be gone in 31.0.0.
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
