@@ -49,7 +49,7 @@ Builds:
       - gradle generateGodotTemplates
       - popd
       - mkdir -p ../fake_user_home/.local/share/godot/templates/3.3.3.stable/
-      - echo "3.3.3.stable" > ../fake_user_home/.local/share/godot/templates/3.3.3.stable/version.txt
+      - echo "3.3.3.stable" | tee ../fake_user_home/.local/share/godot/templates/3.3.3.stable/version.txt
       - cp ./bin/android_release.apk ../fake_user_home/.local/share/godot/templates/3.3.3.stable/
       - cp ./bin/android_debug.apk ../fake_user_home/.local/share/godot/templates/3.3.3.stable/
       - cp ./bin/android_source.zip ../fake_user_home/.local/share/godot/templates/3.3.3.stable/
