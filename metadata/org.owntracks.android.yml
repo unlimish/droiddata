@@ -17,14 +17,15 @@ Builds:
   - versionName: 2.4.7
     versionCode: 24700
     commit: v2.4.7
-    subdir: project
+    subdir: project/app
     sudo:
-      - apt-get update
+      - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
       - oss
-    output: app/build/outputs/apk/oss/release/app-oss-release-unsigned.apk
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
+CurrentVersion: 2.4.7
+CurrentVersionCode: 24700
