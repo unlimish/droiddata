@@ -26,6 +26,7 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - yes
+    prebuild: sed -i -e '/splits/,+8d' build.gradle
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags .*[0-9]$
