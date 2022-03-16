@@ -213,7 +213,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '3.15'
+    versionCode: 48
+    commit: 3288b9a37b667653c723588a173eba9faa6c455b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.16-pre1
+    versionCode: 49
+    commit: 940a3b7c6177fb96ffdbefafbfb37c9e961e9921
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: 3.15-pre1
-CurrentVersionCode: 47
+UpdateCheckMode: Tags ^[0-9\.]+$
+CurrentVersion: '3.15'
+CurrentVersionCode: 48

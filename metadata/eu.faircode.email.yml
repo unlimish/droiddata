@@ -6276,8 +6276,72 @@ Builds:
       - app/lib
     ndk: r23b
 
+  - versionName: '1.1853'
+    versionCode: 1853
+    commit: 1e3be7ed36c5226c4c77d07eef46036d600de167
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r23b
+
+  - versionName: '1.1854'
+    versionCode: 1854
+    commit: cb9702767c541e898854bdcb48cdcda9eb76d45d
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r23b
+
+  - versionName: '1.1855'
+    versionCode: 1855
+    commit: 83880b315f554653848f9f1c3fc9771e545c89af
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r23b
+
+  - versionName: '1.1856'
+    versionCode: 1856
+    commit: 59d7db8a3be8b2b2ce1575822ee3228b00b5ab94
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r23b
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: app/build.gradle|getVersionCode.*return (\d+)||
-CurrentVersion: '1.1851'
-CurrentVersionCode: 1851
+CurrentVersion: '1.1856'
+CurrentVersionCode: 1856

@@ -2710,9 +2710,77 @@ Builds:
     scandelete:
       - site/sitemap.xml.gz
 
+  - versionName: 3.19.14
+    versionCode: 684
+    commit: 03aa489dcaf6847a65844608f8a86a3f6da4c8a9
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 3.19.15
+    versionCode: 686
+    commit: eaf5e453baddb767704656a0dbff7cc4ca8300f0
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 3.19.16
+    versionCode: 687
+    commit: f73916ac3b785a7c999d6859f26716281dbc9cd6
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 3.19.17
+    versionCode: 688
+    commit: f66930ed68c7b4666a7c5e9e4f1d5f6030c7419c
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: buildSrc/src/main/kotlin/BuildConfig.kt|appCodeNumber = (.*)|.|appVersion
     = "(.*)"
-CurrentVersion: 3.19.13
-CurrentVersionCode: 683
+CurrentVersion: 3.19.17
+CurrentVersionCode: 688
