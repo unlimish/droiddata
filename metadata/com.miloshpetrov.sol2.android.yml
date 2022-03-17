@@ -38,15 +38,16 @@ Builds:
       - ln -s $$MovingBlocks-DestinationSol-engine$$ engine_workspace
       - ln -s engine_workspace/gradle gradle
       - pushd engine_workspace
-      - sed -i '/^dependencies {/a compile("org.slf4j:slf4j-api:1.7.25");
-        compile("com.google.code.gson:gson:2.6.2");' engine/build.gradle
+      - sed -i '/^dependencies {/a compile("org.slf4j:slf4j-api:1.7.25"); compile("com.google.code.gson:gson:2.6.2");'
+        engine/build.gradle
       - echo 'includeBuild("$rootDir/libs/gestalt")' >> settings.gradle
       - echo 'includeBuild("$rootDir/libs/reflections")' >> settings.gradle
       - mkdir libs
       - ln -s $$MovingBlocks-gestalt$$ libs/gestalt
       - rm -rf libs/gestalt/gestalt-android
       - ln -s $$MovingBlocks-gestalt-android$$ libs/gestalt/gestalt-android
-      - sed -i -e 's/variant.javaCompileProvider.get()/variant.getJavaCompiler()/g' -e '/allowInsecureProtocol true/d' libs/gestalt/gestalt-android/build.gradle
+      - sed -i -e 's/variant.javaCompileProvider.get()/variant.getJavaCompiler()/g'
+        -e '/allowInsecureProtocol true/d' libs/gestalt/gestalt-android/build.gradle
       - sed -i 's/variant.assembleProvider.get()/variant.assemble/g' libs/gestalt/gestalt-android-testbed/build.gradle
       - sed -i -e "/dependencies {/a compileOnly 'org.javassist:javassist:3.20.0-GA'"
         -e '/com.google.guava:guava/s/implementation/api/' libs/gestalt/gestalt-module/build.gradle
