@@ -1,7 +1,6 @@
 Categories:
   - Games
 License: GPL-3.0-only
-WebSite: https://github.com/dozingcat/CardsWithCats
 SourceCode: https://github.com/dozingcat/CardsWithCats
 IssueTracker: https://github.com/dozingcat/CardsWithCats/issues
 
@@ -17,10 +16,15 @@ Builds:
     output: build/app/outputs/flutter-apk/app-fdroid-release.apk
     srclibs:
       - flutter@2.10.3
-    prebuild: rm -fr ios
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
     build:
-      - export PATH=$$flutter$$/bin:$PATH
-      - flutter build apk --flavor fdroid
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
