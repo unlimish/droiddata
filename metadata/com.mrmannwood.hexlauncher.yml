@@ -1,12 +1,9 @@
 Categories:
   - System
   - Theming
-
 License: Apache-2.0
-
 AuthorName: Marshall Mann-Wood
 AuthorEmail: intentionalhexlauncher@gmail.com
-
 SourceCode: https://github.com/MrMannWood/launcher
 IssueTracker: https://github.com/MrMannwood/launcher/issues
 
@@ -22,6 +19,10 @@ Builds:
     subdir: app
     gradle:
       - yes
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
