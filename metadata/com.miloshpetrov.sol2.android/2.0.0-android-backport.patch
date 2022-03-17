@@ -1,7 +1,7 @@
 From a28f8f935cdfc81c193809b699b7e7620e6970f9 Mon Sep 17 00:00:00 2001
 From: Benjamin Amos <benjamin.amos11@gmail.com>
 Date: Tue, 1 Mar 2022 22:58:41 +0000
-Subject: [PATCH 1/2] build: fix building with engine v2.0.0
+Subject: [PATCH 1/3] build: fix building with engine v2.0.0
 
 ---
  build.gradle | 20 ++++++++++++++++++--
@@ -56,7 +56,7 @@ index f030f6e..9d042e4 100644
 From e28414b18a24e86dcae54ccdf45afa7d2c323063 Mon Sep 17 00:00:00 2001
 From: Benjamin Amos <benjamin.amos11@gmail.com>
 Date: Wed, 2 Mar 2022 20:09:44 +0000
-Subject: [PATCH 2/2] fix: fix building modules without code
+Subject: [PATCH 2/3] fix: fix building modules without code
 
 ---
  build.gradle | 5 ++++-
@@ -78,3 +78,60 @@ index 9d042e4..e050965 100644
              }
          } else {
              copy {
+
+From 5cea69c1981fd48f57598145ecf01b421418950e Mon Sep 17 00:00:00 2001
+From: Benjamin Amos <benjamin.amos11@gmail.com>
+Date: Thu, 17 Mar 2022 20:30:24 +0000
+Subject: [PATCH 3/3] fix: correct export of engine reflections
+
+---
+ build.gradle | 22 ++++++++++++++--------
+ 1 file changed, 14 insertions(+), 8 deletions(-)
+
+diff --git a/build.gradle b/build.gradle
+index e050965..9ec8831 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -80,6 +80,12 @@ dependencies {
+         // This is safe because gestalt-android has not changed apart from to add the android assets file sources.
+         exclude group: "org.terasology.gestalt"
+     }
++
++    if (version == '2.0.0') {
++        // Gestalt does not use JavaAssist to compile
++        compileOnly 'org.javassist:javassist:3.20.0-GA'
++    }
++
+     // TODO: Needed for gestalt because of an internal dependency but since that dependency is never
+     //       exposed in a public API, I have no idea why it's needed for compilation.
+     implementation "com.github.zafarkhaja:java-semver:0.10.0"
+@@ -268,6 +274,14 @@ task exportModules() {
+ 
+         boolean canCreateSymlinks
+ 
++        if (version == '2.0.0') {
++            copy {
++                from "$rootDir/engine/build/classes/java/main"
++                into "$rootDir/engine/build/resources/main/org/destinationsol"
++                include "reflections.cache"
++            }
++        }
++
+         try {
+             Files.createSymbolicLink(Paths.get("$projectDir/assets/engine"), Paths.get("$rootDir/engine/build/resources/main/org/destinationsol"))
+             canCreateSymlinks = true
+@@ -300,14 +314,6 @@ task exportModules() {
+                 include "reflections.cache"
+             }
+ 
+-            if (version == '2.0.0') {
+-                copy {
+-                    from "$rootDir/engine/build/classes/java/main"
+-                    into "$projectDir/assets/engine"
+-                    include "reflections.cache"
+-                }
+-            }
+-
+             copy {
+                 into "$projectDir/assets/modules"
+                 from("$rootDir/modules") {
