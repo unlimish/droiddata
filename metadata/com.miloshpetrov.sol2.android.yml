@@ -20,7 +20,6 @@ Builds:
       - 2.0.0-android-backport.patch
     gradle:
       - yes
-    output: build/outputs/apk/release/android-release-unsigned.apk
     srclibs:
       - MovingBlocks-gestalt@df875f0
       - MovingBlocks-gestalt-android@c077a11
@@ -39,21 +38,18 @@ Builds:
       - ln -s $$MovingBlocks-DestinationSol-engine$$ engine_workspace
       - ln -s engine_workspace/gradle gradle
       - pushd engine_workspace
-      - sed -i 's/^dependencies {/dependencies { compile("org\.slf4j:slf4j-api:1\.7\.25");
-        compile("com\.google\.code\.gson:gson:2\.6\.2");/g' engine/build.gradle
+      - sed -i '/^dependencies {/a compile("org.slf4j:slf4j-api:1.7.25");
+        compile("com.google.code.gson:gson:2.6.2");' engine/build.gradle
       - echo 'includeBuild("$rootDir/libs/gestalt")' >> settings.gradle
       - echo 'includeBuild("$rootDir/libs/reflections")' >> settings.gradle
       - mkdir libs
       - ln -s $$MovingBlocks-gestalt$$ libs/gestalt
       - rm -rf libs/gestalt/gestalt-android
       - ln -s $$MovingBlocks-gestalt-android$$ libs/gestalt/gestalt-android
-      - sed -i 's/variant.javaCompileProvider.get()/variant.getJavaCompiler()/g' libs/gestalt/gestalt-android/build.gradle
+      - sed -i -e 's/variant.javaCompileProvider.get()/variant.getJavaCompiler()/g' -e '/allowInsecureProtocol true/d' libs/gestalt/gestalt-android/build.gradle
       - sed -i 's/variant.assembleProvider.get()/variant.assemble/g' libs/gestalt/gestalt-android-testbed/build.gradle
-      - sed -i 's/allowInsecureProtocol true//g' libs/gestalt/gestalt-android/build.gradle
-      - sed -i "s/dependencies {/dependencies { compileOnly 'org\.javassist:javassist:3\.20\.0-GA'/g"
-        libs/gestalt/gestalt-module/build.gradle
-      - sed -i 's/implementation "com\.google\.guava:guava:\$guava_version"/api "com\.google\.guava:guava:\$guava_version"/g'
-        libs/gestalt/gestalt-module/build.gradle
+      - sed -i -e "/dependencies {/a compileOnly 'org.javassist:javassist:3.20.0-GA'"
+        -e '/com.google.guava:guava/s/implementation/api/' libs/gestalt/gestalt-module/build.gradle
       - sed -i 's/ThreadLocal\.withInitial(Queues::newArrayDeque);/new ThreadLocal<Deque<Name>>()
         { @Override protected Deque<Name> initialValue() { return Queues\.newArrayDeque();
         } };/g' libs/gestalt/gestalt-asset-core/src/main/java/org/terasology/gestalt/assets/management/ContextManager.java
@@ -64,10 +60,9 @@ Builds:
       - echo 'sdk.dir=$$SDK$$' > local.properties
       - echo 'sdk.dir=$$SDK$$' > libs/gestalt/local.properties
       - popd
-      - sed -i 's/maven {.*terasology\.org.*}//g' android.gradle engine_workspace/build.gradle
+      - sed -i '/artifactory.terasology.org/d' android.gradle engine_workspace/build.gradle
         engine_workspace/config/gradle/common.gradle engine_workspace/engine/build.gradle
-      - sed -i 's/maven {.*heisluft\.de.*}//g' android.gradle
-      - sed -i 's/implementation "com.github.zafarkhaja:java-semver:.*//g' android.gradle
+      - sed -i -e '/heisluft.de/d' -e '/com.github.zafarkhaja:java-semver/d' android.gradle
       - sed -i "s/.*com\.android\.tools\.build:gradle:.*/$(grep 'com\.android\.tools\.build:gradle:3.*'
         android.gradle)/g" engine_workspace/libs/gestalt/build.gradle
 
