@@ -17,12 +17,12 @@ Builds:
     versionCode: 38
     commit: 1.3.5
     subdir: app
-    gradle:
-      - yes
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+    gradle:
+      - yes
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
