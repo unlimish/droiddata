@@ -17,8 +17,7 @@ Builds:
     commit: 01a941965279130a3c71df64f702db4f172746cf
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y g++ locales llvm clang
-      - dpkg-reconfigure locales
+      - apt-get install wget unzip
     output: output.apk
     srclibs:
       - Godot@3.3.3-stable
@@ -40,7 +39,7 @@ Builds:
       # Add in the paths to the custom built Android exports to the "export_presets.cfg" file.
       - sed "s@custom_template/debug=\".*\"@custom_template/debug=\"../templates/android_debug.apk\"@g" -i export_presets.cfg
       - sed "s@custom_template/release=\".*\"@custom_template/release=\"../templates/android_release.apk\"@g" -i export_presets.cfg
-      - LANG="en_US.UTF-8" ../godot/bin/godot_server.x11.tools* --verbose --debug --export-debug Android ../output.apk
+      - LANG="en_US.UTF-8" ../Godot_v3.3.3-stable_linux_headless.64 --verbose --export-debug Android ../output.apk
     ndk: r21e
 
 AutoUpdateMode: None
