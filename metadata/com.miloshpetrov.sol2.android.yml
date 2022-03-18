@@ -28,14 +28,14 @@ Builds:
     forceversion: true
     forcevercode: true
     prebuild:
-      - |
-        printf '
+      - |-
+          printf '
           rootProject.projectDir = file("engine_workspace")
           include ":android"
           project(":android").projectDir = file(".")
           project(":android").buildFileName = "android.gradle"
           apply from: "engine_workspace/settings.gradle"
-       ' >> settings.gradle"
+          ' >> settings.gradle
       - mv build.gradle android.gradle
       - echo "configurations.all { resolutionStrategy { dependencySubstitution { substitute(module('dom4j:dom4j')).with(module('org.dom4j:dom4j:2.1.3'))
         } } }" >> android.gradle
@@ -148,6 +148,6 @@ MaintainerNotes: |
     Because the newer commit was intended for a later version, the version and version code need to be forced here.
 
 AutoUpdateMode: None
-UpdateCheckMode: Tags v\d+\.\d+\.\d+$
+UpdateCheckMode: Tags v\d+\.\d+\.\d+([-]alpha|beta)?$
 CurrentVersion: 2.0.0
 CurrentVersionCode: 11
