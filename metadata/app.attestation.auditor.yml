@@ -1,0 +1,42 @@
+Categories:
+  - Security
+License: MIT
+AuthorName: GrapheneOS
+WebSite: https://attestation.app
+SourceCode: https://github.com/GrapheneOS/Auditor
+IssueTracker: https://github.com/GrapheneOS/Auditor/issues
+Changelog: https://github.com/GrapheneOS/Auditor/releases
+Donate: https://attestation.app/donate
+Bitcoin: bc1quxrwjhgvmx4rnyfzhvlqmjuh9nry7n54nhnfn9
+
+AutoName: Auditor
+
+RepoType: git
+Repo: https://github.com/GrapheneOS/Auditor
+
+Builds:
+  - versionName: '37'
+    versionCode: 37
+    commit: '37'
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/res/raw
+
+MaintainerNotes: |
+    The files in scanignore are certificates.
+    See https://github.com/GrapheneOS/Auditor/issues/61#issuecomment-725701265.
+
+    If someone want's to work on Reproducible Builds:
+    Binaries: https://github.com/GrapheneOS/Auditor/releases/download/%c/Auditor-%c.apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: '|(\d+)||(\d+)'
+CurrentVersion: '37'
+CurrentVersionCode: 37
