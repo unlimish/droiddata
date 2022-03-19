@@ -31,7 +31,7 @@ Builds:
       - sed -i -e '/Godot\ user/,+8d' godot/platform/android/java/app/build.gradle
     build:
       - cd godot
-      - sed -i "s|valid = false|valid = true|" ./platform/android/export/export.cpp
+      # - sed -i "s|valid = false|valid = true|" ./platform/android/export/export.cpp
       - mkdir -p ../fake_user_home/.config/godot/
       - cp ../game/editor_settings-3.tres.f-droid ../fake_user_home/.config/godot/editor_settings-3.tres
       # TODO Replace this with the environment variable that points to the Android SDK.
