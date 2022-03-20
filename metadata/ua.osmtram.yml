@@ -1,0 +1,32 @@
+AntiFeatures:
+  - Tracking
+  - NonFreeNet
+Categories:
+  - Internet
+  - Navigation
+License: 0BSD
+WebSite: https://t.me/uaosmand
+SourceCode: https://gitlab.com/k0tyk/osmtram
+IssueTracker: https://gitlab.com/k0tyk/osmtram/-/issues
+Translation: https://gitlab.com/k0tyk/osmtram/-/blob/master/res/values/strings.xml
+
+AutoName: OsmTram
+
+RepoType: git
+Repo: https://gitlab.com/k0tyk/osmtram
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: v1.0
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y librsvg2-bin openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '1.0'
+CurrentVersionCode: 1
