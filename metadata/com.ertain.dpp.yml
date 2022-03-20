@@ -63,13 +63,13 @@ Builds:
       - sed "s@custom_template/release=\".*\"@custom_template/release=\"android_release.apk\"@g" -i export_presets.cfg
       - LANG="en_US.UTF-8" ../godot/bin/godot_server* --verbose --export-debug Android ../output.apk
     ndk: r21e
-    artifacts:
-      name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME"
-      exclude:
-        - godot/**/*.o
-      paths:
-        - godot/
-        - fake_user_home/
+artifacts:
+  name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME"
+  exclude:
+    - godot/**/*.o
+  paths:
+    - godot/
+    - fake_user_home/
 
 AutoUpdateMode: None
 UpdateCheckMode: None
