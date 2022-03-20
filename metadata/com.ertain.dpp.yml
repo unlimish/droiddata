@@ -17,7 +17,7 @@ Builds:
     commit: 1fda3f25a80c0578eccdfde3d6e6256e5f17fe96
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y g++ locales llvm clang libx11-dev libxcursor-dev libxinerama-dev
+      - apt-get install -y g++ locales llvm clang libx11-dev libxcursor-dev libxinerama-dev libxrandr-dev
       - dpkg-reconfigure locales
     output: output.apk
     srclibs:
@@ -35,7 +35,7 @@ Builds:
       - mkdir -p ../fake_user_home/.config/godot/
       - cp ../game/editor_settings-3.tres.f-droid ../fake_user_home/.config/godot/editor_settings-3.tres
       # TODO Replace this with the environment variable that points to the Android SDK.
-      - sed -i "s|SDK_PATH|/opt//opt/android-sdk|g" ../fake_user_home/.config/godot/editor_settings-3.tres
+      - sed -i "s|SDK_PATH|/opt/android-sdk|" ../fake_user_home/.config/godot/editor_settings-3.tres
       - mkdir -p ../fake_user_home/.android/
       - keytool -genkey -v -keystore ../fake_user_home/.android/debug.keystore -storepass
         android -alias androiddebugkey -keypass android -dname "CN=Android Debug,O=Android,C=US"
