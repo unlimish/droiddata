@@ -14,7 +14,7 @@ Repo: https://github.com/Ertain/Draw-Ping-Pong.git
 Builds:
   - versionName: 0.9.1
     versionCode: 2
-    commit: 1fda3f25a80c0578eccdfde3d6e6256e5f17fe96
+    commit: b9de16cc5a19fdb1d88e3e91203a32180d8627f0
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y g++ locales llvm clang libx11-dev libxcursor-dev libxinerama-dev libxrandr-dev
@@ -63,13 +63,6 @@ Builds:
       - sed "s@custom_template/release=\".*\"@custom_template/release=\"android_release.apk\"@g" -i export_presets.cfg
       - LANG="en_US.UTF-8" ../godot/bin/godot_server* --verbose --export-debug Android ../output.apk
     ndk: r21e
-artifacts:
-  name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME"
-  exclude:
-    - godot/**/*.o
-  paths:
-    - godot/
-    - fake_user_home/
 
 AutoUpdateMode: None
 UpdateCheckMode: None
