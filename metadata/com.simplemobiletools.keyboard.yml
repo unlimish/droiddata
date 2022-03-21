@@ -29,7 +29,29 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 5.0.3
+    versionCode: 4
+    commit: 3390b37e33c083d8314fd4994a6cd256debc45e6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 5.0.4
+    versionCode: 5
+    commit: b4d79b7f5c1a5166fe25b14d058e486c864ab869
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 5.0.2
-CurrentVersionCode: 3
+CurrentVersion: 5.0.4
+CurrentVersionCode: 5

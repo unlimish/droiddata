@@ -3,9 +3,9 @@ Categories:
 License: GPL-2.0-only
 AuthorName: LogixIsland.ch
 AuthorEmail: relozid@logixisland.ch
-SourceCode: https://github.com/reloZid/android-anuto
-IssueTracker: https://github.com/reloZid/android-anuto/issues
-Changelog: https://github.com/reloZid/android-anuto/releases
+SourceCode: https://github.com/mjaun/android-anuto
+IssueTracker: https://github.com/mjaun/android-anuto/issues
+Changelog: https://github.com/mjaun/android-anuto/releases
 
 AutoName: Anuto TD
 Description: |-
@@ -13,7 +13,7 @@ Description: |-
     hand-drawn graphics and a smooth gameplay.
 
 RepoType: git
-Repo: https://github.com/reloZid/android-anuto
+Repo: https://github.com/mjaun/android-anuto
 
 Builds:
   - versionName: 0.1-4
@@ -189,7 +189,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '0.9'
+    versionCode: 29
+    commit: 67fee44087eef28a6b95b731393c57814ca51713
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.9-1
+    versionCode: 30
+    commit: 0e7f25b007449c038b9a97f7b1ed788e2338cf61
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.8-1
-CurrentVersionCode: 28
+CurrentVersion: 0.9-1
+CurrentVersionCode: 30

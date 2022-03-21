@@ -300,13 +300,32 @@ Builds:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk
 
-  - versionName: 0.2.4
-    versionCode: 24
-    commit: 0db8c2bc1a912e1159522e00c46d2730b9c29fe5
+  - versionName: 0.2.5
+    versionCode: 25
+    commit: ad105b9aa5a6160b23ac94d7c20d9e5f66a585b9
     subdir: task
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
-      - flutter@2.8.1
+      - flutter@2.10.1
+    rm:
+      - task/ios
+      - task/linux
+      - task/macos
+      - task/test
+      - task/test_driver
+      - task/tools
+      - task/windows
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.2.6
+    versionCode: 26
+    commit: 89b17e4cd16b5722740ff34ac97c34164505b251
+    subdir: task
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
     rm:
       - task/ios
       - task/linux
@@ -322,5 +341,5 @@ Builds:
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
 UpdateCheckData: task/android/app/build.gradle|flutterVersionCode = '(.+)'|task/pubspec.yaml|version:\s(.+)\+
-CurrentVersion: 0.2.4
-CurrentVersionCode: 24
+CurrentVersion: 0.2.6
+CurrentVersionCode: 26

@@ -1,0 +1,39 @@
+Categories:
+  - Sports & Health
+License: GPL-3.0-only
+AuthorName: rh-id
+SourceCode: https://github.com/rh-id/a-medic-log
+IssueTracker: https://github.com/rh-id/a-medic-log/issues
+
+AutoName: Medic Log
+
+RepoType: git
+Repo: https://github.com/rh-id/a-medic-log
+
+Builds:
+  - versionName: 1.2.0
+    versionCode: 11
+    commit: v1.2.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.2.1
+    versionCode: 12
+    commit: 1a30951c6a62e259367bd3cc8caa8d5ff96da984
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 1.2.1
+CurrentVersionCode: 12
