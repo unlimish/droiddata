@@ -4,7 +4,7 @@ License: BSD-3-Clause
 AuthorName: Sean E. Russell
 AuthorEmail: ser@ser1.net
 AuthorWebSite: https://www.ser1.net
-WebSite: https://hg.sr.ht/~ser/forage
+WebSite: https://sr.ht/~ser/forage
 SourceCode: https://hg.sr.ht/~ser/forage
 IssueTracker: https://todo.sr.ht/~ser/forage
 Changelog: https://hg.sr.ht/~ser/forage/raw/CHANGELOG.md
@@ -16,9 +16,9 @@ RepoType: hg
 Repo: https://hg.sr.ht/~ser/forage
 
 Builds:
-  - versionName: 0.8.1
-    versionCode: 10
-    commit: v0.8.1
+  - versionName: 1.1.2
+    versionCode: 39
+    commit: v1.1.2
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y libgl1-mesa-dev xorg-dev
@@ -29,7 +29,7 @@ Builds:
     output: Forage.apk
     prebuild:
       - export GOPATH=${HOME}/go
-      - go install fyne.io/fyne/v2/cmd/fyne@latest
+      - go install fyne.io/fyne/v2/cmd/fyne@v2.1.4
     build:
       - export GOPATH=${HOME}/go
       - ${HOME}/go/bin/fyne package -os android -release
@@ -38,5 +38,5 @@ Builds:
 AutoUpdateMode: Version +-fdroid v%v
 UpdateCheckMode: Tags ^v[0-9].[0-9].[0-9]
 UpdateCheckData: FyneApp.toml|Build\s=\s(\d+)|.|Version\s=\s"([\d.]+)"
-CurrentVersion: 0.8.1
-CurrentVersionCode: 10
+CurrentVersion: 1.1.2
+CurrentVersionCode: 39
