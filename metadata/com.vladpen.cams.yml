@@ -16,7 +16,7 @@ Repo: https://github.com/vladpen/cams.git
 
 Builds:
   - versionName: 1.0.2
-    versionCode: 2
+    versionCode: 1000201
     commit: 6a55a06e65c65edd63b3ea255b76c6db55d2ab33
     subdir: app
     sudo:
@@ -25,8 +25,50 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - yes
+    output: build/outputs/apk/release/app-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e 's/versionCode .*$/versionCode $$VERCODE$$/' build.gradle
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
+  - versionName: 1.0.2
+    versionCode: 1000202
+    commit: 6a55a06e65c65edd63b3ea255b76c6db55d2ab33
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e 's/versionCode .*$/versionCode $$VERCODE$$/' build.gradle
+
+  - versionName: 1.0.2
+    versionCode: 1000203
+    commit: 6a55a06e65c65edd63b3ea255b76c6db55d2ab33
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-x86-release-unsigned.apk
+    prebuild: sed -i -e 's/versionCode .*$/versionCode $$VERCODE$$/' build.gradle
+
+  - versionName: 1.0.2
+    versionCode: 1000204
+    commit: 6a55a06e65c65edd63b3ea255b76c6db55d2ab33
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-x86_64-release-unsigned.apk
+    prebuild: sed -i -e 's/versionCode .*$/versionCode $$VERCODE$$/' build.gradle
+
+ArchivePolicy: 12 versions
+AutoUpdateMode: None
+UpdateCheckMode: None
 CurrentVersion: 1.0.2
-CurrentVersionCode: 2
+CurrentVersionCode: 1000204
