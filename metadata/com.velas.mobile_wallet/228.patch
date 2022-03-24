@@ -18,7 +18,7 @@
 @@ -167,20 +159,6 @@
          }
      }
- 
+
 -    // applicationVariants are e.g. debug, release
 -    applicationVariants.all { variant ->
 -        variant.outputs.each { output ->
@@ -36,7 +36,7 @@
  }
  
  dependencies {
-@@ -198,6 +176,13 @@
+@@ -198,6 +175,17 @@ dependencies {
      debugImplementation("com.facebook.flipper:flipper-fresco-plugin:${FLIPPER_VERSION}") {
          exclude group:'com.facebook.flipper'
      }
@@ -44,6 +44,10 @@
 +    implementation(project(':react-native-device-info')) {
 +        exclude group: 'com.google.firebase'
 +        exclude group: 'com.google.android.gms'
++        exclude group: 'com.android.installreferrer'
++    }
++
++    implementation(project(':expo-application')) {
 +        exclude group: 'com.android.installreferrer'
 +    }
 +
