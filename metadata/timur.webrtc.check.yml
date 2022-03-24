@@ -43,7 +43,27 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.0.9
+    versionCode: 9
+    commit: eec672281cffd8e086d5605a000054bd777d1a26
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.10
+    versionCode: 10
+    commit: 09030efa8f33a3a3d856b1a1d0f59787fe96a329
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.7
-CurrentVersionCode: 7
+CurrentVersion: 1.0.10
+CurrentVersionCode: 10
