@@ -37,6 +37,7 @@ Builds:
     gradle:
       - yes
     prebuild:
+      - sed -E -i '/installreferrer/,+11d' ../../node_modules/expo-application/android/build.gradle
       - sed -E -i '/installreferrer/,+11d' ../../node_modules/react-native-device-info/android/build.gradle
       - yarn install
     scanignore:
