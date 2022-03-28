@@ -1654,14 +1654,15 @@ Builds:
     scandelete:
       - node_modules/**
 
-  - versionName: 3.94.1
-    versionCode: 394010
-    commit: 93373f092b92aa98c206aa6238f527a7468587b4
+  - versionName: 3.94.2
+    versionCode: 394020
+    commit: abe33289b6e659940362c1cf6da84e1fb806059b
     subdir: app-android/app
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+      - apt-get install -y g++
       - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
       - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
         | sha256sum -c -
@@ -1684,5 +1685,5 @@ Builds:
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags tutanota-android-release-*
-CurrentVersion: 3.94.1
-CurrentVersionCode: 394010
+CurrentVersion: 3.94.2
+CurrentVersionCode: 394020

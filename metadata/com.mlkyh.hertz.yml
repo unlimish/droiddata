@@ -57,7 +57,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '2.3'
+    versionCode: 5
+    commit: f830dd4da07d88665473f5509aa249221a1d9248
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '2.2'
-CurrentVersionCode: 4
+CurrentVersion: '2.3'
+CurrentVersionCode: 5
