@@ -23,13 +23,13 @@ Builds:
     versionCode: 6
     commit: v1.4.0+6-dev
     subdir: mobile
-    output: build/app/outputs/apk/[{flavor}/]release/app-[{flavor}-]release.apk
+    output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.10.3
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
-      - $$flutter$$/bin/flutter build apk --flavor fdroid
+      - $$flutter$$/bin/flutter build apk --release
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
