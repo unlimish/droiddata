@@ -3037,15 +3037,14 @@ Builds:
 
   - versionName: 3.14.0
     versionCode: 3000338
-    disable: build failed
     commit: 3.14.0
     subdir: android/app
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
-      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.13.2/node-v16.13.2-linux-x64.tar.xz
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.13.2/node-v16.13.2-linux-x64.tar.xz
       - echo "7f5e9a42d6e86147867d35643c7b1680c27ccd45db85666fc52798ead5e74421 node.tar.xz"
         | sha256sum -c -
-      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
       - npm -g install yarn
     init:
       - cd ../..
