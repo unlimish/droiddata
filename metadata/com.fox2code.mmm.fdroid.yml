@@ -1,0 +1,42 @@
+AntiFeatures:
+  - NonFreeNet
+  - NonFreeAdd
+Categories:
+  - System
+License: LGPL-3.0-only
+AuthorName: Fox2Code
+AuthorEmail: fox2code@gmail.com
+SourceCode: https://github.com/Fox2Code/FoxMagiskModuleManager
+IssueTracker: https://github.com/Fox2Code/FoxMagiskModuleManager/issues
+Changelog: https://github.com/Fox2Code/FoxMagiskModuleManager/releases
+Donate: https://www.paypal.com/paypalme/fox2code
+
+AutoName: Fox's Magisk Module Manager
+
+RequiresRoot: 'yes'
+
+RepoType: git
+Repo: https://github.com/Fox2Code/FoxMagiskModuleManager
+
+Builds:
+  - versionName: 0.4.1
+    versionCode: 36
+    commit: d3b6a370491799e68c59e59e68f10a40422e89ce
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    scandelete:
+      - example_module.zip
+
+MaintainerNotes: |-
+    * NonFreeNet — Implements a proprietary Androidacy API.
+    * NonFreeAdd — Potentially downloads proprietary Magisk modules.
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 0.4.1
+CurrentVersionCode: 36
