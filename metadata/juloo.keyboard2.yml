@@ -120,8 +120,24 @@ Builds:
     commit: aaff8689e36817159561b97e59a3055002a919c1
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk-headless fontforge
+      - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+      # Install fontforge from sources
+      # https://github.com/fontforge/fontforge/blob/master/INSTALL.md
+      - |
+        apt-get install libjpeg-dev libtiff5-dev libpng-dev libfreetype6-dev \
+          libgif-dev libgtk-3-dev libxml2-dev libpango1.0-dev libcairo2-dev \
+          libspiro-dev python3-dev ninja-build cmake build-essential gettext \
+          curl
+        curl -LO https://github.com/fontforge/fontforge/releases/download/20220308/fontforge-20220308.tar.xz
+        sha1sum --check - <<<"876d7ac0d80d2dd60ae9bf30ffa254095a62de43  fontforge-20220308.tar.xz"
+        tar xf fontforge-20220308.tar.xz
+        cd fontforge-20220308
+        mkdir build
+        cd build
+        cmake -GNinja ..
+        ninja
+        ninja install
     output: unsigned.apk
     prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
         'platforms;android-30' > /dev/null
@@ -130,8 +146,10 @@ Builds:
       - mv _build/juloo.keyboard2.unsigned-apk unsigned.apk
 
 MaintainerNotes: |-
-    Until version 1.13.1, required the 'dx' tool from Android Build Tools <= 30.0.3.
-    Starting from version 1.14.0, requires FontForge >= 20201107.
+    Until version 1.13.1,
+    required the 'dx' tool from Android Build Tools <= 30.0.3.
+    Starting from version 1.14.0,
+    requires FontForge >= 20201107 which is too recent for some distros.
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
