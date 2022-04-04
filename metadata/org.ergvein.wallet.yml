@@ -1,0 +1,34 @@
+Categories:
+  - Money
+License: MIT
+WebSite: https://cypra.io/
+SourceCode: https://github.com/hexresearch/ergvein
+IssueTracker: https://github.com/hexresearch/ergvein/issues
+Changelog: https://github.com/hexresearch/ergvein/releases
+
+RepoType: git
+Repo: https://github.com/hexresearch/ergvein.git
+
+Builds:
+  - versionName: Alpha
+    versionCode: 28
+    commit: c6498c93b89908bd93d1b6da0624f7438c29178c
+    sudo:
+      - apt install xz-utils
+      - mkdir -m 0755 /nix
+      - chown vagrant /nix
+    init: sh <(curl -L https://nixos.org/nix/install) --no-daemon
+    output: android-release-apk/release/android-app-release.apk
+    scandelete:
+      - release/password
+    build:
+      - . /home/vagrant/.nix-profile/etc/profile.d/nix.sh
+      - nix-env -iA cachix -f https://cachix.org/api/v1/install
+      - cachix use ergvein
+      - ./release-android.sh --arg releasePasswordFile ./release/dummy/password --arg
+        releaseKeyStore ./release/dummy/release.keystore
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: Alpha
+CurrentVersionCode: 28
