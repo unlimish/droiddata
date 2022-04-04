@@ -122,22 +122,10 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
-      # Install fontforge from sources
-      # https://github.com/fontforge/fontforge/blob/master/INSTALL.md
-      - |
-        apt-get install libjpeg-dev libtiff5-dev libpng-dev libfreetype6-dev \
-          libgif-dev libgtk-3-dev libxml2-dev libpango1.0-dev libcairo2-dev \
-          libspiro-dev libuninameslist-dev python3-dev ninja-build cmake \
-          build-essential gettext curl
-        curl -LO https://github.com/fontforge/fontforge/releases/download/20201107/fontforge-20201107.tar.xz
-        sha1sum --check - <<<"a08657249096b6d8bdc0fce2f4050ccbaed830f7  fontforge-20201107.tar.xz"
-        tar xf fontforge-20201107.tar.xz
-        cd fontforge-20201107
-        mkdir build
-        cd build
-        cmake -GNinja ..
-        ninja
-        ninja install
+      - apt-get update || apt-get update
+      - apt-get install libjpeg-dev libtiff5-dev libpng-dev libfreetype6-dev libgif-dev
+        libgtk-3-dev libxml2-dev libpango1.0-dev libcairo2-dev libspiro-dev libuninameslist-dev
+        python3-dev ninja-build build-essential
     output: unsigned.apk
     prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
         'platforms;android-30' > /dev/null
