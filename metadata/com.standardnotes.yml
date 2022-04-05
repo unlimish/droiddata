@@ -10,38 +10,38 @@ IssueTracker: https://github.com/standardnotes/mobile/issues
 
 AutoName: Standard Notes
 Description: |-
-  Standard Notes is a private place for your notes, thoughts, and life's work.
+    Standard Notes is a private place for your notes, thoughts, and life's work.
 
-  — It's simple. Standard Notes is the easiest notes app you'll ever use. That
-  means a more reliable, long-term experience.
+    — It's simple. Standard Notes is the easiest notes app you'll ever use. That
+    means a more reliable, long-term experience.
 
-  — Encrypted writing is your best writing. You never really know the power of
-  your words until you experience total-privacy for the first time.
+    — Encrypted writing is your best writing. You never really know the power of
+    your words until you experience total-privacy for the first time.
 
-  Standard Notes uses end-to-end encryption so that:
-  * We can't read your notes
-  * Your ISP can't read your notes
-  * Your government can't read your notes
+    Standard Notes uses end-to-end encryption so that:
+    * We can't read your notes
+    * Your ISP can't read your notes
+    * Your government can't read your notes
 
-  We like to say, "Write like no one's watching."
+    We like to say, "Write like no one's watching."
 
-  — Extended writing is even better. Standard Notes is free to use on all your
-  devices, and comes with encryption and sync out of the box.
+    — Extended writing is even better. Standard Notes is free to use on all your
+    devices, and comes with encryption and sync out of the box.
 
-  If you’d like to support our development, we offer an extensions package, with
-  themes, editors, and 3rd-party syncing options, like Dropbox, Google Drive, and
-  daily email backups.
+    If you’d like to support our development, we offer an extensions package, with
+    themes, editors, and 3rd-party syncing options, like Dropbox, Google Drive, and
+    daily email backups.
 
-  — And so you know, you and us are in this for the long run. You want your notes
-  to last as long as you do, and we want our app to serve you for decades to come.
-  Standard Notes is architected on deeply-rooted principles of software longevity
-  and business sustainability.
+    — And so you know, you and us are in this for the long run. You want your notes
+    to last as long as you do, and we want our app to serve you for decades to come.
+    Standard Notes is architected on deeply-rooted principles of software longevity
+    and business sustainability.
 
-  * We say no to feature requests. Simplicity is the only way forward.
-  * A sustainable revenue model creates a healthy, long-term environment.
-  * A non-IPO mindset. We choose longevity over growth.
+    * We say no to feature requests. Simplicity is the only way forward.
+    * A sustainable revenue model creates a healthy, long-term environment.
+    * A non-IPO mindset. We choose longevity over growth.
 
-  We're proud to be an open-source notes app. Learn more at standardnotes.org.
+    We're proud to be an open-source notes app. Learn more at standardnotes.org.
 
 RepoType: git
 Repo: https://github.com/standardnotes/mobile
@@ -3035,9 +3035,9 @@ Builds:
       - popd
     ndk: r21e
 
-  - versionName: 3.14.0
+  - versionName: 3.14.1
     versionCode: 3000338
-    commit: 3.14.0
+    commit: 3.14.1
     subdir: android/app
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
@@ -3094,7 +3094,9 @@ Builds:
       - ./dist-build/android-x86.sh
       - ./dist-build/android-x86_64.sh
       - popd
+      - pushd ../..
       - yarn run android:bundle
+      - popd
     ndk: r21e
 
 AutoUpdateMode: Version %v
