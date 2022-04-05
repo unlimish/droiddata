@@ -23,8 +23,6 @@ Builds:
       - release/password
     build:
       - . /home/vagrant/.nix-profile/etc/profile.d/nix.sh
-      - nix-env -iA cachix -f https://cachix.org/api/v1/install
-      - cachix use ergvein
       - ./release-android.sh --arg releasePasswordFile ./release/dummy/password --arg
         releaseKeyStore ./release/dummy/release.keystore
 
