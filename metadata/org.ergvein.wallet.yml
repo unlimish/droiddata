@@ -11,22 +11,21 @@ Repo: https://github.com/hexresearch/ergvein.git
 
 Builds:
   - versionName: Alpha
-    versionCode: 28
-    commit: c6498c93b89908bd93d1b6da0624f7438c29178c
+    versionCode: 29
+    commit: a1d6cfa7e00987f105ca14e5c0a98f56ec9e377c
     sudo:
       - apt install xz-utils
       - mkdir -m 0755 /nix
       - chown vagrant /nix
     init: sh <(curl -L https://nixos.org/nix/install) --no-daemon
-    output: android-release-apk/release/android-app-release.apk
+    output: android-release-apk/release/android-app-release-unsigned.apk
     scandelete:
       - release/password
     build:
       - . /home/vagrant/.nix-profile/etc/profile.d/nix.sh
-      - ./release-android.sh --arg releasePasswordFile ./release/dummy/password --arg
-        releaseKeyStore ./release/dummy/release.keystore
+      - ./release-fdroid.sh
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
 CurrentVersion: Alpha
-CurrentVersionCode: 28
+CurrentVersionCode: 29
