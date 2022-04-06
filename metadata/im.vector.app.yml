@@ -924,8 +924,8 @@ Builds:
     build:
       - cd $$jitsi-meet$$
       - export LIBRE_BUILD=true
-      - npm install webpack-bundle-analyzer
-      - npm install
+      - npm install --save false webpack-bundle-analyzer
+      - npm ci
       - mkdir -p "$HOME/.m2"
       - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
       - mkdir -p "$HOME/.m2/repository/org/webkit"
