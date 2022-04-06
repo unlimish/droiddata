@@ -306,6 +306,10 @@ Builds:
     versionCode: 34
     commit: v1.10.0
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
     srclibs:
@@ -326,8 +330,6 @@ Builds:
     build:
       - export NDK_HOME=$$NDK$$
       - pushd $$libgdx$$
-      - pwd
-      - env | grep NDK
       - ant -v -f build.xml -Dbuild-natives=true gdx-box2d
       - popd
       - cp $$libgdx$$/dist/gdx.jar libs/gdx-1.9.13.jar
