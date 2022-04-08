@@ -398,7 +398,6 @@ Builds:
 
   - versionName: 5.20.2
     versionCode: 520000002
-    disable: ndk r24
     commit: 67ab20824d120dc912406c8bb427c1c5db1e26b6
     subdir: android5/app
     submodules: true
@@ -412,6 +411,7 @@ Builds:
       - unzip -P default_blocklist src/main/assets/default_blocklist.zip default_blocklist
         -d src/main/assets
       - rm src/main/assets/default_blocklist.zip
+      - sed -i -e 's/24.0.7856742/24.0.8215888/' build.gradle
     build:
       - $$rustup$$/rustup-init.sh -y
       - source $HOME/.cargo/env
