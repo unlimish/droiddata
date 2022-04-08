@@ -905,16 +905,13 @@ Builds:
     commit: v1.4.11
     subdir: vector
     sudo:
-      - KEYRING=/usr/share/keyrings/nodesource.gpg
-      - curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor | sudo tee "$KEYRING" >/dev/null
-      - gpg --no-default-keyring --keyring "$KEYRING" --list-keys
-      - VERSION=node_16.x
-      - DISTRO="$(lsb_release -s -c)"
-      - echo "deb [signed-by=$KEYRING] https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee /etc/apt/sources.list.d/nodesource.list
-      - echo "deb-src [signed-by=$KEYRING] https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
+      - curl -Lo node.tar.gz https://nodejs.org/dist/latest-v16.x/node-v16.14.2-linux-x64.tar.xz
+      - echo "2a5f9d862468a4c677630923531e52339526cfd075cc6df30da4636782eb7bda node.tar.gz"
+        | sha256sum -c -
+      - tar xzf node.tar.gz
+      - cp -a node-v10.23.1-linux-x64/. /usr/local/
       - apt-get update || apt-get update
       - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
-      - apt-get install -y --no-install-recommends nodejs npm
       - update-alternatives --auto java
       - sysctl fs.inotify.max_user_watches=524288
       - sysctl -p
