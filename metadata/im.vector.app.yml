@@ -914,7 +914,7 @@ Builds:
       - echo "deb-src [signed-by=$KEYRING] https://deb.nodesource.com/$VERSION $DISTRO main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
       - apt-get update || apt-get update
       - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
-      - apt-get install -y --no-install-recommends -t testing npm zlib1g{,-dev}
+      - apt-get install -y --no-install-recommends npm
       - update-alternatives --auto java
       - sysctl fs.inotify.max_user_watches=524288
       - sysctl -p
