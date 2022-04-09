@@ -1,0 +1,29 @@
+Categories:
+  - Internet
+  - Multimedia
+License: AGPL-3.0-only
+WebSite: https://chikichiki.tube/
+SourceCode: https://github.com/AbdullahSako/ChikiChikiTube-Android
+IssueTracker: https://github.com/AbdullahSako/ChikiChikiTube-Android/issues
+
+AutoName: ChikiChiki
+
+RepoType: git
+Repo: https://github.com/AbdullahSako/ChikiChikiTube-Android
+
+Builds:
+  - versionName: '1.1'
+    versionCode: 11
+    commit: v1.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y librsvg2-bin openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '1.1'
+CurrentVersionCode: 11
