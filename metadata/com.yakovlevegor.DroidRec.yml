@@ -1,8 +1,7 @@
 Categories:
   - Multimedia
+  - System
 License: Unlicense
-SourceCode: https://github.com/yakovlevegor/DroidRec
-IssueTracker: https://github.com/yakovlevegor/DroidRec/issues
 
 AutoName: DroidRec
 
@@ -14,6 +13,7 @@ Builds:
     versionCode: 2
     commit: v1.1
     output: out-aligned.apk
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'build-tools;32.0.0' 'platforms;android-32'
     build: ./build.bash $$SDK$$/platforms/android-32 $$SDK$$/build-tools/32.0.0
 
 AutoUpdateMode: Version
