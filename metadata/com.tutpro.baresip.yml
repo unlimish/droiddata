@@ -2481,6 +2481,8 @@ Builds:
     build:
       - git clone https://github.com/juha-h/libbaresip-android.git -b 23.0
       - cd libbaresip-android
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../..|'
+        Makefile
       - git clone https://github.com/juha-h/libzrtp.git -b 1.0 --single-branch zrtp
       - make zrtp
       - pushd $$libbaresip-android$$
