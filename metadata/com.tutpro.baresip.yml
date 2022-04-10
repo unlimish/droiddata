@@ -2441,7 +2441,6 @@ Builds:
       - make download-sources
       - make install-all
       - popd
-      - echo 1
     ndk: r23b
 
   - versionName: 44.1.0
@@ -2475,30 +2474,11 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
-      - apt-get install -y g++ wget
     gradle:
       - yes
     srclibs:
       - libbaresip-android@23.0
     build:
-      - git clone https://github.com/juha-h/libbaresip-android.git -b 23.0
-      - cd libbaresip-android
-      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../..|'
-        Makefile
-      - git clone https://github.com/juha-h/libzrtp.git -b 1.0 --single-branch zrtp
-      - cd zrtp
-      - ./bootstrap.sh
-      - CC="aarch64-linux-android21-clang --sysroot /opt/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot"
-        RANLIB=llvm-ranlib AR=llvm-ar PATH=/opt/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin:/usr/bin:/bin
-        ./configure --host=aarch64-linux-android CFLAGS="-isystem /opt/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -fPIE -fPIC"
-      - cd third_party/bnlib/
-      - CC="aarch64-linux-android21-clang --sysroot /opt/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot"
-        RANLIB=llvm-ranlib AR=llvm-ar PATH=/opt/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin:/usr/bin:/bin
-        ./configure --host=aarch64-linux-android CFLAGS="-isystem /opt/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot/usr/include -fPIE -fPIC"
-      - cd ../..
-      - ls -R
-      - CC="aarch64-linux-android21-clang --sysroot /opt/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/sysroot"
-        RANLIB=llvm-ranlib AR=llvm-ar PATH=/opt/android-sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/linux-x86_64/bin:/usr/bin:/bin make
       - pushd $$libbaresip-android$$
       - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
         Makefile
