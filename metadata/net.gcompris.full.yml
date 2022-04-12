@@ -660,6 +660,8 @@ Builds:
     srclibs:
       - extra-cmake-modules@v5.90.0
       - OpenSSL@OpenSSL_1_1_1n
+    rm:
+      - installer/dmg_DS_Store
     prebuild: mkdir qt/ android-build/
     build:
       - $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1' > /dev/null
