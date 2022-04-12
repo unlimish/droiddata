@@ -240,11 +240,9 @@ Builds:
       - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.5/node-v14.17.5-linux-x64.tar.xz
       - echo "2d759de07a50cd7f75bd73d67e97b0d0e095ee3c413efac7d1b3d1e84ed76fff node.tar.xz"
         | sha256sum -c -
-      - tar xJf node.tar.xz
-      - cp -a node-v14.17.5-linux-x64/. /usr/local/
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
       - npm -g install yarn
       - apt-get update || apt-get update
-      - apt-get install -y wget
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
