@@ -3,9 +3,9 @@ Categories:
 License: GPL-3.0-or-later
 AuthorName: Marc-André Charland
 AuthorEmail: macpoule@gmail.com
-SourceCode: https://github.com/reaper47/plant-sense/ui
+SourceCode: https://github.com/reaper47/plant-sense
 IssueTracker: https://github.com/reaper47/plant-sense/issues
-Changelog: https://github.com/reaper47/plant-sense/blob/main/CHANGELOG.md
+Changelog: https://github.com/reaper47/plant-sense/releases
 
 Summary: Read the soil moisture of your plants
 Description: |-
@@ -19,7 +19,7 @@ Description: |-
     latest readings.
 
 RepoType: git
-Repo: https://github.com/reaper47/plant-sense
+Repo: https://github.com/reaper47/plant-sense.git
 
 Builds:
   - versionName: 1.0.0
@@ -27,12 +27,18 @@ Builds:
     commit: v1.0.0
     output: ui/build/app/outputs/flutter-apk/app-release.apk
     srclibs:
-      - flutter
-    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
-    build: |-
-        export PATH=$$flutter$$/bin:$PATH && cd ui && flutter build apk --flavor fdroid
+      - flutter@2.10.4
+   prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+    build:
+      - cd ./ui
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter packages pub run flutter_launcher_icons:main
+      - $$flutter$$/bin/flutter build apk
 
-AutoUpdateMode: Version
-UpdateCheckMode: Tags
+
+
+AutoUpdateMode: None
+UpdateCheckMode: None
 CurrentVersion: 1.0.0
 CurrentVersionCode: 1
