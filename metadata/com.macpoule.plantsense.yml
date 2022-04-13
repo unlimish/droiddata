@@ -31,9 +31,9 @@ Builds:
     output: ui/build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.10.4
-    prebuild: rm -rf .pio bin 
+    prebuild: rm -rf .pio bin
     build:
-      - cd ./ui 
+      - cd ./ui
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter packages pub run flutter_launcher_icons:main
