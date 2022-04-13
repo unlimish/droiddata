@@ -18,6 +18,9 @@ Description: |-
     via Bluetooth. The app connects to the Bluetooth and displays the
     latest readings.
 
+    Consult https://github.com/reaper47/plant-sense for instructions on
+    how to set up the hardware.
+
 RepoType: git
 Repo: https://github.com/reaper47/plant-sense.git
 
@@ -28,8 +31,9 @@ Builds:
     output: ui/build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.10.4
-    prebuild: cd ./ui
+    prebuild: rm -rf .pio bin 
     build:
+      - cd ./ui 
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter packages pub run flutter_launcher_icons:main
