@@ -1,0 +1,40 @@
+Categories:
+  - Science & Education
+License: GPL-3.0-or-later
+AuthorName: Marc-André Charland
+AuthorEmail: macpoule@gmail.com
+SourceCode: https://github.com/reaper47/plant-sense/ui
+IssueTracker: https://github.com/reaper47/plant-sense/issues
+Changelog: https://github.com/reaper47/plant-sense/blob/main/CHANGELOG.md
+
+Summary: Read the soil moisture of your plants
+Description: |-
+    Plant Sense is the companion app for the Arduino project of
+    the same name to measure the soil moisture of your plants.
+
+    Why? To know whether the plant is thirsty.
+
+    The hardware transmits soil moisture, and ambient temperature/humidity
+    via Bluetooth. The app connects to the Bluetooth and displays the 
+    latest readings.
+
+RepoType: git
+Repo: https://github.com/reaper47/plant-sense
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    commit: v1.0.0
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.4
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.0
+CurrentVersionCode: 1
