@@ -1,4 +1,4 @@
-Categories: 
+Categories:
   - Connectivity
   - Multimedia
   - Internet
@@ -7,17 +7,24 @@ WebSite: https://joinmastodon.org
 SourceCode: https://github.com/mastodon/mastodon-android
 IssueTracker: https://github.com/mastodon/mastodon-android/issues
 
+AutoName: Mastodon
+
 RepoType: git
 Repo: https://github.com/mastodon/mastodon-android
 
 Builds:
   - versionName: '1.0'
     versionCode: 27
-    commit: 6be6be501f334bfed76c9566bf93f3ae17c01a6a
+    commit: beb11bfb70467e6da546f83f168080933eabb7b6
+    subdir: mastodon
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: '1.0'
 CurrentVersionCode: 27
