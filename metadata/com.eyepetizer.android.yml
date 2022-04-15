@@ -1,0 +1,35 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Internet
+  - Multimedia
+License: Apache-2.0
+AuthorName: 殷志威
+AuthorEmail: vipyinzhiwei@gmail.com
+AuthorWebSite: https://vipyinzhiwei.com
+SourceCode: https://github.com/VIPyinzhiwei/Eyepetizer
+IssueTracker: https://github.com/VIPyinzhiwei/Eyepetizer/issues
+Changelog: https://github.com/VIPyinzhiwei/Eyepetizer/releases
+
+AutoName: Eyepetizer
+
+RepoType: git
+Repo: https://github.com/VIPyinzhiwei/Eyepetizer.git
+
+Builds:
+  - versionName: 1.0.5
+    versionCode: 6
+    commit: 3f136ca443a0667ed6380db107cf5c412cb2bf03
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/umeng/d' build.gradle
+      - cd src/main/java/com/eyepetizer/android
+      - find . -type f -exec sed -i -e '/MobclickAgent/d' {} \;
+      - sed -i -e '/UMConfigure/d' EyepetizerApplication.kt util/UmengInitializer.kt
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.5
+CurrentVersionCode: 6
