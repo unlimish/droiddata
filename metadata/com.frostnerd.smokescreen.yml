@@ -7,35 +7,29 @@ SourceCode: https://git.frostnerd.com/PublicAndroidApps/smokescreen
 IssueTracker: https://git.frostnerd.com/PublicAndroidApps/smokescreen/-/issues
 Changelog: https://git.frostnerd.com/PublicAndroidApps/smokescreen/-/releases
 
-Summary: Encrypted DNS client
-Description: Nebulo is a free, open-source, no-root, light-weight dns-over-https,
-    dns-over-tls, and dns-over-http-over-quic client for Android with emphasis on
-    privacy and security. Nebulo is fast, highly-customizable, ad-free, efficient
-    on the battery, contains zero analytics / tracking.
-
 RepoType: git
 Repo: https://git.frostnerd.com/PublicAndroidApps/smokescreen
 
 Builds:
   - versionName: 2.1.2-adblock
     versionCode: 80
-    commit: c04f700596d95baedcb78ee949d8792a3b91c176
+    commit: 4a2ff9b6c09a544f12a11cbbaf5df1c20c2c3ff9
     subdir: app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk
+      - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
       - fdroidofficial
     srclibs:
-      - frostnerd-lifecycle@56297e75e48968696229f604710fa049cd823587
-      - frostnerd-preferences@6f9f6ffb0655b0184f5922a9eb9a901c9c95426e
-      - frostnerd-navigationdraweractivity@5e72b7173e337ca38b1b3efb6e21b3cc8cd8c69d
-      - frostnerd-vpntunnelproxy@d76c046d40967575bd5e8f3b3e79efd7eab1bff6
-      - frostnerd-dnstunnelproxy@27652dfd32cc9b362497b927061345c77a16e989
-      - frostnerd-encrypteddnstunnelproxy@247c668b9efb8a4c8b1255354261b90f9d052403
-      - frostnerd-general@e5050ea150cf9bc6983251e3804f9e5ab7fac1e1
-      - frostnerd-adapters@88828a6749a24b19c0055bb8764f72f3f236e024
+      - frostnerd-lifecycle@v1.2.5
+      - frostnerd-preferences@v1.5.35
+      - frostnerd-navigationdraweractivity@v1.4.7
+      - frostnerd-vpntunnelproxy@v3.1.21
+      - frostnerd-dnstunnelproxy@v2.2.2
+      - frostnerd-encrypteddnstunnelproxy@v2.2.2
+      - frostnerd-general@v1.0.29
+      - frostnerd-adapters@v1.3.10
     prebuild:
       - mkdir -p ../library
       - for srclib in $$frostnerd-lifecycle$$ $$frostnerd-preferences$$ $$frostnerd-navigationdraweractivity$$
@@ -48,7 +42,6 @@ Builds:
         '/repositories {/a mavenLocal()' ../build.gradle
       - sed -i -e '/fun tryCheckUpdate()/,/^    }/d' -e '/tryCheckUpdate/d' -e '/com.google.android.play/d'
         src/main/java/com/frostnerd/smokescreen/activity/MainActivity.kt
-      - sed -i -E -e '/com.google.android.(play|gms)/d' build.gradle
     scandelete:
       - library
     build:
