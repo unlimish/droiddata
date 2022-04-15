@@ -13,18 +13,18 @@ RepoType: git
 Repo: https://codeberg.org/qwerty287/ftpclient.git
 
 Builds:
-  - versionName: '1.2'
-    versionCode: 3
-    commit: '1.2'
+  - versionName: '2.0'
+    versionCode: 4
+    commit: b4e3748d62dcbaf99d6b44d92c81bca444782a30
     subdir: app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk
+      - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
       - yes
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '1.2'
-CurrentVersionCode: 3
+CurrentVersion: '2.0'
+CurrentVersionCode: 4
