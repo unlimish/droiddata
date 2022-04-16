@@ -23,8 +23,7 @@ Builds:
       - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.14.0/node-v16.14.0-linux-x64.tar.xz
       - echo "0570b9354959f651b814e56a4ce98d4a067bf2385b9a0e6be075739bc65b0fae node.tar.xz"
         | sha256sum -c -
-      - tar xJf node.tar.xz
-      - cp -a node-v16.14.0-linux-x64/. /usr/local/
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
       - npm -g install yarn
     init: npm install
     gradle:
