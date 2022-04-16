@@ -487,6 +487,40 @@ Builds:
       - sponsor
       - adultScrape
 
+  - versionName: 6.0.62
+    versionCode: 600062
+    commit: e3f0bbfe555a2908bdac97a5b655b1ed0ba3ab14
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build build-essential
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - apt-get install -y python3-wheel wget
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+      - FileCoreLibrary/libs/*jar
+      - native/opus-android-builder/lib
+      - native/openssl-android-builder/dist-*
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmdline-tools;latest'
+        > /dev/null
+      - $$SDK$$/cmdline-tools/latest/bin/sdkmanager 'cmake;3.18.1' > /dev/null
+    ndk: r23b
+    gradleprops:
+      - universal
+      - sponsor
+      - adultScrape
+
 MaintainerNotes: |-
     aos-fdroid git is dedicated to F-Droid builds and is updated from upstream repos.
     meson version is forced to 0.53.2 because 0.54.0 breaks dav1d's build.
