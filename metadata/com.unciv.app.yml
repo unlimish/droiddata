@@ -8,7 +8,7 @@ IssueTracker: https://github.com/yairm210/Unciv/issues
 Translation: https://yairm210.github.io/Unciv/Other/Translating/
 Changelog: https://github.com/yairm210/Unciv/blob/HEAD/changelog.md
 
-AutoName: Unciv
+AutoName: UnCiv
 Description: |-
     A reimplementation of the most famous civilization-building game ever—fast,
     small, no ads, free forever!
@@ -2937,7 +2937,7 @@ Builds:
     subdir: android
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk
+      - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
       - yes
@@ -2946,7 +2946,7 @@ Builds:
     prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
         'platforms;android-30' 'build-tools;30.0.3' > /dev/null
     scandelete:
-      - site/sitem
+      - site/sitemap.xml.gz
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
