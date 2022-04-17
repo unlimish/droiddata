@@ -1,0 +1,64 @@
+Categories:
+  - Internet
+  - Games
+License: LGPL-2.1-or-later
+SourceCode: https://github.com/n-ice-community/commandergenius
+IssueTracker: https://github.com/n-ice-community/commandergenius/issues
+
+Summary: Transport tycoon business simulation, with multiplayer
+Description: |-
+    Transport tycoon business simulation game.
+    Online multiplayer games are available, as well as a single-player against computer.
+    How to play: http://wiki.openttd.org/Tutorial
+    How to add computer opponents: https://wiki.openttd.org/AI_settings
+
+RepoType: git
+Repo: https://github.com/n-ice-community/commandergenius
+
+Builds:
+  - versionName: 12.2.rev111
+    versionCode: 1220111
+    commit: 12.2.rev111
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ build-essential openjdk-11-jdk-headless curl
+      - update-alternatives --auto java
+      - apt-get install -y clang-7 libc++-7-dev libc++abi-7-dev
+      - update-alternatives --install /usr/bin/cc cc /usr/bin/clang-7 100
+      - update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang++-7 100
+      - update-alternatives --set cc /usr/bin/clang-7
+      - update-alternatives --set c++ /usr/bin/clang++-7
+    init:
+      - ln -sf openttd project/jni/application/src
+      - git submodule update --init project/jni/iconv/src project/jni/sdl* project/jni/application/openttd/src
+      - sed -i -e "/GooglePlayGameServicesId/s/=.*/=/g" src/AndroidAppSettings.cfg
+      - rm -rf $(find project/jni/application/ -mindepth 1 -maxdepth 1 -type d -a
+        -not -iname openttd)
+      - rm -rf $(find project/jni/ -mindepth 1 -maxdepth 1 -type d -a -not \( -iname
+        application -o -iname 'sdl*' -o -iname 'icu*' -o -iname iconv -o -iname expat
+        -o -iname timidity -o -iname fontconfig -o -iname lzma -o -iname lzo2 -o -iname
+        harfbuzz -o -iname flac -o -iname mikmod -o -iname vorbis -o -iname tremor
+        -o -iname ogg -o -iname png -o -iname jpg -o -iname freetype  \) )
+      - rm -rf project/jni/sdl2_mixer/Xcode/
+      - rm -rf project/jni/sdl2_image/Xcode/
+      - rm -rf project/jni/sdl2_ttf/Xcode/
+      - rm -rf project/jni/sdl2/Xcode/
+      - rm -rf project/jni/sdl2_image/external/libwebp-1.0.3/swig/*
+      - rm -f project/themes/Sun/abstractsun.zip
+      - ln -sf project/jni/application/openttd/src/metadata metadata
+    output: project/app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1' > /dev/null
+    scanignore:
+      - project/jni/iconv/src/icu-le-hb-1.0.3.tar.gz
+      - project/jni/iconv/src/libiconv-1.15.tar.gz
+      - project/app/build-template.gradle
+      - project/jni/timidity/samples/timidity.zip
+    build: CMAKE_BIN_LOC=$$SDK$$/cmake/3.18.1/bin/ ./build.sh -z openttd
+    ndk: r23b
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+UpdateCheckData: ./project/jni/application/openttd/AndroidAppSettings.cfg|AppVersionCode=(\d+)|.|AppVersionName=(\d+)
+CurrentVersion: 12.2.rev111
+CurrentVersionCode: 1220111
