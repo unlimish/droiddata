@@ -1327,6 +1327,7 @@ Builds:
     prebuild: sed -i -e 's|dl.bintray.com.*"|jitpack.io"|' build.gradle
     build:
       - pushd $$ShiftColorPicker$$
+      - echo "include ':shiftcolorpicker'" > ../settings.gradle
       - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 gradle assembleRelease
       - popd
       - mv $$ShiftColorPicker$$/build/outputs/aar/shiftcolorpicker-release.aar libs
