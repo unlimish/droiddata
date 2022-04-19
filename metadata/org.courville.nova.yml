@@ -489,7 +489,7 @@ Builds:
 
   - versionName: 6.0.62
     versionCode: 600062
-    commit: 4b4f4186806f59f325ad41623da2237d17a5b142
+    commit: 099cb54a1a21bd583b69aeb2d0c32fe5ce48d23c
     subdir: Video
     submodules: true
     sudo:
@@ -512,7 +512,6 @@ Builds:
       - native/opus-android-builder/lib
       - native/openssl-android-builder/dist-*
     prebuild:
-      - ../AVP/android-setup-light.sh
       - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmdline-tools;latest'
         > /dev/null
       - $$SDK$$/cmdline-tools/latest/bin/sdkmanager 'cmake;3.18.1' > /dev/null
