@@ -23,9 +23,10 @@ Builds:
       - release/password
     build:
       - . /home/vagrant/.nix-profile/etc/profile.d/nix.sh
-      - ./release-fdroid.sh
+      - ./release-fdroid.sh --quiet -Q
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
+UpdateCheckData: android-version.nix|code\s=\s"(\d+)"|.|name\s=\s"(.+)"
 CurrentVersion: Alpha
 CurrentVersionCode: 29
