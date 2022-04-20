@@ -12,12 +12,12 @@ Repo: https://github.com/hexresearch/ergvein.git
 Builds:
   - versionName: Alpha
     versionCode: 29
-    commit: a1d6cfa7e00987f105ca14e5c0a98f56ec9e377c
+    commit: 28aa783f7e089a41e86a129e16525da8974a86fe
     sudo:
       - apt install xz-utils
       - mkdir -m 0755 /nix
       - chown vagrant /nix
-    init: sh <(curl -L https://nixos.org/nix/install) --no-daemon
+    init: ./install-nix.sh
     output: android-release-apk/release/android-app-release-unsigned.apk
     scandelete:
       - release/password
