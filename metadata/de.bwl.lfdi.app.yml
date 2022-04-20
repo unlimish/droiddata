@@ -1,0 +1,31 @@
+Categories:
+  - Internet
+  - Science & Education
+AntiFeatures:
+  - NonFreeNet
+License: EUPL-1.2
+AuthorEmail: poststelle@lfdi.bwl.de
+AuthorWebSite: https://www.baden-wuerttemberg.datenschutz.de/
+SourceCode: https://gitlab.lfdi-bw.de/LfDI/lfdi-app-android-public
+
+AutoName: LfDI BW
+
+RepoType: git
+Repo: https://gitlab.lfdi-bw.de/LfDI/lfdi-app-android-public.git
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: a0326b386d9a8848c701a7ab117b62dc94a0e35b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '1.0'
+CurrentVersionCode: 1
