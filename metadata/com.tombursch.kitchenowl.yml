@@ -1,0 +1,41 @@
+Categories:
+  - Money
+  - Sports & Health
+License: AGPL-3.0-or-later
+AuthorName: Tom Bursch
+WebSite: https://tombursch.github.io/kitchenowl/
+SourceCode: https://github.com/TomBursch/kitchenowl
+IssueTracker: https://github.com/TomBursch/kitchenowl/issues
+
+Summary: KitchenOwl is a self-hosted grocery list and recipe manager
+Description: |-
+    KitchenOwl is a self-hosted grocery list and recipe manager.
+    Easily add items to your shopping list before you go shopping.
+    You can also create recipes and add items based on what you want to cook.
+
+RepoType: git
+Repo: https://github.com/TomBursch/kitchenowl
+
+Builds:
+  - versionName: 0.0.35
+    versionCode: 35
+    commit: v0.0.35
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.5
+    rm:
+      - ios
+      - windows
+      - macos
+    prebuild: touch .env
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter create .
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 0.0.35
+CurrentVersionCode: 35
