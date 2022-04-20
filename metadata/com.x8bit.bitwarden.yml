@@ -1,0 +1,49 @@
+Categories:
+  - Security
+License: GPL-3.0-only
+AuthorName: Bitwarden, Inc.
+WebSite: https://bitwarden.com
+SourceCode: https://github.com/bitwarden/mobile
+
+RepoType: git
+Repo: https://github.com/bitwarden/mobile.git
+
+Builds:
+  - versionName: 2.9.1
+    versionCode: 1
+    commit: v2.9.1
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y mono-complete liblttng-ust-dev -t testing
+      - apt-get install -y clang-7 libc++-7-dev libc++abi-7-dev llvm-7 libicu-dev
+        libunwind-dev liblldb-7
+    output: placeholder.apk
+    srclibs:
+      - dotnet-source-build@release/5.0
+      - xamarin-android@v11.2.2.1
+    build:
+      - export CC=/usr/bin/clang-7
+      - export CXX=/usr/bin/clang++-7
+      - export CXXFLAGS='-stdlib=libc++ -nostdinc++ -I/usr/lib/llvm-7/include/c++/v1'
+      - export LDFLAGS='-lc++abi -L/usr/lib/llvm-7/lib -Wl,-rpath,/usr/lib/llvm-7/lib'
+      - pushd $$dotnet-source-build$$
+      - ./build.sh
+      - popd
+      - mv $$dotnet-source-build$$/artifacts/x64/Release/dotnet-sdk-*.tar.gz dotnet-sdk.tar.gz
+      - export DOTNET_ROOT=$HOME/dotnet
+      - mkdir -p "$DOTNET_ROOT"
+      - tar zxf dotnet-sdk.tar.gz -C "$DOTNET_ROOT"
+      - export PATH=$PATH:$DOTNET_ROOT
+      - rm dotnet-sdk.tar.gz
+      - pushd $$xamarin-android$$
+      - make prepare
+      - make
+      - make install prefix=$HOME
+      - export PATH=$PATH:$HOME/bin
+      - ls bin
+      - popd
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 2.9.1
+CurrentVersionCode: 1
