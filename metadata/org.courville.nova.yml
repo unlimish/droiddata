@@ -495,10 +495,8 @@ Builds:
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y -t testing nasm
-      - apt-get install -y ninja-build build-essential
-      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y ninja-build build-essential openjdk-11-jdk-headless python3-wheel wget 
       - update-alternatives --auto java
-      - apt-get install -y python3-wheel wget
       - pip3 install meson==0.53.2
     gradle:
       - noamazon
@@ -513,8 +511,7 @@ Builds:
       - native/openssl-android-builder/dist-*
     prebuild:
       - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmdline-tools;latest'
-        > /dev/null
-      - $$SDK$$/cmdline-tools/latest/bin/sdkmanager 'cmake;3.18.1' > /dev/null
+      - $$SDK$$/cmdline-tools/latest/bin/sdkmanager 'cmake;3.18.1'
     ndk: r23b
     gradleprops:
       - universal
