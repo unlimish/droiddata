@@ -16,8 +16,8 @@ Repo: https://github.com/ente-io/frame
 Builds:
   - versionName: 0.5.13
     versionCode: 293
-    commit: e2e59c6e35e0f057ab23effc6dbff2db5fcafa95
-    output: build/app/outputs/flutter-apk/app-release.apk
+    commit: 0f3a4d05b9c97f1115c92d35357e8de3ec55f372
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
     srclibs:
       - flutter@2.8.1
     build:
@@ -29,7 +29,7 @@ Builds:
       - flutter config --no-analytics
       - flutter packages pub get
       - flutter packages pub run flutter_launcher_icons:main
-      - flutter build apk
+      - flutter build apk  --flavor fdroid
 
 AutoUpdateMode: None
 UpdateCheckMode: None
