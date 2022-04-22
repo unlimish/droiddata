@@ -1,0 +1,34 @@
+Categories:
+  - Internet
+  - Multimedia
+License: GPL-3.0-or-later
+SourceCode: https://gitlab.com/andrei-pavel/radio-romania
+IssueTracker: https://gitlab.com/andrei-pavel/radio-romania/-/issues
+LiberapayID: '881243'
+
+Summary: Radio Romania podcasts
+Description: |-
+    Plays the podcasts from Radio Romania stations.
+
+    Alternatively, it can also play the radio stations live.
+
+RepoType: git
+Repo: https://gitlab.com/andrei-pavel/radio-romania
+
+Builds:
+  - versionName: 2.4.9
+    versionCode: 1
+    commit: master
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    build:
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter packages pub get
+      - flutter config --no-analytics
+      - flutter build apk --flavor fdroid
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 2.4.9
+CurrentVersionCode: 1
