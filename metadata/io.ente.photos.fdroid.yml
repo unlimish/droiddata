@@ -16,8 +16,8 @@ Repo: https://github.com/ente-io/frame
 Builds:
   - versionName: 0.5.13
     versionCode: 293
-    commit: 0f3a4d05b9c97f1115c92d35357e8de3ec55f372
-    # submodules: true
+    commit: 8ffff37c66ef29cc1340c5c0d6f8b482224c8c36
+    submodules: true
     output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
     srclibs:
       - flutter@2.8.1
@@ -28,7 +28,6 @@ Builds:
       - gradle :tsbackgroundfetch:publishRelease
       - cd ../../../
       - export PATH=$$flutter$$/bin:$PATH
-      - git submodule update --init --recursive
       - flutter config --no-analytics
       - flutter packages pub get
       - flutter packages pub run flutter_launcher_icons:main
