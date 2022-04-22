@@ -1,0 +1,29 @@
+Categories:
+  - Reading
+License: GPL-2.0-only
+SourceCode: https://github.com/mateusz-bak/openreads-android
+IssueTracker: https://github.com/mateusz-bak/openreads-android/issues
+Changelog: https://github.com/mateusz-bak/openreads-android/releases
+
+AutoName: Mateusz Bak
+AuthorEmail: mateusz.bak.dev@gmail.com
+
+RepoType: git
+Repo: https://github.com/mateusz-bak/openreads-android
+
+Builds:
+  - versionName: '1.13.0'
+    versionCode: 18
+    commit: 0cd31b86f14c51ae4f18e13c918c23a6e05e2076
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '1.13.0'
+CurrentVersionCode: 18
