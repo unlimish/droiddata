@@ -27,7 +27,11 @@ Builds:
       - update-alternatives --auto java
     output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
     srclibs:
-      - flutter@stable
+      - flutter@2.10.5
+    rm:
+      - linux
+      - test
+      - web
     build:
       - export PATH=$$flutter$$/bin:$PATH
       - flutter packages pub get
