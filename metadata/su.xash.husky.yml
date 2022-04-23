@@ -18,6 +18,13 @@ Builds:
     subdir: husky/app
     gradle:
       - huskyStable
+  - versionName: 1.0.1
+    versionCode: 168
+    commit: v1.0.1
+    subdir: app
+    gradle:
+      - huskyBlue
+    prebuild: sed -i -e 's/buildnum()/168/g' build.gradle
 
   - versionName: 1.1.2
     versionCode: 178
