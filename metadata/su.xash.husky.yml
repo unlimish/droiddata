@@ -24,6 +24,10 @@ Builds:
     versionCode: 178
     commit: 1.1.2
     subdir: husky/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - huskyStable
 
