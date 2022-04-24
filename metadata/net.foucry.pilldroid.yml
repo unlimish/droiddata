@@ -23,7 +23,18 @@ Builds:
     gradle:
       - product
 
+  - versionName: v0.2.0
+    versionCode: 20
+    commit: v0.2.0
+    sudir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives -- auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: v0.100-beta
-CurrentVersionCode: 100
+CurrentVersion: v0.2.0
+CurrentVersionCode: 20
