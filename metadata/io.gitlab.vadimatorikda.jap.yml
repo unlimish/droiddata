@@ -1,0 +1,29 @@
+Categories:
+  - Science & Education
+License: GPL-3.0-only
+AuthorName: Vadimatorikda
+AuthorEmail: Vadimatorikda@gmail.com
+SourceCode: https://gitlab.com/vadimatorikda/jap
+IssueTracker: https://gitlab.com/vadimatorikda/jap/issues
+
+AutoName: Jap
+
+RepoType: git
+Repo: https://gitlab.com/vadimatorikda/jap
+
+Builds:
+  - versionName: '1.2'
+    versionCode: 3
+    commit: '1.2'
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '1.2'
+CurrentVersionCode: 3
