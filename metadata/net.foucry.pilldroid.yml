@@ -16,6 +16,10 @@ Builds:
     versionCode: 100
     commit: v0.100-beta
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
@@ -23,14 +27,12 @@ Builds:
     versionCode: 200
     commit: v0.200-beta
     subdir: app
-    gradle:
-      - yes
-
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
-
+    gradle:
+      - yes
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
