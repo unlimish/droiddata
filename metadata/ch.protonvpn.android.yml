@@ -1021,7 +1021,6 @@ Builds:
     disable: https://github.com/ProtonVPN/android-app/issues/84
     commit: 82b04550aef5f86487194db7cdf3519319e89142
     subdir: app
-    submodules: true
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y --no-install-recommends libgmp-dev
@@ -1038,6 +1037,7 @@ Builds:
       - strongswan/testing/hosts/alice/etc/raddb/certs/random
       - openvpn/src/main/cpp/mbedtls/programs/fuzz/corpuses/*
     prebuild:
+      - git submodule update --init --recursive strongswan
       - sed -i -e '/triple/d' -e '/play\ {/,+4d' build.gradle
       - sed -i -e '/kotlinx/d' ../build.gradle
       - sed -i -e 's/21.3.6528147/21.4.7075529/' ../openvpn/build.gradle.kts
