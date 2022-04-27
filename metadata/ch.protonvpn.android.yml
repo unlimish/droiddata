@@ -1037,10 +1037,9 @@ Builds:
       - openvpn/src/main/cpp/openvpn3/test/unittests
       - openvpn/src/main/cpp/mbedtls/programs/fuzz/corpuses/*
     prebuild:
+      - $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1' > /dev/null
       - sed -i -e '/triple/d' -e '/play\ {/,+4d' build.gradle
       - sed -i -e '/kotlinx/d' ../build.gradle
-      - sed -i -e 's/21.3.6528147/21.4.7075529/' ../openvpn/build.gradle.kts
-      - sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
       - pushd ..
       - git submodule update --init --recursive strongswan
       - pushd strongswan
