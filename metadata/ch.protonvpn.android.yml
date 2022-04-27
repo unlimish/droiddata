@@ -1033,7 +1033,6 @@ Builds:
       - app/src/main/jniLibs/arm64-v8a/*
       - openvpn/src/main/cpp/mbedtls/tests
       - openvpn/src/main/cpp/openvpn3/test/unittests
-      - strongswan/testing/hosts/alice/etc/raddb/certs/random
       - openvpn/src/main/cpp/mbedtls/programs/fuzz/corpuses/*
     prebuild:
       - git submodule update --init --recursive strongswan
@@ -1044,6 +1043,8 @@ Builds:
       - pushd ../strongswan
       - git clone git://git.strongswan.org/android-ndk-boringssl.git -b ndk-static
         src/frontends/android/app/src/main/jni/openssl
+    scandelete:
+      - strongswan/testing
     build:
       - pushd ../strongswan
       - export PATH=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
