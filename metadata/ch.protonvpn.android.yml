@@ -1043,6 +1043,8 @@ Builds:
       - pushd ..
       - git submodule update --init --recursive strongswan
       - pushd strongswan
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+        > /dev/null
       - git clone git://git.strongswan.org/android-ndk-boringssl.git -b ndk-static
         src/frontends/android/app/src/main/jni/openssl
     scandelete:
