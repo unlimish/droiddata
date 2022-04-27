@@ -1023,6 +1023,8 @@ Builds:
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y --no-install-recommends libgmp-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - prod
     output: build/outputs/apk/prod/release/ProtonVPN-*-prod-release-unsigned.apk
