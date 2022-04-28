@@ -1,0 +1,41 @@
+Categories:
+  - Sports & Health
+AuthorName: Vlad Petryshyn
+SourceCode: https://github.com/VladPetryshyn/wim_breath
+IssueTracker: https://github.com/VladPetryshyn/wim_breath/issues
+
+AutoName: Wim Breath
+
+RepoType: git
+Repo: https://github.com/VladPetryshyn/wim_breath
+
+Builds:
+  - versionName: 1.0.0
+    commit: initial commit
+    subdir: android/app
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.13.0/node-v16.13.0-linux-x64.tar.xz
+      - echo "a876ce787133149abd1696afa54b0b5bc5ce3d5ae359081d407ff776e39b7ba8 node.tar.xz"
+      | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.13.0-linux-x64/. /usr/local/
+      - npm -g install yarn
+    init: yarn install
+    gradle:
+      - yes
+    scanignore:
+      - android/build.gradle
+      - node_modules/jsc-android
+      - node_modules/react-native/android/com/facebook/react/react-native/*/
+      - node_modules/react-native-appearance/android/build.gradle
+      - node_modules/react-native-reanimated/android/build.gradle
+      - node_modules/react-native-safe-area-context/android/build.gradle
+      - node_modules/react-native-screens/android/build.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/@react-native-community/netinfo/android/build.gradle
+    scandelete:
+      - node_modules/
+    ndk: r21d
+AutoUpdateMode: Version v%v
+CurrentVersion: 1.0.0
