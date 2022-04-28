@@ -1051,7 +1051,7 @@ Builds:
       - openvpn/src/main/cpp/lz4/tmp
     build:
       - pushd ../strongswan
-      - export PATH=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
+      - export PATH=$$NDK$$/../21.4.7075529/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
       - ./autogen.sh
       - ./configure
       - make dist
@@ -1070,7 +1070,7 @@ Builds:
       - rm -fr openvpn/build/tmp
       - rm -fr openvpn/.cxx
       - popd
-    ndk: r23b
+    ndk: r23b,r21e
     gradleprops:
       - buildUniversalApk
 
