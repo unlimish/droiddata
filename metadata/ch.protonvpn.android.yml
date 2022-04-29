@@ -1045,7 +1045,8 @@ Builds:
       - git clone git://git.strongswan.org/android-ndk-boringssl.git -b ndk-static
         src/frontends/android/app/src/main/jni/openssl
       - cd ..
-      - sed -i -e 's/android {/&\n    ndkPath "'"$(pwd)"'/ndk/android-ndk-r21e"/' src/frontends/android/app/build.gradle
+      - sed -i -e 's,android {,&\n    ndkPath "'"$(pwd)"'/ndk/android-ndk-r21e",'
+        src/frontends/android/app/build.gradle
     scandelete:
       - strongswan/testing
       - build/gradle-build-cache
