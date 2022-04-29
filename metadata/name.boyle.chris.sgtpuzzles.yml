@@ -106,6 +106,10 @@ Builds:
     versionCode: 126
     commit: 2022-04-28-2030-c43a34fb
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
     forceversion: true
