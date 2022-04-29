@@ -102,9 +102,9 @@ Builds:
     forceversion: true
     ndk: r18b
 
-  - versionName: 2022-04-28-2030-c43a34fb-fdroid
-    versionCode: 126
-    commit: 2022-04-28-2030-c43a34fb
+  - versionName: 2022-04-29-0852-c43a34fb-fdroid
+    versionCode: 127
+    commit: 2022-04-29-0852-c43a34fb
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -113,6 +113,7 @@ Builds:
     gradle:
       - yes
     forceversion: true
+    prebuild: sed -i '/versionNameSuffix.*idForSimon/d' build.gradle
     ndk: r24
 
 MaintainerNotes: |-
@@ -121,5 +122,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 2022-04-28-2030-c43a34fb-fdroid
-CurrentVersionCode: 126
+CurrentVersion: 2022-04-29-0852-c43a34fb-fdroid
+CurrentVersionCode: 127
