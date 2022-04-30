@@ -1,0 +1,27 @@
+Categories:
+  - Money
+License: GPL-3.0
+AuthorName: Shafiqur Rahman
+WebSite: https://techub.kazispin.com/
+SourceCode: https://gitlab.com/kazispintechub/money-logs
+IssueTracker: https://gitlab.com/kazispintechub/money-logs/issues
+Changelog: https://gitlab.com/kazispintechub/money-logs/releases
+
+
+AutoName: Money Logs
+Description: |-
+    Financial Record Manager App.
+
+RepoType: git
+Repo: https://gitlab.com/kazispintechub/money-logs.git
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1.0.0
+    commit: e3ae23d1f08849e44cc7af13dcea166cb646ac31
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter
+    prebuild: rm -fr ios # iOS folder has binaries sometimes
+    build: |-
+        export PATH=$$flutter$$/bin:$PATH && flutter build apk --flavor fdroid
