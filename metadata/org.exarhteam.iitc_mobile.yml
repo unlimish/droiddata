@@ -31,14 +31,14 @@ Builds:
     srclibs:
       - cpython@v3.7.7
     prebuild:
-      - virtualenv --python=python3.7 ../../env
-      - source ../../env/bin/activate
-      - (cd ../..
-      - "echo \"builds = {'fdroid': {'post_build': ['build_mobile.py'], 'gradle_buildtype':\
-        \ 'copyonly'}}\" >> localbuildsettings.py"
-      - ./build.py fdroid)
+      - cd ../..
+      - virtualenv --python=python3.7 env
+      - source env/bin/activate
+      - echo "builds = {'fdroid': {'post_build': ['build_mobile.py'], 'gradle_buildtype':
+        'copyonly'}}" >> localbuildsettings.py
+      - ./build.py fdroid
       - deactivate
-      - rm -rf ../../env
+      - rm -rf env
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: HTTP
