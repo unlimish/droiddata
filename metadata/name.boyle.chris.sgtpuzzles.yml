@@ -116,6 +116,20 @@ Builds:
     prebuild: sed -i '/versionNameSuffix.*idForSimon/d' build.gradle
     ndk: r24
 
+  - versionName: 2022-04-30-1100-c43a34fb-fdroid
+    versionCode: 128
+    commit: 2022-04-30-1100-c43a34fb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    forceversion: true
+    prebuild: sed -i '/versionNameSuffix.*idForSimon/d' build.gradle
+    ndk: r24
+
 MaintainerNotes: |-
     * Cannot use UCM/AUM because of dynamic versionName.
     * Check not only installation, but actual games to ensure correct JNI build.
