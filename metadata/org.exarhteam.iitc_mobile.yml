@@ -34,8 +34,8 @@ Builds:
       - cd ../..
       - virtualenv --python=python3.7 env
       - source env/bin/activate
-      - echo "builds = {'fdroid': {'post_build': ['build_mobile.py'], 'gradle_buildtype':
-        'copyonly'}}" >> localbuildsettings.py
+      - echo "builds={'fdroid':{'post_build':['build_mobile.py'],'gradle_buildtype':'copyonly'}}"
+        >> localbuildsettings.py
       - ./build.py fdroid
       - deactivate
       - rm -rf env
