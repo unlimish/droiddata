@@ -20,6 +20,11 @@ Builds:
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.10.5
+    rm:
+      - flatpak
+      - ios
+      - linux
+      - macos
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk
