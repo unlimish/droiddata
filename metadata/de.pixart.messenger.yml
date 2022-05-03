@@ -250,7 +250,21 @@ Builds:
     prebuild: sed -i -e '/libwebrtc/d' -e "/AppIntro:/aimplementation 'org.webrtc:google-webrtc:1.0.30039'"
         build.gradle
 
-AutoUpdateMode: Version %v
+  - versionName: 3.1.0
+    versionCode: 338
+    disable: https://gitlab.com/fdroid/fdroiddata/-/issues/2064
+    commit: b95559cce07eb6807a8fde79ed8c3a36088646e6
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - git
+    prebuild: sed -i -e '/webrtc/d' -e "/AppIntro:/aimplementation 'org.webrtc:google-webrtc:1.0.32006'"
+        build.gradle
+    ndk: r21e
+
+AutoUpdateMode: None
 UpdateCheckMode: Tags ^[0-9]+\.[0-9]+\.[0-9]+$
-CurrentVersion: 3.0.8
-CurrentVersionCode: 326
+CurrentVersion: 3.1.1
+CurrentVersionCode: 340

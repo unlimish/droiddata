@@ -1,3 +1,5 @@
+AntiFeatures:
+  - NonFreeNet
 Categories:
   - Money
 License: GPL-3.0-only
@@ -293,7 +295,37 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.43'
+    versionCode: 143
+    commit: ffd296ef8062710284c05b3d5bd1fc03d4109ef2
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.44'
+    versionCode: 144
+    commit: a858f1f582c4a804a49e9b6d03a9a3152802a306
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.45'
+    versionCode: 145
+    commit: 2a21bd479baf2ca236a186449eb37864bbce7264
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.42'
-CurrentVersionCode: 142
+CurrentVersion: '1.45'
+CurrentVersionCode: 145

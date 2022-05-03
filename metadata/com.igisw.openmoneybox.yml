@@ -6,7 +6,7 @@ AuthorEmail: igor.cali0@gmail.com
 WebSite: http://igisw-bilancio.sourceforge.net/
 SourceCode: https://gitlab.com/igi0/openmoneybox
 IssueTracker: https://gitlab.com/igi0/openmoneybox/issues
-Changelog: https://sourceforge.net/p/igisw-bilancio/wiki/Changelog/
+Changelog: https://sourceforge.net/p/igisw-bilancio/wiki/OMB_Changelog/
 Donate: http://igisw-bilancio.sourceforge.net/donation.html
 
 AutoName: OpenMoneyBox
@@ -215,7 +215,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 3.4.1.13
+    versionCode: 45
+    commit: c07d8ee3608b8f75a0ab59ed0ae7065b0d60ae64
+    subdir: android/API29
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.4.1.14
+    versionCode: 46
+    commit: 1e153adf5dbfbba3f5be0bc8b6ece6ac3202a64b
+    subdir: android/API29
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 3.4.1.11
-CurrentVersionCode: 44
+CurrentVersion: 3.4.1.14
+CurrentVersionCode: 46

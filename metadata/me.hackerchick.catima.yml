@@ -502,7 +502,51 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.16.0
+    versionCode: 104
+    commit: 54fc1e910686e1ee9f6bcd3734be13ea667b9afa
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.16.1
+    versionCode: 105
+    commit: d7f43f8a2bf17b48ee45b9191fac14b9d81a72c0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.16.2
+    versionCode: 106
+    commit: f932d8f6e4425c2c8554b20d8f68432cb2f4d936
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.16.3
+    versionCode: 107
+    commit: 4bf6f6cd5f3d2a360ae231635ec47d5e1209f6e1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.15.2
-CurrentVersionCode: 103
+CurrentVersion: 2.16.3
+CurrentVersionCode: 107

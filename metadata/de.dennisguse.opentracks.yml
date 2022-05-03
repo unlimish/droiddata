@@ -484,7 +484,37 @@ Builds:
     gradle:
       - yes
 
+  - versionName: v3.26.0
+    versionCode: 4773
+    commit: ecfcc180b967f21b0852da2bb26ee3eba9af6a59
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: v3.26.1
+    versionCode: 4775
+    commit: cb71c40350931881e3f94b0ea9cc5969ace3ef72
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: v3.27.0
+    versionCode: 4816
+    commit: 0934e7f10cf99e7e0a2741a3e2f6da2ea51cc93e
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: v3.25.1
-CurrentVersionCode: 4755
+CurrentVersion: v3.27.0
+CurrentVersionCode: 4816

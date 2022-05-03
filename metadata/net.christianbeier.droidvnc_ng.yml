@@ -66,7 +66,37 @@ Builds:
       - yes
     ndk: r21e
 
+  - versionName: 1.2.5
+    versionCode: 10
+    commit: 8da099706355de509c8e5d9e90fffd4c1e83dcd2
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.10.2.4988404' > /dev/null
+    ndk: r21e
+
+  - versionName: 1.2.6
+    versionCode: 11
+    commit: 90fb21976c7a097a7791173fe0ca2c8c68751dc8
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.10.2.4988404' > /dev/null
+    ndk: r21e
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.2.4
-CurrentVersionCode: 9
+CurrentVersion: 1.2.6
+CurrentVersionCode: 11

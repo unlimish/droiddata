@@ -124,7 +124,62 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '3.0'
+    versionCode: 400
+    commit: b916d4016ef63253c2e0fa70ab1a7fa121a9a72f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '3.1'
+    versionCode: 401
+    commit: 2e17efe82b48f394615b243b9ff22e74ca08b1af
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.1.1
+    versionCode: 402
+    commit: 6b99e360e0e57e9e7207cb41217721e89f7c0c96
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '3.2'
+    versionCode: 404
+    commit: e34acf010e05c7577ae25606eb952c8d183e4ec4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.2.1
+    versionCode: 405
+    commit: 4c5314fe59865359693083c09158b783b9ad71a4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]+$
-CurrentVersion: 2.1.5
-CurrentVersionCode: 381
+CurrentVersion: 3.2.1
+CurrentVersionCode: 405

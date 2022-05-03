@@ -953,7 +953,49 @@ Builds:
       - foss
     prebuild: sed -i -e '/(is_proprietary)/,+2d' ../build.gradle
 
+  - versionName: 6.23.0
+    versionCode: 359
+    commit: e3a82a75075842c688ca89e0447684df6fa856e3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    patch:
+      - build.patch
+    gradle:
+      - foss
+    prebuild: sed -i -e '/(is_proprietary)/,+2d' ../build.gradle
+
+  - versionName: 6.23.1
+    versionCode: 360
+    commit: 12ed80c51ede430fc3c49f0761b1fa9746bd88de
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    patch:
+      - build.patch
+    gradle:
+      - foss
+    prebuild: sed -i -e '/(is_proprietary)/,+2d' ../build.gradle
+
+  - versionName: 6.23.2
+    versionCode: 361
+    commit: 5b03714ab7d015bab5f34aef7bf4f548811bdf8e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    patch:
+      - build.patch
+    gradle:
+      - foss
+    prebuild: sed -i -e '/(is_proprietary)/,+2d' ../build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 6.22.3
-CurrentVersionCode: 358
+CurrentVersion: 6.23.2
+CurrentVersionCode: 361

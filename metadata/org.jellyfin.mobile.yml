@@ -7,7 +7,7 @@ AuthorWebSite: https://jellyfin.org/
 WebSite: https://jellyfin.org/
 SourceCode: https://github.com/jellyfin/jellyfin-android
 IssueTracker: https://github.com/jellyfin/jellyfin-android/issues
-Translation: https://translate.jellyfin.org/projects/jellyfin/jellyfin-android/
+Translation: https://translate.jellyfin.org/engage/jellyfin-android/
 Changelog: https://github.com/jellyfin/jellyfin-android/releases
 OpenCollective: jellyfin
 
@@ -136,9 +136,22 @@ Builds:
     output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
     build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
 
+  - versionName: 2.4.4
+    versionCode: 2040499
+    commit: v2.4.4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: HTTP
 UpdateCheckIgnore: (beta|rc)
 UpdateCheckData: https://repo.jellyfin.org/releases/client/android/version.txt|^v.*?=(\d+)|.|^v(.*?)=\d+
-CurrentVersion: 2.4.2
-CurrentVersionCode: 2040299
+CurrentVersion: 2.4.4
+CurrentVersionCode: 2040499
