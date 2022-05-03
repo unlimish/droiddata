@@ -5,25 +5,6 @@ License: BSD-4-Clause
 SourceCode: https://github.com/KRTirtho/spotube
 IssueTracker: https://github.com/KRTirtho/spotube/issues
 Changelog: https://github.com/KRTirtho/spotube/blob/HEAD/CHANGELOG.md
-OpenCollective: spotube
-
-Summary: A lightweight free & OpenSource Spotify CrossPlatform Client
-Description: |-
-    Spotube is a Flutter based lightweight spotify client. It utilizes the power of Spotify & Youtube's public API & creates a hazardless, performant & resource friendly User Experience
-
-    Following are the features that currently spotube offers:
-
-    * Open Source
-    * Anonymous/Guest Login
-    * Cross platform
-    * No telemetry, diagnostics or user data collection
-    * Lightweight & resource friendly
-    * Native performance (Thanks to Flutter+Skia)
-    * Playback control is on user's machine instead of server based
-    * Small size & less data hungry
-    * No spotify or youtube ads since it uses all public & free APIs (But it's recommended to support the creators by watching/liking/subscribing to the artists youtube channel or add as favourite track in spotify. Mostly buying spotify premium is the best way to support their valuable creations)
-    * Lyrics
-    * Downloadable track
 
 RepoType: git
 Repo: https://github.com/KRTirtho/spotube.git
@@ -49,10 +30,11 @@ Builds:
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/dart bin/create-secrets.dart $LYRICS_SECRET  $SPOTIFY_SECRET
       - $$flutter$$/bin/flutter build apk --release --verbose
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: '2.0.0'
+CurrentVersion: 2.0.0
 CurrentVersionCode: 8
