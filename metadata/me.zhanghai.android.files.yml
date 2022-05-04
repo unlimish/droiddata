@@ -195,7 +195,22 @@ Builds:
     prebuild: find -type f -exec sed -i '/\/\/#ifdef NONFREE/,/\/\/#endif/d' {} +
     ndk: r23b
 
+  - versionName: 1.5.0
+    versionCode: 29
+    commit: f349dc75273d09ec1633b9f612ef09acdeb3b096
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/src/main/java/me/zhanghai/android/files/nonfree
+    prebuild: find -type f -exec sed -i '/\/\/#ifdef NONFREE/,/\/\/#endif/d' {} +
+    ndk: r24
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v.+$
-CurrentVersion: 1.4.2
-CurrentVersionCode: 28
+CurrentVersion: 1.5.0
+CurrentVersionCode: 29

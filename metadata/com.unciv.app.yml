@@ -9,29 +9,6 @@ Translation: https://yairm210.github.io/Unciv/Other/Translating/
 Changelog: https://github.com/yairm210/Unciv/blob/HEAD/changelog.md
 
 AutoName: UnCiv
-Description: |-
-    A reimplementation of the most famous civilization-building game ever—fast,
-    small, no ads, free forever!
-
-    Build your civilization, research technologies, expand your cities and
-    defeat your foes!
-
-    Requests? Bugs? Todo list for the application is
-    https://github.com/yairm210/UnCiv/issues, every small help is welcome!
-
-    Questions? Comments? Just bored? Join us on https://discord.gg/bjrB4Xw.
-
-    Want to help translating the game into your language? Send me an email to
-    yairm210@hotmail.com.
-
-    Grok Java or Kotlin? Join us at https://github.com/yairm210/UnCiv.
-
-    The world awaits! Will you build your civilization into an empire that will
-    stand the test of time?
-
-    The 'have full network access' permission is required for user-initiated downloads and the multiplayer feature. All other listed permissions are included automatically by the API used to implement multiplayer turn notifications.
-    Network permissions are used to list mods, download mods, download music and to upload/download multiplayer games.
-    No other internet communication is initiated by Unciv.
 
 RepoType: git
 Repo: https://github.com/yairm210/Unciv.git
@@ -2999,9 +2976,43 @@ Builds:
     scandelete:
       - site/sitemap.xml.gz
 
+  - versionName: 4.0.10-patch1
+    versionCode: 702
+    commit: 48a2a2e51f2b03b898a15fccd32f2c690ea8272a
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.11
+    versionCode: 703
+    commit: 3eb33248484a8f927ee59ebd988ffbcaca593861
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: buildSrc/src/main/kotlin/BuildConfig.kt|appCodeNumber = (.*)|.|appVersion
     = "(.*)"
-CurrentVersion: 4.0.10
-CurrentVersionCode: 701
+CurrentVersion: 4.0.11
+CurrentVersionCode: 703
