@@ -1045,7 +1045,7 @@ Builds:
       - git clone git://git.strongswan.org/android-ndk-boringssl.git -b ndk-static
         src/frontends/android/app/src/main/jni/openssl
       - cd ..
-      - echo ndk.dir="$(pwd)"/ndk/android-ndk-r21e > strongswan/src/frontends/android/app/local.properties
+      - echo ndk.dir="$(pwd)"/ndk/android-ndk-r21e > strongswan/src/frontends/android/local.properties
     scandelete:
       - strongswan/testing
       - build/gradle-build-cache
@@ -1059,7 +1059,6 @@ Builds:
         | sha256sum -c -
       - unzip -q ndk.zip
       - popd
-      - export PATH=$(pwd)/ndk/android-ndk-r21e/toolchains/llvm/prebuilt/linux-x86_64/bin:$PATH
       - popd
       - pushd ../strongswan
       - ./autogen.sh
