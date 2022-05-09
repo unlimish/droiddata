@@ -1039,7 +1039,6 @@ Builds:
       - openvpn/src/main/cpp/mbedtls/programs/fuzz/corpuses/*
     prebuild:
       - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
-        > /dev/null
       - sed -i -e '/triple/d' -e '/play\ {/,+4d' build.gradle
       - git submodule update --init --recursive ../strongswan
       - cd ../strongswan
@@ -1049,7 +1048,6 @@ Builds:
       - echo ndk.dir="$(pwd)"/ndk/android-ndk-r21e > strongswan/src/frontends/android/local.properties
     scandelete:
       - strongswan/testing
-      - build/gradle-build-cache
       - openvpn/src/main/cpp/lz4/tmp
     build:
       - pushd ..
