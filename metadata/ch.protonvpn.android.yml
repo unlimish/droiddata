@@ -1073,6 +1073,13 @@ Builds:
       - cp -r ../strongswan/src/frontends/android/app/src/main/libs/* src/main/jniLibs/
       - rm -fr ../strongswan/src/frontends/android/app/src/main/libs/*
       - rm -fr ../strongswan/src/frontends/android/app/build
+      - pushd ..
+      - gradle openvpn:assembleRelease
+      - rm -fr openvpn/build/intermediates
+      - rm -fr openvpn/build/kotlin
+      - rm -fr openvpn/build/tmp
+      - rm -fr openvpn/.cxx
+      - popd
     ndk: r23b
     gradleprops:
       - buildUniversalApk
