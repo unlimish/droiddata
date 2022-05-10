@@ -3,18 +3,18 @@ AntiFeatures:
 Categories:
   - Internet
 License: EUPL-1.2
-AuthorName: Beowulf
+AuthorName: BeoCode
 AuthorEmail: weather@beocode.eu
-WebSite: https://codeberg.org/Beowulf/Weather/wiki
-SourceCode: https://codeberg.org/Beowulf/Weather
-IssueTracker: https://codeberg.org/Beowulf/Weather/issues
+WebSite: https://codeberg.org/BeoCode/Weather/wiki
+SourceCode: https://codeberg.org/BeoCode/Weather
+IssueTracker: https://codeberg.org/BeoCode/Weather/issues
 Translation: https://poeditor.com/join/project?hash=WhLrkxFJUt
-Changelog: https://codeberg.org/Beowulf/Weather/raw/branch/main/CHANGELOG
+Changelog: https://codeberg.org/BeoCode/Weather/raw/branch/main/CHANGELOG
 
 AutoName: Weather
 
 RepoType: git
-Repo: https://codeberg.org/Beowulf/Weather.git
+Repo: https://codeberg.org/BeoCode/Weather.git
 
 Builds:
   - versionName: '2.01'
@@ -246,7 +246,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '3.17'
+    versionCode: 54
+    commit: db30b87f76143a102a54bda9fb245cdf990b4c0c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags ^[0-9\.]+$
-CurrentVersion: '3.16'
-CurrentVersionCode: 51
+CurrentVersion: '3.17'
+CurrentVersionCode: 54
