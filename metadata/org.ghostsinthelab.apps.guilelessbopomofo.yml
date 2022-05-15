@@ -395,6 +395,8 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.22.1' > /dev/null
     ndk: r23b
 
 AutoUpdateMode: Version %v
