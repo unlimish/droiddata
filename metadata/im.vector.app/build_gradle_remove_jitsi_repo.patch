@@ -14,6 +14,6 @@
 -                groups.jitsi.group.each { includeGroup it }
 -            }
 -        }
+         // Do not use `google()`, it prevents Dependabot from working properly
          google {
-             content {
-                 groups.google.regex.each { includeGroupByRegex it }
+             url 'https://maven.google.com'
