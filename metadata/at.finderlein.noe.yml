@@ -16,9 +16,9 @@ RepoType: git
 Repo: https://github.com/finderlein/noefinderlein_flutter
 
 Builds:
-  - versionName: 2.0.4
-    versionCode: 204
-    commit: v2.0.4
+  - versionName: 2.0.5
+    versionCode: 205
+    commit: v2.0.5
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
@@ -42,10 +42,11 @@ Builds:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
       - $$flutter$$/bin/flutter pub run build_runner build
-      - $$flutter$$/bin/flutter build apk
+      - $$flutter$$/bin/flutter build apk --release --dart-define=ANDROID_FLOSS=true
+        --dart-define=EXCLUDE_X86=true
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags v\d+.\d+.\d+
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 2.0.4
-CurrentVersionCode: 204
+CurrentVersion: 2.0.5
+CurrentVersionCode: 205
