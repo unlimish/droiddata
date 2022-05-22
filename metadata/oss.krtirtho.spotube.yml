@@ -15,6 +15,7 @@ Builds:
   - versionName: 2.1.0
     versionCode: 9
     commit: 31551ac1dc487adaf3015124c38804bc886ce69e
+    output: build/app/outputs/apk/release/*.apk
     srclibs:
       - flutter@3.0.1
     rm:
@@ -27,7 +28,6 @@ Builds:
       - deb-struct
       - choco-struct
       - aur-struct
-    output: build/app/outputs/apk/release/app-release.apk
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
