@@ -326,8 +326,20 @@ Builds:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --flavor fdroid
 
+  - versionName: 1.1.12
+    versionCode: 30
+    commit: 634eb9109c1a26fbce2403908f30b6ea0cdf2bd1
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.0.1
+    rm:
+      - ios
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.1.11
-CurrentVersionCode: 29
+CurrentVersion: 1.1.12
+CurrentVersionCode: 30
