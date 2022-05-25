@@ -1,5 +1,6 @@
 AntiFeatures:
   - NonFreeNet
+  - Tracking
 Categories:
   - Connectivity
 License: BSD-3-Clause
@@ -622,7 +623,276 @@ Builds:
       - make -C .. release_aar
     ndk: r21e
 
+  - versionName: 1.18.2-tb04815c9c-g08e1f97a38e
+    versionCode: 82
+    commit: 7e32eb74bbf1ca3fe6886f96d6bf967bea855bfd
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
+  - versionName: 1.19.190-tc5243562d-g14b849f0e85-dirty
+    versionCode: 84
+    commit: 64192d4ae8aef9461ed68cd015958a9fb5464af0
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+      - echo "231654bbf2dab3d86c1619ce799e77b03d96f9b50770297c8f4dff8836fc8ca2 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
+  - versionName: 1.21.8-t8cf1af8a0-g6b83c6ae21f
+    versionCode: 85
+    commit: df73d8a41945cf4b81402dab8806c14c2af622c3
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+      - echo "231654bbf2dab3d86c1619ce799e77b03d96f9b50770297c8f4dff8836fc8ca2 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
+  - versionName: 1.21.24-t0ada42684-g213009e9af5
+    versionCode: 86
+    commit: aa5123b8b4621e821ee4c566cfe1a73531ef8891
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+      - echo "231654bbf2dab3d86c1619ce799e77b03d96f9b50770297c8f4dff8836fc8ca2 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
+  - versionName: 1.20.2-t8e643357d-ge1751fa2802
+    versionCode: 87
+    commit: 539a1cf84ff081c243889351892d1d874a4b871c
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+      - echo "231654bbf2dab3d86c1619ce799e77b03d96f9b50770297c8f4dff8836fc8ca2 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
+  - versionName: 1.21.112-td19a63ddf-g5868fdb7b04
+    versionCode: 89
+    commit: 69f2fe67dcce8b21a52c558de6a6169ff17668af
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+      - echo "231654bbf2dab3d86c1619ce799e77b03d96f9b50770297c8f4dff8836fc8ca2 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
+  - versionName: 1.21.114-te921e1b02-g4a1c0cb2ee7
+    versionCode: 90
+    commit: 0e5c2ec1ec2cabc347d9805b2077b8a7b25efa17
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+      - echo "231654bbf2dab3d86c1619ce799e77b03d96f9b50770297c8f4dff8836fc8ca2 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
+  - versionName: 1.22.0-t4e0b00ad8-g56cf5b6132d
+    versionCode: 91
+    commit: 79ecc5e59f3b7b3171110125563dd263bedcdcf8
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+      - echo "231654bbf2dab3d86c1619ce799e77b03d96f9b50770297c8f4dff8836fc8ca2 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
+  - versionName: 1.23.148-t7c7f37342-gb4f8e7f90a4
+    versionCode: 94
+    commit: d8ccc2387f1776cdd93b0af39cc95a5da716d99b
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+      - echo "231654bbf2dab3d86c1619ce799e77b03d96f9b50770297c8f4dff8836fc8ca2 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-31' 'build-tools;31.0.0'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r21e
+
+  - versionName: 1.23.210-tc13be0c50-g3f8df48d23d
+    versionCode: 97
+    commit: e652d853d6aa574c9a3f277695cd286c2b32a088
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+      - echo "231654bbf2dab3d86c1619ce799e77b03d96f9b50770297c8f4dff8836fc8ca2 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-31' 'build-tools;31.0.0'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r23b
+
+  - versionName: 1.23.238-t695f8a1d7-gbd5ef3fd68d
+    versionCode: 100
+    commit: 40481f5ec63b921590549b9b7a91d133627a8f41
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+      - echo "231654bbf2dab3d86c1619ce799e77b03d96f9b50770297c8f4dff8836fc8ca2 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-31' 'build-tools;31.0.0'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r23b
+
+  - versionName: 1.24.0-tf0e71f4a2-g772e6ae6f06
+    versionCode: 101
+    commit: 289e5293c6e6c50d7a7ee7ea9a5ba7c33d7bc6e8
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+      - echo "231654bbf2dab3d86c1619ce799e77b03d96f9b50770297c8f4dff8836fc8ca2 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-31' 'build-tools;31.0.0'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r23b
+
+  - versionName: 1.25.35-te3619b890-ge66e57fbb08
+    versionCode: 103
+    commit: 536c17a3a21fbcd7143ed1fade85375976f05ea1
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y git -t stretch-backports
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.6.linux-amd64.tar.gz
+      - echo "231654bbf2dab3d86c1619ce799e77b03d96f9b50770297c8f4dff8836fc8ca2 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - fdroid
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-31' 'build-tools;31.0.0'
+        > /dev/null
+    build:
+      - export ANDROID_SDK_ROOT=$$SDK$$
+      - export ANDROID_NDK_ROOT=$$NDK$$
+      - make -C .. release_aar
+    ndk: r23b
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.18.0-t71f1dd5aa-g6e464cc68f9
-CurrentVersionCode: 78
+CurrentVersion: 1.25.35-te3619b890-ge66e57fbb08
+CurrentVersionCode: 103

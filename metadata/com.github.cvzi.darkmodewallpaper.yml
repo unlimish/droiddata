@@ -127,7 +127,70 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.2.1
+    versionCode: 18
+    commit: fb0bf4202976019bda099b03220a9f55f0778e3b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.2.4
+    versionCode: 21
+    commit: 92862e61a3b877956fb6f32e4736b9939648859d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/publish.gradle
+
+  - versionName: 1.2.5
+    versionCode: 22
+    commit: 074b144a4d01c3f861a51823c69be0a51dde5a26
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/publish.gradle
+
+  - versionName: 1.2.6
+    versionCode: 23
+    commit: e0d9b64e61d93a70976bf9a15abe983d2bf08f47
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/publish.gradle
+
+  - versionName: 1.2.8
+    versionCode: 25
+    commit: 14a63de7ed303b58372acdca326e56a5b6f8fc5a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/publish.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.2.0
-CurrentVersionCode: 17
+CurrentVersion: 1.2.8
+CurrentVersionCode: 25

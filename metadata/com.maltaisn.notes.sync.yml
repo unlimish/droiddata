@@ -43,7 +43,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.4.2
+    versionCode: 10402
+    commit: 1a343ef826d212de2d29bd52fe33f6007cb55360
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/apk/release/app-release-unsigned.apk
+    build: gradle assembleRelease -x lintVitalAnalyzeRelease
+
+  - versionName: 1.4.3
+    versionCode: 10403
+    commit: 8b8e723fc8143ca2c18aa9d5d32acf36f5585861
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/apk/release/app-release-unsigned.apk
+    build: gradle assembleRelease -x lintVitalAnalyzeRelease
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags v.*[0-9]$
-CurrentVersion: 1.4.1
-CurrentVersionCode: 10401
+CurrentVersion: 1.4.3
+CurrentVersionCode: 10403

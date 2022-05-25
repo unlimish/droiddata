@@ -5,6 +5,7 @@ SourceCode: https://github.com/tenzap/exif-thumbnail-adder
 IssueTracker: https://github.com/tenzap/exif-thumbnail-adder/issues
 Translation: https://crowdin.com/project/exif-thumbnail-adder
 Changelog: https://github.com/tenzap/exif-thumbnail-adder/releases
+Liberapay: tenzap
 
 AutoName: Exif Thumbnail Adder
 
@@ -137,7 +138,55 @@ Builds:
       - libs.prebuilt
     ndk: r22b
 
+  - versionName: 0.9.13
+    versionCode: 232
+    commit: 694342a66e5501477242d05dbe6cfabd412673df
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+    scandelete:
+      - library
+      - libs.prebuilt
+    ndk: r23b
+
+  - versionName: 0.9.14
+    versionCode: 237
+    commit: 8702fea29b6c3609bbe98fcdfef627839e51e473
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+    scandelete:
+      - library
+      - libs.prebuilt
+    ndk: r23b
+
+  - versionName: 0.9.15
+    versionCode: 247
+    commit: 95abf7a97ff1effbf2f28100a4d9412833a5e7eb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+    scandelete:
+      - library
+      - libs.prebuilt
+    ndk: r23b
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.9.12
-CurrentVersionCode: 213
+CurrentVersion: 0.9.15
+CurrentVersionCode: 247

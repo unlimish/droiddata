@@ -4,7 +4,7 @@ License: GPL-3.0-only
 AuthorName: Tibor Kaputa
 AuthorEmail: hello@simplemobiletools.com
 WebSite: https://simplemobiletools.com
-SourceCode: https://github.com/SimpleMobileTools/Simple-CLock
+SourceCode: https://github.com/SimpleMobileTools/Simple-Clock
 IssueTracker: https://github.com/SimpleMobileTools/Simple-Clock/issues
 Changelog: https://github.com/SimpleMobileTools/Simple-Clock/blob/HEAD/CHANGELOG.md
 Donate: https://simplemobiletools.com/donate
@@ -176,19 +176,31 @@ Builds:
       - yes
     prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
 
-  - versionName: 5.6.1
-    versionCode: 25
-    commit: b47b3854edda89379af3446264fa09edde9ac4f0
+  - versionName: 5.7.0
+    versionCode: 26
+    commit: 36a84abb6735e47832fde3389558133a6b9cc6c7
     subdir: app
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
-      - yes
+      - fdroid
     prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
 
-AutoUpdateMode: Version %v
+  - versionName: 5.7.1
+    versionCode: 27
+    commit: 347260dfee12006b66bec1cdbba419d4d8f13a22
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 5.6.1
-CurrentVersionCode: 25
+CurrentVersion: 5.7.1
+CurrentVersionCode: 27

@@ -36,9 +36,18 @@ Builds:
     gradle:
       - standard
 
-MaintainerNotes: Cannot use AUM/UCM because upstream git is too slow.
+  - versionName: '1.4'
+    versionCode: 5
+    commit: 539b9198bf26f09e83ac19853d0bf2463950cc1b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: '1.2'
-CurrentVersionCode: 3
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags v\d+\.\d+(\.\d+)?
+CurrentVersion: '1.4'
+CurrentVersionCode: 5

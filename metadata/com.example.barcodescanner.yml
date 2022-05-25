@@ -69,7 +69,23 @@ Builds:
       - fDroid
     ndk: r21
 
+  - versionName: '1.10'
+    versionCode: 12
+    commit: da922e7b96906ec55a7437733378e850ca9262f7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fDroid
+    prebuild: sed -i -e '/io.sentry.android.gradle/d' -e '/^sentry {/,/^}/d' build.gradle
+    ndk: r21
+    antifeatures:
+      - NonFreeNet
+      - Tracking
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.9'
-CurrentVersionCode: 11
+CurrentVersion: '1.10'
+CurrentVersionCode: 12

@@ -9,7 +9,7 @@ WebSite: https://manichord.com/projects/mgit.html
 SourceCode: https://github.com/maks/MGit
 IssueTracker: https://github.com/maks/MGit/issues
 Changelog: https://github.com/maks/MGit/releases
-Donate: http://projects.sheimi.me/SGit
+Donate: https://sgit.sheimi.me/
 
 AutoName: MGit
 Description: |-
@@ -113,7 +113,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.6.1
+    versionCode: 222
+    commit: 6574cbf7a987b8301e694316208c3562f9bbc27f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.6.3
+    versionCode: 224
+    commit: c1e5d648501dd886197b943255a004065c47826c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.5.10
-CurrentVersionCode: 220
+CurrentVersion: 1.6.3
+CurrentVersionCode: 224

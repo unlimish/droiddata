@@ -172,7 +172,43 @@ Builds:
       - develop
     prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
 
+  - versionName: 3.10.03
+    versionCode: 31003
+    commit: 68416026faba2bb27e4427d860cb18773637e1e8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - develop
+    prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
+
+  - versionName: 3.10.06
+    versionCode: 31006
+    commit: 7c0d475cacb2d3c41ac72cb3a001f28c423cde76
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - develop
+    prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
+
+  - versionName: 3.10.07
+    versionCode: 31007
+    commit: 6c943f51e3fe688deb587fa560e51073106014b1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - develop
+    prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 3.09.10
-CurrentVersionCode: 30910
+CurrentVersion: 3.10.07
+CurrentVersionCode: 31007

@@ -1,6 +1,7 @@
 Categories:
   - Connectivity
 License: GPL-3.0-or-later
+AuthorName: Remmer Wilts
 SourceCode: https://gitlab.com/remmer.wilts/ipfs-lite
 IssueTracker: https://gitlab.com/remmer.wilts/ipfs-lite/issues
 
@@ -323,7 +324,63 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.6.4
+    versionCode: 264
+    commit: a7d94ecba9947be987b2ef0c95d9a7489bcf3a99
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.6.5
+    versionCode: 265
+    commit: dca3b8ea157c89fc150f85289449ae53b3a008cd
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.7.0
+    versionCode: 270
+    commit: e1bcdac93f0e944c8d15f937d35a6730bdd6820b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.7.2
+    versionCode: 272
+    commit: 08793edaa7961aafebeece9fe57391f528185e22
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.7.3
+    versionCode: 273
+    commit: 9633541de4de169e6b05cfe5cca3e87d95560c96
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.6.3
-CurrentVersionCode: 263
+CurrentVersion: 2.7.3
+CurrentVersionCode: 273

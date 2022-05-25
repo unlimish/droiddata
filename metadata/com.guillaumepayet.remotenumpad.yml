@@ -47,7 +47,19 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.8.0
+    versionCode: 30
+    commit: c2ecd961de4ee6ec72d46e75b6faa6a389d45230
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/firebase/d' -e '/gms/d' build.gradle ../build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.7.1
-CurrentVersionCode: 29
+CurrentVersion: 1.8.0
+CurrentVersionCode: 30

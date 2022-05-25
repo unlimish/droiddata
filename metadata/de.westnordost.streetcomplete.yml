@@ -11,15 +11,6 @@ Changelog: https://github.com/streetcomplete/StreetComplete/releases
 LiberapayID: '1625952'
 
 AutoName: Street­Complete
-Description: |-
-    Help to improve the OpenStreetMap with StreetComplete!
-
-    This app finds incomplete and extendable data in your vicinity and displays it
-    on a map as markers. Each of those is solvable by answering a simple question to
-    complete the info on site.
-
-    The info you enter is then directly added to the OpenStreetMap in your name,
-    without the need to use another editor.
 
 RepoType: git
 Repo: https://github.com/streetcomplete/StreetComplete.git
@@ -892,7 +883,173 @@ Builds:
     prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
         build.gradle.kts
 
+  - versionName: '38.2'
+    versionCode: 3803
+    commit: 64e97ec9fecb60e79c9d73efbbd8049c8e00a78e
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '39.0'
+    versionCode: 3901
+    disable: https://github.com/streetcomplete/StreetComplete/issues/3667
+    commit: 5cec01cdafcd9d14a2c0a9e55ec67352855fbfdf
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '39.1'
+    versionCode: 3902
+    commit: fa1a2fc230cd1604f1ab85184795fbac9a33152e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '40.0'
+    versionCode: 4001
+    commit: 6ddf681020b6c3004c605d91a15d3488688ab3b3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '40.1'
+    versionCode: 4002
+    commit: a457f39ed21ca68dd6e87f2c542ba30165f75e35
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '40.2'
+    versionCode: 4003
+    commit: 56272b4926a004bb0326bd5600c9768d74e5fa4e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '41.0'
+    versionCode: 4101
+    commit: 05a073f6b094e51b2f95373d0f1c86323bf54ed6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '41.1'
+    versionCode: 4102
+    commit: 2a34d98fce5bca9bb60383f28bb2d3fdafd29980
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '41.2'
+    versionCode: 4103
+    commit: f82715ba684d215cc04af8214f6a07d9b3572118
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '42.0'
+    versionCode: 4201
+    commit: bdfac6f4327dd9afe5780b68b40fa46d77ddccce
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '43.0'
+    versionCode: 4301
+    commit: f48576c3ca04c98b880d0fa923ffb87b14292eb4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '43.1'
+    versionCode: 4302
+    commit: 783698a85b47848e8afa40fae0efa48e5a6f8e6b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
+  - versionName: '43.2'
+    versionCode: 4303
+    commit: b3154dd5cfa24118a1030011222d0dd4140e32c0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d'
+        build.gradle.kts
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v\d+(\.\d+)?$
-CurrentVersion: '38.1'
-CurrentVersionCode: 3802
+CurrentVersion: '43.2'
+CurrentVersionCode: 4303

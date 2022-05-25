@@ -3,38 +3,15 @@ Categories:
 License: MPL-2.0
 AuthorName: Yair Morgenstern
 AuthorEmail: yairm210@hotmail.com
-SourceCode: https://github.com/yairm210/UnCiv
-IssueTracker: https://github.com/yairm210/UnCiv/issues
-Translation: https://github.com/yairm210/Unciv/wiki/Translating
+SourceCode: https://github.com/yairm210/Unciv
+IssueTracker: https://github.com/yairm210/Unciv/issues
+Translation: https://yairm210.github.io/Unciv/Other/Translating/
 Changelog: https://github.com/yairm210/Unciv/blob/HEAD/changelog.md
 
 AutoName: UnCiv
-Description: |-
-    A reimplementation of the most famous civilization-building game ever—fast,
-    small, no ads, free forever!
-
-    Build your civilization, research technologies, expand your cities and
-    defeat your foes!
-
-    Requests? Bugs? Todo list for the application is
-    https://github.com/yairm210/UnCiv/issues, every small help is welcome!
-
-    Questions? Comments? Just bored? Join us on https://discord.gg/bjrB4Xw.
-
-    Want to help translating the game into your language? Send me an email to
-    yairm210@hotmail.com.
-
-    Grok Java, Kotlin or C#? Join us at https://github.com/yairm210/UnCiv.
-
-    The world awaits! Will you build your civilization into an empire that will
-    stand the test of time?
-
-    The 'have full network access' permission is required for user-initiated downloads and the multiplayer feature. All other listed permissions are included automatically by the API used to implement multiplayer turn notifications.
-    Network permissions are used to list mods, download mods, download music and to upload/download multiplayer games.
-    No other internet communication is initiated by Unciv.
 
 RepoType: git
-Repo: https://github.com/yairm210/UnCiv.git
+Repo: https://github.com/yairm210/Unciv.git
 
 Builds:
   - versionName: 3.0.6
@@ -2286,9 +2263,926 @@ Builds:
     prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
         'platforms;android-30' 'build-tools;30.0.2' > /dev/null
 
+  - versionName: 3.18.7
+    versionCode: 652
+    commit: 0d4da03b7c7dd90158cf3916e3f65d75588864d6
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.8
+    versionCode: 654
+    commit: 3dfb0aec700ffa8ad6ff941890db2da6e45d072a
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.9
+    versionCode: 655
+    commit: e9da0004859c4b45f1d8e4e7aad7d069385de113
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.9-patch1
+    versionCode: 656
+    commit: 72d16dbcd47d4666e2b2ceed776e99a0e41d5a5f
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.10
+    versionCode: 657
+    commit: a7b880c033bcbc3234c42a6143116e2b19b47a92
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.10-patch1
+    versionCode: 658
+    commit: 12404a6ba6c8c684d6f2ca95edf559149c78e229
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.11-patch1
+    versionCode: 660
+    commit: f4f673dc8af5474151a8b3518a82b283b9eb3f31
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.12
+    versionCode: 661
+    commit: c62006cf723bda7220816c2721fe5e3b746bbc87
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.13
+    versionCode: 662
+    commit: 0d78659e49075ef853db2957061ffc78f158bd1f
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.14
+    versionCode: 663
+    commit: e68bd143d9275c3e2edc4b00f9c2e7fb89e0e7a3
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.15
+    versionCode: 664
+    commit: 9b431a9bf79ebea62d0a7005c293fe60bcac484e
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.16
+    versionCode: 665
+    commit: 480beb83b3a198efa277318701d762645ee98381
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.16-patch1
+    versionCode: 666
+    commit: a06c607c0cad1761c835675c42b2a69bfc7ba7e7
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.17
+    versionCode: 667
+    commit: 462ae2dad01c5ea7af6d0ace9bd67617f5b680f7
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.18
+    versionCode: 668
+    commit: 21fbaf4814fff1996c8ea5ce03a9a8fd699a4ea9
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.18.19
+    versionCode: 669
+    commit: 682d65f02ed2101a133573fec5ee443b5265f070
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.19.0
+    versionCode: 670
+    commit: 7e4a2944c3132e4c98739cb24c1f14785deb8630
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.19.1
+    versionCode: 671
+    commit: 336e190ff03a12d13a4a5370a6d89089f3273ff8
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.19.2
+    versionCode: 672
+    commit: 6855a524665910b000ec4e2fb457cc1485ebeed5
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.19.3
+    versionCode: 673
+    commit: 0f4449f2e96a15cb8481872971797edd2e956a8d
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.2' > /dev/null
+
+  - versionName: 3.19.5
+    versionCode: 675
+    commit: 3661ad8d5b6b749511ad7e52b992d73a648a4c74
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+
+  - versionName: 3.19.6
+    versionCode: 676
+    commit: 8fda18db42ab4a1f66aeabff06e9e6e48177acdd
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+
+  - versionName: 3.19.7
+    versionCode: 677
+    commit: 09ea1a869de3231171b5ad791fdf2af45d85fca7
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+
+  - versionName: 3.19.8
+    versionCode: 678
+    commit: c49842671502db3d9cf4361c8c750b4a35498822
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+
+  - versionName: 3.19.9
+    versionCode: 679
+    commit: 9d0db40bbfb9b59c105c4280d82b63081938dac2
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+
+  - versionName: 3.19.10
+    versionCode: 680
+    commit: 99e913ba24c946221a0e7923411c3edabd4265be
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+
+  - versionName: 3.19.12
+    versionCode: 682
+    commit: db1304ee3568341a7fb3265e6843c64f1f499897
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 3.19.13
+    versionCode: 683
+    commit: 00c5ecb6a690585bca3d7682ac3540ffd16dd9e6
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 3.19.14
+    versionCode: 684
+    commit: 03aa489dcaf6847a65844608f8a86a3f6da4c8a9
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 3.19.15
+    versionCode: 686
+    commit: eaf5e453baddb767704656a0dbff7cc4ca8300f0
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 3.19.16
+    versionCode: 687
+    commit: f73916ac3b785a7c999d6859f26716281dbc9cd6
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 3.19.17
+    versionCode: 688
+    commit: f66930ed68c7b4666a7c5e9e4f1d5f6030c7419c
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 3.19.18
+    versionCode: 689
+    commit: fef993d5dca34f871f7a45a585cae7a73be77d6b
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.0
+    versionCode: 690
+    commit: 5fa10348b59747bbed203d503b0878687840e5cd
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.0-patch1
+    versionCode: 691
+    commit: 22a84b0c82ea127c7062c58b28c07a16d8b8d06c
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.1
+    versionCode: 692
+    commit: 2ef8581b52b8127b177acbe34c1f99a5b73900ba
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.2
+    versionCode: 693
+    commit: 5ab44dd945af96a46e97e5a48e2ecec3f691c597
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.3
+    versionCode: 694
+    commit: 5876047bda822dbe2954eefea03abac560d7b91d
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.4
+    versionCode: 695
+    commit: b728748cfaa5a9bed46f52062e2917b43352ff3a
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.5
+    versionCode: 696
+    commit: 9fa3d8de2f98b214c17f4a53120b6328e03b02e4
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.6
+    versionCode: 697
+    commit: 94e8264d36cbb4d23e2c0b5af2c843daba8ecbd1
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.7
+    versionCode: 698
+    commit: 0f70d8360d760060d61e03e0e187bbc765368510
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.8
+    versionCode: 699
+    commit: e1363d92f9d7bde846218123da90f14e2d66a311
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.9
+    versionCode: 700
+    commit: 0792d58434223958a01e9632e0948d0969975c5a
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.10
+    versionCode: 701
+    commit: 3d9a53329e3abcd9898fc3215e225b93c8b3d551
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.10-patch1
+    versionCode: 702
+    commit: 48a2a2e51f2b03b898a15fccd32f2c690ea8272a
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.11
+    versionCode: 703
+    commit: 3eb33248484a8f927ee59ebd988ffbcaca593861
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.12
+    versionCode: 704
+    commit: 760aace92337a36ba0b48566f861d79efa793806
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.13
+    versionCode: 705
+    commit: 806d58074c1de6018367065462c396119e0bbbaf
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.14
+    versionCode: 706
+    commit: ba96bea556e1b486b6295cce1fa91f4b4904c9f9
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.15-patch1
+    versionCode: 708
+    commit: 73f4d9042d8ffa444ecedc79293bfa5e43ce6c22
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.0.15-patch2
+    versionCode: 709
+    commit: 16c95e25df738a3a48edede158fd1ccd722e36b1
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.1.0
+    versionCode: 710
+    commit: b5a2aa59b6324e0251fe377c712cd7235a1e4aa4
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.1.1
+    versionCode: 711
+    commit: f464ac2544230c638638d0bc289e232b4c4feb3c
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.1.1-patch2
+    versionCode: 713
+    commit: abe91187416a17f9e15b9752a814096b7d79d82e
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.1.2
+    versionCode: 714
+    commit: 6836038252c3bc44e61674a7c785c2f1f3858a3a
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
+  - versionName: 4.1.2-patch1
+    versionCode: 715
+    commit: b710f8f6a17d32b8a7151d3f2870effdd13d08c4
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - desktop
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-30' 'build-tools;30.0.3' > /dev/null
+    scandelete:
+      - site/sitemap.xml.gz
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: buildSrc/src/main/kotlin/BuildConfig.kt|appCodeNumber = (.*)|.|appVersion
     = "(.*)"
-CurrentVersion: 3.18.6
-CurrentVersionCode: 651
+CurrentVersion: 4.1.2-patch1
+CurrentVersionCode: 715

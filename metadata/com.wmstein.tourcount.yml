@@ -266,7 +266,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 3.2.7
+    versionCode: 327
+    commit: 0d743a7f2f00c07ff87c7a451f7e7f96e8df88e0
+    subdir: tourcount
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.2.8
+    versionCode: 328
+    commit: b8500662c8ec200cfbb9cebbdde0a46a80eeff42
+    subdir: tourcount
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 3.2.6
-CurrentVersionCode: 326
+CurrentVersion: 3.2.8
+CurrentVersionCode: 328

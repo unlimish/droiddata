@@ -1,0 +1,38 @@
+Categories:
+  - System
+License: GPL-3.0-only
+SourceCode: https://github.com/patri9ck/a2ln-app
+IssueTracker: https://github.com/patri9ck/a2ln-app/issues
+
+AutoName: Android 2 Linux Notifications
+
+RepoType: git
+Repo: https://github.com/patri9ck/a2ln-app.git
+
+Builds:
+  - versionName: 1.0.2
+    versionCode: 3
+    commit: e119679a3f04c993a7c57e4d070f8d47a0efb7d2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.0
+    versionCode: 4
+    commit: 3aa38856ae0f274ed7cf9929cac7dd358caf64b0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.1.0
+CurrentVersionCode: 4

@@ -1458,7 +1458,319 @@ Builds:
     scandelete:
       - node_modules/**
 
+  - versionName: 3.89.25
+    versionCode: 389250
+    commit: 4b4d7d24e2a05a2b6b6f6ec8315f9e06f5d8a79d
+    subdir: app-android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
+      - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.3.0-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - fdroid
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node buildSrc/fixFdroidDeps.js
+      - npm install
+      - node dist prod
+      - node buildSrc/prepareMobileBuild.js dist
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.91.6
+    versionCode: 391060
+    commit: 7be2e97ac621ed12ef085eea9b42afd5166b262a
+    subdir: app-android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
+      - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.3.0-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - fdroid
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node buildSrc/fixFdroidDeps.js
+      - npm install
+      - npm run build-packages
+      - node --max-old-space-size=4096 dist prod
+      - node buildSrc/prepareMobileBuild.js dist
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.91.9
+    versionCode: 391090
+    commit: 897942d150ecb545e1044214ede9d7086e243d11
+    subdir: app-android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
+      - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.3.0-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - fdroid
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node buildSrc/fixFdroidDeps.js
+      - npm install
+      - npm run build-packages
+      - node --max-old-space-size=4096 dist prod
+      - node buildSrc/prepareMobileBuild.js dist
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.93.2
+    versionCode: 393020
+    disable: https://github.com/tutao/tutanota/issues/3930
+    commit: c897c6654aef716016d2a5f3deec984dc2e363de
+    subdir: app-android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
+      - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.3.0-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - fdroid
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node buildSrc/fixFdroidDeps.js
+      - npm install
+      - npm run build-packages
+      - node --max-old-space-size=4096 dist prod
+      - node buildSrc/prepareMobileBuild.js dist
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.93.4
+    versionCode: 393040
+    commit: 1cb850960b27ebcd5cdfc655232d3bceec6acc66
+    subdir: app-android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
+      - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.3.0-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - fdroid
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node buildSrc/fixFdroidDeps.js
+      - npm install
+      - npm run build-packages
+      - node --max-old-space-size=4096 webapp prod
+      - node buildSrc/prepareMobileBuild.js dist
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.93.6
+    versionCode: 393060
+    commit: 77ebd27c91caedaab940507c5fd17267499520c8
+    subdir: app-android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
+      - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.3.0-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - fdroid
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node buildSrc/fixFdroidDeps.js
+      - npm install
+      - npm run build-packages
+      - node --max-old-space-size=4096 webapp prod
+      - node buildSrc/prepareMobileBuild.js dist
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.93.7
+    versionCode: 393070
+    commit: bf6fbceca8b65f2d485761e3cb92bacccb639422
+    subdir: app-android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
+      - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.3.0-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - fdroid
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node buildSrc/fixFdroidDeps.js
+      - npm install
+      - npm run build-packages
+      - node --max-old-space-size=4096 webapp prod
+      - node buildSrc/prepareMobileBuild.js dist
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.94.2
+    versionCode: 394020
+    commit: abe33289b6e659940362c1cf6da84e1fb806059b
+    subdir: app-android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - apt-get install -y g++
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
+      - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.3.0-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - fdroid
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node buildSrc/fixFdroidDeps.js
+      - npm install
+      - npm run build-packages
+      - node --max-old-space-size=4096 webapp prod
+      - node buildSrc/prepareMobileBuild.js dist
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.95.4
+    versionCode: 395040
+    commit: c5ad9699488e889b09ecbf14934dbe9031599866
+    subdir: app-android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - apt-get install -y g++
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
+      - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.3.0-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - fdroid
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node buildSrc/fixFdroidDeps.js
+      - npm install
+      - npm run build-packages
+      - node --max-old-space-size=4096 webapp prod
+      - node buildSrc/prepareMobileBuild.js dist
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.96.3
+    versionCode: 396030
+    commit: 64d3703706b9c47dbcd3eaf46a9c840bde6ef48a
+    subdir: app-android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - apt-get install -y g++
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
+      - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.3.0-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - fdroid
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node buildSrc/fixFdroidDeps.js
+      - npm install
+      - npm run build-packages
+      - node --max-old-space-size=4096 webapp prod
+      - node buildSrc/prepareMobileBuild.js dist
+    scandelete:
+      - node_modules/**
+
+  - versionName: 3.96.7
+    versionCode: 396070
+    commit: 35f42a93fb01115144def9a247ad8f07f1472213
+    subdir: app-android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - apt-get install -y g++
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.3.0/node-v16.3.0-linux-x64.tar.xz
+      - echo "5347ece975747e4d9768d4ed3f8b2220c955ac01f8a695347cd7f71ff5efa318 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.3.0-linux-x64/. /usr/local/
+      - npm install -g npm@latest
+    gradle:
+      - fdroid
+    rm:
+      - app-ios
+    prebuild:
+      - cd ../..
+      - node buildSrc/fixFdroidDeps.js
+      - npm install
+      - npm run build-packages
+      - node --max-old-space-size=4096 webapp prod
+      - node buildSrc/prepareMobileBuild.js dist
+    scandelete:
+      - node_modules/**
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags tutanota-android-release-*
-CurrentVersion: 3.89.20
-CurrentVersionCode: 389200
+CurrentVersion: 3.96.7
+CurrentVersionCode: 396070

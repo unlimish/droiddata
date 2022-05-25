@@ -1,0 +1,74 @@
+Categories:
+  - System
+License: GPL-3.0-only
+AuthorName: Distributed Update System
+SourceCode: https://github.com/DUpdateSystem/UpgradeAll
+IssueTracker: https://github.com/DUpdateSystem/UpgradeAll/issues
+Changelog: https://github.com/DUpdateSystem/UpgradeAll/releases
+
+AutoName: UpgradeAll
+
+RepoType: git
+Repo: https://github.com/DUpdateSystem/UpgradeAll.git
+
+Builds:
+  - versionName: 0.12-rc
+    versionCode: 94
+    commit: cd3e97bc6c1cb7219f4e6727ab683703c6fc5427
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/firebase/d' -e '/gms/d' build.gradle ../build.gradle
+    gradleprops:
+      - free
+
+  - versionName: 0.12-rc.1
+    versionCode: 95
+    commit: dbece25c098495e301ad4f219f730d89f5744bbb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/firebase/d' -e '/gms/d' build.gradle ../build.gradle
+    gradleprops:
+      - free
+
+  - versionName: 0.12-rc.2
+    versionCode: 96
+    commit: 9e7540c7a1763a61e12afb5d8976e665e02ec74b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/firebase/d' -e '/gms/d' build.gradle ../build.gradle
+    gradleprops:
+      - free
+
+  - versionName: 0.13-alpha
+    versionCode: 97
+    commit: 7a177cbddf02d3043a1df28fe9be0849999e6167
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/firebase/d' -e '/gms/d' build.gradle ../build.gradle
+    gradleprops:
+      - free
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 0.13-alpha
+CurrentVersionCode: 97

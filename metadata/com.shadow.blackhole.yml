@@ -7,7 +7,7 @@ AuthorName: Ankit Sangwan
 SourceCode: https://github.com/Sangwan5688/BlackHole
 IssueTracker: https://github.com/Sangwan5688/BlackHole/issues
 Changelog: https://github.com/Sangwan5688/BlackHole/releases
-Donate: http://buymeacoffee.com/ankitsangwan
+Donate: https://buymeacoffee.com/ankitsangwan
 
 AutoName: BlackHole
 
@@ -67,8 +67,49 @@ Builds:
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk
 
+  - versionName: 1.13.0
+    versionCode: 24
+    commit: 69b8d67df2b210b8d55a32ef40824e8caa68c1f1
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - docs
+      - ios
+      - test
+      - windows
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.14.0
+    versionCode: 28
+    commit: dec7daf561aab5a1ce60f18b8b3e9bec65623f1f
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.4
+    rm:
+      - docs
+      - linux
+      - ios
+      - test
+      - windows
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.12.0
-CurrentVersionCode: 21
+CurrentVersion: 1.14.0
+CurrentVersionCode: 28

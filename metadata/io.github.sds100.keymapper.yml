@@ -1,14 +1,16 @@
 Categories:
   - System
 License: GPL-3.0-only
-SourceCode: https://github.com/sds100/KeyMapper
-IssueTracker: https://github.com/sds100/KeyMapper/issues
-Changelog: https://github.com/sds100/KeyMapper/blob/HEAD/CHANGELOG.md
+AuthorName: sds100
+AuthorEmail: developer.sds100@gmail.com
+SourceCode: https://github.com/keymapperorg/KeyMapper
+IssueTracker: https://github.com/keymapperorg/KeyMapper/issues
+Changelog: https://github.com/keymapperorg/KeyMapper/blob/HEAD/CHANGELOG.md
 
 AutoName: Key Mapper
 
 RepoType: git
-Repo: https://github.com/sds100/KeyMapper
+Repo: https://github.com/keymapperorg/KeyMapper
 
 Builds:
   - versionName: 1.1.6
@@ -145,8 +147,55 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.3.2
+    versionCode: 51
+    disable: https://github.com/sds100/KeyMapper/issues/885
+    commit: ba6d96b160e206010920047d4ee4a140e9ec7680
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.3
+    versionCode: 52
+    commit: d5c764fe83f3ee035558f7f9042d0826b7f76bf8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: v2.4.0
+    versionCode: 55
+    commit: 4d0448b90bd480f0e3975dafa59a3d3832baa3eb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/bintray/d' ../build.gradle
+
+  - versionName: v2.4.1
+    versionCode: 56
+    commit: fbf1ef53d953b037c8918d3b8ed2310ee33792ba
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/bintray/d' ../build.gradle
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[\d.]+$
 UpdateCheckData: app/version.properties|VERSION_CODE=(\d+)|.|VERSION_NAME=(.+)
-CurrentVersion: 2.3.1
-CurrentVersionCode: 50
+CurrentVersion: v2.4.1
+CurrentVersionCode: 56

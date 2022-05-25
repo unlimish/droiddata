@@ -749,19 +749,358 @@ Builds:
         == null/def disableCMakeRelWithDebInfo = false/' TMessagesProj/build.gradle
     ndk: r21e
 
-MaintainerNotes: |
-    The best we can do now is auto update the arm64 version. The arm version has to be updated manually for now.
+  - versionName: 8.3.0-preview01
+    versionCode: 500
+    commit: bc309b21048d78db30855322369cd28a2259edf4
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - miniFdroid
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
+        ../gradle.properties
+      - pushd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - TMessagesProj
+    build:
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ..
+      - ./run fdroid build
+      - source bin/init/env.sh
+      - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
+    ndk: r21e
 
-    According to https://github.com/NekoX-Dev/NekoX/pull/681#issuecomment-980631578, we have to force enable the native libs compilation.
+  - versionName: 8.3.1
+    versionCode: 510
+    commit: d0bf83478671af90cb372c1b6ecdbd22f2ce4cfe
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build yasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - miniFdroid
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
+        ../gradle.properties
+      - pushd ..
+      - ./run fdroid prebuild
+    build:
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ..
+      - ./run fdroid build
+      - source bin/init/env.sh
+      - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
+    ndk: r21e
 
-    To convert an arm64 receipe to an arm one:
-      - Change versionName suffix from `-arm64` to `-arm`
-      - -1 to versionCode
-      - Change gradle task to miniFdroidArm
+  - versionName: 8.4.2-preview01
+    versionCode: 520
+    commit: c39ab4ce95a4913ef251550705dffda8fedf9f43
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build yasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - miniFdroid
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
+        ../gradle.properties
+      - pushd ..
+      - ./run fdroid prebuild
+    build:
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ..
+      - ./run fdroid build
+      - source bin/init/env.sh
+      - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
+    ndk: r21e
+
+  - versionName: 8.4.3-rc01
+    versionCode: 535
+    commit: 130230f0814b279188c28440b77166e5aabbc42e
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build yasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - miniFdroid
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
+        ../gradle.properties
+      - pushd ..
+      - ./run fdroid prebuild
+    build:
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ..
+      - ./run fdroid build
+      - source bin/init/env.sh
+      - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
+    ndk: r21e
+
+  - versionName: 8.4.4-rc01
+    versionCode: 545
+    commit: 200a359dd766f85874563bc8c18eb6e25dbd893e
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build yasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - miniFdroid
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
+        ../gradle.properties
+      - pushd ..
+      - ./run fdroid prebuild
+    build:
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ..
+      - ./run fdroid build
+      - source bin/init/env.sh
+      - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
+    ndk: r21e
+
+  - versionName: 8.4.4-rc02
+    versionCode: 550
+    commit: 2c4fdbc001f41a6cf7438cf55d30a93eea203784
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build yasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - miniFdroid
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
+        ../gradle.properties
+      - pushd ..
+      - ./run fdroid prebuild
+    build:
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ..
+      - ./run fdroid build
+      - source bin/init/env.sh
+      - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
+    ndk: r21e
+
+  - versionName: 8.5.1-preview01
+    versionCode: 560
+    commit: c811f7d06b35fe21b94bfca427503113ada8d3be
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build yasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - miniFdroid
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
+        ../gradle.properties
+      - pushd ..
+      - ./run fdroid prebuild
+    build:
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ..
+      - ./run fdroid build
+      - source bin/init/env.sh
+      - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
+    ndk: r21e
+
+  - versionName: 8.5.1
+    versionCode: 570
+    commit: 8a3dc467d36b3e0039b0fbda82a5dc799e9ae8e5
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build yasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - miniFdroid
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
+        ../gradle.properties
+      - pushd ..
+      - ./run fdroid prebuild
+    build:
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ..
+      - ./run fdroid build
+      - source bin/init/env.sh
+      - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
+    ndk: r21e
+
+  - versionName: 8.5.4-rc01
+    versionCode: 580
+    commit: f406f07718c225f62348fe5a6bbaac841ee91865
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build yasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - miniFdroid
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
+        ../gradle.properties
+      - pushd ..
+      - ./run fdroid prebuild
+    build:
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ..
+      - ./run fdroid build
+      - source bin/init/env.sh
+      - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
+    ndk: r21e
+
+  - versionName: 8.5.4
+    versionCode: 581
+    commit: 4a1e66b96b0dba42079c344fca47ef153d76d102
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build yasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - miniFdroid
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
+        ../gradle.properties
+      - pushd ..
+      - ./run fdroid prebuild
+    build:
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ..
+      - ./run fdroid build
+      - source bin/init/env.sh
+      - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
+    ndk: r21e
+
+  - versionName: 8.6.1-preview02
+    versionCode: 601
+    commit: 1b78fc6cf1b981e9ebe9a0fbef930942a74d31b2
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build yasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - miniFdroid
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
+        ../gradle.properties
+      - pushd ..
+      - ./run fdroid prebuild
+    build:
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ..
+      - ./run fdroid build
+      - source bin/init/env.sh
+      - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
+    ndk: r21e
+
+  - versionName: 8.6.2-rc01
+    versionCode: 610
+    commit: 0ed8ff1ed3f07f650b9162cc2b7690c3fdbc83b2
+    timeout: 10800
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build yasm
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - miniFdroid
+    output: build/outputs/apk/mini/*/*.apk
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms1024m -Xmx4096m -XX:MaxPermSize=4096m" >>
+        ../gradle.properties
+      - pushd ..
+      - ./run fdroid prebuild
+    build:
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ..
+      - ./run fdroid build
+      - source bin/init/env.sh
+      - go clean -cache
+      - git rev-parse HEAD
+      - git gc --prune=now
+    ndk: r21e
 
 ArchivePolicy: 6 versions
-AutoUpdateMode: Version +-arm64 %v
-UpdateCheckMode: Tags
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags ^v[0-9.]+$
 UpdateCheckData: TMessagesProj/build.gradle|verCode\s=\s(\d+)|.|verName\s=\s"(.+)"
-CurrentVersion: 8.2.7-rc06-arm64
-CurrentVersionCode: 490
+CurrentVersion: 8.6.2-rc01
+CurrentVersionCode: 610

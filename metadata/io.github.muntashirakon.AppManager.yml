@@ -131,7 +131,38 @@ Builds:
       - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
     ndk: r21e
 
+  - versionName: 2.6.5.1
+    versionCode: 397
+    commit: 77a24051a5cdeed2d8f97a8a4f448b86bf77cb5e
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 3.0.0-alpha01
+    versionCode: 400
+    disable: buggy version, per upstream
+    commit: 186dcc2432641ee3ec08f3785e869fc2f6878bfb
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/intercept/ActivityInterceptor.java
+    ndk: r21e
+
 AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags ^v
-CurrentVersion: 2.6.5
-CurrentVersionCode: 396
+UpdateCheckMode: Tags ^v[\d.]+$
+CurrentVersion: 2.6.5.1
+CurrentVersionCode: 397

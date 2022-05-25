@@ -3,15 +3,15 @@ Categories:
 License: GPL-3.0-only
 AuthorName: Ebrahim Byagowi
 AuthorEmail: ebrahim@gnu.org
-WebSite: https://github.com/persian-calendar/DroidPersianCalendar/wiki
-SourceCode: https://github.com/persian-calendar/DroidPersianCalendar
-IssueTracker: https://github.com/persian-calendar/DroidPersianCalendar/issues
-Changelog: https://github.com/persian-calendar/DroidPersianCalendar/releases
+WebSite: https://github.com/persian-calendar/persian-calendar/wiki
+SourceCode: https://github.com/persian-calendar/persian-calendar
+IssueTracker: https://github.com/persian-calendar/persian-calendar/issues
+Changelog: https://github.com/persian-calendar/persian-calendar/releases
 
 AutoName: Persian Calendar
 
 RepoType: git
-Repo: https://github.com/persian-calendar/DroidPersianCalendar.git
+Repo: https://github.com/persian-calendar/persian-calendar.git
 
 Builds:
   - versionName: '1.98'
@@ -473,7 +473,93 @@ Builds:
     gradle:
       - minApi17
 
+  - versionName: 7.2.0
+    versionCode: 720
+    commit: e2b89ad4870f25565beeeee4ca79f1bfbe076d34
+    subdir: PersianCalendar
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - minApi17
+
+  - versionName: 7.3.0
+    versionCode: 730
+    commit: 5f080e79353817b330bbe04ef97ae0ee85668e0c
+    subdir: PersianCalendar
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - minApi17
+
+  - versionName: 7.4.0
+    versionCode: 740
+    commit: a0bc19f08013d34ca4c6425068376fefd33a98db
+    subdir: PersianCalendar
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - minApi17
+    scanignore:
+      - PersianCalendar/src/main/res/raw/worldmap.gz
+
+  - versionName: 7.5.0
+    versionCode: 750
+    commit: 608c6984e6a278f96ce9b2f29b6a1ba85fd2f0fe
+    subdir: PersianCalendar
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - minApi17
+    scanignore:
+      - PersianCalendar/src/main/res/raw/worldmap.gz
+    scandelete:
+      - gradlePlugins
+
+  - versionName: 7.6.0
+    versionCode: 760
+    commit: 7e58478dc3f7bcc77335328c0f00d25397776f4b
+    subdir: PersianCalendar
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - minApi17
+    scanignore:
+      - PersianCalendar/src/main/res/raw/worldmap.gz
+    scandelete:
+      - gradlePlugins
+
+  - versionName: 7.6.5
+    versionCode: 765
+    commit: 811f0c8cc29b547004550b9549e58174497d04ed
+    subdir: PersianCalendar
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - minApi17
+    scanignore:
+      - PersianCalendar/src/main/res/raw/worldmap.gz
+    scandelete:
+      - gradlePlugins
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^[0-9.v]*$
-CurrentVersion: 7.1.2
-CurrentVersionCode: 712
+CurrentVersion: 7.6.5
+CurrentVersionCode: 765

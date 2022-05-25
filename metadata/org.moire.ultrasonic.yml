@@ -270,7 +270,43 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 3.0.0
+    versionCode: 99
+    commit: 23d07831648e8e3432682ea1935b2ebe892ed6b0
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 3.0.1
+    versionCode: 100
+    commit: a53d5378bfa2ae346960d8486dbc1d946ce34a4b
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 3.1.1
+    versionCode: 102
+    commit: baa0c92c7afb9341fccb00eecd5aa9fbda43fab6
+    subdir: ultrasonic
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.2.0
+    versionCode: 103
+    commit: f121e297df2968d1cc8818547186fcbcf129c2a8
+    subdir: ultrasonic
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.24.0
-CurrentVersionCode: 98
+CurrentVersion: 3.2.0
+CurrentVersionCode: 103
