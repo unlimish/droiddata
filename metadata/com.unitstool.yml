@@ -1,0 +1,29 @@
+Categories:
+  - Tools
+License: GPL-3.0-only
+AuthorName: Thibaut B.
+WebSite: https://github.com/ThiBsc/UnitsTool
+SourceCode: https://github.com/ThiBsc/UnitsTool
+IssueTracker: https://github.com/ThiBsc/UnitsTool/issues
+Changelog: https://github.com/ThiBsc/UnitsTool/releases
+
+AutoName: Units Tool
+
+RepoType: git
+Repo: https://github.com/ThiBsc/UnitsTool
+
+Builds:
+  - versionName: '1.0.2'
+    versionCode: 1
+    commit: v1.0.2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports npm
+      - npm install -g react-native-cli
+    init: npm install
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
