@@ -34,9 +34,17 @@ Builds:
         | sha256sum -c -
       - tar xzf go.tar.gz
       - export GOPATH="$PWD/golang"
+      - export GOPROXY=direct
       - export PATH="$GOPATH/bin:$PWD/go/bin:$PATH"
       - export ANDROID_NDK_HOME=$$NDK$$
       - go install golang.org/x/mobile/cmd/gomobile@4e6c2922fdeed32d3596616518aaee7b0d79ce55
+      - go get cwtch.im/cwtch@v0.16.8
+      - go get git.openprivacy.ca/cwtch.im/server@v1.4.2
+      - go get git.openprivacy.ca/openprivacy/connectivity@v1.8.3
+      - go get git.openprivacy.ca/openprivacy/log@v1.0.3
+      - go get github.com/mutecomm/go-sqlcipher/v4@v4.4.2
+      - go get golang.org/x/net@v0.0.0-20211015210444-4f30a5c0130f
+      - go get golang.org/x/text@v0.3.7
       - ./switch-gomobile.sh
       - gomobile init
       - gomobile bind -target android -ldflags="-X cwtch.buildVer=$(git describe --tags)
