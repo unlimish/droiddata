@@ -1,0 +1,34 @@
+Categories:
+  - Internet
+  - Multimedia
+License: GPL-3.0-or-later
+AuthorName: LivingWithHippos
+AuthorEmail: livingwithhippos@gmail.com
+AuthorWebSite: https://github.com/LivingWithHippos
+WebSite: https://github.com/LivingWithHippos/unchained-android
+SourceCode: https://github.com/LivingWithHippos/unchained-android
+IssueTracker: https://github.com/LivingWithHippos/unchained-android/issues
+Translation: https://localization.professiona.li/engage/unchained-for-android
+Changelog: https://github.com/LivingWithHippos/unchained-android/releases
+Donate: https://github.com/LivingWithHippos/unchained-android#donate-coffee
+Liberapay: LivingWithHippos
+Bitcoin: 1PNZXRz77idWGhbMTRTG8iAuqnYY6tatb7
+Litecoin: LWeoBVVmaYAiZ3oGaLAV9sV2dvY62XxdCF
+
+RepoType: git
+Repo: https://github.com/LivingWithHippos/unchained-android
+
+Builds:
+  - versionName: 4.33.10-beta
+    versionCode: 29
+    commit: 85d9e2d82eab0b9e673a899a4591ab07e2795674
+    subdir: app/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: None
+UpdateCheckMode: None
