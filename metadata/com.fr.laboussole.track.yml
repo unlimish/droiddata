@@ -34,8 +34,7 @@ Builds:
       - fullGaoGames
     forceversion: true
     forcevercode: true
-    prebuild:
-      - sed -i -e '\!ACCESS_FINE_LOCATION!a<uses-permission android:name="com.android.vending.CHECK_LICENSE"
+    prebuild: sed -i -e '\!ACCESS_FINE_LOCATION!a<uses-permission android:name="com.android.vending.CHECK_LICENSE"
         tools:node="remove" />' -e 's!xmlns:android!xmlns:tools="http://schemas.android.com/tools"
         xmlns:android!' -e '/com.google.android.gms/d' src/main/AndroidManifest.xml
     scanignore:
