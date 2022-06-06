@@ -74,8 +74,8 @@ Builds:
       - flutter build apk --flavor fdroid -t lib/main.dart
     ndk: r21
 
-
-AutoUpdateMode: None
-UpdateCheckMode: None
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^fdroid-
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
 CurrentVersion: 0.5.35
 CurrentVersionCode: 315
