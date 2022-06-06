@@ -1,0 +1,31 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Science & Education
+License: GPL-3.0-only
+AuthorName: Vadimatorikda
+AuthorEmail: Vadimatorikda@gmail.com
+SourceCode: https://gitlab.com/vadimatorikda/jap
+IssueTracker: https://gitlab.com/vadimatorikda/jap/issues
+
+AutoName: Jap
+
+RepoType: git
+Repo: https://gitlab.com/vadimatorikda/jap
+
+Builds:
+  - versionName: '1.3'
+    versionCode: 4
+    commit: '1.3'
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '1.3'
+CurrentVersionCode: 4
