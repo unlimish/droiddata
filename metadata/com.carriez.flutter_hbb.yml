@@ -15,18 +15,18 @@ Builds:
     commit: d7aac263567a47d9a24a50f8c2321cbd2b701058
     subdir: flutter
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
       - apt-get install -y libclang-7-dev clang-7 gcc-multilib g++-multilib cmake
+        git curl zip unzip tar pkg-config
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.10.5
       - rustup@1.24.3
+      - vcpkg@2021.12.31
       - oboe@1.6.1
-      - opus@v1.3
       - libvpx@v1.11.0
-      - atalk@2.9.4
     rm:
       - flutter/ios
       - flutter/test
@@ -36,39 +36,42 @@ Builds:
       - sed -i -e '/firebase_analytics/d' pubspec.yaml
       - sed -i -e '/  firebase/,/    version/d' pubspec.lock
       - sed -i -e '/firebase/Id' -e '/await b/d' lib/main.dart
-      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
-        > /dev/null
-      - sed -i -e '/libyuv/d' ../libs/scrap/build.rs
     build:
       - cd ..
-      - export ANDROID_NDK=/opt/android-sdk/ndk/18.1.5063045
-      - export VCPKG_ROOT=$(pwd)/vcpkg
-      - export PREFIX=$VCPKG_ROOT/installed/arm64-android
-      - pushd $$atalk$$/aTalk/jni/static_library_built/libvpx
-      - sed -i -e '/android-ndk-r18b/d' -e 's/"armeabi-v7a" "arm64-v8a" "x86" "x86_64"/"arm64-v8a"/'
-        -e '/  PREFIX/d' _settings.sh
-      - sed -i -e "s|  PREFIX=.*|  PREFIX=$PREFIX|" -e '/init_libvpx/d' build-vpx4android.sh
-      - ln -s $$libvpx$$ libvpx
-      - ./build-vpx4android.sh
-      - popd
       - export ANDROID_NDK=$$NDK$$
-      - export PATH=$ANDROID_NDK/toolchains/llvm/prebuilt/linux-x86_64/bin/:$PATH
+      - pushd $$vcpkg$$
+      - export ANDROID_NDK_HOME=$ANDROID_NDK
+      - ./bootstrap-vcpkg.sh -disableMetrics
+      - ./vcpkg install opus --triplet arm64-android
+      - ./vcpkg install libyuv --triplet arm64-android
+      - popd
+      - export VCPKG_ROOT=$$vcpkg$$
+      - export PREFIX=$VCPKG_ROOT/installed/arm64-android
+      - pushd $$libvpx$$
+      - export NDK=$ANDROID_NDK
+      - export HOST_TAG=linux-x86_64
+      - export TOOLCHAIN=$NDK/toolchains/llvm/prebuilt/$HOST_TAG
+      - export AR=$TOOLCHAIN/bin/aarch64-linux-android-ar
+      - export AS=$TOOLCHAIN/bin/aarch64-linux-android-as
+      - export CC=$TOOLCHAIN/bin/aarch64-linux-android21-clang
+      - export CXX=$TOOLCHAIN/bin/aarch64-linux-android21-clang++
+      - export LD=$TOOLCHAIN/bin/aarch64-linux-android-ld.gold
+      - export RANLIB=$TOOLCHAIN/bin/aarch64-linux-android-ranlib
+      - export STRIP=$TOOLCHAIN/bin/aarch64-linux-android-strip
+      - ./configure --target=arm64-android-gcc --enable-pic --disable-vp8 --disable-webm-io
+        --disable-unit-tests --disable-examples --disable-libyuv --disable-postproc
+        --disable-vp8 --disable-tools --disable-docs --prefix=$PREFIX
+      - make -j$(nproc)
+      - make install
+      - popd
       - patch -d $$oboe$$ -p1 < src/oboe.patch
       - pushd $$oboe$$
       - cmake -DBUILD_SHARED_LIBS=true -DCMAKE_BUILD_TYPE=RelWithDebInfo -DANDROID_TOOLCHAIN=clang
         -DANDROID_STL=c++_shared -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake
         -DCMAKE_INSTALL_PREFIX=$PREFIX -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-21
-        .
       - make -j$(nproc)
       - make install
-      - popd
       - mv $PREFIX/lib/arm64-v8a/liboboe.a $PREFIX/lib
-      - pushd $$opus$$
-      - ./autogen.sh
-      - CC=aarch64-linux-android21-clang   ./configure --host=aarch64-linux-android
-        --with-pic --disable-extra-programs --disable-doc --prefix=$PREFIX
-      - make opus -j$(nproc)
-      - make install
       - popd
       - $$rustup$$/rustup-init.sh -y
       - source $HOME/.cargo/env
@@ -76,9 +79,13 @@ Builds:
       - rustup target add aarch64-linux-android x86_64-linux-android
       - cargo install cargo-ndk
       - LIBCLANG_PATH=/usr/lib/llvm-7/lib/ cargo ndk --platform 21 --target aarch64-linux-android
-        -o flutter/android/app/src/main/jniLibs build --release
+        build --release
+      - mkdir -p flutter/android/app/src/main/jniLibs/arm64-v8a
+      - cp target/aarch64-linux-android/release/liblibrustdesk.so flutter/android/app/src/main/jniLibs/arm64-v8a/librustdesk.so
+      - cp $ANDROID_NDK/sources/cxx-stl/llvm-libc++/libs/arm64-v8a/libc++_shared.so
+        flutter/android/app/src/main/jniLibs/arm64-v8a/
       - cd flutter
-      - aarch64-linux-android-strip android/app/src/main/jniLibs/arm64-v8a/*
+      - $STRIP android/app/src/main/jniLibs/arm64-v8a/*
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk --target-platform android-arm64 --release
