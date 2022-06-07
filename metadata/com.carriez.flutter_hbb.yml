@@ -15,11 +15,10 @@ Builds:
     commit: d7aac263567a47d9a24a50f8c2321cbd2b701058
     subdir: flutter
     sudo:
-      - apt-get update
+      - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
       - apt-get install -y libclang-7-dev clang-7 gcc-multilib g++-multilib cmake
-        git curl zip unzip tar pkg-config
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@2.10.5
