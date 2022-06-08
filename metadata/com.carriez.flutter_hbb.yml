@@ -12,20 +12,19 @@ Repo: https://github.com/rustdesk/rustdesk
 Builds:
   - versionName: 1.1.10
     versionCode: 27
-    commit: d7aac263567a47d9a24a50f8c2321cbd2b701058
+    commit: 71e6c42560c316d056fe4a0c0401107189d338cd
     subdir: flutter
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
-      - apt-get install -y libclang-7-dev clang-7 gcc-multilib g++-multilib cmake
+      - apt-get install -y libclang-11-dev clang-11 llvm-11 gcc-multilib g++-multilib
+        cmake
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
-      - flutter@2.10.5
+      - flutter@3.0.1
       - rustup@1.24.3
       - vcpkg@2021.12.31
-      - oboe@1.6.1
-      - libvpx@v1.11.0
     rm:
       - flutter/ios
       - flutter/test
@@ -36,59 +35,38 @@ Builds:
       - sed -i -e '/  firebase/,/    version/d' pubspec.lock
       - sed -i -e '/firebase/Id' -e '/await b/d' lib/main.dart
     build:
-      - cd ..
-      - export ANDROID_NDK=$$NDK$$
       - pushd $$vcpkg$$
-      - export ANDROID_NDK_HOME=$ANDROID_NDK
       - ./bootstrap-vcpkg.sh -disableMetrics
-      - ./vcpkg install opus --triplet arm64-android
-      - ./vcpkg install libyuv --triplet arm64-android
       - popd
       - export VCPKG_ROOT=$$vcpkg$$
-      - export PREFIX=$VCPKG_ROOT/installed/arm64-android
-      - pushd $$libvpx$$
-      - export NDK=$ANDROID_NDK
-      - export HOST_TAG=linux-x86_64
-      - export TOOLCHAIN=$NDK/toolchains/llvm/prebuilt/$HOST_TAG
-      - export AR=$TOOLCHAIN/bin/aarch64-linux-android-ar
-      - export AS=$TOOLCHAIN/bin/aarch64-linux-android-as
-      - export CC=$TOOLCHAIN/bin/aarch64-linux-android21-clang
-      - export CXX=$TOOLCHAIN/bin/aarch64-linux-android21-clang++
-      - export LD=$TOOLCHAIN/bin/aarch64-linux-android-ld.gold
-      - export RANLIB=$TOOLCHAIN/bin/aarch64-linux-android-ranlib
-      - export STRIP=$TOOLCHAIN/bin/aarch64-linux-android-strip
-      - ./configure --target=arm64-android-gcc --enable-pic --disable-vp8 --disable-webm-io
-        --disable-unit-tests --disable-examples --disable-libyuv --disable-postproc
-        --disable-vp8 --disable-tools --disable-docs --prefix=$PREFIX
-      - make -j$(nproc)
-      - make install
-      - popd
-      - patch -d $$oboe$$ -p1 < src/oboe.patch
-      - pushd $$oboe$$
-      - cmake -DBUILD_SHARED_LIBS=true -DCMAKE_BUILD_TYPE=RelWithDebInfo -DANDROID_TOOLCHAIN=clang
-        -DANDROID_STL=c++_shared -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake
-        -DCMAKE_INSTALL_PREFIX=$PREFIX -DANDROID_ABI=arm64-v8a -DANDROID_PLATFORM=android-21
-      - make -j$(nproc)
-      - make install
-      - mv $PREFIX/lib/arm64-v8a/liboboe.a $PREFIX/lib
-      - popd
+      - ./build_android_deps.sh
+      - rm -rf build
+      - export PATH=$$flutter$$/bin/:/usr/lib/llvm-11/bin/:$PATH
+      - pushd ..
       - $$rustup$$/rustup-init.sh -y
       - source $HOME/.cargo/env
-      - rustup install 1.60.0
-      - rustup target add aarch64-linux-android x86_64-linux-android
-      - cargo install cargo-ndk
-      - LIBCLANG_PATH=/usr/lib/llvm-7/lib/ cargo ndk --platform 21 --target aarch64-linux-android
+      - rustup install 1.61.0
+      - cargo install cargo-ndk --version 2.6.0
+      - rustup target add aarch64-linux-android
+      - dart pub global activate ffigen 5.0.1
+      - LIBCLANG_PATH=/usr/lib/llvm-11/lib/ cargo ndk --platform 21 --target aarch64-linux-android
         build --release
-      - mkdir -p flutter/android/app/src/main/jniLibs/arm64-v8a
-      - cp target/aarch64-linux-android/release/liblibrustdesk.so flutter/android/app/src/main/jniLibs/arm64-v8a/librustdesk.so
-      - cp $ANDROID_NDK/sources/cxx-stl/llvm-libc++/libs/arm64-v8a/libc++_shared.so
-        flutter/android/app/src/main/jniLibs/arm64-v8a/
-      - cd flutter
-      - $STRIP android/app/src/main/jniLibs/arm64-v8a/*
-      - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter packages pub get
-      - $$flutter$$/bin/flutter build apk --target-platform android-arm64 --release
+      - popd
+      - mkdir -p android/app/src/main/jniLibs/arm64-v8a
+      - cp ../target/aarch64-linux-android/release/liblibrustdesk.so android/app/src/main/jniLibs/arm64-v8a/librustdesk.so
+      - rm -rf ../target
+      - cp $$NDK$$/sources/cxx-stl/llvm-libc++/libs/arm64-v8a/libc++_shared.so android/app/src/main/jniLibs/arm64-v8a/
+      - $$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android-strip
+        android/app/src/main/jniLibs/arm64-v8a/*
+      - flutter config --no-analytics
+      - flutter packages pub get
+      - flutter build apk --target-platform android-arm64 --release
     ndk: r22b
+
+MaintainerNotes: |-
+    flutter_rust_bridge_codegen requires cargo-ndk < 2.6.0 and ffigen which requires
+    clang 9+. scrap requires clang-sys which requires libclang. cargo-ndk doesn't
+    work with NDK > r22.
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
