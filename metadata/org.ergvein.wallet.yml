@@ -11,10 +11,9 @@ Repo: https://github.com/hexresearch/ergvein.git
 
 Builds:
   - versionName: Alpha
-    versionCode: 29
-    commit: 28aa783f7e089a41e86a129e16525da8974a86fe
+    versionCode: 31
+    commit: 8f57305120c629456953acf1c55aae65f9a2f19e
     sudo:
-      - apt install xz-utils
       - mkdir -m 0755 /nix
       - chown vagrant /nix
     init: ./install-nix.sh
@@ -23,10 +22,10 @@ Builds:
       - release/password
     build:
       - . /home/vagrant/.nix-profile/etc/profile.d/nix.sh
-      - ./release-fdroid.sh --quiet -Q
+      - ./release-fdroid.sh
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
 UpdateCheckData: android-version.nix|code\s=\s"(\d+)"|.|name\s=\s"(.+)"
 CurrentVersion: Alpha
-CurrentVersionCode: 29
+CurrentVersionCode: 31
