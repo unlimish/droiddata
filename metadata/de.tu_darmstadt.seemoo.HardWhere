@@ -1,0 +1,26 @@
+Categories:
+  - Internet
+  - Navigation
+License: GPL-3.0-or-later
+SourceCode: https://github.com/seemoo-lab/Hardwhere
+
+RepoType: git
+Repo: https://github.com/seemoo-lab/Hardwhere
+
+Builds:
+  - versionName: '0.1'
+    versionCode: 1
+    commit: 17247724faca0e120b9bf9c6785d82745553ccce
+    # Where build.gradle is:
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y librsvg2-bin openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '0.1'
+CurrentVersionCode: 1
