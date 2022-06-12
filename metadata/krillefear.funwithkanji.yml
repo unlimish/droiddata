@@ -1,0 +1,37 @@
+Categories:
+  - Science & Education
+License: MPL-2.0
+AuthorName: Krille Fear
+SourceCode: https://gitlab.com/KrilleFear/funny-kanji
+IssueTracker: https://gitlab.com/KrilleFear/funny-kanji/-/issues
+
+AutoName: Fun With Kanji
+
+RepoType: git
+Repo: https://gitlab.com/KrilleFear/funny-kanji
+
+Builds:
+  - versionName: 0.3.3
+    versionCode: 6
+    commit: 094d63a1dbf8dedac335ea05d0da967ace533a0d
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.1
+    rm:
+      - ios
+      - linux
+      - snap
+      - test
+      - web
+      - windows
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1' > /dev/null
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 0.3.3
+CurrentVersionCode: 6
