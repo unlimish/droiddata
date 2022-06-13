@@ -330,6 +330,10 @@ Builds:
     versionCode: 53
     commit: 946359777c95b650484b7bbd3970c4bdb711c991
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - free
     prebuild: sed -i -e '/sed:free-build:remove/d' build.gradle ../build.gradle
