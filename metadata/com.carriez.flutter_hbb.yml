@@ -12,7 +12,7 @@ Repo: https://github.com/rustdesk/rustdesk
 Builds:
   - versionName: 1.1.9
     versionCode: 27
-    commit: 26c2bcd5be27d71fafc6eae2f627563dbf8601e8
+    commit: 4824652eb12b394bc249e4b41d890fdf2309cf63
     subdir: flutter
     sudo:
       - apt-get update || apt-get update
@@ -46,7 +46,7 @@ Builds:
       - source $HOME/.cargo/env
       - rustup install 1.61.0
       - cargo install cargo-ndk --version 2.6.0
-      - rustup target add aarch64-linux-android
+      - rustup target add aarch64-linux-android armv7-linux-androideabi
       - dart pub global activate ffigen 5.0.1
       - LIBCLANG_PATH=/usr/lib/llvm-11/lib/ cargo ndk --platform 21 --target aarch64-linux-android
         build --release
@@ -57,9 +57,20 @@ Builds:
       - cp $$NDK$$/sources/cxx-stl/llvm-libc++/libs/arm64-v8a/libc++_shared.so android/app/src/main/jniLibs/arm64-v8a/
       - $$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android-strip
         android/app/src/main/jniLibs/arm64-v8a/*
+      - pushd ..
+      - LIBCLANG_PATH=/usr/lib/llvm-11/lib/ cargo ndk --platform 21 --target armv7-linux-androideabi
+        build --release
+      - popd
+      - mkdir -p android/app/src/main/jniLibs/armeabi-v7a
+      - cp ../target/armv7-linux-androideabi/release/liblibrustdesk.so android/app/src/main/jniLibs/armeabi-v7a/librustdesk.so
+      - rm -rf ../target
+      - cp $$NDK$$/sources/cxx-stl/llvm-libc++/libs/armeabi-v7a/libc++_shared.so android/app/src/main/jniLibs/armeabi-v7a/
+      - $$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android-strip
+        android/app/src/main/jniLibs/armeabi-v7a/*
+      - rm -rf $$vcpkg$$/*
       - flutter config --no-analytics
       - flutter packages pub get
-      - flutter build apk --target-platform android-arm64 --release
+      - flutter build apk --release
     ndk: r22b
 
 MaintainerNotes: |-
