@@ -668,6 +668,9 @@ Builds:
     commit: 951a434aa6647533ef7b71ed62b6977cba07f40d
     subdir: android/app
     sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
       - sysctl fs.inotify.max_user_watches=524288
       - curl -Lo node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
       - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 node.tar.xz"
