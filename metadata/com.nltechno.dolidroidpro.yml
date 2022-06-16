@@ -33,18 +33,14 @@ RepoType: git
 Repo: https://github.com/DoliCloud/dolidroid.git
 
 Builds:
-  - versionName: '1.6'
-    versionCode: 28
-    commit: 3d57aab9407e0e0e95bfb73280207545a4062447
-    subdir: app
-    gradle:
-      - yes
-    forceversion: true
-
   - versionName: '3.0'
     versionCode: 54
     commit: 5b00a61006e75a6a9cc6f14c7d2fb745ebdc230c
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
     forceversion: true
