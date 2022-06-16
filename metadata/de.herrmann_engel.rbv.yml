@@ -1,0 +1,50 @@
+Categories:
+  - Science & Education
+License: Apache-2.0
+AuthorName: Jonathan Herrmann-Engel
+SourceCode: https://github.com/jonathanherrmannengel/vocabapp
+IssueTracker: https://github.com/jonathanherrmannengel/vocabapp/issues
+
+AutoName: ReallyBasicVocab
+
+RepoType: git
+Repo: https://github.com/jonathanherrmannengel/vocabapp
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 37
+    commit: v1.0.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.0
+    versionCode: 39
+    commit: 3e743401d5b7613084420982bec51dec39f3800b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.2.0
+    versionCode: 41
+    commit: 357d78dbe122a90ec45fbc62ba074c490904c516
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 1.2.0
+CurrentVersionCode: 41

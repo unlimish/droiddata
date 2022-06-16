@@ -10,7 +10,7 @@ Changelog: https://github.com/goodtime-productivity/Goodtime/releases
 Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CH2SJKS6GXG6L
 
 Name: Goodtime - Minimalist Pomodoro Timer
-AutoName: Goodtime
+AutoName: Productivity
 Description: |-
     A minimalist but powerful productivity timer designed to keep you focused
     and free of distractions.
@@ -23,7 +23,7 @@ Description: |-
 
     ☕ after more sessions of work, take a longer break
 
-    '''Features:'''
+    <b>Features:</b>
 
     * Lightweight and battery friendly
     * Configurable timer
@@ -221,7 +221,47 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 2.2.7
+    versionCode: 131
+    commit: 2.2.8
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 2.5.2
+    versionCode: 140
+    commit: 173f71372de3aecd0230d3d7329cf673125cfceb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 2.5.3
+    versionCode: 141
+    commit: fe0c2a1004e7347b5cdfa39314d74be876a9d81e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 2.5.4
+    versionCode: 142
+    commit: c32b0e1b7ae8e3475a3ae22e002d98eeddc9a359
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.2.6
-CurrentVersionCode: 130
+CurrentVersion: 2.5.4
+CurrentVersionCode: 142

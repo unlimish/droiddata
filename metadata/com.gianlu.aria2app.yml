@@ -682,7 +682,53 @@ Builds:
       - aria2lib/src/main/jniLibs
     ndk: r21d
 
+  - versionName: 5.9.7
+    versionCode: 219
+    commit: 1e8667ba2d4844a35c7a537f4481771fb482398d
+    timeout: 14400
+    subdir: app
+    submodules: true
+    gradle:
+      - foss
+    prebuild: sed -i -e '/maven.fabric.io/d' -e '/io.fabric/d' build.gradle ../build.gradle
+        ../CommonUtils/build.gradle
+    scandelete:
+      - aria2lib/src/main/jniLibs
+    ndk: r21d
+
+  - versionName: 5.9.8
+    versionCode: 220
+    commit: 0173fe3b3ac4ba0da6bf3ebd776aee8e485905da
+    timeout: 14400
+    subdir: app
+    submodules: true
+    gradle:
+      - foss
+    prebuild: sed -i -e '/maven.fabric.io/d' -e '/io.fabric/d' build.gradle ../build.gradle
+        ../CommonUtils/build.gradle
+    scandelete:
+      - aria2lib/src/main/jniLibs
+    ndk: r21d
+
+  - versionName: 5.9.9
+    versionCode: 221
+    commit: 743be366df73eb1687e7de7d745b39f56d9216b8
+    timeout: 14400
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild: sed -i -e '/maven.fabric.io/d' -e '/io.fabric/d' build.gradle ../build.gradle
+        ../CommonUtils/build.gradle
+    scandelete:
+      - aria2lib/src/main/jniLibs
+    ndk: r21d
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 5.9.6
-CurrentVersionCode: 218
+CurrentVersion: 5.9.9
+CurrentVersionCode: 221

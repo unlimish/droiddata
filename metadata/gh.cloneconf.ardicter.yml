@@ -1,0 +1,110 @@
+AntiFeatures:
+  - NonFreeNet
+  - NoSourceSince
+Categories:
+  - Internet
+  - Science & Education
+  - Reading
+License: MIT
+AuthorName: Clone Conflict
+AuthorEmail: cloneconf@gmail.com
+SourceCode: https://codeberg.org/cloneconf/Ardicter
+IssueTracker: https://codeberg.org/cloneconf/Ardicter/issues
+
+Name: Ardicter
+
+RepoType: git
+Repo: https://codeberg.org/cloneconf/Ardicter
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: v1.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '2.0'
+    versionCode: 2
+    commit: 35af9a9b2aff51f059e5b022346d59bb36010c9f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '3.0'
+    versionCode: 3
+    commit: 678d70b1601d9ecb79b64200b959b860d54fad2e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '7.0'
+    versionCode: 7
+    disable: Endgame build
+    commit: d29c31335ab7a1d94b80bf0b7b7f9effc2cbb815
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '8.0'
+    versionCode: 8
+    disable: Endgame build
+    commit: 0c015078158fc9728528828bc1778281718cdafc
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '9.0'
+    versionCode: 9
+    disable: Endgame build
+    commit: fcec202abef5becf8f20368eb7618de78f8e1393
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '10.0'
+    versionCode: 10
+    disable: Endgame build
+    commit: 7144980c3ba6c4ede0bc173f402a36388fef0aec
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+MaintainerNotes: Developer overwrote upstream repo with a single broken "Endgame"
+    commit.
+
+ArchivePolicy: 0 versions
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: '3.0'
+CurrentVersionCode: 3
+
+NoSourceSince: '3.0'

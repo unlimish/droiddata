@@ -11,7 +11,7 @@ Description: |
 
     https://events.ccc.de/congress/2019
 
-    '''Features'''
+    <b>Features</b>
     * View program by day and rooms (side by side)
     * Custom grid layout for smartphones (try landscape mode 🙃) and tablets
     * Read detailed descriptions (speaker names, start time, room name, links, ...) of events
@@ -27,7 +27,7 @@ Description: |
     * Integration with the Engelsystem project https://engelsystem.de - Online tool for coordinating helpers and shifts on large events
     * Integration with the Chaosflix https://github.com/NiciDieNase/chaosflix - Android app for http://media.ccc.de, share Fahrplan favorites with Chaosflix to import them as bookmarks
 
-    🔤 '''Supported languages'''
+    🔤 <b>Supported languages</b>
     (Event descriptions excluded)
     * Dutch
     * English
@@ -35,6 +35,7 @@ Description: |
     * German
     * Italian
     * Japanese
+    * Polish
     * Portuguese
     * Russian
     * Spanish
@@ -393,7 +394,22 @@ Builds:
       - ccc36c3
     prebuild: cp local.properties gradle.properties
 
+  - versionName: 1.54.0
+    versionCode: 88
+    commit: v.1.54.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - ccc36c3
+    prebuild: cp local.properties gradle.properties
+
+MaintainerNotes: Disable auto update in favor of manual update.
+
+ArchivePolicy: 1 versions
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 1.51.0
-CurrentVersionCode: 83
+CurrentVersion: 1.54.0
+CurrentVersionCode: 88

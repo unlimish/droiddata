@@ -56,7 +56,74 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.2.0
+    versionCode: 14
+    disable: https://github.com/zorgluf/souvenirs-android/issues/7
+    commit: c9a982df5838c7fe23b7df4a1bb13ae8adc2f6ff
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.2.1
+    versionCode: 15
+    commit: 9c4380aaaef9aeed275df3160ff3129033600ed2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.1
+    versionCode: 16
+    commit: c5d30da364e2d0ebb73fe0cf5282ecb5cd7c999c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.2
+    versionCode: 17
+    commit: 039e772d543d172e1c8f6032425c7ddf008bddb1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.4.1
+    versionCode: 19
+    commit: 7571c4c7c6212d72ada7308c6608d1a1469da58d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/gradle
+
+  - versionName: 2.5.0
+    versionCode: 20
+    commit: 56123a58c4600de883fda7ab0481a71439b89a73
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags v\d+\.\d+(\.\d+)?
-CurrentVersion: 2.1.0
-CurrentVersionCode: 13
+CurrentVersion: 2.5.0
+CurrentVersionCode: 20

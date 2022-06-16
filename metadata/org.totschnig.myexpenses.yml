@@ -9,11 +9,11 @@ AuthorWebSite: https://michael.totschnig.org/
 WebSite: http://www.myexpenses.mobi
 SourceCode: https://github.com/mtotschnig/MyExpenses
 IssueTracker: https://github.com/mtotschnig/MyExpenses/issues
-Translation: https://www.transifex.com/projects/p/my-expenses
+Translation: https://hosted.weblate.org/engage/my-expenses/
 Changelog: http://www.myexpenses.mobi/#versionlist
-Donate: http://www.myexpenses.mobi/#donate
+Donate: https://www.myexpenses.mobi/en/#participate
 FlattrID: '1028216'
-Bitcoin: 1GCUGCSfFXzSC81ogHu12KxfUn3cShekMn
+Bitcoin: 15WECHs6zGQyyiRYoLmVzWYfoKVDoipmSp
 
 AutoName: MyExpenses
 
@@ -1588,10 +1588,334 @@ Builds:
     prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
     build: gradle :myExpenses:packageConscriptExternReleaseUniversalApk
 
+  - versionName: 3.3.1.1
+    versionCode: 489
+    commit: r489
+    subdir: myExpenses
+    output: build/outputs/universal_apk/conscriptExternRelease/myExpenses-conscript-extern-release-universal-unsigned.apk
+    rm:
+      - mlkit
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    build: gradle :myExpenses:packageConscriptExternReleaseUniversalApk
+
+  - versionName: 3.3.2
+    versionCode: 491
+    commit: cbb367914aa3f4f810303a1715b190f10be15b28
+    subdir: myExpenses
+    output: build/outputs/universal_apk/conscriptExternRelease/myExpenses-conscript-extern-release-universal-unsigned.apk
+    rm:
+      - mlkit
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    build: gradle :myExpenses:packageConscriptExternReleaseUniversalApk
+
+  - versionName: 3.3.3
+    versionCode: 494
+    commit: be0ccac38a757d7aead8fe89a6df6a1c4b73bed3
+    subdir: myExpenses
+    output: build/outputs/universal_apk/conscriptExternRelease/myExpenses-conscript-extern-release-universal-unsigned.apk
+    rm:
+      - mlkit
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    build: gradle :myExpenses:packageConscriptExternReleaseUniversalApk
+
+  - versionName: 3.3.3.1
+    versionCode: 495
+    commit: a352542e17aebb8f08a8805fcfcada283369f8c8
+    subdir: myExpenses
+    output: build/outputs/universal_apk/conscriptExternRelease/myExpenses-conscript-extern-release-universal-unsigned.apk
+    rm:
+      - mlkit
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    build: gradle :myExpenses:packageConscriptExternReleaseUniversalApk
+
+  - versionName: 3.3.4.1
+    versionCode: 499
+    commit: 29129e3cc04b11339b8a76f992a19ac15a67667f
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/conscriptExternRelease/myExpenses-conscript-extern-release-universal-unsigned.apk
+    rm:
+      - mlkit
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    build: gradle :myExpenses:packageConscriptExternReleaseUniversalApk
+
+  - versionName: 3.3.4.2
+    versionCode: 500
+    commit: cd60f87416448c6301173dff90ad83badfa9cfab
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/conscriptExternRelease/myExpenses-conscript-extern-release-universal-unsigned.apk
+    rm:
+      - mlkit
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    build: gradle :myExpenses:packageConscriptExternReleaseUniversalApk
+
+  - versionName: 3.3.5
+    versionCode: 504
+    commit: e9e30615ca0e7e6f4b103540f37efb5c343d76bd
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/externRelease/myExpenses-extern-release-universal-unsigned.apk
+    rm:
+      - mlkit
+      - mlkit_deva
+      - mlkit_han
+      - mlkit_jpan
+      - mlkit_kore
+      - mlkit_latn
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    build: gradle :myExpenses:packageExternReleaseUniversalApk
+
+  - versionName: 3.3.5.1
+    versionCode: 505
+    commit: d63ae683e91c0309fef1997a0dcf62db3bbf3039
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/externRelease/myExpenses-extern-release-universal-unsigned.apk
+    rm:
+      - mlkit
+      - mlkit_deva
+      - mlkit_han
+      - mlkit_jpan
+      - mlkit_kore
+      - mlkit_latn
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    build: gradle :myExpenses:packageExternReleaseUniversalApk
+
+  - versionName: 3.3.5.2
+    versionCode: 508
+    commit: 5b09142cb060024f88ffb5708042efd8c74a3df8
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/externRelease/myExpenses-extern-release-universal-unsigned.apk
+    rm:
+      - drive
+      - mlkit
+      - mlkit_deva
+      - mlkit_han
+      - mlkit_jpan
+      - mlkit_kore
+      - mlkit_latn
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    build: gradle :myExpenses:packageExternReleaseUniversalApk
+
+  - versionName: 3.3.6
+    versionCode: 511
+    commit: 6998e9680b0429421a86028c447e0856ca94fbfd
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/externRelease/myExpenses-extern-release-universal-unsigned.apk
+    rm:
+      - drive
+      - mlkit
+      - mlkit_deva
+      - mlkit_han
+      - mlkit_jpan
+      - mlkit_kore
+      - mlkit_latn
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    build: gradle :myExpenses:packageExternReleaseUniversalApk
+
+  - versionName: 3.3.7
+    versionCode: 515
+    commit: 078bb0ab03e4a25bef9b7f0d575c91119668d5dc
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/externRelease/myExpenses-extern-release-universal-unsigned.apk
+    rm:
+      - drive
+      - mlkit
+      - mlkit_deva
+      - mlkit_han
+      - mlkit_jpan
+      - mlkit_kore
+      - mlkit_latn
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    build: gradle :myExpenses:packageExternReleaseUniversalApk
+
+  - versionName: 3.3.7.1
+    versionCode: 516
+    commit: dbc6eb77970ff2eabeb1e9f64215aea176e23c62
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/externRelease/myExpenses-extern-release-universal-unsigned.apk
+    rm:
+      - drive
+      - mlkit
+      - mlkit_deva
+      - mlkit_han
+      - mlkit_jpan
+      - mlkit_kore
+      - mlkit_latn
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    build: gradle :myExpenses:packageExternReleaseUniversalApk
+
+  - versionName: 3.3.7.2
+    versionCode: 517
+    commit: 95818b821c858e5e20ce78ac334efcfaf944db03
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/externRelease/myExpenses-extern-release-universal-unsigned.apk
+    rm:
+      - drive
+      - mlkit
+      - mlkit_deva
+      - mlkit_han
+      - mlkit_jpan
+      - mlkit_kore
+      - mlkit_latn
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    build: gradle :myExpenses:packageExternReleaseUniversalApk
+
+  - versionName: 3.3.8
+    versionCode: 521
+    commit: 34f4a45b9270ba09f37b9e7fb0410cb0a9d94cf1
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/externRelease/myExpenses-extern-release-universal-unsigned.apk
+    rm:
+      - drive
+      - mlkit
+      - mlkit_deva
+      - mlkit_han
+      - mlkit_jpan
+      - mlkit_kore
+      - mlkit_latn
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    build: gradle :myExpenses:packageExternReleaseUniversalApk
+
+  - versionName: 3.3.8.1
+    versionCode: 523
+    commit: 1cac18259c89bddf3fdd26d453b6ddca3b35d0c1
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/externRelease/myExpenses-extern-release-universal-unsigned.apk
+    rm:
+      - drive
+      - mlkit
+      - mlkit_deva
+      - mlkit_han
+      - mlkit_jpan
+      - mlkit_kore
+      - mlkit_latn
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    build: gradle :myExpenses:packageExternReleaseUniversalApk
+
+  - versionName: 3.3.9
+    versionCode: 528
+    commit: 378428e44b3cc97237c112fb999d26ba7b1a4bf5
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/externRelease/myExpenses-extern-release-universal-unsigned.apk
+    rm:
+      - drive
+      - mlkit
+      - mlkit_deva
+      - mlkit_han
+      - mlkit_jpan
+      - mlkit_kore
+      - mlkit_latn
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    build: gradle :myExpenses:packageExternReleaseUniversalApk
+
+  - versionName: 3.4.0
+    versionCode: 529
+    commit: 67065ecb3da5aaa40c5c4b16d18072fe23dc26cf
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/externRelease/myExpenses-extern-release-universal-unsigned.apk
+    rm:
+      - drive
+      - mlkit
+      - mlkit_deva
+      - mlkit_han
+      - mlkit_jpan
+      - mlkit_kore
+      - mlkit_latn
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    build: gradle :myExpenses:packageExternReleaseUniversalApk
+
+  - versionName: 3.4.1
+    versionCode: 532
+    commit: 48245fccdb3e2dc479758322bed202cd05ee16dd
+    subdir: myExpenses
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/universal_apk/externRelease/myExpenses-extern-release-universal-unsigned.apk
+    rm:
+      - drive
+      - mlkit
+      - mlkit_deva
+      - mlkit_han
+      - mlkit_jpan
+      - mlkit_kore
+      - mlkit_latn
+      - tests
+    prebuild: echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    build: gradle :myExpenses:packageExternReleaseUniversalApk
+
 MaintainerNotes: '* Ads: https://github.com/mtotschnig/MyExpenses/tree/b4237aabf8924614251d14fb18ce274ec0f934f7/myExpenses/src/main/java/org/totschnig/myexpenses/util/ads'
 
-AutoUpdateMode: Version r%c
-UpdateCheckMode: HTTP
-UpdateCheckData: https://www.myexpenses.mobi/.well-known/fdroid-latest.txt|versionCode=(.*)|.|versionName=(.*)
-CurrentVersion: 3.3.0.1
-CurrentVersionCode: 485
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^r.*$
+UpdateCheckData: build.gradle|versionCode = (.*)|.|versionName = '(.*)'
+CurrentVersion: 3.4.1
+CurrentVersionCode: 532

@@ -13,13 +13,13 @@ Description: |
 
     https://fosdem.org
 
-    '''About FOSDEM'''
+    <b>About FOSDEM</b>
     FOSDEM is a free event that offers open source communities a
     place to meet, share ideas and collaborate.
     Every year, thousands of developers of free and open source
     software from all over the world gather at the event.
 
-    '''Features'''
+    <b>Features</b>
     * View program by day and rooms (side by side)
     * Custom grid layout for smartphones (try landscape mode 🙃) and tablets
     * Read detailed descriptions (speaker names, start time, room name, links, ...) of events
@@ -32,7 +32,7 @@ Description: |
     * Automatic program updates (configurable in settings)
     * Vote and leave comments on FOSDEM talks and workshops
 
-    '''🔤 Supported languages'''
+    <b>🔤 Supported languages</b>
     (Event descriptions excluded)
     * Dutch
     * English
@@ -40,6 +40,7 @@ Description: |
     * German
     * Italian
     * Japanese
+    * Polish
     * Portuguese
     * Russian
     * Spanish
@@ -51,14 +52,14 @@ Description: |
 
     💣 Bug reports are very welcome. It would be awesome if you
     can describe how to reproduce the particular error in the
-    issue tracker at: [https://github.com/EventFahrplan/EventFahrplan/issues].
+    issue tracker at: <a href="https://github.com/EventFahrplan/EventFahrplan/issues">https://github.com/EventFahrplan/EventFahrplan/issues</a>.
 
     🏆 The app is based on the EventFahrplan app
-    https://play.google.com/store/apps/details?id=info.metadude.android.rc3.schedule
+    https://f-droid.org/packages/info.metadude.android.rc3.schedule
     which was initially built for the camp and annual congress of
     the Chaos Computer Club. The source code of the app is publicly
     available on GitHub at:
-    https://github.com/johnjohndoe/CampFahrplan/tree/fosdem-2021.
+    https://github.com/johnjohndoe/CampFahrplan/tree/fosdem-2022.
 
     🎨 The name FOSDEM and the gear logo are registered trademarks
     of FOSDEM VZW. Used with permission.
@@ -103,7 +104,20 @@ Builds:
       - fosdem
     prebuild: cp local.properties gradle.properties
 
+  - versionName: 1.53.1-FOSDEM-Edition
+    versionCode: 86
+    commit: v.1.53.1-FOSDEM-Edition
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fosdem
+    prebuild: cp local.properties gradle.properties
+
+ArchivePolicy: 1 versions
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 1.50.0-FOSDEM-Edition
-CurrentVersionCode: 82
+CurrentVersion: 1.53.1-FOSDEM-Edition
+CurrentVersionCode: 86

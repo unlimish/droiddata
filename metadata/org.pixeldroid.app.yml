@@ -23,7 +23,99 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: 1.0.beta2
+    versionCode: 2
+    commit: 80cdd54d518afbd4285cee353bf5c71aed05991b
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta3
+    versionCode: 3
+    commit: bf7c09bbdeabe130f31874de0eab8989ca24c7b5
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta4
+    versionCode: 4
+    commit: c7268e3ec5b068492a14cf2065dce24286b98d58
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta5
+    versionCode: 5
+    commit: 12ec0cc2aaf5599d37ca3c48453625487521c4a5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta6
+    versionCode: 6
+    commit: f108c3cf6c40aac4c131c28da5fa2a0456fbc7f5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta7
+    versionCode: 7
+    commit: 0f71f939cd5c8b73279cfd43c55a9fd96fe3866c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta8
+    versionCode: 8
+    commit: ec2dc5f02da481d8ccbdfa15457545c7d59d7d07
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta10
+    versionCode: 10
+    commit: f08bec487bf2b41e7521fc82bb785e85ea00e63b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0beta11
+    versionCode: 11
+    commit: a433d9431af6f6cd45d1bb9884277f0643d40f03
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.beta1
-CurrentVersionCode: 1
+UpdateCheckData: app/build.gradle|versionCode\s(\d+)||(.*)
+CurrentVersion: 1.0beta11
+CurrentVersionCode: 11

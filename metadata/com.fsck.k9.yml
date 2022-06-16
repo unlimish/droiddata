@@ -2,22 +2,16 @@ Categories:
   - Internet
 License: Apache-2.0
 WebSite: https://k9mail.app/
-SourceCode: https://github.com/k9mail/k-9
-IssueTracker: https://github.com/k9mail/k-9/issues
+SourceCode: https://github.com/thundernest/k-9
+IssueTracker: https://github.com/thundernest/k-9/issues
 Translation: https://www.transifex.com/projects/p/k9mail/
-Changelog: https://k9mail.app/k-9/changelog_5.6-MAINT_branch.xml
-LiberapayID: '34990'
+Changelog: https://thundernest.github.io/k-9/changelog_6.0-MAINT_branch.xml
+Donate: https://give.thunderbird.net/k9mail/
 
 AutoName: K-9 Mail
-Description: |-
-    E-mail client supporting multiple accounts, POP3, IMAP and Push IMAP. Can do
-    OpenPGP encryption if https://f-droid.org/packages/org.sufficientlysecure.keychain is installed. Settings
-    and account configurations can be exported so that they can be imported easily
-    if you are switching packages/signatures: a file manager will need to be already
-    installed to achieve this.
 
 RepoType: git
-Repo: https://github.com/k9mail/k-9.git
+Repo: https://github.com/thundernest/k-9.git
 
 Builds:
   - versionName: '4.201'
@@ -746,11 +740,284 @@ Builds:
       - yes
     output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
 
+  - versionName: '5.737'
+    versionCode: 27037
+    commit: '5.737'
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.738'
+    versionCode: 27038
+    commit: '5.738'
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.739'
+    versionCode: 27039
+    commit: '5.739'
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.740'
+    versionCode: 27040
+    commit: '5.740'
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.800'
+    versionCode: 28000
+    commit: '5.800'
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.801'
+    versionCode: 28001
+    commit: '5.801'
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.802'
+    versionCode: 28002
+    commit: '5.802'
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.803'
+    versionCode: 28003
+    commit: acbeff5b986486b30ddf06986daa0739c1263c60
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.804'
+    versionCode: 28004
+    commit: 5055669da99846b37dba6729ce8c3cf421815720
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.805'
+    versionCode: 28005
+    commit: dd151ec61c9942a51e7e1da529d3551496164e6d
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.806'
+    versionCode: 28006
+    commit: f9a08fbc15a04e3ff9f9fa40b82fd90900abfd95
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.807'
+    versionCode: 28007
+    commit: c39c4c46a3f963d27e3fe0669af4caea73162e42
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.900'
+    versionCode: 29000
+    commit: '5.900'
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.901'
+    versionCode: 29001
+    commit: '5.901'
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.902'
+    versionCode: 29002
+    commit: '5.902'
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.903'
+    versionCode: 29003
+    commit: '5.903'
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.904'
+    versionCode: 29004
+    commit: '5.904'
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.905'
+    versionCode: 29005
+    commit: 5.905-fdroid
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.906'
+    versionCode: 29006
+    commit: '5.906'
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.907'
+    versionCode: 29007
+    commit: '5.907'
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.908'
+    versionCode: 29008
+    commit: '5.908'
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.909'
+    versionCode: 29009
+    commit: '5.909'
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.910'
+    versionCode: 29010
+    commit: '5.910'
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.911'
+    versionCode: 29011
+    commit: '5.911'
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.912'
+    versionCode: 29012
+    commit: '5.912'
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.913'
+    versionCode: 29013
+    commit: '5.913'
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.914'
+    versionCode: 29014
+    commit: '5.914'
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.915'
+    versionCode: 29015
+    commit: '5.915'
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '5.916'
+    versionCode: 29016
+    commit: '5.916'
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '6.000'
+    versionCode: 30000
+    commit: '6.000'
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
+  - versionName: '6.100'
+    versionCode: 31000
+    commit: '6.100'
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+
 MaintainerNotes: |-
     Use output instead of subdir to make gradlew-fdroid correctly determine the gradle version to be used.
     It doesn't work when using subdir because we are two levels deep into the directory structure.
 
 AutoUpdateMode: Version %v
-UpdateCheckMode: RepoManifest/5.6-MAINT
-CurrentVersion: '5.600'
-CurrentVersionCode: 26000
+UpdateCheckMode: Tags ^6\.0[0-9]{2}$
+CurrentVersion: '6.000'
+CurrentVersionCode: 30000

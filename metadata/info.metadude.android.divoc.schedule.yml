@@ -15,7 +15,7 @@ Description: |
 
     Dabei ist die Diskussion, ob etwas getan werden muss, ehrlich gesagt auch schon durch. Deshalb muss jetzt endlich darüber geredet werden, was getan werden soll und wie. Und so ist das Motto des DiVOC zu Ostern „Reboot to Respawn“.
 
-    '''Funktionen:'''
+    <b>Funktionen:</b>
     * Tagesüberblick über alle Programmpunkte (Vorträge und Self-Organized Sessions)
     * Beschreibung von Veranstaltungen lesen
     * Veranstaltungen in persönlicher Favoritenliste verwalten
@@ -25,10 +25,10 @@ Description: |
     * Link zu Veranstaltungen mit anderen teilen
     * Programmänderungen einsehen
     * Bewertungen und Kommentare für Vorträge und Workshops hinterlassen
-    * Integration mit dem Engelsystem-Projekt [https://engelsystem.de] - Online-Tool für Helfer- und Schichtplanung auf großen Events
+    * Integration mit dem Engelsystem-Projekt <a href="https://engelsystem.de">https://engelsystem.de</a> - Online-Tool für Helfer- und Schichtplanung auf großen Events
     * Integration mit Chaosflix https://github.com/NiciDieNase/chaosflix - Android App für https://media.ccc.de, teile Fahrplan-Favoriten mit Chaosflix und importiere sie als Bookmarks
 
-    🔤 '''Unterstützte Sprachen'''
+    🔤 <b>Unterstützte Sprachen</b>
     (Programmtexte ausgenommen)
     * Deutsch
     * Englisch
@@ -36,6 +36,7 @@ Description: |
     * Italienisch
     * Japanisch
     * Niederländisch
+    * Polnisch
     * Portugiesisch
     * Russisch
     * Spanisch
@@ -86,7 +87,21 @@ Builds:
     gradle:
       - divoc2021
 
+  - versionName: 1.54.0-DiVOC-Edition
+    versionCode: 88
+    commit: v.1.54.0-DiVOC-Edition
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - divoc2022
+
+MaintainerNotes: Disable auto update in favor of manual update.
+
+ArchivePolicy: 1 versions
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 1.50.0-DiVOC-Edition
-CurrentVersionCode: 82
+CurrentVersion: 1.54.0-DiVOC-Edition
+CurrentVersionCode: 88

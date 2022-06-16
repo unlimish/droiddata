@@ -22,7 +22,7 @@ Description: |-
 
     Notebooks are saved in Org mode's file format. "Org mode is for keeping notes,
     maintaining TODO lists, planning projects, and authoring documents with a fast
-    and effective plain-text system." See [http://orgmode.org] for more information.
+    and effective plain-text system." See <a href="https://orgmode.org/">https://orgmode.org/</a> for more information.
 
 RepoType: git
 Repo: https://github.com/orgzly/orgzly-android
@@ -274,7 +274,25 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 1.8.5
+    versionCode: 158
+    commit: f1835be86ae0ac9fa356cb87746e6b00b122b198
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 1.8.6
+    versionCode: 161
+    commit: 1b7e0572133790676e13089033bf4dd7d3e700d2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9\.]+$
-CurrentVersion: 1.8.4
-CurrentVersionCode: 155
+CurrentVersion: 1.8.6
+CurrentVersionCode: 161

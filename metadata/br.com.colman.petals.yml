@@ -1,0 +1,102 @@
+Categories:
+  - Science & Education
+  - Sports & Health
+  - Time
+License: AGPL-3.0-or-later
+AuthorName: Leonardo Colman Lopes
+AuthorWebSite: https://github.com/LeoColman/
+WebSite: https://github.com/LeoColman/Petals
+SourceCode: https://github.com/LeoColman/Petals
+IssueTracker: https://github.com/LeoColman/Petals/issues
+Changelog: https://github.com/LeoColman/Petals/releases
+
+AutoName: Petals
+
+RepoType: git
+Repo: https://github.com/LeoColman/Petals
+
+Builds:
+  - versionName: v1.1.1
+    versionCode: 111
+    commit: v1.1.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: echo 'android { lintOptions { isAbortOnError = false }}' >> build.gradle.kts
+
+  - versionName: v1.2.0
+    versionCode: 120
+    commit: 3e575fe0d3d6a36ebe1e92a2c0398f57864101d7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: echo 'android { lintOptions { isAbortOnError = false }}' >> build.gradle.kts
+
+  - versionName: v2.0.1
+    versionCode: 201
+    commit: d45870c4ca306c7e49b5519033b50a093c746843
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/val keystorePropertiesFile/,/^}/d' build.gradle.kts
+    scandelete:
+      - app
+
+  - versionName: v2.0.2
+    versionCode: 202
+    commit: 29234b4d5081b00d0245c9c45cebbeaaf76703fb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/val keystorePropertiesFile/,/^}/d' build.gradle.kts
+    scandelete:
+      - app
+
+  - versionName: v2.0.3
+    versionCode: 203
+    commit: 65cc2c0ffd4afb197e41986493d9ece092e4e4cc
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/val keystorePropertiesFile/,/^}/d' build.gradle.kts
+    scandelete:
+      - app
+
+  - versionName: v2.2.0
+    versionCode: 220
+    commit: 9d2371bd8f25cc029b53ffd72f9f2881a797136f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/val keystorePropertiesFile/,/^}/d' build.gradle.kts
+    scandelete:
+      - app
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: v2.2.0
+CurrentVersionCode: 220

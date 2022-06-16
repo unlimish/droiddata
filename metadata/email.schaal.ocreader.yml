@@ -393,7 +393,25 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '0.57'
+    versionCode: 57
+    commit: cd385d50cb2a16ab4a3f4632cf088bb725cc73a0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '0.59'
+    versionCode: 59
+    commit: c0311a0ccbac01a930772a5d7d593b2367ae9ddc
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '0.56'
-CurrentVersionCode: 56
+CurrentVersion: '0.59'
+CurrentVersionCode: 59

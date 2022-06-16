@@ -9,7 +9,7 @@ IssueTracker: https://forum.xda-developers.com/android/apps-games/app-netguard-r
 Translation: https://crowdin.com/project/netguard
 Changelog: https://github.com/M66B/NetGuard/releases
 Donate: https://www.netguard.me
-Bitcoin: 13nUbfsLUzK9Sr7ZJgDRHNR91BJMuDuJnf
+Bitcoin: bc1q8rpjevzq698adgnjduu2jtls9hh4hknd7psc2s
 
 AutoName: NetGuard
 Description: |-
@@ -19,7 +19,7 @@ Description: |-
     Applications and addresses can individually be allowed or denied access to your
     Wi-Fi and/or mobile connection.
 
-    '''Blocking access to the internet can help:'''
+    <b>Blocking access to the internet can help:</b>
 
     * reduce your data usage
     * save your battery
@@ -27,7 +27,7 @@ Description: |-
 
     NetGuard is the first free and open source no-root firewall for Android.
 
-    '''Features'''
+    <b>Features</b>
 
     * Simple to use
     * No root required
@@ -47,7 +47,7 @@ Description: |-
     * Optionally <a href="https://github.com/M66B/NetGuard/blob/master/ADBLOCKING.md">block ads using a hosts file</a>
     * Material design theme with light and dark theme
 
-    '''PRO features:'''
+    <b>PRO features:</b>
 
     * Log all outgoing traffic; search and filter access attempts; export PCAP files to analyze traffic
     * Allow/block individual addresses per application
@@ -1339,7 +1339,94 @@ Builds:
     prebuild: sed -i -e '/keystore/d' -e '/signingConfigs/d' build.gradle
     ndk: r21e
 
+  - versionName: '2.296'
+    versionCode: 2021061401
+    commit: '2.296'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore/d' -e '/signingConfigs/d' build.gradle
+    ndk: r21e
+
+  - versionName: '2.297'
+    versionCode: 2021091001
+    commit: a9f60e5c4fd7cd12ddd1fc9609bbe130d4eb0de9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore/d' -e '/signingConfigs/d' build.gradle
+    ndk: r21e
+
+  - versionName: '2.298'
+    versionCode: 2021100101
+    commit: ff00966bad172de624eca04a24533c029c34b974
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore/d' -e '/signingConfigs/d' build.gradle
+    ndk: r21e
+
+  - versionName: '2.299'
+    versionCode: 2021111301
+    commit: 3bae3a9c49586ccc6e686d45cb30d79bbd931085
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore/d' -e '/signingConfigs/d' build.gradle
+    ndk: r21e
+
+  - versionName: '2.300'
+    versionCode: 2022011901
+    commit: 9b95d909d365ebdb4b959db0301853998998e6e1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore/d' -e '/signingConfigs/d' build.gradle
+    ndk: r21e
+
+  - versionName: '2.301'
+    versionCode: 2022060401
+    commit: c6297c9eab611d0d46091804a075b8b23930fb6b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore/d' -e '/signingConfigs/d' build.gradle
+    ndk: r21e
+
+  - versionName: '2.302'
+    versionCode: 2022061401
+    commit: a9c4da69c701eb9b650d8c5929f904add8140a1d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore/d' -e '/signingConfigs/d' build.gradle
+    ndk: r21e
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags ^[0-9.]+$
-CurrentVersion: '2.295'
-CurrentVersionCode: 2021032201
+CurrentVersion: '2.302'
+CurrentVersionCode: 2022061401

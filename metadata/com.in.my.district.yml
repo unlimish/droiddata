@@ -1,0 +1,155 @@
+Categories:
+  - Internet
+License: GPL-3.0-only
+AuthorName: João Pimentel Ferreira
+WebSite: https://nomeubairro.app
+SourceCode: https://github.com/jfoclpf/in-my-district
+IssueTracker: https://github.com/jfoclpf/in-my-district/issues
+
+RepoType: git
+Repo: https://github.com/jfoclpf/in-my-district.git
+
+Builds:
+  - versionName: 1.2.10
+    versionCode: 10210
+    commit: v1.2.10
+    subdir: platforms/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.4/node-v14.17.4-linux-x64.tar.xz
+      - echo "db18c54ebe01974d46198b08729249acbb0dcdc9aea82b53eec913f8c56035c6 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g cordova
+    gradle:
+      - yes
+    prebuild:
+      - cd ../../..
+      - rm -rf platforms
+      - cordova platform add android
+    scandelete:
+      - node_modules
+
+  - versionName: 1.2.11
+    versionCode: 10211
+    commit: f5bb81aec2b10eea9f1dc536733fd1820a1a5592
+    subdir: platforms/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.4/node-v14.17.4-linux-x64.tar.xz
+      - echo "db18c54ebe01974d46198b08729249acbb0dcdc9aea82b53eec913f8c56035c6 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g cordova
+    gradle:
+      - yes
+    prebuild:
+      - cd ../../..
+      - rm -rf platforms
+      - cordova platform add android
+    scandelete:
+      - node_modules
+
+  - versionName: 1.2.12
+    versionCode: 10212
+    commit: 380f0053bfcd8cfffa3c5fabd0b2ddf1806912b2
+    subdir: platforms/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.4/node-v14.17.4-linux-x64.tar.xz
+      - echo "db18c54ebe01974d46198b08729249acbb0dcdc9aea82b53eec913f8c56035c6 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g cordova
+    gradle:
+      - yes
+    prebuild:
+      - cd ../../..
+      - rm -rf platforms
+      - cordova platform add android
+    scandelete:
+      - node_modules
+
+  - versionName: 1.2.13
+    versionCode: 10213
+    commit: 58e872215b5627cfbdb03b60c9e47a5f44a50e42
+    subdir: platforms/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.4/node-v14.17.4-linux-x64.tar.xz
+      - echo "db18c54ebe01974d46198b08729249acbb0dcdc9aea82b53eec913f8c56035c6 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g cordova
+    gradle:
+      - yes
+    prebuild:
+      - cd ../../..
+      - rm -rf platforms
+      - cordova platform add android
+    scandelete:
+      - node_modules
+
+  - versionName: 1.2.14
+    versionCode: 10214
+    commit: da9e3a69aca4f81e7ce0cdc59ca272da604d92ff
+    subdir: platforms/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.4/node-v14.17.4-linux-x64.tar.xz
+      - echo "db18c54ebe01974d46198b08729249acbb0dcdc9aea82b53eec913f8c56035c6 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g cordova
+    gradle:
+      - yes
+    prebuild:
+      - cd ../../..
+      - rm -rf platforms
+      - cordova platform add android
+    scandelete:
+      - node_modules
+
+  - versionName: 1.2.15
+    versionCode: 10215
+    commit: c85fe6d9efec1799bcb739d4bb841e3689e93723
+    subdir: platforms/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.4/node-v14.17.4-linux-x64.tar.xz
+      - echo "db18c54ebe01974d46198b08729249acbb0dcdc9aea82b53eec913f8c56035c6 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g cordova
+    gradle:
+      - yes
+    prebuild:
+      - cd ../../..
+      - rm -rf platforms
+      - cordova platform add android
+    scandelete:
+      - node_modules
+
+  - versionName: 1.2.16
+    versionCode: 10216
+    commit: 208e76c1b93ed9beba2a03954e18c28b70f92ea1
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.4/node-v14.17.4-linux-x64.tar.xz
+      - echo "db18c54ebe01974d46198b08729249acbb0dcdc9aea82b53eec913f8c56035c6 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g cordova
+    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild:
+      - npm install
+      - cordova platform add android
+    scandelete:
+      - node_modules
+    build: cordova build android --release -- --packageType=apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: package.json|"android-version-code":\s(\d+),|.|"version":\s"([\d.]+)",
+CurrentVersion: 1.2.16
+CurrentVersionCode: 10216

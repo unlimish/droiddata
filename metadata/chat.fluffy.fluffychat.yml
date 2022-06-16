@@ -1,0 +1,44 @@
+Categories:
+  - Internet
+  - Phone & SMS
+License: AGPL-3.0-only
+AuthorName: Famedly
+SourceCode: https://gitlab.com/famedly/fluffychat
+IssueTracker: https://gitlab.com/famedly/fluffychat/-/issues
+Translation: https://hosted.weblate.org/projects/fluffychat/
+
+AutoName: FluffyChat
+
+RepoType: git
+Repo: https://gitlab.com/famedly/fluffychat
+
+Builds:
+  - versionName: 1.5.0
+    versionCode: 2323
+    commit: b2ba999c7288ffce7eab90c01e6fbe02f460f84e
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.1
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1'
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags v\d+.\d+.\d+
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.5.0
+CurrentVersionCode: 2323

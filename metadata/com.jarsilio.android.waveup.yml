@@ -765,7 +765,43 @@ Builds:
     gradle:
       - standard
 
+  - versionName: 3.2.11
+    versionCode: 115
+    commit: 7fe831a3027a161934d4a1aa517ca58ef95fa903
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 3.2.13
+    versionCode: 117
+    commit: 12246877e31bafbbb62e6fbf4ddaaf984725e0cb
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 3.2.14
+    versionCode: 118
+    commit: 17ae8d2db471d8c887082a014c45ca3da65364ff
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]+$
-CurrentVersion: 3.2.10
-CurrentVersionCode: 114
+CurrentVersion: 3.2.14
+CurrentVersionCode: 118

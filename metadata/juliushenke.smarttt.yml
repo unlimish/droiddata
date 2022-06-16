@@ -7,7 +7,7 @@ IssueTracker: https://github.com/JuliusHenke/Timetable-App/issues
 Name: Timetable
 AutoName: Timetable      //Single words ------------------------------------------------------------------
 Description: |-
-    ''Smart Timetable'' is a simple app for school and university time tables.
+    <i>Smart Timetable</i> is a simple app for school and university time tables.
 
     The "Smart Timetable" is designed to be quick to set up and use. You can
     save information like the room of your subject or your teacher.
@@ -43,7 +43,19 @@ Builds:
       - yes
     prebuild: echo "android.useAndroidX=true" > ../gradle.properties
 
+  - versionName: 2.4.3
+    versionCode: 21
+    commit: 07b1a8c2826ceed09d02b68868c1947e0cf9f2a7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo "android.useAndroidX=true" > ../gradle.properties
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.4.2
-CurrentVersionCode: 20
+CurrentVersion: 2.4.3
+CurrentVersionCode: 21

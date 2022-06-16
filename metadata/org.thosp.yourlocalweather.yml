@@ -737,7 +737,25 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 5.7.4
+    versionCode: 143
+    commit: 2e98ba430345fd0fb12aee4285c9afd8f18ee54b
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 5.7.5
+    versionCode: 144
+    commit: 0f511cdf52e094b21446c3016f604aeab90670b3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 5.7.3
-CurrentVersionCode: 142
+CurrentVersion: 5.7.5
+CurrentVersionCode: 144

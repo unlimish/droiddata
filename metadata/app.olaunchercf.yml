@@ -1,0 +1,69 @@
+Categories:
+  - Theming
+License: GPL-3.0-only
+AuthorName: Joscha
+AuthorEmail: joscha.loos@rwth-aachen.de
+SourceCode: https://github.com/jooooscha/Olauncher
+IssueTracker: https://github.com/jooooscha/Olauncher/issues
+
+AutoName: Olauncher Clutter Free
+
+RepoType: git
+Repo: https://github.com/jooooscha/Olauncher
+
+Builds:
+  - versionName: fork1.4
+    versionCode: 4
+    commit: fork1.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: fork1.5
+    versionCode: 5
+    commit: d485e736e7f9d23f8ac599cd28c5da1c05c0f776
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: fork1.6
+    versionCode: 6
+    commit: acb119dce60bd4668a4e5eece2dcf6df894c0c5c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: fork1.7
+    versionCode: 7
+    commit: e363dbe86f4e5b8fbc5bf0cccc1b6dd4836aac29
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: fork1.8
+    versionCode: 8
+    commit: 89da54143d2d927cd3d586f9612f6ecd14f5837a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: fork1.8
+CurrentVersionCode: 8
