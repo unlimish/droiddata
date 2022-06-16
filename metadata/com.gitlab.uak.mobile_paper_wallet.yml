@@ -1,0 +1,43 @@
+Categories:
+  - Money
+License: GPL-3.0-or-later
+SourceCode: https://gitlab.com/uak/mobile-paper-wallet
+
+RepoType: git
+Repo: https://gitlab.com/uak/mobile-paper-wallet
+
+Builds:
+  - versionName: 1.3.3
+    versionCode: 102110303
+    commit: eed3f42ad8a2cba69122078e8d0a82e3cb186150
+    subdir: src
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential libffi-dev libltdl-dev
+    output: bin/mobile_paper_wallet-*-arm64-v8a_armeabi-v7a-release-unsigned.apk
+    srclibs:
+      - cpython@v3.8.10
+      - buildozer@1.3.0
+    prebuild:
+      - sed -r "s:#?android.sdk_path =.*:android.sdk_path = $$SDK$$:" -i buildozer.spec
+      - sed -r "s:#?android.ndk_path =.*:android.ndk_path = $$NDK$$:" -i buildozer.spec
+      - sed -r "s:#?android.accept_sdk_license =.*:android.accept_sdk_license = False:"
+        -i buildozer.spec
+      - sed -i -e 's/# android.release_artifact = aab/android.release_artifact = apk/'
+        buildozer.spec
+    build:
+      - pushd $$cpython$$
+      - mkdir -p /tmp/cpython
+      - ./configure --prefix=/tmp/cpython --enable-optimizations
+      - make -j`nproc`
+      - make install
+      - popd
+      - export PATH=/tmp/cpython/bin:$PATH
+      - pip3 install --user --upgrade $$buildozer$$ Cython
+      - PATH="$HOME/.local/bin:$PATH" buildozer android release
+    ndk: r19c
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 1.3.3
+CurrentVersionCode: 102110303
