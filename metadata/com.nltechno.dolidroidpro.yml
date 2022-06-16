@@ -33,6 +33,40 @@ RepoType: git
 Repo: https://github.com/DoliCloud/dolidroid.git
 
 Builds:
+  - versionName: '1.6'
+    versionCode: 27
+    commit: 8102d970ae977203b22e1ca7ed182e7a4146b829
+    subdir: app
+    gradle:
+      - yes
+    forceversion: true
+
+  - versionName: '1.6'
+    versionCode: 28
+    commit: 3d57aab9407e0e0e95bfb73280207545a4062447
+    subdir: app
+    gradle:
+      - yes
+    forceversion: true
+
+  - versionName: DoliDroid Pro 2.1
+    versionCode: 39
+    commit: 475ac592354b2f3cb21b6d31406f7defea805c9f
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: DoliDroid Pro 2.2
+    versionCode: 42
+    commit: 7daaa2d6a08a7b1acb8c74ccb888d71ef24ceff5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
   - versionName: DoliDroid Pro 2.2
     versionCode: 43
     commit: 9ee8ba0ab2c557099e849919913f84c9e82962bb
