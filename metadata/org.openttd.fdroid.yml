@@ -47,12 +47,13 @@ Builds:
       - rm -f project/themes/Sun/abstractsun.zip
       - ln -sf project/jni/application/openttd/src/metadata metadata
     output: project/app/build/outputs/apk/release/app-release-unsigned.apk
-    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
-        'cmake;3.18.1' > /dev/null
+    prebuild: 
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1'
+      - sed -i -e '/play-services/d' project/app/build-template.gradle
     scanignore:
       - project/jni/iconv/src/icu-le-hb-1.0.3.tar.gz
       - project/jni/iconv/src/libiconv-1.15.tar.gz
-      - project/app/build-template.gradle
       - project/jni/timidity/samples/timidity.zip
     build: CMAKE_BIN_LOC=$$SDK$$/cmake/3.18.1/bin/ ./build.sh -z openttd
     ndk: r23b
