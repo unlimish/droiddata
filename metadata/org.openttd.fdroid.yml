@@ -19,6 +19,7 @@ Builds:
   - versionName: 12.2.rev111
     versionCode: 1220111
     commit: 12.2.rev111
+    submodules: true
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y g++ build-essential openjdk-11-jdk-headless curl
@@ -32,13 +33,6 @@ Builds:
       - ln -sf openttd project/jni/application/src
       - git submodule update --init project/jni/iconv/src project/jni/sdl* project/jni/application/openttd/src
       - sed -i -e "/GooglePlayGameServicesId/s/=.*/=/g" src/AndroidAppSettings.cfg
-      - rm -rf $(find project/jni/application/ -mindepth 1 -maxdepth 1 -type d -a
-        -not -iname openttd)
-      - rm -rf $(find project/jni/ -mindepth 1 -maxdepth 1 -type d -a -not \( -iname
-        application -o -iname 'sdl*' -o -iname 'icu*' -o -iname iconv -o -iname expat
-        -o -iname timidity -o -iname fontconfig -o -iname lzma -o -iname lzo2 -o -iname
-        harfbuzz -o -iname flac -o -iname mikmod -o -iname vorbis -o -iname tremor
-        -o -iname ogg -o -iname png -o -iname jpg -o -iname freetype  \) )
       - rm -rf project/jni/sdl2_mixer/Xcode/
       - rm -rf project/jni/sdl2_image/Xcode/
       - rm -rf project/jni/sdl2_ttf/Xcode/
@@ -47,7 +41,7 @@ Builds:
       - rm -f project/themes/Sun/abstractsun.zip
       - ln -sf project/jni/application/openttd/src/metadata metadata
     output: project/app/build/outputs/apk/release/app-release-unsigned.apk
-    prebuild: 
+    prebuild:
       - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
       - sed -i -e '/play-services/d' project/app/build-template.gradle
     scanignore:
