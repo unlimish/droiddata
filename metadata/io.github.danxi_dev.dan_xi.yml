@@ -62,6 +62,8 @@ Builds:
       - test
       - web
       - windows
+      - android/app/proguard-rules.pro
+    prebuild: sed -i -e '/minifyEnabled/,+2d' android/app/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
