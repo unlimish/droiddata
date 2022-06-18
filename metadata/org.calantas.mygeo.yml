@@ -1,0 +1,36 @@
+Categories:
+  - Navigation
+License: GPL-3.0-or-later
+AuthorName: veto
+AuthorEmail: veto@myridia.com
+WebSite: https://w3.calantas.org/mygeo/
+SourceCode: https://calantas.org/mygeo
+IssueTracker: https://mantis.calantas.org/login_page.php
+
+Summary: Share your Latitude and Longitude
+Description: |-
+  Detect your Geo Location as Latitude and Longitude.
+  You can customize a template with the latitude and longitude and share it to other apps.
+  I has large accessible buttons to share quickly your latitude and longitude.
+  You can create your own share templates with buildin text editor.
+  It works with net or satellite, so it works on offline mode as well.
+
+RepoType: hg
+Repo: http://calantas.org/mygeo
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    commit: '175'
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y librsvg2-bin openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.0
+CurrentVersionCode: 1
