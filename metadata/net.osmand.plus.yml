@@ -4681,6 +4681,9 @@ Builds:
       - sed -i -e "s/GmsLocationServiceHelper/AndroidApiLocationServiceHelper/g" src/net/osmand/plus/OsmandApplication.java
       - sed -i -e 's/android:key="location_source"/android:key="location_source" app:isPreferenceVisible="false"/'
         res/xml/global_settings.xml
+      - sed -i -e 's!<uses-permission android:name="android.permission.INTERNET" />!<uses-permission
+        android:name="android.permission.INTERNET" /><uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
+        />!' AndroidManifest.xml
     scanignore:
       - help/website/fonts/*.woff
       - help/website/fonts/*.eot
