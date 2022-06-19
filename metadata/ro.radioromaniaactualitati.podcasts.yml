@@ -23,16 +23,16 @@ RepoType: git
 Repo: https://gitlab.com/andrei-pavel/radio-romania
 
 Builds:
-  - versionName: 2.5.0
-    versionCode: 58
-    commit: 2.5.0
+  - versionName: 2.5.1
+    versionCode: 59
+    commit: 2.5.1
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
     srclibs:
-      - flutter@2.10.5
+      - flutter@3.0.2
     rm:
       - linux
       - test
@@ -46,5 +46,5 @@ Builds:
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 2.5.0
-CurrentVersionCode: 58
+CurrentVersion: 2.5.1
+CurrentVersionCode: 59
