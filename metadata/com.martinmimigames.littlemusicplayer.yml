@@ -25,6 +25,7 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - yes
+    prebuild: sed -i -e '/signingConfig/d' build.gradle
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
