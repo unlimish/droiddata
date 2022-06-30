@@ -7256,8 +7256,88 @@ Builds:
       - app/lib
     ndk: r23b
 
+  - versionName: '1.1923'
+    versionCode: 1923
+    commit: 6a6cbc59ddb39d2db6aa106243e604ffd84c5578
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r23b
+
+  - versionName: '1.1924'
+    versionCode: 1924
+    commit: 2d9444945db85789368588ed54c57af54f8024fa
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r23b
+
+  - versionName: '1.1925'
+    versionCode: 1925
+    commit: b39e8c468daff86cf9ec9ffaa7e7d84408a5b13c
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r23b
+
+  - versionName: '1.1926'
+    versionCode: 1926
+    commit: 2afb2371650c804db387c52df95df16158217ee9
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r23b
+
+  - versionName: '1.1927'
+    versionCode: 1927
+    commit: bcd23907a6ed626058dd605b55b94a491e01ec6b
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r23b
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: app/build.gradle|getVersionCode.*return (\d+)||
-CurrentVersion: '1.1921'
-CurrentVersionCode: 1921
+CurrentVersion: '1.1927'
+CurrentVersionCode: 1927

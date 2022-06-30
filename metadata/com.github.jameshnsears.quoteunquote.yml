@@ -446,7 +446,59 @@ Builds:
       - fdroid
     prebuild: sed -i -e '/firebase/d' build.gradle
 
+  - versionName: 3.0.7-fdroid
+    versionCode: 1022432
+    commit: 6a305ce53a8ab5367d3c35db0355fafd58062e95
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+  - versionName: 3.1.0-fdroid
+    versionCode: 1032432
+    commit: 56478a421997dd3b0e9480545af306f7818c4a9f
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+  - versionName: 3.2.0-fdroid
+    versionCode: 1042432
+    commit: 95886d81330feefe3a37294b63d0004964bd575b
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
+  - versionName: 3.2.1-fdroid
+    versionCode: 1052432
+    commit: ee0b1da3d066e45267cdb64fbea6ce5400612b3d
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/firebase/d' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags .*-fdroid$
-CurrentVersion: 3.0.6-fdroid
-CurrentVersionCode: 1012432
+CurrentVersion: 3.2.1-fdroid
+CurrentVersionCode: 1052432

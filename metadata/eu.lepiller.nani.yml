@@ -85,7 +85,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 0.4.1
+    versionCode: 13
+    commit: 026b275d54d927e1c7efcd625bb9859ed286c169
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.4.0
-CurrentVersionCode: 12
+CurrentVersion: 0.4.1
+CurrentVersionCode: 13

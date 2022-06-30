@@ -114,8 +114,52 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.0.beta12
+    versionCode: 12
+    commit: e2cdbb5717b49b141ad8d9fcd23e04bcb98e1594
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta13
+    versionCode: 13
+    commit: dc13fb092e2be0ffd54c9935b39fb5fa880031a4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta14
+    versionCode: 14
+    commit: e704d023a9947e77ce70928cc600e2165419e36b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta15
+    versionCode: 15
+    commit: ebc07e3a3e4bdf60a4751fd4f427bf97da6613c6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: app/build.gradle|versionCode\s(\d+)||(.*)
-CurrentVersion: 1.0.beta11
-CurrentVersionCode: 11
+CurrentVersion: 1.0.beta15
+CurrentVersionCode: 15

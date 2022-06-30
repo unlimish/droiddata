@@ -7,21 +7,13 @@ WebSite: https://w3.calantas.org/mygeo/
 SourceCode: https://gitlab.com/calantas/mygeo
 IssueTracker: https://mantis.calantas.org
 
-Summary: Share your Latitude and Longitude
-Description: |-
-    Share your Geo Location as Latitude and Longitude with your template.
-    You can customize a template with the latitude and longitude and share it to other apps.
-    I has large accessible buttons to share quickly your latitude and longitude.
-    You can create your own share templates with buildin text editor.
-    It works with net or satellite, so it works on offline mode as well.
-
 RepoType: git
 Repo: https://gitlab.com/calantas/mygeo.git
 
 Builds:
   - versionName: 1.0.0
     versionCode: 1
-    commit: 17bbd34c
+    commit: 17bbd34caf8fcd585a6020f7b104127108577845
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -30,7 +22,7 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: 1.0.0
 CurrentVersionCode: 1

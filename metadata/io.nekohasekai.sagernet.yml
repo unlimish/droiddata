@@ -955,9 +955,97 @@ Builds:
       - ./run fdroid build
     ndk: r23b
 
+  - versionName: 0.8-rc03
+    versionCode: 799
+    commit: d1a9d94242aa60d59e7aada491fc14d52f753f89
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.8-rc04
+    versionCode: 801
+    commit: 904b52d8904b87f3973bf27f612262385eb66cf7
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.8.1-beta02
+    versionCode: 805
+    commit: 1a5a836ad0d423a6caab356c1cb1a85e8525f29d
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
+  - versionName: 0.8.1-beta03
+    versionCode: 807
+    commit: c6c5dc733d1bde8b1417854098c0caf52c5f706a
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - ./run fdroid prebuild
+    scandelete:
+      - external
+      - plugin
+    build:
+      - cd ..
+      - ./run fdroid build
+    ndk: r23b
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^\d.*
 VercodeOperation: 459 + %c * 2
 UpdateCheckData: sager.properties|VERSION_CODE=(\d+)||
-CurrentVersion: 0.8-rc01
-CurrentVersionCode: 797
+CurrentVersion: 0.8.1-beta03
+CurrentVersionCode: 807
