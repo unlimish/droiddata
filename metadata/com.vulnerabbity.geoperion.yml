@@ -19,12 +19,12 @@ Builds:
     commit: cfd8e1956667c5c91071a698a87cefbb3b8fe63a
     subdir: android/app
     sudo:
-      - apt-get update || apt-get update
-      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.15.5/node-v14.15.5-linux-x64.tar.xz
-      - echo "fa198afa9a2872cde991c3aa71796894bf7b5310d6eb178c3eafcf66e3ae79a7 node.tar.xz"
-        | sha256sum -c
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.18.2/node-v14.18.2-linux-x64.tar.xz
+      - echo "dae683f911fe5af11f1dc9d7746d80fccdb1e7b4bef31a570f5daffadd897c42 node.tar.xz"
+        | sha256sum -c -
       - tar xJf node.tar.xz
-      - cp -a node-v14.15.5-linux-x64/. /usr/local/
+      - cp -a node-v14.18.2-linux-x64/. /usr/local/
       - npm install -g npm@latest
       - npm install -g yarn
       - yarn global add @ionic/cli
