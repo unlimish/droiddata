@@ -836,6 +836,15 @@ Builds:
       - sed -i -e 's/enable true/enable false/g' build.gradle
       - sed -i -e '/repositories {/a\        mavenLocal()' ../build.gradle
       - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    scandelete:
+      - library/opusencoder/src/main/cpp/opus/libs/arm64-v8a/libopusenc.so
+      - library/opusencoder/src/main/cpp/opus/libs/arm64-v8a/libopus.so
+      - library/opusencoder/src/main/cpp/opus/libs/x86/libopusenc.so
+      - library/opusencoder/src/main/cpp/opus/libs/x86/libopus.so
+      - library/opusencoder/src/main/cpp/opus/libs/armeabi-v7a/libopusenc.so
+      - library/opusencoder/src/main/cpp/opus/libs/armeabi-v7a/libopus.so
+      - library/opusencoder/src/main/cpp/opus/libs/x86_64/libopusenc.so
+      - library/opusencoder/src/main/cpp/opus/libs/x86_64/libopus.so
     build:
       - cd $$jitsi-meet$$
       - export LIBRE_BUILD=true
