@@ -3678,7 +3678,6 @@ Builds:
     init:
       - pushd ../../../..
       - npm_config_build_from_source=true yarn
-      - yarn build:mobile
       - popd
       - pushd ../..
       - npm_config_build_from_source=true yarn
@@ -3686,13 +3685,11 @@ Builds:
     gradle:
       - prod
     rm:
-      - .gitmodules
-      - .devcontainer
+      - app/packages/mobile/.devcontainer
       - .github
-      - .vscode
-      - __tests__
-      - ios
-      - android/app/gradle
+      - app/packages/mobile/__tests__
+      - app/packages/mobile/ios
+      - app/packages/mobile/android/app/gradle
     prebuild:
       - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
       - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
