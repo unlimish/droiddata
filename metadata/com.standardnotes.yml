@@ -3684,12 +3684,6 @@ Builds:
       - popd
     gradle:
       - prod
-    rm:
-      - app/packages/mobile/.devcontainer
-      - .github
-      - app/packages/mobile/__tests__
-      - app/packages/mobile/ios
-      - app/packages/mobile/android/app/gradle
     prebuild:
       - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
       - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
