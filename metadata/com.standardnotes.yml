@@ -3664,6 +3664,8 @@ Builds:
     versionCode: 3000354
     commit: '@standardnotes/mobile@3.26.8'
     subdir: packages/mobile/android/app
+    srclibs:
+      - cpython@v3.10.5
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
       - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
@@ -3675,6 +3677,11 @@ Builds:
       - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
       - update-alternatives --auto java
       - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
     init:
       - pushd ../../../..
       - npm_config_build_from_source=true yarn
@@ -3685,7 +3692,7 @@ Builds:
     gradle:
       - prod
     prebuild:
-      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      # - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
       - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
         -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
     scanignore:
