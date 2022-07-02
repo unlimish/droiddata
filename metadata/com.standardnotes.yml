@@ -3664,8 +3664,6 @@ Builds:
     versionCode: 3000354
     commit: '@standardnotes/mobile@3.26.8'
     subdir: packages/mobile/android/app
-    srclibs:
-      - cpython@v3.10.5
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
       - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
@@ -3683,32 +3681,35 @@ Builds:
       - make install
       - popd
     init:
-      - pushd ../../../..
-      - npm_config_build_from_source=true yarn
-      - popd
       - pushd ../..
       - npm_config_build_from_source=true yarn
       - popd
     gradle:
       - prod
-    prebuild:
-      # - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
-      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
         -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
     scanignore:
-      - android/build.gradle
-      - node_modules/hermes-engine
-      - node_modules/jsc-android
-      - node_modules/react-native
-      - node_modules/detox/android/build.gradle
-      - node_modules/detox/android/detox/publishing.gradle
-      - node_modules/@react-native-community/async-storage/android/build.gradle
-      - node_modules/@react-native-community/masked-view/android/build.gradle
-      - node_modules/@standardnotes/react-native-utils/android/build.gradle
-      - node_modules/@standardnotes/react-native-textview/android/build.gradle
-      - node_modules/@standardnotes/react-native-aes/android/build.gradle
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
     scandelete:
       - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
     build:
       - pushd ../..
       - yarn run android:bundle
