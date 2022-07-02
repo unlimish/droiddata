@@ -836,6 +836,7 @@ Builds:
       - sed -i -e 's/enable true/enable false/g' build.gradle
       - sed -i -e '/repositories {/a\        mavenLocal()' ../build.gradle
       - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+      - sed -i -e 's;${distribution_OPUS_DIR}/libs/${ANDROID_ABI}/libopus.so;/usr/lib/${ANDROID_ABI}/libopus.so.0'
     scandelete:
       - library/opusencoder/src/main/cpp/opus/libs/arm64-v8a/libopusenc.so
       - library/opusencoder/src/main/cpp/opus/libs/arm64-v8a/libopus.so
