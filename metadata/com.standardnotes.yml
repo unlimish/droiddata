@@ -3675,8 +3675,13 @@ Builds:
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     init:
-      - cd ../..
+      - pushd ../../../..
       - npm_config_build_from_source=true yarn
+      - yarn build:mobile
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn
+      - popd
     gradle:
       - prod
     rm:
