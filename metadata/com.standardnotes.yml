@@ -3672,8 +3672,9 @@ Builds:
       - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
       - npm -g install yarn
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
       - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
     init:
       - pushd ../../../..
       - npm_config_build_from_source=true yarn
