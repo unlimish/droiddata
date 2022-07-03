@@ -3742,14 +3742,17 @@ Builds:
       - popd
     patch:
       - disable-splits-abi.patch
+      - remove-gms.patch
     gradle:
       - prod
     srclibs:
       - cpython@v3.10.5
     rm:
       - packages/desktop
-    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+    prebuild: 
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
         -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+      - sed -i -e '/react-native-store-review/Id' packages/mobile/package.json
     scanignore:
       - packages/mobile/android/build.gradle
       - packages/mobile/node_modules/hermes-engine
