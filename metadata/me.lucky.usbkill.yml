@@ -1,0 +1,30 @@
+Categories:
+  - Security
+License: GPL-3.0-only
+AuthorName: lucky
+AuthorEmail: 44uaanjm0@relay.firefox.com
+AuthorWebSite: https://github.com/x13a
+SourceCode: https://github.com/x13a/USBKill
+IssueTracker: https://github.com/x13a/USBKill/issues
+
+AutoName: USBKill
+
+RepoType: git
+Repo: https://github.com/x13a/USBKill.git
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    commit: 9042c9dfbd8d821fe0b0a7fdb8f58358556c4300
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.0
+CurrentVersionCode: 1
