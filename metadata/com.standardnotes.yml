@@ -3749,7 +3749,7 @@ Builds:
       - cpython@v3.10.5
     rm:
       - packages/desktop
-    prebuild: 
+    prebuild:
       - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
         -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
       - sed -i -e '/react-native-store-review/Id' packages/mobile/package.json
