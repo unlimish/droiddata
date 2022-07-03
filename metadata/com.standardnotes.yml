@@ -3738,7 +3738,7 @@ Builds:
       - popd
     init:
       - pushd ../..
-      - npm_config_build_from_source=true yarn
+      - npm_config_build_from_source=true yarn remove react-native-store-review
       - popd
     patch:
       - disable-splits-abi.patch
@@ -3752,7 +3752,6 @@ Builds:
     prebuild:
       - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
         -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
-      - sed -i -e '/react-native-store-review/Id' packages/mobile/package.json
     scanignore:
       - packages/mobile/android/build.gradle
       - packages/mobile/node_modules/hermes-engine
