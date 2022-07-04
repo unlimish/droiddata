@@ -1,7 +1,7 @@
 AntiFeatures:
-  - Non-Free Addons
+  - NonFreeNet
 Categories:
-  - Connectivity, Navigation
+  - Navigation
 License: AGPL-3.0-only
 AuthorName: Openmemetro
 AuthorEmail: openmemetro@riseup.net
@@ -9,7 +9,7 @@ WebSite: https://gitlab.com/openmemetro/
 SourceCode: https://gitlab.com/openmemetro/openmemetro-android
 IssueTracker: https://gitlab.com/openmemetro/openmemetro-android/-/issues
 
-AutoName: Openmemetro
+AutoName: Memetro
 
 RepoType: git
 Repo: https://gitlab.com/openmemetro/openmemetro-android
@@ -17,13 +17,18 @@ Repo: https://gitlab.com/openmemetro/openmemetro-android
 Builds:
   - versionName: '1.0'
     versionCode: 1
-    commit: v1.0
+    commit: b3e02d86219a1bc0d24f43f95f228d9923ae32dd
     subdir: app
-    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
+    scandelete:
+      - app/libs
 
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: '1.0'
 CurrentVersionCode: 1
