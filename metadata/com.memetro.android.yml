@@ -25,6 +25,7 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - prod
+    prebuild: sed -i -e '/c2dm/d'  src/main/AndroidManifest.xml 
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
