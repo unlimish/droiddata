@@ -1,0 +1,32 @@
+AntiFeatures:
+  - NSFW
+  - NonFreeNet
+Categories:
+  - Reading
+License: GPL-3.0-only
+AuthorName: Bill Farmer
+AuthorWebSite: https://billthefarmer.github.io/
+SourceCode: https://github.com/billthefarmer/oglaf
+IssueTracker: https://github.com/billthefarmer/oglaf/issues
+Changelog: https://github.com/billthefarmer/oglaf/releases
+
+AutoName: Oglaf
+
+RepoType: git
+Repo: https://github.com/billthefarmer/oglaf
+
+Builds:
+  - versionName: '1.01'
+    versionCode: 101
+    commit: v1.01
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '1.01'
+CurrentVersionCode: 101
