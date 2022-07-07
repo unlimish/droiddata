@@ -417,6 +417,7 @@ mobsf-ios-sast:
 
 mobsf-android-sast:
   before_script:
+    - mkdir tmp
     - curl -o tmp/F-droid.apk https://cloudflare.f-droid.org/F-Droid.apk
   after_script:
     - echo $PWD
