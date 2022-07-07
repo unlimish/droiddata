@@ -404,11 +404,6 @@ sast:
 
     # Make sure the apk is searched before the manifest, so only apks are scanned
     ANALYZER_TARGET_DIR: $CI_PROJECT_DIR/tmp/
-  rules:
-    - if: '$CI_PIPELINE_SOURCE != "merge_request_event"'
-      when: never
-    - exists:
-       - tmp/*.apk
   allow_failure: true
   artifacts:
     reports:
@@ -417,3 +412,17 @@ sast:
 mobsf-ios-sast:
   rules:
     - when: never
+
+
+mobsf-android-sast:
+  rules:
+    - if: $SAST_DISABLED
+      when: never
+    - if: $SAST_EXCLUDED_ANALYZERS =~ /mobsf/
+      when: never
+    - if: '$CI_PIPELINE_SOURCE != "merge_request_event"'
+      when: never
+    - if: $CI_COMMIT_BRANCH &&
+          $SAST_EXPERIMENTAL_FEATURES == 'true'
+      exists:
+       - tmp/*.apk
