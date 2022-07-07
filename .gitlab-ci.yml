@@ -404,9 +404,6 @@ sast:
 
     # Make sure the apk is searched before the manifest, so only apks are scanned
     ANALYZER_TARGET_DIR: $CI_PROJECT_DIR/tmp/
-  rules:
-    - if: '$CI_PIPELINE_SOURCE != "merge_request_event"'
-      when: never
   allow_failure: true
   artifacts:
     reports:
@@ -415,3 +412,10 @@ sast:
 mobsf-ios-sast:
   rules:
     - when: never
+
+mobsf-android-sast:
+  # Modified from https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml#L153-161
+  rules:
+    - changes:
+        - metadata/**/*
+        - srclibs/**/*
