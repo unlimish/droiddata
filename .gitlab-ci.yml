@@ -208,6 +208,76 @@ checkupdates_runner:
     - git pull --rebase origin master
     # when two jobs try to push at the same time they occasionally fail, so try one more time if it fails
     - git push origin HEAD:master || (git pull --rebase origin master && git push origin HEAD:master)
+    - echo "============== Summary ====================="
+    - 'grep -v "INFO: Processing" /tmp/out || true'
+
+fdroid build:
+  image: registry.gitlab.com/fdroid/fdroidserver:buildserver
+  artifacts:
+    name: "${CI_PROJECT_PATH}_${CI_JOB_STAGE}_${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHA}"
+    paths:
+      - repo/
+      - unsigned/
+      - tmp/
+    when: always
+    expire_in: 1 month
+  except:
+    - master@fdroid/fdroiddata
+    - pipelines
+    - schedules
+    - triggers
+  cache:
+    key: "$CI_JOB_NAME"
+    paths:
+      - .gradle
+  script:
+    - unset CI
+    - git fetch https://gitlab.com/fdroid/fdroiddata.git;
+    - test -d build || mkdir build
+    - for f in
+          `git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD} -- metadata/*.yml`
+          `git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD} -- metadata/*/signatures`;
+      do
+          diff=$(git diff FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD} -- $f);
+          echo "$diff";
+          test $(echo "$diff" | grep '^[+-] ' | grep -v '^+  *disable:' | wc -l) = 0 && continue;
+          echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue;
+          appid=`echo $f | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p'`;
+          export CHANGED="$CHANGED $appid";
+      done;
+    - test -n "$(printf "$CHANGED" | tr -d '[:space:]')"
+          || { echo "no packages need processing, exiting"; exit 0; }
+
+    - apt-get update
+    - apt-get dist-upgrade
+    - apt-get clean
+
+    - test -n "$fdroidserver" || source /etc/profile.d/bsenv.sh
+
+    # TODO remove sdkmanager install once it is included in the buildserver image
+    - git clone --depth=1 --branch=0.5.2 https://gitlab.com/fdroid/sdkmanager.git
+    - git -C sdkmanager checkout -B master 59374827baed7020c9761d9c8f51dcf9b490ba28
+    - pip3 install -e sdkmanager
+    - rm -rf $ANDROID_HOME/tools  # TODO remove once sdkmanager can upgrade installed packages
+    - sdkmanager "tools" "platform-tools" "build-tools;31.0.0"
+
+    - test -d $fdroidserver || mkdir $fdroidserver
+    - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
+    - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
+          | tar -xz --directory=$fdroidserver --strip-components=1
+
+    - for d in logs tmp unsigned $home_vagrant/build $home_vagrant/.android; do
+          test -d $d || mkdir $d;
+          chown -R vagrant $d;
+      done
+    - ln -s $home_vagrant/build $CI_PROJECT_DIR/build
+
+    - export GRADLE_USER_HOME=$home_vagrant/.gradle
+    # each `fdroid build --on-server` run expects sudo, then uninstalls it
+    - export fdroid="sudo --preserve-env --user vagrant
+          env PATH=$fdroidserver:$PATH
+          env PYTHONPATH=$fdroidserver:$fdroidserver/examples
+          env PYTHONUNBUFFERED=true
           env TERM=$TERM
           env HOME=$home_vagrant
           fdroid"
