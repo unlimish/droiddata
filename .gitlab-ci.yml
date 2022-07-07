@@ -416,10 +416,6 @@ mobsf-ios-sast:
 mobsf-android-sast:
   # Modified from https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml#L153-161
   rules:
-    - if: $SAST_DISABLED
-      when: never
-    - if: $SAST_EXCLUDED_ANALYZERS =~ /mobsf/
-      when: never
     - changes:
         - metadata/**
         - srclibs/**
