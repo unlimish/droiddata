@@ -403,10 +403,17 @@ sast:
 
     # Override to not exclude tmp/ that we use to store the apks
     SAST_EXCLUDED_PATHS: "spec, test, tests"
+
+    # Make sure the apk is searched before the manifest, so only apks are scanned
+    ANALYZER_TARGET_DIR: $CI_PROJECT_DIR/tmp/
   rules:
     - if: '$CI_PIPELINE_SOURCE != "merge_request_event"'
       when: never
   allow_failure: true
+  artifacts:
+    reports:
+      sast: $ANALYZER_TARGET_DIR/gl-sast-report.json
+
 
 mobsf-ios-sast:
   rules:
