@@ -407,6 +407,8 @@ sast:
   rules:
     - if: '$CI_PIPELINE_SOURCE != "merge_request_event"'
       when: never
+    - exists:
+       - tmp/*.apk
   allow_failure: true
   artifacts:
     reports:
