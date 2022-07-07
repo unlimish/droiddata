@@ -413,7 +413,6 @@ mobsf-ios-sast:
   rules:
     - when: never
 
-
 mobsf-android-sast:
   rules:
     - if: $SAST_DISABLED
@@ -424,3 +423,6 @@ mobsf-android-sast:
       when: never
     - if: $CI_COMMIT_BRANCH &&
           $SAST_EXPERIMENTAL_FEATURES == 'true'
+      changes:
+        - metadata
+        - srclibs
