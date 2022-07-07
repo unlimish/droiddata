@@ -28,7 +28,7 @@ checkupdates:
       curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz | tar -xz --directory=fdroidserver --strip-components=1
       export PATH="$PWD/fdroidserver:$PATH"
       cd -
-script: |
+  script: |
     set -xe
     if [ "$CI_PROJECT_NAMESPACE" = "fdroid" ]; then echo "not testing in fdroid"; exit 0; fi
     git fetch https://gitlab.com/fdroid/fdroiddata.git
