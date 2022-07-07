@@ -9,6 +9,7 @@ stages:
 variables:
   pip: pip3 --timeout 100 --retries 10
 
+
 checkupdates:
   image: registry.gitlab.com/fdroid/ci-images-checkupdates:latest
   except:
@@ -27,7 +28,7 @@ checkupdates:
       curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz | tar -xz --directory=fdroidserver --strip-components=1
       export PATH="$PWD/fdroidserver:$PATH"
       cd -
-  script: |
+script: |
     set -xe
     if [ "$CI_PROJECT_NAMESPACE" = "fdroid" ]; then echo "not testing in fdroid"; exit 0; fi
     git fetch https://gitlab.com/fdroid/fdroiddata.git
@@ -51,35 +52,35 @@ lint:
     - mkdir fdroidserver
     - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
     - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-      | tar -xz --directory=fdroidserver --strip-components=1
+        | tar -xz --directory=fdroidserver --strip-components=1
     - export PATH="$PWD/fdroidserver:$PATH"
   script:
     # if this is a merge request fork, then only check relevant apps
     - if [ "$CI_PROJECT_NAMESPACE" != "fdroid" ]; then
-      git fetch https://gitlab.com/fdroid/fdroiddata.git;
-      test -d build || mkdir build;
-      files=`git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD}`;
-      for f in $files; do
-      appid=`echo $f | sed -n -e 's,^metadata/\([^/][^/]*\)\.yml,\1,p'`;
-      if [ -n "$appid" ]; then
-      export CHANGED="$CHANGED $appid";
-      fi;
-      done;
-      set -x;
-      apt-get install python3-colorama yamllint;
-      for f in $files; do [[ $f == *'.yml' ]] && yamllint "$f"; done;
-      ./tools/check-git-repo-availability.py $files;
-      set +x;
+        git fetch https://gitlab.com/fdroid/fdroiddata.git;
+        test -d build || mkdir build;
+        files=`git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD}`;
+        for f in $files; do
+           appid=`echo $f | sed -n -e 's,^metadata/\([^/][^/]*\)\.yml,\1,p'`;
+           if [ -n "$appid" ]; then
+             export CHANGED="$CHANGED $appid";
+           fi;
+        done;
+        set -x;
+        apt-get install python3-colorama yamllint;
+        for f in $files; do [[ $f == *'.yml' ]] && yamllint "$f"; done;
+        ./tools/check-git-repo-availability.py $files;
+        set +x;
       fi
     - export EXITVALUE=0
     - function set_error() { export EXITVALUE=1; printf "\x1b[31mERROR `history|tail -2|head -1|cut -b 6-500`\x1b[0m\n"; }
     - fdroid lint -f $CHANGED || {
-      set_error;
-      printf "\nThese files have lint issues:\n";
-      fdroid rewritemeta -l $CHANGED;
-      printf "\nThese are the formatting issues:\n";
-      fdroid rewritemeta $CHANGED;
-      git --no-pager diff --color=always;
+          set_error;
+          printf "\nThese files have lint issues:\n";
+          fdroid rewritemeta -l $CHANGED;
+          printf "\nThese are the formatting issues:\n";
+          fdroid rewritemeta $CHANGED;
+          git --no-pager diff --color=always;
       }
     - apt-get -qy update
     - apt-get -qy install --no-install-recommends exiftool
@@ -110,9 +111,9 @@ schema validation:
     - git fetch https://gitlab.com/fdroid/fdroiddata.git
     - set -xe
     - for file in
-      $(git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD} -- "metadata/*.yml");
+        $(git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD} -- "metadata/*.yml");
       do
-      ajv validate -s schemas/metadata.json -d "$file";
+        ajv validate -s schemas/metadata.json -d "$file";
       done
 
 trigger-issuebot:
@@ -185,7 +186,7 @@ checkupdates_runner:
     - mkdir fdroidserver
     - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
     - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-      | tar -xz --directory=fdroidserver --strip-components=1
+        | tar -xz --directory=fdroidserver --strip-components=1
     - export PATH="$PWD/fdroidserver:$PATH"
     - git config --global user.email "fdroidci@bubu1.eu"
     - git config --global user.name "F-Droid checkupdates bot"
@@ -207,146 +208,6 @@ checkupdates_runner:
     - git pull --rebase origin master
     # when two jobs try to push at the same time they occasionally fail, so try one more time if it fails
     - git push origin HEAD:master || (git pull --rebase origin master && git push origin HEAD:master)
-    - echo "============== Summary ====================="
-    - 'grep -v "INFO: Processing" /tmp/out || true'
-
-fdroid build:
-  image: registry.gitlab.com/fdroid/fdroidserver:buildserver
-  artifacts:
-    name: "${CI_PROJECT_PATH}_${CI_JOB_STAGE}_${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHA}"
-    paths:
-      - repo/
-      - unsigned/
-      - tmp/
-    when: always
-    expire_in: 1 month
-  except:
-    - master@fdroid/fdroiddata
-    - pipelines
-    - schedules
-    - triggers
-  cache:
-    key: "$CI_JOB_NAME"
-    paths:
-      - /home/vagrant/.gradle
-      - tmp/*.apk
-  script:
-    - unset CI
-    - git fetch https://gitlab.com/fdroid/fdroiddata.git;
-    - test -d build || mkdir build
-    - for f in
-      `git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD} -- metadata/*.yml`
-      `git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD} -- metadata/*/signatures`;
-      do
-      diff=$(git diff FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD} -- $f);
-      echo "$diff";
-      test $(echo "$diff" | grep '^[+-] ' | grep -v '^+  *disable:' | wc -l) = 0 && continue;
-      echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue;
-      appid=`echo $f | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p'`;
-      export CHANGED="$CHANGED $appid";
-      done;
-    - test -n "$(printf "$CHANGED" | tr -d '[:space:]')"
-      || { echo "no packages need processing, exiting"; exit 0; }
-
-    - apt-get update
-    - apt-get dist-upgrade
-    - apt-get clean
-
-    - test -n "$fdroidserver" || source /etc/profile.d/bsenv.sh
-
-    # TODO remove sdkmanager install once it is included in the buildserver image
-    - git clone --depth=1 --branch=0.5.2 https://gitlab.com/fdroid/sdkmanager.git
-    - git -C sdkmanager checkout -B master 59374827baed7020c9761d9c8f51dcf9b490ba28
-    - pip3 install -e sdkmanager
-    - rm -rf $ANDROID_HOME/tools # TODO remove once sdkmanager can upgrade installed packages
-    - sdkmanager "tools" "platform-tools" "build-tools;31.0.0"
-
-    - test -d $fdroidserver || mkdir $fdroidserver
-    - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
-    - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-      | tar -xz --directory=$fdroidserver --strip-components=1
-
-    - for d in logs tmp unsigned $home_vagrant/build $home_vagrant/.android; do
-      test -d $d || mkdir $d;
-      chown -R vagrant $d;
-      done
-    - ln -s $home_vagrant/build $CI_PROJECT_DIR/build
-
-    - export GRADLE_USER_HOME=$home_vagrant/.gradle
-    # each `fdroid build --on-server` run expects sudo, then uninstalls it
-    - export fdroid="sudo --preserve-env --user vagrant
-      env PATH=$fdroidserver:$PATH
-      env PYTHONPATH=$fdroidserver:$fdroidserver/examples
-      env PYTHONUNBUFFERED=true
-      env TERM=$TERM
-      env HOME=$home_vagrant
-      fdroid"
-
-    # use fdroidserver test keystore as placeholder since `fdroid publish` requires it
-    - printf 'repo_keyalias\x3a sova\n' >> config.yml
-    - printf 'keystorepass\x3a r9aquRHYoI8+dYz6jKrLntQ5/NJNASFBacJh7Jv2BlI=\n' >> config.yml
-    - printf 'keypass\x3a r9aquRHYoI8+dYz6jKrLntQ5/NJNASFBacJh7Jv2BlI=\n' >> config.yml
-    - printf 'keydname\x3a "CN=Birdman, OU=Cell, O=Alcatraz, L=Alcatraz, S=California, C=US"\n' >> config.yml
-    - keystore=$fdroidserver/tests/keystore.jks
-    - printf "keystore\x3a $keystore\n" >> config.yml
-    - chown vagrant $keystore
-
-    - for build in `./tools/find-changed-builds.py`; do
-      set -x;
-      apt-get install sudo;
-      chown -R vagrant $home_vagrant;
-      $fdroid fetchsrclibs $build --verbose;
-      $fdroid build --verbose --test --scan-binary --on-server --no-tarball $build;
-      rm -rf "build/${build%:*}";
-      ./tools/build-contains-signatures.py $build || continue;
-      apt-get install sudo;
-      $fdroid publish --verbose $build;
-      done
-
-    - ./tools/audit-gradle.py $CHANGED;
-
-# issuebot needs secrets to run, so it has to run under the 'fdroid'
-# group, therefore needs the trigger without secrets, there would be
-# no support for virustotal, github downloads, exodus privacy checks,
-# etc.  That means it has to be triggered from the lint: job, which
-# runs in the fork's CI. The trigger-issuebot job adds the env var
-# FROM_CI_MERGE_REQUEST_IID which is required to have this job be
-# triggered.
-#
-# This job has to be called 'pages' because it deploys the JSON API
-# to GitLab Pages.
-pages:
-  image: registry.gitlab.com/fdroid/fdroidserver:buildserver
-  only:
-    refs:
-      - branches
-    variables:
-      - $FROM_CI_MERGE_REQUEST_IID
-  artifacts:
-    name: "${CI_PROJECT_PATH}_${CI_JOB_STAGE}_${CI_JOB_ID}_${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHA}"
-    paths:
-      - metadata/
-      - public/
-      - repo/index-v1.json
-      - repo/index.xml
-      - tmp/apkcache.json
-      - unsigned/
-    when: always
-  # needs lots of git history since it has to compare the merge request to current master
-  variables:
-    GIT_DEPTH: "5000"
-  script:
-    - apt-get update
-    - apt-get dist-upgrade
-    - apt-get install python3-venv
-
-    - test -n "$fdroidserver" || source /etc/profile.d/bsenv.sh
-    - test -d $fdroidserver || mkdir $fdroidserver
-    - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
-    - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-      | tar -xz --directory=$fdroidserver --strip-components=1
-    - export PATH="$fdroidserver:$PATH"
-    - export PYTHONPATH="$fdroidserver:$fdroidserver/examples"
     - export PYTHONUNBUFFERED=true
 
     - export GRADLE_USER_HOME=$PWD/.gradle
@@ -354,11 +215,11 @@ pages:
     - mkdir -p $GRADLE_USER_HOME/fdroid
     - git ls-remote https://gitlab.com/fdroid/gradle-plugins.git master
     - curl --silent https://gitlab.com/fdroid/gradle-plugins/-/archive/master/gradle-plugins-master.tar.gz
-      | tar -xz --directory=$GRADLE_USER_HOME/fdroid --strip-components=1
+        | tar -xz --directory=$GRADLE_USER_HOME/fdroid --strip-components=1
 
     - git ls-remote https://gitlab.com/fdroid/issuebot.git master
     - curl --silent https://gitlab.com/fdroid/issuebot/-/archive/master/issuebot-master.tar.gz
-      | tar -xz --strip-components=1
+        | tar -xz --strip-components=1
     - pyvenv --system-site-packages --clear issuebot-env
     - . issuebot-env/bin/activate
     - pip3 install wheel # get rid of the bdist_wheel error messages
@@ -367,7 +228,8 @@ pages:
 
     # git_stats used to run here, redirect to new location
     - echo '<html><head><meta http-equiv="refresh" content="0;URL=https://fdroid.gitlab.io/"></head></html>'
-      > public/index.html
+        > public/index.html
+
 
 check_git_repos:
   image: debian:buster-slim
@@ -392,7 +254,6 @@ check_git_repos:
 
 sast:
   stage: report
-  needs: []
   variables:
     MOBSF_API_KEY: key
     SAST_EXPERIMENTAL_FEATURES: "true"
@@ -400,9 +261,6 @@ sast:
       bandit, brakeman, eslint, flawfinder, gosec, kubesec,
       nodejs-scan, phpcs-security-audit, pmd-apex, security-code-scan, semgrep, sobelow,
       spotbugs
-
-    # Override to not exclude tmp/ that we use to store the apks
-    SAST_EXCLUDED_PATHS: "spec, test, tests"
 
     # Make sure the apk is searched before the manifest, so only apks are scanned
     ANALYZER_TARGET_DIR: $CI_PROJECT_DIR/tmp/
@@ -414,18 +272,6 @@ sast:
     reports:
       sast: $ANALYZER_TARGET_DIR/gl-sast-report.json
 
-
 mobsf-ios-sast:
   rules:
     - when: never
-
-mobsf-android-sast:
-  before_script:
-    - mkdir tmp
-    - curl -o tmp/F-droid.apk https://cloudflare.f-droid.org/F-Droid.apk
-  after_script:
-    - echo $PWD
-    - ls $PWD
-  artifacts:
-    paths:
-      - "*"
