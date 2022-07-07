@@ -416,8 +416,6 @@ mobsf-ios-sast:
 mobsf-android-sast:
   # Modified from https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml#L153-161
   rules:
-    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
-      when: never
     - changes:
         - metadata/**/*
         - srclibs/**/*
