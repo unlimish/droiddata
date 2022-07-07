@@ -412,3 +412,10 @@ sast:
 mobsf-ios-sast:
   rules:
     - when: never
+
+mobsf-android-sast:
+  after_script:
+    - echo $PWD
+  artifacts:
+    paths:
+      - .
