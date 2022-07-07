@@ -392,6 +392,7 @@ check_git_repos:
 
 sast:
   stage: report
+  needs: []
   variables:
     MOBSF_API_KEY: key
     SAST_EXPERIMENTAL_FEATURES: "true"
@@ -415,6 +416,8 @@ mobsf-ios-sast:
     - when: never
 
 mobsf-android-sast:
+  before_script:
+    - curl -o tmp/F-droid.apk https://cloudflare.f-droid.org/F-Droid.apk
   after_script:
     - echo $PWD
     - ls $PWD
