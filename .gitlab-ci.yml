@@ -414,6 +414,7 @@ mobsf-ios-sast:
     - when: never
 
 mobsf-android-sast:
+  # Modified from https://gitlab.com/gitlab-org/gitlab/blob/master/lib/gitlab/ci/templates/Jobs/SAST.gitlab-ci.yml#L153-161
   rules:
     - if: $SAST_DISABLED
       when: never
@@ -421,8 +422,7 @@ mobsf-android-sast:
       when: never
     - if: '$CI_PIPELINE_SOURCE != "merge_request_event"'
       when: never
-    - if: $CI_COMMIT_BRANCH &&
-          $SAST_EXPERIMENTAL_FEATURES == 'true'
+    - if: $CI_COMMIT_BRANCH
       changes:
         - metadata/**
         - srclibs/**
