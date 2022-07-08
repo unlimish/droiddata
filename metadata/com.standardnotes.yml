@@ -3800,7 +3800,11 @@ Builds:
       - popd
     init:
       - pushd ../../../..
-      - npm_config_build_from_source=true yarn remove react-native-store-review
+      - npm_config_build_from_source=true yarn --frozen-lockfile
+      - pop
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --frozen-lockfile
+      - yarn remove react-native-store-review
       - popd
     patch:
       - disable-splits-abi.patch
