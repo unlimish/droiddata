@@ -3799,7 +3799,7 @@ Builds:
       - make install
       - popd
     init:
-      - pushd ../..
+      - pushd ../../../..
       - npm_config_build_from_source=true yarn remove react-native-store-review
       - popd
     patch:
@@ -3832,6 +3832,9 @@ Builds:
       - packages/components/dist
       - .yarn/
     build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
       - pushd ../..
       - yarn run android:bundle
       - popd
