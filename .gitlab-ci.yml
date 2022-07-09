@@ -13,6 +13,16 @@ stages:
 variables:
   pip: pip3 --timeout 100 --retries 10
 
+.install_fdroid_server: &install_fdroid_server
+    - rm -rf $fdroidserver
+    - mkdir $fdroidserver
+    - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
+    - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
+          | tar -xz --directory=$fdroidserver --strip-components=1
+    - export PATH="$fdroidserver:$PATH"
+    - export PYTHONPATH="$fdroidserver:$fdroidserver/examples"
+    - export PYTHONUNBUFFERED=true
+
 
 checkupdates:
   stage: test
@@ -28,12 +38,8 @@ checkupdates:
       apt-get --allow-releaseinfo-change update
       apt-get -qy dist-upgrade
       cd ..
-      rm -rf fdroidserver
-      mkdir fdroidserver
-      git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
-      curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz | tar -xz --directory=fdroidserver --strip-components=1
-      export PATH="$PWD/fdroidserver:$PATH"
-      cd -
+    - export fdroidserver=$PWD/fdroidserver
+    - *install_fdroid_server
   script: |
     set -xe
     if [ "$CI_PROJECT_NAMESPACE" = "fdroid" ]; then echo "not testing in fdroid"; exit 0; fi
@@ -57,12 +63,8 @@ lint:
     - apt-get update
     - apt-get -qy dist-upgrade
     - apt-get -qy clean
-    - rm -rf fdroidserver
-    - mkdir fdroidserver
-    - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
-    - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-        | tar -xz --directory=fdroidserver --strip-components=1
-    - export PATH="$PWD/fdroidserver:$PATH"
+    - export fdroidserver=$PWD/fdroidserver
+    - *install_fdroid_server
   script:
     # if this is a merge request fork, then only check relevant apps
     - if [ "$CI_PROJECT_NAMESPACE" != "fdroid" ]; then
@@ -199,12 +201,8 @@ checkupdates_runner:
     variables:
       - $CHECKUPDATES == "true"
   before_script:
-    - rm -rf fdroidserver
-    - mkdir fdroidserver
-    - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
-    - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-        | tar -xz --directory=fdroidserver --strip-components=1
-    - export PATH="$PWD/fdroidserver:$PATH"
+    - export fdroidserver=$PWD/fdroidserver
+    - *install_fdroid_server
     - git config --global user.email "fdroidci@bubu1.eu"
     - git config --global user.name "F-Droid checkupdates bot"
     - mkdir -p ~/.ssh
@@ -295,10 +293,7 @@ fdroid build:
     - rm -rf $ANDROID_HOME/tools  # TODO remove once sdkmanager can upgrade installed packages
     - sdkmanager "tools" "platform-tools" "build-tools;31.0.0"
 
-    - test -d $fdroidserver || mkdir $fdroidserver
-    - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
-    - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-          | tar -xz --directory=$fdroidserver --strip-components=1
+    - *install_fdroid_server
 
     - for d in logs tmp unsigned $home_vagrant/build $home_vagrant/.android; do
           test -d $d || mkdir $d;
@@ -377,13 +372,7 @@ pages:
     - apt-get install python3-venv
 
     - test -n "$fdroidserver" || source /etc/profile.d/bsenv.sh
-    - test -d $fdroidserver || mkdir $fdroidserver
-    - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
-    - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-        | tar -xz --directory=$fdroidserver --strip-components=1
-    - export PATH="$fdroidserver:$PATH"
-    - export PYTHONPATH="$fdroidserver:$fdroidserver/examples"
-    - export PYTHONUNBUFFERED=true
+    - *install_fdroid_server
 
     - export GRADLE_USER_HOME=$PWD/.gradle
     - rm -rf $GRADLE_USER_HOME/fdroid
