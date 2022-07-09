@@ -413,7 +413,7 @@ check_git_repos:
 
 sast:
   stage: report
-  needs:
+  dependencies:
     - fdroid build
   variables:
     MOBSF_API_KEY: key
