@@ -55,7 +55,7 @@ print-all-env-vars-job:
     - env
     - apk add git
     - *get_target_source_refs
-    - echo $TARGET_REF $SOURCE_REF
+    - echo "TARGET_REF=${TARGET_REF}" "SOURCE_REF=${SOURCE_REF}"
 
 checkupdates:
   stage: test
