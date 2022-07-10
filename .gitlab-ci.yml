@@ -140,11 +140,10 @@ schema validation:
     - ajv compile -s schemas/*.json || exit 1
     - git fetch https://gitlab.com/fdroid/fdroiddata.git
     - set -xe
-    - *get_target_source_refs
-    - for file in
-        $(git diff --name-only --diff-filter=d ${TARGET_REF}...${SOURCE_REF} -- "metadata/*.yml");
+    - *get_changed_apps
+    - for app_id in $CHANGED
       do
-        ajv validate -s schemas/metadata.json -d "$file";
+        ajv validate -s schemas/metadata.json -d "metadata/${app_id}.yml";
       done
 
 trigger-issuebot:
