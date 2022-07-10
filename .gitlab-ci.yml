@@ -230,6 +230,7 @@ checkupdates_runner:
 
 fdroid build:
   stage: build
+  needs: []
   image: registry.gitlab.com/fdroid/fdroidserver:buildserver
   artifacts:
     name: "${CI_PROJECT_PATH}_${CI_JOB_STAGE}_${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHA}"
