@@ -39,10 +39,10 @@ variables:
     else
         git fetch https://gitlab.com/fdroid/fdroiddata.git;
         for f in
-            `git diff --name-only --diff-filter=d ${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^}...HEAD -- metadata/*.yml`
-            `git diff --name-only --diff-filter=d ${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^}...HEAD -- metadata/*/signatures`;
+            `git diff --name-only --diff-filter=d ${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^}...HEAD -- metadata/*.yml`
+            `git diff --name-only --diff-filter=d ${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^}...HEAD -- metadata/*/signatures`;
         do
-            diff=$(git diff ${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^}...HEAD -- $f);
+            diff=$(git diff ${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^}...HEAD -- $f);
             echo "$diff";
             test $(echo "$diff" | grep '^[+-] ' | grep -v '^+  *disable:' | wc -l) = 0 && continue;
             echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue;
@@ -134,7 +134,7 @@ schema validation:
     - git fetch https://gitlab.com/fdroid/fdroiddata.git
     - set -xe
     - for file in
-        $(git diff --name-only --diff-filter=d ${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^}...HEAD -- "metadata/*.yml");
+        $(git diff --name-only --diff-filter=d ${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^}...HEAD -- "metadata/*.yml");
       do
         ajv validate -s schemas/metadata.json -d "$file";
       done
