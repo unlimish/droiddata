@@ -1,6 +1,7 @@
 include:
   - template: Security/SAST.gitlab-ci.yml
-  - template: Workflows/MergeRequest-Pipelines.gitlab-ci.yml
+  # Use branch pipelines to avoid Premium tier features
+  - template: Workflows/Branch-Pipelines.gitlab-ci.yml
 
 stages:
   - prepare
@@ -28,8 +29,9 @@ variables:
         export TARGET_REF="${CI_COMMIT_SHA}^"
         export SOURCE_REF="${CI_COMMIT_SHA}"
     else
-        export TARGET_REF="${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-$CI_MERGE_REQUEST_DIFF_BASE_SHA}"
-        export SOURCE_REF="${CI_MERGE_REQUEST_SOURCE_BRANCH_SHA:-$CI_COMMIT_SHA}"
+        git fetch https://gitlab.com/fdroid/fdroiddata.git
+        export TARGET_REF="${FETCH_HEAD}"
+        export SOURCE_REF="${CI_COMMIT_SHA}"
     fi;
 
 .get_changed_apps: &get_changed_apps
@@ -51,6 +53,8 @@ print-all-env-vars-job:
   script:
     - echo "GitLab CI/CD | Print all environment variables"
     - env
+    - *get_target_source_refs
+    - echo $TARGET_REF $SOURCE_REF
 
 checkupdates:
   stage: test
