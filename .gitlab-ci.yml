@@ -64,8 +64,7 @@ checkupdates:
       set -xe
       apt-get --allow-releaseinfo-change update
       apt-get -qy dist-upgrade
-      cd ..
-    - export fdroidserver=$PWD/fdroidserver
+    - export fdroidserver=../fdroidserver
     - *install_fdroid_server
   script: 
     - |
