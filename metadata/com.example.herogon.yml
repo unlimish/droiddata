@@ -1,0 +1,26 @@
+Categories:
+  - Games
+License: GPL-3.0-only
+AuthorName: Colo
+SourceCode: https://github.com/Colo9912/HeroGon
+IssueTracker: https://github.com/Colo9912/HeroGon/issues
+
+AutoName: HeroGon
+
+RepoType: git
+Repo: https://github.com/Colo9912/HeroGon
+
+Builds:
+  - versionName: '0.1'
+    versionCode: 1
+    commit: v0.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'build-tools;30.0.3' 'platforms;android-30'
+        > /dev/null
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '0.1'
+CurrentVersionCode: 1
