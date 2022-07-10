@@ -263,7 +263,7 @@ fdroid build:
               appid=`echo $f | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p'`;
               export CHANGED="$CHANGED $appid";
           done;
-      done;
+      fi;
     - git fetch https://gitlab.com/fdroid/fdroiddata.git;
     - for f in
           `git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^} -- metadata/*.yml`
