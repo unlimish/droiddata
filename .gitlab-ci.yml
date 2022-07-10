@@ -251,7 +251,7 @@ fdroid build:
   script:
     - unset CI
     - test -d build || mkdir build
-    - if ["$CI_PROJECT_PATH" = "fdroid/fdroiddata" && "$CI_COMMIT_BRANCH" = "$CI_DEFAULT_BRANCH"]; then
+    - if [ "$CI_PROJECT_PATH" = "fdroid/fdroiddata" ] && [ "$CI_COMMIT_BRANCH" = "$CI_DEFAULT_BRANCH" ]; then
           for f in
               `git diff --name-only --diff-filter=d -- metadata/*.yml`
               `git diff --name-only --diff-filter=d -- metadata/*/signatures`;
