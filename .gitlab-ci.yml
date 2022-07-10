@@ -128,7 +128,6 @@ schema validation:
     - npm -g install ajv-cli
   script:
     - ajv compile -s schemas/*.json || exit 1
-    - git fetch https://gitlab.com/fdroid/fdroiddata.git
     - set -xe
     - *get_changed_apps
     - |
