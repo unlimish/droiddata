@@ -53,6 +53,7 @@ print-all-env-vars-job:
   script:
     - echo "GitLab CI/CD | Print all environment variables"
     - env
+    - apk add git
     - *get_target_source_refs
     - echo $TARGET_REF $SOURCE_REF
 
