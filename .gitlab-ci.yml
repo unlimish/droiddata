@@ -263,19 +263,20 @@ fdroid build:
               appid=`echo $f | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p'`;
               export CHANGED="$CHANGED $appid";
           done;
+      else
+          git fetch https://gitlab.com/fdroid/fdroiddata.git;
+          for f in
+              `git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^} -- metadata/*.yml`
+              `git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^} -- metadata/*/signatures`;
+          do
+              diff=$(git diff FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^} -- $f);
+              echo "$diff";
+              test $(echo "$diff" | grep '^[+-] ' | grep -v '^+  *disable:' | wc -l) = 0 && continue;
+              echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue;
+              appid=`echo $f | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p'`;
+              export CHANGED="$CHANGED $appid";
+          done;
       fi;
-    - git fetch https://gitlab.com/fdroid/fdroiddata.git;
-    - for f in
-          `git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^} -- metadata/*.yml`
-          `git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^} -- metadata/*/signatures`;
-      do
-          diff=$(git diff FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^} -- $f);
-          echo "$diff";
-          test $(echo "$diff" | grep '^[+-] ' | grep -v '^+  *disable:' | wc -l) = 0 && continue;
-          echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue;
-          appid=`echo $f | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p'`;
-          export CHANGED="$CHANGED $appid";
-      done;
     - test -n "$(printf "$CHANGED" | tr -d '[:space:]')"
           || { echo "no packages need processing, exiting"; exit 0; }
 
