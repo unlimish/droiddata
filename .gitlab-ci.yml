@@ -23,23 +23,35 @@ variables:
   - export PYTHONPATH="$fdroidserver:$fdroidserver/examples"
   - export PYTHONUNBUFFERED=true
 
-.get_changed_apps: &get_changed_apps
+.get_target_source_refs: &get_target_source_refs
   - |
     if [ "$CI_PROJECT_PATH" = "fdroid/fdroiddata" ] && [ "$CI_COMMIT_BRANCH" = "$CI_DEFAULT_BRANCH" ]; then
-        export BASE_COMMIT_SHA="HEAD^"
+        export TARGET_REF="${CI_COMMIT_SHA}^"
+        export SOURCE_REF="${CI_COMMIT_SHA}"
     else
-        export BASE_COMMIT_SHA="${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-$CI_MERGE_REQUEST_DIFF_BASE_SHA}"
+        export TARGET_REF="${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-$CI_MERGE_REQUEST_DIFF_BASE_SHA}"
+        export SOURCE_REF="${CI_MERGE_REQUEST_SOURCE_BRANCH_SHA:-$CI_COMMIT_SHA}"
     fi;
-  - echo $BASE_COMMIT_SHA
+
+.get_changed_apps: &get_changed_apps
+  - *get_target_source_refs
+  - echo $TARGET_REF
   - |
-    for f in $(git diff --name-only --diff-filter=d "${BASE_COMMIT_SHA}"...HEAD -- metadata/*.yml) $(git diff --name-only --diff-filter=d "${BASE_COMMIT_SHA}"...HEAD -- metadata/*/signatures); do
-        diff=$(git diff "${BASE_COMMIT_SHA}"...HEAD -- "$f")
+    for f in $(git diff --name-only --diff-filter=d "${TARGET_REF}...${SOURCE_REF}" -- metadata/*.yml) $(git diff --name-only --diff-filter=d "${TARGET_REF}...${SOURCE_REF}" -- metadata/*/signatures); do
+        diff=$(git diff "${TARGET_REF}...${SOURCE_REF}" -- "$f")
         echo "$diff"
         test $(echo "$diff" | grep '^[+-] ' | grep -v -c '^+  *disable:') = 0 && continue
         echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue
         appid=$(echo "$f" | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p')
         export CHANGED="$CHANGED $appid"
     done
+
+print-all-env-vars-job:
+  stage: prepare
+  image: alpine:latest
+  script:
+    - echo "GitLab CI/CD | Print all environment variables"
+    - env
 
 checkupdates:
   stage: test
@@ -124,8 +136,9 @@ schema validation:
     - ajv compile -s schemas/*.json || exit 1
     - git fetch https://gitlab.com/fdroid/fdroiddata.git
     - set -xe
+    - *get_target_source_refs
     - for file in
-        $(git diff --name-only --diff-filter=d ${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^}...HEAD -- "metadata/*.yml");
+        $(git diff --name-only --diff-filter=d ${TARGET_REF}...${SOURCE_REF} -- "metadata/*.yml");
       do
         ajv validate -s schemas/metadata.json -d "$file";
       done
