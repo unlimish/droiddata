@@ -24,10 +24,11 @@ variables:
   - export PYTHONUNBUFFERED=true
 
 .get_changed_apps: &get_changed_apps
-  - if [ "$CI_PROJECT_PATH" = "fdroid/fdroiddata" ] && [ "$CI_COMMIT_BRANCH" = "$CI_DEFAULT_BRANCH" ]; then
-        BASE_COMMIT_SHA="HEAD^"
+  - |
+    if [ "$CI_PROJECT_PATH" = "fdroid/fdroiddata" ] && [ "$CI_COMMIT_BRANCH" = "$CI_DEFAULT_BRANCH" ]; then
+        export BASE_COMMIT_SHA="HEAD^"
     else
-        BASE_COMMIT_SHA="${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-$CI_MERGE_REQUEST_DIFF_BASE_SHA}"
+        export BASE_COMMIT_SHA="${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-$CI_MERGE_REQUEST_DIFF_BASE_SHA}"
     fi;
   - |
     for f in $(git diff --name-only --diff-filter=d "${BASE_COMMIT_SHA}"...HEAD -- metadata/*.yml) $(git diff --name-only --diff-filter=d "${BASE_COMMIT_SHA}"...HEAD -- metadata/*/signatures); do
