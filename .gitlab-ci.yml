@@ -25,31 +25,22 @@ variables:
 
 .get_changed_apps: &get_changed_apps
   - if [ "$CI_PROJECT_PATH" = "fdroid/fdroiddata" ] && [ "$CI_COMMIT_BRANCH" = "$CI_DEFAULT_BRANCH" ]; then
-        for f in
-            `git diff --name-only --diff-filter=d -- metadata/*.yml`
-            `git diff --name-only --diff-filter=d -- metadata/*/signatures`;
-        do
-            diff=$(git diff -- $f);
-            echo "$diff";
-            test $(echo "$diff" | grep '^[+-] ' | grep -v '^+  *disable:' | wc -l) = 0 && continue;
-            echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue;
-            appid=`echo $f | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p'`;
-            export CHANGED="$CHANGED $appid";
-        done;
+        BASE_COMMIT_SHA="HEAD^"
     else
-        git fetch https://gitlab.com/fdroid/fdroiddata.git;
-        for f in
-            `git diff --name-only --diff-filter=d ${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^}...HEAD -- metadata/*.yml`
-            `git diff --name-only --diff-filter=d ${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^}...HEAD -- metadata/*/signatures`;
-        do
-            diff=$(git diff ${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-FETCH_HEAD^}...HEAD -- $f);
-            echo "$diff";
-            test $(echo "$diff" | grep '^[+-] ' | grep -v '^+  *disable:' | wc -l) = 0 && continue;
-            echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue;
-            appid=`echo $f | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p'`;
-            export CHANGED="$CHANGED $appid";
-        done;
+        BASE_COMMIT_SHA="${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-$CI_MERGE_REQUEST_DIFF_BASE_SHA}"
     fi;
+  - |
+    for f in
+        `git diff --name-only --diff-filter=d ${BASE_COMMIT_SHA}...HEAD -- metadata/*.yml`
+        `git diff --name-only --diff-filter=d ${BASE_COMMIT_SHA}...HEAD -- metadata/*/signatures`;
+    do
+        diff=$(git diff ${BASE_COMMIT_SHA}...HEAD -- $f);
+        echo "$diff";
+        test $(echo "$diff" | grep '^[+-] ' | grep -v '^+  *disable:' | wc -l) = 0 && continue;
+        echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue;
+        appid=`echo $f | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p'`;
+        export CHANGED="$CHANGED $appid";
+    done;
 
 checkupdates:
   stage: test
