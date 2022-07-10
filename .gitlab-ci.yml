@@ -30,7 +30,7 @@ variables:
         export SOURCE_REF="${CI_COMMIT_SHA}"
     else
         git fetch https://gitlab.com/fdroid/fdroiddata.git $CI_DEFAULT_BRANCH
-        export TARGET_REF="${FETCH_HEAD}"
+        export TARGET_REF="FETCH_HEAD"
         export SOURCE_REF="${CI_COMMIT_SHA}"
     fi;
 
