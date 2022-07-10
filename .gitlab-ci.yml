@@ -1,7 +1,6 @@
 include:
   - template: Security/SAST.gitlab-ci.yml
-  # Use branch pipelines to avoid Premium tier features
-  - template: Workflows/Branch-Pipelines.gitlab-ci.yml
+  - template: Workflows/MergeRequest-Pipelines.gitlab-ci.yml
 
 stages:
   - prepare
