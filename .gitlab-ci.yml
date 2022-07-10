@@ -47,16 +47,6 @@ variables:
         export CHANGED="$CHANGED $appid"
     done
 
-print-all-env-vars-job:
-  stage: prepare
-  image: alpine:latest
-  script:
-    - echo "GitLab CI/CD | Print all environment variables"
-    - env
-    - apk add git
-    - *get_target_source_refs
-    - echo "TARGET_REF=${TARGET_REF}" "SOURCE_REF=${SOURCE_REF}"
-
 checkupdates:
   stage: test
   needs: []
