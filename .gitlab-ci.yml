@@ -30,6 +30,7 @@ variables:
     else
         export BASE_COMMIT_SHA="${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-$CI_MERGE_REQUEST_DIFF_BASE_SHA}"
     fi;
+  - echo $BASE_COMMIT_SHA
   - |
     for f in $(git diff --name-only --diff-filter=d "${BASE_COMMIT_SHA}"...HEAD -- metadata/*.yml) $(git diff --name-only --diff-filter=d "${BASE_COMMIT_SHA}"...HEAD -- metadata/*/signatures); do
         diff=$(git diff "${BASE_COMMIT_SHA}"...HEAD -- "$f")
