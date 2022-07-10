@@ -30,17 +30,14 @@ variables:
         BASE_COMMIT_SHA="${CI_MERGE_REQUEST_TARGET_BRANCH_SHA:-$CI_MERGE_REQUEST_DIFF_BASE_SHA}"
     fi;
   - |
-    for f in
-        `git diff --name-only --diff-filter=d ${BASE_COMMIT_SHA}...HEAD -- metadata/*.yml`
-        `git diff --name-only --diff-filter=d ${BASE_COMMIT_SHA}...HEAD -- metadata/*/signatures`;
-    do
-        diff=$(git diff ${BASE_COMMIT_SHA}...HEAD -- $f);
-        echo "$diff";
-        test $(echo "$diff" | grep '^[+-] ' | grep -v '^+  *disable:' | wc -l) = 0 && continue;
-        echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue;
-        appid=`echo $f | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p'`;
-        export CHANGED="$CHANGED $appid";
-    done;
+    for f in $(git diff --name-only --diff-filter=d "${BASE_COMMIT_SHA}"...HEAD -- metadata/*.yml) $(git diff --name-only --diff-filter=d "${BASE_COMMIT_SHA}"...HEAD -- metadata/*/signatures); do
+        diff=$(git diff "${BASE_COMMIT_SHA}"...HEAD -- "$f")
+        echo "$diff"
+        test $(echo "$diff" | grep '^[+-] ' | grep -v -c '^+  *disable:') = 0 && continue
+        echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue
+        appid=$(echo "$f" | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p')
+        export CHANGED="$CHANGED $appid"
+    done
 
 checkupdates:
   stage: test
