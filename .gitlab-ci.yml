@@ -47,6 +47,14 @@ variables:
         export CHANGED="$CHANGED $appid"
     done
 
+.app_verification_rules: 
+  rules: &app_verification_rules
+    - if: $CI_PIPELINE_SOURCE == "pipeline" || $CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    - changes:
+        - metadata/**/*
+        - srclibs/**/*
+
 checkupdates:
   stage: test
   needs: []
@@ -75,6 +83,7 @@ checkupdates:
 
 lint:
   stage: test
+  needs: []
   image: registry.gitlab.com/fdroid/ci-images-base
   except:
     - pipelines
@@ -245,12 +254,7 @@ fdroid build:
       - tmp/
     when: always
     expire_in: 1 month
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "pipeline" || $CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "trigger"
-      when: never
-    - changes:
-        - metadata/**/*
-        - srclibs/**/*
+  rules: *app_verification_rules
   cache:
     key: "$CI_JOB_NAME"
     paths:
@@ -423,7 +427,4 @@ mobsf-ios-sast:
     - when: never
 
 mobsf-android-sast:
-  rules:
-    - changes:
-        - metadata/**/*
-        - srclibs/**/*
+  rules: *app_verification_rules
