@@ -59,10 +59,7 @@ checkupdates:
   stage: test
   needs: []
   image: registry.gitlab.com/fdroid/ci-images-checkupdates:latest
-  except:
-    - pipelines
-    - schedules
-    - triggers
+  rules: *app_verification_rules
   before_script:
     - |
       set -xe
@@ -123,11 +120,7 @@ schema validation:
   stage: test
   needs: []
   image: node:alpine
-  except:
-    - master@fdroid/fdroiddata
-    - pipelines
-    - schedules
-    - triggers
+  rules: *app_verification_rules
   allow_failure:
     exit_codes: 128
   before_script:
@@ -148,11 +141,6 @@ trigger-issuebot:
   needs: []
   rules: *app_verification_rules
   image: alpine
-  except:
-    - master@fdroid/fdroiddata
-    - pipelines
-    - schedules
-    - triggers
   variables:
     GIT_DEPTH: "1"
   artifacts:
