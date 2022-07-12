@@ -2075,18 +2075,19 @@ Builds:
   - versionName: 3.21.0 RC1
     versionCode: 30210051
     commit: rc-3.21.0-01
+    subdir: app
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
       - generic
-    output: app/build/outputs/apk/generic/release/generic-release-*.apk
     rm:
       - user_manual
     prebuild:
       - mkdir -p $HOME/.gradle
-      - echo org.gradle.jvmargs=-Xmx9g -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError > $HOME/.gradle/gradle.properties
+      - echo org.gradle.jvmargs=-Xmx9g -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError
+        > $HOME/.gradle/gradle.properties
     scandelete:
       - app/src/androidTest/assets
 
