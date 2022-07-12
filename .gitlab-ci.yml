@@ -89,8 +89,6 @@ lint:
     - pipelines
     - schedules
     - triggers
-  dependencies:
-    - fdroid build
   before_script:
     - apt-get update
     - apt-get -qy dist-upgrade
@@ -405,6 +403,8 @@ check_git_repos:
 
 sast:
   stage: report
+  needs:
+    - fdroid build
   dependencies:
     - fdroid build
   variables:
