@@ -146,6 +146,7 @@ schema validation:
 trigger-issuebot:
   stage: prepare
   needs: []
+  rules: *app_verification_rules
   image: alpine
   except:
     - master@fdroid/fdroiddata
