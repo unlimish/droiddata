@@ -1,0 +1,30 @@
+Categories:
+  - Multimedia
+AntiFeatures:
+  - NonFreeNet
+License: Apache-2.0
+AuthorName: vfsfitvnm
+WebSite: https://github.com/vfsfitvnm/ViMusic
+Changelog: https://github.com/vfsfitvnm/ViMusic/releases
+SourceCode: https://github.com/vfsfitvnm/ViMusic
+IssueTracker: https://github.com/vfsfitvnm/ViMusic/issues
+
+RepoType: git
+Repo: https://github.com/vfsfitvnm/ViMusic.git
+
+Builds:
+  - versionName: 0.2.0
+    versionCode: 9
+    commit: v0.2.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 0.2.0
+CurrentVersionCode: 9
