@@ -32,7 +32,7 @@ variables:
   - mv /tmp/cmdline-tools/cmdline-tools/* ${ANDROID_SDK_ROOT}/cmdline-tools/tools
     || true
   - export PATH=${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${PATH}
-  - yes | sdkmanager --licenses
+  - yes | sdkmanager --licenses > /dev/null
 
 .get_target_source_refs: &get_target_source_refs
   - |
