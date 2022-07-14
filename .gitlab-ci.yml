@@ -26,7 +26,7 @@ variables:
   - export PYTHONUNBUFFERED=true
 
 .install_sdkmanager: &install_sdkmanager
-  - curl -Lo /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_CMDLINE_TOOLS}.zip"
+  - curl -Lo /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_CMDLINE_TOOLS}_latest.zip"
   - echo "${ANDROID_CMDLINE_TOOLS_SHA256} /tmp/cmdline-tools.zip" | sha256sum -c -
   - unzip -q -o /tmp/cmdline-tools.zip -d /tmp/cmdline-tools
   - mkdir -p ${ANDROID_HOME}/cmdline-tools/tools
