@@ -32,7 +32,9 @@ variables:
   - mv /tmp/cmdline-tools/cmdline-tools/* ${ANDROID_HOME}/cmdline-tools/tools
     || true
   - export PATH=${ANDROID_HOME}/cmdline-tools/tools/bin:${PATH}
-  - yes | sdkmanager --licenses > /dev/null || true
+  - set +o pipefail
+  - yes | sdkmanager --licenses > /dev/null
+  - set -o pipefail
 
 .get_target_source_refs: &get_target_source_refs
   - |
