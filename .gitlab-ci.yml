@@ -257,6 +257,9 @@ fdroid build:
     key: "$CI_JOB_NAME"
     paths:
       - /home/vagrant/.gradle
+  variables: 
+    ANDROID_HOME: /opt/android-sdk
+    ANDROID_SDK_ROOT: ${ANDROID_HOME}
   script:
     - unset CI
     - test -d build || mkdir build
