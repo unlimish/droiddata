@@ -12,6 +12,10 @@ Builds:
   - versionName: 1.0.1
     versionCode: 1
     commit: v1.0.1
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@3.0.4
