@@ -124,19 +124,13 @@ Builds:
     commit: f1b1ad71a671bb01b34a2c58c4b0463f4cbe13b6
     subdir: android
     sudo:
-      - apt-get remove openjdk-8-*
       - export JAVA_VERSION=17.0.3
       - export URL=https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.3%2B7/OpenJDK17U-jdk_x64_linux_hotspot_17.0.3_7.tar.gz
-      - export JAVA_HOME=/usr/local/jdk-${JAVA_VERSION}
+      - export JAVA_HOME=/usr/local/jdk-${JAVA_VERSION} JDK_HOME=${JAVA_HOME} JRE_HOME=${JDK_HOME}
       - curl -sSL -o java.tar.gz "${URL}"
       - mkdir /usr/local/jdk-${JAVA_VERSION}
       - tar -xzf java.tar.gz --strip-components=1 -C /usr/local/jdk-${JAVA_VERSION}
-      - rm java.tar.gz
-      - if [[ "$JAVA_VERSION" == *"0.0"* ]]; then ln -s /usr/local/jdk-${JAVA_VERSION}
-        /usr/local/jdk-17; fi
-      - ln -s /usr/local/jdk-${JAVA_VERSION}/bin/java /usr/bin/java
-      - ln -s /usr/local/jdk-${JAVA_VERSION}/bin/javac /usr/bin/javac
-      - ln -s /usr/local/jdk-${JAVA_VERSION}/bin/javaws /usr/bin/javaws
+      - export PATH=${JAVA_HOME}/bin:${PATH}
     gradle:
       - fdroid
     prebuild: sed -i -e '/START Non-FOSS component/,/END Non-FOSS component/d' build.gradle.kts
