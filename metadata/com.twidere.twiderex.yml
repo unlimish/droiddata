@@ -126,11 +126,10 @@ Builds:
     sudo:
       - echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
       - apt-get update || apt-get update
-      - apt-get dist-upgrade --fix-broken
       - apt-get install openjdk-17-jdk-headless --no-install-recommends
       - update-alternatives --auto java
-    gradle:
-      - fdroid
+      - gradle assembleFdroidRelease
+      - apt full-upgrade -t stretch
     prebuild: sed -i -e '/START Non-FOSS component/,/END Non-FOSS component/d' build.gradle.kts
     build: echo $JAVA_HOME
 
