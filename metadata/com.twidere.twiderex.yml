@@ -126,7 +126,7 @@ Builds:
     sudo:
       - echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
       - apt-get update || apt-get update
-      - apt upgrade --without-new-pkgs
+      - apt-get full-upgrade -y
       - apt-get install openjdk-17-jdk-headless --no-install-recommends
       - update-alternatives --auto java
     gradle:
