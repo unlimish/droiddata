@@ -132,7 +132,7 @@ Builds:
       - echo "${ESUM} /tmp/openjdk.tar.gz" | sha256sum -c -
       - mkdir /usr/local/jdk-${JAVA_VERSION}
       - tar -xf /tmp/openjdk.tar.gz --strip-components=1 -C /usr/local/jdk-${JAVA_VERSION}
-      - export PATH=${JAVA_HOME}/bin:${PATH}
+    init: echo 'org.gradle.java.home=/opt/java/openjdk' >> ../gradle.properties
     gradle:
       - fdroid
     prebuild: sed -i -e '/START Non-FOSS component/,/END Non-FOSS component/d' build.gradle.kts
