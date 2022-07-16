@@ -133,7 +133,7 @@ Builds:
     init:
       - sh <(curl -L https://nixos.org/nix/install) --no-daemon
       - source ${HOME}/.nix-profile/etc/profile.d/nix.sh
-      - nix-env -iA nixpkgs.jdk17_headless
+      - nix-env -i jdk17_headless
     prebuild: sed -i -e '/START Non-FOSS component/,/END Non-FOSS component/d' build.gradle.kts
     build: echo $JAVA_HOME
 
