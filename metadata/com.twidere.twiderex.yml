@@ -134,6 +134,9 @@ Builds:
       - sed -i -e 's/const val jvmTarget = "17"/const val jvmTarget = "11"/' -e 's/val
         java = JavaVersion.VERSION_17/val java = JavaVersion.VERSION_11/' ../buildSrc/src/main/kotlin/Versions.kt
 
+MaintainerNotes: |
+    Force it to build against Java 11 because our build environment is still Debian Stretch
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[\d.]+$
 UpdateCheckData: buildSrc/src/main/kotlin/Package.kt|const val build = (\d+)||
