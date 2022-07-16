@@ -134,6 +134,8 @@ Builds:
       - sh <(curl -L https://nixos.org/nix/install) --no-daemon
       - source ${HOME}/.nix-profile/etc/profile.d/nix.sh
       - nix-env -iA nixpkgs.jdk17_headless
+    gradle:
+      - fdroid
     prebuild: sed -i -e '/START Non-FOSS component/,/END Non-FOSS component/d' build.gradle.kts
     build: echo $JAVA_HOME
 
