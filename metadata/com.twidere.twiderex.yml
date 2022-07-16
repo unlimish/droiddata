@@ -124,12 +124,16 @@ Builds:
     commit: f1b1ad71a671bb01b34a2c58c4b0463f4cbe13b6
     subdir: android
     sudo:
-      - echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
-      - apt-get update || apt-get update
-      - apt-get install openjdk-17-jdk-headless --no-install-recommends
-      - update-alternatives --auto java
-      - gradle assembleFdroidRelease
-      - apt full-upgrade -t stretch
+      - mkdir -p /etc/nix
+      - echo 'sandbox = false' > /etc/nix/nix.conf
+      - mkdir -m 0755 /nix
+      - chown vagrant /nix
+      - addgroup --system nixbld
+      - usermod -a -G nixbld vagrant
+    init:
+      - sh <(curl -L https://nixos.org/nix/install) --no-daemon
+      - source ${HOME}/.nix-profile/etc/profile.d/nix.sh
+      - nix-env -i jdk17_headless
     prebuild: sed -i -e '/START Non-FOSS component/,/END Non-FOSS component/d' build.gradle.kts
     build: echo $JAVA_HOME
 
