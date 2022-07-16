@@ -130,8 +130,9 @@ Builds:
       - export JAVA_HOME=/opt/java/openjdk JDK_HOME=${JAVA_HOME} JRE_HOME=${JDK_HOME}
       - curl -sSL -o /tmp/openjdk.tar.gz "${URL}"
       - echo "${ESUM} /tmp/openjdk.tar.gz" | sha256sum -c -
-      - mkdir ${JAVA_HOME}
+      - mkdir -p ${JAVA_HOME}
       - tar -xf /tmp/openjdk.tar.gz --strip-components=1 -C ${JAVA_HOME}
+    init:
       - echo 'org.gradle.java.home=/opt/java/openjdk' >> ../gradle.properties
       - echo 'org.gradle.java.home=/opt/java/openjdk' >> ${HOME}/.gradle/gradle.properties
     gradle:
