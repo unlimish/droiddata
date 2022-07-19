@@ -156,29 +156,24 @@ Builds:
     gradle:
       - main
 
-  - versionName: v4.0.0
-    versionCode: 334000100
-    commit: 4a1dde031290a5f23ff2ef664efa3f8477663e1b
+  - versionName: v4.0.2
+    versionCode: 334020100
+    commit: aa3256f921321af8dfbbd790555ba836729b4d31
     subdir: app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk
+      - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
-      - main
+      - gplayless
+    rm:
+      - app-wearos
+    prebuild: sed -i -e '/app-wearos/d' ../settings.gradle.kts build.gradle.kts
 
-  - versionName: v4.0.1
-    versionCode: 334010100
-    commit: ac5c8df37fa4155741158d63d152c2898dacd6e6
-    subdir: app
-    sudo:
-      - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk
-      - update-alternatives --auto java
-    gradle:
-      - main
+MaintainerNotes: com/google/android/gms/wearable and com/google/android/gms/tasks/Task
+    are stub classes.
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: v4.0.1
-CurrentVersionCode: 334010100
+CurrentVersion: v4.0.2
+CurrentVersionCode: 334020100
