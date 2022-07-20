@@ -760,7 +760,23 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 3.16.9
+    versionCode: 195
+    commit: 02f6d63cb77b81e5e618b7448ed754ea903c86eb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: >
+      sed -i
+      -e 's/versionCode 194/versionCode 195/'
+      -e 's/3.16.8/3.16.9/'
+      build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9\.]+$
-CurrentVersion: 3.16.8
-CurrentVersionCode: 194
+CurrentVersion: 3.16.9
+CurrentVersionCode: 195
