@@ -1,0 +1,40 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Multimedia
+  - Internet
+License: GPL-3.0-or-later
+AuthorName: polymorphicshade
+AuthorEmail: polymorphicshade@gmail.com
+SourceCode: https://github.com/polymorphicshade/NewPipe
+IssueTracker: https://github.com/polymorphicshade/NewPipe/issues
+Changelog: https://github.com/polymorphicshade/NewPipe/releases
+
+Name: NewPipe SponsorBlock
+
+RepoType: git
+Repo: https://github.com/polymorphicshade/NewPipe
+
+Builds:
+  - versionName: 0.23.1_r1
+    versionCode: 987
+    commit: e00fc5e8138ea200fae1d4f63d51b365697ab6b4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - doc
+
+MaintainerNotes: |-
+    * NonFreeNet – YouTube.
+    * NonFreeNet – Opt-in Return YouTube Dislike which is a proprietary backend at time of writing.
+    * see https://github.com/Anarios/return-youtube-dislike/blob/fd49f02b383b0088fe9f2cbcae0970626cf44259/Docs/SECURITY-FAQ.md
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags .*[0-9]$
+CurrentVersion: 0.23.1_r1
+CurrentVersionCode: 987
