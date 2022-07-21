@@ -11,29 +11,6 @@ RepoType: git
 Repo: https://github.com/benibela/videlibri.git
 
 Builds:
-  - versionName: '1.650'
-    versionCode: 1650
-    disable: see maintainer notes
-    commit: VIDELIBRI 1.650
-    subdir: programs/internet/VideLibri/android/android/
-    srclibs:
-      - ACRA@acra-4.5.0
-      - 1:ActionBarSherlock@4.4.0
-    extlibs:
-      - android/android-support-v4.jar
-    prebuild:
-      - pushd $$ACRA$$
-      - $$MVN3$$ package
-      - popd
-      - cp $$ACRA$$/target/acra-4.5.0.jar libs/
-      - cp libs/android-support-v4.jar $$ActionBarSherlock$$/libs/
-      - android update project -p ./
-    build: sh ../manage.sh
-
-  - versionName: '1.666'
-    versionCode: 1666
-    disable: see maintainer notes
-
   - versionName: '2.592'
     versionCode: 2592
     commit: VIDELIBRI_2.592
