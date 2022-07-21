@@ -37,14 +37,13 @@ Builds:
   - versionName: '2.592'
     versionCode: 2592
     commit: VIDELIBRI_2.592
-    subdir: android
+    subdir: android/android
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y --no-install-recommends fpc openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
       - yes
-    output: android/build/outputs/apk/release/android-release-unsigned.apk
     srclibs:
       - fpc@fixes_3_2
       - internettools@40c3d53a69b50faf877a96e79c595b6dad025fea
@@ -73,7 +72,8 @@ Builds:
         PP=$$fpc$$/install/lib/fpc/3.0.0/ppcx64
       - popd
       - sed -i -e '/PASDBL/d' $$internettools$$/internettoolsconfig.inc
-      - mkdir -p android/libs/armeabi/ android/libs/x86/ android/libs/arm64-v8a/ android/libs/x86_64/
+      - mkdir -p libs/armeabi/ libs/x86/ libs/arm64-v8a/ libs/x86_64/
+      - cd ..
       - $$fpc$$/install/lib/fpc/3.2.3/ppcrossarm -Parm -B -Tandroid -MObjFPC -Scghi
         -O1 -Xs -XX -l -vewnhibq -dANDROID -Xd -gl -Fu.. -Fu$$fpc$$/install/lib/fpc/3.2.3/units/*
         -Fu$$fpc$$/install/lib/fpc/3.2.3/units/arm-android/* -Fu$$internettools$$/data
