@@ -746,7 +746,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 77.0.3
+    versionCode: 111
+    commit: 32eb8374aef8da402fd961bc782936d0fd84a56d
+    subdir: ffupdater
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 77.1.0
+    versionCode: 112
+    commit: 40ee1a226b59f2e9db14ea536d988a18e3911346
+    subdir: ffupdater
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 77.0.1
-CurrentVersionCode: 109
+CurrentVersion: 77.1.0
+CurrentVersionCode: 112

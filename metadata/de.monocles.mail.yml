@@ -46,7 +46,33 @@ Builds:
     rm:
       - tools/android-studio/settings.jar
 
+  - versionName: '1.03'
+    versionCode: 4
+    commit: 283bfe44d9825d8b901ad2ec91fd6f1c7df15cb6
+    subdir: monoclesmail
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - tools/android-studio/settings.jar
+
+  - versionName: '1.04'
+    versionCode: 5
+    commit: ba39521027939bfce987e87a7b7669c5b3c3b278
+    subdir: monoclesmail
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - tools/android-studio/settings.jar
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags v\d+\.\d+(\.\d+)?
-CurrentVersion: '1.02'
-CurrentVersionCode: 3
+CurrentVersion: '1.04'
+CurrentVersionCode: 5

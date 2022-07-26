@@ -5,14 +5,17 @@ Categories:
   - Multimedia
 License: GPL-3.0-or-later
 AuthorName: Koitharu
-SourceCode: https://github.com/nv95/Kotatsu
-IssueTracker: https://github.com/nv95/Kotatsu/issues
+WebSite: https://kotatsuapp.github.io
+SourceCode: https://github.com/KotatsuApp/Kotatsu
+IssueTracker: https://github.com/KotatsuApp/Kotatsu/issues
+Translation: https://hosted.weblate.org/engage/kotatsu/
+Donate: https://yoomoney.ru/to/410012543938752
 
 Name: Kotatsu
 AutoName: Kotatsu
 
 RepoType: git
-Repo: https://github.com/nv95/Kotatsu.git
+Repo: https://github.com/KotatsuApp/Kotatsu.git
 
 Builds:
   - versionName: 1.0.1
@@ -234,7 +237,62 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '3.4'
+    versionCode: 412
+    commit: a35d7dc5aed7dde5615c10d437b8443f10407a71
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.4.1
+    versionCode: 413
+    commit: 3121532217d8a2f12a380a7ee7b2a46485851c21
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.4.2
+    versionCode: 414
+    commit: 557c2b018a23660ec11b35788f1b0864e1c6b3ae
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.4.3
+    versionCode: 415
+    commit: 73df68021492a9f8cf7b01ed8672e042b422ff9c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.4.4
+    versionCode: 416
+    commit: 2d4c1b751e44b76fd50395f4a1909961162c5b1f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]+$
-CurrentVersion: 3.3.2
-CurrentVersionCode: 411
+CurrentVersion: 3.4.4
+CurrentVersionCode: 416

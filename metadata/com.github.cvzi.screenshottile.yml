@@ -573,7 +573,20 @@ Builds:
       - .github
     prebuild: echo "android.useAndroidX=true" > ../gradle.properties
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.18.1
+    versionCode: 70
+    commit: 43b7c751cadfccef3e29a8b080e382793e335417
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - .github
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.18.0
-CurrentVersionCode: 69
+CurrentVersion: 1.18.1
+CurrentVersionCode: 70
