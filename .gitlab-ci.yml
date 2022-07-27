@@ -213,14 +213,14 @@ checkupdates_runner:
     - chmod 700 ~/.ssh
     # - cp "${GITLAB_KNOWN_HOSTS}" ~/.ssh/known_hosts
     # - chmod 644 ~/.ssh/known_hosts
-    - eval $(ssh-agent -s)
-    - echo "${CHECKUPDATES_SSH_DEPLOY_KEY}" | tr -d '\r' | ssh-add -
-    - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g')
-    - git remote set-url --push origin "${url_host}"
-    # reset repo to origin state before adding new commits
-    - git rebase --abort || true
-    - rm -fr ".git/rebase-apply"
-    - git checkout master || true
+    # - eval $(ssh-agent -s)
+    # - echo "${CHECKUPDATES_SSH_DEPLOY_KEY}" | tr -d '\r' | ssh-add -
+    # - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g')
+    # - git remote set-url --push origin "${url_host}"
+    # # reset repo to origin state before adding new commits
+    # - git rebase --abort || true
+    # - rm -fr ".git/rebase-apply"
+    # - git checkout master || true
     - git reset --hard origin/master || true
   script:
     # Get app IDs in this batch
