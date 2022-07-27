@@ -227,7 +227,7 @@ checkupdates_runner:
     - export APPIDS=(metadata/*.yml)
     - export APPIDS_COUNT=${#ALL_APPIDS[@]}
     - export APPIDS_BATCH_SIZE=$(($APPIDS_COUNT / $CI_NODE_TOTAL + 1))
-    - export CHECKUPDATES_APPIDS=${APPIDS[@]:$(($CI_NODE_INDEX * $APPIDS_BATCH_SIZE)):$((($CI_NODE_INDEX + 1) * $APPIDS_BATCH_SIZE))}
+    - export CHECKUPDATES_APPIDS=${APPIDS[@]:$((($CI_NODE_INDEX - 1) * $APPIDS_BATCH_SIZE)):$(($CI_NODE_INDEX * $APPIDS_BATCH_SIZE))}
 
     - fdroid checkupdates --allow-dirty --auto --commit ${CHECKUPDATES_APPIDS} 2>&1 | tee /tmp/out || true
     - git pull --rebase origin master
