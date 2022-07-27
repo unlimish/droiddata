@@ -203,13 +203,6 @@ checkupdates_runner:
   image: registry.gitlab.com/fdroid/ci-images-checkupdates:latest
   variables: 
     GIT_DEPTH: "1"
-  tags:
-    - checkupdates-runner
-  only:
-    refs:
-      - schedules
-    variables:
-      - $CHECKUPDATES == "true"
   parallel: 10
   before_script:
     - export fdroidserver=$PWD/fdroidserver
