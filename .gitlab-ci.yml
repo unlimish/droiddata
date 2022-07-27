@@ -206,11 +206,8 @@ checkupdates_runner:
   parallel: 10
   tags:
     - checkupdates-runner
-  only:
-    refs:
-      - schedules
-    variables:
-      - $CHECKUPDATES == "true"
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CHECKUPDATES == 'true'
   before_script:
     - export fdroidserver=$PWD/fdroidserver
     - *install_fdroid_server
