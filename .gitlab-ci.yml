@@ -218,13 +218,6 @@ checkupdates_runner test:
     - *install_fdroid_server
     - git config --global user.email "fdroidci@bubu1.eu"
     - git config --global user.name "F-Droid checkupdates bot"
-    - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - cp "${GITLAB_KNOWN_HOSTS}" ~/.ssh/known_hosts
-    - chmod 644 ~/.ssh/known_hosts
-    - eval $(ssh-agent -s)
-    - echo "${CHECKUPDATES_SSH_DEPLOY_KEY}" | tr -d '\r' | ssh-add -
-    - url_host=$(echo "${CI_REPOSITORY_URL}" | sed -e 's|https\?://gitlab-ci-token:.*@|ssh://git@|g')
     - git remote set-url --push origin "${url_host}"
     # reset repo to origin state before adding new commits
     - git rebase --abort || true
