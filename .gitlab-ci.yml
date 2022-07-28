@@ -239,7 +239,7 @@ checkupdates_runner:
     - |
       metadata_files=(metadata/*.yml)
       declare -a APPIDS
-      for file in ${metadata_files}
+      for file in ${metadata_files[@]}
       do
         filename="${file##*/}"
         filename_without_extension="${filename%.*}"
