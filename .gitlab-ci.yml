@@ -228,7 +228,7 @@ checkupdates_runner test:
       metadata_files=(metadata/*.yml)
       metadata_files_count=${#metadata_files[@]}
       batch_size=$((metadata_files_count / CI_NODE_TOTAL + 1))
-      metadata_files_batch=("${metadata_files[@]:$(((CI_NODE_INDEX - 1) * batch_size)):$((CI_NODE_INDEX * batch_size))}")
+      metadata_files_batch=("${metadata_files[@]:$(((CI_NODE_INDEX - 1) * batch_size)):$batch_size}")
 
       declare -a CHECKUPDATES_APPIDS
       for file in "${metadata_files_batch[@]}"; do
@@ -280,7 +280,7 @@ checkupdates_runner:
       metadata_files=(metadata/*.yml)
       metadata_files_count=${#metadata_files[@]}
       batch_size=$((metadata_files_count / CI_NODE_TOTAL + 1))
-      metadata_files_batch=("${metadata_files[@]:$(((CI_NODE_INDEX - 1) * batch_size)):$((CI_NODE_INDEX * batch_size))}")
+      metadata_files_batch=("${metadata_files[@]:$(((CI_NODE_INDEX - 1) * batch_size)):$batch_size}")
 
       declare -a CHECKUPDATES_APPIDS
       for file in "${metadata_files_batch[@]}"; do
@@ -293,7 +293,10 @@ checkupdates_runner:
 
     - echo "$metadata_files_count"
     - echo "$batch_size"
+    - echo "${metadata_files_batch[@]}"
+    - echo "${#metadata_files_batch[@]}"
     - echo "${CHECKUPDATES_APPIDS[@]}"
+    - echo "${#CHECKUPDATES_APPIDS[@]}"
 
     - fdroid checkupdates --allow-dirty --auto --commit "${CHECKUPDATES_APPIDS[@]}" 2>&1 | tee /tmp/out || true
     - git pull --rebase origin master
