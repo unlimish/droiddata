@@ -206,46 +206,6 @@ schedule-issuebot:
     - $pip install python-gitlab
     - ./tools/schedule-issuebot.py
 
-checkupdates_runner test:
-  stage: prepare
-  image: registry.gitlab.com/fdroid/ci-images-checkupdates:latest
-  variables: 
-    GIT_DEPTH: "1"
-  needs: []
-  parallel: 15
-  before_script:
-    - git config --global user.email "fdroidci@bubu1.eu"
-    - git config --global user.name "F-Droid checkupdates bot"
-    - git remote set-url --push origin "${url_host}"
-    # reset repo to origin state before adding new commits
-    - git rebase --abort || true
-    - rm -fr ".git/rebase-apply"
-    - git checkout master || true
-    - git reset --hard origin/master || true
-  script:
-    # Get app IDs in this batch
-    - |
-      metadata_files=(metadata/*.yml)
-      metadata_files_count=${#metadata_files[@]}
-      batch_size=$((metadata_files_count / CI_NODE_TOTAL + 1))
-      metadata_files_batch=("${metadata_files[@]:$(((CI_NODE_INDEX - 1) * batch_size)):$batch_size}")
-
-      declare -a CHECKUPDATES_APPIDS
-      for file in "${metadata_files_batch[@]}"; do
-        filename="${file##*/}"
-        filename_without_extension="${filename%.*}"
-        CHECKUPDATES_APPIDS=("${CHECKUPDATES_APPIDS[@]}" "$filename_without_extension")
-      done
-
-      export CHECKUPDATES_APPIDS
-
-    - echo "$metadata_files_count"
-    - echo "$batch_size"
-    - echo "${metadata_files_batch[@]}"
-    - echo "${#metadata_files_batch[@]}"
-    - echo "${CHECKUPDATES_APPIDS[@]}"
-    - echo "${#CHECKUPDATES_APPIDS[@]}"
-
 checkupdates_runner:
   stage: prepare
   image: registry.gitlab.com/fdroid/ci-images-checkupdates:latest
