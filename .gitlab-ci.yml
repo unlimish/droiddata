@@ -214,8 +214,6 @@ checkupdates_runner test:
   needs: []
   parallel: 15
   before_script:
-    - export fdroidserver=$PWD/fdroidserver
-    - *install_fdroid_server
     - git config --global user.email "fdroidci@bubu1.eu"
     - git config --global user.name "F-Droid checkupdates bot"
     - git remote set-url --push origin "${url_host}"
