@@ -206,6 +206,30 @@ schedule-issuebot:
     - $pip install python-gitlab
     - ./tools/schedule-issuebot.py
 
+checkupdates_runner test:
+  image: registry.gitlab.com/fdroid/ci-images-checkupdates:latest
+  variables: 
+    GIT_DEPTH: "1"
+  parallel: 15
+  script:
+    # Get app IDs in this batch
+    - |
+      metadata_files=$( ls metadata/*.yml | sort -R )
+      declare -a APPIDS
+      for file in ${metadata_files}
+      do
+        filename="${file##*/}"
+        filename_without_extension="${filename%.*}"
+        APPIDS=("${APPIDS[@]}" "$filename_without_extension")
+      done
+    - export APPIDS_COUNT=${#APPIDS[@]}
+    - export APPIDS_BATCH_SIZE=$(($APPIDS_COUNT / $CI_NODE_TOTAL + 1))
+    - export CHECKUPDATES_APPIDS=${APPIDS[@]:$((($CI_NODE_INDEX - 1) * $APPIDS_BATCH_SIZE)):$(($CI_NODE_INDEX * $APPIDS_BATCH_SIZE))}
+
+    - echo $APPIDS_COUNT
+    - echo $APPIDS_BATCH_SIZE
+    - echo $CHECKUPDATES_APPIDS
+
 checkupdates_runner:
   stage: prepare
   image: registry.gitlab.com/fdroid/ci-images-checkupdates:latest
@@ -237,7 +261,7 @@ checkupdates_runner:
   script:
     # Get app IDs in this batch
     - |
-      metadata_files=($( ls metadata/*.yml))
+      metadata_files=$( ls metadata/*.yml | sort -R )
       declare -a APPIDS
       for file in ${metadata_files}
       do
