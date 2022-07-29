@@ -1,0 +1,42 @@
+Categories:
+  - Connectivity
+  - Phone & SMS
+License: AGPL-3.0-or-later
+WebSite: https://simplex.chat/
+SourceCode: https://github.com/simplex-chat/simplex-chat
+IssueTracker: https://github.com/simplex-chat/simplex-chat/issues
+
+AutoName: SimpleX Chat
+Summary: The first messaging platform operating without user identifiers of any kind
+Description: "The first messaging platform that has no user identifiers of any\nkind\
+    \ - 100% private by design.\n\n* \U0001F4EB Make a private connection with anybody\
+    \ via link or QR code and start\nsending messages instantly! Scanning QR code\
+    \ is the most secure way\nto establish a private connection - it can be done via\
+    \ a video call\nor in person.\n\n* \U0001F517 Your profile and contacts are only\
+    \ stored in the app on your\ndevice - our servers do not have access to this information.\n\
+    \n* \U0001F510 All messages are end-to-end encrypted using open-source\ndouble-ratchet\
+    \ protocol; the messages are routed via our servers\nusing open-source SimpleX\
+    \ Messaging Protocol."
+
+RepoType: git
+Repo: https://github.com/simplex-chat/simplex-chat
+
+Builds:
+  - versionName: '3.1'
+    versionCode: 47
+    commit: d67f86ada55db3d07f6eecaf7aa7f16ffb9da173
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless unzip curl
+      - update-alternatives --auto java
+      - mkdir -m 0755 /nix
+      - chown vagrant /nix
+    output: ./simplex-chat.apk
+    build:
+      - export USER=vagrant
+      - ./build-android.sh
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: '3.1'
+CurrentVersionCode: 47
