@@ -27,17 +27,16 @@ Builds:
     scandelete:
       - app/src/main/cpp/tyrant_optimize/*.exe
       - app/prebuilt/ndk_25_boost_1.79.0/*
+    srclibs:
+      - boost@boost-1.79.0
+      - Boost-for-Android@ndk_25_boost_1.79.0
     build:
-      - wget -c https://boostorg.jfrog.io/artifactory/main/release/1.79.0/source/boost_1_79_0.tar.bz2
-      - tar xjf boost_1_79_0.tar.bz2
-      - git clone https://github.com/APN-Pucky/Boost-for-Android ./boost_for_android
-      - pushd boost_for_android
+      - pushd $$Boost-for-Android$$
       - mkdir -p build/install/libs/{arm64-v8a,armeabi-v7a,x86,x86_64}
       - NDK_DIR=$$NDK$$ ABI_NAMES="arm64-v8a armeabi-v7a x86 x86_64" LINKAGES="static"
-        BOOST_DIR="../boost_1_79_0/" ./__build.sh
+        BOOST_DIR=$$boost$$ ./__build.sh
       - cp -rf build/install/* ../prebuilt/ndk_25_boost_1.79.0/
       - popd
-      - gradle assembleRelease
     ndk: r25
 
 AutoUpdateMode: Version
