@@ -17,6 +17,10 @@ Builds:
     versionCode: 4
     commit: v1.3
     subdir: BackupApp
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
     prebuild: git submodule update --init
