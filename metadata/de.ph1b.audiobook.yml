@@ -932,8 +932,19 @@ Builds:
     scandelete:
       - buildSrc
 
+  - versionName: 6.0.2
+    versionCode: 3060379
+    commit: ae4a7d3c920660fe5762e207173d32b742a3272f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9.]+$
 UpdateCheckData: gradle/libs.versions.toml|versionCode\s*=\s*"([0-9]+)"|.|versionName\s*=\s*"(.+)"
-CurrentVersion: 5.0.2
-CurrentVersionCode: 3060342
+CurrentVersion: 6.0.2
+CurrentVersionCode: 3060379
