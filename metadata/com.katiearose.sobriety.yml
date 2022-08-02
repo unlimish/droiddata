@@ -24,8 +24,9 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - yes
+    prebuild: sed -i -e 's/VERSION_17/VERSION_11/g' build.gradle
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: v5.1.4
 CurrentVersionCode: 10
