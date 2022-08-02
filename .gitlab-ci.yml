@@ -18,9 +18,6 @@ variables:
   # needs lots of git history since it has to compare the merge request to current master
   GIT_DEPTH: "5000"
 
-  # Custom clone path to make it possible to re-use worktrees between parent project and all forks because we use the same clone path for all forks.
-  GIT_CLONE_PATH: $CI_BUILDS_DIR/$CI_CONCURRENT_ID/$CI_PROJECT_NAME
-
 .install_fdroid_server: &install_fdroid_server
   - rm -rf $fdroidserver
   - mkdir $fdroidserver
