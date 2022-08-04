@@ -12,7 +12,7 @@ Repo: https://github.com/simplex-chat/simplex-chat.git
 Builds:
   - versionName: '3.1'
     versionCode: 47
-    commit: 90ab6f34bf5f59ae3fe2333fb9d036c964d35247
+    commit: 80389ffe93c4bb3f0a8a3c422db2585d2bf421eb
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless unzip curl
@@ -23,7 +23,7 @@ Builds:
     output: ./simplex-chat.apk
     build:
       - export USER=vagrant
-      - ./build-android.sh
+      - ./scripts/android/build-android.sh
 
 AutoUpdateMode: None
 UpdateCheckMode: None
