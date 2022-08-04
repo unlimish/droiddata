@@ -20,6 +20,9 @@ Builds:
       - mkdir -m 0755 /nix
       - chown vagrant /nix
       - chown -R vagrant /tmp
+      - groupadd -r nixbld
+      - for n in $(seq 1 10); do useradd -c "Nix build user $n" -d /var/empty -g nixbld 
+        -G nixbld -M -N -r -s "$(command -v nologin)" "nixbld$n"; done
     output: ./simplex-chat.apk
     build:
       - export USER=vagrant
