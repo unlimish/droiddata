@@ -942,6 +942,13 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - yes
+    prebuild:
+      - sed -i -e '/val enableCrashlytics/,+13d' -e '/libs.plugins.crashlytics/,+2d'
+        -e '/if (enableCrashlytics/,+4d' -e '/getByName("release") {/,+7d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+    scandelete:
+      - plugins/build
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9.]+$
