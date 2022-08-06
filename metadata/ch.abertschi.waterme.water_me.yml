@@ -20,6 +20,10 @@ Builds:
     versionCode: 4
     commit: v1.0.4
     output: build/app/outputs/apk/release/app-release-unsigned.apk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     srclibs:
       - flutter@stable
     build:
