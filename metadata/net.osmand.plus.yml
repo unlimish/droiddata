@@ -1,7 +1,6 @@
 AntiFeatures:
   - NonFreeAssets
   - NonFreeNet
-  - NonFreeAdd
   - UpstreamNonFree
 Categories:
   - Navigation
@@ -4824,6 +4823,11 @@ Builds:
       - sed -i -e 's!<uses-permission android:name="android.permission.INTERNET" />!<uses-permission
         android:name="android.permission.INTERNET" /><uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
         />!' AndroidManifest.xml
+      - sed -i '/MapillaryPlugin/d' src/net/osmand/plus/mapcontextmenu/builders/cards/NoImagesCard.java
+      - sed -i 's/import net.osmand.plus.plugins.mapillary.MapillaryPlugin;//' src/net/osmand/plus/plugins/OsmandPlugin.java
+      - sed -i 's/allPlugins.add(new MapillaryPlugin(app));//' src/net/osmand/plus/plugins/OsmandPlugin.java
+      - sed -i 's/import net.osmand.plus.quickaction.actions.ShowHideMapillaryAction;//' src/net/osmand/plus/quickaction/QuickActionRegistry.java
+      - sed -i 's/allTypes.add(ShowHideMapillaryAction.TYPE);//' src/net/osmand/plus/quickaction/QuickActionRegistry.java
     scanignore:
       - help/website/fonts/*.woff
       - help/website/fonts/*.eot
