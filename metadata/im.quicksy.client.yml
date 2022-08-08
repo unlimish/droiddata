@@ -586,7 +586,21 @@ Builds:
         '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
     ndk: r21e
 
+  - versionName: 2.10.8+free
+    versionCode: 42034
+    commit: b6ce914f6209fc3a2195d75283fee5234c0d1c69
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - quicksyFree
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'ch.threema:webrtc-android:100.0.0'" -e '/splits/,+5d'
+        -e '/Variants.all/,+10d' build.gradle
+    ndk: r21e
+
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 2.10.2.1+fcr
-CurrentVersionCode: 42024
+CurrentVersion: 2.10.8+free
+CurrentVersionCode: 42034
