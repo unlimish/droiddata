@@ -1358,7 +1358,29 @@ Builds:
       - ./ndk-make.sh
     ndk: r20b
 
-AutoUpdateMode: None
+  - versionName: 1.32.0
+    versionCode: 635
+    commit: ee5e7a0dfb1f9719cdd1294a446d4b9adcc76ade
+    timeout: 20000
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fat
+    srclibs:
+      - rustup@1.25.1
+    prebuild: sed -i -e '/applicationIdSuffix/d' build.gradle
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - scripts/install-toolchains.sh
+      - export PATH=$PATH:$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/
+      - ANDROID_NDK_ROOT=$$NDK$$ ./ndk-make.sh
+    ndk: r23c
+
+AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9]+\.[0-9]+\.[0-9]+$
 CurrentVersion: 1.32.0
 CurrentVersionCode: 635
