@@ -837,7 +837,7 @@ Builds:
       - echo '# MapLibre'
       - sed -i -e '/applicationIdSuffix/d' -e '/^repositories {/a mavenLocal()' build.gradle
       - sed -i -e 's/org.maplibre.gl/org.fdroid/' build.gradle $$maplibre-gl-native$$/platform/android/gradle/artifact-settings.gradle
-      - cd $$maplibre-gl-native$$/platform/android/MapboxGLAndroidSDK
+      - pushd $$maplibre-gl-native$$/platform/android/MapboxGLAndroidSDK
       - sed -i -e '/signing {/,/}/d' -e '/signing/d' ../gradle/gradle-publish.gradle
       - sed -i -e '/gmsLocation/d' build.gradle
       - cd src/main/java/com/mapbox/mapboxsdk/location/engine
@@ -846,6 +846,7 @@ Builds:
       - rm GoogleLocationEngineImpl.java
       - sed -i -e '/private.*extractGooglePlayResult/,/^  }/d' -e '/extractGooglePlayResult/d'
         -e '/import.*gms/d' LocationEngineResult.java
+      - popd
       - echo '# Other cleanups'
       - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
       - sed -i -e 's/enable true/enable false/g' build.gradle
