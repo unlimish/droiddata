@@ -823,6 +823,8 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless libopus0
       - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - sysctl -p || true
     patch:
       - build_gradle_remove_jitsi_repo_40104160.patch
     gradle:
