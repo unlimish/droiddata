@@ -816,6 +816,8 @@ Builds:
     commit: v1.4.32
     subdir: vector
     sudo:
+      - cd /opt/android-sdk/ndk
+      - rm -fr $(ls | sed 's/21.1.6352462//')
       - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
       - echo "e40c6f81bfd078976d85296b5e657be19e06862497741ad82902d0704b34bb1b node.tar.xz"
         | sha256sum -c -
