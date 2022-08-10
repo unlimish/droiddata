@@ -26,7 +26,17 @@ Builds:
     gradle:
       - prod
 
+  - versionName: '1.1'
+    versionCode: 1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - prod
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.0'
+CurrentVersion: '1.1'
 CurrentVersionCode: 1
