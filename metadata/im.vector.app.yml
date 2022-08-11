@@ -827,7 +827,6 @@ Builds:
         libopus0
       - update-alternatives --auto java
       - sysctl fs.inotify.max_user_watches=524288 || true
-      - sysctl -p || true
     patch:
       - build_gradle_remove_jitsi_repo_40104160.patch
     gradle:
@@ -836,7 +835,6 @@ Builds:
       - jitsi-meet@android-sdk-5.0.2
       - maplibre-gl-native@android-v9.5.2
     prebuild:
-      - echo '# MapLibre'
       - sed -i -e '/applicationIdSuffix/d' -e '/^repositories {/a mavenLocal()' build.gradle
       - sed -i -e 's/org.maplibre.gl/org.fdroid/' build.gradle $$maplibre-gl-native$$/platform/android/gradle/artifact-settings.gradle
       - pushd $$maplibre-gl-native$$/platform/android/MapboxGLAndroidSDK
@@ -849,19 +847,16 @@ Builds:
       - sed -i -e '/private.*extractGooglePlayResult/,/^  }/d' -e '/extractGooglePlayResult/d'
         -e '/import.*gms/d' LocationEngineResult.java
       - popd
-      - echo '# Other cleanups'
       - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
       - sed -i -e 's/enable true/enable false/g' build.gradle
       - sed -i -e '/repositories {/a\        mavenLocal()' ../build.gradle
       - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
     build:
-      - echo '# MapLibre'
       - pushd $$maplibre-gl-native$$/platform/android
       - git submodule update --init --recursive
       - BUILDTYPE=Release make apackage
       - gradle -Pmapbox.abis=all -PVERSION_NAME=9.5.2 :MapboxGLAndroidSDK:publishToMavenLocal
       - popd
-      - echo '# Jitsi Meet'
       - cd $$jitsi-meet$$
       - export LIBRE_BUILD=true
       - npm install --save false webpack-bundle-analyzer
