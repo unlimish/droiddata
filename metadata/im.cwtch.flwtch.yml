@@ -38,6 +38,8 @@ Builds:
     prebuild:
       - sed -i -e '/InvalidPackage/aabortOnError false' android/app/build.gradle
       - sed -i -e 's/3.5.4/4.0.1/' android/build.gradle
+      - echo `git describe --tags --abbrev=1` > VERSION
+      - echo `date +%G-%m-%d-%H-%M` > BUILDDATE
       - pushd $$tor-android$$
       - sed -i -e  "/$1 = 'debug/,+4d" tor-droid-make.sh
       - ./tor-droid-make.sh fetch
@@ -75,7 +77,8 @@ Builds:
       - mv $$libcwtch-go$$/cwtch.aar android/cwtch/
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
-      - $$flutter$$/bin/flutter build apk
+      - $$flutter$$/bin/flutter build apk --dart-define BUILD_VER=`cat VERSION` --dart-define
+        BUILD_DATE=`cat BUILDDATE`
     ndk: r21e
 
 AutoUpdateMode: Version
