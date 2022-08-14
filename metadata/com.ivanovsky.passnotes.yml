@@ -1,0 +1,29 @@
+Categories:
+  - Security
+License: Apache-2.0
+AuthorName: Aleksey Ivanovsky
+AuthorEmail: alexei.ivanovski@gmail.com
+SourceCode: https://github.com/aivanovski/kpassnotes.git
+IssueTracker: https://github.com/aivanovski/kpassnotes.git/issues
+
+AutoName: KPassNotes
+
+RepoType: git
+Repo: https://github.com/aivanovski/kpassnotes.git
+
+Builds:
+  - versionName: 0.17.0
+    versionCode: 1700
+    commit: 0089c30265200c5fa3b807090e773c8983fe1067
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - libre
+
+AutoUpdateMode: None
+UpdateCheckMode: Tags
+CurrentVersion: 0.17.0
+CurrentVersionCode: 1700
