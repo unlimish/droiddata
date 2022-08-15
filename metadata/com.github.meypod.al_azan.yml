@@ -17,7 +17,6 @@ Builds:
     commit: v1.0.1
     subdir: android/app
     sudo:
-      - echo $PWD
       - sysctl fs.inotify.max_user_watches=524288
       - echo "running steps needed for installing SDK +31:"
       - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
@@ -42,8 +41,8 @@ Builds:
       - apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
-    init: 
-      - echo $PWD
+    init:
+      - ls -la
       - yarn install --frozen-lockfile
       - sed "s/<TRANSLATION_IO_APIKEY>//" lingui.config.js.example > lingui.config.js
       - yarn compile_lang
