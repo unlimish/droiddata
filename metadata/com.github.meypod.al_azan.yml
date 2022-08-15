@@ -18,12 +18,6 @@ Builds:
     subdir: android/app
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
-      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.16.0/node-v16.16.0-linux-x64.tar.xz
-      - echo "edcb6e9bb049ae365611aa209fc03c4bfc7e0295dbcc5b2f1e710ac70384a8ec node.tar.xz"
-        | sha256sum -c -
-      - tar xJf node.tar.xz
-      - cp -a node-v16.16.0-linux-x64/. /usr/local/
-      - npm -g install yarn
       - echo "running steps needed for installing SDK +31:"
       - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
       - echo "124f2d5115eee365df6cf3228ffbca6fc3911d16f8025bebd5b1c6e2fcfa7faf /tmp/cmdline-tools.zip"  |
@@ -35,7 +29,14 @@ Builds:
         || true
       - export PATH=${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${PATH}
       - yes | sdkmanager --licenses
-      - echo "letting gradle to download needed SDK versions"
+      - echo "letting gradle to download needed SDK versions later"
+      - echo "installing node"
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.16.0/node-v16.16.0-linux-x64.tar.xz
+      - echo "edcb6e9bb049ae365611aa209fc03c4bfc7e0295dbcc5b2f1e710ac70384a8ec node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v16.16.0-linux-x64/. /usr/local/
+      - npm -g install yarn
     init: 
 
       - yarn install --frozen-lockfile
