@@ -147,7 +147,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.4.2
+    versionCode: 118
+    commit: 2b9318611639f1b2906bd3a911b27219819ea92a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.4.3
+    versionCode: 119
+    commit: 444a0ce06d7e8379d7977c0ddbac38a65ed0b414
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.4.1
-CurrentVersionCode: 117
+CurrentVersion: 2.4.3
+CurrentVersionCode: 119
