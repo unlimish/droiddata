@@ -15,11 +15,19 @@ Builds:
     commit: 4d61812d4218ca6f761d32f4f3ea7d5ae565afd1
     subdir: android/app
     sudo:
-      - apt-get update
+      - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
       - yes
+    srclibs:
+      - rustup@1.25.1
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup target add x86_64-linux-android
+      - rustup target add aarch64-linux-android
+
     ndk: 21.4.7075529
 
 AutoUpdateMode: None
