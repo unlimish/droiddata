@@ -42,9 +42,8 @@ Builds:
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     init:
-      - ls -la
       - yarn install --frozen-lockfile
-      - sed "s/<TRANSLATION_IO_APIKEY>//" ../../lingui.config.js.example > /..../lingui.config.js
+      - sed "s/<TRANSLATION_IO_APIKEY>//" ../../lingui.config.js.example > ../../lingui.config.js
       - yarn compile_lang
     gradle:
       - yes
