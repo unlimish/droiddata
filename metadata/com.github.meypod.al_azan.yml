@@ -45,30 +45,40 @@ Builds:
       - cd ../../
       - yarn install --frozen-lockfile
       - sed "s/<TRANSLATION_IO_APIKEY>//" lingui.config.js.example > lingui.config.js
-      - ls -la
       - npx lingui compile
       - cd android/app
     gradle:
       - yes
     scanignore:
+      - android/app/build.gradle
       - android/build.gradle
+      - android/sdk/build.gradle
       - node_modules/jsc-android
-      - node_modules/react-native/android/com/facebook/react/react-native/*/
+      - node_modules/react-native/android
+      - node_modules/react-native/ReactAndroid/build.gradle
+      - node_modules/react-native-mmkv/android/build.gradle
       - node_modules/react-native-safe-area-context/android/build.gradle
       - node_modules/react-native-screens/android/build.gradle
+      - node_modules/react-native-svg/android/build.gradle
+      - node_modules/@react-native-masked-view/masked-view/android/build.gradle
+      - node_modules/@callstack/repack/android/build.gradle
+      - node_modules/@notifee/react-native/android/build.gradle
+      - node_modules/react-native-get-location/android/build.gradle
     scandelete:
       - node_modules/
     ndk: 21.4.7075529
 
 MaintainerNotes: |-
     scanignore is used to allow the "node_modules/react-native/android" local Maven repository.
+    
 
     Summary and Description are maintained by upstream using fastlane in
     the source repo:
     https://f-droid.org/docs/All_About_Descriptions_Graphics_and_Screenshots
 
-    this template has been copied over and edited from:
+    this template has been copied over and edited from these:
     https://gitlab.com/tasn/fdroiddata/-/blob/etesync-notes/metadata/com.etesync.notes.yml
+    https://gitlab.com/fdroid/fdroiddata/blob/master/metadata/org.jitsi.meet.yml
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
