@@ -7,7 +7,10 @@ WebSite: https://github.com/FFDA/SourCherry
 SourceCode: https://github.com/FFDA/SourCherry
 IssueTracker: https://github.com/FFDA/SourCherry/issues
 Changelog: https://github.com/FFDA/SourCherry/releases
-Summary: App to open CherryTree databases
+
+Autoname: SourCherry
+Description: |
+    App to open CherryTree databases
 
 RepoType: git
 Repo: https://github.com/FFDA/SourCherry.git
@@ -17,6 +20,10 @@ Builds:
     versionCode: 5
     commit: v1.0.0
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
 
