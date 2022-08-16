@@ -17,8 +17,12 @@ Repo: https://github.com/FFDA/SourCherry.git
 Builds:
   - versionName: 1.0.0
     versionCode: 5
-    commit: daa4dc519fb6dbadf6bc07d058c0f39a17e1a50b
+    commit: v1.0.0
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - yes
 
