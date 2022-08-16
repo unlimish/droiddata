@@ -14,6 +14,10 @@ Builds:
     versionCode: 100
     commit: 4d61812d4218ca6f761d32f4f3ea7d5ae565afd1
     subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
