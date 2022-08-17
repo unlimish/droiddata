@@ -1,0 +1,28 @@
+Categories:
+  - Internet
+License: GPL-3.0-only
+AuthorEmail: help@mysterium.network
+AuthorWebSite: https://www.mysterium.network
+WebSite: https://www.mysteriumvpn.com
+SourceCode: https://github.com/mysteriumnetwork/mysterium-vpn-mobile
+IssueTracker: https://github.com/mysteriumnetwork/mysterium-vpn-mobile/issues
+
+AutoName: MysteriumVPN
+
+RepoType: git
+Repo: https://github.com/mysteriumnetwork/mysterium-vpn-mobile.git
+
+Builds:
+  - versionName: '2.0.33'
+    versionCode: 107157
+    commit: f3af8e362e660e5c70a5ea438ae71564d11df903
+    subdir: android/app
+    gradle:
+      - crypto
+    prebuild: sed -i -e '/splits {/,+7d' build.gradle
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: android/build.gradle|versionCode = (.*)|.|versionName = (.*)
+CurrentVersion: '2.0.33'
+CurrentVersionCode: 107157
