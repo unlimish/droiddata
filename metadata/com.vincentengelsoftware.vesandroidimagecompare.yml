@@ -16,13 +16,14 @@ Builds:
     versionCode: 3
     commit: 966e17dc3b3e12a3c70de0c49074f4c99d63651b
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
-    sudo:
-    - apt-get update || apt-get update
-    - apt-get install -y openjdk-11-jdk-headless
-    - update-alternatives --auto java
 
 AutoUpdateMode: None
+UpdateCheckMode: None
 CurrentVersion: '1.1'
 CurrentVersionCode: 3
