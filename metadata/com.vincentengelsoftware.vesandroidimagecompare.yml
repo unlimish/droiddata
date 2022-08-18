@@ -1,7 +1,7 @@
 Categories:
   - Graphics
   - Multimedia
-License: GPL-3.0
+License: GPL-3.0-or-later
 AuthorName: Vincent Engel
 SourceCode: https://github.com/VincentEngel/VES-Image-Compare
 IssueTracker: https://github.com/VincentEngel/VES-Image-Compare/issues
@@ -18,6 +18,10 @@ Builds:
     subdir: app
     gradle:
       - yes
+    sudo:
+    - apt-get update || apt-get update
+    - apt-get install -y openjdk-11-jdk-headless
+    - update-alternatives --auto java
 
 AutoUpdateMode: None
 CurrentVersion: '1.1'
