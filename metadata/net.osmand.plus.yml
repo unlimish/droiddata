@@ -1,8 +1,8 @@
 AntiFeatures:
   - NonFreeAssets
   - NonFreeNet
-  - NonFreeAdd
   - UpstreamNonFree
+  - Tracking
 Categories:
   - Navigation
 License: GPL-3.0-only
@@ -4866,58 +4866,49 @@ Builds:
       - cp $$icu50-2-1-patched$$/icu4j/icu4j.jar ../OsmAnd-java/libs/
     ndk: r23c
 
+  - versionName: 4.2.7
+    versionCode: 4207
+    commit: v4.2.7
+    subdir: android/OsmAnd
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install --yes swig openjdk-11-jdk-headless g++ clang
+      - update-alternatives --auto java
+      - curl -Lo cmake.tar.gz https://github.com/Kitware/CMake/releases/download/v3.21.2/cmake-3.21.2-linux-x86_64.tar.gz
+      - echo "d5517d949eaa8f10a149ca250e811e1473ee3f6f10935f1f69596a1e184eafc1 cmake.tar.gz"
+        | sha256sum -c -
+      - tar xzf cmake.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - android
+      - full
+      - opengl
+      - fat
+    srclibs:
+      - skia@android/11-release
+    rm:
+      - android/OsmAnd-java/libs/*.jar
+      - android/OsmAnd/libs/*.jar
+      - android/OsmAnd-telegram/
+      - help/website/images/features.zip
+      - resources/icons/tools/SVGtoXML/vd-tool
+    prebuild: ../../prebuild.sh $$VERSION$$ $$VERCODE$$ $$skia$$
+    scanignore:
+      - help/website/fonts/*.woff
+      - help/website/fonts/*.eot
+      - help/website/fonts/*.ttf
+      - resources/voice/tr/voice/*.ogg
+      - icu-release-50-2-1-patched-mirror/icu4j/main/shared/data/icudata.jar
+      - icu-release-50-2-1-patched-mirror/icu4j/main/shared/data/icutzdata.jar
+    scandelete:
+      - resources/test-resources
+    build: ../../build.sh
+    ndk: r23c
+
 MaintainerNotes: |-
     Update CV only after sucessfully built and tested.
 
-    Initial build commands builds the OsmAnd core java interface.
-    Standard build downloads prebuilt jar file.  We build the required
-    jar file in OsmAnd-core/wrappers/android, with some sed commands to
-    avoid building full core (only legacy jar needed).  E.g. avoid Qt
-    files being built. Jar file extracted from
-    build/outputs/aar/OsmAndCore_android-release.aar copied to
-    android/OsmAnd submodule as libs/classes.jar.
-
-    In the prebuild, the first sed commands prevent gradle downloading
-    prebuilt binaries. Also, remove osmand ivy repository and huwei maven.
-
-    Other prebuilt jar files are distributed. The rm= command removes
-    these, and replacements from Maven.  This is what the sed commands
-    replacing "compile fileTree" sections are doing.
-
-    Replacements where versions did not match:
-        gnu-trove-osmand.jar replaced with net.sf.trove4j:trove4j:3.0.3
-
-    icu4j-49_1_patched.jar was replaced with the icu50-2-1 srclib, a
-    mirror of the nearest icu version available, plus the patch applied
-    (http://bugs.icu-project.org/trac/ticket/12021). The build process
-    compiles this and removes a bunch of unwanted data files.
-
-    In core-legacy/externals source tarballs gotten from external
-    sources.  Add checksum verification. As part of this, skia has been
-    made a srclib.  Adjust the build script here to avoid build deleting
-    srclib skia.
-
-    Also in prebuild, delete com.google.android.play dependency and
-    replace RateUsHelper (which used it) with a stub. Delete the Android
-    billing dependency and replace InAppPurchaseHelperImpl with stubs.
-    Delete BillingManager and InAppPurchasesImpl as they were only used
-    by InAppPurchaseHelperImpl.
-
-    Removes purchases_settings from the settings screen as stubs crash
-    if actually used. MainSettingFragment updated to avoid the removed
-    setting. Similarly, remove of addRestorePurchasesRow prevents the
-    restore purchases option on the downloads page. Adjust lines in
-    InAppPurchaseHelper.java to avoid subscriptions on startup.
-
-    OsmAnd have custom MPAndroidChart, added as a srclib. Use the head
-    of customize_chart branch. This has a compilation error about SDK 28
-    being targetted but not supported. Set checkReleaseBuilds to false
-    in lintOptions and delete unused example directory.
-
-    Remove google-based location helper and replace with the
-    standard Android API throughout. Hide the settings options.
-
-    Add MANAGE_EXTERNAL_STORAGE permission to enable storage on external SD cards. See #2691.
+    See comments in ./prebuild.sh and ./build.sh for detailed build notes.
 
 AutoUpdateMode: None
 UpdateCheckMode: None
