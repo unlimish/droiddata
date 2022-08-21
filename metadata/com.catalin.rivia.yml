@@ -1,0 +1,28 @@
+Categories:
+  - Security
+License: MIT
+AuthorName: Emir Zakrewski
+SourceCode: https://github.com/loooltooot/rivia
+IssueTracker: https://github.com/loooltooot/rivia/issues
+
+AutoName: Rivia
+Description: Rivia encryption is the tool for people who love security or old films
+    about James Bond
+
+RepoType: git
+Repo: https://github.com/loooltooot/rivia
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    commit: bbd311acf80d8b4ce2f7673c4007c9d9128cc8ad
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: None
+UpdateCheckMode: Tags
