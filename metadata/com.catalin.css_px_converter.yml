@@ -1,0 +1,28 @@
+Categories:
+  - Development
+License: MIT
+AuthorName: Emir Zakrewski
+SourceCode: https://github.com/loooltooot/css-px-converter
+IssueTracker: https://github.com/loooltooot/css-px-converter/issues
+
+AutoName: PX:VW
+Description: This is tool for WEB developers, that can convert static units to the
+    adaptive units - vw and vh
+
+RepoType: git
+Repo: https://github.com/loooltooot/css-px-converter
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 1
+    commit: 0c30a55321de1504b8b9e3fff05d606481e6ed33
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: None
+UpdateCheckMode: Tags
