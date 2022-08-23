@@ -507,6 +507,8 @@ Builds:
       - apt-get install -y openjdk-11-jdk-headless gradle/bullseye
       - update-alternatives --auto java
     init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s $(which gradle) /home/vagrant/fdroidserver/gradlew-fdroid
       - cd ../..
       - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
       - mkdir de.schildbach.oeffi
@@ -515,7 +517,6 @@ Builds:
       - cd de.schildbach.oeffi/oeffi
     gradle:
       - aosp
-    prebuild: ln -s $(which gradle) ./gradlew
 
 AutoUpdateMode: None
 UpdateCheckMode: None
