@@ -504,7 +504,8 @@ Builds:
       - dpkg-reconfigure -f noninteractive tzdata
       - apt policy gradle
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk-headless gradle/testing
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get -o Debug::pkgProblemResolver=yes install -y gradle/testing
       - update-alternatives --auto java
     init:
       - cd ../..
