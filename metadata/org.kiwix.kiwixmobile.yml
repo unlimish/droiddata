@@ -221,6 +221,24 @@ Builds:
     gradleprops:
       - disableSigning
 
+  - versionName: 3.6.0
+    versionCode: 7230600
+    commit: f7196018675ca3dbae5470e2ca4b6a9b56edc670
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/release/dev-universal-release-unsigned.apk
+    prebuild: sed -i -e '/disableSigning/a \ \ \ \ \ \ \ \ signingConfig = null' build.gradle.kts
+    scandelete:
+      - contrib/move-string-resource
+    ndk: r21e
+    gradleprops:
+      - disableSigning
+
 MaintainerNotes: |-
     For 2.2 and older repo: https://github.com/kiwix/kiwix-xulrunner
     Don't run `make android-deps` as that will download the SDK and NDK.
@@ -228,6 +246,6 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-UpdateCheckData: https://download.kiwix.org/release/kiwix-android/VERSION_INFO|\s([0-9]*)||
-CurrentVersion: 3.5.0
-CurrentVersionCode: 7230500
+UpdateCheckData: VERSION_INFO|\n([0-9]*)|.|(.*)
+CurrentVersion: 3.6.0
+CurrentVersionCode: 7230600

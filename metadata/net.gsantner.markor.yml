@@ -716,7 +716,25 @@ Builds:
     gradle:
       - FlavorDefault
 
+  - versionName: 2.10.1
+    versionCode: 134
+    commit: 11f5c746b9fe929b28c214c0ec7d10af276cb13a
+    subdir: app
+    gradle:
+      - FlavorDefault
+
+  - versionName: 2.10.2
+    versionCode: 138
+    commit: 5dbdfcbf1e80f7f168c6356da778a494128498e2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - FlavorDefault
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.10.0
-CurrentVersionCode: 133
+CurrentVersion: 2.10.2
+CurrentVersionCode: 138

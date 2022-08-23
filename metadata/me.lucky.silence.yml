@@ -8,6 +8,8 @@ SourceCode: https://github.com/x13a/Silence
 IssueTracker: https://github.com/x13a/Silence/issues
 Translation: https://hosted.weblate.org/engage/me-lucky-silence/
 Changelog: https://github.com/x13a/Silence/releases
+Donate: https://x13a.github.io/donate/
+Bitcoin: bc1qa5n9vmkmgss7s3u3svgue2kjpk7g4kpaa7nrpt
 
 AutoName: Silence
 
@@ -352,7 +354,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.11.4
+    versionCode: 48
+    commit: 284e60e11ae3d179a6dc143ef09611a9793183a7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.11.5
+    versionCode: 49
+    commit: 0ec2b94b7660666dd05332a4c5674e2543c16267
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.11.3
-CurrentVersionCode: 47
+CurrentVersion: 1.11.5
+CurrentVersionCode: 49

@@ -6,6 +6,10 @@ AuthorEmail: 44uaanjm0@relay.firefox.com
 AuthorWebSite: https://github.com/x13a
 SourceCode: https://github.com/x13a/Duress
 IssueTracker: https://github.com/x13a/Duress/issues
+Translation: https://crwd.in/me-lucky-duress
+Changelog: https://github.com/x13a/Duress/releases
+Donate: https://x13a.github.io/donate/
+Bitcoin: bc1qa5n9vmkmgss7s3u3svgue2kjpk7g4kpaa7nrpt
 
 AutoName: Duress
 
@@ -79,7 +83,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.0.8
+    versionCode: 9
+    commit: 5690004c695e99f260a9d300c117350860e464af
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.9
+    versionCode: 10
+    commit: 607b3e75c71d554d49066d0b183c0ccd63bbf375
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.7
-CurrentVersionCode: 8
+CurrentVersion: 1.0.9
+CurrentVersionCode: 10

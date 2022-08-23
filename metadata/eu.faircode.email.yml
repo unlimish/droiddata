@@ -4676,8 +4676,130 @@ Builds:
       - app/lib
     ndk: r23c
 
+  - versionName: '1.1946'
+    versionCode: 1946
+    commit: 9aba3e805ce7f67a2185a27698709440c90502d0
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r23c
+
+  - versionName: '1.1947'
+    versionCode: 1947
+    commit: 62e4d15ad597efb154768baaf4a51fb814c2519f
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+    scandelete:
+      - app/lib
+    ndk: r23c
+
+  - versionName: '1.1951'
+    versionCode: 1951
+    commit: 7cc996ae58e146b240a2fc7baeb30c64e052b004
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+    scandelete:
+      - app/lib
+    ndk: r25
+
+  - versionName: '1.1952'
+    versionCode: 1952
+    commit: 06700fd3ff1b94555130f26d5dcaa3ed04255ef1
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+    scandelete:
+      - app/lib
+    ndk: r25
+
+  - versionName: '1.1954'
+    versionCode: 1954
+    commit: bb02347e8661081efe6404fd2a6dbbb3c80fbe03
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+    scandelete:
+      - app/lib
+    ndk: r25
+
+  - versionName: '1.1955'
+    versionCode: 1955
+    commit: 5c82673ee1ca81ad5a7135a20dbddaa8064ecf17
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+    scandelete:
+      - app/lib
+    ndk: r25
+
+  - versionName: '1.1956'
+    versionCode: 1956
+    commit: 3335498b61347a6950c184bfedc15aee69a95613
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/keystoreProperties/d' -e '/in-app-purchasing/d' build.gradle
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+    scandelete:
+      - app/lib
+    ndk: r25
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: app/build.gradle|getVersionCode.*return (\d+)||
-CurrentVersion: '1.1945'
-CurrentVersionCode: 1945
+CurrentVersion: '1.1956'
+CurrentVersionCode: 1956

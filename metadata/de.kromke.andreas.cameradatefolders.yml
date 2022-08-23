@@ -2,9 +2,10 @@ Categories:
   - Multimedia
 License: GPL-3.0-only
 AuthorName: Andreas Kromke
+AuthorEmail: Andreas.Krom.ke+Support@gmail.com
 SourceCode: https://gitlab.com/AndreasK/camera-date-folders
 IssueTracker: https://gitlab.com/AndreasK/camera-date-folders/issues
-Changelog: https://gitlab.com/AndreasK/camera-date-folders/blob/HEAD/app/src/main/assets/version-history.txt
+Changelog: https://gitlab.com/AndreasK/camera-date-folders/-/releases
 
 AutoName: Camera Date Folders
 
@@ -23,7 +24,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.1'
+    versionCode: 2
+    commit: 0a7a434a845e5cbfe812687b16dabfc5d8584f3a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.1
+    versionCode: 3
+    commit: 0baee8e3ccc55a2d46e21fdf9ad5bdad99b543c4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.0'
-CurrentVersionCode: 1
+CurrentVersion: 1.1.1
+CurrentVersionCode: 3

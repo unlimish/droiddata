@@ -3,14 +3,14 @@ Categories:
 License: GPL-3.0-or-later
 AuthorName: Daniel Kao
 AuthorEmail: daniel.kao@gmail.com
-SourceCode: https://github.com/plateaukao/browser
-IssueTracker: https://github.com/plateaukao/browser/issues
-Changelog: https://github.com/plateaukao/browser/blob/main/CHANGELOG.md
+SourceCode: https://github.com/plateaukao/einkbro
+IssueTracker: https://github.com/plateaukao/einkbro/issues
+Changelog: https://github.com/plateaukao/einkbro/blob/main/CHANGELOG.md
 
 AutoName: EinkBro
 
 RepoType: git
-Repo: https://github.com/plateaukao/browser
+Repo: https://github.com/plateaukao/einkbro
 
 Builds:
   - versionName: 8.6.3
@@ -526,7 +526,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 9.5.0
+    versionCode: 90500
+    commit: d0aa20b4a9741904a923313dd1cc5aa05c4ecb86
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 9.6.0
+    versionCode: 90600
+    commit: 561136f0ea9adb074ad6f6dbf658aa5e98097f84
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 9.4.1
-CurrentVersionCode: 90401
+CurrentVersion: 9.6.0
+CurrentVersionCode: 90600

@@ -28,17 +28,11 @@ variables:
   - export PYTHONPATH="$fdroidserver:$fdroidserver/examples"
   - export PYTHONUNBUFFERED=true
 
-.install_sdkmanager: &install_sdkmanager
-  - curl -Lo /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_CMDLINE_TOOLS}_latest.zip"
-  - echo "${ANDROID_CMDLINE_TOOLS_SHA256} /tmp/cmdline-tools.zip" | sha256sum -c -
-  - unzip -q -o /tmp/cmdline-tools.zip -d /tmp/cmdline-tools
-  - mkdir -p ${ANDROID_HOME}/cmdline-tools/tools
-  - mv /tmp/cmdline-tools/cmdline-tools/* ${ANDROID_HOME}/cmdline-tools/tools
-    || true
-  - export PATH=${ANDROID_HOME}/cmdline-tools/tools/bin:${PATH}
-  - set +o pipefail
-  - yes | sdkmanager --licenses > /dev/null
-  - set -o pipefail
+.install_fdroid_server_deb: &install_fdroid_server_deb
+  - apt-get --allow-releaseinfo-change update
+  - apt-get -qy dist-upgrade
+  - echo "locales locales/locales_to_be_generated multiselect en_US.UTF-8 UTF-8" | debconf-set-selections
+  - apt-get install -qy --no-install-recommends fdroidserver apksigner mercurial git git-svn brz locales
 
 .get_target_source_refs: &get_target_source_refs
   - |
@@ -48,7 +42,7 @@ variables:
     else
         git remote add upstream https://gitlab.com/fdroid/fdroiddata.git || true
         git fetch upstream ${CI_DEFAULT_BRANCH}
-        export TARGET_REF=$(git merge-base --fork-point upstream/${CI_DEFAULT_BRANCH})
+        export TARGET_REF=$(git merge-base HEAD upstream/${CI_DEFAULT_BRANCH})
         export SOURCE_REF="${CI_COMMIT_SHA}"
     fi;
 
@@ -65,7 +59,7 @@ variables:
         export CHANGED="$CHANGED $appid"
     done
 
-.app_verification_rules: 
+.app_verification_rules:
   rules: &app_verification_rules
     - if: $CI_PIPELINE_SOURCE == "pipeline" || $CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "trigger"
       when: never
@@ -78,16 +72,13 @@ variables:
 checkupdates:
   stage: test
   needs: []
-  image: registry.gitlab.com/fdroid/ci-images-checkupdates:latest
+  image: debian:bullseye-slim
   rules: *app_verification_rules
   before_script:
-    - |
-      set -xe
-      apt-get --allow-releaseinfo-change update
-      apt-get -qy dist-upgrade
+    - *install_fdroid_server_deb
     - export fdroidserver=../fdroidserver
     - *install_fdroid_server
-  script: 
+  script:
     - |
       set -xe
       if [ "$CI_PROJECT_NAMESPACE" = "fdroid" ]; then echo "not testing in fdroid"; exit 0; fi
@@ -208,16 +199,17 @@ schedule-issuebot:
 
 checkupdates_runner:
   stage: prepare
-  image: registry.gitlab.com/fdroid/ci-images-checkupdates:latest
-  variables: 
+  image: debian:bullseye-slim
+  variables:
     GIT_DEPTH: "1"
-  parallel: 15
+  parallel: 10
   tags:
     - checkupdates-runner
   rules:
     - if: $CI_PIPELINE_SOURCE == 'schedule' && $CHECKUPDATES == 'true'
   before_script:
-    - export fdroidserver=$PWD/fdroidserver
+    - *install_fdroid_server_deb
+    - export fdroidserver=../fdroidserver
     - *install_fdroid_server
     - git config --global user.email "fdroidci@bubu1.eu"
     - git config --global user.name "F-Droid checkupdates bot"
@@ -232,34 +224,49 @@ checkupdates_runner:
     # reset repo to origin state before adding new commits
     - git rebase --abort || true
     - rm -fr ".git/rebase-apply"
+    # https://gitlab.com/gitlab-org/gitlab-runner/-/issues/29187
+    - rm -f ".git/logs/HEAD.lock"
     - git checkout master || true
     - git reset --hard origin/master || true
   script:
     # Get app IDs in this batch
     - |
-      metadata_files=$( ls metadata/*.yml | sort -R )
-      declare -a APPIDS
-      for file in ${metadata_files}
-      do
+      metadata_files=(metadata/*.yml)
+      metadata_files_count=${#metadata_files[@]}
+      batch_size=$((metadata_files_count / CI_NODE_TOTAL + 1))
+      metadata_files_batch=("${metadata_files[@]:$(((CI_NODE_INDEX - 1) * batch_size)):$batch_size}")
+
+      declare -a CHECKUPDATES_APPIDS
+      for file in "${metadata_files_batch[@]}"; do
         filename="${file##*/}"
         filename_without_extension="${filename%.*}"
-        APPIDS=("${APPIDS[@]}" "$filename_without_extension")
+        CHECKUPDATES_APPIDS=("${CHECKUPDATES_APPIDS[@]}" "$filename_without_extension")
       done
-    - export APPIDS_COUNT=${#APPIDS[@]}
-    - export APPIDS_BATCH_SIZE=$(($APPIDS_COUNT / $CI_NODE_TOTAL + 1))
-    - export CHECKUPDATES_APPIDS=${APPIDS[@]:$((($CI_NODE_INDEX - 1) * $APPIDS_BATCH_SIZE)):$(($CI_NODE_INDEX * $APPIDS_BATCH_SIZE))}
 
-    - echo $APPIDS_COUNT
-    - echo $APPIDS_BATCH_SIZE
-    - echo $CHECKUPDATES_APPIDS
+      export CHECKUPDATES_APPIDS
 
-    - fdroid checkupdates --allow-dirty --auto --commit ${CHECKUPDATES_APPIDS} 2>&1 | tee /tmp/out || true
+    - echo "$metadata_files_count"
+    - echo "$batch_size"
+    - echo "${metadata_files_batch[@]}"
+    - echo "${#metadata_files_batch[@]}"
+    - echo "${CHECKUPDATES_APPIDS[@]}"
+    - echo "${#CHECKUPDATES_APPIDS[@]}"
+
+    - fdroid checkupdates --allow-dirty --auto --commit "${CHECKUPDATES_APPIDS[@]}" 2>&1 | tee /tmp/out || true
     - git pull --rebase origin master
-    # when two jobs try to push at the same time they occasionally fail, so try one more time if it fails
-    - git push origin HEAD:master || (git pull --rebase origin master && git push origin HEAD:master)
+    # when two jobs try to push at the same time they occasionally fail, so try it again
+    - while ! git push origin HEAD:master; do git pull --rebase origin master; done
     - echo "============== Summary ====================="
     - 'grep -v "INFO: Processing" /tmp/out || true'
 
+# This job is should be as close as possible to the production
+# buildserver.  It should not include custom setup or methods, except
+# when there is no other way to make this job work.  The docker image
+# is created using the same provisioning as the producion buildserver,
+# via the "docker" job in fdroid/fdroidserver.
+#
+# This job is tied to the buildserver.  Changes must be reviewed by
+# the buildserver maintainers.
 fdroid build:
   stage: build
   needs: []
@@ -277,11 +284,10 @@ fdroid build:
     key: "$CI_JOB_NAME"
     paths:
       - .gradle
-  variables: 
+  variables:
     ANDROID_HOME: /opt/android-sdk
     ANDROID_SDK_ROOT: ${ANDROID_HOME}
   script:
-    - unset CI
     - test -d build || mkdir build
     - *get_changed_apps
     - test -n "$(printf "$CHANGED" | tr -d '[:space:]')"
@@ -289,12 +295,15 @@ fdroid build:
 
     - apt-get update
     - apt-get dist-upgrade
-    - apt-get clean
 
     - test -n "$fdroidserver" || source /etc/profile.d/bsenv.sh
 
-    - *install_sdkmanager
-
+    # TODO remove sdkmanager install once it is included in the buildserver image
+    - git clone --depth=1 --branch=0.6.1 https://gitlab.com/fdroid/sdkmanager.git
+    - git -C sdkmanager checkout -B master f7e1064a78462a74cfc4ce3b1214c29644e438d7
+    - pip3 install -e sdkmanager
+    - rm -rf $ANDROID_HOME/tools  # TODO remove once sdkmanager can upgrade installed packages
+    # These packages are needed to make this env like the production buildserver.
     - sdkmanager "tools" "platform-tools" "build-tools;31.0.0"
 
     - *install_fdroid_server
@@ -334,7 +343,7 @@ fdroid build:
           chown -R vagrant $home_vagrant;
           $fdroid fetchsrclibs $build --verbose;
           $fdroid build --verbose --test --scan-binary --on-server --no-tarball $build;
-          rm -rf "build/${build%:*}";
+          rm -rf "build/${build%:*}" || true;
           ./tools/build-contains-signatures.py $build || continue;
           apt-get install sudo;
           $fdroid publish --verbose $build;
@@ -428,7 +437,7 @@ sast:
     - fdroid build
   dependencies:
     - fdroid build
-  variables: 
+  variables:
     GIT_DEPTH: "1"
 
     MOBSF_API_KEY: key

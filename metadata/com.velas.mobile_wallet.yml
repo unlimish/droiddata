@@ -1,3 +1,5 @@
+AntiFeatures:
+  - NonFreeNet
 Categories:
   - Money
 License: MIT
@@ -59,10 +61,9 @@ Builds:
       - node_modules/
     ndk: r21e
 
-  - versionName: 2.3.3
-    versionCode: 233
-    disable: https://github.com/velas/mobile-wallet/issues/219
-    commit: f013b4734a573008dc4c848abfdc6cbdf3b6a6d0
+  - versionName: 2.3.4
+    versionCode: 234
+    commit: 8d653a1bc6b44e93423d9ad5d4c464edecf4e3c3
     subdir: android/app/
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
@@ -83,6 +84,7 @@ Builds:
       - yes
     prebuild:
       - sed -E -i '/installreferrer/,+11d' ../../node_modules/react-native-device-info/android/build.gradle
+      - sed -i -e '/detox/d' build.gradle
       - yarn install
     scanignore:
       - android/build.gradle
@@ -91,10 +93,18 @@ Builds:
       - node_modules/react-native/android
       - node_modules/native-base/node_modules/react-native-vector-icons/android/build.gradle
       - node_modules/react-native-device-info/android/build.gradle
+      - node_modules/react-native-hide-show-password-input/example/android/build.gradle
       - node_modules/react-native-hide-show-password-input/node_modules/react-native-vector-icons/android/build.gradle
+      - node_modules/react-native-normalize/examples/android/build.gradle
+      - node_modules/react-native-pager-view/android/build.gradle
+      - node_modules/react-native-phone-input/examples/BasicExample/android/build.gradle
+      - node_modules/react-native-phone-input/examples/CustomLibraryPicker/android/build.gradle
+      - node_modules/react-native-phone-input/examples/CustomPicker/android/build.gradle
       - node_modules/react-native-safe-area-context/android/build.gradle
       - node_modules/react-native-screens/android/build.gradle
+      - node_modules/react-native-search-filter/example/android/build.gradle
       - node_modules/react-native-sliding-up-down-panels/android/build.gradle
+      - node_modules/react-native-sliding-up-down-panels/Example/android/build.gradle
       - node_modules/react-native-svg/android/build.gradle
       - node_modules/react-native/template/android/build.gradle
       - node_modules/@react-native-async-storage/async-storage/android/build.gradle
@@ -106,5 +116,5 @@ Builds:
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.3.3
-CurrentVersionCode: 233
+CurrentVersion: 2.3.4
+CurrentVersionCode: 234

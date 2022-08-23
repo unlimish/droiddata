@@ -688,7 +688,40 @@ Builds:
     gradle:
       - foss
 
+  - versionName: 1.4.276.202208090
+    versionCode: 276
+    commit: 85cb8c562b8349eef280cd8544cd7231a0c9ea94
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+
+  - versionName: 1.4.277.202208170
+    versionCode: 277
+    commit: e21b0d845460844ee8b682807d03b0f1898c8247
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+
+  - versionName: 1.4.278.202208200-foss
+    versionCode: 278
+    commit: 441e0fa52595719a11b6ba6c925fbbb82ebb7b09
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.4.275.202207150
-CurrentVersionCode: 275
+CurrentVersion: 1.4.278.202208200-foss
+CurrentVersionCode: 278

@@ -530,7 +530,46 @@ Builds:
     scanignore:
       - app/src/main/assets/device-names.bin
 
+  - versionName: 6.4.1
+    versionCode: 190
+    commit: dd98c929fbe8f868abbb1ca1e69b33cecd3ee4d3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/assets/device-names.bin
+
+  - versionName: 6.5.0
+    versionCode: 191
+    commit: b75e123383bd5e24232d93a4b2afbac2ea05c553
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/assets/device-names.bin
+
+  - versionName: 6.6.0
+    versionCode: 192
+    commit: 4af0cbcec96f2558dbde2d6b7966a0c66972cf29
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/assets/device-names.bin
+
 AutoUpdateMode: Version release-%v
 UpdateCheckMode: Tags
-CurrentVersion: 6.3.1
-CurrentVersionCode: 188
+CurrentVersion: 6.6.0
+CurrentVersionCode: 192

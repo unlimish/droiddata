@@ -437,7 +437,29 @@ Builds:
         .
     ndk: r23b
 
+  - versionName: '1.29'
+    versionCode: 30
+    commit: 4f436703f91df74f0fa3ae0d163dc49adff69a76
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r23c
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.28'
-CurrentVersionCode: 29
+CurrentVersion: '1.29'
+CurrentVersionCode: 30
