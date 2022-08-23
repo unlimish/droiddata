@@ -504,9 +504,7 @@ Builds:
       - dpkg-reconfigure -f noninteractive tzdata
       - echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
       - apt-get update || apt-get update
-      - apt policy gradle
-      - apt-get install -y openjdk-11-jdk-headless
-      - apt-get -o Debug::pkgProblemResolver=yes install -y gradle/bullseye
+      - apt-get install -y openjdk-11-jdk-headless gradle/bullseye
       - update-alternatives --auto java
     init:
       - cd ../..
@@ -515,10 +513,9 @@ Builds:
       - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
         de.schildbach.oeffi
       - cd de.schildbach.oeffi/oeffi
-      - echo -e '#!/bin/sh\ngradle "$@"' > gradlew
-      - chmod +x gradlew
     gradle:
       - aosp
+    prebuild: ln -s $(which gradle) ./gradlew
 
 AutoUpdateMode: None
 UpdateCheckMode: None
