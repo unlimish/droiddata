@@ -502,7 +502,10 @@ Builds:
     sudo:
       - ln -fs /usr/share/zoneinfo/CET /etc/localtime
       - dpkg-reconfigure -f noninteractive tzdata
-      - apt show gradle
+      - apt policy gradle
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless gradle/testing
+      - update-alternatives --auto java
     init:
       - cd ../..
       - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
