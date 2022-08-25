@@ -12,9 +12,9 @@ RepoType: git
 Repo: https://github.com/meypod/al-azan
 
 Builds:
-  - versionName: 1.0.2
-    versionCode: 9
-    commit: v1.0.2
+  - versionName: 1.0.3
+    versionCode: 10
+    commit: v1.0.3
     subdir: android/app
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
@@ -39,11 +39,13 @@ Builds:
       - npm -g install yarn
       - echo "installing jdk 11"
       - apt-get update
-      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y openjdk-11-jdk-headless git
       - update-alternatives --auto java
     init:
       - cd ../../
       - yarn install --frozen-lockfile
+      - chmod +x ./dl_notifee_core.sh
+      - ./dl_notifee_core.sh
       - sed "s/<TRANSLATION_IO_APIKEY>//" lingui.config.js.example > lingui.config.js
       - npx lingui compile
       - cd android/app
@@ -62,6 +64,7 @@ Builds:
       - node_modules/@react-native-masked-view/masked-view/android/build.gradle
       - node_modules/@callstack/repack/android/build.gradle
       - node_modules/@notifee/react-native/android/build.gradle
+      - node_modules/@notifee/core/android/build.gradle
       - node_modules/react-native-get-location/android/build.gradle
       - node_modules/react-native-alarm-module/android/build.gradle
       - node_modules/react-native-blob-util/android/build.gradle
@@ -84,5 +87,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.2
-CurrentVersionCode: 9
+CurrentVersion: 1.0.3
+CurrentVersionCode: 10
