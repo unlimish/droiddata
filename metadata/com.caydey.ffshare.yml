@@ -1,0 +1,29 @@
+Categories:
+  - System
+License: GPL-3.0-only
+WebSite: https://github.com/caydey/ffshare
+SourceCode: https://github.com/caydey/ffshare
+IssueTracker: https://github.com/caydey/ffshare/issues
+
+AutoName: FFShare
+Summary: Compress images and videos through ffmpeg before sharing them
+
+RepoType: git
+Repo: https://github.com/caydey/ffshare.git
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: 3428000c14ea3b5c1e681bd2b5e47b96724eb4e7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: None
+UpdateCheckMode: Tags
+CurrentVersion: '1.0'
+CurrentVersionCode: 1
