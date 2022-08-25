@@ -263,10 +263,9 @@ Builds:
 
   - versionName: 1.6.0
     versionCode: 186
-    disable: webpack fails
-    commit: 0b5dd6d3b723ac4f1d2a8f591af3541d603106b1
+    commit: v1.6.0
     sudo:
-      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl fs.inotify.max_user_watches=524288 || true
       - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.6/node-v14.17.6-linux-x64.tar.xz
       - echo "3bbe4faf356738d88b45be222bf5e858330541ff16bd0d4cfad36540c331461b node.tar.xz"
         | sha256sum -c -
@@ -274,31 +273,24 @@ Builds:
       - npm install -g npm@latest
       - npm install -g cordova yarn
     output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
-    srclibs:
-      - ftp4j@86
+    init:
+      - sed -i -e '/iap/d' package.json src/lib/main.js
+      - sed -i -e '/cordova-plugin-iap/,/},/d' plugins/android.json
+      - sed -i -e '/cordova-plugin-iap/,/^  },/d' plugins/fetch.json
+      - sed -i -e '/Donate/d' src/pages/settings/{mainSettings.js,otherSettings.js}
     rm:
       - test
+      - plugins/cordova-plugin-iap
+      - src/pages/donate
+      - src/plugins/iap
     prebuild:
-      - mkdir -p platforms
+      - sed -i -e 's/acodefree/acode/' utils/config.js
+      - sed -i -e 's/build/prepare/' utils/scripts/build.sh
+      - mv src/components/inputhints.js src/components/inputHints.js
       - npm install
-      - node ./utils/config.js p paid
-      - ./node_modules/.bin/webpack --progress --mode production
       - cordova platform add android
-      - node ./utils/loadStyles.js
-      - sed -i -e '/signingConfig signingConfigs.release/d' -e '/gms/d' -e '/core-google-shortcuts/d'
-        platforms/android/app/build.gradle
-    scandelete:
-      - src/plugins
-      - platforms/android
-      - plugins
-    build:
-      - pushd $$ftp4j$$/tags/1.7.2
-      - sed -i -e 's/else="rv\${revision}"/else="1.7.2"/' build.xml
-      - ant jar
-      - popd
-      - cp $$ftp4j$$/tags/1.7.2/ftp4j-1.7.2.jar platforms/android/app/libs/
-      - cd platforms/android/app
-      - gradle assembleRelease
+      - yarn build android free p
+    build: cordova compile android --release
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
