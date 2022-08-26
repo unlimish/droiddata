@@ -45,6 +45,17 @@ Builds:
     gradle:
       - huskyStable
 
+  - versionName: 1.2.1
+    versionCode: 181
+    commit: 1.2.1
+    subdir: husky/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - huskyStable
+
   - versionName: 1.2.2
     versionCode: 182
     commit: 1.2.2
