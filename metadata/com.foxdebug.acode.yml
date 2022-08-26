@@ -273,23 +273,27 @@ Builds:
       - npm install -g npm@latest
       - npm install -g cordova yarn
     output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
-    init:
-      - sed -i -e '/iap/d' package.json src/lib/main.js
-      - sed -i -e '/cordova-plugin-iap/,/},/d' plugins/android.json
-      - sed -i -e '/cordova-plugin-iap/,/^  },/d' plugins/fetch.json
-      - sed -i -e '/Donate/d' src/pages/settings/{mainSettings.js,otherSettings.js}
     rm:
       - test
       - plugins/cordova-plugin-iap
       - src/pages/donate
       - src/plugins/iap
     prebuild:
+      - sed -i -e '/iap/d' package.json src/lib/main.js
+      - sed -i -e '/cordova-plugin-iap/,/},/d' plugins/android.json
+      - sed -i -e '/cordova-plugin-iap/,/^  },/d' plugins/fetch.json
+      - sed -i -e '/Donate/d' src/pages/settings/{mainSettings.js,otherSettings.js}
       - sed -i -e 's/acodefree/acode/' utils/config.js
       - sed -i -e 's/build/prepare/' utils/scripts/build.sh
       - mv src/components/inputhints.js src/components/inputHints.js
       - npm install
+      - sed -i -e '/core-google-shortcuts/d' src/plugins/system/plugin.xml {node_modules,plugins}/cordova-plugin-system/plugin.xml
       - cordova platform add android
+      - cat platforms/android/app/build.gradle
       - yarn build android free p
+      - $$SDK$$/tools/bin/sdkmanager 'build-tools;31.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
     build: cordova compile android --release
 
 AutoUpdateMode: Version
