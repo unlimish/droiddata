@@ -19,12 +19,16 @@ Builds:
     subdir: app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y -t testing golang-go
+      - curl -Lo go.tar.gz https://go.dev/dl/go1.18.linux-amd64.tar.gz
+      - echo 'e85278e98f57cdb150fe8409e6e5df5343ecb13cebf03a5d5ff12bd55a80264f go.tar.gz'
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
     gradle:
       - yes
     srclibs:
       - CombDownloader@v0.0.10
       - CombFullUI@5b9e42f51faf9f07a97e46a64459f7f4364bbd9a
+    output: CombApp.apk
     prebuild: go get bitbucket.org/watashi564/accelerator/libfile@v0.0.4
         golang.org/x/net/proxy@latest
         github.com/btcsuite/btcd/chaincfg/chainhash@latest
@@ -36,10 +40,12 @@ Builds:
         github.com/syndtr/goleveldb/leveldb/util@latest
     build:
       - pushd combdownloader
+      - go mod init localhost/combdownloader
       - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combdownloader.arm64.bin -trimpath -ldflags=-buildid=
       - mv combdownloader.arm64.bin ../app/src/main/res/raw/libdl_0_0_10_arm64.so
       - popd
       - pushd combfullui
+      - go mod init localhost/combfullui
       - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combfullui.arm64.bin -trimpath -ldflags=-buildid=
       - mv combfullui.arm64.bin ../app/src/main/res/raw/libcore_0_3_4_arm64.so
       - popd
