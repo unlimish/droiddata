@@ -40,7 +40,7 @@ Builds:
       - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combdownloader.arm64.bin -trimpath
         -ldflags=-buildid=
       - popd
-      - mv $$CombDownloader$$/combdownloader.arm64.bin app/src/main/res/raw/libdl_0_0_10_arm64.so
+      - mv $$CombDownloader$$/combdownloader.arm64.bin src/main/res/raw/libdl_0_0_10_arm64.so
       - pushd $$CombFullUI$$
       - go mod init localhost/combfullui
       - go get -u github.com/gorilla/mux@latest
@@ -51,7 +51,7 @@ Builds:
       - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combfullui.arm64.bin -trimpath
         -ldflags=-buildid=
       - popd
-      - mv $$CombFullUI$$/combfullui.arm64.bin app/src/main/res/raw/libcore_0_3_4_arm64.so
+      - mv $$CombFullUI$$/combfullui.arm64.bin src/main/res/raw/libcore_0_3_4_arm64.so
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[\d.]+$
