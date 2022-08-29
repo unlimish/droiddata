@@ -16,7 +16,7 @@ Builds:
     commit: V0.2.1
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y build-essential
+      - apt-get install -y build-essential wget
     output: fdroid-build/android-build/build/outputs/apk/release/android-build-release-unsigned.apk
     build:
       - $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-31"
@@ -37,8 +37,7 @@ Builds:
         -skip qtgamepad -skip qtgraphicaleffects -skip qtmacextras -skip qtmultimedia
         -skip qtnetworkauth -skip qtpurchasing -skip qtquickcontrols -skip qtquickcontrols2
         -skip qtremoteobjects -skip qtscxml -skip qtspeech -skip qtwayland -skip qtwebview
-        -skip qtwinextras -skip qtx11extras -skip qtwebengine > ../../build.log 2>&1
-        || tail -n 200 ../../build.log
+        -skip qtwinextras -skip qtx11extras -skip qtwebengine 
       - make -j$(nproc)
       - make -j$(nproc) install
       - cd ../../
