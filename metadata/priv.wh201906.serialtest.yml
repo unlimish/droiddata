@@ -14,8 +14,8 @@ Builds:
     versionCode: 21
     commit: V0.2.1
     sudo:
-      - apt-get update > /tmp/build.log 2>&1 || tail -n 200 /tmp/build.log
-      - apt-get install -y build-essential > /tmp/build.log 2>&1 || tail -n 200 /tmp/build.log
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential
     gradle:
       - yes
     output: fdroid-build/android-build/build/outputs/apk/release/android-build-release-unsigned.apk
@@ -41,8 +41,8 @@ Builds:
         -skip qtremoteobjects -skip qtscxml -skip qtspeech -skip qtwayland -skip qtwebview
         -skip qtwinextras -skip qtx11extras -skip qtwebengine > ../../build.log 2>&1
         || tail -n 200 ../../build.log
-      - make -j$(nproc) > ../../build.log 2>&1 || tail -n 200 ../../build.log
-      - make -j$(nproc) install > /dev/null ../../build.log 2>&1 || tail -n 200 ../../build.log
+      - make -j$(nproc)
+      - make -j$(nproc) install
       - cd ../../
       - mkdir -pv fdroid-build
       - cd fdroid-build
