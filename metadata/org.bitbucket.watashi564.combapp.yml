@@ -42,13 +42,13 @@ Builds:
       - pushd combdownloader
       - go mod init localhost/combdownloader
       - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combdownloader.arm64.bin -trimpath -ldflags=-buildid=
-      - mv combdownloader.arm64.bin ../app/src/main/res/raw/libdl_0_0_10_arm64.so
       - popd
+      - mv combdownloader/combdownloader.arm64.bin app/src/main/res/raw/libdl_0_0_10_arm64.so
       - pushd combfullui
       - go mod init localhost/combfullui
       - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combfullui.arm64.bin -trimpath -ldflags=-buildid=
-      - mv combfullui.arm64.bin ../app/src/main/res/raw/libcore_0_3_4_arm64.so
       - popd
+      - mv combfullui/combfullui.arm64.bin app/src/main/res/raw/libcore_0_3_4_arm64.so
 
 
 AutoUpdateMode: Version v%v
