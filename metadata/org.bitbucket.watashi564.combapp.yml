@@ -39,16 +39,16 @@ Builds:
         github.com/syndtr/goleveldb/leveldb/opt@latest
         github.com/syndtr/goleveldb/leveldb/util@latest
     build:
-      - pushd combdownloader
+      - pushd $$CombDownloader$$
       - go mod init localhost/combdownloader
       - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combdownloader.arm64.bin -trimpath -ldflags=-buildid=
       - popd
-      - mv combdownloader/combdownloader.arm64.bin app/src/main/res/raw/libdl_0_0_10_arm64.so
-      - pushd combfullui
+      - mv $$CombDownloader$$/combdownloader.arm64.bin app/src/main/res/raw/libdl_0_0_10_arm64.so
+      - pushd $$CombFullUI$$
       - go mod init localhost/combfullui
       - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combfullui.arm64.bin -trimpath -ldflags=-buildid=
       - popd
-      - mv combfullui/combfullui.arm64.bin app/src/main/res/raw/libcore_0_3_4_arm64.so
+      - mv $$CombFullUI$$/combfullui.arm64.bin app/src/main/res/raw/libcore_0_3_4_arm64.so
 
 
 AutoUpdateMode: Version v%v
