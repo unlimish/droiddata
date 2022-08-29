@@ -17,6 +17,10 @@ Builds:
     commit: 0.0.1
     subdir: app
     sudo:
+     sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
       - curl -Lo go.tar.gz https://go.dev/dl/go1.18.linux-amd64.tar.gz
       - echo 'e85278e98f57cdb150fe8409e6e5df5343ecb13cebf03a5d5ff12bd55a80264f go.tar.gz'
         | sha256sum -c -
