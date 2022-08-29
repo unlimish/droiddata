@@ -10,19 +10,16 @@ RepoType: git
 Repo: https://github.com/wh201906/SerialTest
 
 Builds:
-  - versionName: 'V0.2.1'
+  - versionName: V0.2.1
     versionCode: 21
     commit: v0.2.1
-    gradle:
-      - yes
-    target: android-31
-    ndk: r21e
-    output: fdroid-build/android-build/build/outputs/apk/release/android-build-release-unsigned.apk
-
     sudo:
       - apt-get update > /tmp/build.log 2>&1 || tail -n 200 /tmp/build.log
       - apt-get install -y build-essential > /tmp/build.log 2>&1 || tail -n 200 /tmp/build.log
-    
+    gradle:
+      - yes
+    output: fdroid-build/android-build/build/outputs/apk/release/android-build-release-unsigned.apk
+    target: android-31
     build:
       - $ANDROID_HOME/tools/bin/sdkmanager "platforms;android-31"
       - mkdir -pv build-qt
@@ -32,14 +29,18 @@ Builds:
         | sha256sum -c -
       - tar -xkf qt-everywhere-opensource-src-5.15.5.tar.xz
       - mkdir qt5
-      - mkdir build && cd build
-      - ../qt-everywhere-src-5.15.5/configure -xplatform android-clang --disable-rpath -no-warnings-are-errors -prefix $(pwd)/../qt5
-        -android-ndk $$NDK$$ -android-sdk $$SDK$$ -opensource -confirm-license -release
-        -nomake examples -nomake tests -no-compile-examples -no-feature-testlib
-        -skip qt3d -skip qtactiveqt -skip qtcanvas3d -skip qtcharts -skip qtdatavis3d -skip qtdeclarative -skip qtdoc -skip qtgamepad
-        -skip qtgraphicaleffects -skip qtmacextras -skip qtmultimedia -skip qtnetworkauth -skip qtpurchasing -skip qtquickcontrols
-        -skip qtquickcontrols2 -skip qtremoteobjects -skip qtscxml -skip qtspeech -skip qtwayland -skip qtwebview -skip qtwinextras
-        -skip qtx11extras -skip qtwebengine > ../../build.log 2>&1 || tail -n 200 ../../build.log
+      - mkdir build
+      - cd build
+      - ../qt-everywhere-src-5.15.5/configure -xplatform android-clang --disable-rpath
+        -no-warnings-are-errors -prefix $(pwd)/../qt5 -android-ndk $$NDK$$ -android-sdk
+        $$SDK$$ -opensource -confirm-license -release -nomake examples -nomake tests
+        -no-compile-examples -no-feature-testlib -skip qt3d -skip qtactiveqt -skip
+        qtcanvas3d -skip qtcharts -skip qtdatavis3d -skip qtdeclarative -skip qtdoc
+        -skip qtgamepad -skip qtgraphicaleffects -skip qtmacextras -skip qtmultimedia
+        -skip qtnetworkauth -skip qtpurchasing -skip qtquickcontrols -skip qtquickcontrols2
+        -skip qtremoteobjects -skip qtscxml -skip qtspeech -skip qtwayland -skip qtwebview
+        -skip qtwinextras -skip qtx11extras -skip qtwebengine > ../../build.log 2>&1
+        || tail -n 200 ../../build.log
       - make -j$(nproc) > ../../build.log 2>&1 || tail -n 200 ../../build.log
       - make -j$(nproc) install > /dev/null ../../build.log 2>&1 || tail -n 200 ../../build.log
       - cd ../../
@@ -52,10 +53,9 @@ Builds:
       - make -j$(nproc) apk_install_target
       - ../build-qt/qt5/bin/androiddeployqt --release --output android-build/ --input
         android-SerialTest-deployment-settings.json
-    
+    ndk: r21e
 
-
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 'V0.2.1'
+CurrentVersion: V0.2.1
 CurrentVersionCode: 21
