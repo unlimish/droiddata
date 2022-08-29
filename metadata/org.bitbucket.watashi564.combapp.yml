@@ -33,6 +33,7 @@ Builds:
         github.com/syndtr/goleveldb/leveldb@latest github.com/syndtr/goleveldb/leveldb/opt@latest
         github.com/syndtr/goleveldb/leveldb/util@latest
     build:
+      - export PATH="$HOME/go/bin:$PATH"
       - pushd $$CombDownloader$$
       - go mod init localhost/combdownloader
       - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combdownloader.arm64.bin -trimpath
