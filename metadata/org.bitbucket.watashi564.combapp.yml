@@ -27,21 +27,25 @@ Builds:
     srclibs:
       - CombDownloader@0.0.10
       - CombFullUI@5b9e42f51faf9f07a97e46a64459f7f4364bbd9a
-    prebuild: go get bitbucket.org/watashi564/accelerator/libfile@v0.0.4 golang.org/x/net/proxy@latest
-        github.com/btcsuite/btcd/chaincfg/chainhash@latest github.com/btcsuite/btcd/wire@latest
-        github.com/gorilla/mux@latest github.com/sipa/bech32/ref/go/src/bech32@latest
-        github.com/syndtr/goleveldb/leveldb@latest github.com/syndtr/goleveldb/leveldb/opt@latest
-        github.com/syndtr/goleveldb/leveldb/util@latest
     build:
       - export PATH="$HOME/go/bin:$PATH"
       - pushd $$CombDownloader$$
       - go mod init localhost/combdownloader
+      - go get -u bitbucket.org/watashi564/accelerator/libfile@v0.0.4
+      - go get -u golang.org/x/net/proxy@latest
+      - go get -u github.com/btcsuite/btcd/chaincfg/chainhash@latest
+      - go get -u github.com/btcsuite/btcd/wire@latest
       - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combdownloader.arm64.bin -trimpath
         -ldflags=-buildid=
       - popd
       - mv $$CombDownloader$$/combdownloader.arm64.bin app/src/main/res/raw/libdl_0_0_10_arm64.so
       - pushd $$CombFullUI$$
       - go mod init localhost/combfullui
+      - go get -u github.com/gorilla/mux@latest
+      - go get -u github.com/sipa/bech32/ref/go/src/bech32@latest
+      - go get -u github.com/syndtr/goleveldb/leveldb@latest
+      - go get -u github.com/syndtr/goleveldb/leveldb/opt@latest
+      - go get -u github.com/syndtr/goleveldb/leveldb/util@latest
       - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combfullui.arm64.bin -trimpath
         -ldflags=-buildid=
       - popd
