@@ -23,28 +23,26 @@ Builds:
       - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
     gradle:
       - yes
+    output: CombApp.apk
     srclibs:
       - CombDownloader@0.0.10
       - CombFullUI@5b9e42f51faf9f07a97e46a64459f7f4364bbd9a
-    output: CombApp.apk
-    prebuild: go get bitbucket.org/watashi564/accelerator/libfile@v0.0.4
-        golang.org/x/net/proxy@latest
-        github.com/btcsuite/btcd/chaincfg/chainhash@latest
-        github.com/btcsuite/btcd/wire@latest
-        github.com/gorilla/mux@latest
-        github.com/sipa/bech32/ref/go/src/bech32@latest
-        github.com/syndtr/goleveldb/leveldb@latest
-        github.com/syndtr/goleveldb/leveldb/opt@latest
+    prebuild: go get bitbucket.org/watashi564/accelerator/libfile@v0.0.4 golang.org/x/net/proxy@latest
+        github.com/btcsuite/btcd/chaincfg/chainhash@latest github.com/btcsuite/btcd/wire@latest
+        github.com/gorilla/mux@latest github.com/sipa/bech32/ref/go/src/bech32@latest
+        github.com/syndtr/goleveldb/leveldb@latest github.com/syndtr/goleveldb/leveldb/opt@latest
         github.com/syndtr/goleveldb/leveldb/util@latest
     build:
       - pushd $$CombDownloader$$
       - go mod init localhost/combdownloader
-      - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combdownloader.arm64.bin -trimpath -ldflags=-buildid=
+      - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combdownloader.arm64.bin -trimpath
+        -ldflags=-buildid=
       - popd
       - mv $$CombDownloader$$/combdownloader.arm64.bin app/src/main/res/raw/libdl_0_0_10_arm64.so
       - pushd $$CombFullUI$$
       - go mod init localhost/combfullui
-      - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combfullui.arm64.bin -trimpath -ldflags=-buildid=
+      - GOARM=7 GOOS=linux GOARCH=arm64 go build -o combfullui.arm64.bin -trimpath
+        -ldflags=-buildid=
       - popd
       - mv $$CombFullUI$$/combfullui.arm64.bin app/src/main/res/raw/libcore_0_3_4_arm64.so
 
