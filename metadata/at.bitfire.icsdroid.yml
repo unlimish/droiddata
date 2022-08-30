@@ -3,9 +3,8 @@ Categories:
 License: GPL-3.0-only
 AuthorName: bitfire web engineering
 WebSite: https://icsx5.bitfire.at/
-SourceCode: https://icsx5.bitfire.at/source/
-IssueTracker: https://icsx5.bitfire.at/forums/
-Changelog: https://forums.bitfire.at/category/5/icsx?tag=announcement
+SourceCode: https://github.com/bitfireAT/icsx5
+Changelog: https://github.com/bitfireAT/icsx5/discussions/categories/announcements
 Donate: https://icsx5.bitfire.at/donate/
 Bitcoin: 1KSCy7RHztKuhW9fLLaUYqdwdC2iwbejZU
 
@@ -291,7 +290,43 @@ Builds:
     gradle:
       - standard
 
+  - versionName: '2.0'
+    versionCode: 58
+    commit: 1a271ce458d2bd58fa6752f9385063ca42662ec8
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 2.0.1
+    versionCode: 59
+    commit: 9260461c6d84b18ac20ff9fbd7e70441e3a7e5ea
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 2.0.2
+    versionCode: 62
+    commit: 726f6fa77ef5ddfcd73f7b79c26f73ab397839fa
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]*$
-CurrentVersion: 1.9.4
-CurrentVersionCode: 56
+CurrentVersion: 2.0.2
+CurrentVersionCode: 62

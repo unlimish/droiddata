@@ -3,15 +3,15 @@ Categories:
 License: GPL-3.0-only
 AuthorName: Ebrahim Byagowi
 AuthorEmail: ebrahim@gnu.org
-WebSite: https://github.com/persian-calendar/DroidPersianCalendar/wiki
-SourceCode: https://github.com/persian-calendar/DroidPersianCalendar
-IssueTracker: https://github.com/persian-calendar/DroidPersianCalendar/issues
-Changelog: https://github.com/persian-calendar/DroidPersianCalendar/releases
+WebSite: https://github.com/persian-calendar/persian-calendar/wiki
+SourceCode: https://github.com/persian-calendar/persian-calendar
+IssueTracker: https://github.com/persian-calendar/persian-calendar/issues
+Changelog: https://github.com/persian-calendar/persian-calendar/releases
 
 AutoName: Persian Calendar
 
 RepoType: git
-Repo: https://github.com/persian-calendar/DroidPersianCalendar.git
+Repo: https://github.com/persian-calendar/persian-calendar.git
 
 Builds:
   - versionName: '1.98'
@@ -511,7 +511,24 @@ Builds:
     scanignore:
       - PersianCalendar/src/main/res/raw/worldmap.gz
 
+  - versionName: 7.7.0
+    versionCode: 770
+    commit: a38e680e704bd2004c76b6c81dd60f1721a45a3a
+    subdir: PersianCalendar
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - minApi17
+    prebuild: sed -i -e '/firebase/d' -e '/gms/d' ../build.gradle.kts build.gradle.kts
+    scanignore:
+      - PersianCalendar/src/main/res/raw/worldmap.gz
+    scandelete:
+      - gradlePlugins
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^[0-9.v]*$
-CurrentVersion: 7.4.0
-CurrentVersionCode: 740
+CurrentVersion: 7.7.0
+CurrentVersionCode: 770

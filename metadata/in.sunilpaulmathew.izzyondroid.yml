@@ -1,0 +1,65 @@
+Categories:
+  - System
+License: GPL-3.0-or-later
+AuthorName: sunilpaulmathew
+AuthorEmail: smartpack.org@gmail.com
+AuthorWebSite: https://smartpack.github.io/
+SourceCode: https://gitlab.com/sunilpaulmathew/izzyondroid
+IssueTracker: https://gitlab.com/sunilpaulmathew/izzyondroid/-/issues
+Donate: https://smartpack.github.io/donation/
+Liberapay: sunilpaulmathew
+
+AutoName: IzzyOnDroid
+
+RepoType: git
+Repo: https://gitlab.com/sunilpaulmathew/izzyondroid
+
+Builds:
+  - versionName: v0.5
+    versionCode: 5
+    commit: v0.5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: v0.6
+    versionCode: 6
+    commit: cf7294f0285b0caf60ddd6190998dfb4a17031d3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: v0.7
+    versionCode: 7
+    commit: 71513afca0ab923f86b7ed79253d3e625e209279
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: v0.8
+    versionCode: 8
+    commit: 8d299cca90d7dfc1ff1d67752af5c6a529182105
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: v0.8
+CurrentVersionCode: 8

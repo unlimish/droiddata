@@ -3,18 +3,18 @@ AntiFeatures:
 Categories:
   - Internet
 License: EUPL-1.2
-AuthorName: Beowulf
+AuthorName: BeoCode
 AuthorEmail: weather@beocode.eu
-WebSite: https://codeberg.org/Beowulf/Weather/wiki
-SourceCode: https://codeberg.org/Beowulf/Weather
-IssueTracker: https://codeberg.org/Beowulf/Weather/issues
+WebSite: https://codeberg.org/BeoCode/Weather/wiki
+SourceCode: https://codeberg.org/BeoCode/Weather
+IssueTracker: https://codeberg.org/BeoCode/Weather/issues
 Translation: https://poeditor.com/join/project?hash=WhLrkxFJUt
-Changelog: https://codeberg.org/Beowulf/Weather/raw/branch/main/CHANGELOG
+Changelog: https://codeberg.org/BeoCode/Weather/raw/branch/main/CHANGELOG
 
 AutoName: Weather
 
 RepoType: git
-Repo: https://codeberg.org/Beowulf/Weather.git
+Repo: https://codeberg.org/BeoCode/Weather.git
 
 Builds:
   - versionName: '2.01'
@@ -202,7 +202,96 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 3.15-pre1
+    versionCode: 47
+    commit: 9d273f8c7a3b073fc06baa958533b762a7d4e94b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '3.15'
+    versionCode: 48
+    commit: 3288b9a37b667653c723588a173eba9faa6c455b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.16-pre1
+    versionCode: 49
+    commit: 940a3b7c6177fb96ffdbefafbfb37c9e961e9921
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '3.16'
+    versionCode: 51
+    commit: 10e3c16006ece6e0cf4897c1c34b96cae236ce7a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '3.17'
+    versionCode: 54
+    commit: db30b87f76143a102a54bda9fb245cdf990b4c0c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.18.1
+    versionCode: 56
+    disable: https://codeberg.org/BeoCode/Weather/issues/31
+    commit: 76ae39f99d17728dbd78af54e7c19106a90f7be8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '3.19'
+    versionCode: 57
+    commit: d453433a8e8b4d9ace3e9c7752686e7cd71829fa
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.19.1
+    versionCode: 58
+    commit: d5c67a32922d1707d00668a4e1bbf2878b194453
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: '3.14'
-CurrentVersionCode: 46
+UpdateCheckMode: Tags ^[0-9\.]+$
+CurrentVersion: 3.19.1
+CurrentVersionCode: 58

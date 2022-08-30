@@ -91,7 +91,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.4.5
+    versionCode: 1045
+    commit: bfc72dae244c8863dca09c2c97cbd46f6b3ff8bb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.4.6
+    versionCode: 1046
+    commit: 32745a7035d51d041d3dd645bf1ff44ca3aef9d1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.4.4
-CurrentVersionCode: 1044
+CurrentVersion: 1.4.6
+CurrentVersionCode: 1046

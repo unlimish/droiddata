@@ -811,7 +811,45 @@ Builds:
     prebuild: sed -i -e "/:proprietary/d" ../settings.gradle build.gradle
     ndk: r21
 
+  - versionName: 15.7.1
+    versionCode: 1507011
+    commit: ee744690263e2f64f1472ac762fb0ab3e4d29191
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    rm:
+      - proprietary
+      - app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+        > /dev/null
+      - sed -i -e "/:proprietary/d" ../settings.gradle build.gradle
+    ndk: r21
+
+  - versionName: 15.9.2
+    versionCode: 1509021
+    commit: 4717c5489a2c7739d245a50656ddeadb742b7fd8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    rm:
+      - proprietary
+      - app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+        > /dev/null
+      - sed -i -e "/:proprietary/d" ../settings.gradle build.gradle
+    ndk: r21
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 15.6.0
-CurrentVersionCode: 1506001
+CurrentVersion: 15.9.2
+CurrentVersionCode: 1509021

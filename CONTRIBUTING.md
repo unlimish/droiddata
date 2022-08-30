@@ -86,24 +86,18 @@ Please read the [General Recommendations](#general-recommendations) before you s
 
 #### Setting up fdroidserver
 
-> Note that to use the `master` branch of _fdroiddata_ you will need the
-master branch of _fdroidserver_. Using the latest stable release of
-fdroidserver would probably work, but it is not guaranteed.
-
-Install [fdroidserver](https://gitlab.com/fdroid/fdroidserver), or just
-use it directly from master:
+Install [F-Droid Server](https://gitlab.com/fdroid/fdroidserver):
 ```shell
-git clone https://gitlab.com/fdroid/fdroidserver.git
-export PATH="$PATH:$PWD/fdroidserver"
+pip install git+https://gitlab.com/fdroid/fdroidserver.git
 ```
 
-Clone your fork of fdroiddata and enter it:
+Clone your fork of [F-Droid Data](https://gitlab.com/fdroid/fdroiddata/) and enter it:
 ```shell
 git clone https://gitlab.com/YOUR_USERNAME/fdroiddata.git
 cd fdroiddata
 ```
 
-Make sure fdroid works and reads the metadata files properly:
+Make sure `fdroid` works and reads the metadata files properly:
 ```shell
 fdroid readmeta
 ```
@@ -205,9 +199,9 @@ for the answer.
     ```
 - You can add a badge of your apps F-Droid version from [shields.io].
   
-    ![](https://img.shields.io/badge/f--droid-v1.0-blue.svg)
+    ![](https://img.shields.io/badge/f--droid-v1.0-blue.svg?logo=F-Droid)
     ```
-    https://img.shields.io/f-droid/v/APP.ID.svg
+    https://img.shields.io/f-droid/v/APP.ID.svg?logo=F-Droid
     ```
     You can also include a GitHub release badge to know if your version is
     up to date.

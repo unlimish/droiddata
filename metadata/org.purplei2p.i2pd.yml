@@ -20,6 +20,7 @@ Repo: https://github.com/PurpleI2P/i2pd-android.git
 Builds:
   - versionName: 2.40.0
     versionCode: 24000
+    disable: versions below 2.41.0 may crash due to new SSU2 transport protocol
     commit: 98f3cae41570caf5906d37245d7bfce90d60c447
     subdir: app
     submodules: true
@@ -42,7 +43,126 @@ Builds:
       - popd
     ndk: r23b
 
+  - versionName: 2.41.0
+    versionCode: 24100
+    commit: 4ee4f94c18a68d3a478ecf32bc615b85b7a4b533
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ rename
+    gradle:
+      - yes
+    rm:
+      - app/jni/openssl/fuzz
+      - app/jni/openssl/boringssl/fuzz
+    prebuild:
+      - sed -i -e 's/enable true/enable false/' build.gradle
+      - sed -i -e 's/d+2/d+0/' jni/boost/build-android.sh
+    build:
+      - pushd jni
+      - ./build_boost.sh
+      - ./build_openssl.sh
+      - ./build_miniupnpc.sh
+      - popd
+    ndk: r23b
+
+  - versionName: 2.41.0.1
+    versionCode: 2410001
+    commit: 7611296f63b7ae1562e1f45644f4180d1e1f1727
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ rename
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/jni/openssl/fuzz
+      - app/jni/openssl/boringssl/fuzz
+    prebuild:
+      - sed -i -e 's/enable true/enable false/' build.gradle
+      - sed -i -e 's/d+2/d+0/' jni/boost/build-android.sh
+    build:
+      - pushd jni
+      - ./build_boost.sh
+      - ./build_openssl.sh
+      - ./build_miniupnpc.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 2.42.0
+    versionCode: 2420000
+    commit: a82a4cc211d0850a568263162391f5a13c7d3d5f
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/jni/openssl/fuzz
+      - app/jni/openssl/boringssl/fuzz
+    prebuild: sed -i -e 's/enable true/enable false/' build.gradle
+    build:
+      - pushd jni
+      - ./build_boost.sh
+      - ./build_openssl.sh
+      - ./build_miniupnpc.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 2.42.1
+    versionCode: 2420100
+    commit: d72e3aeea60ec2d18137a3201704c85a4c45a177
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/jni/openssl/fuzz
+      - app/jni/openssl/boringssl/fuzz
+    prebuild: sed -i -e 's/enable true/enable false/' build.gradle
+    build:
+      - pushd jni
+      - ./build_boost.sh
+      - ./build_openssl.sh
+      - ./build_miniupnpc.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 2.43.0
+    versionCode: 2430000
+    commit: e2dfde17bf2ffc00ec00bde3e6eae8d99bee28b7
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/jni/openssl/fuzz
+      - app/jni/openssl/boringssl/fuzz
+    prebuild: sed -i -e 's/enable true/enable false/' build.gradle
+    build:
+      - pushd jni
+      - ./build_boost.sh
+      - ./build_openssl.sh
+      - ./build_miniupnpc.sh
+      - popd
+    ndk: r21e
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.40.0
-CurrentVersionCode: 24000
+CurrentVersion: 2.43.0
+CurrentVersionCode: 2430000

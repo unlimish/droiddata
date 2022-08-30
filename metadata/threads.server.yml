@@ -1,6 +1,7 @@
 Categories:
   - Connectivity
 License: GPL-3.0-or-later
+AuthorName: Remmer Wilts
 SourceCode: https://gitlab.com/remmer.wilts/ipfs-lite
 IssueTracker: https://gitlab.com/remmer.wilts/ipfs-lite/issues
 
@@ -367,7 +368,127 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.7.3
+    versionCode: 273
+    commit: 9633541de4de169e6b05cfe5cca3e87d95560c96
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
+  - versionName: 2.7.6
+    versionCode: 276
+    commit: f61d53622289eba9491f5bfe1ea53a8d1f8700d8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
+  - versionName: 2.7.7
+    versionCode: 277
+    commit: 7e3765139e73b68b5113b4020eb6a5d1ef321404
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
+  - versionName: 2.7.8
+    versionCode: 278
+    commit: 30d1bae918d1b65dfe1fba12741fa81a577f40ae
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
+  - versionName: 2.8.0
+    versionCode: 280
+    commit: a6576bbdd740d449d2b35bd327153eaadadfa42d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
+  - versionName: 2.8.2
+    versionCode: 282
+    commit: f19bb40379b0d3926fafb46fedd8626d359bd6eb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
+  - versionName: 2.8.3
+    versionCode: 283
+    commit: 04d67fff460ec2b48fcc12ff727c3d5cfbf74335
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
+  - versionName: 2.8.5
+    versionCode: 285
+    commit: 1e602a1f9c26a88965b958378b0e7b2e571748c5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
+  - versionName: 2.8.7
+    versionCode: 287
+    commit: 80d85ade083bea627ab102c697d718bac9fe5083
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
+  - versionName: 2.8.9
+    versionCode: 289
+    commit: 3bd2b297fa5176a767eee710256add90ea508f76
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.7.2
-CurrentVersionCode: 272
+CurrentVersion: 2.8.9
+CurrentVersionCode: 289

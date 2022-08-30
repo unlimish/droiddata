@@ -4,7 +4,7 @@ License: GPL-3.0-only
 SourceCode: https://gitlab.com/souch/SMP
 IssueTracker: https://gitlab.com/souch/SMP/issues
 Changelog: https://gitlab.com/souch/SMP/tags
-Donate: http://rodolphe.souchaud.free.fr/donate
+Donate: https://www.paypal.com/donate/?hosted_button_id=QAPVFX7NZ8BTE
 
 AutoName: SicMu Player
 Description: |-
@@ -211,7 +211,45 @@ Builds:
       - yes
     prebuild: sed -i -e '18a google()' ../build.gradle
 
+  - versionName: '2.0'
+    versionCode: 25
+    disable: https://gitlab.com/souch/SMP/-/issues/88
+    commit: c1319cbdb42de04e269772ca7006823f1351af93
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -e '18a google()' ../build.gradle
+
+  - versionName: 2.0.1
+    versionCode: 26
+    disable: https://gitlab.com/souch/SMP/-/issues/88
+    commit: c1aee7b4d6fc6dc1105ff29fb57398c58e7f1a49
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -e '18a google()' ../build.gradle
+
+  - versionName: '2.0'
+    versionCode: 27
+    commit: 1ecc21d3205fb8a898c69327d0657952bd11f83c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -e '18a google()' ../build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.9.1
-CurrentVersionCode: 24
+CurrentVersion: '2.0'
+CurrentVersionCode: 27

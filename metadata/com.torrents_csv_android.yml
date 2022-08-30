@@ -1,0 +1,61 @@
+Categories:
+  - Internet
+License: AGPL-3.0-only
+AuthorName: heretic
+AuthorEmail: tyhou13@gmx.com
+AuthorWebSite: https://torrents-csv.ml
+WebSite: https://torrents-csv.ml
+SourceCode: https://gitea.com/heretic/torrents-csv-android
+IssueTracker: https://gitea.com/heretic/torrents-csv-android/issues
+Liberapay: dessalines
+
+AutoName: Torrents-csv
+
+RepoType: git
+Repo: https://gitea.com/heretic/torrents-csv-android
+
+Builds:
+  - versionName: 1.0.6
+    versionCode: 7
+    commit: 1.0.6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - sed -i -e '/signingConfigs {/,+7d' build.gradle
+      - sed -i -e '/keystoreProperties.load/d' build.gradle
+    gradle:
+      - yes
+
+  - versionName: 1.0.7
+    versionCode: 8
+    commit: afc8ae639ba2524bf49433100484b1702780241c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystoreProperties.load/d' build.gradle
+
+  - versionName: 1.0.8
+    versionCode: 9
+    commit: 6b57eebda464b61c52e4b42233cf35255f6271a5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/keystoreProperties.load/d' build.gradle
+      - sed -i -e 's/7.5-rc-2/7.5/' ../gradle/wrapper/gradle-wrapper.properties
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.8
+CurrentVersionCode: 9

@@ -9,6 +9,7 @@ AuthorEmail: priv.luk@gmail.com
 AuthorWebSite: https://kremowka.xyz
 SourceCode: https://github.com/LuK1337/SauceNAO
 IssueTracker: https://github.com/luk1337/SauceNAO/issues
+Translation: https://crowdin.com/project/saucenao-android
 
 AutoName: SauceNAO
 
@@ -107,7 +108,51 @@ Builds:
     gradle:
       - github
 
+  - versionName: '1.11'
+    versionCode: 13
+    commit: e61e778fe12d3bb6e271000665b1976571e16d89
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - github
+
+  - versionName: '1.12'
+    versionCode: 14
+    commit: d05d1feb84ef8ee4a61caca8f209aabb58bfb1ed
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - github
+
+  - versionName: '1.13'
+    versionCode: 15
+    commit: 93891f229d8c585d4bb62ef63372f34f8e049691
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - github
+
+  - versionName: '1.14'
+    versionCode: 16
+    commit: dadb655d03d5e1daf63d7eb577926265d04646fa
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - github
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.10'
-CurrentVersionCode: 12
+CurrentVersion: '1.14'
+CurrentVersionCode: 16

@@ -3,18 +3,18 @@ Categories:
 License: GPL-3.0-or-later
 AuthorName: DeepDaikon
 AuthorEmail: deepdaikon@tuta.io
-WebSite: https://gitlab.com/DeepDaikon/Quinb
-SourceCode: https://gitlab.com/DeepDaikon/Quinb/tree/HEAD
-IssueTracker: https://gitlab.com/DeepDaikon/Quinb/issues
+WebSite: https://gitlab.com/deepdaikon/Quinb
+SourceCode: https://gitlab.com/deepdaikon/Quinb/tree/HEAD
+IssueTracker: https://gitlab.com/deepdaikon/Quinb/issues
 Translation: https://translate.deepdaikon.xyz/engage/quinb/
-Changelog: https://gitlab.com/DeepDaikon/Quinb/tree/HEAD/CHANGELOG
+Changelog: https://gitlab.com/deepdaikon/Quinb/tree/HEAD/CHANGELOG
 Donate: https://deepdaikon.xyz/donate
 Liberapay: deepdaikon
 
 AutoName: Quinb
 
 RepoType: git
-Repo: https://gitlab.com/DeepDaikon/Quinb.git
+Repo: https://gitlab.com/deepdaikon/Quinb.git
 
 Builds:
   - versionName: 1.0.0
@@ -77,7 +77,37 @@ Builds:
       - $$flutter$$/bin/flutter pub get
       - $$flutter$$/bin/flutter build apk
 
+  - versionName: 1.2.0
+    versionCode: 5
+    commit: f1fb89a982e8a74c2094baff3631cf31e61445e2
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    rm:
+      - ios
+      - linux
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.2.1
+    versionCode: 6
+    commit: 09d860420ecacf82fdee3d573b03e5518e1f5260
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    rm:
+      - ios
+      - linux
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter build apk
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.1.2
-CurrentVersionCode: 4
+CurrentVersion: 1.2.1
+CurrentVersionCode: 6

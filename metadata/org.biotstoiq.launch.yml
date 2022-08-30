@@ -1,0 +1,78 @@
+Categories:
+  - Theming
+  - System
+License: MIT
+AuthorName: biotstoiq
+AuthorEmail: sofogos@proton.me
+AuthorWebSite: https://biotstoiq.gitlab.io/
+SourceCode: https://gitlab.com/biotstoiq/launch
+IssueTracker: https://gitlab.com/biotstoiq/launch/-/issues
+Donate: https://biotstoiq.gitlab.io/donate
+Bitcoin: bc1qp7668qpa9kfq2r36t7lwzkrud2hzmdvvdmvfq0
+
+Name: launch
+AutoName: launch
+
+RepoType: git
+Repo: https://gitlab.com/biotstoiq/launch.git
+
+Builds:
+  - versionName: '0.901'
+    versionCode: 2
+    commit: v0.901
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '0.903'
+    versionCode: 4
+    commit: 1ead3442adc0d42a29ba31e26c12b1f460dbe25d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '0.904'
+    versionCode: 5
+    commit: 76a2951e27abb1f8c43cf9ad02b93fe64a64250f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '0.907'
+    versionCode: 8
+    commit: 69f4aded394b276de12c788520a849d78faecf65
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '0.908'
+    versionCode: 9
+    commit: 1404246c24300969bb2475cd37b45a8a9231b24a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '0.908'
+CurrentVersionCode: 9

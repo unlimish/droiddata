@@ -783,11 +783,76 @@ Builds:
     prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
     ndk: r20
 
+  - versionName: 2.5.0
+    versionCode: 2050095
+    commit: 6a366f0ad190a620eca555f5b9e4396810730349
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.5.1
+    versionCode: 2050195
+    commit: 832b51de7def1f63780c285991733522e6fbd333
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.5.2
+    versionCode: 2050296
+    commit: 1bc02fd84870a98534509878cf87f12c484800b7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.6.1
+    versionCode: 2060195
+    commit: 50eee88484a94eabdd1978961b5c604ea3b818d8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.6.2
+    versionCode: 2060295
+    commit: 9e87cf6115cdda78794e7958190a165c4542ae01
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
 MaintainerNotes: |-
     Summary and Description have been moved to the new localizable text files:
     https://f-droid.org/docs/All_About_Descriptions_Graphics_and_Screenshots
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags .*[0-9]$
-CurrentVersion: 2.4.2
-CurrentVersionCode: 2040295
+CurrentVersion: 2.6.2
+CurrentVersionCode: 2060295

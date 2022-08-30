@@ -92,7 +92,96 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: 1.0.beta10
+    versionCode: 10
+    commit: f08bec487bf2b41e7521fc82bb785e85ea00e63b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta11
+    versionCode: 11
+    commit: a433d9431af6f6cd45d1bb9884277f0643d40f03
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta12
+    versionCode: 12
+    commit: e2cdbb5717b49b141ad8d9fcd23e04bcb98e1594
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta13
+    versionCode: 13
+    commit: dc13fb092e2be0ffd54c9935b39fb5fa880031a4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta14
+    versionCode: 14
+    commit: e704d023a9947e77ce70928cc600e2165419e36b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta15
+    versionCode: 15
+    commit: ebc07e3a3e4bdf60a4751fd4f427bf97da6613c6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta16
+    versionCode: 16
+    commit: c0449f9adf25584da3a87bb1fbeab96d22b4cd4c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.beta17
+    versionCode: 17
+    commit: e7b6952c6a3cdd89974d5480d1aaeba940aa5b4c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.beta8
-CurrentVersionCode: 8
+UpdateCheckData: app/build.gradle|versionCode\s(\d+)||(.*)
+CurrentVersion: 1.0.beta17
+CurrentVersionCode: 17

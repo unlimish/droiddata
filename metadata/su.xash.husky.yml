@@ -1,30 +1,97 @@
 Categories:
   - Internet
 License: GPL-3.0-only
-AuthorName: a1batross
-AuthorEmail: contact@fwgs.ru
-SourceCode: https://git.mentality.rip/FWGS/Husky
-IssueTracker: https://git.mentality.rip/FWGS/Husky/issues
-Translation: https://l10n.mentality.rip/projects/husky/
-Changelog: https://git.mentality.rip/FWGS/Husky/releases
+WebSite: https://husky.adol.pw
+SourceCode: https://git.sr.ht/~captainepoch/husky
+IssueTracker: https://todo.sr.ht/~captainepoch/husky
+Changelog: https://git.sr.ht/~captainepoch/husky/tree/master/item/HISTORY
 
 AutoName: Husky
 
 RepoType: git
-Repo: https://git.mentality.rip/FWGS/Husky
+Repo: https://git.sr.ht/~captainepoch/husky
 
 Builds:
-  - versionName: 1.0.1
-    versionCode: 168
-    commit: v1.0.1
-    subdir: app
+  - versionName: 1.1.2
+    versionCode: 178
+    commit: 1.1.2
+    subdir: husky/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
-      - huskyBlue
-    prebuild: sed -i -e 's/buildnum()/168/g' build.gradle
+      - huskyStable
 
-MaintainerNotes: VC is generated on build, no way to check for updates.
+  - versionName: 1.1.3
+    versionCode: 179
+    commit: 1.1.3
+    subdir: husky/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - huskyStable
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: 1.0.1
-CurrentVersionCode: 168
+  - versionName: 1.2.0
+    versionCode: 180
+    commit: 1.2.0
+    subdir: husky/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - huskyStable
+
+  - versionName: 1.2.1
+    versionCode: 181
+    commit: 1.2.1
+    subdir: husky/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - huskyStable
+
+  - versionName: 1.2.2
+    versionCode: 182
+    commit: 1.2.2
+    subdir: husky/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - huskyStable
+
+  - versionName: 1.3.0
+    versionCode: 185
+    commit: 99c352aa4fcc4b125f16de2a1bd63666f7074011
+    subdir: husky/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - huskyStable
+
+  - versionName: 1.3.1
+    versionCode: 186
+    commit: 2866caf76e2385407d96dd249dc5dc23ec2a5a77
+    subdir: husky/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - huskyStable
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^[0-9.]+$
+UpdateCheckData: husky/appinfo.gradle|buildVersions.versionCode = (.*)|.|buildVersions.versionName
+    = "(.*)"
+CurrentVersion: 1.3.1
+CurrentVersionCode: 186

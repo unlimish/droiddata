@@ -5,7 +5,7 @@ SourceCode: https://github.com/mueller-ma/TabletopTools
 IssueTracker: https://github.com/mueller-ma/TabletopTools/issues
 Changelog: https://github.com/mueller-ma/TabletopTools/releases
 
-AutoName: Tabletop tools
+AutoName: Tabletop Tools
 
 RepoType: git
 Repo: https://github.com/mueller-ma/TabletopTools.git
@@ -94,7 +94,40 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.9'
+    versionCode: 10
+    commit: 12b5b341cbcbf2797306233a121a3057b827641f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.10'
+    versionCode: 11
+    commit: 584125c132ba248fa382a8e1e08801046b1bfa21
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.11'
+    versionCode: 12
+    commit: 21cc642251b2fc5d4ff7582b2edab90d82e246e3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '1.8'
-CurrentVersionCode: 9
+CurrentVersion: '1.11'
+CurrentVersionCode: 12

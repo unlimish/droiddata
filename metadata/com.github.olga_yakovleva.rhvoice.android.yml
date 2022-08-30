@@ -1,5 +1,6 @@
 AntiFeatures:
   - NonFreeAdd
+  - NonFreeNet
 Categories:
   - System
 License: GPL-3.0-or-later
@@ -7,6 +8,8 @@ AuthorName: Olga-Yakovleva
 WebSite: https://github.com/RHVoice/RHVoice/wiki
 SourceCode: https://github.com/RHVoice/RHVoice
 IssueTracker: https://github.com/RHVoice/RHVoice/issues
+
+AutoName: RHVoice
 
 RepoType: git
 Repo: https://github.com/RHVoice/RHVoice.git
@@ -46,7 +49,24 @@ Builds:
       - src/third-party/cldr
     ndk: r21e
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: 1.6.0
-CurrentVersionCode: 10600
+  - versionName: 1.8.0
+    versionCode: 108000
+    commit: 0ef92b2b961fa0eeabea1c3acc92155e56bfc980
+    subdir: src/android/RHVoice-core
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports g++ openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - stable
+    rm:
+      - src/third-party/cldr
+      - external/libs/boost/libs/json/fuzzing/old_crashes/parser/clusterfuzz-testcase-minimized-fuzz_parser-6157345913700352
+    ndk: r21e
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: HTTP
+UpdateCheckData: https://github.com/RHVoice/RHVoice/releases/latest/download/fdroid.txt|VersionCode:\s(\d+)|.|VersionName:\s([\d.]+)
+CurrentVersion: 1.8.0
+CurrentVersionCode: 108000

@@ -1,50 +1,57 @@
 Categories:
   - Writing
   - Security
-License: AGPL-3.0-only
+License: AGPL-3.0-or-later
 AuthorName: Standard Notes Ltd.
-AuthorEmail: help@standardnotes.org
-WebSite: https://standardnotes.org
-SourceCode: https://github.com/standardnotes/mobile
-IssueTracker: https://github.com/standardnotes/mobile/issues
+AuthorEmail: help@standardnotes.com
+WebSite: https://standardnotes.com
+SourceCode: https://github.com/standardnotes/app
+IssueTracker: https://github.com/standardnotes/forum/issues
+Donate: https://standardnotes.com/donate
 
 AutoName: Standard Notes
 Description: |-
-    Standard Notes is a private place for your notes, thoughts, and life's work.
+    Standard Notes is a secure and private notes app. It syncs your notes securely across all your devices, including your Android devices, Windows, iOS, Linux, and Web.
 
-    — It's simple. Standard Notes is the easiest notes app you'll ever use. That
-    means a more reliable, long-term experience.
+    Private means your notes are end-to-end encrypted, so only you can read your notes. Even we can't read the contents of your notes.
 
-    — Encrypted writing is your best writing. You never really know the power of
-    your words until you experience total-privacy for the first time.
+    Simple means it does one job and does it well. Standard Notes is a safe and lasting place for your life's work. Our focus is making it easy to write notes wherever you are and syncing them with encryption to all your devices.
 
-    Standard Notes uses end-to-end encryption so that:
-    * We can't read your notes
-    * Your ISP can't read your notes
-    * Your government can't read your notes
+    Our users love us for:
+    * Personal Notes
+    * Tasks & Todos
+    * Passwords & Keys
+    * Code & Technical Procedures
+    * Private Journal
+    * Meeting Notes
+    * Cross-platform Scratchpad
+    * Books, Recipes, & Movies
+    * Health & Fitness Log
 
-    We like to say, "Write like no one's watching."
+    Standard Notes comes free with:
+    * Seamless sync across all your devices, with easy to use applications on Android, Windows, Linux, iPhone, iPad, Mac, and web browsers.
+    * Offline access, so you can access your downloaded notes even without a connection.
+    * No limit on number of devices.
+    * No limit on number of notes.
+    * Passcode lock protection, along with fingerprint protection.
+    * A tagging system to organize your notes (like #work, #ideas, #passwords, #crypto).
+    * The ability to pin, lock, protect, and move notes to trash, which allows you to recover deleted notes until the trash is emptied.
 
-    — Extended writing is even better. Standard Notes is free to use on all your
-    devices, and comes with encryption and sync out of the box.
+    Standard Notes is completely open-source, which means when we say your notes are encrypted with industry-leading XChaCha-20 encryption, and that only you can read your notes, you don't have to take our word for it. Our code is open to the world to audit.
 
-    If you’d like to support our development, we offer an extensions package, with
-    themes, editors, and 3rd-party syncing options, like Dropbox, Google Drive, and
-    daily email backups.
+    We made Standard Notes simple because longevity is important to us. We want to make sure we're here, protecting your notes, for the next hundred years. You shouldn't have to find a new notes app every year.
 
-    — And so you know, you and us are in this for the long run. You want your notes
-    to last as long as you do, and we want our app to serve you for decades to come.
-    Standard Notes is architected on deeply-rooted principles of software longevity
-    and business sustainability.
+    To sustain our development, we offer an optional paid program called Standard Notes Extended. Extended gives you access to powerful tools including:
+    * Productivity editors (like Markdown, Code, Spreadsheets)
+    * Beautiful themes (like Midnight, Focus, Solarized Dark)
+    * Powerful cloud tools including daily backups of your encrypted data delivered to your email inbox every day, or backed up to your cloud provider (like Dropbox and Google Drive).
 
-    * We say no to feature requests. Simplicity is the only way forward.
-    * A sustainable revenue model creates a healthy, long-term environment.
-    * A non-IPO mindset. We choose longevity over growth.
+    You can learn more about Extended at standardnotes.com/extended.
 
-    We're proud to be an open-source notes app. Learn more at standardnotes.org.
+    We're always happy to talk, whether it be a question, thought, or issue. Please feel free to email us any time at help@standardnotes.com. When you take the time to send us a message, we'll be sure to do the same.
 
 RepoType: git
-Repo: https://github.com/standardnotes/mobile
+Repo: https://github.com/standardnotes/app
 
 Builds:
   - versionName: 3.0.5
@@ -2915,9 +2922,2574 @@ Builds:
       - popd
     ndk: r21e
 
-AutoUpdateMode: Version %v
+  - versionName: 3.11.0
+    versionCode: 3000334
+    commit: 3.11.0
+    subdir: android/app/
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.13.2/node-v16.13.2-linux-x64.tar.xz
+      - echo "7f5e9a42d6e86147867d35643c7b1680c27ccd45db85666fc52798ead5e74421 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    patch:
+      - bugsnag-3.9.12.patch
+    gradle:
+      - prod
+    srclibs:
+      - libsodium@1.0.18
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404' > /dev/null
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+      - sed -i -e "/bugsnag/d" build.gradle
+      - sed -i -e "/@bugsnag\/react-native/d" -e "/bugsnag-sourcemaps/d" ../../package.json
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/detox-publishing.gradle
+      - node_modules/sn-textview/android/build.gradle
+      - node_modules/standard-notes-rn/android/build.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - lib="$PWD/../../node_modules/react-native-sodium/libsodium"
+      - target_sdk_version=`sed -n -E 's/.*targetSdkVersion = ([0-9]{1,2}).*/\1/p'
+        ../build.gradle`
+      - pushd $$libsodium$$
+      - ./dist-build/android-armv7-a.sh
+      - ./dist-build/android-armv8-a.sh
+      - ./dist-build/android-x86.sh
+      - ./dist-build/android-x86_64.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 3.12.0
+    versionCode: 3000337
+    disable: build failed
+    commit: 3.12.0
+    subdir: android/app/
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.13.2/node-v16.13.2-linux-x64.tar.xz
+      - echo "7f5e9a42d6e86147867d35643c7b1680c27ccd45db85666fc52798ead5e74421 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    patch:
+      - bugsnag-3.9.12.patch
+    gradle:
+      - prod
+    srclibs:
+      - libsodium@1.0.18
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404' > /dev/null
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+      - sed -i -e "/bugsnag/d" build.gradle
+      - sed -i -e "/@bugsnag\/react-native/d" -e "/bugsnag-sourcemaps/d" ../../package.json
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/detox-publishing.gradle
+      - node_modules/standard-notes-rn/android/build.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - lib="$PWD/../../node_modules/react-native-sodium/libsodium"
+      - target_sdk_version=`sed -n -E 's/.*targetSdkVersion = ([0-9]{1,2}).*/\1/p'
+        ../build.gradle`
+      - pushd $$libsodium$$
+      - ./dist-build/android-armv7-a.sh
+      - ./dist-build/android-armv8-a.sh
+      - ./dist-build/android-x86.sh
+      - ./dist-build/android-x86_64.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 3.14.0
+    versionCode: 3000338
+    disable: app error
+    commit: 3.14.1
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v14.19.1/node-v14.19.1-linux-x64.tar.xz
+      - echo "2a28ee68c58e2c3a2a4deecdf9ee1d7080afd69ebe211cf5141d45df8f4ecc77 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    gradle:
+      - prod
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/publishing.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.14.1
+    versionCode: 3000339
+    commit: 3.14.1
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v14.19.1/node-v14.19.1-linux-x64.tar.xz
+      - echo "2a28ee68c58e2c3a2a4deecdf9ee1d7080afd69ebe211cf5141d45df8f4ecc77 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    gradle:
+      - prod
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/publishing.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.14.1
+    versionCode: 3000340
+    commit: 3.14.1
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v14.19.1/node-v14.19.1-linux-x64.tar.xz
+      - echo "2a28ee68c58e2c3a2a4deecdf9ee1d7080afd69ebe211cf5141d45df8f4ecc77 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    gradle:
+      - prod
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/publishing.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.14.1
+    versionCode: 3000341
+    commit: 3.14.1
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v14.19.1/node-v14.19.1-linux-x64.tar.xz
+      - echo "2a28ee68c58e2c3a2a4deecdf9ee1d7080afd69ebe211cf5141d45df8f4ecc77 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    gradle:
+      - prod
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/publishing.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.14.1
+    versionCode: 3000342
+    commit: 3.14.1
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v14.19.1/node-v14.19.1-linux-x64.tar.xz
+      - echo "2a28ee68c58e2c3a2a4deecdf9ee1d7080afd69ebe211cf5141d45df8f4ecc77 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    gradle:
+      - prod
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/publishing.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.14.1
+    versionCode: 3000343
+    commit: 3.14.1
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v14.19.1/node-v14.19.1-linux-x64.tar.xz
+      - echo "2a28ee68c58e2c3a2a4deecdf9ee1d7080afd69ebe211cf5141d45df8f4ecc77 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    gradle:
+      - prod
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/publishing.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.14.1
+    versionCode: 3000345
+    commit: 3.14.1
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v14.19.1/node-v14.19.1-linux-x64.tar.xz
+      - echo "2a28ee68c58e2c3a2a4deecdf9ee1d7080afd69ebe211cf5141d45df8f4ecc77 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    gradle:
+      - prod
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/publishing.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.14.1
+    versionCode: 3000346
+    commit: 3.14.1
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v14.19.1/node-v14.19.1-linux-x64.tar.xz
+      - echo "2a28ee68c58e2c3a2a4deecdf9ee1d7080afd69ebe211cf5141d45df8f4ecc77 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    gradle:
+      - prod
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/publishing.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.14.1
+    versionCode: 3000348
+    commit: 3.14.1
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v14.19.1/node-v14.19.1-linux-x64.tar.xz
+      - echo "2a28ee68c58e2c3a2a4deecdf9ee1d7080afd69ebe211cf5141d45df8f4ecc77 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    gradle:
+      - prod
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/publishing.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.14.1
+    versionCode: 3000349
+    commit: 3.14.1
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v14.19.1/node-v14.19.1-linux-x64.tar.xz
+      - echo "2a28ee68c58e2c3a2a4deecdf9ee1d7080afd69ebe211cf5141d45df8f4ecc77 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    gradle:
+      - prod
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/publishing.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.20.1
+    versionCode: 3000350
+    commit: 3.20.1
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v14.19.1/node-v14.19.1-linux-x64.tar.xz
+      - echo "2a28ee68c58e2c3a2a4deecdf9ee1d7080afd69ebe211cf5141d45df8f4ecc77 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    gradle:
+      - prod
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/publishing.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.20.3
+    versionCode: 3000351
+    commit: 3.20.3
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v14.19.1/node-v14.19.1-linux-x64.tar.xz
+      - echo "2a28ee68c58e2c3a2a4deecdf9ee1d7080afd69ebe211cf5141d45df8f4ecc77 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - yarn cache clean snjs
+      - npm_config_build_from_source=true yarn --force
+    gradle:
+      - prod
+    rm:
+      - .gitmodules
+      - .devcontainer
+      - .github
+      - .vscode
+      - __tests__
+      - ios
+      - android/app/gradle
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      - sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - android/build.gradle
+      - node_modules/hermes-engine
+      - node_modules/jsc-android
+      - node_modules/react-native
+      - node_modules/detox/android/build.gradle
+      - node_modules/detox/android/detox/publishing.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.26.11
+    versionCode: 3000357
+    commit: '@standardnotes/mobile@3.26.11'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../..
+      - npm_config_build_from_source=true yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.26.14
+    versionCode: 3000360
+    commit: '@standardnotes/mobile@3.26.14'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../..
+      - npm_config_build_from_source=true yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.30.20
+    versionCode: 3000400
+    commit: '@standardnotes/mobile@3.30.20'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.30.24
+    versionCode: 3000404
+    commit: '@standardnotes/mobile@3.30.24'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.30.25
+    versionCode: 3000405
+    commit: '@standardnotes/mobile@3.30.25'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.30.26
+    versionCode: 3000406
+    commit: '@standardnotes/mobile@3.30.26'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.30.27
+    versionCode: 3000407
+    commit: '@standardnotes/mobile@3.30.27'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.30.29
+    versionCode: 3000409
+    commit: '@standardnotes/mobile@3.30.29'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.30.33
+    versionCode: 3000413
+    commit: '@standardnotes/mobile@3.30.33'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.30.35
+    versionCode: 3000415
+    commit: '@standardnotes/mobile@3.30.35'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.30.36
+    versionCode: 3000416
+    commit: '@standardnotes/mobile@3.30.36'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.30.37
+    versionCode: 3000417
+    commit: '@standardnotes/mobile@3.30.37'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.30.38
+    versionCode: 3000418
+    commit: '@standardnotes/mobile@3.30.38'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/web-server
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.1
+    versionCode: 3000420
+    commit: '@standardnotes/mobile@3.31.1'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.3
+    versionCode: 3000422
+    commit: '@standardnotes/mobile@3.31.3'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.5
+    versionCode: 3000424
+    commit: '@standardnotes/mobile@3.31.5'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.6
+    versionCode: 3000425
+    commit: '@standardnotes/mobile@3.31.6'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.7
+    versionCode: 3000426
+    commit: '@standardnotes/mobile@3.31.7'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.8
+    versionCode: 3000427
+    commit: '@standardnotes/mobile@3.31.8'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.9
+    versionCode: 3000428
+    commit: '@standardnotes/mobile@3.31.9'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.10
+    versionCode: 3000429
+    commit: '@standardnotes/mobile@3.31.10'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.13
+    versionCode: 3000432
+    commit: '@standardnotes/mobile@3.31.13'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.14
+    versionCode: 3000433
+    commit: '@standardnotes/mobile@3.31.14'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.15
+    versionCode: 3000434
+    commit: '@standardnotes/mobile@3.31.15'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.17
+    versionCode: 3000436
+    commit: '@standardnotes/mobile@3.31.17'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.18
+    versionCode: 3000437
+    commit: '@standardnotes/mobile@3.31.18'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.19
+    versionCode: 3000438
+    commit: '@standardnotes/mobile@3.31.19'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+  - versionName: 3.31.20
+    versionCode: 3000439
+    commit: '@standardnotes/mobile@3.31.20'
+    subdir: packages/mobile/android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo /tmp/node.tar.xz https://nodejs.org/dist/v16.15.1/node-v16.15.1-linux-x64.tar.xz
+      - echo "b749f7a76e56dfd6dfb8a910b8a2a871159661557680aa95acf13c9514422c12 /tmp/node.tar.xz"
+        | sha256sum -c -
+      - tar xJf /tmp/node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install yarn
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless --no-install-recommends
+      - update-alternatives --auto java
+      - apt-get install -y libsecret-1-dev build-essential --no-install-recommends
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+    init:
+      - pushd ../../../..
+      - npm_config_build_from_source=true yarn --immutable
+      - popd
+      - pushd ../..
+      - npm_config_build_from_source=true yarn --immutable
+      - yarn remove react-native-store-review
+      - popd
+    patch:
+      - disable-splits-abi.patch
+      - remove-gms.patch
+    gradle:
+      - prod
+    srclibs:
+      - cpython@v3.10.5
+    rm:
+      - packages/desktop
+    prebuild: sed -i -e '/detox/Id' -e 's/versionName appVersionName/versionName "$$VERSION$$"/'
+        -e 's/versionCode appVersionCode/versionCode $$VERCODE$$/' build.gradle
+    scanignore:
+      - packages/mobile/android/build.gradle
+      - packages/mobile/node_modules/hermes-engine
+      - packages/mobile/node_modules/jsc-android
+      - packages/mobile/node_modules/react-native
+      - packages/mobile/node_modules/detox/android/build.gradle
+      - packages/mobile/node_modules/detox/android/detox/publishing.gradle
+      - packages/mobile/node_modules/@react-native-community/async-storage/android/build.gradle
+      - packages/mobile/node_modules/@react-native-community/masked-view/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-utils/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-textview/android/build.gradle
+      - packages/mobile/node_modules/@standardnotes/react-native-aes/android/build.gradle
+    scandelete:
+      - node_modules/
+      - packages/mobile/node_modules
+      - packages/components/dist
+      - .yarn/
+    build:
+      - pushd ../../../..
+      - yarn run build:mobile
+      - popd
+      - pushd ../..
+      - yarn run android:bundle
+      - popd
+    ndk: r21e
+
+ArchivePolicy: 4 versions
+AutoUpdateMode: Version @standardnotes/mobile@%v
 UpdateCheckMode: HTTP
-VercodeOperation: 3000220 + %c
-UpdateCheckData: https://github.com/standardnotes/mobile/actions/workflows/build-prod.yml|(\d+)\sworkflow\sruns|https://github.com/standardnotes/mobile/tags/|/releases/tag/([\d.]+)
-CurrentVersion: 3.11.0
-CurrentVersionCode: 3000333
+VercodeOperation: 3000310 + %c
+UpdateCheckData: https://github.com/standardnotes/app/actions/workflows/mobile.release.prod.yml|(\d+)\sworkflow\sruns|https://github.com/standardnotes/app/releases|/releases/tag/%40standardnotes%2Fmobile%40([\d.]+)
+CurrentVersion: 3.31.20
+CurrentVersionCode: 3000439

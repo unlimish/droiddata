@@ -5,7 +5,8 @@ AuthorName: Jens Schröder
 AuthorEmail: android-development@gmx.de
 WebSite: https://server47.de/automation/
 SourceCode: https://git.server47.de/jens/Automation
-Donate: https://server47.de/donate.html
+Donate: https://server47.de/donate/
+Liberapay: IcaStiON
 Bitcoin: bc1qf9hqymh0qeunvkj95jrl9vtagjsmxuc7c7dle5
 
 AutoName: Automation
@@ -212,7 +213,63 @@ Builds:
       - sed -i -e '/firebase/d' build.gradle
       - sed -i -e '/play-services-location/d' build.gradle
 
+  - versionName: 1.7.4
+    versionCode: 118
+    commit: 0368b2a8c8087dc367630d8a3f7963b47b39c384
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroidFlavor
+    prebuild:
+      - sed -i -e '/firebase/d' build.gradle
+      - sed -i -e '/play-services-location/d' build.gradle
+
+  - versionName: 1.7.5
+    versionCode: 119
+    commit: 7046cccabec644b862b1c5a5be376e5973671d3b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroidFlavor
+    prebuild:
+      - sed -i -e '/firebase/d' build.gradle
+      - sed -i -e '/play-services-location/d' build.gradle
+
+  - versionName: 1.7.6
+    versionCode: 121
+    commit: f1f3be56cbc9ea8427503ab0b05e63493b6a70c5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroidFlavor
+    prebuild:
+      - sed -i -e '/firebase/d' build.gradle
+      - sed -i -e '/play-services-location/d' build.gradle
+
+  - versionName: 1.7.7
+    versionCode: 122
+    commit: 475c1719d7dd389a261981b108e57189e44bc0c5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroidFlavor
+    prebuild:
+      - sed -i -e '/firebase/d' build.gradle
+      - sed -i -e '/play-services-location/d' build.gradle
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
-CurrentVersion: 1.7.3
-CurrentVersionCode: 117
+CurrentVersion: 1.7.7
+CurrentVersionCode: 122

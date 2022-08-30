@@ -156,9 +156,7 @@ Builds:
     gradle:
       - yes
     output: build/outputs/apk/release/apk/smoke.apk
-    prebuild: sed -i -e '/bcprov-ext-jdk15on-169/d' -e "/fileTree/aimplementation
-        'org.bouncycastle:bcprov-ext-jdk15on:1.69'" -e '/MissingTranslation/aabortOnError\
-        false' build.gradle
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' build.gradle
 
   - versionName: 2021.12.25
     versionCode: 20211225
@@ -171,11 +169,22 @@ Builds:
     gradle:
       - yes
     output: build/outputs/apk/release/apk/smoke.apk
-    prebuild: sed -i -e '/bcprov-ext-jdk15on-169/d' -e "/fileTree/aimplementation
-        'org.bouncycastle:bcprov-ext-jdk15on:1.69'" -e '/MissingTranslation/aabortOnError\
-        false' build.gradle
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' build.gradle
+
+  - versionName: 2022.04.10
+    versionCode: 20220410
+    commit: 25b1b99041598efe7f31e1911d598dba56a61099
+    subdir: Smoke/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/release/apk/smoke.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' build.gradle
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2021.12.25
-CurrentVersionCode: 20211225
+CurrentVersion: 2022.04.10
+CurrentVersionCode: 20220410
