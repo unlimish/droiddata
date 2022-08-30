@@ -21,7 +21,25 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '2.0'
+    versionCode: 24
+    commit: 5f21e8773b70fb77a987aed694e24f0ffd43e36e
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '2.0'
+    versionCode: 25
+    commit: fb78dc21b7c8935945fa406e7c40845bbc82f880
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v-%c
 UpdateCheckMode: Tags
 CurrentVersion: '2.0'
-CurrentVersionCode: 23
+CurrentVersionCode: 25

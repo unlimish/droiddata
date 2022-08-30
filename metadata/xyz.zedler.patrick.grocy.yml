@@ -111,7 +111,52 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.1.1
+    versionCode: 39
+    commit: 2d3cdeffb167ee66832016b060a6bb4b500c9588
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.2.0
+    versionCode: 40
+    commit: 29242d52b5731505723327090e021cf94d87d04f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.2.1
+    versionCode: 41
+    commit: c248d3239daebe5f6cbcd3a8169e65d51d601e9b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.0
+    versionCode: 42
+    disable: https://github.com/patzly/grocy-android/issues/566
+    commit: 03939f0412db311d47be20852a04f48b84530d6c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.1.0
-CurrentVersionCode: 38
+CurrentVersion: 2.3.0
+CurrentVersionCode: 42

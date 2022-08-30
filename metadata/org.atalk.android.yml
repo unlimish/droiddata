@@ -1613,10 +1613,325 @@ Builds:
       - ./build-jnilibs4atalk.sh
     ndk: r20
 
+  - versionName: 2.9.0
+    versionCode: 209000
+    commit: e17a4748824c299b7c98879779617dccea7f1b40
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.9.1
+    versionCode: 209010
+    commit: 4d8ba2481a0063561a94967eb8462a27bf3d2ccc
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.9.2
+    versionCode: 209020
+    commit: f1d7cf268d1f05523876a41e96b9c8b7119ec46b
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.9.3
+    versionCode: 209031
+    commit: a4b665bb172ccf5d721689d41df2231060efa662
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;31.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.9.4
+    versionCode: 209040
+    commit: b8dcfa44ea71debbb6ef31bc175e49c191019b80
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;31.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.9.5
+    versionCode: 209050
+    commit: 1f0adf761a4e30d3f3c967bf8bd46e3264ae5a8b
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.9.6
+    versionCode: 209061
+    commit: 9c10c6d68fbc41392099072f6b22f1826563c5d2
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless wget
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 3.0.0
+    versionCode: 300000
+    commit: 9bdf7dc58ae468d112b806438751207aed64ec45
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless wget
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 3.0.1
+    versionCode: 300010
+    commit: 946ec699ce54b88ec94abffd5b43654b20f8b69e
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless wget
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
 MaintainerNotes: scanignore is used to allow the local "third_party/m2" Gradle repository
     (which is populated by libraries we build).
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.8.1
-CurrentVersionCode: 208010
+CurrentVersion: 3.0.1
+CurrentVersionCode: 300010

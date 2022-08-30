@@ -128,7 +128,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.4.1
+    versionCode: 31
+    commit: 98857a7a9204b190fddea31d2c397fdb261080f4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.5.0
+    versionCode: 32
+    commit: 676d20bd3651fc4fc1644eda43059e563d1386a1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.3.3
-CurrentVersionCode: 29
+CurrentVersion: 1.5.0
+CurrentVersionCode: 32

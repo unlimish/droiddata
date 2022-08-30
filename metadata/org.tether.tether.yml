@@ -326,8 +326,72 @@ Builds:
       - $$flutter$$/bin/flutter build apk
     ndk: r21d
 
+  - versionName: 0.2.9
+    versionCode: 2090
+    disable: https://github.com/syphon-org/syphon/issues/609
+    commit: 0572100acc8828653916c56c79be82d48a283e2f
+    submodules: true
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@2.10.1
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter pub run build_runner build
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21d
+
+  - versionName: 0.2.11
+    versionCode: 2110
+    commit: eacca608325a7e3f3030cfc453aec216a20a4d29
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    rm:
+      - linux
+      - macos
+      - test
+      - windows
+    prebuild:
+      - mv ios/olm .
+      - rm -r ios
+      - sed -i -e 's|ios/olm|olm|' android/app/build.gradle
+      - $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter pub run build_runner build
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21d
+
+  - versionName: 0.2.13
+    versionCode: 2130
+    commit: bbaa7944d1a5ecc46610e7adc54c73ad81a33ce1
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    rm:
+      - linux
+      - macos
+      - test
+      - windows
+    prebuild:
+      - mv ios/olm .
+      - rm -r ios
+      - sed -i -e 's|ios/olm|olm|' android/app/build.gradle
+      - $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter pub run build_runner build
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21d
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: version.txt|versionCode=(.*)|.|versionName=(.*)
-CurrentVersion: 0.2.8
-CurrentVersionCode: 2010
+CurrentVersion: 0.2.12
+CurrentVersionCode: 2121

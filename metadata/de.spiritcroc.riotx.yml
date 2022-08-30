@@ -1,3 +1,5 @@
+AntiFeatures:
+  - NonFreeNet
 Categories:
   - Internet
   - Phone & SMS
@@ -807,7 +809,337 @@ Builds:
       - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
     ndk: r21d
 
+  - versionName: 1.4.4.sc50
+    versionCode: 40100780
+    disable: https://github.com/vector-im/element-android/issues/6100
+    commit: 45d16e16d2e87b5a62c32a1226c55ed6774a15f0
+    subdir: vector
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t stretch-backports npm jq
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-3.10.0
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e 's|"https://github.com/vector-im.*"|"https://jitpack.io/"|' -e "s|'https://gitlab.matrix.org.*'|'https://jitpack.io/'|"
+        ../build.gradle
+      - sed -i -e '/repositories {/a mavenLocal()' -e '/repositories {/a mavenCentral()'
+        ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+      - sed -i -e 's/org.matrix.android:olm:3.2.7/org.matrix.android:olm-sdk:3.2.10/'
+        ../matrix-sdk-android/build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install webpack-bundle-analyzer
+      - npm install
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.4.11.sc51
+    versionCode: 40100810
+    disable: https://github.com/vector-im/element-android/issues/6100
+    commit: 616a121ccfd6b9f5bd825073fbc5fcf054d7236b
+    subdir: vector
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+      - echo "e40c6f81bfd078976d85296b5e657be19e06862497741ad82902d0704b34bb1b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-5.0.2
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e 's|"https://github.com/vector-im.*"|"https://jitpack.io/"|' ../build.gradle
+      - sed -i -e '/repositories {/a mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install --save false webpack-bundle-analyzer
+      - npm ci
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.4.13.sc52
+    versionCode: 40100820
+    disable: https://github.com/vector-im/element-android/issues/6100
+    commit: 9a8efb0ef8e141860ffc0d7284a45ded3fc3bb8a
+    subdir: vector
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+      - echo "e40c6f81bfd078976d85296b5e657be19e06862497741ad82902d0704b34bb1b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-5.0.2
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e 's|"https://github.com/vector-im.*"|"https://jitpack.io/"|' ../build.gradle
+      - sed -i -e '/repositories {/a mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install --save false webpack-bundle-analyzer
+      - npm ci
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.4.14.sc53
+    versionCode: 40100840
+    disable: https://github.com/vector-im/element-android/issues/6100
+    commit: 9d6749f8cb50b7df1519aacf63e203e8e4ed5384
+    subdir: vector
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+      - echo "e40c6f81bfd078976d85296b5e657be19e06862497741ad82902d0704b34bb1b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-5.0.2
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e 's|"https://github.com/vector-im.*"|"https://jitpack.io/"|' ../build.gradle
+      - sed -i -e '/repositories {/a mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install --save false webpack-bundle-analyzer
+      - npm ci
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.4.16.sc54
+    versionCode: 40100860
+    commit: 086d9c08ffb18dbc6bee453e18e08f33c7803898
+    subdir: vector
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+      - echo "e40c6f81bfd078976d85296b5e657be19e06862497741ad82902d0704b34bb1b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-5.0.2
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e 's|"https://github.com/vector-im.*"|"https://jitpack.io/"|' ../build.gradle
+      - sed -i -e '/repositories {/a mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install --save false webpack-bundle-analyzer
+      - npm ci
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.4.20.sc55
+    versionCode: 40100880
+    commit: 07e458102112ea118e0262cbddf0074322342b71
+    subdir: vector
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+      - echo "e40c6f81bfd078976d85296b5e657be19e06862497741ad82902d0704b34bb1b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-5.0.2
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e 's|"https://github.com/vector-im.*"|"https://jitpack.io/"|' ../build.gradle
+      - sed -i -e '/repositories {/a mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install --save false webpack-bundle-analyzer
+      - npm ci
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.4.31.sc56
+    versionCode: 40100890
+    commit: ebe5672b8af3269cec917e08a8f5e30e13e1016d
+    subdir: vector
+    sudo:
+      - cd /opt/android-sdk/ndk
+      - rm -fr $(ls | sed 's/21.3.6528147//')
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+      - echo "e40c6f81bfd078976d85296b5e657be19e06862497741ad82902d0704b34bb1b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
+        libopus0
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288 || true
+    patch:
+      - build_gradle_remove_jitsi_repo_40104160.patch
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-5.0.2
+      - maplibre-gl-native@android-v9.5.2
+    prebuild:
+      - sed -i -e '/applicationIdSuffix/d' -e '/^repositories {/a mavenLocal()' build.gradle
+      - sed -i -e 's/org.maplibre.gl/org.fdroid/' build.gradle $$maplibre-gl-native$$/platform/android/gradle/artifact-settings.gradle
+      - pushd $$maplibre-gl-native$$/platform/android/MapboxGLAndroidSDK
+      - sed -i -e '/signing {/,/}/d' -e '/signing/d' ../gradle/gradle-publish.gradle
+      - sed -i -e '/gmsLocation/d' build.gradle
+      - cd src/main/java/com/mapbox/mapboxsdk/location/engine
+      - sed -i -e '/isOnClasspath(GOOGLE_API_AVAILABILITY)/,/}/d' -e '/import.*gms/d'
+        -e 's|return isGoogle|return //isGoogle|' LocationEngineProvider.java
+      - rm GoogleLocationEngineImpl.java
+      - sed -i -e '/private.*extractGooglePlayResult/,/^  }/d' -e '/extractGooglePlayResult/d'
+        -e '/import.*gms/d' LocationEngineResult.java
+      - popd
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/repositories {/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - pushd $$maplibre-gl-native$$/platform/android
+      - git submodule update --init --recursive
+      - BUILDTYPE=Release make apackage
+      - gradle -Pmapbox.abis=all -PVERSION_NAME=9.5.2 :MapboxGLAndroidSDK:publishToMavenLocal
+      - popd
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install --save false webpack-bundle-analyzer
+      - npm ci
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.4.32.sc57
+    versionCode: 40100900
+    commit: 2a8ef64861fb863a91ccb9309be74fdf96fa5a82
+    subdir: vector
+    sudo:
+      - cd /opt/android-sdk/ndk
+      - rm -fr $(ls | sed 's/21.3.6528147//')
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+      - echo "e40c6f81bfd078976d85296b5e657be19e06862497741ad82902d0704b34bb1b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
+        libopus0
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288 || true
+    patch:
+      - build_gradle_remove_jitsi_repo_40104160.patch
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-5.0.2
+      - maplibre-gl-native@android-v9.5.2
+    prebuild:
+      - sed -i -e '/applicationIdSuffix/d' -e '/^repositories {/a mavenLocal()' build.gradle
+      - sed -i -e 's/org.maplibre.gl/org.fdroid/' build.gradle $$maplibre-gl-native$$/platform/android/gradle/artifact-settings.gradle
+      - pushd $$maplibre-gl-native$$/platform/android/MapboxGLAndroidSDK
+      - sed -i -e '/signing {/,/}/d' -e '/signing/d' ../gradle/gradle-publish.gradle
+      - sed -i -e '/gmsLocation/d' build.gradle
+      - cd src/main/java/com/mapbox/mapboxsdk/location/engine
+      - sed -i -e '/isOnClasspath(GOOGLE_API_AVAILABILITY)/,/}/d' -e '/import.*gms/d'
+        -e 's|return isGoogle|return //isGoogle|' LocationEngineProvider.java
+      - rm GoogleLocationEngineImpl.java
+      - sed -i -e '/private.*extractGooglePlayResult/,/^  }/d' -e '/extractGooglePlayResult/d'
+        -e '/import.*gms/d' LocationEngineResult.java
+      - popd
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/repositories {/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - pushd $$maplibre-gl-native$$/platform/android
+      - git submodule update --init --recursive
+      - BUILDTYPE=Release make apackage
+      - gradle -Pmapbox.abis=all -PVERSION_NAME=9.5.2 :MapboxGLAndroidSDK:publishToMavenLocal
+      - popd
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install --save false webpack-bundle-analyzer
+      - npm ci
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+MaintainerNotes: AntiFeature NonFreeNet is added because each chat has a "Add Matrix
+    apps" button which by default links to the proprietary scalar.vector.im service.
+
 AutoUpdateMode: Version sc_v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.3.12.sc48
-CurrentVersionCode: 40100750
+CurrentVersion: 1.4.32.sc57
+CurrentVersionCode: 40100900

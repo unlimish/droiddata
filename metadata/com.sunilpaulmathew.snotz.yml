@@ -150,7 +150,29 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: v0.25
+    versionCode: 25
+    commit: 1b9f05eb698eefb9cc5f41e6f17ed2837acda8eb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: v0.26
+    versionCode: 26
+    commit: 702a30812e68e143278aee3466f237fbd7322e0d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: v0.24
-CurrentVersionCode: 24
+CurrentVersion: v0.26
+CurrentVersionCode: 26

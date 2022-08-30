@@ -229,7 +229,31 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '0.12'
+    versionCode: 30
+    commit: b1013b74a9922e7dcdc7d945ea038a2272394fa0
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.12.1
+    versionCode: 31
+    commit: df732ec915865f714b885daf81fbe0cd3d61637c
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.11.7
-CurrentVersionCode: 29
+CurrentVersion: 0.12.1
+CurrentVersionCode: 31

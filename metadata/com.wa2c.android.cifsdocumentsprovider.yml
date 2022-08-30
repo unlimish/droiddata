@@ -69,7 +69,41 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.4.1
+    versionCode: 12
+    commit: 5acf83dd8ee329b20ac5b060be0165deea67440a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.5.0
+    versionCode: 13
+    disable: https://github.com/wa2c/cifs-documents-provider/issues/28
+    commit: baae69ef3c33c7e4acd60992aefbaf71fde997af
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.6.0
+    versionCode: 16
+    commit: eca77fbee439fe9713bfbbcfcf0268dc9b8e782e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version Ver\.%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.4.0
-CurrentVersionCode: 11
+CurrentVersion: 1.6.0
+CurrentVersionCode: 16

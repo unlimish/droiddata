@@ -208,7 +208,79 @@ Builds:
       - fdroid
     prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
 
+  - versionName: 6.5.3
+    versionCode: 67
+    commit: 24328a3812c69ab4fb11405d3c46be79201c90ff
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.5.5
+    versionCode: 69
+    commit: 1139849f13cd2136098d9dfa45e2229e696e137e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.6.0
+    versionCode: 70
+    commit: fba83c64147a355df528eb57a82785cd451abe32
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.6.1
+    versionCode: 71
+    commit: b6960ffd26173727a6569349c053abcfa4474c06
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.7.0
+    versionCode: 72
+    commit: a175ffa3d4e4c8c84a7654f717f2dc67159b0941
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.8.0
+    versionCode: 73
+    commit: 2878bf71d6821569fbb8887976c3d231b3614cc8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 6.5.2
-CurrentVersionCode: 66
+CurrentVersion: 6.8.0
+CurrentVersionCode: 73

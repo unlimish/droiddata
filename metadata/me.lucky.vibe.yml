@@ -6,6 +6,9 @@ AuthorEmail: 44uaanjm0@relay.firefox.com
 AuthorWebSite: https://github.com/x13a
 SourceCode: https://github.com/x13a/Vibe
 IssueTracker: https://github.com/x13a/Vibe/issues
+Changelog: https://github.com/x13a/Vibe/releases
+Donate: https://x13a.github.io/donate/
+Bitcoin: bc1qa5n9vmkmgss7s3u3svgue2kjpk7g4kpaa7nrpt
 
 AutoName: Vibe
 
@@ -123,7 +126,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.1.1
+    versionCode: 16
+    commit: cb0b51592a9e7462b9bc1bf91194d5172fd95e1b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.2
+    versionCode: 17
+    commit: 39b0e3db1d4f7f8671cfa35833e97d3041465394
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.1.0
-CurrentVersionCode: 15
+CurrentVersion: 1.1.2
+CurrentVersionCode: 17

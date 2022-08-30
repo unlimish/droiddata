@@ -2482,10 +2482,267 @@ Builds:
         -e '/google-services/d' build.gradle
       - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
 
+  - versionName: 2.20.2-beta
+    versionCode: 420
+    disable: https://github.com/openhab/openhab-android/issues/2842
+    commit: 9d93b634e7bd87b22f79a6f10893bc98ae2d38fb
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.3-beta
+    versionCode: 421
+    commit: 9a3de0052a25e7affeabcfef5061c1e1daaffd3f
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.4-beta
+    versionCode: 422
+    commit: 9f7e1496de0914a07204a33745321502bb7c5b5d
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.5-beta
+    versionCode: 423
+    commit: 8693f60f95bbd1591b5f27358a8a0b30a8d88576
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.6-beta
+    versionCode: 424
+    commit: ec568d6608f03827a7283fc16a86d859248b4926
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.7-beta
+    versionCode: 425
+    commit: 8b3fa16ba64f42e6ba35df89fb170e37973a7002
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.8-beta
+    versionCode: 426
+    commit: 493993ad3c4c4692b629bf69db5c158d1bcd3a99
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.9-beta
+    versionCode: 427
+    commit: d3722d049248855dcdd8d6c1c55cede968b18a93
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.10-beta
+    versionCode: 428
+    commit: 99e6597ad8ef34232c01d21df964f49fc1da2bcc
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.11-beta
+    versionCode: 429
+    commit: d0aa13cb6a397b6aff651b123959811077a1084c
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.12-beta
+    versionCode: 430
+    commit: 6f27dc08109a3adb69d5b967202cad0331b3f915
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.13-beta
+    versionCode: 431
+    commit: b6a637003b321471b4999ca506214feb48262a39
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.14-beta
+    versionCode: 432
+    commit: 272ec7d6ceceae4b41360ebe0d07603d56e5d407
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.15-beta
+    versionCode: 433
+    commit: 065bfe5619bfa57d52a7373f30d7e6269fe7959d
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.20.16-beta
+    versionCode: 434
+    commit: 4275543226c705556eb7c3c6953eb25c405ed9ff
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 2.21.1-beta
+    versionCode: 436
+    commit: 6f9f2cc9bddaa42eeded17e3ec562ee37432346c
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - beta
+    prebuild:
+      - sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
 MaintainerNotes: Replace the fabric.io maven with mavencentral instead of deleting
     it to not trigger fdroid/fdroidserver#463.
 
 AutoUpdateMode: Version %v-fdroid
 UpdateCheckMode: Tags ^[0-9.]+-beta-fdroid$
-CurrentVersion: 2.20.1-beta
-CurrentVersionCode: 419
+CurrentVersion: 2.21.1-beta
+CurrentVersionCode: 436

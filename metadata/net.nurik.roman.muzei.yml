@@ -114,25 +114,13 @@ Builds:
       - wearable
       - example-watchface
 
-  - versionName: 3.4.3
-    versionCode: 340300
-    commit: v3.4.3-rc01
-    subdir: main
-    patch:
-      - 3.4.3-remove-play-services.patch
-    gradle:
-      - yes
-    rm:
-      - wearable
-      - example-watchface
-
   - versionName: 3.4.5-rc03
     versionCode: 340504
     commit: ebc22dc741c247586f6973affc1b0227099973c3
     subdir: main
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk
+      - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
       - yes
@@ -147,7 +135,43 @@ Builds:
       - main/src/main/java/com/google/android/apps/muzei/wearable
     prebuild:
       - sed -i -e '/gms/d' -e '/firebase/d' ../build.gradle ../*/build.gradle
-      - sed -i -e '/signingConfigs.release/d' -e '/FirebasePerformance/,/}$/d' build.gradle
+      - sed -i -e '/signingConfigs.release/d' -e '/FirebasePerformance/,/}$/d' -e
+        '/kotlinx-coroutines-play-services/d' build.gradle
+      - sed -i -e '/props/d' ../muzei-api/build.gradle
+      - pushd src/main/java/com/google/android/apps/muzei
+      - sed -i -e '/com.google.firebase/d' -e '/Firebase.analytics.logEvent.*)$/d'
+        -e '/Firebase.analytics.logEvent.*{$/,/}$/d' -e '/Firebase.analytics.logEvent($/,/)$/d'
+        -e '/Firebase/d' *.kt */*.kt
+      - sed -i -e '/WearableController/d' MuzeiWallpaperService.kt
+      - popd
+      - sed -i -z -E -e 's/<service\s+\S+wearable.*service>//' src/main/AndroidManifest.xml
+      - sed -i -e '/<queries>/i <uses-permission android:name="android.permission.INTERNET"
+        />' src/main/AndroidManifest.xml
+      - sed -i -e '/signing {/,/^}/d' -e '/afterEvaluate/,/^}/d' ../muzei-api/build.gradle
+
+  - versionName: 3.5.0-alpha01
+    versionCode: 350000
+    commit: d5d7de94fe650f617a4ad5d748635f97abbcdb42
+    subdir: main
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    forceversion: true
+    rm:
+      - wearable
+      - example-watchface
+      - legacy-standalone
+      - example-unsplash
+      - main/google-services.json
+      - android-client-common/src/main/java/com/google/android/apps/muzei/wearable
+      - main/src/main/java/com/google/android/apps/muzei/wearable
+    prebuild:
+      - sed -i -e '/gms/d' -e '/firebase/d' ../build.gradle ../*/build.gradle
+      - sed -i -e '/signingConfigs.release/d' -e '/FirebasePerformance/,/}$/d' -e
+        '/kotlinx-coroutines-play-services/d' build.gradle
       - sed -i -e '/props/d' ../muzei-api/build.gradle
       - pushd src/main/java/com/google/android/apps/muzei
       - sed -i -e '/com.google.firebase/d' -e '/Firebase.analytics.logEvent.*)$/d'
@@ -170,5 +194,5 @@ MaintainerNotes: |-
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
 UpdateCheckData: version.properties|code\s=\s(\d+)||v(.*)
-CurrentVersion: 3.4.5-rc03
-CurrentVersionCode: 340504
+CurrentVersion: 3.5.0-alpha01
+CurrentVersionCode: 350000

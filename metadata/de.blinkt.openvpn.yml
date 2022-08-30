@@ -636,11 +636,95 @@ Builds:
         =\ false/' build.gradle.kts
     ndk: r19c
 
+  - versionName: 0.7.34
+    versionCode: 189
+    commit: f62f890330a92bb895e68069bc8c340a307f1eae
+    subdir: main
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - ui
+    rm:
+      - main/src/main/cpp/mbedtls/programs/fuzz
+      - main/src/main/cpp/mbedtls/tests
+      - main/src/main/cpp/openvpn3/test/unittests
+      - main/src/main/cpp/lz4/tmpsparse
+      - main/src/main/cpp/lz4/tmp
+    prebuild: sed -i -e '/signingConfigs.getByName/d' -e 's/isEnable\ =\ true/isEnable\
+        =\ false/' build.gradle.kts
+    ndk: r19c
+
+  - versionName: 0.7.37
+    versionCode: 192
+    commit: b4268d108e883b76823b228ab2efef0df1b426da
+    subdir: main
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - ui
+    rm:
+      - main/src/main/cpp/mbedtls/programs/fuzz
+      - main/src/main/cpp/mbedtls/tests
+      - main/src/main/cpp/openvpn3/test/unittests
+      - main/src/main/cpp/lz4/tmpsparse
+      - main/src/main/cpp/lz4/tmp
+    prebuild: sed -i -e '/signingConfigs.getByName/d' -e 's/isEnable\ =\ true/isEnable\
+        =\ false/' build.gradle.kts
+    ndk: r24
+
+  - versionName: 0.7.38
+    versionCode: 193
+    commit: 1b6616661683cea71bcab21c3bb75b3520c5b501
+    subdir: main
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - ui
+    rm:
+      - main/src/main/cpp/mbedtls/programs/fuzz
+      - main/src/main/cpp/mbedtls/tests
+      - main/src/main/cpp/openvpn3/test/unittests
+      - main/src/main/cpp/lz4/tmpsparse
+      - main/src/main/cpp/lz4/tmp
+    prebuild: sed -i -e '/signingConfigs.getByName/d' -e 's/isEnable\ =\ true/isEnable\
+        =\ false/' build.gradle.kts
+    ndk: r24
+
+  - versionName: 0.7.39
+    versionCode: 194
+    commit: c51decadcb8e9d925196c52ba670a170d69feff8
+    subdir: main
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - ui
+    rm:
+      - main/src/main/cpp/mbedtls/programs/fuzz
+      - main/src/main/cpp/mbedtls/tests
+      - main/src/main/cpp/openvpn3/test/unittests
+      - main/src/main/cpp/lz4/tmpsparse
+      - main/src/main/cpp/lz4/tmp
+    prebuild: sed -i -e '/signingConfigs.getByName/d' -e 's/isEnable\ =\ true/isEnable\
+        =\ false/' build.gradle.kts
+    ndk: r24
+
 MaintainerNotes: |-
     Build instructions:
     https://github.com/schwabe/ics-openvpn/blob/master/.travis.yml
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.7.33
-CurrentVersionCode: 188
+CurrentVersion: 0.7.39
+CurrentVersionCode: 194

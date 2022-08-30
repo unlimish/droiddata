@@ -1,76 +1,106 @@
 include:
   - template: Security/SAST.gitlab-ci.yml
+  # Use branch pipelines to avoid Premium tier features
+  - template: Workflows/Branch-Pipelines.gitlab-ci.yml
 
 stages:
+  - prepare
   - build
   - test
   - report
+  - deploy
 
 variables:
   pip: pip3 --timeout 100 --retries 10
+  ANDROID_CMDLINE_TOOLS: 8512546
+  ANDROID_CMDLINE_TOOLS_SHA256: 2ccbda4302db862a28ada25aa7425d99dce9462046003c1714b059b5c47970d8
 
+  # needs lots of git history since it has to compare the merge request to current master
+  GIT_DEPTH: "5000"
+
+.install_fdroid_server: &install_fdroid_server
+  - rm -rf $fdroidserver
+  - mkdir $fdroidserver
+  - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
+  - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
+        | tar -xz --directory=$fdroidserver --strip-components=1
+  - export PATH="$fdroidserver:$PATH"
+  - export PYTHONPATH="$fdroidserver:$fdroidserver/examples"
+  - export PYTHONUNBUFFERED=true
+
+.install_fdroid_server_deb: &install_fdroid_server_deb
+  - apt-get --allow-releaseinfo-change update
+  - apt-get -qy dist-upgrade
+  - echo "locales locales/locales_to_be_generated multiselect en_US.UTF-8 UTF-8" | debconf-set-selections
+  - apt-get install -qy --no-install-recommends fdroidserver apksigner mercurial git git-svn brz locales
+
+.get_target_source_refs: &get_target_source_refs
+  - |
+    if [ "$CI_PROJECT_PATH" = "fdroid/fdroiddata" ] && [ "$CI_COMMIT_BRANCH" = "$CI_DEFAULT_BRANCH" ]; then
+        export TARGET_REF="${CI_COMMIT_BEFORE_SHA}"
+        export SOURCE_REF="${CI_COMMIT_SHA}"
+    else
+        git remote add upstream https://gitlab.com/fdroid/fdroiddata.git || true
+        git fetch upstream ${CI_DEFAULT_BRANCH}
+        export TARGET_REF=$(git merge-base HEAD upstream/${CI_DEFAULT_BRANCH})
+        export SOURCE_REF="${CI_COMMIT_SHA}"
+    fi;
+
+.get_changed_apps: &get_changed_apps
+  - *get_target_source_refs
+  - echo $TARGET_REF
+  - |
+    for f in $(git diff --name-only --diff-filter=d "${TARGET_REF}...${SOURCE_REF}" -- metadata/*.yml) $(git diff --name-only --diff-filter=d "${TARGET_REF}...${SOURCE_REF}" -- metadata/*/signatures); do
+        diff=$(git diff "${TARGET_REF}...${SOURCE_REF}" -- "$f")
+        echo "$diff"
+        test $(echo "$diff" | perl -wnle '/^[+-](( +-)|( *\w))/ and print' | grep -v -c '^+ *disable:') = 0 && continue
+        echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue
+        appid=$(echo "$f" | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p')
+        export CHANGED="$CHANGED $appid"
+    done
+
+.app_verification_rules:
+  rules: &app_verification_rules
+    - if: $CI_PIPELINE_SOURCE == "pipeline" || $CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "trigger"
+      when: never
+    # only works for merge request pipelines: https://docs.gitlab.com/ee/ci/jobs/job_control.html#jobs-or-pipelines-run-unexpectedly-when-using-changes
+    # - changes:
+    #     - metadata/**/*
+    #     - srclibs/**/*
+    - when: on_success
 
 checkupdates:
-  image: registry.gitlab.com/fdroid/ci-images-checkupdates:latest
-  except:
-    - pipelines
-    - schedules
-    - triggers
+  stage: test
+  needs: []
+  image: debian:bullseye-slim
+  rules: *app_verification_rules
   before_script:
+    - *install_fdroid_server_deb
+    - export fdroidserver=../fdroidserver
+    - *install_fdroid_server
+  script:
     - |
       set -xe
-      apt-get --allow-releaseinfo-change update
-      apt-get -qy dist-upgrade
-      cd ..
-      rm -rf fdroidserver
-      mkdir fdroidserver
-      git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
-      curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz | tar -xz --directory=fdroidserver --strip-components=1
-      export PATH="$PWD/fdroidserver:$PATH"
-      cd -
-  script: |
-    set -xe
-    if [ "$CI_PROJECT_NAMESPACE" = "fdroid" ]; then echo "not testing in fdroid"; exit 0; fi
-    git fetch https://gitlab.com/fdroid/fdroiddata.git
-    appids=$(git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD} "metadata/*.yml" | sed -n -e 's,^metadata/\([^/][^/]*\)\.yml,\1,p')
-    if [ -n "$appids" ]; then
-      fdroid checkupdates --auto -v $appids
-      git --no-pager diff --color=always --exit-code
-    fi
+      if [ "$CI_PROJECT_NAMESPACE" = "fdroid" ]; then echo "not testing in fdroid"; exit 0; fi
+    - *get_changed_apps
+    - |
+      if [ -n "$CHANGED" ]; then
+        fdroid checkupdates --auto -v $CHANGED
+        git --no-pager diff --color=always --exit-code
+      fi
 
-lint:
+fdroid lint:
+  stage: test
+  needs: []
   image: registry.gitlab.com/fdroid/ci-images-base
-  except:
-    - pipelines
-    - schedules
-    - triggers
+  rules: *app_verification_rules
   before_script:
     - apt-get update
     - apt-get -qy dist-upgrade
-    - rm -rf fdroidserver
-    - mkdir fdroidserver
-    - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
-    - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-        | tar -xz --directory=fdroidserver --strip-components=1
-    - export PATH="$PWD/fdroidserver:$PATH"
+    - export fdroidserver=$PWD/fdroidserver
+    - *install_fdroid_server
   script:
-    # if this is a merge request fork, then only check relevant apps
-    - if [ "$CI_PROJECT_NAMESPACE" != "fdroid" ]; then
-        git fetch https://gitlab.com/fdroid/fdroiddata.git;
-        test -d build || mkdir build;
-        files=`git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD}`;
-        for f in $files; do
-           appid=`echo $f | sed -n -e 's,^metadata/\([^/][^/]*\)\.yml,\1,p'`;
-           if [ -n "$appid" ]; then
-             export CHANGED="$CHANGED $appid";
-           fi;
-        done;
-        set -x;
-        apt-get install python3-colorama yamllint;
-        for f in $files; do [[ $f == *'.yml' ]] && yamllint "$f"; done;
-        ./tools/check-git-repo-availability.py $files;
-        set +x;
-      fi
+    - *get_changed_apps
     - export EXITVALUE=0
     - function set_error() { export EXITVALUE=1; printf "\x1b[31mERROR `history|tail -2|head -1|cut -b 6-500`\x1b[0m\n"; }
     - fdroid lint -f $CHANGED || {
@@ -81,8 +111,19 @@ lint:
           fdroid rewritemeta $CHANGED;
           git --no-pager diff --color=always;
       }
+    - exit $EXITVALUE
+
+lint:
+  stage: test
+  needs: []
+  image: registry.gitlab.com/fdroid/ci-images-base
+  rules: *app_verification_rules
+  script:
     - apt-get -qy update
     - apt-get -qy install --no-install-recommends exiftool
+    - export EXITVALUE=0
+    - function set_error() { export EXITVALUE=1; printf "\x1b[31mERROR `history|tail -2|head -1|cut -b 6-500`\x1b[0m\n"; }
+
     - find metadata/ -name '*.jp*g' -o -name '*.png' | xargs exiftool -all=
     - echo "these images have EXIF that must be stripped:"
     - git --no-pager diff --stat
@@ -91,15 +132,14 @@ lint:
     - ./tools/check-keyalias-collision.py || set_error
     - ./tools/check-metadata-summary-whitespace.py || set_error
     - ./tools/check-for-unattached-signatures.py || set_error
+
     - exit $EXITVALUE
 
 schema validation:
+  stage: test
+  needs: []
   image: node:alpine
-  except:
-    - master@fdroid/fdroiddata
-    - pipelines
-    - schedules
-    - triggers
+  rules: *app_verification_rules
   allow_failure:
     exit_codes: 128
   before_script:
@@ -107,21 +147,19 @@ schema validation:
     - npm -g install ajv-cli
   script:
     - ajv compile -s schemas/*.json || exit 1
-    - git fetch https://gitlab.com/fdroid/fdroiddata.git
     - set -xe
-    - for file in
-        $(git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD} -- "metadata/*.yml");
+    - *get_changed_apps
+    - |
+      for app_id in $CHANGED
       do
-        ajv validate -s schemas/metadata.json -d "$file";
+        ajv validate -s schemas/metadata.json -d "metadata/${app_id}.yml";
       done
 
 trigger-issuebot:
+  stage: prepare
+  needs: []
+  rules: *app_verification_rules
   image: alpine
-  except:
-    - master@fdroid/fdroiddata
-    - pipelines
-    - schedules
-    - triggers
   variables:
     GIT_DEPTH: "1"
   artifacts:
@@ -137,6 +175,8 @@ trigger-issuebot:
     - ./tools/trigger-issuebot
 
 schedule-issuebot:
+  stage: test
+  needs: []
   image: alpine
   only:
     variables:
@@ -157,34 +197,20 @@ schedule-issuebot:
     - $pip install python-gitlab
     - ./tools/schedule-issuebot.py
 
-checkupdates_trigger:
-  only:
-    refs:
-      - schedules
-    variables:
-      - $CHECKUPDATES == "true"
-  image: archlinux:latest
-  before_script:
-    - pacman -Sy --noconfirm parallel
-  script:
-    - parallel --verbose --delay 90 -X --jobs 10 'curl -X POST -F "token=$CI_JOB_TOKEN" -F "ref=master" -F "variables[CHECKUPDATES]=true" -F "variables[CHECKUPDATES_APPIDS]= {/.} " https://gitlab.com/api/v4/projects/${CI_PROJECT_ID}/trigger/pipeline' ":::" metadata/*.yml
-
 checkupdates_runner:
-  image: registry.gitlab.com/fdroid/ci-images-checkupdates:latest
+  stage: prepare
+  image: debian:bullseye-slim
+  variables:
+    GIT_DEPTH: "1"
+  parallel: 10
   tags:
     - checkupdates-runner
-  only:
-    refs:
-      - pipelines
-    variables:
-      - $CHECKUPDATES == "true"
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'schedule' && $CHECKUPDATES == 'true'
   before_script:
-    - rm -rf fdroidserver
-    - mkdir fdroidserver
-    - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
-    - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-        | tar -xz --directory=fdroidserver --strip-components=1
-    - export PATH="$PWD/fdroidserver:$PATH"
+    - *install_fdroid_server_deb
+    - export fdroidserver=../fdroidserver
+    - *install_fdroid_server
     - git config --global user.email "fdroidci@bubu1.eu"
     - git config --global user.name "F-Droid checkupdates bot"
     - mkdir -p ~/.ssh
@@ -198,17 +224,52 @@ checkupdates_runner:
     # reset repo to origin state before adding new commits
     - git rebase --abort || true
     - rm -fr ".git/rebase-apply"
+    # https://gitlab.com/gitlab-org/gitlab-runner/-/issues/29187
+    - rm -f ".git/logs/HEAD.lock"
     - git checkout master || true
     - git reset --hard origin/master || true
   script:
-    - fdroid checkupdates --allow-dirty --auto --commit ${CHECKUPDATES_APPIDS} 2>&1 | tee /tmp/out || true
+    # Get app IDs in this batch
+    - |
+      metadata_files=(metadata/*.yml)
+      metadata_files_count=${#metadata_files[@]}
+      batch_size=$((metadata_files_count / CI_NODE_TOTAL + 1))
+      metadata_files_batch=("${metadata_files[@]:$(((CI_NODE_INDEX - 1) * batch_size)):$batch_size}")
+
+      declare -a CHECKUPDATES_APPIDS
+      for file in "${metadata_files_batch[@]}"; do
+        filename="${file##*/}"
+        filename_without_extension="${filename%.*}"
+        CHECKUPDATES_APPIDS=("${CHECKUPDATES_APPIDS[@]}" "$filename_without_extension")
+      done
+
+      export CHECKUPDATES_APPIDS
+
+    - echo "$metadata_files_count"
+    - echo "$batch_size"
+    - echo "${metadata_files_batch[@]}"
+    - echo "${#metadata_files_batch[@]}"
+    - echo "${CHECKUPDATES_APPIDS[@]}"
+    - echo "${#CHECKUPDATES_APPIDS[@]}"
+
+    - fdroid checkupdates --allow-dirty --auto --commit "${CHECKUPDATES_APPIDS[@]}" 2>&1 | tee /tmp/out || true
     - git pull --rebase origin master
-    # when two jobs try to push at the same time they occasionally fail, so try one more time if it fails
-    - git push origin HEAD:master || (git pull --rebase origin master && git push origin HEAD:master)
+    # when two jobs try to push at the same time they occasionally fail, so try it again
+    - while ! git push origin HEAD:master; do git pull --rebase origin master; done
     - echo "============== Summary ====================="
     - 'grep -v "INFO: Processing" /tmp/out || true'
 
+# This job is should be as close as possible to the production
+# buildserver.  It should not include custom setup or methods, except
+# when there is no other way to make this job work.  The docker image
+# is created using the same provisioning as the producion buildserver,
+# via the "docker" job in fdroid/fdroidserver.
+#
+# This job is tied to the buildserver.  Changes must be reviewed by
+# the buildserver maintainers.
 fdroid build:
+  stage: build
+  needs: []
   image: registry.gitlab.com/fdroid/fdroidserver:buildserver
   artifacts:
     name: "${CI_PROJECT_PATH}_${CI_JOB_STAGE}_${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHA}"
@@ -218,29 +279,17 @@ fdroid build:
       - tmp/
     when: always
     expire_in: 1 month
-  except:
-    - master@fdroid/fdroiddata
-    - pipelines
-    - schedules
-    - triggers
+  rules: *app_verification_rules
   cache:
     key: "$CI_JOB_NAME"
     paths:
       - .gradle
+  variables:
+    ANDROID_HOME: /opt/android-sdk
+    ANDROID_SDK_ROOT: ${ANDROID_HOME}
   script:
-    - git fetch https://gitlab.com/fdroid/fdroiddata.git;
     - test -d build || mkdir build
-    - for f in
-          `git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD} -- metadata/*.yml`
-          `git diff --name-only --diff-filter=d FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD} -- metadata/*/signatures`;
-      do
-          diff=$(git diff FETCH_HEAD...${CI_EXTERNAL_PULL_REQUEST_TARGET_BRANCH_SHA:-HEAD} -- $f);
-          echo "$diff";
-          test $(echo "$diff" | grep '^[+-] ' | grep -v '^+  *disable:' | wc -l) = 0 && continue;
-          echo "$diff" | grep -E '^\+ *(NoSourceSince|Disabled):' && continue;
-          appid=`echo $f | sed -E -n 's,^metadata/([^/][^/]*)(\.yml|/signatures/.*),\1,p'`;
-          export CHANGED="$CHANGED $appid";
-      done;
+    - *get_changed_apps
     - test -n "$(printf "$CHANGED" | tr -d '[:space:]')"
           || { echo "no packages need processing, exiting"; exit 0; }
 
@@ -250,22 +299,24 @@ fdroid build:
     - test -n "$fdroidserver" || source /etc/profile.d/bsenv.sh
 
     # TODO remove sdkmanager install once it is included in the buildserver image
-    - git clone --depth=1 --branch=0.5.2 https://gitlab.com/fdroid/sdkmanager.git
-    - git -C sdkmanager checkout -B master 59374827baed7020c9761d9c8f51dcf9b490ba28
+    - git clone --depth=1 --branch=0.6.1 https://gitlab.com/fdroid/sdkmanager.git
+    - git -C sdkmanager checkout -B master f7e1064a78462a74cfc4ce3b1214c29644e438d7
     - pip3 install -e sdkmanager
     - rm -rf $ANDROID_HOME/tools  # TODO remove once sdkmanager can upgrade installed packages
+    # These packages are needed to make this env like the production buildserver.
     - sdkmanager "tools" "platform-tools" "build-tools;31.0.0"
 
-    - test -d $fdroidserver || mkdir $fdroidserver
-    - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
-    - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-          | tar -xz --directory=$fdroidserver --strip-components=1
+    - *install_fdroid_server
 
-    - for d in logs tmp unsigned $home_vagrant/build $home_vagrant/.android; do
+    - ln -s $home_vagrant/build $CI_PROJECT_DIR/build
+
+    # make sure .gradle stores inside $CI_PROJECT_DIR to make it cacheable
+    - ln -s $home_vagrant/.gradle $CI_PROJECT_DIR/.gradle
+
+    - for d in logs tmp unsigned $home_vagrant/build $home_vagrant/.android $home_vagrant/.gradle $ANDROID_HOME; do
           test -d $d || mkdir $d;
           chown -R vagrant $d;
       done
-    - ln -s $home_vagrant/build $CI_PROJECT_DIR/build
 
     - export GRADLE_USER_HOME=$home_vagrant/.gradle
     # each `fdroid build --on-server` run expects sudo, then uninstalls it
@@ -292,7 +343,7 @@ fdroid build:
           chown -R vagrant $home_vagrant;
           $fdroid fetchsrclibs $build --verbose;
           $fdroid build --verbose --test --scan-binary --on-server --no-tarball $build;
-          rm -rf "build/${build%:*}";
+          rm -rf "build/${build%:*}" || true;
           ./tools/build-contains-signatures.py $build || continue;
           apt-get install sudo;
           $fdroid publish --verbose $build;
@@ -312,6 +363,7 @@ fdroid build:
 # This job has to be called 'pages' because it deploys the JSON API
 # to GitLab Pages.
 pages:
+  stage: deploy
   image: registry.gitlab.com/fdroid/fdroidserver:buildserver
   only:
     refs:
@@ -328,22 +380,13 @@ pages:
       - tmp/apkcache.json
       - unsigned/
     when: always
-  # needs lots of git history since it has to compare the merge request to current master
-  variables:
-    GIT_DEPTH: "5000"
   script:
     - apt-get update
     - apt-get dist-upgrade
     - apt-get install python3-venv
 
     - test -n "$fdroidserver" || source /etc/profile.d/bsenv.sh
-    - test -d $fdroidserver || mkdir $fdroidserver
-    - git ls-remote https://gitlab.com/fdroid/fdroidserver.git master
-    - curl --silent https://gitlab.com/fdroid/fdroidserver/-/archive/master/fdroidserver-master.tar.gz
-        | tar -xz --directory=$fdroidserver --strip-components=1
-    - export PATH="$fdroidserver:$PATH"
-    - export PYTHONPATH="$fdroidserver:$fdroidserver/examples"
-    - export PYTHONUNBUFFERED=true
+    - *install_fdroid_server
 
     - export GRADLE_USER_HOME=$PWD/.gradle
     - rm -rf $GRADLE_USER_HOME/fdroid
@@ -369,6 +412,7 @@ pages:
 check_git_repos:
   image: debian:buster-slim
   stage: test
+  needs: []
   only:
     refs:
       - schedules
@@ -389,7 +433,13 @@ check_git_repos:
 
 sast:
   stage: report
+  needs:
+    - fdroid build
+  dependencies:
+    - fdroid build
   variables:
+    GIT_DEPTH: "1"
+
     MOBSF_API_KEY: key
     SAST_EXPERIMENTAL_FEATURES: "true"
     SAST_EXCLUDED_ANALYZERS:
@@ -399,11 +449,14 @@ sast:
 
     # Make sure the apk is searched before the manifest, so only apks are scanned
     ANALYZER_TARGET_DIR: $CI_PROJECT_DIR/tmp/
-  rules:
-    - if: '$CI_PIPELINE_SOURCE != "merge_request_event"'
-      when: never
   allow_failure: true
+  after_script:
+    # GitLab can only display reports at this exact path
+    - mv $ANALYZER_TARGET_DIR/gl-sast-report.json gl-sast-report.json
 
 mobsf-ios-sast:
   rules:
     - when: never
+
+mobsf-android-sast:
+  rules: *app_verification_rules

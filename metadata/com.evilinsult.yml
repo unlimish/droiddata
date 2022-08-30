@@ -75,7 +75,51 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '3.5'
+    versionCode: 35
+    commit: ec56074709ea5545395bee99a36af75fc197d616
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '3.6'
+    versionCode: 36
+    commit: 11ab42c7964263d2ce9859bb31c984d5bee3e746
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '3.7'
+    versionCode: 37
+    commit: a05b58e2d2bb023653082a0a39534c37ff600537
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '3.8'
+    versionCode: 38
+    commit: 773499dd9ec65bce65beef183476444b5141800b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '3.4'
-CurrentVersionCode: 34
+CurrentVersion: '3.8'
+CurrentVersionCode: 38

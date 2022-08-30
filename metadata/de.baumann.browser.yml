@@ -760,7 +760,67 @@ Builds:
       - yes
     prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
 
+  - versionName: '9.1'
+    versionCode: 131
+    commit: 9bc0e7b806315404e83d50de410d3468fb964d75
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '9.2'
+    versionCode: 132
+    commit: 9485013f39f80357340f4ad4f38ee8175fb26273
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '9.3'
+    versionCode: 133
+    commit: e9cb79905e96402db652921574440fa43b5151cd
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: 9.3.1
+    versionCode: 134
+    commit: 644657e8c4d77f3b67f0c9fa3573c889e7559a01
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '9.4'
+    versionCode: 135
+    commit: d4478a4efd31429dd69921dbde293fa31658f3ac
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '9.0'
-CurrentVersionCode: 130
+CurrentVersion: '9.4'
+CurrentVersionCode: 135

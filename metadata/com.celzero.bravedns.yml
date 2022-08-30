@@ -38,7 +38,18 @@ Builds:
     gradle:
       - fdroid
 
-AutoUpdateMode: Version v%v
+  - versionName: 053i
+    versionCode: 20
+    commit: 7a8f95899860e95559bf8f6769b9cd336fd5f856
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 053h
-CurrentVersionCode: 19
+CurrentVersion: 053i
+CurrentVersionCode: 20

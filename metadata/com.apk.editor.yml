@@ -151,7 +151,44 @@ Builds:
     scanignore:
       - app/src/full/assets/APKEditor
 
+  - versionName: v0.21
+    versionCode: 21
+    commit: bfe466faa9d13c367d1383a826d93684e3dafa9e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - full
+
+  - versionName: v0.22
+    versionCode: 22
+    commit: 89fe026da13cdba4f971480ea3ba54b64be59352
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - full
+    scanignore:
+      - app/src/full/assets/APKEditor
+
+  - versionName: v0.23
+    versionCode: 23
+    commit: 73c972f008b0d88c2f2cdbc9d93db285841f4236
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - full
+    scanignore:
+      - app/src/full/assets/APKEditor
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: v0.20
-CurrentVersionCode: 20
+CurrentVersion: v0.23
+CurrentVersionCode: 23

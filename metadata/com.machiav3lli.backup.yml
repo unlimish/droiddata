@@ -2,17 +2,17 @@ Categories:
   - System
 License: AGPL-3.0-only
 AuthorName: Antonios Hazim
-SourceCode: https://github.com/machiav3lli/oandbackupx
-IssueTracker: https://github.com/machiav3lli/oandbackupx/issues
+SourceCode: https://github.com/NeoApplications/Neo-Backup
+IssueTracker: https://github.com/NeoApplications/Neo-Backup/issues
 Translation: https://hosted.weblate.org/engage/oandbackupx/
-Changelog: https://github.com/machiav3lli/oandbackupx/blob/HEAD/CHANGELOG.md
+Changelog: https://github.com/NeoApplications/Neo-Backup/blob/HEAD/CHANGELOG.md
 
-AutoName: OAndBackupX
+AutoName: Neo Backup
 
 RequiresRoot: 'yes'
 
 RepoType: git
-Repo: https://github.com/machiav3lli/oandbackupx
+Repo: https://github.com/NeoApplications/Neo-Backup
 
 Builds:
   - versionName: 1.2.0-universal
@@ -133,7 +133,62 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 8.0.0
+    versionCode: 8000
+    commit: 1e1ace1d24e3991a37f0ecc9d8c8a2a7a8aa2b18
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 8.0.0
+    versionCode: 8014
+    commit: ff5f2ff609f89e80bbc4381646b8c354e63941fb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 8.0.2
+    versionCode: 8016
+    commit: f809bf496edf59227249aa1a5ac986c618977115
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 8.1.0
+    versionCode: 8102
+    commit: 6d5ab88d103992e5d6739672be345142294abaf6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 8.1.1
+    versionCode: 8104
+    commit: 429e2ccb1287244ccd6a70aa5dbee871438c9aaa
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: 7.0.0
-CurrentVersionCode: 7000
+UpdateCheckMode: Tags ^[\d.]+$
+CurrentVersion: 8.1.1
+CurrentVersionCode: 8104

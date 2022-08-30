@@ -182,7 +182,37 @@ Builds:
     gradle:
       - full
 
+  - versionName: 2.14.0
+    versionCode: 28
+    commit: f128505efe0f2795916727345a78e55183c3a881
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - full
+
+  - versionName: 2.15.0
+    versionCode: 29
+    commit: cb5408c103f20a9717b6655f5e64a69a0ea93221
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - full
+
+  - versionName: 2.16.0
+    versionCode: 30
+    commit: cb7185b541b7c53799db3789cad08f5759a659c3
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - full
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '2.13'
-CurrentVersionCode: 26
+CurrentVersion: 2.16.0
+CurrentVersionCode: 30

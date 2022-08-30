@@ -1179,9 +1179,361 @@ Builds:
       - app/src/androidTest
     ndk: r21
 
-MaintainerNotes: Cannot use AUM/UCM because version code and version name are dynamic.
+  - versionName: 5.113.1
+    versionCode: 51131000
+    commit: 5.113.1
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+    ndk: r21
+
+  - versionName: 5.114.3
+    versionCode: 51143000
+    commit: 5.114.3
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+    ndk: r21
+
+  - versionName: 5.115.0
+    versionCode: 51150000
+    commit: 5.115.0
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+    ndk: r21
+
+  - versionName: 5.116.0
+    versionCode: 51160000
+    commit: 5.116.0
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+    ndk: r21
+
+  - versionName: 5.118.0
+    versionCode: 51180000
+    commit: 5.118.0
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    srclibs:
+      - marcosholgado_fladle@87551515ca559fbfe4ba135957034428be97a74c
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+      - libs/
+    build:
+      - pushd $$marcosholgado_fladle$$
+      - gradle assembleRelease
+      - popd
+      - cp $$marcosholgado_fladle$$/fladle-plugin/build/libs/fladle-0.17.4-SNAPSHOT.jar
+        libs/
+    ndk: r21
+
+  - versionName: 5.120.0
+    versionCode: 51200000
+    commit: 5.120.0
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    srclibs:
+      - marcosholgado_fladle@87551515ca559fbfe4ba135957034428be97a74c
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+      - libs/
+    build:
+      - pushd $$marcosholgado_fladle$$
+      - gradle assembleRelease
+      - popd
+      - cp $$marcosholgado_fladle$$/fladle-plugin/build/libs/fladle-0.17.4-SNAPSHOT.jar
+        libs/
+    ndk: r21
+
+  - versionName: 5.121.0
+    versionCode: 51210000
+    commit: 5.121.0
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    srclibs:
+      - marcosholgado_fladle@87551515ca559fbfe4ba135957034428be97a74c
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+      - libs/
+    build:
+      - pushd $$marcosholgado_fladle$$
+      - gradle assembleRelease
+      - popd
+      - cp $$marcosholgado_fladle$$/fladle-plugin/build/libs/fladle-0.17.4-SNAPSHOT.jar
+        libs/
+    ndk: r21
+
+  - versionName: 5.123.0
+    versionCode: 51230000
+    commit: 5.123.0
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    srclibs:
+      - marcosholgado_fladle@87551515ca559fbfe4ba135957034428be97a74c
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+      - libs/
+    build:
+      - pushd $$marcosholgado_fladle$$
+      - gradle assembleRelease
+      - popd
+      - cp $$marcosholgado_fladle$$/fladle-plugin/build/libs/fladle-0.17.4-SNAPSHOT.jar
+        libs/
+    ndk: r21
+
+  - versionName: 5.124.0
+    versionCode: 51240000
+    commit: 5.124.0
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    srclibs:
+      - marcosholgado_fladle@87551515ca559fbfe4ba135957034428be97a74c
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+      - libs/
+    build:
+      - pushd $$marcosholgado_fladle$$
+      - gradle assembleRelease
+      - popd
+      - cp $$marcosholgado_fladle$$/fladle-plugin/build/libs/fladle-0.17.4-SNAPSHOT.jar
+        libs/
+    ndk: r21
+
+  - versionName: 5.125.1
+    versionCode: 51251000
+    commit: 5.125.1
+    timeout: 7200
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    srclibs:
+      - marcosholgado_fladle@87551515ca559fbfe4ba135957034428be97a74c
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+      - libs/
+    build:
+      - pushd $$marcosholgado_fladle$$
+      - gradle assembleRelease
+      - popd
+      - cp $$marcosholgado_fladle$$/fladle-plugin/build/libs/fladle-0.17.4-SNAPSHOT.jar
+        libs/
+    ndk: r21
+
+  - versionName: 5.126.2
+    versionCode: 51262000
+    commit: 5.126.2
+    timeout: 7200
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    srclibs:
+      - marcosholgado_fladle@87551515ca559fbfe4ba135957034428be97a74c
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+      - libs/
+    build:
+      - pushd $$marcosholgado_fladle$$
+      - gradle assembleRelease
+      - popd
+      - cp $$marcosholgado_fladle$$/fladle-plugin/build/libs/fladle-0.17.4-SNAPSHOT.jar
+        libs/
+    ndk: r21
+
+  - versionName: 5.128.1
+    versionCode: 51281000
+    commit: 5.128.1
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+    ndk: r21
+
+  - versionName: 5.129.1
+    versionCode: 51291000
+    commit: 5.129.1
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+    ndk: r21
+
+  - versionName: 5.130.0
+    versionCode: 51300000
+    commit: 5.130.0
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+    ndk: r21
+
+  - versionName: 5.132.2
+    versionCode: 51322000
+    commit: 5.132.2
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    output: app/build/outputs/apk/fdroid/release/duckduckgo-$$VERSION$$-fdroid-release-unsigned.apk
+    rm:
+      - app/src/play/res/raw/https_mobile_v2_bloom.bin
+    prebuild: sed -i -e '/installreferrer/d' statistics/build.gradle
+    scandelete:
+      - app/src/androidTest
+      - build-cache/
+    ndk: r21
+
+MaintainerNotes: |-
+    Cannot use AUM/UCM because version code and version name are dynamic.
+    Using a custom fladle build, see https://gitlab.com/fdroid/fdroiddata/-/merge_requests/10831#note_897065716
 
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 5.111.0
-CurrentVersionCode: 51110000
+CurrentVersion: 5.132.2
+CurrentVersionCode: 51322000

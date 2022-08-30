@@ -121,18 +121,29 @@ Builds:
       - sed -i -e '/libwebrtc/d' -e "/AppIntro:/aimplementation 'org.webrtc:google-webrtc:1.0.30039'"
         build.gradle
 
-  - versionName: '1.5'
-    versionCode: 111
-    commit: ff8a4eaae4f6207b0bd6c883f92fec7528ea3984
+  - versionName: 1.5.1
+    versionCode: 112
+    commit: df79495cf8ccb4ce4a38e61c00512b1396f1eeb4
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk
+      - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
     gradle:
       - git
     prebuild: sed -i -e '/signingConfigs./d' build.gradle
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.5.10
+    versionCode: 121
+    commit: 8a14a7aea7b809933886864bfb58431324ab22b2
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - git
+    prebuild: sed -i -e '/signingConfigs./d' build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v\d+\.\d+(\.\d+)?$
-CurrentVersion: '1.5'
-CurrentVersionCode: 111
+CurrentVersion: 1.5.10
+CurrentVersionCode: 121
