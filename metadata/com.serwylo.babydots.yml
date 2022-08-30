@@ -130,7 +130,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.9.2
+    versionCode: 10902
+    commit: 0abbcc94da330947ce7f1f59191b3501fd8d626a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.9.3
+    versionCode: 10903
+    commit: 70640d2f253bb15c52edd1674ca497038fbe7667
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.9.0
-CurrentVersionCode: 10900
+CurrentVersion: 1.9.3
+CurrentVersionCode: 10903

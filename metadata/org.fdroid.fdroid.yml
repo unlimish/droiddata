@@ -7,7 +7,6 @@ IssueTracker: https://gitlab.com/fdroid/fdroidclient/issues
 Translation: https://hosted.weblate.org/projects/f-droid/f-droid
 Changelog: https://gitlab.com/fdroid/fdroidclient/raw/HEAD/CHANGELOG.md
 Donate: https://f-droid.org/donate
-FlattrID: '343053'
 LiberapayID: '27859'
 OpenCollective: F-Droid-Euro
 
@@ -134,7 +133,7 @@ Builds:
 
   - versionName: '0.43'
     versionCode: 43
-    disable: sdk doesn't like tzm (at f2109e4e0bf1597c625221d8d2d10050f146ba5a)
+    disable: sdk does not like tzm (at f2109e4e0bf1597c625221d8d2d10050f146ba5a)
     commit: f2109e4e0bf1597c625221d8d2d10050f146ba5a
     target: android-15
 
@@ -1806,6 +1805,56 @@ Builds:
       - app/src/androidTest/assets
       - app/src/test/resources
 
+  - versionName: 1.15-alpha0
+    versionCode: 1015000
+    commit: 1.15-alpha0
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15-alpha1
+    versionCode: 1015001
+    commit: 1.15-alpha1
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: '1.15'
+    versionCode: 1015050
+    commit: '1.15'
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15.1
+    versionCode: 1015051
+    commit: 1.15.1
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15.2
+    versionCode: 1015052
+    commit: 1.15.2
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
 MaintainerNotes: |
     This is maintained in tight conjunction with fdroidclient releases.
     Please check with the fdroidclient maintainers before making
@@ -1814,5 +1863,5 @@ MaintainerNotes: |
 ArchivePolicy: 8 versions
 AutoUpdateMode: None
 UpdateCheckMode: Static
-CurrentVersion: 1.13.1
-CurrentVersionCode: 1013051
+CurrentVersion: 1.15.2
+CurrentVersionCode: 1015052

@@ -2316,19 +2316,418 @@ Builds:
       - popd
     ndk: r23b
 
-  - versionName: 42.0.0
-    versionCode: 202
-    commit: 7c98c03e6bf0ee71c479bfd537437e35ebf37923
+  - versionName: 42.1.0
+    versionCode: 203
+    commit: 8e8bb09c57cc34be48941a9b27f62dd865fd7511
     subdir: app
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
-      - apt-get install -y wget
     gradle:
       - yes
     srclibs:
       - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 42.2.0
+    versionCode: 204
+    commit: 759483425494178430c41896f618b00bb725df65
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 42.3.0
+    versionCode: 205
+    commit: 3eab9994787e07a0e13997597ffe0a9be088338e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 43.0.2
+    versionCode: 208
+    commit: 892e955fbffb641b0ff9809a94c1230997525720
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 43.1.0
+    versionCode: 209
+    commit: f8d2613e79843ded614bfbbaa6f94609d2a0db49
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 44.0.0
+    versionCode: 210
+    commit: 9348a3d706c26fb808709b6f46ba1e1453717ddb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 44.1.0
+    versionCode: 212
+    disable: https://github.com/juha-h/baresip-studio/issues/245
+    commit: 730f9ddf90a94339575a80ba1d875be7d7cd5ad2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 44.2.0
+    versionCode: 213
+    commit: 7136002869b7dc83126f3589e3a8236a83bf0d44
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 45.0.0
+    versionCode: 214
+    commit: 54e4a8a66f81464da8fae68f66064346586df55b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 45.1.0
+    versionCode: 215
+    commit: 09ec6d8100513644f8637f89ead6d32ccabbb282
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 45.1.1
+    versionCode: 216
+    commit: 0e0e40a7cbd56739ca287803821b1f8534e8db4d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 45.1.2
+    versionCode: 217
+    commit: b39c062561bd363930c7285b9d7cf5693411541b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 46.0.0
+    versionCode: 219
+    commit: a2c01e40246a18470ab00a8e57f793fff24837b7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 46.0.1
+    versionCode: 220
+    commit: 5cefde540520a77d2a45dfbdb0e2ded4629f8c00
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 46.1.1
+    versionCode: 222
+    commit: 422996d4ce5f19d8e086ed90ab8365c7890c949b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 46.2.0
+    versionCode: 223
+    commit: bc6ec54647207a21eb48b8b51de124802ec9709e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 47.0.0
+    versionCode: 224
+    commit: b04ed4a2cb03c85eb20d14e423609afc13072140
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 47.1.0
+    versionCode: 225
+    commit: 7338aa3a2b52d05e7c269aa517cde9058d727934
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 47.2.0
+    versionCode: 226
+    commit: 281ac86df4ff9812a9f2abf167afe28188aac3af
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@23.0
+    build:
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
+        Makefile
+      - make download-sources
+      - make install-all
+      - popd
+    ndk: r23b
+
+  - versionName: 48.0.0
+    versionCode: 228
+    commit: 281ac86df4ff9812a9f2abf167afe28188aac3af
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - libbaresip-android@24.0
     build:
       - pushd $$libbaresip-android$$
       - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
@@ -2343,5 +2742,5 @@ MaintainerNotes: make download-sources checks out master branches of several lib
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9.]+$
-CurrentVersion: 42.0.0
-CurrentVersionCode: 202
+CurrentVersion: 48.0.0
+CurrentVersionCode: 228

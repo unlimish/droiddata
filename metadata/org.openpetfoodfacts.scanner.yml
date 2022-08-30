@@ -215,7 +215,23 @@ Builds:
     antifeatures:
       - Tracking
 
+  - versionName: 3.8.1
+    versionCode: 582
+    disable: mlkit
+    commit: ebe542a24b37fcde0572d76829428fb61654467f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - opff
+      - fdroid
+    prebuild:
+      - sed -i 's/\r$//' ../gradle/wrapper/gradle-wrapper.properties
+      - sed -i -e '/mlkit/d' build.gradle.kts
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.6.8
-CurrentVersionCode: 433
+CurrentVersion: 3.8.1
+CurrentVersionCode: 582

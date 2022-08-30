@@ -94,7 +94,40 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.7'
+    versionCode: 8
+    commit: b11b84b24c660fac3a69f2dbe4bd615d73811219
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.8'
+    versionCode: 9
+    commit: f60b140868c2f0d564657e96d48508b4fbdc546b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.8.1
+    versionCode: 10
+    commit: ab7601a6d91b6035862bb47b1ac259855e3aba3b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.6'
-CurrentVersionCode: 7
+CurrentVersion: 1.8.1
+CurrentVersionCode: 10

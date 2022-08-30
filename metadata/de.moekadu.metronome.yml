@@ -251,7 +251,40 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 4.5.0
+    versionCode: 48
+    commit: 4f99c734348bf5f4405da5e8c8d9862566999b0c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.5.1
+    versionCode: 49
+    commit: 740fd0f5ac3233c3734c749b296e23def8902e86
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.6.0
+    versionCode: 51
+    commit: 9797e461f7b37f4dae41a31f21931c2fbacc67e5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]*$
-CurrentVersion: 4.4.0
-CurrentVersionCode: 47
+CurrentVersion: 4.6.0
+CurrentVersionCode: 51

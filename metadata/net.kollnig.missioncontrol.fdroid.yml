@@ -282,7 +282,48 @@ Builds:
     prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
     ndk: r21e
 
+  - versionName: 2022.05.21-fdroid
+    versionCode: 2022052101
+    commit: e6c44dbd38cca58e02d54bdf50739a1300f0003f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: 2022.06.15-fdroid
+    versionCode: 2022061501
+    commit: 4ff5763cb0d666beee5c3c006107a48d164bc67e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: 2022.07.04-fdroid
+    versionCode: 2022070401
+    commit: 764c5bfa6622ec904aaeee4b78fec22d8248c411
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
+    ndk: r21e
+
+MaintainerNotes: ACRA is configured exclusively for email reports, see see https://github.com/TrackerControl/tracker-control-android/issues/174
+
 AutoUpdateMode: Version %c
 UpdateCheckMode: Tags ^[0-9]+$
-CurrentVersion: 2022.02.10-fdroid
-CurrentVersionCode: 2022021001
+CurrentVersion: 2022.07.04-fdroid
+CurrentVersionCode: 2022070401

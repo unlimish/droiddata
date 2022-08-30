@@ -10,7 +10,7 @@ IssueTracker: https://github.com/Telegram-FOSS-Team/Telegram-FOSS/issues
 Translation: https://www.transifex.com/telegram/telegram/
 Changelog: https://github.com/Telegram-FOSS-Team/Telegram-FOSS/blob/HEAD/Changelog.md
 LiberapayID: '27902'
-Bitcoin: 1McafEgMvqAVujNLtcJumZHxp2UfaNByqs
+Bitcoin: 1P8kNcifVAkBWtWmjKY4RvVLy5QwruE2LQ
 
 AutoName: Telegram FOSS
 
@@ -2469,11 +2469,388 @@ Builds:
       - popd
     ndk: r21e
 
+  - versionName: 8.5.4
+    versionCode: 25661
+    commit: v8.5.4
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless ninja-build golang-go yasm
+      - update-alternatives --auto java
+    gradle:
+      - armv7
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
+        > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 8.5.4
+    versionCode: 25662
+    commit: v8.5.4
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless ninja-build golang-go yasm
+      - update-alternatives --auto java
+    gradle:
+      - x86
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
+        > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 8.5.4
+    versionCode: 25665
+    commit: v8.5.4
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless ninja-build golang-go yasm
+      - update-alternatives --auto java
+    gradle:
+      - arm64
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
+        > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 8.5.4
+    versionCode: 25666
+    commit: v8.5.4
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless ninja-build golang-go yasm
+      - update-alternatives --auto java
+    gradle:
+      - x64
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
+        > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 8.6.2
+    versionCode: 26001
+    commit: v8.6.2
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless ninja-build golang-go yasm
+      - update-alternatives --auto java
+    gradle:
+      - armv7
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
+        > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 8.6.2
+    versionCode: 26002
+    commit: v8.6.2
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless ninja-build golang-go yasm
+      - update-alternatives --auto java
+    gradle:
+      - x86
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
+        > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 8.6.2
+    versionCode: 26005
+    commit: v8.6.2
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless ninja-build golang-go yasm
+      - update-alternatives --auto java
+    gradle:
+      - arm64
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
+        > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 8.6.2
+    versionCode: 26006
+    commit: v8.6.2
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless ninja-build golang-go yasm
+      - update-alternatives --auto java
+    gradle:
+      - x64
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
+        > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 8.7.4
+    versionCode: 26361
+    commit: v8.7.4
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless ninja-build golang-go yasm
+      - update-alternatives --auto java
+    gradle:
+      - armv7
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
+        > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 8.7.4
+    versionCode: 26362
+    commit: v8.7.4
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless ninja-build golang-go yasm
+      - update-alternatives --auto java
+    gradle:
+      - x86
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
+        > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 8.7.4
+    versionCode: 26365
+    commit: v8.7.4
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless ninja-build golang-go yasm
+      - update-alternatives --auto java
+    gradle:
+      - arm64
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
+        > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 8.7.4
+    versionCode: 26366
+    commit: v8.7.4
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless ninja-build golang-go yasm
+      - update-alternatives --auto java
+    gradle:
+      - x64
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
+        > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 8.8.5
+    versionCode: 27219
+    commit: v8.8.5
+    subdir: TMessagesProj
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless ninja-build golang-go yasm
+      - update-alternatives --auto java
+    gradle:
+      - afat
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
+        > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
 MaintainerNotes: Update check mode not working because of version code calculations
     for different flavours.
 
 ArchivePolicy: 6 versions
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 8.5.2
-CurrentVersionCode: 25639
+CurrentVersion: 8.8.5
+CurrentVersionCode: 27219

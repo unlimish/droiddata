@@ -350,10 +350,150 @@ Builds:
       - submodules/nDPI/tests
     ndk: r23b
 
+  - versionName: 1.4.8
+    versionCode: 48
+    commit: 6200c5700ec5d8bf66a7f6f0f956b3161079d585
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential libpcap-dev autogen libjson-c-dev libnuma-dev
+        libpcre2-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1' > /dev/null
+    scandelete:
+      - app/src/main/jni/tests/
+      - submodules/nDPI/tests
+    ndk: r23b
+
+  - versionName: 1.5.0
+    versionCode: 51
+    commit: 9f3d120c4916e7d27613e8147743e5ff2687157a
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential libpcap-dev autogen libjson-c-dev libnuma-dev
+        libpcre2-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1' > /dev/null
+    scandelete:
+      - app/src/main/jni/tests/
+      - submodules/nDPI/tests
+    ndk: r24
+
+  - versionName: 1.5.1
+    versionCode: 53
+    commit: 711d970279073c1195f2ee18520eab4292643dde
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential libpcap-dev autogen libjson-c-dev libnuma-dev
+        libpcre2-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1' > /dev/null
+    scandelete:
+      - app/src/main/jni/tests/
+      - submodules/nDPI/tests
+    ndk: r24
+
+  - versionName: 1.5.2
+    versionCode: 55
+    commit: 57b51076596c565f7ee2bac8a5dc882161ee05ba
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential libpcap-dev autogen libjson-c-dev libnuma-dev
+        libpcre2-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1' > /dev/null
+    scandelete:
+      - app/src/main/jni/tests/
+      - submodules/nDPI/tests
+    ndk: r24
+
+  - versionName: 1.5.3
+    versionCode: 57
+    commit: 8c4edce1bea92dde6be379ddeca2f5d0d8da7a9f
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential libpcap-dev autogen libjson-c-dev libnuma-dev
+        libpcre2-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1' > /dev/null
+    scandelete:
+      - app/src/main/jni/tests/
+      - submodules/nDPI/tests
+    ndk: r24
+
+  - versionName: 1.5.4
+    versionCode: 58
+    commit: c48aacae81d29c40a0c24c39f63c26b0aeebcb1e
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential libpcap-dev autogen libjson-c-dev libnuma-dev
+        libpcre2-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1' > /dev/null
+    scandelete:
+      - app/src/main/jni/tests/
+      - submodules/nDPI/tests
+    ndk: r25
+
+  - versionName: 1.5.5
+    versionCode: 60
+    commit: 234bd2186771efb14dda197b97351999d52ef735
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential libpcap-dev autogen libjson-c-dev libnuma-dev
+        libpcre2-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.22.1' > /dev/null
+    scandelete:
+      - app/src/main/jni/tests/
+      - submodules/nDPI/tests
+    ndk: r25
+
 MaintainerNotes: Ignored files are the DB-IP country lite db and the DB-IP ASN lite
     db licensed under CC-BY-4.0.
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.4.7
-CurrentVersionCode: 47
+CurrentVersion: 1.5.5
+CurrentVersionCode: 60

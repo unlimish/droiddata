@@ -5,6 +5,7 @@ AuthorName: Iamlooker
 AuthorEmail: mohit2002ss@gmail.com
 SourceCode: https://github.com/Iamlooker/Droid-ify
 IssueTracker: https://github.com/Iamlooker/Droid-ify/issues
+Translation: https://hosted.weblate.org/engage/droidify/
 Changelog: https://github.com/Iamlooker/Droid-ify/releases
 
 AutoName: Droid-ify
@@ -104,7 +105,39 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-CurrentVersion: 0.4.3
-CurrentVersionCode: 43
+  - versionName: 0.4.5
+    versionCode: 45
+    commit: fc0f37eaf4d88f4ae302b6fb2993d8a27a84c144
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.4.6
+    versionCode: 46
+    commit: bd92e8e713d6209b89dc0ae1e7e6dd1edb3b34c6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.4.7
+    versionCode: 47
+    commit: 2d77a7de98d70b66e753bcf0ca6cd195f7dca03b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^[v\d.]+$
+CurrentVersion: 0.4.7
+CurrentVersionCode: 47

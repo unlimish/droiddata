@@ -35,8 +35,84 @@ Builds:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk
 
+  - versionName: 1.1.5
+    versionCode: 115
+    commit: 1f6927b0d717073690608391ee0bb9527ae9acb5
+    subdir: animeone
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.8.1
+    rm:
+      - animeone/ios
+      - animeone/test
+    prebuild: sed -i -e '/update.checkUpdate/d' lib/ui/page/home.dart
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.1.6
+    versionCode: 116
+    commit: 73b45612f76a29cc1b732e041c1e74d19bf70c80
+    subdir: animeone
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.8.1
+    rm:
+      - animeone/ios
+      - animeone/test
+    prebuild: sed -i -e '/update.checkUpdate/d' lib/ui/page/home.dart
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.1.7
+    versionCode: 117
+    commit: 71edf1dbd0d38fc364ea80a7925bc4f3481d47dc
+    subdir: animeone
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.8.1
+    rm:
+      - animeone/ios
+      - animeone/test
+    prebuild: sed -i -e '/update.checkUpdate/d' lib/ui/page/home.dart
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.1.8
+    versionCode: 118
+    commit: bfa82957d80ff6eb28550c31d22103c40a269d0d
+    subdir: animeone
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - animeone/ios
+      - animeone/test
+    prebuild: sed -i -e '/update.checkUpdate/d' lib/ui/page/home.dart
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: animeone/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.1.4
-CurrentVersionCode: 1
+CurrentVersion: 1.1.8
+CurrentVersionCode: 118

@@ -83,7 +83,17 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.5.0
+    versionCode: 20036
+    commit: a947b02d013b87f2d3ce0c3da394d33cdc4b5369
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.4.0
-CurrentVersionCode: 20033
+CurrentVersion: 1.5.0
+CurrentVersionCode: 20036

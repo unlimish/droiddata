@@ -2,9 +2,10 @@ Categories:
   - Multimedia
 License: GPL-3.0-only
 AuthorName: Andreas Kromke
+AuthorEmail: Andreas.Krom.ke+Support@gmail.com
 SourceCode: https://gitlab.com/AndreasK/safmediascanner
 IssueTracker: https://gitlab.com/AndreasK/safmediascanner/issues
-Changelog: https://gitlab.com/AndreasK/safmediascanner/blob/HEAD/app/src/main/assets/version-history.txt
+Changelog: https://gitlab.com/AndreasK/safmediascanner/-/releases
 
 AutoName: SAF Media Scanner
 
@@ -76,7 +77,21 @@ Builds:
       - yes
     ndk: r23b
 
+  - versionName: 1.8.1
+    versionCode: 11
+    commit: 4a58c73c063e5b3ec195227213ca54694dbb3629
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.22.1'
+    ndk: r25
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.8'
-CurrentVersionCode: 10
+CurrentVersion: 1.8.1
+CurrentVersionCode: 11

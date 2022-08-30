@@ -27,7 +27,41 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.0.9
+    versionCode: 9
+    disable: https://gitlab.com/wuapps/moredays/-/issues/1
+    commit: e04a718031227f9a0d5b98b05f75778f8b8aa6f1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.10
+    versionCode: 10
+    commit: 048bbbac12cb1334810f382633cf66ab23d9ec4b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.11
+    versionCode: 11
+    commit: 560c6672ea4b6b49bcabc0816b244780cb9f65ea
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.8
-CurrentVersionCode: 8
+CurrentVersion: 1.0.11
+CurrentVersionCode: 11

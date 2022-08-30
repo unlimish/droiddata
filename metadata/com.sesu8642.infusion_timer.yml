@@ -90,8 +90,56 @@ Builds:
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter -v build apk
 
+  - versionName: 1.2.0
+    versionCode: 107
+    commit: 5f0e920a5b7e97ed1b3f577ebdc05fc48bbd1546
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.8.1
+    rm:
+      - ios
+      - linux
+      - web
+      - .vscode
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter -v build apk
+
+  - versionName: 1.2.1
+    versionCode: 108
+    commit: f9131b9fd0f9de652a826071e178c6c2c0e108fd
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.8.1
+    rm:
+      - ios
+      - linux
+      - web
+      - .vscode
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter -v build apk
+
+  - versionName: 1.3.0
+    versionCode: 110
+    commit: 71b9f741ef4f496a6d38cbbfb6b0acfc83430034
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.8.1
+    rm:
+      - ios
+      - linux
+      - web
+      - .vscode
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter -v build apk
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.2.0-rc.1
-CurrentVersionCode: 106
+CurrentVersion: 1.3.0
+CurrentVersionCode: 110
