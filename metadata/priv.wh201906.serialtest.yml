@@ -44,6 +44,8 @@ Builds:
       - mkdir -pv fdroid-build
       - cd fdroid-build
       - wget -cq https://www.qcustomplot.com/release/2.1.0fixed/QCustomPlot-source.tar.gz
+      - echo "357b78be0f52b2d01c17ec3e2e1271255761810af7e8a9476cef51fccf1a0f44 QCustomPlot-source.tar.gz"
+        | sha256sum -c -
       - tar -xvf QCustomPlot-source.tar.gz
       - cp qcustomplot-source/qcustomplot.cpp ../src
       - ../build-qt/qt5/bin/qmake ../src/
