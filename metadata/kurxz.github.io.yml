@@ -1,0 +1,55 @@
+Categories:
+  - Writing
+License: Apache-2.0
+AuthorName: KurXZ
+AuthorWebSite: https://kurxz.github.io/
+SourceCode: https://github.com/kurxz/Ionic_notes
+Changelog: https://github.com/kurxz/Ionic_notes/releases
+
+AutoName: Notes
+
+RepoType: git
+Repo: https://github.com/kurxz/Ionic_notes.git
+
+Builds:
+  - versionName: '1.5'
+    versionCode: 20220701
+    commit: v1.5.0
+    subdir: android/app/
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.gz https://nodejs.org/download/release/v14.18.2/node-v14.18.2-linux-x64.tar.gz
+      - echo "83fa18a0e3642235446b66653eb27c169224ae9c1a15a32d6c3d9ddefb154ed4 node.tar.gz"
+        | sha256sum -c -
+      - tar xf node.tar.gz
+      - cp -a node-v*-linux-x64/. /usr/local/
+      - rm -rf node-v*-linux-x64/
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j$(nproc)
+      - make install
+      - popd
+      - npm -g install @ionic/cli
+      - apt-get update || apt-get update
+      - apt-get install -y g++
+      - apt-get install -y -t stretch-backports openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init:
+      - cd ../..
+      - npm config set python $(which python3.10)
+      - npm install --build-from-source
+      - ionic cap copy
+      - ionic cap sync
+    gradle:
+      - yes
+    srclibs:
+      - cpython@v3.10.5
+    scanignore:
+      - node_modules/@capacitor/cli/assets/capacitor-cordova-android-plugins.tar.gz
+    scandelete:
+      - node_modules/
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: '1.5'
+CurrentVersionCode: 20220701
