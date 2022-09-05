@@ -12,9 +12,9 @@ RepoType: git
 Repo: https://github.com/meypod/al-azan
 
 Builds:
-  - versionName: 1.0.5
-    versionCode: 11
-    commit: v1.0.5
+  - versionName: 1.0.6
+    versionCode: 12
+    commit: v1.0.6
     subdir: android/app
     sudo:
       - sysctl fs.inotify.max_user_watches=524288
@@ -42,10 +42,13 @@ Builds:
       - apt-get install -y openjdk-11-jdk-headless git
       - update-alternatives --auto java
     init:
+      - start init
       - cd ../../
       - yarn install --frozen-lockfile
       - chmod +x ./dl_notifee_core.sh
       - ./dl_notifee_core.sh
+      - sed -E -i 's/^.*(fabric|com\.(crashlytics|google\.(firebase|android.gms))).*$//g'
+        node_modules/@notifee/react-native/android/build.gradle
       - sed "s/<TRANSLATION_IO_APIKEY>//" lingui.config.js.example > lingui.config.js
       - npx lingui compile
       - cd android/app
@@ -87,5 +90,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.5
-CurrentVersionCode: 11
+CurrentVersion: 1.0.6
+CurrentVersionCode: 12
