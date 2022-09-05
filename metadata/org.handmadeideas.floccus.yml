@@ -1,0 +1,172 @@
+Categories:
+  - Internet
+  - Reading
+License: MPL-2.0
+AuthorName: Marcel Klehr
+AuthorWebSite: https://floccus.org/
+WebSite: https://floccus.org/
+SourceCode: https://github.com/floccusaddon/floccus
+IssueTracker: https://github.com/floccusaddon/floccus/issues
+Changelog: https://github.com/floccusaddon/floccus/releases
+OpenCollective: floccus
+
+AutoName: floccus bookmark sync
+
+RepoType: git
+Repo: https://github.com/floccusaddon/floccus
+
+Builds:
+  - versionName: 4.13.1
+    versionCode: 4013001
+    commit: v4.13.1
+    subdir: android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless build-essential
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.18.2/node-v14.18.2-linux-x64.tar.xz
+      - echo "dae683f911fe5af11f1dc9d7746d80fccdb1e7b4bef31a570f5daffadd897c42 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.18.2-linux-x64/. /usr/local/
+      - npm install -g npm@7
+    gradle:
+      - yes
+    prebuild:
+      - cd ../..
+      - npm install
+      - npx gulp
+      - cp dist/html/index.html dist/index.html
+      - npx cap sync
+    scandelete:
+      - node_modules
+
+  - versionName: 4.14.0
+    versionCode: 4014000
+    commit: d86e882dea1b15a75ed3ca7ec656f878076a2a08
+    subdir: android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless build-essential
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.18.2/node-v14.18.2-linux-x64.tar.xz
+      - echo "dae683f911fe5af11f1dc9d7746d80fccdb1e7b4bef31a570f5daffadd897c42 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.18.2-linux-x64/. /usr/local/
+      - npm install -g npm@7
+    gradle:
+      - yes
+    prebuild:
+      - cd ../..
+      - npm install
+      - npx gulp
+      - cp dist/html/index.html dist/index.html
+      - npx cap sync
+    scandelete:
+      - node_modules
+
+  - versionName: 4.15.0
+    versionCode: 4015000
+    commit: 62677380decb4d0f5d3bef28bd39db7faa952939
+    subdir: android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless build-essential
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.18.2/node-v14.18.2-linux-x64.tar.xz
+      - echo "dae683f911fe5af11f1dc9d7746d80fccdb1e7b4bef31a570f5daffadd897c42 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.18.2-linux-x64/. /usr/local/
+      - npm install -g npm@7
+    gradle:
+      - yes
+    prebuild:
+      - cd ../..
+      - npm install
+      - npx gulp
+      - cp dist/html/index.html dist/index.html
+      - npx cap sync
+    scandelete:
+      - node_modules
+
+  - versionName: 4.16.0
+    versionCode: 4016000
+    commit: 0581204dd70d3433f698766295a3154f633bb20d
+    subdir: android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless build-essential
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.18.2/node-v14.18.2-linux-x64.tar.xz
+      - echo "dae683f911fe5af11f1dc9d7746d80fccdb1e7b4bef31a570f5daffadd897c42 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.18.2-linux-x64/. /usr/local/
+      - npm install -g npm@7
+    gradle:
+      - yes
+    prebuild:
+      - cd ../..
+      - npm install
+      - npx gulp
+      - cp dist/html/index.html dist/index.html
+      - npx cap sync
+    scandelete:
+      - node_modules
+
+  - versionName: 4.17.0
+    versionCode: 4017000
+    commit: a06b4d692079016b198f9ed85b9af3e3e7f5f07b
+    subdir: android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless build-essential
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.18.2/node-v14.18.2-linux-x64.tar.xz
+      - echo "dae683f911fe5af11f1dc9d7746d80fccdb1e7b4bef31a570f5daffadd897c42 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.18.2-linux-x64/. /usr/local/
+      - npm install -g npm@7
+    gradle:
+      - yes
+    prebuild:
+      - cd ../..
+      - npm install
+      - npx gulp
+      - cp dist/html/index.html dist/index.html
+      - npx cap sync
+    scandelete:
+      - node_modules
+
+  - versionName: 4.17.1
+    versionCode: 4017001
+    commit: 31b3b8013e8bf49e6f494e1425be8471851f448c
+    subdir: android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless build-essential
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.18.2/node-v14.18.2-linux-x64.tar.xz
+      - echo "dae683f911fe5af11f1dc9d7746d80fccdb1e7b4bef31a570f5daffadd897c42 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.18.2-linux-x64/. /usr/local/
+      - npm install -g npm@7
+    gradle:
+      - yes
+    prebuild:
+      - cd ../..
+      - npm install
+      - npx gulp
+      - cp dist/html/index.html dist/index.html
+      - npx cap sync
+    scandelete:
+      - node_modules
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 4.17.1
+CurrentVersionCode: 4017001

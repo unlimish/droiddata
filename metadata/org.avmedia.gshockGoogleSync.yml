@@ -1,0 +1,73 @@
+Categories:
+  - Time
+License: MIT
+AuthorName: Ivo Zivkov
+AuthorEmail: izivkov@gmail.com
+SourceCode: https://github.com/izivkov/CasioGShockPhoneSync
+IssueTracker: https://github.com/izivkov/CasioGShockPhoneSync/issues
+
+AutoName: Casio G-Shock Smart Sync
+
+RepoType: git
+Repo: https://github.com/izivkov/CasioGShockPhoneSync.git
+
+Builds:
+  - versionName: '3.8'
+    versionCode: 38
+    commit: 535fb7cca0db6d1eb50fa86ec3706d23ee24979d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '4.0'
+    versionCode: 40
+    commit: 12f142a93a13e9abc113f882760fb52c78a9b7c6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '4.1'
+    versionCode: 41
+    commit: 5b5830886ef0134e6619a3e8589f52c3dc271c04
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '4.2'
+    versionCode: 42
+    commit: 1d5700752e6dc6d2a1deb48a02e2a7674aaf5da2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '4.4'
+    versionCode: 44
+    commit: 07d0d79aca34af9c903363464e7727a80b6c2671
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '4.4'
+CurrentVersionCode: 44

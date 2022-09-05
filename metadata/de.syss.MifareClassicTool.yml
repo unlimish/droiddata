@@ -1,20 +1,17 @@
 Categories:
   - Connectivity
+  - Development
 License: GPL-3.0-only
-WebSite: http://publications.icaria.de/mct
+AuthorName: IKARUS Projects
+AuthorEmail: fooblubb@gmail.com
+AuthorWebSite: https://www.icaria.de/
+WebSite: https://www.icaria.de/mct/
 SourceCode: https://github.com/ikarus23/MifareClassicTool
 IssueTracker: https://github.com/ikarus23/MifareClassicTool/issues
 Changelog: https://github.com/ikarus23/MifareClassicTool/raw/HEAD/CHANGELOG.txt
 Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=24ET8A36XLMNW
 
 AutoName: MIFARE Classic Tool
-Description: |-
-    This is a low-level tool for analysing Mifare Classic RFID tags. It is not
-    intended to provide an easy interface for writing URIs to tags but that kind of
-    thing is possible.
-
-    The source code page or website for has full instructions. It should work on
-    most NFC-enabled devices but there are exceptions.
 
 RepoType: git
 Repo: https://github.com/ikarus23/MifareClassicTool.git
@@ -297,7 +294,140 @@ Builds:
       - logo
       - tools
 
+  - versionName: 3.0.0
+    versionCode: 50
+    commit: v3.0.0
+    subdir: Mifare Classic Tool/app
+    gradle:
+      - yes
+    rm:
+      - logo
+      - tools
+
+  - versionName: 3.0.1
+    versionCode: 51
+    commit: v3.0.1
+    subdir: Mifare Classic Tool/app
+    gradle:
+      - yes
+    rm:
+      - logo
+      - tools
+
+  - versionName: 3.0.2
+    versionCode: 52
+    commit: v3.0.2
+    subdir: Mifare Classic Tool/app
+    gradle:
+      - yes
+    rm:
+      - logo
+      - tools
+
+  - versionName: 3.0.3
+    versionCode: 53
+    commit: v3.0.3
+    subdir: Mifare Classic Tool/app
+    gradle:
+      - yes
+    rm:
+      - logo
+      - tools
+
+  - versionName: 3.1.0
+    versionCode: 54
+    commit: v3.1.0
+    subdir: Mifare Classic Tool/app
+    gradle:
+      - yes
+    rm:
+      - logo
+      - tools
+
+  - versionName: 3.1.1
+    versionCode: 55
+    commit: v3.1.1
+    subdir: Mifare Classic Tool/app
+    gradle:
+      - yes
+    rm:
+      - logo
+      - tools
+
+  - versionName: 3.1.2
+    versionCode: 56
+    commit: v3.1.2
+    subdir: Mifare Classic Tool/app
+    gradle:
+      - yes
+    rm:
+      - logo
+      - tools
+
+  - versionName: 3.2.0
+    versionCode: 57
+    commit: v3.2.0
+    subdir: Mifare Classic Tool/app
+    gradle:
+      - yes
+    rm:
+      - logo
+      - tools
+
+  - versionName: 4.0.0
+    versionCode: 58
+    commit: v4.0.0
+    subdir: Mifare Classic Tool/app
+    gradle:
+      - yes
+    rm:
+      - tools
+
+  - versionName: 4.0.1
+    versionCode: 59
+    commit: v4.0.1
+    subdir: Mifare Classic Tool/app
+    gradle:
+      - yes
+    rm:
+      - tools
+
+  - versionName: 4.0.2
+    versionCode: 60
+    commit: v4.0.2
+    subdir: Mifare Classic Tool/app
+    gradle:
+      - yes
+    rm:
+      - tools
+
+  - versionName: 4.0.3
+    versionCode: 61
+    commit: 4b5b020f740e1d3c9f81ab5a27d8687ea9106c83
+    subdir: Mifare Classic Tool/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - tools
+
+  - versionName: 4.0.4
+    versionCode: 62
+    commit: 788ca8c373ded16a2d9954286cbc1ffa1dbb8319
+    subdir: Mifare Classic Tool/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - tools
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.3.1
-CurrentVersionCode: 48
+CurrentVersion: 4.0.4
+CurrentVersionCode: 62

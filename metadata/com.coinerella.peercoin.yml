@@ -1,0 +1,787 @@
+Categories:
+  - Money
+License: AGPL-3.0-only
+AuthorName: Peercoin Foundation
+AuthorEmail: foundation@peercoin.net
+AuthorWebSite: https://www.peercoin.net/
+SourceCode: https://github.com/peercoin/peercoin_flutter
+IssueTracker: https://github.com/peercoin/peercoin_flutter/issues
+Translation: https://weblate.ppc.lol/
+Changelog: https://github.com/peercoin/peercoin_flutter/releases
+Donate: https://www.peercoin.net/foundation
+OpenCollective: peercoin
+Bitcoin: 376NhxVL1LFBFndHNx9k7hvwvUzq6RZiPT
+
+AutoName: Peercoin
+
+RepoType: git
+Repo: https://github.com/peercoin/peercoin_flutter
+
+Builds:
+  - versionName: 0.5.9
+    versionCode: 52
+    commit: v0.5.9
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.3
+    rm:
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.6.0
+    versionCode: 53
+    commit: 80b791431efe625ce3fd5965cdf7e8b5ac3ad5ee
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.3
+    rm:
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.6.1
+    versionCode: 54
+    commit: 20895090d7497393bb0d5f8c78994bcdd8f0523e
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.3
+    rm:
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.6.2
+    versionCode: 55
+    commit: 552d33bdb680145eb6aae25c4c1ca15a464b441d
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.3
+    rm:
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.6.3
+    versionCode: 58
+    commit: 1935fd57ec353c01a7818bb6be44f7226ef2c7d1
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.3
+    rm:
+      - ios/build
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.6.4
+    versionCode: 60
+    commit: 4c681ecb8320420e2cde0e86013a8d661047b2dc
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios/build
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.7.3
+    versionCode: 69
+    commit: 2ac6ba31a830d364a9907e608a2db47b93e37d7d
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios/build
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.7.4
+    versionCode: 70
+    commit: 3dff98f46c08199ce4576921fb8762c1ee6e0c65
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios/build
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.7.5
+    versionCode: 71
+    commit: 91fb49bcfea9773f8bb7244aabf0d64d439ac833
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios/build
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.7.6
+    versionCode: 72
+    commit: f05e20565c8a1e3f8ce13c17cd953c72b506e7b5
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios/build
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.7.7
+    versionCode: 73
+    commit: 874f52a9e61b92d422c83ce756e77ab853321b90
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios/build
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.7.7
+    versionCode: 74
+    commit: 4be6082ed1c64cc2a8c4d28603814ae389af23a3
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios/build
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.7.8
+    versionCode: 75
+    commit: e9a97f4381bdd70cc2ec18c0e22b2d7426ac94c9
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios/build
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.7.9
+    versionCode: 76
+    commit: 2e275c86f057a266f8012b9943c1b9496d99e75d
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios/build
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.8.0
+    versionCode: 77
+    commit: cbc753101e99b9c3d58b3dd2c56d380b4235b0c3
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios/build
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.8.1
+    versionCode: 78
+    commit: 430ab39f7be5be905385cde2fc4474a983e2716f
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios/build
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.8.3
+    versionCode: 80
+    commit: 1c93e430f702ba2f5d9f103a727b38d85597a24f
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.0
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.8.4
+    versionCode: 81
+    commit: 4dd7003bcc4682ce538bcd08c8eedf3684810e43
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.0
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.8.5
+    versionCode: 82
+    commit: 316e9075ddbe68918c820753bdc8baa2f832293d
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.0
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.8.6
+    versionCode: 83
+    commit: a57714590f66cdfc44b0d788c7dfb91e6a93d99b
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.0
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.8.7
+    versionCode: 84
+    commit: 97771b4ca05015bd10b02763fa45361a8c2e9e82
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.0
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.8.9
+    versionCode: 86
+    commit: 861e2489c2b912cdf1c3cc4dda968e0a082f5705
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.0
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.9.0
+    versionCode: 87
+    commit: fac9c10f7dd6fe13fd48985944166091b5137d9f
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.0
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.9.1
+    versionCode: 88
+    commit: 845832fab83f63fff4b04641bfc0840087a876fa
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.0
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.9.2
+    versionCode: 89
+    commit: edea42c1fcaf6b411ff3ea5cdd99e24e0a33746e
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.0
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.9.3
+    versionCode: 91
+    commit: 1ea177026300baeac10e222c6fdbddd1ab83b6f6
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.9.4
+    versionCode: 93
+    commit: 27b2c2c1158497ed4a3920c06702f73f362aaff5
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.9.5
+    versionCode: 94
+    commit: 1c70fe3aa269ebaff995ca5a16ebf5b16a092626
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.9.5
+    versionCode: 96
+    commit: 67026cc3a8803ff5ca89c24dc1e17d677c65282e
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.9.6
+    versionCode: 97
+    commit: d841d32636df9696aa6911a300fde7dc77ff325c
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.9.7
+    versionCode: 101
+    commit: fcd20054c9078191fc09dedc58226d8a22e3cefa
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.9.8
+    versionCode: 102
+    commit: e53625ece0c2f158143878cce06e31d22f2bb9b1
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 0.9.9
+    versionCode: 103
+    commit: ab62d3c78ed88dd08dbb51f4a5c5515839d677c8
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.0.0
+    versionCode: 105
+    commit: 0c7f1ee923dac0ead895ee5814907e5ebc1841f9
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.0.0
+    versionCode: 106
+    commit: 82adfcafd79a3cca2f72fe5629cecd5c322098f9
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - test_driver
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    scanignore:
+      - android/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run flutter_launcher_icons:main -f fdroid_flutter_launcher_icons.yaml
+      - $$flutter$$/bin/flutter pub run flutter_native_splash:create
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
+MaintainerNotes: Ignore local maven repo for flutter_background_fetch.
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.0.0
+CurrentVersionCode: 106

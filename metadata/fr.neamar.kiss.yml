@@ -1,12 +1,15 @@
 Categories:
   - Theming
 License: GPL-3.0-only
-WebSite: http://kisslauncher.com
+AuthorName: Matthieu Bacconnier
+AuthorWebSite: https://neamar.fr/
+WebSite: https://kisslauncher.com
 SourceCode: https://github.com/Neamar/KISS
 IssueTracker: https://github.com/Neamar/KISS/issues
 Translation: https://hosted.weblate.org/projects/kiss/
 Changelog: https://github.com/Neamar/KISS/releases
 Donate: https://help.kisslauncher.com/donate/
+Liberapay: KISS
 
 AutoName: KISS launcher
 
@@ -266,15 +269,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 2.31.0
-    versionCode: 97
-    disable: 'translation error: com.android.dx.cf.code.SimException: local variable
-        type mismatch'
-    commit: v2.31.0
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 2.31.2
     versionCode: 99
     commit: v2.31.2
@@ -499,15 +493,6 @@ Builds:
       - yes
     prebuild: sed -i -e '/jcenter()/a\        google()' ../build.gradle
 
-  - versionName: 3.7.10
-    versionCode: 150
-    disable: lintVitalRelease fails
-    commit: v3.7.10
-    subdir: app
-    gradle:
-      - yes
-    prebuild: sed -i -e '/jcenter()/a\        google()' ../build.gradle
-
   - versionName: 3.7.11
     versionCode: 151
     commit: v3.7.11
@@ -628,7 +613,165 @@ Builds:
       - yes
     prebuild: sed -i -e '/jcenter()/a\        google()' ../build.gradle
 
+  - versionName: 3.13.0
+    versionCode: 173
+    commit: v3.13.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jcenter()/a\        google()' ../build.gradle
+
+  - versionName: 3.13.1
+    versionCode: 174
+    commit: v3.13.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jcenter()/a\        google()' ../build.gradle
+
+  - versionName: 3.13.2
+    versionCode: 175
+    commit: v3.13.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jcenter()/a\        google()' ../build.gradle
+
+  - versionName: 3.13.3
+    versionCode: 176
+    commit: v3.13.3
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jcenter()/a\        google()' ../build.gradle
+
+  - versionName: 3.13.4
+    versionCode: 177
+    commit: v3.13.4
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jcenter()/a\        google()' ../build.gradle
+
+  - versionName: 3.13.5
+    versionCode: 178
+    commit: v3.13.5
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jcenter()/a\        google()' ../build.gradle
+
+  - versionName: 3.14.0
+    versionCode: 179
+    commit: v3.14.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jcenter()/a\        google()' ../build.gradle
+
+  - versionName: 3.15.0
+    versionCode: 180
+    commit: v3.15.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jcenter()/a\        google()' ../build.gradle
+
+  - versionName: 3.15.3
+    versionCode: 183
+    commit: 4d037888b730046f1217d8450e212491768de9ff
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.15.5
+    versionCode: 185
+    commit: v3.15.5
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.16.0
+    versionCode: 186
+    commit: v3.16.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.16.1
+    versionCode: 187
+    commit: v3.16.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.16.3
+    versionCode: 189
+    commit: c58e4a9bac02235c44a25618e7ab9b3e2db22a6f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.16.4
+    versionCode: 190
+    commit: 6abf4ebc5f0149884de69b118852b0bdc06f3bbe
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.16.5
+    versionCode: 191
+    commit: 8b8d8c2674daac681f65189a39fbe42e0652ba5a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.16.7
+    versionCode: 193
+    commit: 73006a214bec1a0df9a7e43b2df87dfc604e6a92
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.16.8
+    versionCode: 194
+    commit: af873b4c2eba5b321fc70323e39910d9f29da424
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.16.10
+    versionCode: 196
+    commit: 66c17ef925908f3002e46a7eef8486f5c850582c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9\.]+$
-CurrentVersion: 3.12.2
-CurrentVersionCode: 172
+CurrentVersion: 3.16.10
+CurrentVersionCode: 196

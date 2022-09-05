@@ -24,7 +24,26 @@ Builds:
       - yes
     output: build/outputs/apk/release/rpn-*-release-unsigned.apk
 
+  - versionName: '1.2'
+    versionCode: 3
+    commit: '1.2'
+    subdir: app
+    gradle:
+      - yes
+    output: build/outputs/apk/release/rpn-*-release-unsigned.apk
+
+  - versionName: '1.3'
+    versionCode: 4
+    commit: 4ae52914c5b8510580ce173b0ebcc4b95207b153
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '1.0'
-CurrentVersionCode: 1
+CurrentVersion: '1.3'
+CurrentVersionCode: 4

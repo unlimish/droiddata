@@ -13,7 +13,7 @@ Description: |-
     An SSH and telnet client, and terminal emulator for local shell. Supports
     multiple sessions, including running them concurrently.
 
-    [[org.pocketworkstation.pckeyboard]], [[com.anysoftkeyboard.languagepack.SSH]]
+    https://f-droid.org/packages/org.pocketworkstation.pckeyboard, https://f-droid.org/packages/com.anysoftkeyboard.languagepack.SSH
     and the Android PC-keyboard-layout in Android 4.1 are well suited to terminal
     work.
 
@@ -33,6 +33,7 @@ Builds:
     prebuild: sed -i 's/minSdkVersion=\"3\"/minSdkVersion=\"4\"/g' AndroidManifest.xml
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 2014-03-02-snapshot
     versionCode: 366
@@ -44,6 +45,7 @@ Builds:
       - libs/armeabi/libcom_google_ase_Exec.so
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 1.8.0
     versionCode: 370
@@ -53,6 +55,7 @@ Builds:
       - libs/armeabi/libcom_google_ase_Exec.so
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 1.8.1
     versionCode: 371
@@ -62,6 +65,7 @@ Builds:
       - libs/armeabi/libcom_google_ase_Exec.so
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 1.8.2
     versionCode: 372
@@ -71,6 +75,7 @@ Builds:
       - libs/armeabi/libcom_google_ase_Exec.so
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 1.8.3
     versionCode: 373
@@ -80,6 +85,7 @@ Builds:
       - libs/armeabi/libcom_google_ase_Exec.so
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 1.8.4
     versionCode: 374
@@ -89,6 +95,7 @@ Builds:
       - libs/armeabi/libcom_google_ase_Exec.so
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 1.8.5
     versionCode: 375
@@ -158,7 +165,23 @@ Builds:
     prebuild: sed -i -e '/googleImplementation/d' -e 's/androidGitVersion.name()/"1.9.6"/'
         build.gradle
 
+  - versionName: 1.9.8-oss
+    versionCode: 10908000
+    commit: v1.9.8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - oss
+    prebuild:
+      - sed -i -e 's/androidGitVersion.name()/"1.9.8"/' build.gradle
+      - sed -i -e '/url MAVEN_REPO_CACHE/d' ../settings.gradle ../build.gradle
+      - sed -i -e '/buildCache {/,/^}/d' ../settings.gradle
+    ndk: r21d
+
 AutoUpdateMode: None
-UpdateCheckMode: Tags
-CurrentVersion: 1.9.6-oss
-CurrentVersionCode: 10906000
+UpdateCheckMode: None
+CurrentVersion: 1.9.8-oss
+CurrentVersionCode: 10908000

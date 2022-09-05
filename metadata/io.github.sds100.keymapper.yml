@@ -1,14 +1,16 @@
 Categories:
   - System
 License: GPL-3.0-only
-SourceCode: https://github.com/sds100/KeyMapper
-IssueTracker: https://github.com/sds100/KeyMapper/issues
-Changelog: https://github.com/sds100/KeyMapper/blob/HEAD/CHANGELOG.md
+AuthorName: sds100
+AuthorEmail: developer.sds100@gmail.com
+SourceCode: https://github.com/keymapperorg/KeyMapper
+IssueTracker: https://github.com/keymapperorg/KeyMapper/issues
+Changelog: https://github.com/keymapperorg/KeyMapper/blob/HEAD/CHANGELOG.md
 
 AutoName: Key Mapper
 
 RepoType: git
-Repo: https://github.com/sds100/KeyMapper
+Repo: https://github.com/keymapperorg/KeyMapper
 
 Builds:
   - versionName: 1.1.6
@@ -25,7 +27,211 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-CurrentVersion: 1.1.7
-CurrentVersionCode: 25
+  - versionName: 2.0.0-beta.1
+    versionCode: 26
+    commit: v2.0.0-beta.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.0-beta.2
+    versionCode: 27
+    commit: v2.0.0-beta.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.0-beta.3
+    versionCode: 28
+    commit: v2.0.0-beta.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.0-beta.4
+    versionCode: 29
+    commit: v2.0.0-beta.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.0
+    versionCode: 30
+    commit: v2.0.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.1
+    versionCode: 31
+    commit: v2.0.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.2
+    versionCode: 32
+    commit: v2.0.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.0-beta.1
+    versionCode: 33
+    commit: v2.1.0-beta.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.0-beta.2
+    versionCode: 34
+    commit: v2.1.0-beta.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.0-beta.3
+    versionCode: 35
+    commit: v2.1.0-beta.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.0-beta.4
+    versionCode: 36
+    commit: v2.1.0-beta.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.0
+    versionCode: 38
+    commit: v2.1.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.2.0-beta.1
+    versionCode: 39
+    commit: v2.2.0-beta.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.2.0
+    versionCode: 42
+    commit: v2.2.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.3.0
+    versionCode: 49
+    commit: 3f680137abc3db727db010559e233b2043a60bc1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.1
+    versionCode: 50
+    commit: ee16c557ce17bc93a85727098555d1f0b0fbdbdb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.2
+    versionCode: 51
+    disable: https://github.com/sds100/KeyMapper/issues/885
+    commit: ba6d96b160e206010920047d4ee4a140e9ec7680
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.3
+    versionCode: 52
+    commit: d5c764fe83f3ee035558f7f9042d0826b7f76bf8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: v2.4.0
+    versionCode: 55
+    commit: 4d0448b90bd480f0e3975dafa59a3d3832baa3eb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/bintray/d' ../build.gradle
+
+  - versionName: v2.4.1
+    versionCode: 56
+    commit: fbf1ef53d953b037c8918d3b8ed2310ee33792ba
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/bintray/d' ../build.gradle
+
+  - versionName: v2.4.2
+    versionCode: 57
+    commit: 42d22dc1da4d338ea483a227da02f7a3a00f0b9b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/bintray/d' ../build.gradle
+
+  - versionName: v2.4.3
+    versionCode: 58
+    commit: 68c7c55a47d2b993f1797d069a1fb9efaddfbcca
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/bintray/d' ../build.gradle
+
+  - versionName: 2.4.4
+    versionCode: 59
+    commit: 7715db5fc427eb134073dfb2e516a32fddff52dd
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/bintray/d' ../build.gradle
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v[\d.]+$
+UpdateCheckData: app/version.properties|VERSION_CODE=(\d+)|.|VERSION_NAME=(.+)
+CurrentVersion: 2.4.4
+CurrentVersionCode: 59

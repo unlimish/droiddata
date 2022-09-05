@@ -14,7 +14,7 @@ Description: |-
     available under a non-commercial license.
 
     With GPS integration in addition to all the features available at
-    [http://weather.gc.ca/radar/ Environment Canada’s website] WiseRadar removes all
+    <a href="http://weather.gc.ca/radar/">Environment Canada’s website</a> WiseRadar removes all
     the hassle from checking up on the latest storm front. This app was designed for
     minimal headaches and just to-the-point radar imagery.
 
@@ -39,6 +39,13 @@ Builds:
     commit: da3984ebd874c9d4d717104b6a7f8795badc706b
     gradle:
       - yes
+
+  - versionName: 2.4.0
+    versionCode: 12
+    commit: 0ebfc955341c00ca355fc39b33c2383115241b32
+    gradle:
+      - yes
+    prebuild: sed -i -e '/mavenCentral/a jcenter()' build.gradle
 
 AutoUpdateMode: None
 UpdateCheckMode: RepoManifest

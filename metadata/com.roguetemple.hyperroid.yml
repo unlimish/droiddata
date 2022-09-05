@@ -27,6 +27,7 @@ Builds:
     commit: '2'
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '4.4'
     versionCode: 440
@@ -34,6 +35,7 @@ Builds:
     target: android-7
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 4.4a
     versionCode: 441
@@ -43,6 +45,7 @@ Builds:
     target: android-7
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: 5.5a
     versionCode: 551
@@ -100,8 +103,8 @@ Builds:
     commit: v10.5e
     subdir: hyperroid/app
     sudo:
-      - apt update || apt update
-      - apt install -y g++
+      - apt-get update || apt-get update
+      - apt-get install -y g++
     gradle:
       - yes
     prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
@@ -112,7 +115,143 @@ Builds:
       - popd
     ndk: r17b
 
+  - versionName: 11.3i
+    versionCode: 11309
+    disable: missing R.raw.palace, R.raw.caribbean, R.raw.ocean, R.raw.ivory
+    commit: v11.3l
+    subdir: hyperroid/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
+        'arm64-v8a'/" build.gradle
+    build:
+      - pushd ..
+      - bash copy.sh
+      - popd
+    ndk: r17c
+
+  - versionName: '12.0'
+    versionCode: 12000
+    disable: https://github.com/zenorogue/hyperrogue/issues/149
+    commit: v120
+    subdir: hyperroid/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
+        'arm64-v8a'/" build.gradle
+    build:
+      - pushd ..
+      - bash copy.sh
+      - popd
+    ndk: r17c
+
+  - versionName: 12.0a
+    versionCode: 12010
+    disable: miss resource
+    commit: v12.0a
+    subdir: hyperroid/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
+        'arm64-v8a'/" build.gradle
+    build:
+      - pushd ..
+      - bash copy.sh
+      - popd
+    ndk: r17c
+
+  - versionName: 12.0b
+    versionCode: 12020
+    commit: 2ef9268c012f4d5c2d3df07c7e474c6cf6e8fb14
+    subdir: hyperroid/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
+        'arm64-v8a'/" build.gradle
+    build:
+      - pushd ..
+      - bash copy.sh
+      - popd
+    ndk: r17c
+
+  - versionName: 12.0c
+    versionCode: 12030
+    commit: 7fff0405a7806b5709fd311f15ef0b3d9a392450
+    subdir: hyperroid/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
+        'arm64-v8a'/" build.gradle
+    build:
+      - pushd ..
+      - bash copy.sh
+      - popd
+    ndk: r17c
+
+  - versionName: 12.0d
+    versionCode: 12040
+    commit: 64f4f93966d581178709b0e9bfd8d077bbfdd61e
+    subdir: hyperroid/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
+        'arm64-v8a'/" build.gradle
+    build:
+      - pushd ..
+      - bash copy.sh
+      - popd
+    ndk: r17c
+
+  - versionName: 12.0f
+    versionCode: 12060
+    disable: https://github.com/zenorogue/hyperrogue/issues/286
+    commit: fa79d67016618af143a267d6fe0d6d85c18f7753
+    subdir: hyperroid/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ libsdl1.2-dev libsdl-ttf2.0-dev libsdl-gfx1.2-dev libsdl-mixer1.2-dev
+        libglew-dev libpng-dev
+    gradle:
+      - yes
+    build:
+      - cd ..
+      - bash copy.sh
+    ndk: r21e
+
+  - versionName: 12.0u
+    versionCode: 12070
+    commit: 0bcf2ca0abdc8693fd69e38435ec15121fb59353
+    subdir: hyperroid/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ libsdl1.2-dev libsdl-ttf2.0-dev libsdl-gfx1.2-dev libsdl-mixer1.2-dev
+        libglew-dev libpng-dev
+    gradle:
+      - yes
+    build:
+      - cd ..
+      - bash copy.sh
+    ndk: r21e
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 10.5e
-CurrentVersionCode: 10505
+CurrentVersion: 12.0u
+CurrentVersionCode: 12070

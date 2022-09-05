@@ -6,10 +6,10 @@ Categories:
 License: GPL-3.0-only
 AuthorName: Daniel Gultsch
 WebSite: https://quicksy.im/
-SourceCode: https://github.com/siacs/Conversations
-IssueTracker: https://github.com/siacs/Conversations/issues
+SourceCode: https://github.com/iNPUTmice/Conversations
+IssueTracker: https://github.com/iNPUTmice/Conversations/issues
 Translation: https://www.transifex.com/siacs/conversations/
-Changelog: https://github.com/siacs/Conversations/blob/HEAD/CHANGELOG.md
+Changelog: https://github.com/iNPUTmice/Conversations/blob/HEAD/CHANGELOG.md
 Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CW3SYT3KG5PDL
 LiberapayID: '34225'
 Bitcoin: 3KAD8vew6tPZDjiUJNnZ3YUoUxrCEVNwFL
@@ -17,7 +17,7 @@ Bitcoin: 3KAD8vew6tPZDjiUJNnZ3YUoUxrCEVNwFL
 AutoName: Quicksy
 Description: |-
     Quicksy is a spin off of the popular Jabber/XMPP client
-    [[eu.siacs.conversations]] with automatic contact discovery.
+    https://f-droid.org/packages/eu.siacs.conversations with automatic contact discovery.
 
     You sign up with your phone number and Quicksy will automatically—based on
     the phone numbers in your address book—suggest possible contacts to you.
@@ -33,19 +33,19 @@ Description: |-
 
     Suggested contacts consists of other Quicksy users and regular Jabber/XMPP
     users who have entered their Jabber ID into the
-    [https://quicksy.im/#get-listed Quicksy Directory].
+    <a href="https://quicksy.im/#get-listed">Quicksy Directory</a>.
 
-    NOTE: To [https://quicksy.im/enter/ enter] your Jabber ID in the Quicksy
+    NOTE: To <a href="https://quicksy.im/enter/">enter</a> your Jabber ID in the Quicksy
     directory an one time registration fee is required.
 
-    Read the [https://quicksy.im/#privacy Privacy Policy] for more info.
+    Read the <a href="https://quicksy.im/#privacy">Privacy Policy</a> for more info.
 
     Anti-Features:
     * NonFreeNet - you can't change the server where the accounts are created
-    * Tracking - uses a 3rd party service provider ([https://twilio.com Twilio]) to send SMS as needed for authentication
+    * Tracking - uses a 3rd party service provider (<a href="https://twilio.com">Twilio</a> or <a href="https://nexmo.com">Nexmo</a>) to send SMS as needed for authentication
 
 RepoType: git
-Repo: https://github.com/siacs/Conversations
+Repo: https://github.com/iNPUTmice/Conversations.git
 
 Builds:
   - versionName: 2.3.6+fcr
@@ -285,7 +285,334 @@ Builds:
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
         \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
+  - versionName: 2.7.1+fcr
+    versionCode: 367
+    commit: 2.7.1
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
+        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+
+  - versionName: 2.8.1+fcr
+    versionCode: 381
+    commit: 2.8.1
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/aabortOnError\
+        false' -e '/libwebrtc/d' -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.+'"
+        -e '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+
+  - versionName: 2.8.2+fcr
+    versionCode: 382
+    commit: 2.8.2
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/aabortOnError\
+        false' -e '/libwebrtc/d' -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.+'"
+        -e '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+
+  - versionName: 2.8.3+fcr
+    versionCode: 383
+    commit: 2.8.3
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/aabortOnError\
+        false' -e '/libwebrtc/d' -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.+'"
+        -e '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+
+  - versionName: 2.8.4+fcr
+    versionCode: 387
+    commit: 2.8.4
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21
+
+  - versionName: 2.8.5+fcr
+    versionCode: 388
+    commit: 2.8.5
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21b
+
+  - versionName: 2.8.6+fcr
+    versionCode: 390
+    commit: 2.8.6
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21b
+
+  - versionName: 2.8.7+fcr
+    versionCode: 393
+    commit: 2.8.7
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21b
+
+  - versionName: 2.8.8+fcr
+    versionCode: 394
+    commit: 2.8.8
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.8.9+fcr
+    versionCode: 395
+    commit: 2.8.9
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.8.10+fcr
+    versionCode: 397
+    commit: 2.8.10
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.0+fcr
+    versionCode: 398
+    commit: 2.9.0
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.1+fcr
+    versionCode: 401
+    commit: 2.9.1
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.2+fcr
+    versionCode: 402
+    commit: 2.9.2
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.3+fcr
+    versionCode: 403
+    commit: 2.9.3
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.4+fcr
+    versionCode: 404
+    commit: 2.9.4
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.5+fcr
+    versionCode: 405
+    commit: 2.9.5
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.6+fcr
+    versionCode: 407
+    commit: 2.9.6
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.7+fcr
+    versionCode: 42000
+    commit: 2.9.7
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.8+fcr
+    versionCode: 42006
+    commit: 2.9.8
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.9+fcr
+    versionCode: 42010
+    commit: 2.9.9
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.10+fcr
+    versionCode: 42012
+    commit: 2.9.10
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.11+fcr
+    versionCode: 42013
+    commit: 2.9.11
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.12+fcr
+    versionCode: 42014
+    commit: 2.9.12
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.13+fcr
+    versionCode: 42015
+    commit: 2.9.13
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.0+fcr
+    versionCode: 42018
+    commit: 3f315751a12fb8178d44733289e77197c7a0f296
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.1+fcr
+    versionCode: 42022
+    commit: cc489ef7bfdba59417e0098779d37c7a7a1bcce4
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.2+fcr
+    versionCode: 42023
+    commit: a8ff88398df1697751d50daa3c4f068508389528
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.2.1+fcr
+    versionCode: 42024
+    commit: fe98cf2c9b28f3a7f59aa4425b9d02c772694aec
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - quicksyFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.9+free
+    versionCode: 42037
+    commit: aea1e80900c5ac70ebe01fb736ed3a43df63d1dd
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - quicksyFree
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/splits/,+5d'
+        -e '/Variants.all/,+10d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.10+free
+    versionCode: 42038
+    commit: 1aaff18bb5ece9ef51a374523957a76be85be26a
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - quicksyFree
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/splits/,+5d'
+        -e '/Variants.all/,+10d' build.gradle
+    ndk: r21e
+
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 2.7.0+fcr
-CurrentVersionCode: 364
+CurrentVersion: 2.10.10+free
+CurrentVersionCode: 42038

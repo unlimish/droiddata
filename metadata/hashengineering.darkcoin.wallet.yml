@@ -32,13 +32,13 @@ Description: |-
     CONTRIBUTE
 
     All translations are managed via Transifex:
-    [https://www.transifex.com/dash/dash-wallet/]
+    <a href="https://www.transifex.com/dash/dash-wallet/">https://www.transifex.com/dash/dash-wallet/</a>
 
-    You can find more about Dash at [https://www.dash.org/].
+    You can find more about Dash at <a href="https://www.dash.org/">https://www.dash.org/</a>.
 
     TESTIMONIALS
 
-    * A recommended mobile wallet by [https://www.dash.org]
+    * A recommended mobile wallet by <a href="https://www.dash.org">https://www.dash.org</a>
 
     Use at your own risk!
 
@@ -83,7 +83,9 @@ Builds:
     commit: v6.6.4-foss
     subdir: wallet
     submodules: true
-    sudo: apt install -yq ninja-build
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build
     gradle:
       - prod
     scandelete:
@@ -91,7 +93,58 @@ Builds:
       - wallet/test/de/schildbach/wallet/util/bitcoin-backup-protobuf-testnet
     ndk: r21
 
+  - versionName: 7.0.9
+    versionCode: 70019
+    commit: v7.0.9-foss
+    subdir: wallet
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build
+    gradle:
+      - prod
+    scandelete:
+      - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
+      - wallet/test/de/schildbach/wallet/util/bitcoin-backup-protobuf-testnet
+    ndk: r21d
+
+  - versionName: 7.3.1
+    versionCode: 70310
+    commit: 7cc63ecd4a490e4b90a38b961b07a5a4b3e51907
+    subdir: wallet
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/kotlin-eap/d' ../build.gradle
+      - sed -i -e '/firebase/d' -e '/gms/d' build.gradle
+    scandelete:
+      - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
+      - wallet/test/de/schildbach/wallet/util/bitcoin-backup-protobuf-testnet
+    ndk: r21d
+
+  - versionName: 7.3.2
+    versionCode: 70311
+    commit: 0736379f08128ab0609c35778dc99a59d28788fd
+    subdir: wallet
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/kotlin-eap/d' ../build.gradle
+      - sed -i -e '/firebase/d' -e '/gms/d' build.gradle
+    scandelete:
+      - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
+      - wallet/test/de/schildbach/wallet/util/bitcoin-backup-protobuf-testnet
+    ndk: r21d
+
 AutoUpdateMode: Version v%v-foss
 UpdateCheckMode: Tags
-CurrentVersion: 6.6.4
-CurrentVersionCode: 60640
+CurrentVersion: 7.3.2
+CurrentVersionCode: 70311

@@ -6,18 +6,18 @@ SourceCode: https://github.com/sterrenburg/flutterhole
 IssueTracker: https://github.com/sterrenburg/flutterhole/issues
 Changelog: https://github.com/sterrenburg/flutterhole/releases
 
-AutoName: FlutterHole
+AutoName: flutterhole
 Description: |-
     FlutterHole is a free third party Android application for interacting with
     your Pi-Hole® server.
 
     Features:
 
-    * '''Quick enable/disable''' - toggle your Pi-hole® from your home screen or a single tap in FlutterHole.
-    * '''Multiple configurations''' - Easily switch between every Pi-hole® that you have access to.
-    * '''Recently Blocked''' - see a live view of requests that are currently being blocked.
-    * '''Summary overview''' - view the amount of queries sent and blocked.
-    * '''Dark mode''' - because we can.
+    * <b>Quick enable/disable</b> - toggle your Pi-hole® from your home screen or a single tap in FlutterHole.
+    * <b>Multiple configurations</b> - Easily switch between every Pi-hole® that you have access to.
+    * <b>Recently Blocked</b> - see a live view of requests that are currently being blocked.
+    * <b>Summary overview</b> - view the amount of queries sent and blocked.
+    * <b>Dark mode</b> - because we can.
 
 RepoType: git
 Repo: https://github.com/sterrenburg/flutterhole.git
@@ -79,8 +79,23 @@ Builds:
       - $$flutter$$/bin/flutter packages pub run flutter_launcher_icons:main
       - $$flutter$$/bin/flutter build apk
 
+  - versionName: v5.2.3
+    versionCode: 641
+    commit: v5.2.3
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@1.20.4
+    prebuild: sed -i -e 's/versionCode flutterVersionCode.toInteger()/versionCode
+        $$VERCODE$$/' -e 's/versionName flutterVersionName/versionName "$$VERSION$$"/'
+        android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter packages pub run flutter_launcher_icons:main
+      - $$flutter$$/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/flutter build apk
+
 AutoUpdateMode: None
-UpdateCheckMode: HTTP
-UpdateCheckData: https://raw.githubusercontent.com/sterrenburg/flutterhole/master/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 2.1.2-debug
-CurrentVersionCode: 477
+UpdateCheckMode: None
+CurrentVersion: v5.2.3
+CurrentVersionCode: 641

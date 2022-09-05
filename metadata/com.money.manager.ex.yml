@@ -28,42 +28,16 @@ RepoType: git
 Repo: https://github.com/moneymanagerex/android-money-manager-ex
 
 Builds:
-  - versionName: 2019.02.14.2
-    versionCode: 994
-    commit: 2019.02.17.1
-    subdir: app/
-    gradle:
-      - yes
-
-  - versionName: 2019.02.24.1
-    versionCode: 996
-    commit: 2019.02.24.1
-    subdir: app/
-    gradle:
-      - yes
-
-  - versionName: 2019.02.28.997-beta
-    versionCode: 997
-    commit: 2019.02.28.997-beta
-    subdir: app/
-    gradle:
-      - yes
-
-  - versionName: 2019.03.30.998-beta
-    versionCode: 998
-    commit: 2019.03.30.998-beta
-    subdir: app/
-    gradle:
-      - yes
-
   - versionName: 2019.04.10.1000-beta
     versionCode: 1000
+    disable: https://github.com/moneymanagerex/android-money-manager-ex/issues/1425,
+        com.evernote:android-job
     commit: 2019.04.10.1000-beta
-    subdir: app/
+    subdir: app
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: 2019.04.10.1000-beta
-CurrentVersionCode: 1000
+AutoUpdateMode: None
+UpdateCheckMode: Tags ^[0-9.]*$
+CurrentVersion: 2019.02.24.1
+CurrentVersionCode: 996

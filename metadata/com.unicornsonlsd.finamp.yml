@@ -1,0 +1,94 @@
+Categories:
+  - Multimedia
+License: MPL-2.0
+AuthorName: UnicornsOnLSD
+SourceCode: https://github.com/UnicornsOnLSD/finamp
+IssueTracker: https://github.com/UnicornsOnLSD/finamp/issues
+Changelog: https://github.com/UnicornsOnLSD/finamp/releases
+
+AutoName: Finamp
+
+RepoType: git
+Repo: https://github.com/UnicornsOnLSD/finamp
+
+Builds:
+  - versionName: 0.6.4
+    versionCode: 20
+    commit: 20b08ec76771df9476dc6da6d8745e852c0ece99
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.4
+    rm:
+      - ios
+    prebuild: sed -i -e '/signingConfig /,/minifyEnabled/d' android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+  - versionName: 0.6.5
+    versionCode: 21
+    commit: 8479979df8bbabeaf739af458904049885d4730b
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.4
+    rm:
+      - ios
+    prebuild: sed -i -e '/signingConfig /,/minifyEnabled/d' android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+  - versionName: 0.6.6
+    versionCode: 23
+    commit: d2b0ff29bbaa2e4d07755f81199221c6dd6d560a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.4
+    rm:
+      - ios
+    prebuild: sed -i -e '/signingConfig /,/minifyEnabled/d' android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+  - versionName: 0.6.7
+    versionCode: 24
+    commit: 24874f7206f0330d9fa47f6b9238423eac295e88
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.4
+    rm:
+      - ios
+    prebuild: sed -i -e '/signingConfig /,/minifyEnabled/d' android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+  - versionName: 0.6.8
+    versionCode: 25
+    commit: 4c123536d2877c863d8a9edb63a1e991a00ffc2f
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.4
+    rm:
+      - ios
+    prebuild: sed -i -e '/signingConfig /,/minifyEnabled/d' android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 0.6.8
+CurrentVersionCode: 25

@@ -1,0 +1,77 @@
+Categories:
+  - Graphics
+  - Writing
+License: Apache-2.0
+AuthorName: Shubham
+SourceCode: https://github.com/SubhamTyagi/android-ocr
+IssueTracker: https://github.com/SubhamTyagi/android-ocr/issues
+Translation: https://hosted.weblate.org/projects/android-ocr/
+Changelog: https://github.com/SubhamTyagi/android-ocr/releases
+
+AutoName: OCR
+
+RepoType: git
+Repo: https://github.com/SubhamTyagi/android-ocr.git
+
+Builds:
+  - versionName: '1.4'
+    versionCode: 5
+    commit: v1.4
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+7d' build.gradle
+
+  - versionName: '1.5'
+    versionCode: 6
+    commit: v1.5
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+7d' build.gradle
+
+  - versionName: '2.0'
+    versionCode: 7
+    commit: v2.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+7d' build.gradle
+
+  - versionName: '2.1'
+    versionCode: 8
+    commit: v2.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+7d' build.gradle
+
+  - versionName: '3.0'
+    versionCode: 9
+    commit: 7d8b86c1e31159f47c70bc525f0c8ef74be76854
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+7d' build.gradle
+
+  - versionName: '3.1'
+    versionCode: 10
+    disable: https://github.com/SubhamTyagi/android-ocr/issues/49
+    commit: 6b11328236ceec0507f4a7d03ae89ec80d7a9c37
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+7d' build.gradle
+
+  - versionName: '3.2'
+    versionCode: 11
+    commit: f0606fc3527774c37dfe3f43358695320d3fb08b
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+7d' build.gradle
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '3.2'
+CurrentVersionCode: 11

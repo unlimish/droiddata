@@ -2,7 +2,10 @@ Categories:
   - Security
   - Internet
 License: GPL-3.0-only
-WebSite: https://www.pep.security/
+AuthorName: pEp Security S.A.
+AuthorEmail: support@pep.security
+AuthorWebSite: https://www.pep.security/
+WebSite: https://www.pep.security/en/android/index.html
 SourceCode: https://pep.foundation/dev/repos
 Changelog: https://www.pep.security/docs/release_notes_android.html
 
@@ -40,92 +43,59 @@ Description: |-
     Just install the app and you can communicate in confidence with your peers.
 
 RepoType: git
-Repo: https://letsencrypt.pep-security.lu/gitlab/android/pep.git
+Repo: https://pep-security.lu/gitlab/android/pep.git
 
 Builds:
-  - versionName: 1.0.101rc1.withoutKeysync
-    versionCode: 2
-    commit: v1.0.101rc1
+  - versionName: v1.1.286
+    versionCode: 478
+    disable: https://gitlab.com/fdroid/fdroidserver/-/issues/1004#note_1027749339
+    commit: v1.1.286
     subdir: k9mail
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t testing asn1c
+      - apt-get install -y --no-install-recommends g++ clang capnproto libsqlite3-dev
+        libclang-3.9-dev wget
     gradle:
-      - WithoutkeysyncPlayStore
+      - WithkeysyncFDroid
     srclibs:
-      - pEpJNIAdapter@6d3137dd82e7
-      - pEpEngine@6d083c04dd77
-      - yml2@2.5.5
+      - yml2@2.6.3
+      - pEpEngine@Release_2.1.56
+      - pEpJNIAdapter@Release_2.1.41
+      - libpEpAdapter@Release_2.1.22
+      - foldable-folder-list@v0.2-Licensed
+      - sequoia-pgp@openpgp/v1.3.1
+      - rustup@1.24.3
     prebuild:
-      - rm -vf src/main/res/xml/changelog_master.xml
-      - sed -i 's:file("../pEpJNIAdapter/android"):file("../srclib/pEpJNIAdapter/android"):'
-        ../settings.gradle
-      - sed -i 's:YML2_PATH=.*$:YML2_PATH=../$$yml2$$:' $$pEpEngine$$/default.conf
-      - sed -i "s:yml2proc:../$$yml2$$/yml2proc:" $$pEpJNIAdapter$$/src/Makefile
-      - sed -i 's:env python:env python2:' $$yml2$$/yml2proc
-      - sed -i "s:backend.includePath.extend(dirs):backend.includePath.extend(['$(realpath
-        $$yml2$$)']):" $$yml2$$/yml2proc
-      - sed -i 's:YML2PROC=.*$:YML2PROC=../$$yml2$$/yml2proc:;s:YML_PATH=.*$:YML_PATH=../$$yml2$$:'
-        $$pEpEngine$$/Makefile.conf
-      - sed -i 's:ASN1C_INCLUDE=.*$:ASN1C_INCLUDE=/usr/share/asn1c:' $$pEpEngine$$/Makefile.conf
-      - sed -i 's:-fcompound-names:-fcompound-names -fnative-types:' $$pEpEngine$$/asn.1/Makefile
-    ndk: r14b
-
-  - versionName: 1.0.209.withoutKeysync
-    versionCode: 19
-    commit: v1.0.209
-    subdir: k9mail
-    gradle:
-      - WithoutkeysyncPlayStore
-    srclibs:
-      - pEpJNIAdapter@8973dc37e39d
-      - pEpEngine@601cdaeef663
-      - yml2@2.5.7
-    prebuild:
-      - rm -vf src/main/res/xml/changelog_master.xml
-      - sed -i 's:file("../pEpJNIAdapter/android"):file("../srclib/pEpJNIAdapter/android"):'
-        ../settings.gradle
-      - sed -i 's:YML2_PATH=.*$:YML2_PATH=../$$yml2$$:' $$pEpEngine$$/default.conf
-      - sed -i "s:yml2proc:../$$yml2$$/yml2proc:" $$pEpJNIAdapter$$/src/Makefile
-      - sed -i 's:env python:env python2:' $$yml2$$/yml2proc
-      - sed -i "s:backend.includePath.extend(dirs):backend.includePath.extend(['$(realpath
-        $$yml2$$)']):" $$yml2$$/yml2proc
-      - sed -i 's:YML2PROC=.*$:YML2PROC=../$$yml2$$/yml2proc:;s:YML_PATH=.*$:YML_PATH=../$$yml2$$:'
-        $$pEpEngine$$/Makefile.conf
-      - sed -i 's:ASN1C_INCLUDE=.*$:ASN1C_INCLUDE=/usr/share/asn1c:' $$pEpEngine$$/Makefile.conf
-      - sed -i 's:-fcompound-names:-fcompound-names -fnative-types:' $$pEpEngine$$/asn.1/Makefile
-    ndk: r14b
-
-  - versionName: 1.0.213.withoutKeysync
-    versionCode: 23
-    commit: v1.0.213
-    subdir: k9mail
-    gradle:
-      - WithoutkeysyncPlayStore
-    srclibs:
-      - pEpJNIAdapter@441
-      - pEpEngine@3104
-      - yml2@2.5.8
-    prebuild:
-      - pwd
-      - $$pEpJNIAdapter$$/android/external/generate-standalone-ndk-toolchain.sh
-      - rm -rvf /tmp/ndk-18-arm
-      - mv ndk-18-arm /tmp
-      - ln -s /tmp/ndk-18-arm $$pEpJNIAdapter$$/android/external/ndk-18-arm
-      - rm -vf src/main/res/xml/changelog_master.xml
-      - sed -i 's:docs.patch:docs.patch\n\tsed -i "s\:src doc tests\:src\:\" libgcrypt/Makefile.am:'
-        $$pEpJNIAdapter$$/android/external/Makefile
-      - sed -i 's:file("../pEpJNIAdapter/android"):file("../srclib/pEpJNIAdapter/android"):'
-        ../settings.gradle
-      - sed -i 's:YML2_PATH=.*$:YML2_PATH=../$$yml2$$:' $$pEpEngine$$/default.conf
-      - sed -i "s:yml2proc:../$$yml2$$/yml2proc:" $$pEpJNIAdapter$$/src/Makefile
-      - sed -i 's:env python:env python2:' $$yml2$$/yml2proc
-      - sed -i "s:backend.includePath.extend(dirs):backend.includePath.extend(['$(realpath
-        $$yml2$$)']):" $$yml2$$/yml2proc
-      - sed -i 's:YML2PROC=.*$:YML2PROC=../$$yml2$$/yml2proc:;s:YML_PATH=.*$:YML_PATH=../$$yml2$$:'
-        $$pEpEngine$$/Makefile.conf
-      - sed -i 's:ASN1C_INCLUDE=.*$:ASN1C_INCLUDE=/usr/share/asn1c:' $$pEpEngine$$/Makefile.conf
-      - sed -i 's:-fcompound-names:-fcompound-names -fnative-types:' $$pEpEngine$$/asn.1/Makefile
-    ndk: r18b
+      - $$rustup$$/rustup-init.sh -v -y --default-toolchain $(cat $$sequoia-pgp$$/rust-toolchain)
+        -t i686-linux-android -t x86_64-linux-android -t armv7-linux-androideabi -t
+        aarch64-linux-android
+      - ~/.cargo/bin/rustup -v component add rust-src
+      - echo '[target.aarch64-linux-android]'               > ~/.cargo/config
+      - echo 'ar     = "aarch64-linux-android-ar"'         >> ~/.cargo/config
+      - echo 'linker = "aarch64-linux-android21-clang"'    >> ~/.cargo/config
+      - echo '[target.armv7-linux-androideabi]'            >> ~/.cargo/config
+      - echo 'ar     = "arm-linux-androideabi-ar"'         >> ~/.cargo/config
+      - echo 'linker = "armv7a-linux-androideabi21-clang"' >> ~/.cargo/config
+      - echo '[target.x86_64-linux-android]'               >> ~/.cargo/config
+      - echo 'ar     = "x86_64-linux-android-ar"'          >> ~/.cargo/config
+      - echo 'linker = "x86_64-linux-android21-clang"'     >> ~/.cargo/config
+      - echo '[target.i686-linux-android]'                 >> ~/.cargo/config
+      - echo 'ar     = "i686-linux-android-ar"'            >> ~/.cargo/config
+      - echo 'linker = "i686-linux-android21-clang"'       >> ~/.cargo/config
+      - echo "org.gradle.jvmargs=-Xms4g -Xmx16g -XX:MaxPermSize=16g -XX:-UseGCOverheadLimit"
+        >> ../gradle.properties
+      - echo "YML2_PATH=$$yml2$$" >> $$pEpEngine$$/local.conf
+      - echo "YML2_PATH=$$yml2$$" >> $$pEpJNIAdapter$$/local.conf
+      - echo "ENGINE_INC_PATH=$$pEpEngine$$" >> $$pEpJNIAdapter$$/local.conf
+      - ln -s $$pEpEngine$$/src $$pEpEngine$$/pEp
+      - sed -i 's:enable true:enable false:' build.gradle
+      - sed -i 's:../:../srclib/:' ../settings.gradle
+      - sed -i 's:cargo:~/.cargo/bin/cargo:' $$pEpJNIAdapter$$/android/external/**/Makefile
+      - sed -i 's/appVersionOffset = 50/appVersionOffset = 423/' ../gradle/plugins/utils/git-version.gradle
+    ndk: r21
 
 AutoUpdateMode: None
-UpdateCheckMode: Tags
-CurrentVersion: 1.0.213
-CurrentVersionCode: 23
+UpdateCheckMode: None
+CurrentVersion: v1.1.286
+CurrentVersionCode: 478

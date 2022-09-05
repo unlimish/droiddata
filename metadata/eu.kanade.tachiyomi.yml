@@ -3,11 +3,11 @@ Categories:
   - Reading
 License: Apache-2.0
 AuthorName: Javier Tomás
-WebSite: https://github.com/inorichi/tachiyomi/wiki
-SourceCode: https://github.com/inorichi/tachiyomi
-IssueTracker: https://github.com/inorichi/tachiyomi/issues
+WebSite: https://tachiyomi.org
+SourceCode: https://github.com/tachiyomiorg/tachiyomi
+IssueTracker: https://github.com/tachiyomiorg/tachiyomi/issues
 Translation: https://hosted.weblate.org/engage/tachiyomi/?
-Changelog: https://github.com/inorichi/tachiyomi/releases
+Changelog: https://github.com/tachiyomiorg/tachiyomi/releases
 
 AutoName: Tachiyomi
 Description: |-
@@ -15,17 +15,17 @@ Description: |-
 
     Features include:
 
-    * Online reading from sources like Batoto, KissManga, MangaFox, and more
+    * Online reading from sources such as MangaDex, MangaSee, Mangakakalot, and more
     * Local reading of downloaded manga
-    * Configurable reader with multiple viewers, reading directions and other settings
-    * MyAnimeList, AniList, and Kitsu support
+    * A configurable reader with multiple viewers, reading directions and other settings.
+    * MyAnimeList, AniList, Kitsu, Shikimori, and Bangumi support
     * Categories to organize your library
     * Light and dark themes
     * Schedule updating your library for new chapters
-    * Create backups locally or to your cloud service of choice
+    * Create backups locally to read offline or to your desired cloud service
 
 RepoType: git
-Repo: https://github.com/inorichi/tachiyomi.git
+Repo: https://github.com/tachiyomiorg/tachiyomi.git
 
 Builds:
   - versionName: 0.1.2
@@ -312,7 +312,278 @@ Builds:
       - sed -i -e '/play-services/d; /firebase/d' build.gradle
       - sed -i -e '/google-services/d' ../build.gradle build.gradle
 
+  - versionName: 0.9.2
+    versionCode: 45
+    disable: non-foss oss-licenses
+    commit: v0.9.2
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d' build.gradle
+      - sed -i -e '/google-services/d' -e '/oss-licenses/d' ../build.gradle.kts build.gradle
+
+  - versionName: 0.10.2
+    versionCode: 48
+    commit: v0.10.2
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d' build.gradle
+      - sed -i -e '/google-services/d' -e '/oss-licenses/d' ../build.gradle.kts build.gradle
+
+  - versionName: 0.10.3
+    versionCode: 49
+    commit: v0.10.3
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d' build.gradle
+      - sed -i -e '/google-services/d' -e '/oss-licenses/d' ../build.gradle.kts build.gradle
+
+  - versionName: 0.10.4
+    versionCode: 50
+    commit: v0.10.4
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d' build.gradle
+      - sed -i -e '/google-services/d' -e '/oss-licenses/d' ../build.gradle.kts build.gradle
+
+  - versionName: 0.10.5
+    versionCode: 51
+    commit: v0.10.5
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d' build.gradle
+      - sed -i -e '/google-services/d' -e '/oss-licenses/d' ../build.gradle.kts build.gradle
+
+  - versionName: 0.10.7
+    versionCode: 53
+    commit: v0.10.7
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d' build.gradle
+      - sed -i -e '/google-services/d' -e '/oss-licenses/d' ../build.gradle.kts build.gradle
+    ndk: r21d
+
+  - versionName: 0.10.9
+    versionCode: 56
+    commit: v0.10.9
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22
+
+  - versionName: 0.10.10
+    versionCode: 57
+    commit: v0.10.10
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+  - versionName: 0.10.11
+    versionCode: 58
+    commit: v0.10.11
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+  - versionName: 0.10.12
+    versionCode: 59
+    commit: v0.10.12
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+  - versionName: 0.11.1
+    versionCode: 63
+    commit: v0.11.1
+    subdir: app
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d; /isEnable/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+  - versionName: 0.12.1
+    versionCode: 67
+    commit: 85791a9336b894b973ef65e77ec1aa38235ffac8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d; /isEnable/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+  - versionName: 0.12.2
+    versionCode: 68
+    commit: 3eec20716644f1d69f13123fb435c6f9d6eeff16
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d; /isEnable/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+  - versionName: 0.12.3
+    versionCode: 69
+    commit: e863e8c64b7b815cde53c28e17bd143f9eda9072
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d; /isEnable/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+  - versionName: 0.13.0
+    versionCode: 73
+    commit: a6ac2fbc9a596efd4836b29e8856065722d6e101
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d; /isEnable/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+  - versionName: 0.13.1
+    versionCode: 74
+    commit: d6386cef412624fdabf2600d364404ef6374680a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d; /isEnable/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+  - versionName: 0.13.2
+    versionCode: 78
+    commit: 2b38b4e0221d19259b50448decc3b80e2538f82b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d; /isEnable/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+  - versionName: 0.13.3
+    versionCode: 79
+    commit: 28522f4f9044af2a0b66b53c8f66723dc95e7555
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d; /isEnable/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+  - versionName: 0.13.4
+    versionCode: 80
+    commit: 42eaaa497fd51850ccf1fd2d9433969b5ef1cfed
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d; /isEnable/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+  - versionName: 0.13.5
+    versionCode: 81
+    commit: 26ddc6e3aa1a48f091fedc0cac32dbca6c1834ff
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d; /isEnable/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+  - versionName: 0.13.6
+    versionCode: 82
+    commit: 1f79444a531d0f4ec93cc953f3d82ea3c1094471
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e '/play-services/d; /firebase/d; /isEnable/d' build.gradle.kts
+      - sed -i -e '/google-services/d' ../build.gradle.kts build.gradle.kts
+    ndk: r22b
+
+MaintainerNotes: Offers both SFW and NSFW addons, but clearly marks NSFW addons as
+    18+. So we don't need to mark it NSFW because the app already does that for such
+    content itself.
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.8.5
-CurrentVersionCode: 42
+CurrentVersion: 0.13.6
+CurrentVersionCode: 82

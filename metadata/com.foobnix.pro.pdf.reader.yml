@@ -6,256 +6,265 @@ AuthorEmail: librera.reader@gmail.com
 WebSite: https://librera.mobi/
 SourceCode: https://github.com/foobnix/LibreraReader
 IssueTracker: https://github.com/foobnix/LibreraReader/issues
-Changelog: https://librera.mobi/wiki/what-is-new/
+Changelog: https://librera.mobi/what-is-new/
 
-AutoName: ${appName}
+AutoName: LibreraReader
 
 RepoType: git
 Repo: https://github.com/foobnix/LibreraReader.git
 
 Builds:
-  - versionName: 8.0.38-fdroid
-    versionCode: 1098
-    commit: 8.0.39
-    subdir: app/
+  - versionName: 8.5.12-fdroid
+    versionCode: 4390
+    commit: 9f95ee4a38e304dd24730ce1b12f730da45bf6b2
+    subdir: app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y g++-6 mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
-        libgl1-mesa-dev
+      - apt-get install -y g++ mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
+        libglu1-mesa-dev libxi-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - fdroid
     srclibs:
-      - MuPDF@1.11
+      - MuPDF@1.20.0-rc2
     rm:
-      - Builder/libs/
-    prebuild:
-      - sed -i -e '/DexClassLoader/d' -e '/clazz/d' src/main/java/com/foobnix/sys/BitmapActivity.java
-      - sed -i -e '/splits/,+9d' -e '/applicationVariants/,+13d' -e '/a_copyApks/,+10d'
-        build.gradle
-      - sed -i -e '/git clone/d' -e 's#cd mupdf-1.11#pushd '$PWD'/$$MuPDF$$#' -e 's#/home/ivan-dev/git/LibreraReader/Builder/mupdf-1.11#'$PWD'/$$MuPDF$$#'
-        -e 's#/home/ivan-dev/git/LibreraReader/app/src/main/jniLibs#'$PWD'/src/main/jniLibs#'
-        -e 's#cd \.\.#popd#' ../Builder/link_to_mupdf_1.11.sh
-      - mkdir src/main/jniLibs/
-    scandelete:
-      - Builder/
-    build:
-      - pushd ../Builder/
-      - ./link_to_mupdf_1.11.sh
-    ndk: r17c
-
-  - versionName: 8.1.191-fdroid
-    versionCode: 1930
-    commit: 8.1.191
-    subdir: app/
-    sudo:
-      - apt-get update || apt-get update
-      - apt-get install -y g++-6 mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
-        libgl1-mesa-dev
-    gradle:
-      - fdroid
-    srclibs:
-      - MuPDF@1.11
-    rm:
-      - Builder/libs/
+      - Builder/libs
     prebuild:
       - sed -i -e '/F-DROID REMOVE THIS LINE/,+1d' ../build.gradle
-      - sed -i -e '/DexClassLoader/d' -e '/clazz/d' src/main/java/com/foobnix/sys/BitmapActivity.java
-      - sed -i -e '/splits/,+9d' -e '/applicationVariants/,+13d' -e '/a_copyApks/,+10d'
-        -e '/F-DROID REMOVE THIS LINES BEGIN/,/F-DROID REMOVE THIS LINES END/d' -e
-        '/F-DROID REMOVE THIS LINE/,+1d' build.gradle
-      - sed -i -e '/git clone/d' -e 's#cd mupdf-1.11#pushd '$PWD'/$$MuPDF$$#' -e 's#/home/ivan-dev/git/LibreraReader/Builder/mupdf-1.11#'$PWD'/$$MuPDF$$#'
-        -e 's#/home/ivan-dev/git/LibreraReader/app/src/main/jniLibs#'$PWD'/src/main/jniLibs#'
-        -e 's#cd \.\.#popd#' ../Builder/link_to_mupdf_1.11.sh
+      - sed -i -e '/gms/d' -e '/firebase/d' -e '/com.cloudrail/d' -e '/enable true/d'
+        -e '/junrar/d' build.gradle
+      - sed -i -e '/^#!/a\set -e' -e 's|git clone .*|cp -r $$MuPDF$$ mupdf-$VERSION_TAG|'
+        -e '/mkdir mupdf/d' -e 's/ndk-build $1/& -j`nproc` || exit 1/' ../Builder/link_to_mupdf_1.20.0.sh
       - mkdir src/main/jniLibs/
-    scandelete:
-      - Builder/
+    scanignore:
+      - Builder/fonts/fonts.zip
+      - app/src/fdroid/assets/fonts.zip
     build:
       - pushd ../Builder/
-      - ./link_to_mupdf_1.11.sh
-    ndk: r17c
+      - ./link_to_mupdf_1.20.0.sh
+    ndk: r23c
 
-  - versionName: 8.1.275-fdroid
-    versionCode: 3136
-    commit: 8.1.275
-    subdir: app/
+  - versionName: 8.5.21-fdroid
+    versionCode: 4400
+    commit: c1143e955e9d8020a53a01371ea8b9f05598b946
+    subdir: app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y g++-6 mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
-        libgl1-mesa-dev
+      - apt-get install -y g++ mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
+        libglu1-mesa-dev libxi-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - fdroid
     srclibs:
-      - MuPDF@1.16.1
+      - MuPDF@1.20.0-rc2
     rm:
-      - Builder/libs/
+      - Builder/libs
     prebuild:
       - sed -i -e '/F-DROID REMOVE THIS LINE/,+1d' ../build.gradle
-      - sed -i -e '/com.google.gms.google-services/d' -e '/com.google.android.gms/d'
-        -e '/com.cloudrail/d' build.gradle
-      - sed -i -e '/git clone/d' -e 's#cd mupdf-1.16.1#pushd '$PWD'/$$MuPDF$$#' -e
-        's#/home/ivan-dev/git/LibreraReader/Builder/mupdf-1.16.1#'$PWD'/$$MuPDF$$#'
-        -e 's#/home/ivan-dev/git/LibreraReader/app/src/main/jniLibs#'$PWD'/src/main/jniLibs#'
-        -e 's#cd \.\.#popd#' ../Builder/link_to_mupdf_1.16.1.sh
+      - sed -i -e '/gms/d' -e '/firebase/d' -e '/com.cloudrail/d' -e '/enable true/d'
+        -e '/junrar/d' build.gradle
+      - sed -i -e '/^#!/a\set -e' -e 's|git clone .*|cp -r $$MuPDF$$ mupdf-$VERSION_TAG|'
+        -e '/mkdir mupdf/d' -e 's/ndk-build $1/& -j`nproc` || exit 1/' ../Builder/link_to_mupdf_1.20.0.sh
       - mkdir src/main/jniLibs/
-    scandelete:
-      - Builder/
+    scanignore:
+      - Builder/fonts/fonts.zip
+      - app/src/fdroid/assets/fonts.zip
     build:
       - pushd ../Builder/
-      - ./link_to_mupdf_1.16.1.sh
-    ndk: r17c
+      - ./link_to_mupdf_1.20.0.sh
+    ndk: r23c
 
-  - versionName: 8.1.305-fdroid
-    versionCode: 3270
-    commit: 8.1.305
-    subdir: app/
+  - versionName: 8.5.37-fdroid
+    versionCode: 4550
+    commit: feff3499df78409ca3ddb13d66774a6678babddf
+    subdir: app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y g++-6 mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
-        libgl1-mesa-dev
+      - apt-get install -y g++ mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
+        libglu1-mesa-dev libxi-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - fdroid
     srclibs:
-      - MuPDF@1.16.1
+      - MuPDF@1.20.0-rc2
     rm:
-      - Builder/libs/
+      - Builder/libs
     prebuild:
       - sed -i -e '/F-DROID REMOVE THIS LINE/,+1d' ../build.gradle
-      - sed -i -e '/com.google.gms.google-services/d' -e '/com.google.android.gms/d'
-        -e '/com.cloudrail/d' -e '/include "armeabi-v7a", "arm64-v8a"/d' build.gradle
-      - sed -i -e '/git clone/d' -e 's#cd mupdf-1.16.1#pushd '$PWD'/$$MuPDF$$#' -e
-        's#/home/ivan-dev/git/LibreraReader/Builder/mupdf-1.16.1#'$PWD'/$$MuPDF$$#'
-        -e 's#/home/ivan-dev/git/LibreraReader/app/src/main/jniLibs#'$PWD'/src/main/jniLibs#'
-        -e 's#cd \.\.#popd#' ../Builder/link_to_mupdf_1.16.1.sh
+      - sed -i -e '/gms/d' -e '/firebase/d' -e '/com.cloudrail/d' -e '/enable true/d'
+        -e '/junrar/d' build.gradle
+      - sed -i -e '/^#!/a\set -e' -e 's|git clone .*|cp -r $$MuPDF$$ mupdf-$VERSION_TAG|'
+        -e '/mkdir mupdf/d' -e 's/ndk-build $1/& -j`nproc` || exit 1/' ../Builder/link_to_mupdf_1.20.0.sh
       - mkdir src/main/jniLibs/
-    scandelete:
-      - Builder/
+    scanignore:
+      - Builder/fonts/fonts.zip
+      - app/src/fdroid/assets/fonts.zip
     build:
       - pushd ../Builder/
-      - ./link_to_mupdf_1.16.1.sh
-    ndk: r17c
+      - ./link_to_mupdf_1.20.0.sh
+    ndk: r23c
 
-  - versionName: 8.2.11-fdroid
-    versionCode: 3420
-    commit: 8.2.11
-    subdir: app/
+  - versionName: 8.5.43-fdroid
+    versionCode: 4578
+    disable: https://gitlab.com/fdroid/fdroiddata/-/jobs/2826861210#L4837
+    commit: 17ee4a601ada554d3d9f4d0efa07609d07782925
+    subdir: app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y g++-6 mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
-        libgl1-mesa-dev
+      - apt-get install -y g++ mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
+        libglu1-mesa-dev libxi-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - fdroid
     srclibs:
-      - MuPDF@1.16.1
+      - MuPDF@1.20.2
     rm:
-      - Builder/libs/
+      - Builder/libs
     prebuild:
       - sed -i -e '/F-DROID REMOVE THIS LINE/,+1d' ../build.gradle
-      - sed -i -e '/com.google.gms.google-services/d' -e '/com.google.android.gms/d'
-        -e '/com.cloudrail/d' -e '/include "armeabi-v7a", "arm64-v8a"/d' build.gradle
-      - sed -i -e '/git clone/d' -e 's#cd mupdf-$VERSION#pushd '$PWD'/$$MuPDF$$#'
-        -e 's#/home/ivan-dev/git/LibreraReader/Builder/mupdf-$VERSION#'$PWD'/$$MuPDF$$#'
-        -e 's#/home/ivan-dev/git/LibreraReader/app/src/main/jniLibs#'$PWD'/src/main/jniLibs#'
-        -e 's#cd \.\.#popd#' ../Builder/link_to_mupdf_1.16.1.sh
+      - sed -i -e '/^if.*Fdroid/,/^}/d' -e '/enable true/d' build.gradle
+      - sed -i -e '/^#!/a\set -e' -e 's|git clone .*|cp -r $$MuPDF$$ mupdf-$VERSION_TAG|'
+        -e '/mkdir mupdf/d' -e 's/ndk-build $1/& -j`nproc` || exit 1/' ../Builder/link_to_mupdf_1.20.2.sh
       - mkdir src/main/jniLibs/
-    scandelete:
-      - Builder/
+    scanignore:
+      - Builder/fonts/fonts.zip
+      - app/src/fdroid/assets/fonts.zip
     build:
       - pushd ../Builder/
-      - ./link_to_mupdf_1.16.1.sh
-    ndk: r17c
+      - ./link_to_mupdf_1.20.2.sh
+    ndk: r23c
 
-  - versionName: 8.2.29-fdroid
-    versionCode: 3484
-    commit: 8.2.29
-    subdir: app/
+  - versionName: 8.5.45-fdroid
+    versionCode: 4586
+    commit: fd31752806feb35f4c16f7c374333914b12f3557
+    subdir: app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y g++-6 mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
-        libgl1-mesa-dev
+      - apt-get install -y g++ mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
+        libglu1-mesa-dev libxi-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - fdroid
     srclibs:
-      - MuPDF@1.16.1
+      - MuPDF@1.20.2
     rm:
-      - Builder/libs/
+      - Builder/libs
     prebuild:
       - sed -i -e '/F-DROID REMOVE THIS LINE/,+1d' ../build.gradle
-      - sed -i -e '/com.google.gms.google-services/d' -e '/com.google.android.gms/d'
-        -e '/com.cloudrail/d' -e '/include "armeabi-v7a", "arm64-v8a"/d' build.gradle
-      - sed -i -e '/git clone/d' -e 's#cd mupdf-$VERSION#pushd '$PWD'/$$MuPDF$$#'
-        -e 's#/home/ivan-dev/git/LibreraReader/Builder/mupdf-$VERSION#'$PWD'/$$MuPDF$$#'
-        -e 's#/home/ivan-dev/git/LibreraReader/app/src/main/jniLibs#'$PWD'/src/main/jniLibs#'
-        -e 's#cd \.\.#popd#' ../Builder/link_to_mupdf_1.16.1.sh
+      - sed -i -e '/^if.*Fdroid/,/^}/d' -e '/enable true/d' build.gradle
+      - sed -i -e '/^#!/a\set -e' -e 's|git clone .*|cp -r $$MuPDF$$ mupdf-$VERSION_TAG|'
+        -e '/mkdir mupdf/d' -e 's/ndk-build $1/& -j`nproc` || exit 1/' ../Builder/link_to_mupdf_1.20.2.sh
       - mkdir src/main/jniLibs/
-    scandelete:
-      - Builder/
+    scanignore:
+      - Builder/fonts/fonts.zip
+      - app/src/fdroid/assets/fonts.zip
     build:
       - pushd ../Builder/
-      - ./link_to_mupdf_1.16.1.sh
-    ndk: r17c
+      - ./link_to_mupdf_1.20.2.sh
+    ndk: r23c
 
-  - versionName: 8.2.43-fdroid
-    versionCode: 3536
-    commit: 8.2.43
-    subdir: app/
+  - versionName: 8.6.15-fdroid
+    versionCode: 4690
+    commit: 667df2989ba54a80a0d7400d33589f627cab24fd
+    subdir: app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y g++-6 mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
-        libgl1-mesa-dev
+      - apt-get install -y g++ mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
+        libglu1-mesa-dev libxi-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - fdroid
     srclibs:
-      - MuPDF@1.16.1
+      - MuPDF@1.20.2
     rm:
-      - Builder/libs/
+      - Builder/libs
     prebuild:
       - sed -i -e '/F-DROID REMOVE THIS LINE/,+1d' ../build.gradle
-      - sed -i -e '/com.google.gms.google-services/d' -e '/com.google.android.gms/d'
-        -e '/com.cloudrail/d' -e '/include "armeabi-v7a", "arm64-v8a"/d' build.gradle
-      - sed -i -e '/git clone/d' -e 's#cd mupdf-$VERSION#pushd '$PWD'/$$MuPDF$$#'
-        -e 's#/home/ivan-dev/git/LibreraReader/Builder/mupdf-$VERSION#'$PWD'/$$MuPDF$$#'
-        -e 's#/home/ivan-dev/git/LibreraReader/app/src/main/jniLibs#'$PWD'/src/main/jniLibs#'
-        -e 's#cd \.\.#popd#' ../Builder/link_to_mupdf_1.16.1.sh
+      - sed -i -e '/^if.*Fdroid/,/^}/d' -e '/enable true/d' build.gradle
+      - sed -i -e '/^#!/a\set -e' -e 's|git clone .*|cp -r $$MuPDF$$ mupdf-$VERSION_TAG|'
+        -e '/mkdir mupdf/d' -e 's/ndk-build $1/& -j`nproc` || exit 1/' ../Builder/link_to_mupdf_1.20.2.sh
       - mkdir src/main/jniLibs/
+    scanignore:
+      - Builder/fonts/fonts.zip
+      - app/src/fdroid/assets/fonts.zip
     build:
       - pushd ../Builder/
-      - ./link_to_mupdf_1.16.1.sh
-    ndk: r17c
+      - ./link_to_mupdf_1.20.2.sh
+    ndk: r23c
 
-  - versionName: 8.3.3-fdroid
-    versionCode: 3570
-    commit: 8.3.3
-    subdir: app/
+  - versionName: 8.6.17-fdroid
+    versionCode: 4695
+    commit: 2e3633070b4ebc84516faeb8ffdc61c4aeb4061a
+    subdir: app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y g++-6 mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
-        libgl1-mesa-dev
+      - apt-get install -y g++ mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
+        libglu1-mesa-dev libxi-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - fdroid
     srclibs:
-      - MuPDF@1.16.1
+      - MuPDF@1.20.2
     rm:
-      - Builder/libs/
+      - Builder/libs
     prebuild:
       - sed -i -e '/F-DROID REMOVE THIS LINE/,+1d' ../build.gradle
-      - sed -i -e '/com.google.gms.google-services/d' -e '/com.google.android.gms/d'
-        -e '/com.cloudrail/d' -e '/include "armeabi-v7a", "arm64-v8a"/d' build.gradle
-      - sed -i -e '/git clone/d' -e 's#cd mupdf-$VERSION#pushd '$PWD'/$$MuPDF$$#'
-        -e 's#/home/ivan-dev/git/LibreraReader/Builder/mupdf-$VERSION#'$PWD'/$$MuPDF$$#'
-        -e 's#/home/ivan-dev/git/LibreraReader/app/src/main/jniLibs#'$PWD'/src/main/jniLibs#'
-        -e 's#cd \.\.#popd#' ../Builder/link_to_mupdf_1.16.1.sh
+      - sed -i -e '/^if.*Fdroid/,/^}/d' -e '/enable true/d' build.gradle
+      - sed -i -e '/^#!/a\set -e' -e 's|git clone .*|cp -r $$MuPDF$$ mupdf-$VERSION_TAG|'
+        -e '/mkdir mupdf/d' -e 's/ndk-build $1/& -j`nproc` || exit 1/' ../Builder/link_to_mupdf_1.20.2.sh
       - mkdir src/main/jniLibs/
+    scanignore:
+      - Builder/fonts/fonts.zip
+      - app/src/fdroid/assets/fonts.zip
     build:
       - pushd ../Builder/
-      - ./link_to_mupdf_1.16.1.sh
-    ndk: r17c
+      - ./link_to_mupdf_1.20.2.sh
+    ndk: r23c
 
-MaintainerNotes: Upstream builds separate APKs for each architecture but we build
-    an universal APK.
+  - versionName: 8.6.27-fdroid
+    versionCode: 4730
+    commit: 214097f6225d6d7a8c257bd04dfb1ca62d5392b1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ mesa-common-dev libxcursor-dev libxrandr-dev libxinerama-dev
+        libglu1-mesa-dev libxi-dev
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    srclibs:
+      - MuPDF@1.20.2
+    rm:
+      - Builder/libs
+    prebuild:
+      - sed -i -e '/F-DROID REMOVE THIS LINE/,+1d' ../build.gradle
+      - sed -i -e '/^if.*Fdroid/,/^}/d' -e '/enable true/d' build.gradle
+      - sed -i -e '/^#!/a\set -e' -e 's|git clone .*|cp -r $$MuPDF$$ mupdf-$VERSION_TAG|'
+        -e '/mkdir mupdf/d' -e 's/ndk-build $1/& -j`nproc` || exit 1/' ../Builder/link_to_mupdf_1.20.2.sh
+      - mkdir src/main/jniLibs/
+    scanignore:
+      - Builder/fonts/fonts.zip
+      - app/src/fdroid/assets/fonts.zip
+    build:
+      - pushd ../Builder/
+      - ./link_to_mupdf_1.20.2.sh
+    ndk: r23c
+
+MaintainerNotes: |-
+    * Upstream builds separate APKs for each architecture but we build an universal APK.
+    * scanner will detect GMS (/com/google/android/gms) in these APKs; those are only stubs here, see https://gitlab.com/fdroid/fdroiddata/-/issues/2272#note_493741256
 
 AutoUpdateMode: Version +-fdroid %v
-UpdateCheckMode: HTTP
-UpdateCheckData: https://raw.githubusercontent.com/foobnix/LibreraReader/master/app/build.gradle|\s+codeNumber
-    = (\d+)|.|\s+versionNumber = "([^\"]+)"
-CurrentVersion: 8.3.3
-CurrentVersionCode: 3570
+UpdateCheckMode: Tags
+UpdateCheckData: app/build.gradle|\s+FDroidCodeNumber = (\d+)|.|\s+FDroidVersionNumber
+    = "([^\"]+)"
+CurrentVersion: 8.6.27
+CurrentVersionCode: 4730

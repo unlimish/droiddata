@@ -78,12 +78,12 @@ Builds:
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk
 
-  - versionName: 3.5.0
-    versionCode: 44
-    commit: 3.5.0
+  - versionName: 3.8.0
+    versionCode: 48
+    commit: 3.8.0
     output: build/app/outputs/apk/release/app-release.apk
     srclibs:
-      - flutter@v1.12.13+hotfix.7
+      - flutter@1.17.0-dev.0.0
     prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
         { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     build:
@@ -91,12 +91,12 @@ Builds:
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk
 
-  - versionName: 3.6.0
-    versionCode: 45
-    commit: 3.6.0
+  - versionName: 4.0.2
+    versionCode: 57
+    commit: 4.0.2
     output: build/app/outputs/apk/release/app-release.apk
     srclibs:
-      - flutter@v1.12.13+hotfix.7
+      - flutter@1.17.3
     prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
         { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     build:
@@ -104,8 +104,25 @@ Builds:
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk
 
-AutoUpdateMode: Version %v
-UpdateCheckMode: HTTP
-UpdateCheckData: https://gitlab.com/testapp-system/testapp-flutter/raw/mobile/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 3.6.0
-CurrentVersionCode: 45
+  - versionName: 4.2.6
+    versionCode: 66
+    commit: 4.2.6
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@1.22.6
+    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
+        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+    scanignore:
+      - assets/messages/network-error
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+MaintainerNotes: assets/messages/network-error is a WebP image.
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 4.2.6
+CurrentVersionCode: 66

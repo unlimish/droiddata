@@ -6,36 +6,12 @@ AuthorEmail: proninyaroslav@gmail.com
 AuthorWebSite: https://proninyaroslav.ru/
 SourceCode: https://gitlab.com/proninyaroslav/libretorrent
 IssueTracker: https://gitlab.com/proninyaroslav/libretorrent/issues
-Changelog: https://gitlab.com/proninyaroslav/libretorrent/blob/HEAD/NEWS
+Changelog: https://gitlab.com/proninyaroslav/libretorrent/blob/HEAD/NEWS.md
 Donate: https://gitlab.com/proninyaroslav/libretorrent#donation
 LiberapayID: '1591834'
 Bitcoin: 1Af9DgxtWvVp6bFiYQw2MeWtRzTXshRYpB
 
 AutoName: LibreTorrent
-Description: |-
-    LibreTorrent is a Free as in Freedom torrent client for Android 4+, based on
-    libtorrent. Download and share files directly on your device.
-
-    Implemented features:
-
-    * DHT, PeX, encryption, LSD, UPnP, NAT-PMP, µTP
-    * IP filtering (eMule dat and PeerGuardian)
-    * Ability to fine tune (network settings, power management, battery control, UI settings, etc.)
-    * Supports torrents with large number of files and big files
-    * HTTP\S and magnet links support
-    * Support proxy for trackers and peers
-    * Ability to move files while downloading
-    * Ability to automatic movement of files to another directory or to an external drive at the end of download
-    * Ability to specify file and folder priorities
-    * Ability to select which files to download
-    * Ability to download sequentially
-    * Material Design
-    * Tablet optimized UI
-    * Scheduling
-    * RSS manager
-    * Android TV support
-    * Ability to create torrents
-    * And more
 
 RepoType: git
 Repo: https://gitlab.com/proninyaroslav/libretorrent.git
@@ -122,7 +98,107 @@ Builds:
       - yes
     output: build/outputs/apk/release/app-universal-release-unsigned.apk
 
+  - versionName: '2.0'
+    versionCode: 16
+    commit: '2.0'
+    subdir: app
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-universal-release-unsigned.apk
+
+  - versionName: '2.1'
+    versionCode: 17
+    commit: '2.1'
+    subdir: app
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-universal-release-unsigned.apk
+
+  - versionName: '3.0'
+    versionCode: 18
+    commit: '3.0'
+    subdir: app
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-universal-release-unsigned.apk
+
+  - versionName: 3.0.1
+    versionCode: 19
+    commit: 3.0.1
+    subdir: app
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-universal-release-unsigned.apk
+
+  - versionName: '3.1'
+    versionCode: 20
+    commit: 9a872c17d35511e9ea6eb34967b9446feb76575d
+    subdir: app
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-universal-release-unsigned.apk
+
+  - versionName: 3.1.1
+    versionCode: 21
+    commit: 2f8a6359b11fdee56f9d64a4607de9f964c72f97
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-universal-release-unsigned.apk
+
+  - versionName: '3.2'
+    versionCode: 22
+    commit: ce3b225584149ad6bc9a0a33ff859da547629dd0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-universal-release-unsigned.apk
+
+  - versionName: '3.3'
+    versionCode: 24
+    commit: a8a795cdcb0e4c2b10ae7f4739d77d32799bfbf0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - main
+    prebuild: sed -i -e '/enable true/d' build.gradle
+
+  - versionName: '3.4'
+    versionCode: 25
+    commit: b0f908e4e970f8e96a4c57ffe51006c244c0d6ee
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - main
+    prebuild: sed -i -e '/enable true/d' build.gradle
+
+  - versionName: 3.5-beta01
+    versionCode: 26
+    commit: f02e0847c8bbb183a3b8f7136ef7140bfa752760
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - main
+    prebuild: sed -i -e '/enable true/d' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.9.1
-CurrentVersionCode: 11
+CurrentVersion: 3.5-beta01
+CurrentVersionCode: 26

@@ -2,14 +2,14 @@ Categories:
   - Internet
   - Reading
 License: GPL-3.0-or-later
-SourceCode: https://git.feneas.org/christophehenry/freshrss-android
-IssueTracker: https://git.feneas.org/christophehenry/freshrss-android/issues
-Changelog: https://git.feneas.org/christophehenry/freshrss-android/blob/develop/CHANGELOG.md
+SourceCode: https://gitlab.com/christophehenry/freshrss-android
+IssueTracker: https://gitlab.com/christophehenry/freshrss-android/-/issues
+Changelog: https://gitlab.com/christophehenry/freshrss-android/blob/develop/CHANGELOG.md
 
 AutoName: FreshRSS
 
 RepoType: git
-Repo: https://git.feneas.org/christophehenry/freshrss-android.git
+Repo: https://gitlab.com/christophehenry/freshrss-android.git
 
 Builds:
   - versionName: 1.0.1
@@ -68,7 +68,79 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.3.0
+    versionCode: 13
+    commit: v1.3.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.3.1
+    versionCode: 14
+    commit: v1.3.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.3.2
+    versionCode: 15
+    commit: v1.3.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.3.3
+    versionCode: 16
+    commit: v1.3.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.3.4
+    versionCode: 17
+    commit: v1.3.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.3.5
+    versionCode: 18
+    commit: v1.3.5
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.3.6
+    versionCode: 19
+    commit: v1.3.6
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.4.0
+    versionCode: 20
+    commit: 018e053263cc82c55bad15387ad8f6ff16176442
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.4.1
+    versionCode: 21
+    commit: v1.4.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.2.2
-CurrentVersionCode: 12
+UpdateCheckData: .versions.properties|versionCode\s*=\s*(.*)|.|versionName\s*=\s*(.*)
+CurrentVersion: 1.4.1
+CurrentVersionCode: 21

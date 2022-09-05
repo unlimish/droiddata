@@ -1,0 +1,74 @@
+Categories:
+  - Internet
+  - Multimedia
+  - Security
+License: GPL-3.0-only
+WebSite: https://stingle.org
+SourceCode: https://github.com/stingle/stingle-photos-android
+IssueTracker: https://github.com/stingle/stingle-photos-android/issues
+
+RepoType: git
+Repo: https://github.com/stingle/stingle-photos-android
+
+Builds:
+  - versionName: 2.6.7
+    versionCode: 44
+    commit: v44-2.6.7
+    subdir: StinglePhotos
+    gradle:
+      - fdroid
+
+  - versionName: 2.6.8
+    versionCode: 45
+    commit: v45-2.6.8
+    subdir: StinglePhotos
+    gradle:
+      - fdroid
+
+  - versionName: 2.7.0
+    versionCode: 46
+    commit: v46-2.7.0
+    subdir: StinglePhotos
+    gradle:
+      - fdroid
+
+  - versionName: 2.7.1
+    versionCode: 47
+    commit: v47-2.7.1
+    subdir: StinglePhotos
+    gradle:
+      - fdroid
+
+  - versionName: 2.7.2
+    versionCode: 48
+    commit: 2ce5deb00c08de6372dc35a8e77c6cfecbf0da4a
+    subdir: StinglePhotos
+    gradle:
+      - fdroid
+
+  - versionName: 2.8.1
+    versionCode: 50
+    commit: afb291e95e01523a98ac0e77869aea506a0db39c
+    subdir: StinglePhotos
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 2.9.0
+    versionCode: 51
+    commit: 8cb61cd1493e1bb63d5149afeaa78444eb5cf569
+    subdir: StinglePhotos
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+AutoUpdateMode: Version v%c-%v
+UpdateCheckMode: Tags
+CurrentVersion: 2.9.0
+CurrentVersionCode: 51

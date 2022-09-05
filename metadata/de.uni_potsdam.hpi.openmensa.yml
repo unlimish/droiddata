@@ -1,6 +1,7 @@
 Categories:
   - Sports & Health
 License: Apache-2.0
+WebSite: https://openmensa.org/
 SourceCode: https://github.com/domoritz/open-mensa-android
 IssueTracker: https://github.com/domoritz/open-mensa-android/issues
 
@@ -119,7 +120,35 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.0.3
+    versionCode: 25
+    commit: 1.0.3
+    gradle:
+      - yes
+
+  - versionName: 1.0.4
+    versionCode: 26
+    commit: 1.0.4
+    gradle:
+      - yes
+
+  - versionName: 1.0.5
+    versionCode: 27
+    commit: 1.0.5
+    gradle:
+      - yes
+
+  - versionName: 1.0.6
+    versionCode: 28
+    commit: 5e758907b2d7ef448246d2140f84450d245a2796
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.2
-CurrentVersionCode: 24
+CurrentVersion: 1.0.6
+CurrentVersionCode: 28

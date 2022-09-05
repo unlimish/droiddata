@@ -4,15 +4,14 @@ Categories:
   - Security
   - Internet
 License: GPL-3.0-only
-AuthorName: ukpriya
-AuthorEmail: uzoftinc+afwall@gmail.com
+AuthorName: portgenix
+AuthorEmail: contact@portgenix.com
 WebSite: https://github.com/ukanth/afwall/wiki
 SourceCode: https://github.com/ukanth/afwall
 IssueTracker: https://github.com/ukanth/afwall/issues
-Translation: http://crowdin.net/project/afwall
+Translation: https://crowdin.net/project/afwall
 Changelog: https://github.com/ukanth/afwall/blob/HEAD/Changelog.md
 Donate: https://github.com/ukanth/afwall/wiki#making-donations
-Bitcoin: 1LBUdALwYXDv38wvnUSGvsFjituaWAHvFo
 
 AutoName: AFWall+
 Description: |-
@@ -795,7 +794,88 @@ Builds:
     build: make -C ../external -j`nproc` NDK="$$NDK$$" NDK_PROJECT_PATH="$PWD/.."
     ndk: r10e
 
+  - versionName: 3.5.0
+    versionCode: 20210401
+    commit: 4269bc761a55a06df8abac932d72a19928834189
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/drummer-aidan/d' ../build.gradle
+      - cp ../.github/ci-gradle.properties ../gradle.properties
+      - sed -i -e '/android.ndkPath/d' -e '/ndk.dir/d' ../local.properties
+    scandelete:
+      - app/src/main/res/raw/
+    build: make -C ../external -j`nproc` NDK="$$NDK$$" NDK_PROJECT_PATH="$PWD/.."
+    ndk: r10e
+
+  - versionName: 3.5.1
+    versionCode: 20210419
+    disable: fails to build https://github.com/ukanth/afwall/issues/1204
+    commit: v3.5.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/drummer-aidan/d' ../build.gradle
+      - cp ../.github/ci-gradle.properties ../gradle.properties
+      - sed -i -e '/android.ndkPath/d' -e '/ndk.dir/d' ../local.properties
+    scandelete:
+      - app/src/main/res/raw/
+    build: make -C ../external -j`nproc` NDK="$$NDK$$" NDK_PROJECT_PATH="$PWD/.."
+    ndk: r10e
+
+  - versionName: 3.5.2
+    versionCode: 20210516
+    disable: fails to build https://github.com/ukanth/afwall/issues/1204
+    commit: v3.5.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/drummer-aidan/d' ../build.gradle
+      - cp ../.github/ci-gradle.properties ../gradle.properties
+      - sed -i -e '/android.ndkPath/d' -e '/ndk.dir/d' ../local.properties
+    scandelete:
+      - app/src/main/res/raw/
+    build: make -C ../external -j`nproc` NDK="$$NDK$$" NDK_PROJECT_PATH="$PWD/.."
+    ndk: r10e
+
+  - versionName: 3.5.2.1
+    versionCode: 20210517
+    commit: v3.5.2.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/drummer-aidan/d' ../build.gradle
+      - cp ../.github/ci-gradle.properties ../gradle.properties
+      - sed -i -e '/android.ndkPath/d' -e '/ndk.dir/d' ../local.properties
+    scandelete:
+      - app/src/main/res/raw/
+    build: make -C ../external -j`nproc` NDK="$$NDK$$" NDK_PROJECT_PATH="$PWD/.."
+    ndk: r10e
+
+  - versionName: 3.5.3
+    versionCode: 20220615
+    commit: 6c46bfd4f521bb72144c73b89339327ed63c0781
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/drummer-aidan/d' ../build.gradle
+      - cp ../.github/ci-gradle.properties ../gradle.properties
+      - sed -i -e '/android.ndkPath/d' -e '/ndk.dir/d' ../local.properties
+    scandelete:
+      - app/src/main/res/raw/
+    build: make -C ../external -j`nproc` NDK="$$NDK$$" NDK_PROJECT_PATH="$PWD/.."
+    ndk: r10e
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]+$
-CurrentVersion: 3.4.0
-CurrentVersionCode: 19450
+CurrentVersion: 3.5.3
+CurrentVersionCode: 20220615

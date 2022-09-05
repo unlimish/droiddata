@@ -1,11 +1,16 @@
 Categories:
   - Internet
 License: GPL-3.0-only
+AuthorName: Yaroslav Pronin
+AuthorEmail: proninyaroslav@gmail.com
+AuthorWebSite: https://proninyaroslav.ru/
 SourceCode: https://github.com/TachibanaGeneralLaboratories/download-navi
 IssueTracker: https://github.com/TachibanaGeneralLaboratories/download-navi/issues
 Translation: https://crowdin.com/project/download-navi
-Changelog: https://github.com/TachibanaGeneralLaboratories/download-navi/blob/HEAD/NEWS
+Changelog: https://github.com/TachibanaGeneralLaboratories/download-navi/blob/HEAD/NEWS.md
 Donate: https://github.com/TachibanaGeneralLaboratories/download-navi#donation
+LiberapayID: '1591834'
+Bitcoin: 1Af9DgxtWvVp6bFiYQw2MeWtRzTXshRYpB
 
 AutoName: Download Navi
 
@@ -48,7 +53,81 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.2'
+    versionCode: 8
+    commit: '1.2'
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.3'
+    versionCode: 9
+    commit: '1.3'
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.3.1
+    versionCode: 10
+    commit: 1.3.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.4'
+    versionCode: 11
+    commit: d82e36ed8c3a9ecdd5789d4a93defae78e4430b5
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.5'
+    versionCode: 12
+    commit: dc7f3b6f289c6f0714c3d6e03e918475948c0fdf
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.6'
+    versionCode: 13
+    disable: junrar
+    commit: 42801c3ab78c6973200abda4a86d451689b8bb39
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.6.1
+    versionCode: 14
+    disable: junrar
+    commit: 4b07ad261a61830c28efc9273d46122d86c9ec3a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.6.2
+    versionCode: 15
+    commit: 5cee501d5cc940407283dc862683cad61a42b242
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.1.1
-CurrentVersionCode: 7
+CurrentVersion: 1.6.2
+CurrentVersionCode: 15

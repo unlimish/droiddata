@@ -15,7 +15,7 @@ Description: |-
     Share files from your phone to one or many, quickly and easily. Just share the
     item via the Share Menu and a mini web server will be started allowing others to
     download the file. If there are multiple files a zip archive will be created on
-    the fly. If [[com.google.zxing.client.android]] is installed a QR code can be
+    the fly. If https://f-droid.org/packages/com.google.zxing.client.android is installed a QR code can be
     produced with the URL. It will only work if the recipient is on the same LAN if
     you use WiFI but should work anywhere if you use GSM (2G/3G), though more
     slowly. The server can be stopped at any time from the screen that shows the URL
@@ -84,13 +84,25 @@ Builds:
 
   - versionName: 2.0.9
     versionCode: 29
-    disable: Could not find com.android.tools.build:gradle:3.0.1
     commit: v2.0.9
     subdir: ShareViaHttp/app
     gradle:
       - yes
+    prebuild: sed -i -e '/jcenter/a google()' ../build.gradle
+
+  - versionName: 2.0.12
+    versionCode: 31
+    commit: 1295f2da00920650c8505aa20c2abf06e054e5a6
+    subdir: ShareViaHttp/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jcenter/a google()' ../build.gradle
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9\.]+$
-CurrentVersion: 2.0.9
-CurrentVersionCode: 29
+CurrentVersion: 2.0.12
+CurrentVersionCode: 31

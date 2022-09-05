@@ -10,12 +10,13 @@ Changelog: https://github.com/joshuawolfsohn/Private-DNS-Quick-Tile/releases
 
 AutoName: Private DNS Quick Tile
 Description: |-
-    Adds a Private DNS quick tile to the Quick Settings in the System UI.
-    You must manually grant the WRITE_SECURE_SETTINGS permission to this app,
-    using the Android Debug Bridge (ADB), in order for the tile to properly
-    function. This can be done in an ADB shell with the command
+    Adds a Private DNS quick tile to the Android Quick Settings.
 
-    pm grant com.jpwolfso.privdnsqt android.permission.WRITE_SECURE_SETTINGS
+    In order to change the Private DNS settings, this app requires the
+    WRITE_SECURE_SETTINGS permission.
+
+    This permission can only be granted in an ADB shell with the command "pm
+    grant com.jpwolfso.privdnsqt android.permission.WRITE_SECURE_SETTINGS"
 
 RepoType: git
 Repo: https://github.com/joshuawolfsohn/Private-DNS-Quick-Tile.git
@@ -49,7 +50,14 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.5'
+    versionCode: 6
+    commit: v1.5
+    subdir: app
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.4'
-CurrentVersionCode: 5
+CurrentVersion: '1.5'
+CurrentVersionCode: 6

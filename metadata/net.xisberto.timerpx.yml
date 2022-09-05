@@ -1,0 +1,47 @@
+Categories:
+  - Time
+License: Apache-2.0
+AuthorName: Humberto Fraga
+AuthorEmail: humberto.fraga+fdroid512@gmail.com
+SourceCode: https://gitlab.com/humbertofraga/timerx
+IssueTracker: https://gitlab.com/humbertofraga/timerx/issues
+
+AutoName: Timer +X
+
+RepoType: git
+Repo: https://gitlab.com/humbertofraga/timerx.git
+
+Builds:
+  - versionName: '1.1'
+    versionCode: 3
+    commit: v1.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.2.1
+    versionCode: 5
+    commit: b92b15d92200bc472fc99b901e3aeb467bb1cd24
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.2.2
+    versionCode: 6
+    commit: f0d3744ef65847f56281cfc5d75961d6c79ac139
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 1.2.2
+CurrentVersionCode: 6

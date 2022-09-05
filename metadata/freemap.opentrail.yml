@@ -16,6 +16,16 @@ Description: |-
     and download footpath issues (blockages, directions etc) and walking
     routes.
 
+    Antifeatures:
+    * NonFreeNet: The map data is OpenStreetMap-derived but it is downloaded
+    from the Freemap server. OpenTrail does not currently send any personal
+    information (such as your Google login) to the Freemap server. All data sent
+    is completely anonymous. Location tracking (GPS) is used to find your
+    location and to download nearby points of interest from the server. Server
+    requests (to find all points of interest close to a given GPS location) are
+    logged using standard server (Apache) logging; however they are not
+    associated with a username or name.
+
 RepoType: git
 Repo: https://gitlab.com/nickw1/opentrail.git
 
@@ -47,7 +57,15 @@ Builds:
       - pushd $$freemaplibProj$$
       - $$MVN3$$ install
 
+  - versionName: 0.6.0
+    versionCode: 11
+    commit: 497d9d177e7a2fc11d26cde57a9af233cdd2ffc5
+    subdir: app
+    gradle:
+      - yes
+    ndk: r21
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '0.4'
-CurrentVersionCode: 4
+CurrentVersion: 0.6.0
+CurrentVersionCode: 11

@@ -5,15 +5,15 @@ Categories:
   - System
 License: GPL-3.0-only
 AuthorWebSite: https://plus.google.com/102332121455682860724
-SourceCode: https://github.com/Adonai/Man-Man
-IssueTracker: https://github.com/Adonai/Man-Man/issues
+SourceCode: https://github.com/Kaned1as/Man-Man
+IssueTracker: https://github.com/Kaned1as/Man-Man/issues
 Donate: https://www.patreon.com/kanedias
+Liberapay: Kanedias
 
 AutoName: Man Man
 Description: |-
     Convenient tool for any Linux enthusiast familiar with manpages. Provides a fast
-    way to search, browse and save manpages via [http://www.mankier.com/
-    mankier.com].
+    way to search, browse and save manpages via <a href="http://www.mankier.com/">mankier.com</a>.
 
     AntiFeature described applies only to http exchange with mankier.com website.
     All cached and local manpage search/view works without it as well.
@@ -28,7 +28,7 @@ Description: |-
     * Has dark theme :)
 
 RepoType: git
-Repo: https://github.com/Adonai/Man-Man
+Repo: https://github.com/Kaned1as/Man-Man
 
 Builds:
   - versionName: 1.0.1 Beta
@@ -161,7 +161,50 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 2.0.1
+    versionCode: 173
+    commit: 2.0.1
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 2.1.0
+    versionCode: 174
+    commit: 2.1.0
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/= URI.create//' ../build.gradle
+
+  - versionName: 2.2.0
+    versionCode: 175
+    commit: 13f416089197b2c9b32f956cbace43a5ba0d1300
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/= URI.create//' ../build.gradle
+
+  - versionName: 2.2.1
+    versionCode: 176
+    commit: 2795b104c2abe30a9f6e0206b66587bf5a527b73
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/= URI.create//' ../build.gradle
+
+  - versionName: 2.2.2
+    versionCode: 177
+    commit: 9c45a8bccc0da290141f734ef11d4f495e903c5e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/= URI.create//' ../build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.7.1
-CurrentVersionCode: 171
+CurrentVersion: 2.2.2
+CurrentVersionCode: 177

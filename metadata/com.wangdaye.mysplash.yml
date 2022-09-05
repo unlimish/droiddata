@@ -1,25 +1,30 @@
 AntiFeatures:
   - NonFreeNet
+  - UpstreamNonFree
 Categories:
   - Multimedia
 License: LGPL-3.0-only
+AuthorEmail: wangdayeeeeee@gmail.com
 SourceCode: https://github.com/WangDaYeeeeee/Mysplash
 IssueTracker: https://github.com/WangDaYeeeeee/Mysplash/issues
 Changelog: https://github.com/WangDaYeeeeee/Mysplash/releases
 
 AutoName: Mysplash
 Description: |-
-    A lightweight client for [https://unsplash.com/ Unsplash] with following
-    features:
+    An <a href="https://unsplash.com/">Unsplash</a> client
 
-    * 100000+ photos
-    * material design
-    * select photos as tags
-    * share photos and set as wallpaper
-    * download raw photos.
+    <b>Introduction</b>
 
-    By using this app you agree to the [https://unsplash.com/license Unsplash photos
-    license].
+    * A light Unsplash android client.
+    * Powered by Unsplash.com
+    * 100000+ photos.
+    * Material design.
+    * Support select photos as tags.
+    * Support share photos and set as wallpaper.
+    * Support download raw photo.
+
+    By using this app you agree to the <a href="https://unsplash.com/license">Unsplash photos
+    license</a>.
 
 RepoType: git
 Repo: https://github.com/WangDaYeeeeee/Mysplash
@@ -175,7 +180,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    prebuild: sed -i -Ee '/systemProp.https?.proxy/d' ../gradle.properties
 
   - versionName: 3.2.0
     versionCode: 320
@@ -183,7 +187,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    prebuild: sed -i -Ee '/systemProp.https?.proxy/d' ../gradle.properties
 
   - versionName: 3.2.1
     versionCode: 321
@@ -191,7 +194,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    prebuild: sed -i -Ee '/systemProp.https?.proxy/d' ../gradle.properties
 
   - versionName: 3.2.2
     versionCode: 322
@@ -199,7 +201,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    prebuild: sed -i -Ee '/systemProp.https?.proxy/d' ../gradle.properties
 
   - versionName: 3.2.3
     versionCode: 323
@@ -207,7 +208,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    prebuild: sed -i -Ee '/systemProp.https?.proxy/d' ../gradle.properties
 
   - versionName: 3.2.4
     versionCode: 324
@@ -215,7 +215,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    prebuild: sed -i -Ee '/systemProp.https?.proxy/d' ../gradle.properties
 
   - versionName: 3.2.5
     versionCode: 325
@@ -224,7 +223,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    prebuild: sed -i -Ee '/systemProp.https?.proxy/d' ../gradle.properties
 
   - versionName: 3.2.7
     versionCode: 327
@@ -232,7 +230,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    prebuild: sed -i -Ee '/systemProp.https?.proxy/d' ../gradle.properties
 
   - versionName: 3.2.8
     versionCode: 328
@@ -240,7 +237,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    prebuild: sed -i -Ee '/systemProp.https?.proxy/d' ../gradle.properties
 
   - versionName: 3.3.0
     versionCode: 330
@@ -248,7 +244,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    prebuild: sed -i -Ee '/systemProp.https?.proxy/d' ../gradle.properties
 
   - versionName: 3.3.1
     versionCode: 331
@@ -256,7 +251,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    prebuild: sed -i -Ee '/systemProp.https?.proxy/d' ../gradle.properties
 
   - versionName: 3.3.3
     versionCode: 333
@@ -264,7 +258,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    prebuild: sed -i -Ee '/systemProp.https?.proxy/d' ../gradle.properties
 
   - versionName: 3.3.9
     versionCode: 339
@@ -322,94 +315,7 @@ Builds:
       - app/src/main/res/resource/values-ru/strings.xml
     prebuild: git checkout a307d32e325b8f33022f28975fac9253d1de705d -- ../gradle.properties
 
-  - versionName: 3.5.0
-    versionCode: 350
-    disable: 'MoreHolder.java:110: error: incompatible types: ViewPager2 cannot be
-        converted to ViewPager'
-    commit: 3.5.0
-    subdir: app
-    patch:
-      - 3.4.5-de_locale.patch
-      - 3.4.5-ru_locale.patch
-    gradle:
-      - yes
-    rm:
-      - app/src/main/res/resource/values-ru/arrays.xml
-      - app/src/main/res/resource/values-ru/strings.xml
-    prebuild: git checkout a307d32e325b8f33022f28975fac9253d1de705d -- ../gradle.properties
-
-  - versionName: 3.6.9
-    versionCode: 369
-    disable: includes proprietary com.tencent.bugly:crashreport
-    commit: 3.6.9
-    subdir: app
-    patch:
-      - 3.6.9-de_locale.patch
-      - 3.6.9-ru_locale.patch
-    gradle:
-      - yes
-    rm:
-      - app/src/main/res/resource/values-ru/arrays.xml
-      - app/src/main/res/resource/values-ru/strings.xml
-    prebuild:
-      - git checkout a307d32e325b8f33022f28975fac9253d1de705d -- ../gradle.properties
-      - echo android.useAndroidX=true >> ../gradle.properties
-      - echo android.enableJetifier=true >> ../gradle.properties
-
-  - versionName: 3.7.1
-    versionCode: 371
-    disable: includes proprietary com.tencent.bugly:crashreport
-    commit: 3.7.1
-    subdir: app
-    patch:
-      - 3.6.9-ru_locale.patch
-    gradle:
-      - yes
-    rm:
-      - app/src/main/res/resource/values-ru/arrays.xml
-      - app/src/main/res/resource/values-ru/strings.xml
-    prebuild:
-      - git checkout a307d32e325b8f33022f28975fac9253d1de705d -- ../gradle.properties
-      - echo android.useAndroidX=true >> ../gradle.properties
-      - echo android.enableJetifier=true >> ../gradle.properties
-
-  - versionName: 3.7.8
-    versionCode: 378
-    disable: includes proprietary com.tencent.bugly:crashreport
-    commit: 3.7.8
-    subdir: app
-    patch:
-      - 3.6.9-ru_locale.patch
-    gradle:
-      - yes
-    rm:
-      - app/src/main/res/resource/values-ru/arrays.xml
-      - app/src/main/res/resource/values-ru/strings.xml
-    prebuild:
-      - git checkout a307d32e325b8f33022f28975fac9253d1de705d -- ../gradle.properties
-      - echo android.useAndroidX=true >> ../gradle.properties
-      - echo android.enableJetifier=true >> ../gradle.properties
-
-  - versionName: 3.8.1
-    versionCode: 381
-    disable: includes proprietary com.tencent.bugly:crashreport
-    commit: 3.8.1
-    subdir: app
-    patch:
-      - 3.6.9-ru_locale.patch
-    gradle:
-      - yes
-    rm:
-      - app/src/main/res/resource/values-ru/arrays.xml
-      - app/src/main/res/resource/values-ru/strings.xml
-    prebuild:
-      - git checkout a307d32e325b8f33022f28975fac9253d1de705d -- ../gradle.properties
-      - echo android.useAndroidX=true >> ../gradle.properties
-      - echo android.enableJetifier=true >> ../gradle.properties
-
 AutoUpdateMode: None
-UpdateCheckMode: Tags
-CurrentVersion: 3.8.1
-CurrentVersionCode: 381
-
-NoSourceSince: 3.6.6
+UpdateCheckMode: None
+CurrentVersion: 3.4.8
+CurrentVersionCode: 348

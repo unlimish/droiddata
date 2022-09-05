@@ -8,13 +8,13 @@ IssueTracker: https://github.com/farmerbb/Taskbar/issues
 Changelog: https://github.com/farmerbb/Taskbar/releases
 
 Name: Taskbar
-AutoName: ${appName}
+AutoName: Taskbar
 Description: |-
     Puts a start menu and recent apps tray on top of your screen accessible at any
     time, increasing your productivity and turning your Android tablet or phone into
     a real multitasking machine.
 
-    '''Features:'''
+    <b>Features:</b>
 
     * Start menu - shows you all applications installed on the device, configurable as a list or as a grid
     * Recent apps tray - shows your most recently used apps and lets you easily switch between them
@@ -498,11 +498,43 @@ Builds:
     gradle:
       - free
 
+  - versionName: '6.0'
+    versionCode: 200
+    commit: '200'
+    subdir: app
+    gradle:
+      - free
+
+  - versionName: '6.0'
+    versionCode: 201
+    commit: '201'
+    subdir: app
+    gradle:
+      - free
+
+  - versionName: 6.1.1
+    versionCode: 203
+    commit: '203'
+    subdir: app
+    gradle:
+      - free
+
+  - versionName: '6.2'
+    versionCode: 204
+    commit: 4652f142731bae59cd9f23c3292a98ed7084a455
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+
 MaintainerNotes: |-
     Multiple versions with same versionName.
     See here: https://github.com/farmerbb/Taskbar/issues/4
 
 AutoUpdateMode: Version %c
 UpdateCheckMode: Tags
-CurrentVersion: 5.0.1
-CurrentVersionCode: 198
+CurrentVersion: '6.2'
+CurrentVersionCode: 204

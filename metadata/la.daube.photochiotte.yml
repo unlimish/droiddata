@@ -1,0 +1,465 @@
+Categories:
+  - Multimedia
+License: GPL-3.0-only
+AuthorEmail: fnepcbxayn@tutanota.com
+SourceCode: https://gitlab.com/LaDaubePhotoChiotte/photochiotte
+IssueTracker: https://gitlab.com/LaDaubePhotoChiotte/photochiotte/issues
+
+AutoName: PhotoChiotte
+
+RepoType: git
+Repo: https://gitlab.com/LaDaubePhotoChiotte/photochiotte
+
+Builds:
+  - versionName: '1.6'
+    versionCode: 7
+    commit: v1.6
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.8'
+    versionCode: 9
+    commit: v1.8
+    subdir: app
+    gradle:
+      - flavorA
+
+  - versionName: '1.10'
+    versionCode: 11
+    commit: v1.10
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel==0.35.1
+      - pip3 install ninja==1.10.0
+      - pip3 install meson==0.56.0
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r21d
+
+  - versionName: '1.11'
+    versionCode: 12
+    commit: v1.11
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel==0.35.1
+      - pip3 install ninja==1.10.0
+      - pip3 install meson==0.56.0
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r21d
+
+  - versionName: '1.12'
+    versionCode: 13
+    commit: v1.12
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel==0.35.1
+      - pip3 install ninja==1.10.0
+      - pip3 install meson==0.56.0
+    gradle:
+      - flavorA
+    prebuild: sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r21e
+
+  - versionName: '1.13'
+    versionCode: 14
+    commit: dde2d7d506689403947aea14dd9f4b145159b45d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel==0.35.1
+      - pip3 install ninja==1.10.0
+      - pip3 install meson==0.56.0
+    gradle:
+      - flavorA
+    prebuild: sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r21e
+
+  - versionName: '1.14'
+    versionCode: 15
+    commit: 186eedf655523c8f0ebd0c37a542d8cc0cc3475a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel==0.35.1
+      - pip3 install ninja==1.10.0
+      - pip3 install meson==0.56.0
+    gradle:
+      - flavorA
+    prebuild: sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r21e
+
+  - versionName: '1.15'
+    versionCode: 16
+    commit: 2e9b87092bdef696ab82cc5ade14948112dfd84b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r22b
+
+  - versionName: '1.16'
+    versionCode: 17
+    commit: 21f429186a4bf4e852719d4ec6cf9a24154fc266
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r22b
+
+  - versionName: '1.17'
+    versionCode: 18
+    commit: 1360967c517d4ced30f4197787fbee3283d7eed9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r22b
+
+  - versionName: '1.18'
+    versionCode: 19
+    commit: 005c31c43d682bcef9e945eb3045ddb7d3f432d9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r22b
+
+  - versionName: '1.19'
+    versionCode: 20
+    commit: v1.19
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r22b
+
+  - versionName: '1.20'
+    versionCode: 21
+    commit: 8bbd84c77c7114db3f086f6a3a7646721fd36f81
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r22b
+
+  - versionName: '1.21'
+    versionCode: 22
+    commit: bba23ad6c2ea084e86816a98286d1950de0bb9bd
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r22b
+
+  - versionName: '1.22'
+    versionCode: 23
+    commit: cac75e65d1750add5db1ca620b2d994340b28662
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r22b
+
+  - versionName: '1.23'
+    versionCode: 24
+    commit: af1f003232a35b8447d1738334fd99faa3a926cb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r22b
+
+  - versionName: '1.24'
+    versionCode: 25
+    commit: 6c3701f1dc9e4446b9f62e64a93609ab4a577d69
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r22b
+
+  - versionName: '1.25'
+    versionCode: 26
+    commit: ac1961a6ee008c37efc2748f51761b6561e793bd
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r22b
+
+  - versionName: '1.26'
+    versionCode: 27
+    commit: v1.26
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r23b
+
+  - versionName: '1.27'
+    versionCode: 28
+    commit: b0c81da79f49e44384711e52f73a1edd995feef9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r23b
+
+  - versionName: '1.28'
+    versionCode: 29
+    commit: v1.28
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r23b
+
+  - versionName: '1.29'
+    versionCode: 30
+    commit: 4f436703f91df74f0fa3ae0d163dc49adff69a76
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - pip3 install wheel
+      - pip3 install ninja
+      - pip3 install meson
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r23c
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '1.29'
+CurrentVersionCode: 30

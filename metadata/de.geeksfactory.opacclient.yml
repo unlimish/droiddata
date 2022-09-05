@@ -1,3 +1,5 @@
+AntiFeatures:
+  - Tracking
 Categories:
   - Reading
 License: MIT
@@ -28,7 +30,9 @@ Description: |-
     * View of information about the library (e.g. opening hours)
 
     The list of supported libraries is available on
-    [https://opacapp.net/en/libraries/ our website].
+    <a href="https://opacapp.net/en/libraries/">our website</a>.
+
+    Tracking as it comes with Sentry which cannot be disabled by the user.
 
 RepoType: git
 Repo: https://github.com/raphaelm/opacclient.git
@@ -2601,6 +2605,288 @@ Builds:
     preassemble:
       - downloadJson
 
+  - versionName: 6.2.7
+    versionCode: 218
+    commit: 6.2.7
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapter@v1.0.1
+      - Endless@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+    prebuild:
+      - cp -fR $$CWACAdapter$$/src/com src/main/java/
+      - cp -fR $$Endless$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    scandelete:
+      - opacclient/buildSrc
+    preassemble:
+      - downloadJson
+
+  - versionName: 6.2.8
+    versionCode: 219
+    commit: 6.2.8
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapterFork@v1.0.1
+      - EndlessFork@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+      - tools/bcprov-jdk15on-146.jar
+    prebuild:
+      - cp -fR $$CWACAdapterFork$$/src/com src/main/java/
+      - cp -fR $$EndlessFork$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    preassemble:
+      - downloadJson
+
+  - versionName: 6.3.0
+    versionCode: 220
+    commit: 6.3.0
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapterFork@v1.0.1
+      - EndlessFork@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+      - tools/bcprov-jdk15on-146.jar
+    prebuild:
+      - cp -fR $$CWACAdapterFork$$/src/com src/main/java/
+      - cp -fR $$EndlessFork$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    preassemble:
+      - downloadJson
+
+  - versionName: 6.3.2
+    versionCode: 222
+    commit: 6.3.2
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapterFork@v1.0.1
+      - EndlessFork@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+      - tools/bcprov-jdk15on-146.jar
+    prebuild:
+      - cp -fR $$CWACAdapterFork$$/src/com src/main/java/
+      - cp -fR $$EndlessFork$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    preassemble:
+      - downloadJson
+
+  - versionName: 6.3.4
+    versionCode: 224
+    commit: 6.3.4
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapterFork@v1.0.1
+      - EndlessFork@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+      - tools/bcprov-jdk15on-146.jar
+    prebuild:
+      - cp -fR $$CWACAdapterFork$$/src/com src/main/java/
+      - cp -fR $$EndlessFork$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    preassemble:
+      - downloadJson
+
+  - versionName: 6.3.5
+    versionCode: 225
+    commit: 6.3.5
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapterFork@v1.0.1
+      - EndlessFork@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+      - tools/bcprov-jdk15on-146.jar
+    prebuild:
+      - cp -fR $$CWACAdapterFork$$/src/com src/main/java/
+      - cp -fR $$EndlessFork$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    preassemble:
+      - downloadJson
+
+  - versionName: 6.3.7
+    versionCode: 227
+    commit: 6.3.7
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapterFork@v1.0.1
+      - EndlessFork@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+      - tools/bcprov-jdk15on-146.jar
+    prebuild:
+      - cp -fR $$CWACAdapterFork$$/src/com src/main/java/
+      - cp -fR $$EndlessFork$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    preassemble:
+      - downloadJson
+
+  - versionName: 6.3.8
+    versionCode: 228
+    disable: fails to build
+    commit: 6.3.8
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapterFork@v1.0.1
+      - EndlessFork@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+      - tools/bcprov-jdk15on-146.jar
+    prebuild:
+      - cp -fR $$CWACAdapterFork$$/src/com src/main/java/
+      - cp -fR $$EndlessFork$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    preassemble:
+      - downloadJson
+
+  - versionName: 6.4.1
+    versionCode: 230
+    commit: cd99659566799c4c214dc6a0b44238fdce22dc13
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapterFork@v1.0.1
+      - EndlessFork@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+      - tools/bcprov-jdk15on-146.jar
+    prebuild:
+      - cp -fR $$CWACAdapterFork$$/src/com src/main/java/
+      - cp -fR $$EndlessFork$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    preassemble:
+      - downloadJson
+
+  - versionName: 6.4.2
+    versionCode: 232
+    commit: 844f6563e97ea63faef13e08df7e5944f1610089
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapterFork@v1.0.1
+      - EndlessFork@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+      - tools/bcprov-jdk15on-146.jar
+    prebuild:
+      - cp -fR $$CWACAdapterFork$$/src/com src/main/java/
+      - cp -fR $$EndlessFork$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    preassemble:
+      - downloadJson
+
+  - versionName: 6.4.3
+    versionCode: 233
+    commit: 8b94e456e034465dcfa23d8b71dc7b5042960ba2
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapterFork@v1.0.1
+      - EndlessFork@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+      - tools/bcprov-jdk15on-146.jar
+    prebuild:
+      - cp -fR $$CWACAdapterFork$$/src/com src/main/java/
+      - cp -fR $$EndlessFork$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    preassemble:
+      - downloadJson
+
+  - versionName: 6.4.4
+    versionCode: 234
+    commit: cc1146ae8882d6e99fcfc62f047d7a713bb22788
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapterFork@v1.0.1
+      - EndlessFork@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+      - tools/bcprov-jdk15on-146.jar
+    prebuild:
+      - cp -fR $$CWACAdapterFork$$/src/com src/main/java/
+      - cp -fR $$EndlessFork$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    preassemble:
+      - downloadJson
+
+  - versionName: 6.4.5
+    versionCode: 235
+    commit: b5e43e0c900e3e3ca991c99c1b59306928f7dc25
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapterFork@v1.0.1
+      - EndlessFork@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+      - tools/bcprov-jdk15on-146.jar
+    prebuild:
+      - cp -fR $$CWACAdapterFork$$/src/com src/main/java/
+      - cp -fR $$EndlessFork$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    preassemble:
+      - downloadJson
+
+  - versionName: 6.4.6
+    versionCode: 236
+    commit: c929035e1f25ad500520608f1bf616559f8404a6
+    subdir: opacclient/opacapp
+    submodules: true
+    gradle:
+      - foss
+    srclibs:
+      - CWACAdapterFork@v1.0.1
+      - EndlessFork@v1.2.3
+    rm:
+      - opacclient/opacapp/libs/*.jar
+      - tools/bcprov-jdk15on-146.jar
+    prebuild:
+      - cp -fR $$CWACAdapterFork$$/src/com src/main/java/
+      - cp -fR $$EndlessFork$$/src/com src/main/java/
+      - sed -i -e '/adapter/d' -e '/endless/d' build.gradle
+    preassemble:
+      - downloadJson
+
 MaintainerNotes: |-
     Using commonsware maven dependencies adds READ_PHONE_STATE permission; building
     the source directly fixes this but might break more easily. Wait for next release
@@ -2608,5 +2894,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 6.2.5
-CurrentVersionCode: 216
+CurrentVersion: 6.4.6
+CurrentVersionCode: 236

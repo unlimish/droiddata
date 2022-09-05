@@ -1,18 +1,14 @@
-AntiFeatures:
-  - UpstreamNonFree
-  - NonFreeDep
 Categories:
   - Navigation
-License: BSD-2-Clause-FreeBSD
+License: BSD-2-Clause
 AuthorName: Apps For Aviators
 AuthorEmail: support@apps4av.org
 WebSite: https://apps4av.com/
 SourceCode: https://github.com/apps4av/avare
 IssueTracker: https://github.com/apps4av/avare/issues
-Donate: http://mamba.dreamhosters.com/donate.html
+Donate: https://mamba.dreamhosters.com/donate.html
 
 AutoName: Avare
-Summary: Aviation map
 Description: |-
     Avare (pronounced "AvAir") is a free moving aviation map. Basic features include
     online or offline A/FD info, approach plates and GPS moving map on all FAA VFR
@@ -20,11 +16,10 @@ Description: |-
     enables manual browsing of all charts and all other materials even without cell
     service or GPS. Current FAA weather METARs, TAFs and TFRs are provided too.
 
-    Notice: This is not an FAA certified GPS. AntiFeatures: A Google account is
-    required.
+    Notice: This is not an FAA certified GPS.
 
 RepoType: git
-Repo: https://github.com/apps4av/avare
+Repo: https://github.com/ninelima/avare
 
 Builds:
   - versionName: 5.7.1
@@ -205,9 +200,55 @@ Builds:
       - yes
     prebuild: sed -i -e '/play-services/d' build.gradle
 
+  - versionName: 9.0.2
+    versionCode: 345
+    commit: 55d71b2758e350437777f627d224c4820402b657
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 10.0.1
+    versionCode: 351
+    commit: 86b65b9c3acaebd5abbbdf1241a6f04da35404b5
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 10.0.3
+    versionCode: 353
+    commit: ff381c0dc910a817072bfe5d028ddd566fdc7f8e
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 10.0.6
+    versionCode: 356
+    commit: 5159519f14fe0b6ccd0cd8ce217f021e4a61cf36
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 10.0.7
+    versionCode: 357
+    commit: 6c8992f62f008820c8362163df5cd05e2a98514f
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 10.1.6
+    versionCode: 366
+    commit: FOSS_10.1.6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 MaintainerNotes: |-
     Licensing info via https://github.com/apps4av/avare/issues/88:
-    All files have Apache style licesnes on them. If any is missing a license
+    All files have Apache style licenses on them. If any is missing a license
     we will add when we find.
 
     License changed and now is FreeBSD/BSD-2clause as of:
@@ -215,8 +256,11 @@ MaintainerNotes: |-
 
     7.0.x+ are using play-services, see https://github.com/apps4av/avare/issues/154.
 
-ArchivePolicy: 0 versions
+    9.0.5 no longer appear to use play-services.
+
+    .
+
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 7.5.5
-CurrentVersionCode: 285
+CurrentVersion: 10.1.6
+CurrentVersionCode: 366

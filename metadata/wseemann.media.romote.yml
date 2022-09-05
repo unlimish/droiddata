@@ -103,7 +103,114 @@ Builds:
       - sed -i -e 's/gradle-3\.3/gradle-4.6/' ../gradle/wrapper/gradle-wrapper.properties
       - $$MVN3$$ install -f ../Jaku/pom.xml -Dmaven.test.skip=true
 
+  - versionName: 1.0.15
+    versionCode: 16
+    commit: v1.0.15
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e 's/gradle-3\.3/gradle-4.6/' ../gradle/wrapper/gradle-wrapper.properties
+      - $$MVN3$$ install -f ../Jaku/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 1.0.16
+    versionCode: 17
+    commit: v1.0.16
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - app/src/main/libs/jaku-1.6.jar
+    prebuild:
+      - sed -i -e 's/gradle-3\.3/gradle-4.6/' ../gradle/wrapper/gradle-wrapper.properties
+      - $$MVN3$$ install -f ../Jaku/pom.xml -Dmaven.test.skip=true
+      - cp ~/.m2/repository/com/wseemann/jaku/1.6/jaku-1.6.jar src/main/libs/
+    scanignore:
+      - app/src/main/libs/jaku-1.6.jar
+
+  - versionName: 1.0.17
+    versionCode: 18
+    disable: Unexpected version/version code in output
+    commit: v1.0.17
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - app/src/main/libs/jaku-1.6.jar
+    build:
+      - $$MVN3$$ install -f ../Jaku/pom.xml -Dmaven.test.skip=true
+      - cp ~/.m2/repository/com/wseemann/jaku/1.6/jaku-1.6.jar src/main/libs/
+
+  - versionName: 1.0.20
+    versionCode: 20
+    commit: v1.0.20
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - app/src/main/libs/jaku-1.6.jar
+    build:
+      - $$MVN3$$ install -f ../Jaku/pom.xml -Dmaven.test.skip=true
+      - cp ~/.m2/repository/com/wseemann/jaku/1.6/jaku-1.6.jar src/main/libs/
+
+  - versionName: 1.0.21
+    versionCode: 21
+    commit: v1.0.21
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - app/src/main/libs/jaku-1.6.jar
+    build:
+      - $$MVN3$$ install -f ../Jaku/pom.xml -Dmaven.test.skip=true
+      - cp ~/.m2/repository/com/wseemann/jaku/1.6/jaku-1.6.jar src/main/libs/
+
+  - versionName: 1.0.22
+    versionCode: 22
+    commit: fbba2c67c64539e65fecf090a1c3c8cb6c607960
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - app/src/main/libs/jaku-1.6.jar
+    build:
+      - $$MVN3$$ install -f ../Jaku/pom.xml -Dmaven.test.skip=true
+      - cp ~/.m2/repository/com/wseemann/jaku/1.6/jaku-1.6.jar src/main/libs/
+
+  - versionName: 1.0.23
+    versionCode: 23
+    commit: 2ba743c73a9963126ab026393f341d8c1781c4d0
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - app/src/main/libs/jaku-1.6.jar
+    build:
+      - $$MVN3$$ install -f ../Jaku/pom.xml -Dmaven.test.skip=true
+      - cp ~/.m2/repository/com/wseemann/jaku/1.6/jaku-1.6.jar src/main/libs/
+
+  - versionName: 1.0.24
+    versionCode: 24
+    disable: https://gitlab.com/fdroid/fdroidserver/-/merge_requests/1082
+    commit: a648a0acff1eddb7594925472a4199ab848a7b65
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - app/src/main/libs/jaku-1.6.jar
+    build:
+      - $$MVN3$$ install -f ../Jaku/pom.xml -Dmaven.test.skip=true
+      - cp ~/.m2/repository/com/wseemann/jaku/1.6/jaku-1.6.jar src/main/libs/
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.14
-CurrentVersionCode: 15
+CurrentVersion: 1.0.24
+CurrentVersionCode: 24

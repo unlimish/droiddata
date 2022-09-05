@@ -3,11 +3,12 @@ Categories:
   - Internet
 License: GPL-3.0-or-later
 WebSite: https://jami.net/
-SourceCode: https://git.jami.net/savoirfairelinux/ring-client-android
-IssueTracker: https://git.jami.net/savoirfairelinux/ring-client-android/issues
-Changelog: https://git.jami.net/savoirfairelinux/ring-client-android/tree/master/ring-android/fastlane/metadata/android/en-US/changelogs
+SourceCode: https://git.jami.net/savoirfairelinux/jami-client-android
+IssueTracker: https://git.jami.net/savoirfairelinux/jami-client-android/issues
+Translation: https://www.transifex.com/savoirfairelinux/jami
+Changelog: https://git.jami.net/savoirfairelinux/jami-client-android/tree/master/ring-android/fastlane/metadata/android/en-US/changelogs
 
-AutoName: Ring
+AutoName: Jami
 Description: |-
     Jami (formerly Ring and SFLphone) is a free distributed multimedia communication
     software. It is developed by Savoir-faire Linux with the help of a global
@@ -34,7 +35,7 @@ Description: |-
     You can also install Jami on Windows, macOS, iOS and GNU/Linux.
 
 RepoType: git
-Repo: https://review.jami.net/ring-project
+Repo: https://review.jami.net/jami-project
 
 Builds:
   - versionName: 2.0.003
@@ -977,6 +978,1038 @@ Builds:
       - ./compile.sh --release --no-gradle
     ndk: r20b
 
+  - versionName: 20200501-01
+    versionCode: 238
+    commit: android/release_238
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+    gradle:
+      - noPush
+    rm:
+      - client-electron
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-uwp
+      - client-windows
+      - docker
+      - docs
+      - lrc
+      - packaging
+      - scripts
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86"
+      - ./compile.sh --release --no-gradle
+    ndk: r21
+
+  - versionName: 20200701-01
+    versionCode: 249
+    commit: android/release_249
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+    gradle:
+      - noPush
+    rm:
+      - client-electron
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-uwp
+      - client-windows
+      - docker
+      - docs
+      - lrc
+      - packaging
+      - scripts
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86"
+      - ./compile.sh --release --no-gradle
+    ndk: r21d
+
+  - versionName: 20200710-01
+    versionCode: 251
+    commit: android/release_251
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+    gradle:
+      - noPush
+    rm:
+      - client-electron
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-uwp
+      - client-windows
+      - docker
+      - docs
+      - lrc
+      - packaging
+      - scripts
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86"
+      - ./compile.sh --release --no-gradle
+    ndk: r21d
+
+  - versionName: 20200810-01
+    versionCode: 255
+    commit: android/release_255
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - noPush
+    rm:
+      - client-electron
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-uwp
+      - client-windows
+      - docker
+      - docs
+      - lrc
+      - packaging
+      - scripts
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86"
+      - ./compile.sh --release --no-gradle
+    ndk: r21d
+
+  - versionName: 20201208-01
+    versionCode: 277
+    disable: fails to build
+    commit: android/release_277
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - noPush
+    rm:
+      - client-electron
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-uwp
+      - client-qt
+      - plugins
+      - docker
+      - docs
+      - lrc
+      - packaging
+      - scripts
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r21d
+
+  - versionName: 20201222-01
+    versionCode: 278
+    commit: android/release_278
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - noPush
+    rm:
+      - client-electron
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-uwp
+      - client-qt
+      - plugins
+      - docker
+      - docs
+      - lrc
+      - packaging
+      - scripts
+    prebuild: $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.2'
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r21d
+
+  - versionName: 20210210-01
+    versionCode: 282
+    commit: android/release_282
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - noPush
+    rm:
+      - client-electron
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-uwp
+      - client-qt
+      - plugins
+      - docker
+      - docs
+      - lrc
+      - packaging
+      - scripts
+    prebuild: $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.2'
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r21d
+
+  - versionName: 20210222-01
+    versionCode: 285
+    commit: android/release_285
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - noPush
+    rm:
+      - client-electron
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-uwp
+      - client-qt
+      - plugins
+      - docker
+      - docs
+      - lrc
+      - packaging
+      - scripts
+    prebuild: $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.2'
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r21d
+
+  - versionName: 20210226-01
+    versionCode: 286
+    commit: android/release_286
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - noPush
+    rm:
+      - client-electron
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-uwp
+      - client-qt
+      - plugins
+      - docker
+      - docs
+      - lrc
+      - packaging
+      - scripts
+    prebuild: $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r21d
+
+  - versionName: 20210409-01
+    versionCode: 293
+    commit: android/release_293
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - noPush
+    rm:
+      - client-electron
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-uwp
+      - client-qt
+      - plugins
+      - docker
+      - docs
+      - lrc
+      - packaging
+      - scripts
+    prebuild:
+      - $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+      - sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r21e
+
+  - versionName: 20210421-01
+    versionCode: 294
+    commit: android/release_294
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - noPush
+    rm:
+      - client-electron
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-uwp
+      - client-qt
+      - plugins
+      - docker
+      - docs
+      - lrc
+      - packaging
+      - scripts
+    prebuild:
+      - $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+      - sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r21e
+
+  - versionName: 20210503-01
+    versionCode: 296
+    commit: android/release_296
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - noPush
+    rm:
+      - client-electron
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-uwp
+      - client-qt
+      - plugins
+      - docker
+      - docs
+      - lrc
+      - packaging
+      - scripts
+    prebuild:
+      - $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+      - sed -i -e "s/ndkVersion '.*'/ndkVersion '22.1.7171670'/" build.gradle
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r22b
+
+  - versionName: 20210521-01
+    versionCode: 301
+    commit: 531663d0e8ba1e4ad217fc7083fcb2918e47cc83
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - noPush
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild:
+      - $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+      - sed -i -e "s/ndkVersion '.*'/ndkVersion '22.1.7171670'/" build.gradle
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r22b
+
+  - versionName: 20210813-01
+    versionCode: 317
+    disable: no such remote ref
+    commit: android/release_317
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - noPush
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild:
+      - $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+      - sed -i -e "s/ndkVersion '.*'/ndkVersion '22.1.7171670'/" build.gradle
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r22b
+
+  - versionName: 20210908-01
+    versionCode: 318
+    commit: android/release_318
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+      - update-alternatives --auto java
+    gradle:
+      - noPush
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'platforms;android-30'
+        'build-tools;30.0.3'
+      - sed -i -e "s/ndkVersion '.*'/ndkVersion '22.1.7171670'/" build.gradle
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r22b
+
+  - versionName: 20210924-01
+    versionCode: 320
+    commit: android/release_320
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+      - update-alternatives --auto java
+    gradle:
+      - noPush
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'platforms;android-30'
+        'build-tools;30.0.3'
+      - sed -i -e "s/ndkVersion '.*'/ndkVersion '22.1.7171670'/" build.gradle
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r22b
+
+  - versionName: 20211210-01
+    versionCode: 324
+    commit: android/release_324
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+      - update-alternatives --auto java
+    gradle:
+      - noPush
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-31' 'build-tools;31.0.0'
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r23
+
+  - versionName: 20220121-01
+    versionCode: 326
+    commit: android/release_326
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t testing swig
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+      - update-alternatives --auto java
+    gradle:
+      - noPush
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-31' 'build-tools;31.0.0'
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r23
+
+  - versionName: 20220311-01
+    versionCode: 328
+    commit: android/release_328
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake g++
+      - update-alternatives --auto java
+      - pushd build/srclib/swig
+      - ./autogen.sh
+      - ./configure
+      - make -j`nproc`
+      - make install
+      - popd
+    gradle:
+      - noPush
+    srclibs:
+      - swig@v4.0.2
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-31' 'build-tools;31.0.0' > /dev/null
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r23
+
+  - versionName: 20220422-01
+    versionCode: 329
+    commit: android/release_329
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake g++
+      - update-alternatives --auto java
+      - pushd build/srclib/swig
+      - ./autogen.sh
+      - ./configure
+      - make -j`nproc`
+      - make install
+      - popd
+    gradle:
+      - noPush
+    srclibs:
+      - swig@v4.0.2
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-31' 'build-tools;31.0.0' > /dev/null
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r23
+
+  - versionName: 20220426-01
+    versionCode: 330
+    commit: android/release_330
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake g++
+      - update-alternatives --auto java
+      - pushd build/srclib/swig
+      - ./autogen.sh
+      - ./configure
+      - make -j`nproc`
+      - make install
+      - popd
+    gradle:
+      - noPush
+    srclibs:
+      - swig@v4.0.2
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-31' 'build-tools;32.0.0' > /dev/null
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r23
+
+  - versionName: 20220527-01
+    versionCode: 331
+    commit: android/release_331
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake g++
+      - update-alternatives --auto java
+      - pushd build/srclib/swig
+      - ./autogen.sh
+      - ./configure
+      - make -j`nproc`
+      - make install
+      - popd
+    gradle:
+      - noPush
+    srclibs:
+      - swig@v4.0.2
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-31' 'build-tools;31.0.0' > /dev/null
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r23
+
+  - versionName: 20220602-01
+    versionCode: 332
+    commit: android/release_332
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake g++
+      - update-alternatives --auto java
+      - pushd build/srclib/swig
+      - ./autogen.sh
+      - ./configure
+      - make -j`nproc`
+      - make install
+      - popd
+    gradle:
+      - noPush
+    srclibs:
+      - swig@v4.0.2
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-31' 'build-tools;31.0.0' > /dev/null
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r23
+
+  - versionName: 20220607-01
+    versionCode: 334
+    commit: android/release_334
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake g++
+      - update-alternatives --auto java
+      - pushd build/srclib/swig
+      - ./autogen.sh
+      - ./configure
+      - make -j`nproc`
+      - make install
+      - popd
+    gradle:
+      - noPush
+    srclibs:
+      - swig@v4.0.2
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-32' 'build-tools;32.0.0' > /dev/null
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r23c
+
+  - versionName: 20220615-01
+    versionCode: 335
+    commit: android/release_335
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake g++
+      - update-alternatives --auto java
+      - pushd build/srclib/swig
+      - ./autogen.sh
+      - ./configure
+      - make -j`nproc`
+      - make install
+      - popd
+    gradle:
+      - noPush
+    srclibs:
+      - swig@v4.0.2
+    rm:
+      - client-gnome
+      - client-ios
+      - client-macosx
+      - client-qt
+      - client-uwp
+      - lrc
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - patches
+      - scripts
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-32' 'build-tools;32.0.0' > /dev/null
+    build:
+      - cd ../..
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r23c
+
+  - versionName: 20220825-01
+    versionCode: 340
+    disable: crashes
+    commit: android/release_340
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake g++
+      - update-alternatives --auto java
+    gradle:
+      - noPush
+    srclibs:
+      - swig@v4.0.2
+    rm:
+      - client-ios
+      - client-macosx
+      - client-qt
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - scripts
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-32' 'build-tools;32.0.0' > /dev/null
+    build:
+      - cd ../..
+      - pushd $$swig$$
+      - ./autogen.sh
+      - ./configure --prefix=$$swig$$
+      - make -j`nproc`
+      - make install
+      - popd
+      - export PATH=$$swig$$/bin:$PATH
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r25
+
+  - versionName: 20220826-01
+    versionCode: 341
+    disable: crashes
+    commit: c8e8e1596f4ce8d610a8fea810ae26b8dc4ebace
+    timeout: 10800
+    subdir: client-android/ring-android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake g++
+      - update-alternatives --auto java
+    gradle:
+      - noPush
+    srclibs:
+      - swig@v4.0.2
+    rm:
+      - client-ios
+      - client-macosx
+      - client-qt
+      - plugins
+      - docker
+      - docs
+      - guix
+      - packaging
+      - scripts
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'platforms;android-32' 'build-tools;32.0.0' > /dev/null
+    build:
+      - cd ../..
+      - pushd $$swig$$
+      - ./autogen.sh
+      - ./configure --prefix=$$swig$$
+      - make -j`nproc`
+      - make install
+      - popd
+      - export PATH=$$swig$$/bin:$PATH
+      - export ANDROID_NDK_ROOT="$ANDROID_NDK"
+      - export ANDROID_ABI="armeabi-v7a arm64-v8a x86_64"
+      - ./compile.sh --release --daemon
+    ndk: r25
+
 MaintainerNotes: |-
     Ring has a lot of native dependencies, the source tarballs of these are all downloaded and build for all enabled architectures.
     Build failed with swig 2.0.12 from jessie but works with 3.0.10 from jessie-backports.
@@ -984,7 +2017,7 @@ MaintainerNotes: |-
     We DO build separately for arm64 because this is a fairly common architecture and improves performance over using the armv7 binaries.
     v103 introduces push notifications using gplay. Optional since 106 with noPush flavour.
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: 20200107-01
-CurrentVersionCode: 210
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 20220826-01
+CurrentVersionCode: 341

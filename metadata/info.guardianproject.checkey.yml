@@ -8,7 +8,7 @@ WebSite: https://dev.guardianproject.info/projects/checkey
 SourceCode: https://gitlab.com/guardianproject/checkey
 IssueTracker: https://gitlab.com/guardianproject/checkey/issues
 Translation: https://hosted.weblate.org/projects/guardianproject/checkey/
-LiberapayID: '33617'
+Liberapay: GuardianProject
 Bitcoin: 1Fi5xUHiAPRKxHvyUGVFGt9extBe8Srdbk
 
 AutoName: Checkey
@@ -44,7 +44,9 @@ Builds:
     disable: https://gitlab.com/guardianproject/checkey/issues/3
     commit: 0.1.4
     subdir: app
-    sudo: apt-get update; apt-get update; apt-get install -y disorderfs
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y disorderfs
     init:
       - cd ../..
       - mv info.guardianproject.checkey info.guardianproject.checkey.build

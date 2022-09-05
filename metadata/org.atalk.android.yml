@@ -13,7 +13,7 @@ AutoName: aTalk
 Description: |-
     aTalk is an XMPP client that supports the following features:
 
-    * Instant messaging in plain text and End-to-End encryption with [http://conversations.im/omemo/ OMEMO] or [https://otr.cypherpunks.ca/index.php#docs OTR]
+    * Instant messaging in plain text and End-to-End encryption with <a href="http://conversations.im/omemo/">OMEMO</a> or <a href="https://otr.cypherpunks.ca/index.php#docs">OTR</a>
     * OMEMO encryption is available during multi-user group chat session, giving users maximum privacy and security
     * Supports both voice and video call with ZRTP encryption
     * Send and receive files for all document types and images. For image file, a thumbnail is first sent for preview and acceptance is needed before the actual file is sent
@@ -798,10 +798,1140 @@ Builds:
       - mv jni/static_library_built/openssl/output/android/ jni/openssl/
     ndk: r15c
 
+  - versionName: 2.2.1
+    versionCode: 1121
+    commit: 2.2.1
+    subdir: aTalk/
+    gradle:
+      - fdroid
+    srclibs:
+      - fmj@r122
+      - jitsi-zrtp4j@7cbd8101108191089aad871002567c2a0eb2b512
+    rm:
+      - aTalk/lib/src_reference/*/*.jar
+      - aTalk/lib/bundles/*.jar
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild: sed -i -e "/clean.dependsOn 'ndkClean'/d" build.gradle
+    scanignore:
+      - aTalk/build.gradle
+    build:
+      - pushd $$fmj$$
+      - ant
+      - popd
+      - pushd $$jitsi-zrtp4j$$
+      - ant jar
+      - popd
+      - mv $$fmj$$/build/jars/fmj.jar lib/bundles/fmj-1.0-SNAPSHOT.jar
+      - mv $$jitsi-zrtp4j$$/dist/zrtp4j-light.jar lib/bundles/zrtp4j-light-4.1.0-jitsi-1-SNAPSHOT.jar
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./ffmpeg-atalk_build.sh
+      - popd
+      - mv jni/static_library_built/ffmpeg-x264/android/ jni/ffmpeg/
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+      - mv jni/static_library_built/libvpx/output/android/ jni/vpx/
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - mv jni/static_library_built/openssl/output/android/ jni/openssl/
+    ndk: r15c
+
+  - versionName: 2.2.2
+    versionCode: 1122
+    commit: 2.2.2
+    subdir: aTalk/
+    gradle:
+      - fdroid
+    srclibs:
+      - fmj@r122
+      - jitsi-zrtp4j@7cbd8101108191089aad871002567c2a0eb2b512
+    rm:
+      - aTalk/lib/src_reference/*/*.jar
+      - aTalk/lib/bundles/*.jar
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild: sed -i -e "/clean.dependsOn 'ndkClean'/d" build.gradle
+    scanignore:
+      - aTalk/build.gradle
+    build:
+      - pushd $$fmj$$
+      - ant
+      - popd
+      - pushd $$jitsi-zrtp4j$$
+      - ant jar
+      - popd
+      - mv $$fmj$$/build/jars/fmj.jar lib/bundles/fmj-1.0-SNAPSHOT.jar
+      - mv $$jitsi-zrtp4j$$/dist/zrtp4j-light.jar lib/bundles/zrtp4j-light-4.1.0-jitsi-1-SNAPSHOT.jar
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./ffmpeg-atalk_build.sh
+      - popd
+      - mv jni/static_library_built/ffmpeg-x264/android/ jni/ffmpeg/
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+      - mv jni/static_library_built/libvpx/output/android/ jni/vpx/
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - mv jni/static_library_built/openssl/output/android/ jni/openssl/
+    ndk: r15c
+
+  - versionName: 2.2.3
+    versionCode: 1123
+    commit: 2.2.3
+    subdir: aTalk/
+    gradle:
+      - fdroid
+    srclibs:
+      - fmj@r122
+      - jitsi-zrtp4j@7cbd8101108191089aad871002567c2a0eb2b512
+    rm:
+      - aTalk/lib/src_reference/*/*.jar
+      - aTalk/lib/bundles/*.jar
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild: sed -i -e "/clean.dependsOn 'ndkClean'/d" build.gradle
+    scanignore:
+      - aTalk/build.gradle
+    build:
+      - pushd $$fmj$$
+      - ant
+      - popd
+      - pushd $$jitsi-zrtp4j$$
+      - ant jar
+      - popd
+      - mv $$fmj$$/build/jars/fmj.jar lib/bundles/fmj-1.0-SNAPSHOT.jar
+      - mv $$jitsi-zrtp4j$$/dist/zrtp4j-light.jar lib/bundles/zrtp4j-light-4.1.0-jitsi-1-SNAPSHOT.jar
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./ffmpeg-atalk_build.sh
+      - popd
+      - mv jni/static_library_built/ffmpeg-x264/android/ jni/ffmpeg/
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+      - mv jni/static_library_built/libvpx/output/android/ jni/vpx/
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - mv jni/static_library_built/openssl/output/android/ jni/openssl/
+    ndk: r15c
+
+  - versionName: 2.2.4
+    versionCode: 1124
+    commit: 2.2.4
+    subdir: aTalk/
+    gradle:
+      - fdroid
+    srclibs:
+      - fmj@r122
+      - jitsi-zrtp4j@7cbd8101108191089aad871002567c2a0eb2b512
+    rm:
+      - aTalk/lib/src_reference/*/*.jar
+      - aTalk/lib/bundles/*.jar
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild: sed -i -e "/clean.dependsOn 'ndkClean'/d" build.gradle
+    scanignore:
+      - aTalk/build.gradle
+    build:
+      - pushd $$fmj$$
+      - ant
+      - popd
+      - pushd $$jitsi-zrtp4j$$
+      - ant jar
+      - popd
+      - mv $$fmj$$/build/jars/fmj.jar lib/bundles/fmj-1.0-SNAPSHOT.jar
+      - mv $$jitsi-zrtp4j$$/dist/zrtp4j-light.jar lib/bundles/zrtp4j-light-4.1.0-jitsi-1-SNAPSHOT.jar
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./ffmpeg-atalk_build.sh
+      - popd
+      - mv jni/static_library_built/ffmpeg-x264/android/ jni/ffmpeg/
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+      - mv jni/static_library_built/libvpx/output/android/ jni/vpx/
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - mv jni/static_library_built/openssl/output/android/ jni/openssl/
+    ndk: r15c
+
+  - versionName: 2.2.5
+    versionCode: 1125
+    commit: 2.2.5
+    subdir: aTalk/
+    gradle:
+      - fdroid
+    srclibs:
+      - fmj@r122
+      - jitsi-zrtp4j@7cbd8101108191089aad871002567c2a0eb2b512
+    rm:
+      - aTalk/lib/src_reference/*/*.jar
+      - aTalk/lib/bundles/*.jar
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild: sed -i -e "/clean.dependsOn 'ndkClean'/d" build.gradle
+    scanignore:
+      - aTalk/build.gradle
+    build:
+      - pushd $$fmj$$
+      - ant
+      - popd
+      - pushd $$jitsi-zrtp4j$$
+      - ant jar
+      - popd
+      - mv $$fmj$$/build/jars/fmj.jar lib/bundles/fmj-1.0-SNAPSHOT.jar
+      - mv $$jitsi-zrtp4j$$/dist/zrtp4j-light.jar lib/bundles/zrtp4j-light-4.1.0-jitsi-1-SNAPSHOT.jar
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./ffmpeg-atalk_build.sh
+      - popd
+      - mv jni/static_library_built/ffmpeg-x264/android/ jni/ffmpeg/
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+      - mv jni/static_library_built/libvpx/output/android/ jni/vpx/
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - mv jni/static_library_built/openssl/output/android/ jni/openssl/
+    ndk: r15c
+
+  - versionName: 2.3.0
+    versionCode: 1130
+    commit: 2.3.0
+    subdir: aTalk/
+    gradle:
+      - fdroid
+    srclibs:
+      - fmj@r122
+      - jitsi-zrtp4j@7cbd8101108191089aad871002567c2a0eb2b512
+    rm:
+      - aTalk/lib/src_reference/*/*.jar
+      - aTalk/lib/bundles/*.jar
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild: sed -i -e "/clean.dependsOn 'ndkClean'/d" build.gradle
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/lib/src_reference/*/*.zip
+      - aTalk/third_party/m2/org/igniterealtime/smack/*/*/*.jar
+      - aTalk/jni/static_library_built/libvpx/sources/*.gz
+    build:
+      - pushd $$fmj$$
+      - ant
+      - popd
+      - pushd $$jitsi-zrtp4j$$
+      - ant jar
+      - popd
+      - mv $$fmj$$/build/jars/fmj.jar lib/bundles/fmj-1.0-SNAPSHOT.jar
+      - mv $$jitsi-zrtp4j$$/dist/zrtp4j-light.jar lib/bundles/zrtp4j-light-4.1.0-jitsi-1-SNAPSHOT.jar
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./ffmpeg-atalk_build.sh
+      - popd
+      - mv jni/static_library_built/ffmpeg-x264/android/ jni/ffmpeg/
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+      - mv jni/static_library_built/libvpx/output/android/ jni/vpx/
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - mv jni/static_library_built/openssl/output/android/ jni/openssl/
+    ndk: r15c
+
+  - versionName: 2.3.2
+    versionCode: 1132
+    commit: 2.3.2
+    subdir: aTalk/
+    gradle:
+      - fdroid
+    srclibs:
+      - fmj@r122
+      - jitsi-zrtp4j@7cbd8101108191089aad871002567c2a0eb2b512
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild: sed -i -e "/clean.dependsOn 'ndkClean'/d" build.gradle
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built/libvpx/sources/*.gz
+      - aTalk/third_party/m2/org/igniterealtime/smack/*/*/*.jar
+    build:
+      - pushd $$fmj$$
+      - ant
+      - popd
+      - pushd $$jitsi-zrtp4j$$
+      - ant jar
+      - popd
+      - mkdir -p lib/bundles
+      - mv $$fmj$$/build/jars/fmj.jar lib/bundles/fmj-1.0-SNAPSHOT.jar
+      - mv $$jitsi-zrtp4j$$/dist/zrtp4j-light.jar lib/bundles/zrtp4j-light-4.1.0-jitsi-1-SNAPSHOT.jar
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./ffmpeg-atalk_build.sh
+      - popd
+      - mv jni/static_library_built/ffmpeg-x264/android/ jni/ffmpeg/
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+      - mv jni/static_library_built/libvpx/output/android/ jni/vpx/
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - mv jni/static_library_built/openssl/output/android/ jni/openssl/
+    ndk: r15c
+
+  - versionName: 2.3.3
+    versionCode: 1133
+    commit: 2.3.3
+    subdir: aTalk/
+    gradle:
+      - fdroid
+    srclibs:
+      - fmj@r122
+      - jitsi-zrtp4j@7cbd8101108191089aad871002567c2a0eb2b512
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild: sed -i -e "/clean.dependsOn 'ndkClean'/d" build.gradle
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built/libvpx/sources/*.gz
+      - aTalk/third_party/m2/org/igniterealtime/smack/*/*/*.jar
+    build:
+      - pushd $$fmj$$
+      - ant
+      - popd
+      - pushd $$jitsi-zrtp4j$$
+      - ant jar
+      - popd
+      - mkdir -p lib/bundles
+      - mv $$fmj$$/build/jars/fmj.jar lib/bundles/fmj-1.0-SNAPSHOT.jar
+      - mv $$jitsi-zrtp4j$$/dist/zrtp4j-light.jar lib/bundles/zrtp4j-light-4.1.0-jitsi-1-SNAPSHOT.jar
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./ffmpeg-atalk_build.sh
+      - popd
+      - mv jni/static_library_built/ffmpeg-x264/android/ jni/ffmpeg/
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+      - mv jni/static_library_built/libvpx/output/android/ jni/vpx/
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - mv jni/static_library_built/openssl/output/android/ jni/openssl/
+    ndk: r15c
+
+  - versionName: 2.3.4
+    versionCode: 1134
+    commit: 2.3.4
+    subdir: aTalk/
+    gradle:
+      - fdroid
+    srclibs:
+      - fmj@r122
+      - jitsi-zrtp4j@7cbd8101108191089aad871002567c2a0eb2b512
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild: sed -i -e "/clean.dependsOn 'ndkClean'/d" build.gradle
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built/libvpx/sources/*.gz
+      - aTalk/third_party/m2/org/igniterealtime/smack/*/*/*.jar
+    build:
+      - pushd $$fmj$$
+      - ant
+      - popd
+      - pushd $$jitsi-zrtp4j$$
+      - ant jar
+      - popd
+      - mkdir -p lib/bundles
+      - mv $$fmj$$/build/jars/fmj.jar lib/bundles/fmj-1.0-SNAPSHOT.jar
+      - mv $$jitsi-zrtp4j$$/dist/zrtp4j-light.jar lib/bundles/zrtp4j-light-4.1.0-jitsi-1-SNAPSHOT.jar
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./ffmpeg-atalk_build.sh
+      - popd
+      - mv jni/static_library_built/ffmpeg-x264/android/ jni/ffmpeg/
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+      - mv jni/static_library_built/libvpx/output/android/ jni/vpx/
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - mv jni/static_library_built/openssl/output/android/ jni/openssl/
+    ndk: r15c
+
+  - versionName: 2.4.0
+    versionCode: 1140
+    commit: 2.4.0
+    subdir: aTalk/
+    gradle:
+      - fdroid
+    srclibs:
+      - fmj@r122
+      - jitsi-zrtp4j@7cbd8101108191089aad871002567c2a0eb2b512
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild: sed -i -e "/clean.dependsOn 'ndkClean'/d" build.gradle
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built/libvpx/sources/*.gz
+      - aTalk/third_party/m2/org/igniterealtime/smack/*/*/*.jar
+    build:
+      - pushd $$fmj$$
+      - ant
+      - popd
+      - pushd $$jitsi-zrtp4j$$
+      - ant jar
+      - popd
+      - mkdir -p lib/bundles
+      - mv $$fmj$$/build/jars/fmj.jar lib/bundles/fmj-1.0-SNAPSHOT.jar
+      - mv $$jitsi-zrtp4j$$/dist/zrtp4j-light.jar lib/bundles/zrtp4j-light-4.1.0-jitsi-1-SNAPSHOT.jar
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./ffmpeg-atalk_build.sh
+      - popd
+      - mv jni/static_library_built/ffmpeg-x264/android/ jni/ffmpeg/
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+      - mv jni/static_library_built/libvpx/output/android/ jni/vpx/
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - mv jni/static_library_built/openssl/output/android/ jni/openssl/
+    ndk: r15c
+
+  - versionName: 2.4.1
+    versionCode: 1141
+    commit: 2.4.1
+    subdir: aTalk/
+    gradle:
+      - fdroid
+    srclibs:
+      - fmj@r122
+      - jitsi-zrtp4j@7cbd8101108191089aad871002567c2a0eb2b512
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild: sed -i -e "/clean.dependsOn 'ndkClean'/d" build.gradle
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built/libvpx/sources/*.gz
+      - aTalk/third_party/m2/org/igniterealtime/smack/*/*/*.jar
+    build:
+      - pushd $$fmj$$
+      - ant
+      - popd
+      - pushd $$jitsi-zrtp4j$$
+      - ant jar
+      - popd
+      - mkdir -p lib/bundles
+      - mv $$fmj$$/build/jars/fmj.jar lib/bundles/fmj-1.0-SNAPSHOT.jar
+      - mv $$jitsi-zrtp4j$$/dist/zrtp4j-light.jar lib/bundles/zrtp4j-light-4.1.0-jitsi-1-SNAPSHOT.jar
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./ffmpeg-atalk_build.sh
+      - popd
+      - mv jni/static_library_built/ffmpeg-x264/android/ jni/ffmpeg/
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+      - mv jni/static_library_built/libvpx/output/android/ jni/vpx/
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - mv jni/static_library_built/openssl/output/android/ jni/openssl/
+    ndk: r15c
+
+  - versionName: 2.4.2
+    versionCode: 1142
+    commit: 2.4.2
+    subdir: aTalk/
+    gradle:
+      - fdroid
+    srclibs:
+      - fmj@r122
+      - jitsi-zrtp4j@7cbd8101108191089aad871002567c2a0eb2b512
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild: sed -i -e "/clean.dependsOn 'ndkClean'/d" build.gradle
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built/libvpx/sources/*.gz
+      - aTalk/third_party/m2/org/igniterealtime/smack/*/*/*.jar
+    build:
+      - pushd $$fmj$$
+      - ant
+      - popd
+      - pushd $$jitsi-zrtp4j$$
+      - ant jar
+      - popd
+      - mkdir -p lib/bundles
+      - mv $$fmj$$/build/jars/fmj.jar lib/bundles/fmj-1.0-SNAPSHOT.jar
+      - mv $$jitsi-zrtp4j$$/dist/zrtp4j-light.jar lib/bundles/zrtp4j-light-4.1.0-jitsi-1-SNAPSHOT.jar
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./ffmpeg-atalk_build.sh
+      - popd
+      - mv jni/static_library_built/ffmpeg-x264/android/ jni/ffmpeg/
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+      - mv jni/static_library_built/libvpx/output/android/ jni/vpx/
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - mv jni/static_library_built/openssl/output/android/ jni/openssl/
+    ndk: r15c
+
+  - versionName: 2.4.3
+    versionCode: 1143
+    commit: 2.4.3
+    subdir: aTalk/
+    gradle:
+      - fdroid
+    srclibs:
+      - fmj@r122
+      - jitsi-zrtp4j@7cbd8101108191089aad871002567c2a0eb2b512
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild: sed -i -e "/clean.dependsOn 'ndkClean'/d" build.gradle
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built/libvpx/sources/*.gz
+      - aTalk/third_party/m2/org/igniterealtime/smack/*/*/*.jar
+    build:
+      - pushd $$fmj$$
+      - ant
+      - popd
+      - pushd $$jitsi-zrtp4j$$
+      - ant jar
+      - popd
+      - mkdir -p lib/bundles
+      - mv $$fmj$$/build/jars/fmj.jar lib/bundles/fmj-1.0-SNAPSHOT.jar
+      - mv $$jitsi-zrtp4j$$/dist/zrtp4j-light.jar lib/bundles/zrtp4j-light-4.1.0-jitsi-1-SNAPSHOT.jar
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./ffmpeg-atalk_build.sh
+      - popd
+      - mv jni/static_library_built/ffmpeg-x264/android/ jni/ffmpeg/
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+      - mv jni/static_library_built/libvpx/output/android/ jni/vpx/
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - mv jni/static_library_built/openssl/output/android/ jni/openssl/
+    ndk: r15c
+
+  - versionName: 2.6.1
+    versionCode: 206010
+    commit: 2.6.1
+    subdir: aTalk
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045' > /dev/null
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - sed -i -e '/export ANDROID_NDK_HOME/d' jni/static_library_built/openssl/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - pushd jni/static_library_built/openssl/
+      - ./init_libopenssl.sh
+      - ./build-openssl4android.sh
+      - popd
+      - export ANDROID_NDK=/opt/android-sdk/ndk/18.1.5063045
+      - pushd jni/static_library_built/ffmpeg-x264/
+      - ./init_update_libs.sh
+      - ./build-ffmpeg4android.sh
+      - popd
+      - pushd jni/static_library_built/libvpx/
+      - ./init_libvpx.sh
+      - ./build-libvpx4android.sh
+      - popd
+    ndk: r20
+
+  - versionName: 2.6.2
+    versionCode: 206020
+    commit: 94ca72782e9f923209d69ac77235a152aa727bfc
+    subdir: aTalk
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045' > /dev/null
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.6.3
+    versionCode: 206030
+    commit: e06fa832f1119ca822c9f3244a9891d34d2dffea
+    subdir: aTalk
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045' > /dev/null
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.6.4
+    versionCode: 206040
+    commit: f816d693a81f8a5b95496a1557d3ca604b996b32
+    subdir: aTalk
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045' > /dev/null
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.7.0
+    versionCode: 207000
+    commit: b273e80198dc33eadca2d4e3882b8567a480c8ad
+    subdir: aTalk
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045' > /dev/null
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.8.0
+    versionCode: 208000
+    commit: cd3069568236ab593f4001a9c2b4649b7504eace
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;31.0.0' 'build-tools;30.0.3' 'platforms;android-31' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.8.1
+    versionCode: 208010
+    commit: 8c4c39dce54ee0f30510a7d2c89453a4172cdca3
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.9.0
+    versionCode: 209000
+    commit: e17a4748824c299b7c98879779617dccea7f1b40
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.9.1
+    versionCode: 209010
+    commit: 4d8ba2481a0063561a94967eb8462a27bf3d2ccc
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.9.2
+    versionCode: 209020
+    commit: f1d7cf268d1f05523876a41e96b9c8b7119ec46b
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.9.3
+    versionCode: 209031
+    commit: a4b665bb172ccf5d721689d41df2231060efa662
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;31.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.9.4
+    versionCode: 209040
+    commit: b8dcfa44ea71debbb6ef31bc175e49c191019b80
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;31.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.9.5
+    versionCode: 209050
+    commit: 1f0adf761a4e30d3f3c967bf8bd46e3264ae5a8b
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 2.9.6
+    versionCode: 209061
+    commit: 9c10c6d68fbc41392099072f6b22f1826563c5d2
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless wget
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 3.0.0
+    versionCode: 300000
+    commit: 9bdf7dc58ae468d112b806438751207aed64ec45
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless wget
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
+  - versionName: 3.0.1
+    versionCode: 300010
+    commit: 946ec699ce54b88ec94abffd5b43654b20f8b69e
+    subdir: aTalk
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless wget
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    rm:
+      - aTalk/lib/src_reference/
+      - aTalk/jni/ffmpeg/android/
+      - aTalk/jni/openssl/android/
+      - aTalk/jni/vpx/android/
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'ndk;18.1.5063045'
+        'build-tools;32.0.0' 'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+      - sed -i -e 's|dl.bintray.com/google/exoplayer/|jitpack.io|' build.gradle
+      - cd jni/static_library_built
+      - sed -i -e '/export ANDROID_NDK_HOME/d' openssl/_settings.sh
+      - sed -i -e 's|android/android-ndk-r18b|android-sdk/ndk/18.1.5063045|' ffmpeg-x264/_settings.sh
+        libvpx/_settings.sh
+    scanignore:
+      - aTalk/build.gradle
+    scandelete:
+      - aTalk/jni/static_library_built
+      - aTalk/third_party/m2
+    build:
+      - cd jni/static_library_built
+      - ./build-jnilibs4atalk.sh
+    ndk: r20
+
 MaintainerNotes: scanignore is used to allow the local "third_party/m2" Gradle repository
     (which is populated by libraries we build).
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.2.0
-CurrentVersionCode: 1120
+CurrentVersion: 3.0.1
+CurrentVersionCode: 300010

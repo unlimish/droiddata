@@ -1,0 +1,183 @@
+Categories:
+  - System
+License: GPL-3.0-only
+AuthorName: Muntashir Al-Islam
+WebSite: https://muntashirakon.github.io/AppManager/
+SourceCode: https://github.com/MuntashirAkon/AppManager
+IssueTracker: https://github.com/MuntashirAkon/AppManager/issues
+Changelog: https://muntashirakon.github.io/AppManager/changelog.html
+
+AutoName: App Manager
+
+RepoType: git
+Repo: https://github.com/MuntashirAkon/AppManager
+
+Builds:
+  - versionName: 2.5.10
+    versionCode: 324
+    commit: v2.5.10
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/activities/ClassListingActivity.java
+      - app/src/main/java/com/google/classysharkandroid/dex/DexLoaderBuilder.java
+
+  - versionName: 2.5.13
+    versionCode: 348
+    commit: v2.5.13
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/details/ClassListingActivity.java
+      - app/src/main/java/com/google/classysharkandroid/dex/DexLoaderBuilder.java
+
+  - versionName: 2.5.17
+    versionCode: 368
+    commit: v2.5.17
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    scandelete:
+      - app/src/main/jniLibs
+      - toybox
+    ndk: r21d
+
+  - versionName: 2.5.20
+    versionCode: 375
+    disable: fails to clone submodule toybox
+    commit: v2.5.20
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    scandelete:
+      - toybox
+    ndk: r21e
+
+  - versionName: 2.6.0
+    versionCode: 385
+    commit: v2.6.0
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.1
+    versionCode: 387
+    commit: v2.6.1
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.2
+    versionCode: 389
+    commit: be6363d2f9cb9d21be30bd49b998fdeb1aa15f84
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.3
+    versionCode: 392
+    commit: 64b5330ce343e347df15d58001e0ce8bde22dab4
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.4
+    versionCode: 394
+    commit: 1751bb0027e812c5a2eb2c558e527229c41cb249
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.5
+    versionCode: 396
+    commit: 8b67b87ce29db15a105d5da41494bb6d188f9d9c
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.5.1
+    versionCode: 397
+    commit: 77a24051a5cdeed2d8f97a8a4f448b86bf77cb5e
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 3.0.0-alpha01
+    versionCode: 400
+    disable: buggy version, per upstream
+    commit: 186dcc2432641ee3ec08f3785e869fc2f6878bfb
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/intercept/ActivityInterceptor.java
+    ndk: r21e
+
+  - versionName: 3.0.0
+    versionCode: 410
+    commit: b3036067f17e46434a0779fe005b59daf2ffb9ea
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/intercept/ActivityInterceptor.java
+    ndk: r21e
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags ^v[\d.]+$
+CurrentVersion: 3.0.0
+CurrentVersionCode: 410

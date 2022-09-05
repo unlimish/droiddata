@@ -6,7 +6,6 @@ AuthorEmail: corenting@gmail.com
 SourceCode: https://github.com/corenting/ParisTransportTraffic
 IssueTracker: https://github.com/corenting/ParisTransportTraffic/issues
 Changelog: https://github.com/corenting/ParisTransportTraffic/releases
-Bitcoin: 3JmaEkuviReVdCG8fjqCs5LwQkaEGcTMtZ
 
 AutoName: Paris transport traffic
 
@@ -28,7 +27,75 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 4.3.3
+    versionCode: 20
+    commit: v4.3.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.3.4
+    versionCode: 21
+    commit: v4.3.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '4.4'
+    versionCode: 22
+    commit: v4.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '4.5'
+    versionCode: 23
+    commit: v4.5
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '4.6'
+    versionCode: 24
+    commit: v4.6
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '4.7'
+    versionCode: 25
+    commit: 56a5750750f9fd0641b59d9bd73eddc6bd0d8005
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '5.0'
+    versionCode: 26
+    commit: ef509986bafe50c0e2e2a99bae7f24ecdd69f044
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '5.1'
+    versionCode: 27
+    commit: a5cb701a92a7467db8c57f685747ade129ff44e4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 4.3.2
-CurrentVersionCode: 19
+CurrentVersion: '5.1'
+CurrentVersionCode: 27

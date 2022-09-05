@@ -2,10 +2,9 @@ AntiFeatures:
   - NonFreeNet
 Categories:
   - Internet
-License: GPL-2.0-only
-WebSite: https://bitbucket.org/gelin/weather-notification
-SourceCode: https://bitbucket.org/gelin/weather-notification/src
-IssueTracker: https://bitbucket.org/gelin/weather-notification/issues
+License: GPL-3.0-or-later
+SourceCode: https://github.com/gelin/weather-notification
+IssueTracker: https://github.com/gelin/weather-notification/issues
 
 AutoName: Weather notification
 Description: |-
@@ -14,12 +13,12 @@ Description: |-
     system clock.
 
     Install the skins for a different look - see
-    [[ru.gelin.android.weather.notification.skin.blacktext]] and
-    [[ru.gelin.android.weather.notification.skin.whitetext]].
+    https://f-droid.org/packages/ru.gelin.android.weather.notification.skin.blacktext and
+    https://f-droid.org/packages/ru.gelin.android.weather.notification.skin.whitetext.
 
-    This app uses the [http://openweathermap.org/ openweathermap] API.
+    This app uses the <a href="https://openweathermap.org/">openweathermap</a> API.
 
-    ''NonFreeNet:'' OpenWeatherMap service itself is not open source.
+    <i>NonFreeNet:</i> OpenWeatherMap service itself is not open source.
 
 RepoType: srclib
 Repo: WeatherNotification
@@ -118,7 +117,21 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v.%v
+  - versionName: 0.3.12
+    versionCode: 59
+    commit: v0.3.12
+    subdir: core
+    gradle:
+      - yes
+
+  - versionName: 0.3.13
+    versionCode: 60
+    commit: v0.3.13
+    subdir: core
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.3.10
-CurrentVersionCode: 54
+CurrentVersion: 0.3.13
+CurrentVersionCode: 60

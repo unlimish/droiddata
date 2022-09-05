@@ -9,18 +9,6 @@ IssueTracker: https://github.com/billthefarmer/scope/issues
 Changelog: https://github.com/billthefarmer/scope/releases
 
 AutoName: Oscilloscope
-Description: |-
-    An android audio oscilloscope and spectrum with following features:
-
-    *  Timebase 0.1 ms - 0.5 sec
-    *  Single shot
-    *  Storage
-    *  Index
-    *  Spectrum
-
-    There are toolbar icons to control single step, sync polarity, timebase, storage
-    and scrolling. The spectrum display has a display lock function and shows the
-    current dominant frequency in the toolbar.
 
 RepoType: git
 Repo: https://github.com/billthefarmer/scope
@@ -160,7 +148,55 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.26'
+    versionCode: 126
+    commit: v1.26
+    gradle:
+      - yes
+
+  - versionName: '1.27'
+    versionCode: 127
+    commit: v1.27
+    gradle:
+      - yes
+
+  - versionName: '1.28'
+    versionCode: 128
+    commit: v1.28
+    gradle:
+      - yes
+
+  - versionName: '1.29'
+    versionCode: 129
+    commit: 090459b4fe7f47959e532e7811eca696b02496ea
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.30'
+    versionCode: 130
+    commit: 03a26fa8c4ef9a8bb89b56280b88c8d120efb5df
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.31'
+    versionCode: 131
+    commit: 40cae177239194c45080feaa722dfddb10d80ee4
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.25'
-CurrentVersionCode: 125
+CurrentVersion: '1.31'
+CurrentVersionCode: 131

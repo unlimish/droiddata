@@ -1,0 +1,32 @@
+Categories:
+  - Sports & Health
+  - Connectivity
+  - Reading
+License: GPL-3.0-or-later
+WebSite: https://micmun.de/nextcloud-cookbook-english/
+SourceCode: https://codeberg.org/MicMun/nextcloud-cookbook
+IssueTracker: https://codeberg.org/MicMun/nextcloud-cookbook/issues
+Translation: https://weblate.bubu1.eu/projects/nextcloud-cookbook-android-app/
+
+AutoName: Nextcloud Cookbook
+
+RepoType: git
+Repo: https://codeberg.org/MicMun/nextcloud-cookbook.git
+
+Builds:
+  - versionName: 2.7.0
+    versionCode: 270
+    commit: 60ee34a21938b8dbc22b0449b559bfd4913ae46a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigation-dynamic-features-fragment/,+2d' build.gradle
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 2.7.0
+CurrentVersionCode: 270

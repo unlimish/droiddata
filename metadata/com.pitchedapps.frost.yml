@@ -1,6 +1,5 @@
 AntiFeatures:
   - NonFreeNet
-  - Tracking
 Categories:
   - Internet
 License: GPL-3.0-only
@@ -58,8 +57,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    scanignore:
-      - buildSrc
 
   - versionName: 2.3.1
     versionCode: 2030100
@@ -67,8 +64,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    scanignore:
-      - buildSrc
 
   - versionName: 2.3.2
     versionCode: 2030200
@@ -76,8 +71,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    scanignore:
-      - buildSrc
 
   - versionName: 2.4.0
     versionCode: 2040000
@@ -85,8 +78,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    scanignore:
-      - buildSrc
 
   - versionName: 2.4.1
     versionCode: 2040100
@@ -94,8 +85,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    scanignore:
-      - buildSrc
 
   - versionName: 2.4.2
     versionCode: 2040200
@@ -103,8 +92,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    scanignore:
-      - buildSrc
 
   - versionName: 2.4.3
     versionCode: 2040300
@@ -112,8 +99,6 @@ Builds:
     subdir: app
     gradle:
       - yes
-    scanignore:
-      - buildSrc
 
   - versionName: 2.4.4
     versionCode: 2040400
@@ -121,10 +106,69 @@ Builds:
     subdir: app
     gradle:
       - yes
-    scanignore:
-      - buildSrc
+
+  - versionName: 2.4.5
+    versionCode: 2040500
+    commit: v2.4.5
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.4.6
+    versionCode: 2040600
+    commit: v2.4.6
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.4.7
+    versionCode: 2040700
+    commit: v2.4.7
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.0.0
+    versionCode: 3000000
+    commit: v3.0.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.1.0
+    versionCode: 3010000
+    commit: 8b6c5016936fc82b3b480a1d04487c32cc21ad2a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.1.1
+    versionCode: 3010100
+    commit: 3b6de26ee105959a5ea7ee5a782509c48f1f358d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.1.2
+    versionCode: 3010200
+    commit: e33dd68045870438152004ebbca5d3c08dffe953
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.4.4
-CurrentVersionCode: 2040400
+CurrentVersion: 3.1.2
+CurrentVersionCode: 3010200

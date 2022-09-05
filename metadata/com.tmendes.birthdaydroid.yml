@@ -6,13 +6,9 @@ SourceCode: https://gitlab.com/tmendes/BirthDayDroid
 IssueTracker: https://gitlab.com/tmendes/BirthDayDroid/issues
 Translation: https://transifex.com/wlnomads/birthdaydroid
 Changelog: https://gitlab.com/tmendes/BirthDayDroid/tags
-LiberapayID: '1298585'
+Donate: https://www.paypal.com/donate/?token=r6EB8jpSeqtDPGfAb-dGXvsywjHa8S2aVxz4142MMvEYbWs7DBIeHct3mlnJAZ1bBM6WVW
 
 AutoName: BirthDayDroid
-Description: |-
-    Helps you to remember your contact's birthdays. It scans your local contact list
-    looking for birthdays. When it finds it, it will show you the contact's age,
-    sign, days until her/his birthday.
 
 RepoType: git
 Repo: https://gitlab.com/tmendes/BirthDayDroid.git
@@ -151,7 +147,71 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 20200307_V43
+    versionCode: 43
+    commit: 20200307_V43
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 20200321_V45
+    versionCode: 45
+    commit: 20200321_V45
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 20200418_V47
+    versionCode: 47
+    commit: 20200418_V47
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2020524_V48
+    versionCode: 48
+    commit: 2020524_V48
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 20200719_V49
+    versionCode: 49
+    commit: 20200719_V49
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 20200802_V50
+    versionCode: 50
+    commit: 20200802_V50
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 20211128_V52
+    versionCode: 52
+    commit: 3be3775c711413709ccf38c1a527f33e1e5f39fe
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 20211213_V53
+    versionCode: 53
+    commit: 26cf2fdb9d68b84028da9aec107f08db4c8adb54
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 20200215_V42
-CurrentVersionCode: 42
+CurrentVersion: 20211213_V53
+CurrentVersionCode: 53

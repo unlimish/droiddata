@@ -1,0 +1,690 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Multimedia
+License: Apache-2.0
+WebSite: https://www.reddit.com/r/NovaVideoPlayer
+SourceCode: https://github.com/nova-video-player/aos-AVP
+IssueTracker: https://github.com/nova-video-player/aos-AVP/issues
+Translation: https://crowdin.com/project/nova-video-player
+Changelog: https://github.com/nova-video-player/aos-AVP/raw/nova/CHANGELOG.md
+Liberapay: NovaVideoPlayer
+OpenCollective: novavideoplayer
+
+AutoName: Nova Video Player
+
+RepoType: git
+Repo: https://github.com/nova-video-player/aos-fdroid/
+
+Builds:
+  - versionName: 4.48.8
+    versionCode: 404808
+    commit: v4.48.8_c404808
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild:
+      - sed -i -e 's/^\(\s*versionName\).*/\1 "$$VERSION$$"/g' build.gradle
+      - sed -i -e 's/^\(\s*\)2108380 .*/\1$$VERCODE$$/g' build.gradle
+      - rm -f FileCoreLibrary/libs/*jar
+    ndk: r21b
+    gradleprops:
+      - universal
+
+  - versionName: 4.48.9
+    versionCode: 404809
+    commit: v4.48.9_c404809
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild:
+      - sed -i -e 's/^\(\s*versionName\).*/\1 "$$VERSION$$"/g' build.gradle
+      - sed -i -e 's/^\(\s*\)2108380 .*/\1$$VERCODE$$/g' build.gradle
+      - rm -f FileCoreLibrary/libs/*jar
+    ndk: r21b
+    gradleprops:
+      - universal
+
+  - versionName: 4.48.13
+    versionCode: 404813
+    commit: v4.48.13_c404813
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild: rm -f FileCoreLibrary/libs/*jar
+    ndk: r21d
+    gradleprops:
+      - universal
+
+  - versionName: 4.48.17
+    versionCode: 404817
+    commit: v4.48.17_c404817
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild: rm -f FileCoreLibrary/libs/*jar
+    ndk: r21d
+    gradleprops:
+      - universal
+
+  - versionName: 4.49.1
+    versionCode: 404901
+    commit: v4.49.1_c404901
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild: rm -f FileCoreLibrary/libs/*jar
+    ndk: r21d
+    gradleprops:
+      - universal
+
+  - versionName: 4.49.3
+    versionCode: 404903
+    commit: v4.49.3_c404903
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild: rm -f FileCoreLibrary/libs/*jar
+    ndk: r21d
+    gradleprops:
+      - universal
+
+  - versionName: 4.49.5
+    versionCode: 404905
+    commit: v4.49.5_c404905
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild: rm -f FileCoreLibrary/libs/*jar
+    ndk: r21d
+    gradleprops:
+      - universal
+
+  - versionName: 4.49.6
+    versionCode: 404906
+    commit: v4.49.6_c404906
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild: rm -f FileCoreLibrary/libs/*jar
+    ndk: r21d
+    gradleprops:
+      - universal
+
+  - versionName: 4.49.7
+    versionCode: 404907
+    commit: v4.49.7_c404907
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild: rm -f FileCoreLibrary/libs/*jar
+    ndk: r21d
+    gradleprops:
+      - universal
+
+  - versionName: 4.49.8
+    versionCode: 404908
+    commit: v4.49.8_c404908
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild: rm -f FileCoreLibrary/libs/*jar
+    ndk: r21d
+    gradleprops:
+      - universal
+
+  - versionName: 4.49.9
+    versionCode: 404909
+    commit: v4.49.9_c404909
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild: rm -f FileCoreLibrary/libs/*jar
+    ndk: r21d
+    gradleprops:
+      - universal
+
+  - versionName: 4.49.10
+    versionCode: 404910
+    commit: v4.49.10_c404910
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild: rm -f FileCoreLibrary/libs/*jar
+    ndk: r21d
+    gradleprops:
+      - universal
+
+  - versionName: 4.49.11
+    versionCode: 404911
+    commit: v4.49.11_c404911
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+    prebuild: rm -f FileCoreLibrary/libs/*jar
+    ndk: r21d
+    gradleprops:
+      - universal
+
+  - versionName: 4.49.16
+    versionCode: 404916
+    disable: fails to build
+    commit: v4.49.16_c404916
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+      - native/opus-android-builder/lib
+    prebuild: rm -f FileCoreLibrary/libs/*jar
+    ndk: r21d
+    gradleprops:
+      - universal
+
+  - versionName: 6.0.49
+    versionCode: 600049
+    disable: https://github.com/nova-video-player/aos-AVP/issues/597
+    commit: 0da23c9656e640e5774e357d88fa15546928c24d
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build maven build-essential
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/libtorrent/bin*
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+      - native/opus-android-builder/lib
+    prebuild: rm -f FileCoreLibrary/libs/*jar
+    ndk: r23b
+    gradleprops:
+      - universal
+
+  - versionName: 6.0.52
+    versionCode: 600052
+    disable: https://github.com/nova-video-player/aos-AVP/issues/597
+    commit: 37c2067ec0e3c8e2457e227fb27692ed18d747c6
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build build-essential
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - apt-get install -y python3-wheel wget
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+      - FileCoreLibrary/libs/*jar
+      - native/opus-android-builder/lib
+      - native/openssl-android-builder/dist-*
+    ndk: r23b
+    gradleprops:
+      - universal
+      - sponsor
+      - adultScrape
+
+  - versionName: 6.0.53
+    versionCode: 600053
+    commit: 4d889d0fade982f4d52e27dbcc82d80b03da3f52
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build build-essential
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - apt-get install -y python3-wheel wget
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+      - FileCoreLibrary/libs/*jar
+      - native/opus-android-builder/lib
+      - native/openssl-android-builder/dist-*
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmdline-tools;latest'
+        > /dev/null
+      - $$SDK$$/cmdline-tools/latest/bin/sdkmanager 'cmake;3.18.1' > /dev/null
+    ndk: r23b
+    gradleprops:
+      - universal
+      - sponsor
+      - adultScrape
+
+  - versionName: 6.0.61
+    versionCode: 600061
+    disable: https://github.com/nova-video-player/aos-Fdroid/issues/2
+    commit: 41a7c84d721a7a91f1b2fcb773b76ef57f1ac2dd
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build build-essential
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - apt-get install -y python3-wheel wget
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+      - FileCoreLibrary/libs/*jar
+      - native/opus-android-builder/lib
+      - native/openssl-android-builder/dist-*
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmdline-tools;latest'
+        > /dev/null
+      - $$SDK$$/cmdline-tools/latest/bin/sdkmanager 'cmake;3.18.1' > /dev/null
+    ndk: r23b
+    gradleprops:
+      - universal
+      - sponsor
+      - adultScrape
+
+  - versionName: 6.0.62
+    versionCode: 600062
+    commit: ef35f452d9dd6443ebce06cc10535c312b81ef4a
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build build-essential openjdk-11-jdk-headless python3-wheel
+        wget
+      - update-alternatives --auto java
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+      - FileCoreLibrary/libs/*jar
+      - native/opus-android-builder/lib
+      - native/openssl-android-builder/dist-*
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmdline-tools;latest'
+      - $$SDK$$/cmdline-tools/latest/bin/sdkmanager 'cmake;3.18.1'
+    ndk: r23b
+    gradleprops:
+      - universal
+      - sponsor
+      - adultScrape
+
+  - versionName: 6.0.63
+    versionCode: 600063
+    commit: bd221ab3c6a0c585d83268e226b28e243fe7550e
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build build-essential openjdk-11-jdk-headless python3-wheel
+        wget
+      - update-alternatives --auto java
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+      - FileCoreLibrary/libs/*jar
+      - native/opus-android-builder/lib
+      - native/openssl-android-builder/dist-*
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmdline-tools;latest'
+      - $$SDK$$/cmdline-tools/latest/bin/sdkmanager 'cmake;3.18.1'
+    ndk: r23b
+    gradleprops:
+      - universal
+      - sponsor
+      - adultScrape
+
+  - versionName: 6.0.65
+    versionCode: 600065
+    commit: b19ffe3e06b5e2edd3ccb218918165e58f434bb1
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build build-essential openjdk-11-jdk-headless python3-wheel
+        wget
+      - update-alternatives --auto java
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+      - FileCoreLibrary/libs/*jar
+      - native/opus-android-builder/lib
+      - native/openssl-android-builder/dist-*
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmdline-tools;latest'
+      - $$SDK$$/cmdline-tools/latest/bin/sdkmanager 'cmake;3.18.1'
+    ndk: r23b
+    gradleprops:
+      - universal
+      - sponsor
+      - adultScrape
+
+  - versionName: 6.0.67
+    versionCode: 600067
+    commit: f9d783e37d8093922b91f3a0063e7c896c33970a
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build build-essential openjdk-11-jdk-headless python3-wheel
+        wget
+      - update-alternatives --auto java
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+      - FileCoreLibrary/libs/*jar
+      - native/opus-android-builder/lib
+      - native/openssl-android-builder/dist-*
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmdline-tools;latest'
+      - $$SDK$$/cmdline-tools/latest/bin/sdkmanager 'cmake;3.18.1'
+    ndk: r23b
+    gradleprops:
+      - universal
+      - sponsor
+      - adultScrape
+
+  - versionName: 6.0.70
+    versionCode: 600070
+    commit: cd83abb34bcb361619662f01e03e1c45d45efdf1
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build build-essential openjdk-11-jdk-headless python3-wheel
+        wget
+      - update-alternatives --auto java
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+      - FileCoreLibrary/libs/*jar
+      - native/opus-android-builder/lib
+      - native/openssl-android-builder/dist-*
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmdline-tools;latest'
+      - $$SDK$$/cmdline-tools/latest/bin/sdkmanager 'cmake;3.18.1'
+    ndk: r23b
+    gradleprops:
+      - universal
+      - sponsor
+      - adultScrape
+
+  - versionName: 6.0.71
+    versionCode: 600071
+    commit: 084cc6addaafb56634beb42ad498f5cd23cb4f07
+    subdir: Video
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing nasm
+      - apt-get install -y ninja-build build-essential openjdk-11-jdk-headless python3-wheel
+        wget
+      - update-alternatives --auto java
+      - pip3 install meson==0.53.2
+    gradle:
+      - noamazon
+    output: build/outputs/apk/noamazon/release/Video-universal-release-unsigned.apk
+    rm:
+      - native/torrentd/libs
+      - native/dav1d-android-builder/build-*
+      - native/ffmpeg-android-builder/dist-full-*
+      - MediaLib/libs/*jar
+      - FileCoreLibrary/libs/*jar
+      - native/opus-android-builder/lib
+      - native/openssl-android-builder/dist-*
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmdline-tools;latest'
+      - $$SDK$$/cmdline-tools/latest/bin/sdkmanager 'cmake;3.18.1'
+    ndk: r23b
+    gradleprops:
+      - universal
+      - sponsor
+      - adultScrape
+
+MaintainerNotes: |-
+    aos-fdroid git is dedicated to F-Droid builds and is updated from upstream repos.
+    meson version is forced to 0.53.2 because 0.54.0 breaks dav1d's build.
+    MediaLibs/libs/*.jar and FileCoreLibrary/libs/*.jar are built in prebuild gradle phase, generating a warning about jar blobs at end of the build.
+
+AutoUpdateMode: Version v%v_c%c
+UpdateCheckMode: Tags
+CurrentVersion: 6.0.71
+CurrentVersionCode: 600071

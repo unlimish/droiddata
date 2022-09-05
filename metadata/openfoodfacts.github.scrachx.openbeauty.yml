@@ -35,7 +35,7 @@ Description: |-
     specificities of cosmetics.
 
     Open Beauty Facts is also available on the web at
-    [https://world.openbeautyfacts.org world.openbeautyfacts.org].  Questions,
+    <a href="https://world.openbeautyfacts.org">world.openbeautyfacts.org</a>.  Questions,
     feedback: [mailto:contact@openfoodfacts.org contact@openfoodfacts.org].
 
 RepoType: git
@@ -245,7 +245,60 @@ Builds:
       - sed -i 's/\r$//' ../gradle/wrapper/gradle-wrapper.properties
       - sed -i '/javaMaxHeapSize/d' build.gradle
 
-AutoUpdateMode: Version %v
+  - versionName: 3.2.8
+    versionCode: 328
+    commit: 3.2.8
+    subdir: app
+    gradle:
+      - obf
+    prebuild:
+      - sed -i 's/\r$//' ../gradle/wrapper/gradle-wrapper.properties
+      - sed -i '/javaMaxHeapSize/d' build.gradle
+
+  - versionName: 3.6.3
+    versionCode: 431
+    disable: fails to build
+    commit: 3.6.3
+    subdir: app
+    gradle:
+      - obf
+    prebuild:
+      - sed -i 's/\r$//' ../gradle/wrapper/gradle-wrapper.properties
+      - sed -i '/javaMaxHeapSize/d' build.gradle.kts
+
+  - versionName: 3.6.8
+    versionCode: 433
+    disable: mlkit
+    commit: 4af091d54c7cee7efad49ef3ae256c3ff4540f92
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - obf
+      - fdroid
+    prebuild:
+      - sed -i 's/\r$//' ../gradle/wrapper/gradle-wrapper.properties
+      - sed -i '/javaMaxHeapSize/d' build.gradle.kts
+
+  - versionName: 3.8.1
+    versionCode: 582
+    disable: mlkit
+    commit: ebe542a24b37fcde0572d76829428fb61654467f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - obf
+      - fdroid
+    prebuild:
+      - sed -i 's/\r$//' ../gradle/wrapper/gradle-wrapper.properties
+      - sed -i -e '/mlkit/d' build.gradle.kts
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.2.5
-CurrentVersionCode: 325
+CurrentVersion: 3.8.1
+CurrentVersionCode: 582

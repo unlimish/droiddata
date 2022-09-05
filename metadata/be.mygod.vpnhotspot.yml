@@ -11,6 +11,9 @@ FlattrID: e0ggg2
 
 AutoName: VPN Hotspot
 Description: |-
+    <b>Note:</b> This app won't be updated. Please use
+    https://f-droid.org/packages/be.mygod.vpnhotspot.foss instead.
+
     This app is useful for:
 
     * Connecting things that don’t support VPN like Chromecasts behind corporate firewalls;
@@ -228,165 +231,10 @@ Builds:
       - freedom
     prebuild: sed -i -e '14,16d' -e '/google-services/d' -e '/io.fabric./d' ../build.gradle
 
-  - versionName: 2.3.0
-    versionCode: 119
-    commit: 2.3.0
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-      - sed -i -e 's/5.2-/5.1-/' ../gradle/wrapper/gradle-wrapper.properties
-
-  - versionName: 2.4.0
-    versionCode: 200
-    commit: v2.4.0
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-      - sed -i -e 's/5.2-/5.1-/' ../gradle/wrapper/gradle-wrapper.properties
-
-  - versionName: 2.4.3
-    versionCode: 203
-    commit: v2.4.3
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-      - sed -i -e 's/5.2-/5.1-/' ../gradle/wrapper/gradle-wrapper.properties
-
-  - versionName: 2.4.4
-    versionCode: 204
-    commit: v2.4.4
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-      - sed -i -e 's/5.2-/5.1-/' ../gradle/wrapper/gradle-wrapper.properties
-
-  - versionName: 2.4.5
-    versionCode: 205
-    disable: 'Unresolved reference: crashlytics'
-    commit: v2.4.5
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.5.1
-    versionCode: 208
-    commit: v2.5.1
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.5.2
-    versionCode: 209
-    commit: v2.5.2
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.5.3
-    versionCode: 210
-    commit: v2.5.3
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.5.4
-    versionCode: 211
-    commit: v2.5.4
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.5.5
-    versionCode: 212
-    commit: v2.5.5
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.6.2
-    versionCode: 215
-    commit: v2.6.2
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.6.3
-    versionCode: 216
-    disable: unknown maven repo 'https://kotlin.bintray.com/kotlinx'
-    commit: v2.6.3
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.6.4
-    versionCode: 217
-    commit: v2.6.4
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.6.5
-    versionCode: 218
-    commit: v2.6.5
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.7.1
-    versionCode: 220
-    commit: v2.7.1
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
+ArchivePolicy: 0 versions
 AutoUpdateMode: None
-UpdateCheckMode: Tags
-CurrentVersion: 2.8.1
-CurrentVersionCode: 222
+UpdateCheckMode: None
+CurrentVersion: 2.2.3
+CurrentVersionCode: 118
 
-NoSourceSince: 2.7.1
+NoSourceSince: 2.2.3

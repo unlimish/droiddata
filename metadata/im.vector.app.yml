@@ -1,0 +1,936 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Internet
+  - Phone & SMS
+License: Apache-2.0
+AuthorName: New Vector Ltd.
+AuthorEmail: press@element.io
+WebSite: https://element.io/
+SourceCode: https://github.com/vector-im/element-android
+IssueTracker: https://github.com/vector-im/element-android/issues
+Translation: https://translate.element.io/projects/element-android/element-app/
+Changelog: https://github.com/vector-im/element-android/blob/HEAD/CHANGES.md
+LiberapayID: '10794'
+Bitcoin: 1LxowEgsquZ3UPZ68wHf8v2MDZw82dVmAEa
+
+RepoType: git
+Repo: https://github.com/vector-im/element-android/
+
+Builds:
+  - versionName: 0.91.5
+    versionCode: 40091050
+    commit: v0.91.5
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.0
+    versionCode: 40100000
+    commit: v1.0.0
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.2
+    versionCode: 40100020
+    commit: v1.0.2
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.3
+    versionCode: 40100030
+    commit: v1.0.3
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.4
+    versionCode: 40100040
+    commit: v1.0.4
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.5
+    versionCode: 40100050
+    commit: v1.0.5
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.6
+    versionCode: 40100060
+    commit: v1.0.6
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.7
+    versionCode: 40100070
+    commit: v1.0.7
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.8
+    versionCode: 40100080
+    commit: v1.0.8
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.9
+    versionCode: 40100090
+    commit: v1.0.9
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - sed -i -e 's/gradle-6.7/gradle-6.6.1/' ../gradle/wrapper/gradle-wrapper.properties
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.10
+    versionCode: 40100100
+    commit: v1.0.10
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - sed -i -e 's/gradle-6.7/gradle-6.6.1/' ../gradle/wrapper/gradle-wrapper.properties
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.11
+    versionCode: 40100110
+    commit: v1.0.11
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - sed -i -e 's/gradle-6.7.1/gradle-6.6.1/' ../gradle/wrapper/gradle-wrapper.properties
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.12
+    versionCode: 40100120
+    commit: v1.0.12
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.14
+    versionCode: 40100140
+    commit: v1.0.14
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.17
+    versionCode: 40100170
+    commit: v1.0.17
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.6.2
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/com.google.firebase/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21d
+
+  - versionName: 1.1.3
+    versionCode: 40101030
+    commit: v1.1.3
+    subdir: vector
+    patch:
+      - 62038e8a898d351064623bc7677bf275d05f66c1.patch
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.7.1
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/firebase-messaging/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/21.3.6528147/21.4.7075529/g' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21e
+
+  - versionName: 1.1.5
+    versionCode: 40101050
+    commit: v1.1.5
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.7.1
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/firebase-messaging/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/21.3.6528147/21.4.7075529/g' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21e
+
+  - versionName: 1.1.6
+    versionCode: 40101060
+    commit: v1.1.6
+    subdir: vector
+    gradle:
+      - fdroid
+    srclibs:
+      - piasy@v1.7.1
+    prebuild:
+      - tac ../build.gradle | awk '/dl.bintray.com\/piasy\/maven/{getline;$0="mavenLocal
+        {"}{print $0}' | tac > ../build.gradle.new
+      - mv ../build.gradle.new ../build.gradle
+      - sed -i -e '/firebase-messaging/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/21.3.6528147/21.4.7075529/g' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21e
+
+  - versionName: 1.1.7
+    versionCode: 40101070
+    commit: v1.1.7
+    subdir: vector
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/firebase-messaging/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/21.3.6528147/21.4.7075529/g' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21e
+
+  - versionName: 1.1.8
+    versionCode: 40101080
+    commit: v1.1.8
+    subdir: vector
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/firebase-messaging/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/21.3.6528147/21.4.7075529/g' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21e
+
+  - versionName: 1.1.9
+    versionCode: 40101090
+    commit: v1.1.9
+    subdir: vector
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/firebase-messaging/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/21.3.6528147/21.4.7075529/g' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21e
+
+  - versionName: 1.1.12
+    versionCode: 40101120
+    commit: v1.1.12
+    subdir: vector
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/firebase-messaging/,+5d' build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+      - sed -i -e 's/21.3.6528147/21.4.7075529/g' build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+    scanignore:
+      - build.gradle
+    ndk: r21e
+
+  - versionName: 1.1.14
+    versionCode: 40101140
+    commit: v1.1.14
+    subdir: vector
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm jq
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-3.1.0
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/Jitsi repo/,/}/d' ../build.gradle
+      - sed -i -e '/google()/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install webpack-bundle-analyzer
+      - npm install
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.2.0
+    versionCode: 40102000
+    commit: v1.2.0
+    subdir: vector
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm jq
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-3.1.0
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/Jitsi repo/,/}/d' ../build.gradle
+      - sed -i -e '/google()/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install webpack-bundle-analyzer
+      - npm install
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.2.2
+    versionCode: 40102020
+    commit: v1.2.2
+    subdir: vector
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-3.1.0
+    prebuild:
+      - sed -i -e '/org.gradle.jvmargs/d' ../gradle.properties
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/Jitsi repo/,/}/d' ../build.gradle
+      - sed -i -e '/google()/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install webpack-bundle-analyzer
+      - npm install
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.3.1
+    versionCode: 40103010
+    commit: v1.3.1
+    subdir: vector
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-3.1.0
+    prebuild:
+      - sed -i -e '/org.gradle.jvmargs/d' ../gradle.properties
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/Jitsi repo/,/}/d' ../build.gradle
+      - sed -i -e '/google()/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install webpack-bundle-analyzer
+      - npm install
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.3.3
+    versionCode: 40103030
+    commit: v1.3.3
+    subdir: vector
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-3.1.0
+    prebuild:
+      - sed -i -e '/org.gradle.jvmargs/d' ../gradle.properties
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/Jitsi repo/,/}/d' ../build.gradle
+      - sed -i -e '/google()/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install webpack-bundle-analyzer
+      - npm install
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.3.7
+    versionCode: 40103070
+    commit: v1.3.7-RC2
+    subdir: vector
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-3.1.0
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/Jitsi repo/,/}/d' ../build.gradle
+      - sed -i -e '/google()/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install webpack-bundle-analyzer
+      - npm install
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.3.9
+    versionCode: 40103090
+    commit: v1.3.9
+    subdir: vector
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-3.10.0
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/Jitsi repo/,/}/d' ../build.gradle
+      - sed -i -e '/google()/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install webpack-bundle-analyzer
+      - npm install
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.3.14
+    versionCode: 40103140
+    commit: v1.3.14
+    subdir: vector
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    patch:
+      - build_gradle_remove_jitsi_repo_40103100.patch
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-3.10.0
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/repositories {/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install webpack-bundle-analyzer
+      - npm install
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.3.15
+    versionCode: 40103150
+    commit: v1.3.15
+    subdir: vector
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    patch:
+      - build_gradle_remove_jitsi_repo_40103100.patch
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-3.10.0
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/repositories {/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install webpack-bundle-analyzer
+      - npm install
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.4.19
+    versionCode: 40104190
+    commit: v1.4.19
+    subdir: vector
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+      - echo "e40c6f81bfd078976d85296b5e657be19e06862497741ad82902d0704b34bb1b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    patch:
+      - build_gradle_remove_jitsi_repo_40104160.patch
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-5.0.2
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/repositories {/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install --save false webpack-bundle-analyzer
+      - npm ci
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.4.20
+    versionCode: 40104200
+    commit: v1.4.20
+    subdir: vector
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+      - echo "e40c6f81bfd078976d85296b5e657be19e06862497741ad82902d0704b34bb1b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    patch:
+      - build_gradle_remove_jitsi_repo_40104160.patch
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-5.0.2
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/repositories {/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install --save false webpack-bundle-analyzer
+      - npm ci
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.4.25
+    versionCode: 40104250
+    commit: v1.4.25
+    subdir: vector
+    sudo:
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+      - echo "e40c6f81bfd078976d85296b5e657be19e06862497741ad82902d0704b34bb1b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+    patch:
+      - build_gradle_remove_jitsi_repo_40104160.patch
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-5.0.2
+    prebuild:
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/repositories {/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install --save false webpack-bundle-analyzer
+      - npm ci
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.4.32
+    versionCode: 40104320
+    commit: v1.4.32
+    subdir: vector
+    sudo:
+      - cd /opt/android-sdk/ndk
+      - rm -fr $(ls | sed 's/21.3.6528147//')
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+      - echo "e40c6f81bfd078976d85296b5e657be19e06862497741ad82902d0704b34bb1b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
+        libopus0
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288 || true
+    patch:
+      - build_gradle_remove_jitsi_repo_40104160.patch
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-5.0.2
+      - maplibre-gl-native@android-v9.5.2
+    prebuild:
+      - sed -i -e '/applicationIdSuffix/d' -e '/^repositories {/a mavenLocal()' build.gradle
+      - sed -i -e 's/org.maplibre.gl/org.fdroid/' build.gradle $$maplibre-gl-native$$/platform/android/gradle/artifact-settings.gradle
+      - pushd $$maplibre-gl-native$$/platform/android/MapboxGLAndroidSDK
+      - sed -i -e '/signing {/,/}/d' -e '/signing/d' ../gradle/gradle-publish.gradle
+      - sed -i -e '/gmsLocation/d' build.gradle
+      - cd src/main/java/com/mapbox/mapboxsdk/location/engine
+      - sed -i -e '/isOnClasspath(GOOGLE_API_AVAILABILITY)/,/}/d' -e '/import.*gms/d'
+        -e 's|return isGoogle|return //isGoogle|' LocationEngineProvider.java
+      - rm GoogleLocationEngineImpl.java
+      - sed -i -e '/private.*extractGooglePlayResult/,/^  }/d' -e '/extractGooglePlayResult/d'
+        -e '/import.*gms/d' LocationEngineResult.java
+      - popd
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' build.gradle
+      - sed -i -e '/repositories {/a\        mavenLocal()' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - pushd $$maplibre-gl-native$$/platform/android
+      - git submodule update --init --recursive
+      - BUILDTYPE=Release make apackage
+      - gradle -Pmapbox.abis=all -PVERSION_NAME=9.5.2 :MapboxGLAndroidSDK:publishToMavenLocal
+      - popd
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install --save false webpack-bundle-analyzer
+      - npm ci
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+  - versionName: 1.4.34
+    versionCode: 40104340
+    commit: v1.4.34
+    subdir: vector
+    sudo:
+      - cd /opt/android-sdk/ndk
+      - rm -fr $(ls | sed 's/21.3.6528147//')
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz
+      - echo "e40c6f81bfd078976d85296b5e657be19e06862497741ad82902d0704b34bb1b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports jq openjdk-11-jdk-headless openjdk-11-jre-headless
+        libopus0
+      - update-alternatives --auto java
+      - sysctl fs.inotify.max_user_watches=524288 || true
+    patch:
+      - build_gradle_remove_jitsi_repo_40104160.patch
+    gradle:
+      - fdroid
+    srclibs:
+      - jitsi-meet@android-sdk-5.0.2
+      - maplibre-gl-native@android-v9.5.2
+    prebuild:
+      - sed -i -e '/applicationIdSuffix/d' -e '/^repositories {/a mavenLocal()' build.gradle
+      - sed -i -e 's/org.maplibre.gl/org.fdroid/' build.gradle $$maplibre-gl-native$$/platform/android/gradle/artifact-settings.gradle
+      - pushd $$maplibre-gl-native$$/platform/android/MapboxGLAndroidSDK
+      - sed -i -e '/signing {/,/}/d' -e '/signing/d' ../gradle/gradle-publish.gradle
+      - sed -i -e '/gmsLocation/d' build.gradle
+      - cd src/main/java/com/mapbox/mapboxsdk/location/engine
+      - sed -i -e '/isOnClasspath(GOOGLE_API_AVAILABILITY)/,/}/d' -e '/import.*gms/d'
+        -e 's|return isGoogle|return //isGoogle|' LocationEngineProvider.java
+      - rm GoogleLocationEngineImpl.java
+      - sed -i -e '/private.*extractGooglePlayResult/,/^  }/d' -e '/extractGooglePlayResult/d'
+        -e '/import.*gms/d' LocationEngineResult.java
+      - popd
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle ../build.gradle
+      - sed -i -e 's/enable true/enable false/g' -e '/firebase.appdistribution/d'
+        -e '/AppDistribution {/,/}/d' build.gradle
+      - sed -i -e '/repositories {/a\        mavenLocal()' -e '/firebase/d' ../build.gradle
+      - sed -i -e '/gplayImplementation(.*) {/,/}/d; /gplayImplementation/d' build.gradle
+    build:
+      - pushd $$maplibre-gl-native$$/platform/android
+      - git submodule update --init --recursive
+      - BUILDTYPE=Release make apackage
+      - gradle -Pmapbox.abis=all -PVERSION_NAME=9.5.2 :MapboxGLAndroidSDK:publishToMavenLocal
+      - popd
+      - cd $$jitsi-meet$$
+      - export LIBRE_BUILD=true
+      - npm install --save false webpack-bundle-analyzer
+      - npm ci
+      - mkdir -p "$HOME/.m2"
+      - bash android/scripts/release-sdk.sh "$HOME/.m2/repository"
+      - mkdir -p "$HOME/.m2/repository/org/webkit"
+      - cp -r node_modules/jsc-android/dist/org/webkit/android-jsc "$HOME/.m2/repository/org/webkit"
+    ndk: r21d
+
+MaintainerNotes: Do not update unless requested by the Element team! The Element team
+    will ping us whenever they feel a new release is ready. See https://github.com/vector-im/element-android/issues/3728
+    as an example of their release process. AntiFeature NonFreeNet is added because
+    each chat has a "Add Matrix apps" button which by default links to the proprietary
+    scalar.vector.im service.
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 1.4.34
+CurrentVersionCode: 40104340

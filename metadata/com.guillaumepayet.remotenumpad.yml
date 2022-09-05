@@ -1,0 +1,65 @@
+Categories:
+  - System
+License: GPL-3.0-only
+AuthorName: Guillaume Payet
+AuthorEmail: theolizard@gmail.com
+SourceCode: https://github.com/theolizard/remote-numpad
+IssueTracker: https://github.com/theolizard/remote-numpad/issues
+
+AutoName: Remote Numpad
+
+RepoType: git
+Repo: https://github.com/theolizard/remote-numpad
+
+Builds:
+  - versionName: 1.6.2
+    versionCode: 25
+    commit: 1.6.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.6.3
+    versionCode: 26
+    commit: 1.6.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.6.4
+    versionCode: 27
+    commit: 1.6.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.7.0
+    versionCode: 28
+    commit: 1.7.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.7.1
+    versionCode: 29
+    commit: 1.7.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.8.0
+    versionCode: 30
+    commit: c2ecd961de4ee6ec72d46e75b6faa6a389d45230
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/firebase/d' -e '/gms/d' build.gradle ../build.gradle
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 1.8.0
+CurrentVersionCode: 30

@@ -2,32 +2,16 @@ Categories:
   - Multimedia
   - Internet
 License: GPL-3.0-only
-SourceCode: https://github.com/ultrasonic/ultrasonic
-IssueTracker: https://github.com/ultrasonic/ultrasonic/issues
+WebSite: https://ultrasonic.gitlab.io/
+SourceCode: https://gitlab.com/ultrasonic/ultrasonic
+IssueTracker: https://gitlab.com/ultrasonic/ultrasonic/issues
 Translation: https://www.transifex.com/ultrasonic/ultrasonic/
-Changelog: https://github.com/ultrasonic/ultrasonic/releases
+Changelog: https://gitlab.com/ultrasonic/ultrasonic/-/tags
 
-AutoName: UltraSonic
-Description: |-
-    Ultrasonic is a Subsonic client for Android. You can use Ultrasonic to connect
-    to a Subsonic (or Subsonic-compatible) server and listen to music.
-
-    Main features:
-
-    * Thin
-    * Fast
-    * Dark and light theme
-    * Multiple server support
-    * Offline mode
-    * Bookmarks
-    * Playlists on server
-    * Random play
-    * Jukebox mode
-    * Server chat
-    * And much more!!!
+AutoName: Ultrasonic
 
 RepoType: git
-Repo: https://github.com/ultrasonic/ultrasonic.git
+Repo: https://gitlab.com/ultrasonic/ultrasonic.git
 
 Builds:
   - versionName: '1.8'
@@ -102,7 +86,143 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.7.0
+    versionCode: 72
+    commit: 2.7.0
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.8.0
+    versionCode: 73
+    commit: 2.8.0
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.9.0
+    versionCode: 74
+    commit: 2.9.0
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.10.0
+    versionCode: 75
+    commit: 2.10.0
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.11.0
+    versionCode: 76
+    commit: 2.11.0
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.11.2
+    versionCode: 78
+    commit: 2.11.2
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.12.0
+    versionCode: 79
+    commit: 2.12.0
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.13.0
+    versionCode: 80
+    commit: 2.13.0
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.14.0
+    versionCode: 81
+    commit: 2.14.0
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.15.0
+    versionCode: 82
+    commit: 2.15.0
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.16.0
+    versionCode: 83
+    commit: 2.16.0
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.17.0
+    versionCode: 84
+    commit: 2.17.0
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.17.1
+    versionCode: 85
+    commit: 2.17.1
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.17.2
+    versionCode: 86
+    commit: 2.17.2
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.17.3
+    versionCode: 87
+    commit: 2.17.3
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 2.18.0
+    versionCode: 88
+    commit: 2.18.0
+    subdir: ultrasonic
+    gradle:
+      - yes
+
+  - versionName: 3.2.0
+    versionCode: 103
+    commit: f121e297df2968d1cc8818547186fcbcf129c2a8
+    subdir: ultrasonic
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.0.0
+    versionCode: 104
+    commit: 9cb77c0e676cd341d885dfa44af6e2a76fd0b517
+    subdir: ultrasonic
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.6.2
-CurrentVersionCode: 71
+CurrentVersion: 4.0.0
+CurrentVersionCode: 104

@@ -69,7 +69,32 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.4.0
+    versionCode: 7
+    commit: v1.4.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.4.1
+    versionCode: 8
+    commit: v1.4.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.4.2
+    versionCode: 9
+    commit: a80732c63c88553b0cd1e10f4bf831553446c028
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.3.2
-CurrentVersionCode: 6
+CurrentVersion: 1.4.2
+CurrentVersionCode: 9

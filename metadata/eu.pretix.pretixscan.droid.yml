@@ -1,3 +1,5 @@
+AntiFeatures:
+  - Tracking
 Categories:
   - Multimedia
 License: Apache-2.0
@@ -14,6 +16,8 @@ Description: |-
     If you organize your conference with pretix, you can use this application to scan the tickets at the entrance.
 
     This app is free software licensed under the Apache license. The source code can be found at: https://github.com/pretix/pretixscan-android
+
+    Tracking due to Sentry which cannot be disabled by the user.
 
 RepoType: git
 Repo: https://github.com/pretix/pretixscan-android
@@ -55,7 +59,153 @@ Builds:
       - yes
     output: build/outputs/apk/pretix/release/app-pretix-release-unsigned.apk
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.4.0
+    versionCode: 22
+    commit: v1.4.0
+    subdir: pretixscan/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/pretix/release/app-pretix-release-unsigned.apk
+
+  - versionName: 1.4.1
+    versionCode: 23
+    commit: v1.4.1
+    subdir: pretixscan/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/pretix/release/app-pretix-release-unsigned.apk
+
+  - versionName: 1.4.2
+    versionCode: 25
+    commit: 1.4.2
+    subdir: pretixscan/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/pretix/release/app-pretix-release-unsigned.apk
+
+  - versionName: 1.5.0
+    versionCode: 26
+    commit: v1.5.0
+    subdir: pretixscan/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/pretix/release/app-pretix-release-unsigned.apk
+
+  - versionName: 1.5.1
+    versionCode: 27
+    commit: v1.5.1
+    subdir: pretixscan/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/pretix/release/app-pretix-release-unsigned.apk
+
+  - versionName: 1.6.0
+    versionCode: 28
+    commit: v1.6.0
+    subdir: pretixscan/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/pretix/release/app-pretix-release-unsigned.apk
+
+  - versionName: 1.6.1
+    versionCode: 29
+    commit: v1.6.1
+    subdir: pretixscan/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/pretix/release/app-pretix-release-unsigned.apk
+
+  - versionName: 1.7.0
+    versionCode: 30
+    commit: v1.7.0
+    subdir: pretixscan/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/pretix/release/app-pretix-release-unsigned.apk
+
+  - versionName: 1.8.0
+    versionCode: 31
+    commit: v1.8.0
+    subdir: pretixscan/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/pretix/release/app-pretix-release-unsigned.apk
+
+  - versionName: 1.11.9
+    versionCode: 56
+    commit: v1.11.9
+    subdir: pretixscan/app
+    submodules: true
+    gradle:
+      - pretix
+    srclibs:
+      - saki4510t-libcommon@2.12.4
+      - covpass-android@v-1.38.0
+    prebuild:
+      - sed -i -e 's|maven.pkg.github.com/Digitaler-Impfnachweis/covpass-android|jitpack.io|'
+        -i -e '/repositories {/a mavenLocal()' ../build.gradle
+      - sed -i -e "s/(project(':libuvccamera'))/('com.github.raphaelm.UVCCamera:libuvccamera:53d043fea2')
+        {exclude group:'com.serenegiant',module:'common'}/" -i -e "s/(project(':usbCameraCommon'))/('com.github.raphaelm.UVCCamera:usbCameraCommon:53d043fea2')
+        {exclude group:'com.serenegiant',module:'common'}/" -i -e '/maven {/,/^    }/d'
+        -i -e '/repositories {/a mavenLocal()' ../libpretixui-repo/libpretixui-android/build.gradle
+    scandelete:
+      - pretixscan/libpretixui-repo
+    build:
+      - pushd $$saki4510t-libcommon$$/common
+      - gradle uploadArchives
+      - popd
+      - mv $$saki4510t-libcommon$$/repository/com/serenegiant/common/2.12.4/common-2.12.4.aar
+        ../libpretixui-repo/common/common.aar
+      - pushd $$covpass-android$$
+      - gradle publishToMavenLocal
+      - popd
+
+  - versionName: 1.13.4
+    versionCode: 65
+    disable: covpass build failed
+    commit: d3fd47b5576d54fbec48703aa72afb06b0347610
+    subdir: pretixscan/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - pretix
+    srclibs:
+      - saki4510t-libcommon@2.12.4
+      - covpass-android@v-1.335.11
+    prebuild:
+      - sed -i -e 's|maven.pkg.github.com/Digitaler-Impfnachweis/covpass-android|jitpack.io|'
+        -e 's|maven.pkg.github.com/ehn-dcc-development/*|jitpack.io|' -i -e '/repositories
+        {/a mavenLocal()' ../build.gradle
+      - sed -i -e "s/(project(':libuvccamera'))/('com.github.raphaelm.UVCCamera:libuvccamera:53d043fea2')
+        {exclude group:'com.serenegiant',module:'common'}/" -i -e "s/(project(':usbCameraCommon'))/('com.github.raphaelm.UVCCamera:usbCameraCommon:53d043fea2')
+        {exclude group:'com.serenegiant',module:'common'}/" -i -e '/maven {/,/^    }/d'
+        -i -e '/repositories {/a mavenLocal()' ../libpretixui-repo/libpretixui-android/build.gradle
+    scandelete:
+      - pretixscan/libpretixui-repo
+    build:
+      - pushd $$saki4510t-libcommon$$/common
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 gradle uploadArchives
+      - popd
+      - mv $$saki4510t-libcommon$$/repository/com/serenegiant/common/2.12.4/common-2.12.4.aar
+        ../libpretixui-repo/common/common.aar
+      - pushd $$covpass-android$$
+      - sed -i -e '/:app-/d' -e '/:common-app/d' settings.gradle
+      - gradle publishToMavenLocal
+      - popd
+
+AutoUpdateMode: None
 UpdateCheckMode: Tags
-CurrentVersion: 1.2.5
-CurrentVersionCode: 20
+CurrentVersion: 2.0.1
+CurrentVersionCode: 72

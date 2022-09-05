@@ -12,23 +12,6 @@ LiberapayID: '34751'
 Bitcoin: 12JaQp8zfqRb83JfSwVjH4rZWsZnWRPoyG
 
 AutoName: Liberario
-Description: |-
-    The public transport companion that respects your privacy and your freedom.
-    Transportr is a non-profit app developed by people around the world to make
-    using public transport as easy as possible wherever you are.
-
-    Currently, it works best in Europe, but also supports many places world-wide. If
-    you live in an unsupported area, consider adding it to Transportr.
-
-    It finds directions from your home, your current position or a given station to
-    wherever you want to go. You can also save entire trips as favorites and find
-    next trips with one click.
-
-    Discover nearby stations and show upcoming departures including the delays (if
-    there are any).
-
-    [https://github.com/grote/Transportr/blob/master/README.md#screenshots
-    Screenshots]
 
 RepoType: git
 Repo: https://github.com/grote/Transportr.git
@@ -291,79 +274,29 @@ Builds:
     gradleprops:
       - buildServer
 
-  - versionName: 2.0.0
-    versionCode: 108
-    commit: 2.0.0
+  - versionName: 2.1.4
+    versionCode: 122
+    disable: https://gitlab.com/fdroid/fdroidserver/-/issues/1004, mapbox
+    commit: facb4230fee83723ceeee8ec55bb519ad690072d
     subdir: app
     gradle:
       - yes
+    srclibs:
+      - gradlewitnessakwizgran@0bd93192051f6327e4dea5b296bf32644dd0dae1
+    rm:
+      - app/libs/gradle-witness.jar
+    prebuild:
+      - pushd $$gradlewitnessakwizgran$$
+      - gradle build
+      - popd
+      - mv $$gradlewitnessakwizgran$$/build/libs/gradlewitnessakwizgran.jar libs/gradle-witness.jar
+    scanignore:
+      - app/libs/gradle-witness.jar
+    ndk: r21e
     gradleprops:
       - buildServer
 
-  - versionName: 2.0.1
-    versionCode: 109
-    commit: 2.0.1
-    subdir: app
-    gradle:
-      - yes
-    gradleprops:
-      - buildServer
-
-  - versionName: 2.0.2
-    versionCode: 111
-    commit: 2.0.2
-    subdir: app
-    gradle:
-      - yes
-    gradleprops:
-      - buildServer
-
-  - versionName: 2.0.3
-    versionCode: 112
-    commit: 2.0.3
-    subdir: app
-    gradle:
-      - yes
-    gradleprops:
-      - buildServer
-
-  - versionName: 2.0.4
-    versionCode: 113
-    commit: 2.0.4
-    subdir: app
-    gradle:
-      - yes
-    gradleprops:
-      - buildServer
-
-  - versionName: 2.0.5
-    versionCode: 114
-    commit: 2.0.5
-    subdir: app
-    gradle:
-      - yes
-    gradleprops:
-      - buildServer
-
-  - versionName: 2.0.6
-    versionCode: 115
-    commit: 2.0.6
-    subdir: app
-    gradle:
-      - yes
-    gradleprops:
-      - buildServer
-
-  - versionName: 2.0.8
-    versionCode: 117
-    commit: 2.0.8
-    subdir: app
-    gradle:
-      - yes
-    gradleprops:
-      - buildServer
-
-AutoUpdateMode: Version %v
+AutoUpdateMode: None
 UpdateCheckMode: Tags
-CurrentVersion: 2.0.8
-CurrentVersionCode: 117
+CurrentVersion: 2.1.4
+CurrentVersionCode: 122

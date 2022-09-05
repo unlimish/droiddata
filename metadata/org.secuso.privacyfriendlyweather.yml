@@ -13,20 +13,6 @@ IssueTracker: https://github.com/SecUSo/privacy-friendly-weather/issues
 Changelog: https://github.com/SecUSo/privacy-friendly-weather/blob/HEAD/CHANGELOG.md
 
 AutoName: Weather
-Description: |-
-    Lets you watch the weather for cities and locations. This includes the current
-    weather as well as a 5 day / 3 hour forecast. Furthermore, Privacy Friendly
-    Weather provides a radius search. This makes it possible to find the locations
-    around a given location which have the best weather conditions at the moment.
-
-    Weather data is provided by [http://openweathermap.org/ Open Weather Map].
-
-    The app belongs to the group of Privacy Friendly Apps developed at the
-    [https://secuso.org/ SECUSO research group] of Technische Universitaet
-    Darmstadt. It does not require any permission and relinquishes advertisement and
-    tracking mechanisms.
-
-    ''NonFreeNet:'' OpenWeatherMap service itself is not open source.
 
 RepoType: git
 Repo: https://github.com/SecUSo/privacy-friendly-weather
@@ -60,7 +46,92 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: '2.2'
+    versionCode: 7
+    commit: v2.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '2.4'
+    versionCode: 9
+    commit: v2.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.4.1
+    versionCode: 10
+    commit: v2.4.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.4.2
+    versionCode: 11
+    commit: v2.4.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '3.0'
+    versionCode: 12
+    commit: '3.0'
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 3.0.1
+    versionCode: 13
+    commit: v3.0.1
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 3.0.2
+    versionCode: 14
+    commit: v3.0.2
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 3.0.3
+    versionCode: 15
+    commit: ff5c32c80f54e282984bdbd3cd4c0ce44d2c60f4
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 3.1.0
+    versionCode: 16
+    disable: https://github.com/SecUSo/privacy-friendly-weather/issues/195
+    commit: d791b2c5b63f987e2cc89537d4d60399722f6dc2
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.1.1
+    versionCode: 17
+    commit: a108f928aa0c9503c2e50e3ff0b742b582004976
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.1.1
-CurrentVersionCode: 6
+CurrentVersion: 3.1.1
+CurrentVersionCode: 17

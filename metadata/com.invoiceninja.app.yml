@@ -1,0 +1,610 @@
+Categories:
+  - Money
+License: AAL
+AuthorName: Invoice Ninja
+AuthorEmail: contact@invoiceninja.com
+AuthorWebSite: https://www.invoiceninja.com/
+WebSite: https://www.invoiceninja.org/
+SourceCode: https://github.com/invoiceninja/admin-portal
+IssueTracker: https://github.com/invoiceninja/admin-portal/issues
+
+AutoName: Invoice Ninja
+
+RepoType: git
+Repo: https://github.com/invoiceninja/admin-portal
+
+Builds:
+  - versionName: 5.0.44
+    versionCode: 44
+    commit: v5.0.44
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@1.27.0-1.0.pre
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 5.0.46
+    versionCode: 46
+    commit: v5.0.46
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.0.5
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 5.0.47
+    versionCode: 47
+    commit: v5.0.47
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.0.5
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 5.0.49
+    versionCode: 49
+    commit: v5.0.50
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.0.5
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 5.0.52
+    versionCode: 52
+    commit: fd4343c79d4cf7bc98813a1ac58084380dcc8d5c
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.0.5
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.56
+    versionCode: 56
+    commit: ec83d230ce370d5ccf3f9d27db48aab68078a979
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.0.5
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.66
+    versionCode: 66
+    commit: v5.0.66
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.3
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.67
+    versionCode: 67
+    commit: v5.0.67
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.6.0-11.0.pre
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.69
+    versionCode: 69
+    commit: 693a13ff04ced52273588fe5873139ad377b2fda
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.6.0-11.0.pre
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.70
+    versionCode: 70
+    commit: c47ef4cbf2ea0444cf0028da09235c20bd5f35ab
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.6.0-11.0.pre
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.72
+    versionCode: 72
+    commit: 6face1fd3f5b5e35beca83aaebc5f1a3f39bfcaf
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.6.0-11.0.pre
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.73
+    versionCode: 73
+    commit: db4bba3aa908c2f43436cff526b2b2f2a89e43f9
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.6.0-11.0.pre
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.76
+    versionCode: 76
+    commit: 4663876a88dd12c1936f0d2e689163f105d0e886
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.6.0-11.0.pre
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.77
+    versionCode: 77
+    commit: 7e2eb3dff4721dd2197e2581e5c5c16eefbc6850
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.78
+    versionCode: 78
+    commit: 9447968fee36f28aa417ab227d3e0d6af7ba795b
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.80
+    versionCode: 80
+    commit: 8cde737e95eca248e6851b9f67d53e2bb19736f0
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.81
+    versionCode: 81
+    commit: 61a759da2929443197535ff672ae3bef29211470
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.83
+    versionCode: 83
+    commit: 8f9c357fd13cb4454eb6fcbcabd8dece2ebf8fcf
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.87
+    versionCode: 87
+    commit: 10b2c6794cf87c969335f0f0f4d46f3b5591cf2e
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.88
+    versionCode: 88
+    commit: 8218d57cf2b78ae46167727985cd6fca7b085860
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.90
+    versionCode: 90
+    commit: 8a7db076d0fe0cac7d7d06d7d0c1b3843a43e8d3
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.4
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+      - sed -i -e '/google_sign_in/d' -e '/in_app_review/d' -e '/in_app_purchase/d'
+        pubspec.yaml
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.92
+    versionCode: 92
+    disable: https://github.com/invoiceninja/admin-portal/issues/478
+    commit: b2b40fe7406dcf712b4c80e5c4c20ca5311ffbca
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.4
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - rm pubspec.lock
+      - sed -i -e '/google_sign_in/d' -e '/in_app_review/d' -e '/in_app_purchase/d'
+        pubspec.yaml
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+AutoUpdateMode: None
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 5.0.92
+CurrentVersionCode: 92

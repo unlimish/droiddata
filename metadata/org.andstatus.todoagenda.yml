@@ -2,7 +2,7 @@ Categories:
   - Time
 License: Apache-2.0
 SourceCode: https://github.com/andstatus/todoagenda
-IssueTracker: https://github.com/plusonelabs/calendar-widget/issues
+IssueTracker: https://github.com/andstatus/todoagenda/issues
 Changelog: https://github.com/andstatus/todoagenda/blob/HEAD/README.md#changelog
 
 AutoName: Todo Agenda
@@ -25,8 +25,8 @@ Description: |-
     * Indicators for alerts and recurring events.
     * Lock time zone when travelling to different time zones.
     * Turn off Widget or Day headers, event icons, Days from today, etc. and see only what you need.
-    * Android 7.1+ supported. Supports Android tablets.
-    For the older devices please use "Todo Agenda for Android 4 - 7.0" app [[com.plusonelabs.calendar]]
+    * Android 7.0+ supported. Supports Android tablets.
+    For the older devices please use <a href="https://f-droid.org/en/packages/com.plusonelabs.calendar/">Todo Agenda for Android 4 - 7.0</a> app.
 
 RepoType: git
 Repo: https://github.com/andstatus/todoagenda.git
@@ -46,11 +46,105 @@ Builds:
     gradle:
       - yes
 
-MaintainerNotes: |-
-    Upstream generates CV and CVC from git, so we don't catch that anymore,
-    see https://github.com/plusonelabs/calendar-widget/issues/210.
+  - versionName: 4.1.0
+    versionCode: 681
+    commit: 4.1.0-release
+    subdir: app
+    gradle:
+      - yes
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: 3.1.9-565
-CurrentVersionCode: 565
+  - versionName: 4.1.1
+    versionCode: 682
+    commit: 4.1.1-release
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.2.2
+    versionCode: 685
+    commit: 4.2.2-release
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.2.3
+    versionCode: 686
+    commit: 4.2.3-release
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.3.1
+    versionCode: 689
+    commit: 4.3.1-release
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.3.2
+    versionCode: 690
+    commit: 4.3.2-release
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.4.0
+    versionCode: 691
+    commit: 4.4.0-release
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.5.3
+    versionCode: 695
+    commit: 6d5264a2d915969f9fd0b685f795ff5c2894468f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.5.4
+    versionCode: 696
+    commit: 6ec5eba71ecf4cac7237aa4f0b12174f9c87bbaf
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.5.5
+    versionCode: 697
+    commit: 88da1512bbde1f59245ec7b9f16913f69150eb27
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.5.6
+    versionCode: 698
+    commit: 9be0a485a4347ef82a052cc61815f89ae5bf1e80
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+MaintainerNotes: |-
+    Since v.4.1 upstream reverted to static versionName and versionCode,
+    at least till F-Droid starts supporting this,
+    see https://gitlab.com/fdroid/fdroidserver/-/issues/420#note_299995680
+
+AutoUpdateMode: Version %v-release
+UpdateCheckMode: Tags ^[0-9.]+-release$
+CurrentVersion: 4.5.6
+CurrentVersionCode: 698

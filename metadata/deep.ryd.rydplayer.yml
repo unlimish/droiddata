@@ -275,7 +275,17 @@ Builds:
       - $flutter config --no-analytics
       - $flutter packages get
 
+  - versionName: 2.2.0
+    versionCode: 64
+    commit: v2.2.0
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.1
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.1.6
-CurrentVersionCode: 63
+CurrentVersion: 2.2.0
+CurrentVersionCode: 64

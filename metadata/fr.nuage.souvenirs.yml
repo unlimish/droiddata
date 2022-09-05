@@ -1,0 +1,129 @@
+Categories:
+  - Graphics
+  - Multimedia
+License: GPL-3.0-or-later
+AuthorName: Francois Valley
+AuthorEmail: zorgluf@gmail.com
+SourceCode: https://github.com/zorgluf/souvenirs-android
+IssueTracker: https://github.com/zorgluf/souvenirs-android/issues
+Donate: https://github.com/zorgluf/souvenirs-android/blob/main/README.md
+
+AutoName: Souvenirs
+
+RepoType: git
+Repo: https://github.com/zorgluf/souvenirs-android
+
+Builds:
+  - versionName: 1.3.2
+    versionCode: 8
+    commit: v1.3.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.4.0
+    versionCode: 9
+    commit: v1.4.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.0
+    versionCode: 10
+    commit: v2.0.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.1
+    versionCode: 11
+    commit: v2.0.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.2
+    versionCode: 12
+    commit: v2.0.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.0
+    versionCode: 13
+    commit: v2.1.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.2.0
+    versionCode: 14
+    disable: https://github.com/zorgluf/souvenirs-android/issues/7
+    commit: c9a982df5838c7fe23b7df4a1bb13ae8adc2f6ff
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.2.1
+    versionCode: 15
+    commit: 9c4380aaaef9aeed275df3160ff3129033600ed2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.1
+    versionCode: 16
+    commit: c5d30da364e2d0ebb73fe0cf5282ecb5cd7c999c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.2
+    versionCode: 17
+    commit: 039e772d543d172e1c8f6032425c7ddf008bddb1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.6.1
+    versionCode: 22
+    commit: cfff2d99cdc0423e39f6968ca0bac4f16c3009e8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/gradle
+
+  - versionName: 2.7.0
+    versionCode: 23
+    commit: 2700b42ab224962869968f1f29953a389b04734f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/gradle
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags v\d+\.\d+(\.\d+)?
+CurrentVersion: 2.7.0
+CurrentVersionCode: 23

@@ -7,14 +7,14 @@ Changelog: https://github.com/SpiritCroc/DarkCroc-Android-theme/releases
 
 AutoName: DarkCroc Theme
 Description: |-
-    '''IMPORTANT:''' You need the Substratum theming platform working on your
+    <b>IMPORTANT:</b> You need the Substratum theming platform working on your
     device! Read the inbuilt information before reporting any issues!
 
     Theme for Substratum, originally based on the default AOSP dark material
     colors; then extended to provide more variants to allow configuration
     according to the user's taste.
 
-    This is the successor theme of [[de.spiritcroc.defaultdarktheme_oms]] series
+    This is the successor theme of https://f-droid.org/packages/de.spiritcroc.defaultdarktheme_oms series
     for newer Android versions, starting with Android 9.
 
 RepoType: git
@@ -93,7 +93,15 @@ Builds:
       - yes
     prebuild: sed -i -e 's/\"generate_/\"\.\.\/generate_/g' build.gradle
 
+  - versionName: '1.10'
+    versionCode: 11
+    commit: v1.10
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/\"generate_/\"\.\.\/generate_/g' build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.9'
-CurrentVersionCode: 10
+CurrentVersion: '1.10'
+CurrentVersionCode: 11

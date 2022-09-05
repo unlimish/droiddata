@@ -4,22 +4,10 @@ Categories:
 License: GPL-3.0-only
 SourceCode: https://github.com/bk138/multivnc
 IssueTracker: https://github.com/bk138/multivnc/issues
-Changelog: https://github.com/bk138/multivnc/commits
+Changelog: https://raw.githubusercontent.com/bk138/multivnc/HEAD/android/ChangeLog.md
 LiberapayID: '1537855'
 
 AutoName: MultiVNC
-Description: |-
-    It includes the following features:
-
-    * Bonjour/ZeroConf service discovery that automatically detects supported VNC servers in your network.
-    * Virtual mouse button controls with haptic feedback.
-    * Two-finger swipe gesture recognition.
-    * A super fast touchpad mode for local use.
-    * Hardware-accelerated OpenGL drawing and zooming.
-    * Copy&paste to and from Android.
-    * Bookmarking of connections.
-
-    Versions 1.x.x are based on android-vnc-viewer, so do NOT support encryption nor connecting to OS X. Please hang on till 2.x.x is released!
 
 RepoType: git
 Repo: https://github.com/bk138/multivnc
@@ -160,7 +148,324 @@ Builds:
     scanignore:
       - contrib
 
+  - versionName: 1.8.10
+    versionCode: 65
+    commit: AndroidMultiVNC-1.8.10
+    subdir: android/app
+    gradle:
+      - yes
+    scanignore:
+      - contrib
+
+  - versionName: 1.9.0
+    versionCode: 67
+    commit: AndroidMultiVNC-1.9.0
+    subdir: android/app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 1.9.2
+    versionCode: 70
+    commit: AndroidMultiVNC-1.9.2
+    subdir: android/app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 1.9.3
+    versionCode: 71
+    commit: AndroidMultiVNC-1.9.3
+    subdir: android/app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 1.9.4
+    versionCode: 72
+    commit: AndroidMultiVNC-1.9.4
+    subdir: android/app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 1.9.5
+    versionCode: 73
+    commit: AndroidMultiVNC-1.9.5
+    subdir: android/app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 1.9.6
+    versionCode: 74
+    commit: AndroidMultiVNC-1.9.6
+    subdir: android/app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 1.9.7
+    versionCode: 75
+    commit: AndroidMultiVNC-1.9.7
+    subdir: android/app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 1.9.8
+    versionCode: 76
+    commit: AndroidMultiVNC-1.9.8
+    subdir: android/app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 1.9.9
+    versionCode: 77
+    commit: AndroidMultiVNC-1.9.9
+    subdir: android/app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 1.9.10
+    versionCode: 78
+    commit: AndroidMultiVNC-1.9.10
+    subdir: android/app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 1.9.11
+    versionCode: 79
+    commit: AndroidMultiVNC-1.9.11
+    subdir: android/app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 2.0.1
+    versionCode: 81
+    commit: 5bdc71290bce56df43ce9c4c412b47156a593dfb
+    subdir: android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 2.0.2
+    versionCode: 84
+    commit: 918ec12ac1cea4062a96dd2ce2c046f9e0da3a39
+    subdir: android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 2.0.3
+    versionCode: 85
+    commit: 417e89d1be00de3376147948c4cdc4260d78aaa9
+    subdir: android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 2.0.4
+    versionCode: 86
+    commit: 4be2d3fc43a9064a7dac185e5924beb8a4e1080e
+    subdir: android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 2.0.5
+    versionCode: 87
+    commit: 23cbadd313a9c2bb0bed6d568f6f2ca369139f9b
+    subdir: android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 2.0.6
+    versionCode: 88
+    commit: 30f995b82ca0c26886f18fb5d1e5748fee31cdc3
+    subdir: android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+        > /dev/null
+      - ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 2.0.7
+    versionCode: 89
+    commit: b9879f6a28c32e0fcde89c7663a02c3584291ed8
+    subdir: android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+        > /dev/null
+      - ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 2.0.9
+    versionCode: 91
+    commit: f539f28f7eb02a08aa8dba339fe434be6d58a6b7
+    subdir: android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+        > /dev/null
+      - ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
+  - versionName: 2.0.10
+    versionCode: 92
+    commit: b6dabc705decc9b3693a7ed05b5d3cf6e0beb5f9
+    subdir: android/app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+        > /dev/null
+      - ../../prepareLibreSSL.sh
+    scanignore:
+      - contrib
+      - android/app/libs/
+    ndk: r21d
+
 AutoUpdateMode: Version AndroidMultiVNC-%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.8.9
-CurrentVersionCode: 63
+CurrentVersion: 2.0.10
+CurrentVersionCode: 92

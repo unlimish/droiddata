@@ -1,0 +1,55 @@
+Categories:
+  - Science & Education
+  - Reading
+License: EUPL-1.2
+AuthorName: Arne-Brün Vogelsang
+AuthorEmail: arne@monocles.de
+WebSite: https://monocles.de/more/
+SourceCode: https://codeberg.org/Arne/monocles_translator
+IssueTracker: https://codeberg.org/Arne/monocles_translator/issues
+Changelog: https://codeberg.org/Arne/monocles_translator/releases
+Donate: https://monocles.de/more/#donation-section
+
+AutoName: translator
+
+RepoType: git
+Repo: https://codeberg.org/Arne/monocles_translator.git
+
+Builds:
+  - versionName: '1.0'
+    versionCode: 1
+    commit: v1.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.1'
+    versionCode: 2
+    commit: d942ba27a8442af0b3233f7bfd832ba158ea26d6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.2'
+    versionCode: 3
+    commit: 5e81e52b2e3ebf972723823c9f4bd4eadd3042c4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags v\d+\.\d+(\.\d+)?
+CurrentVersion: '1.2'
+CurrentVersionCode: 3

@@ -1,12 +1,10 @@
-AntiFeatures:
-  - UpstreamNonFree
 Categories:
   - Games
 License: GPL-2.0-or-later
 WebSite: http://drodin.com/tuxrider
 SourceCode: https://github.com/drodin/TuxRider
 IssueTracker: https://github.com/drodin/TuxRider/issues
-Donate: http://drodin.com/tuxrider
+Donate: https://drodin.com/tuxrider
 
 AutoName: Tux Rider
 Description: |-
@@ -15,8 +13,6 @@ Description: |-
 
     Find the right angle to hold the device to gain maximum speed and press the
     screen to jump.
-
-    The build has Admob replaced with a dummy library.
 
 RepoType: git
 Repo: https://github.com/drodin/TuxRider.git
@@ -31,8 +27,20 @@ Builds:
     prebuild: echo "android.library.reference.1=$$MobAdMob$$" >> project.properties
     buildjni:
       - yes
+    ndk: r12b
 
-AutoUpdateMode: None
-UpdateCheckMode: RepoManifest
+  - versionName: 1.5.0
+    versionCode: 15
+    commit: v1.5.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - $ANDROID_HOME/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+      - echo "cmake.dir=$ANDROID_HOME/cmake/3.10.2.4988404" >> ../local.properties
+    ndk: r18b
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
 CurrentVersion: 1.5.0
 CurrentVersionCode: 15

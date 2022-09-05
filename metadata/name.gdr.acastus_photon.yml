@@ -11,15 +11,6 @@ Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=VTUD5XRYMT
 Bitcoin: 1NjjuTxXm3ezpnVUGk4VmdEZUcym3SKZ8z
 
 AutoName: Acastus Photon
-Description: |-
-    A private, free and open source replacement for Google Maps
-    and other geocoding services that relies on Photon, which you
-    can run on your own server. It uses the Photon API to fetch results
-    to your phone, allowing you to search for places in Acastus Photon.
-    Then open and navigate to the result in your preferred navigation app,
-    such as OsmAnd or Maps.me.
-
-    This is a fork of Acastus by DanielBarnett714, which used the Pelias API.
 
 RepoType: git
 Repo: https://github.com/gjedeer/Acastus
@@ -48,7 +39,63 @@ Builds:
       - yes
     prebuild: sed -i -e "21 ilintOptions{disable 'MissingTranslation'}" build.gradle
 
+  - versionName: '1.19'
+    versionCode: 19
+    commit: '1.19'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "21 ilintOptions{disable 'MissingTranslation'}" build.gradle
+
+  - versionName: '1.21'
+    versionCode: 21
+    commit: '1.21'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "21 ilintOptions{disable 'MissingTranslation'}" build.gradle
+
+  - versionName: '1.22'
+    versionCode: 22
+    commit: '1.22'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "21 ilintOptions{disable 'MissingTranslation'}" build.gradle
+
+  - versionName: '1.23'
+    versionCode: 23
+    commit: '1.23'
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "21 ilintOptions{disable 'MissingTranslation'}" build.gradle
+
+  - versionName: '1.24'
+    versionCode: 24
+    commit: dbfc9b3e27c37a4c43de4c121a8cb7668807beee
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "21 ilintOptions{disable 'MissingTranslation'}" build.gradle
+
+  - versionName: '1.25'
+    versionCode: 25
+    commit: 14a92d102e098f159551ba9f2668276b7637faea
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "21 ilintOptions{disable 'MissingTranslation'}" build.gradle
+
+  - versionName: '1.26'
+    versionCode: 26
+    commit: 1f6e94a972c7232e9ba1179bdfc9b1ec240ca6c5
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "21 ilintOptions{disable 'MissingTranslation'}" build.gradle
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '1.16'
-CurrentVersionCode: 18
+CurrentVersion: '1.26'
+CurrentVersionCode: 26

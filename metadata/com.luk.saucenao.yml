@@ -4,13 +4,14 @@ Categories:
   - Internet
   - Multimedia
 License: Apache-2.0
+AuthorName: luk1337
+AuthorEmail: priv.luk@gmail.com
+AuthorWebSite: https://kremowka.xyz
 SourceCode: https://github.com/LuK1337/SauceNAO
 IssueTracker: https://github.com/luk1337/SauceNAO/issues
+Translation: https://crowdin.com/project/saucenao-android
 
 AutoName: SauceNAO
-Description: |-
-    Unofficial application for [https://saucenao.com SauceNAO] reverse image search
-    engine.
 
 RepoType: git
 Repo: https://github.com/LuK1337/SauceNAO
@@ -51,7 +52,107 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.5'
+    versionCode: 6
+    commit: v1.5
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.6'
+    versionCode: 7
+    commit: v1.6
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/6.8-rc-1/6.7/' ../gradle/wrapper/gradle-wrapper.properties
+
+  - versionName: '1.7'
+    versionCode: 8
+    commit: v1.7
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/6.8-rc-1/6.7/' ../gradle/wrapper/gradle-wrapper.properties
+
+  - versionName: '1.8'
+    versionCode: 9
+    commit: afd6df3397c9665a97a36460db6e48289015a4b2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - github
+
+  - versionName: '1.9'
+    versionCode: 11
+    commit: 9be68c12e6a028c4c73e6358a7ad2b52810688de
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - github
+
+  - versionName: '1.10'
+    versionCode: 12
+    commit: c83fc3389b2826f3d11a5e463877fd74718b19c1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - github
+
+  - versionName: '1.11'
+    versionCode: 13
+    commit: e61e778fe12d3bb6e271000665b1976571e16d89
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - github
+
+  - versionName: '1.12'
+    versionCode: 14
+    commit: d05d1feb84ef8ee4a61caca8f209aabb58bfb1ed
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - github
+
+  - versionName: '1.13'
+    versionCode: 15
+    commit: 93891f229d8c585d4bb62ef63372f34f8e049691
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - github
+
+  - versionName: '1.14'
+    versionCode: 16
+    commit: dadb655d03d5e1daf63d7eb577926265d04646fa
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - github
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.4'
-CurrentVersionCode: 5
+CurrentVersion: '1.14'
+CurrentVersionCode: 16

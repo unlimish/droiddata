@@ -8,9 +8,9 @@ SourceCode: https://github.com/Alcidauk/CineLog
 IssueTracker: https://github.com/Alcidauk/CineLog/issues
 
 AutoName: CineLog
-Description: Search for films with [https://www.themoviedb.org/ tmdb.org] API. Save
-    them to your local database. Add review and rating to watched films. Rate and
-    review films that does not exist in tmdb too.
+Description: Search for films with <a href="https://www.themoviedb.org/">tmdb.org</a>
+    API. Save them to your local database. Add review and rating to watched films.
+    Rate and review films that does not exist in tmdb too.
 
 RepoType: git
 Repo: https://github.com/Alcidauk/CineLog.git
@@ -100,7 +100,57 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.3.0
+    versionCode: 26
+    commit: v1.3.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.3.1
+    versionCode: 27
+    commit: v1.3.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.3.2
+    versionCode: 28
+    commit: v1.3.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.3.3
+    versionCode: 29
+    commit: v1.3.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.4.1
+    versionCode: 31
+    commit: 98857a7a9204b190fddea31d2c397fdb261080f4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.5.0
+    versionCode: 32
+    commit: 676d20bd3651fc4fc1644eda43059e563d1386a1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.2.5
-CurrentVersionCode: 25
+CurrentVersion: 1.5.0
+CurrentVersionCode: 32

@@ -5,13 +5,13 @@ Categories:
 License: GPL-3.0-only
 AuthorName: Infomaniak
 WebSite: https://www.infomaniak.com
-SourceCode: https://gitlab.com/infomaniak/android-infomaniak-sync
+SourceCode: https://github.com/Infomaniak/android-kSync
 IssueTracker: https://contact.infomaniak.com
 
 AutoName: kSync
 
 RepoType: git
-Repo: https://gitlab.com/infomaniak/android-infomaniak-sync.git
+Repo: https://github.com/Infomaniak/android-kSync.git
 
 Builds:
   - versionName: '1.3'
@@ -30,7 +30,67 @@ Builds:
     gradle:
       - free
 
-AutoUpdateMode: Version %v
+  - versionName: '1.5'
+    versionCode: 25
+    commit: '1.5'
+    subdir: app
+    submodules: true
+    gradle:
+      - free
+
+  - versionName: 1.5.1
+    versionCode: 26
+    commit: 1.5.1
+    subdir: app
+    submodules: true
+    gradle:
+      - free
+
+  - versionName: 1.5.2
+    versionCode: 27
+    commit: 1.5.2
+    subdir: app
+    submodules: true
+    gradle:
+      - free
+
+  - versionName: 4.1.1
+    versionCode: 401010002
+    commit: 4.1.1
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.2.1
+    versionCode: 402010004
+    commit: a60ffd94f0810331b9d3bcfac5a162ccf0fcd6ef
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.2.2
+    versionCode: 402020000
+    commit: 24019759d6b90a508e1cf7a9e2d3cd0fcdd3a83c
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.4'
-CurrentVersionCode: 24
+CurrentVersion: 4.2.2
+CurrentVersionCode: 402020000

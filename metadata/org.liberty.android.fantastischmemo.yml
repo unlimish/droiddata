@@ -193,26 +193,31 @@ Builds:
     scanignore:
       - app/src/main/res/raw/gestures
 
-  - versionName: '10.10'
-    versionCode: 225
-    disable: non-free, https://github.com/helloworld1/AnyMemo/issues/436
-    commit: '10.10'
+  - versionName: 10.11.7
+    versionCode: 237
+    commit: 10.11.7
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
-      - free
+      - freeApi16
+    rm:
+      - app/src/androidTest/assets/zip-test.zip
     prebuild:
       - pushd src/main/java/org/liberty/android/fantastischmemo/common
       - mv AMSecrets.java.template  AMSecrets.java
       - popd
-      - sed -i -e '/maven.google.com/d' -e '/play-services-auth/d' build.gradle
     scanignore:
       - app/src/main/res/raw/gestures
 
 MaintainerNotes: |-
     * replace achartengine with sourcebuild (xlythe?)
     * clean!
+    Non-free: https://github.com/helloworld1/AnyMemo/issues/436 -- solved, see https://github.com/helloworld1/AnyMemo/issues/519
 
-AutoUpdateMode: None
+AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 10.11.4
-CurrentVersionCode: 234
+CurrentVersion: 10.11.7
+CurrentVersionCode: 237

@@ -109,7 +109,31 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.14'
+    versionCode: 15
+    commit: v1.14
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - pushd ../gradle/wrapper
+      - mv gradle-wrapper.properties gradle-wrapper.properties_orig
+      - tr -d '\r' < gradle-wrapper.properties_orig >gradle-wrapper.properties
+      - popd
+
+  - versionName: '1.15'
+    versionCode: 16
+    commit: v1.15
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - pushd ../gradle/wrapper
+      - mv gradle-wrapper.properties gradle-wrapper.properties_orig
+      - tr -d '\r' < gradle-wrapper.properties_orig >gradle-wrapper.properties
+      - popd
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.12'
-CurrentVersionCode: 13
+CurrentVersion: '1.15'
+CurrentVersionCode: 16

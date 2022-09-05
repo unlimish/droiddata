@@ -191,7 +191,45 @@ Builds:
     gradle:
       - yes
 
+  - versionName: v1.19
+    versionCode: 32
+    commit: v1.19
+    subdir: app
+    gradle:
+      - yes
+    ndk: r21d
+
+  - versionName: v1.20
+    versionCode: 33
+    commit: v1.20
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: v1.21
+    versionCode: 34
+    commit: 2ad8f087e9b7212d10866f1ccab5caa73c126190
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: v1.22
+    versionCode: 35
+    commit: 507d6cbb21053d3d7972eded01230af8925ac8c1
+    subdir: aat-android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    ndk: r21d
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: v1.18
-CurrentVersionCode: 31
+CurrentVersion: v1.22
+CurrentVersionCode: 35

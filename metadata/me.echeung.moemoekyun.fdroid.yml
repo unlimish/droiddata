@@ -180,6 +180,7 @@ Builds:
 
   - versionName: 5.1.0
     versionCode: 87
+    disable: gms code through exoplayer-cast plugin
     commit: v5.1.0
     subdir: app
     gradle:
@@ -187,8 +188,116 @@ Builds:
     scandelete:
       - .gradle
 
+  - versionName: 5.2.0
+    versionCode: 90
+    commit: v5.2.0
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 5.2.1
+    versionCode: 91
+    commit: v5.2.1
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 5.2.2
+    versionCode: 92
+    commit: v5.2.2
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 5.3.1
+    versionCode: 93
+    commit: v5.3.1
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 5.3.2
+    versionCode: 94
+    commit: v5.3.2
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 5.3.3
+    versionCode: 95
+    commit: v5.3.3
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 5.4.0
+    versionCode: 96
+    commit: a8a967ad248f4e16e898be351cd357c19154cf77
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 5.4.1
+    versionCode: 97
+    commit: e63e58185dd60269d5d8511c032c179a7d628bbd
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 5.5.1
+    versionCode: 99
+    commit: 5177f746d08398a76b64e2af2ec915cc0db8032f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 5.5.2-beta.1
+    versionCode: 100
+    commit: ed2b27eaabc072f7a37c9e6428f35db8e4c19458
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 5.5.2-beta.2
+    versionCode: 101
+    commit: 5255bd2b492f459f1cad05fa2c8fc94acc78fabc
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 5.4.2
+    versionCode: 105
+    commit: c8088cbc40399c2b8f49f2493d927180cdf5936c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
 UpdateCheckName: me.echeung.moemoekyun
-CurrentVersion: 5.1.0
-CurrentVersionCode: 87
+CurrentVersion: 5.4.2
+CurrentVersionCode: 105

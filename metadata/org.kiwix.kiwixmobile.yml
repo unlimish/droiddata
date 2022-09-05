@@ -12,7 +12,7 @@ Changelog: https://github.com/kiwix/kiwix-android/blob/HEAD/CHANGELOG
 AutoName: Kiwix
 Description: |-
     Kiwix lets you read Wikipedia and other websites without an Internet connection.
-    It uses the highly compressed [http://www.openzim.org/ ZIM format] to store
+    It uses the highly compressed <a href="http://www.openzim.org/">ZIM format</a> to store
     webpages for quick and easy reading.
 
     The app is a lightweight piece of software reading bigger files stored on your
@@ -167,12 +167,85 @@ Builds:
     gradleprops:
       - disableSigning
 
+  - versionName: 3.2.1
+    versionCode: 230201
+    commit: 3.2.1
+    subdir: app
+    gradle:
+      - yes
+    output: build/outputs/apk/release/dev-universal-release-unsigned.apk
+    prebuild: sed -i -e '/disableSigning/a \ \ \ \ \ \ \ \ signingConfig = null' build.gradle.kts
+    scanignore:
+      - buildSrc
+    gradleprops:
+      - disableSigning
+
+  - versionName: 3.3.1
+    versionCode: 230301
+    commit: 3.3.1
+    subdir: app
+    gradle:
+      - yes
+    output: build/outputs/apk/release/dev-universal-release-unsigned.apk
+    prebuild: sed -i -e '/disableSigning/a \ \ \ \ \ \ \ \ signingConfig = null' build.gradle.kts
+    scandelete:
+      - contrib/move-string-resource
+    gradleprops:
+      - disableSigning
+
+  - versionName: 3.4.1
+    versionCode: 230401
+    commit: 3.4.1
+    subdir: app
+    gradle:
+      - yes
+    output: build/outputs/apk/release/dev-universal-release-unsigned.apk
+    prebuild: sed -i -e '/disableSigning/a \ \ \ \ \ \ \ \ signingConfig = null' build.gradle.kts
+    scandelete:
+      - contrib/move-string-resource
+    ndk: r21d
+    gradleprops:
+      - disableSigning
+
+  - versionName: 3.5.0
+    versionCode: 7230500
+    commit: 3.5.0
+    subdir: app
+    gradle:
+      - yes
+    output: build/outputs/apk/release/dev-universal-release-unsigned.apk
+    prebuild: sed -i -e '/disableSigning/a \ \ \ \ \ \ \ \ signingConfig = null' build.gradle.kts
+    scandelete:
+      - contrib/move-string-resource
+    ndk: r21e
+    gradleprops:
+      - disableSigning
+
+  - versionName: 3.6.0
+    versionCode: 7230600
+    commit: f7196018675ca3dbae5470e2ca4b6a9b56edc670
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/release/dev-universal-release-unsigned.apk
+    prebuild: sed -i -e '/disableSigning/a \ \ \ \ \ \ \ \ signingConfig = null' build.gradle.kts
+    scandelete:
+      - contrib/move-string-resource
+    ndk: r21e
+    gradleprops:
+      - disableSigning
+
 MaintainerNotes: |-
     For 2.2 and older repo: https://github.com/kiwix/kiwix-xulrunner
     Don't run `make android-deps` as that will download the SDK and NDK.
     As of 2.5.1 version is scripted.
 
-AutoUpdateMode: None
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.1.3
-CurrentVersionCode: 230103
+UpdateCheckData: VERSION_INFO|\n([0-9]*)|.|(.*)
+CurrentVersion: 3.6.0
+CurrentVersionCode: 7230600

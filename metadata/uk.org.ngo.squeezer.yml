@@ -1,33 +1,16 @@
-AntiFeatures:
-  - UpstreamNonFree
 Categories:
   - Multimedia
 License: Apache-2.0
-AuthorName: Nik Clayton
-AuthorEmail: nik@ngo.org.uk
-SourceCode: https://github.com/nikclayton/android-squeezer
-IssueTracker: https://github.com/nikclayton/android-squeezer/issues
-Translation: https://github.com/nikclayton/android-squeezer/wiki/Translating-Squeezer
-Changelog: https://github.com/nikclayton/android-squeezer/blob/HEAD/NEWS
+AuthorName: Kurt Aaholst
+SourceCode: https://github.com/kaaholst/android-squeezer
+IssueTracker: https://github.com/kaaholst/android-squeezer/issues
+Translation: https://github.com/kaaholst/android-squeezer/wiki/Translating-Squeezer
+Changelog: https://github.com/kaaholst/android-squeezer/blob/HEAD/NEWS
 
 AutoName: Squeezer
-Description: |-
-    Control your SqueezeCenter ("Slimserver") and Squeezebox (or multiple
-    squeezeboxes) from your Android gadget.
-
-    * Now playing, artwork, seeking within tracks, volume control
-    * Browse the library by artist, album, song title, genre, year, or playlist
-    * Browse the music folders (if supported by the server)
-    * Full library search
-    * Internet radio support (browse, staff picks, search)
-    * Scan the local network for compatible Squeezeservers
-
-    The Google Analytics library was replaced with a dummy library, so no usage
-    statistics will be sent even though there is a switch enabled in the
-    Preferences.
 
 RepoType: git
-Repo: https://github.com/nikclayton/android-squeezer.git
+Repo: https://github.com/kaaholst/android-squeezer
 
 Builds:
   - versionName: '0.9'
@@ -53,20 +36,71 @@ Builds:
       - rm -rf market
       - sed -i '/proguard/d' project.properties
 
-  - versionName: 1.4.0
-    versionCode: 53
-    disable: see maintainer notes
+  - versionName: 2.2.2
+    versionCode: 91
+    commit: 2.2.2
+    subdir: Squeezer
+    gradle:
+      - yes
 
-  - versionName: 1.4.1
-    versionCode: 56
-    disable: see maintainer notes
+  - versionName: 2.2.3
+    versionCode: 93
+    commit: 2.2.3
+    subdir: Squeezer
+    gradle:
+      - yes
 
-MaintainerNotes: |-
-    Includes both, Crashlytics and Google Analytics. Tags are un-
-    reliable since UCM reads the beta tag, not the live (~= release)
-    tag.
+  - versionName: 2.2.4
+    versionCode: 97
+    commit: 2.2.4
+    subdir: Squeezer
+    gradle:
+      - yes
 
-AutoUpdateMode: None
-UpdateCheckMode: Static
-CurrentVersion: 1.4.1
-CurrentVersionCode: 56
+  - versionName: 2.2.5
+    versionCode: 100
+    commit: 2.2.5
+    subdir: Squeezer
+    gradle:
+      - yes
+
+  - versionName: 2.2.6
+    versionCode: 101
+    commit: 2.2.6
+    subdir: Squeezer
+    gradle:
+      - yes
+
+  - versionName: 2.2.7
+    versionCode: 104
+    commit: 85c19a40adf571ff44881e37a7448fda81624ea0
+    subdir: Squeezer
+    gradle:
+      - yes
+
+  - versionName: 2.2.8
+    versionCode: 110
+    commit: 4be630900331c8c68fe0d7594de98e49a0182bcf
+    subdir: Squeezer
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.2.9
+    versionCode: 111
+    commit: d4c31f8108dc804d4910af865fe6be225edbcf97
+    subdir: Squeezer
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 2.2.9
+CurrentVersionCode: 111

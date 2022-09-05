@@ -7,6 +7,8 @@ Changelog: https://github.com/scoute-dich/Weather/blob/HEAD/CHANGELOG.md
 
 AutoName: FOSS Weather
 Description: |-
+    <b>NOTE:</b> This app is no longer maintained. Its repo has been archived.
+
     Show weather information from wetterdienst.de, meteoblue.com and the DWD.
 
     Features:
@@ -17,7 +19,7 @@ Description: |-
     * search and save other locations as bookmarks
     * usefull weather informations (satelitt, rain radar, topic of the day, ...)
 
-    [https://github.com/scoute-dich/Weather/blob/master/SCREENSHOTS.md Screenshots]
+    <a href="https://github.com/scoute-dich/Weather/blob/master/SCREENSHOTS.md">Screenshots</a>
 
 RepoType: git
 Repo: https://github.com/scoute-dich/Weather
@@ -212,8 +214,46 @@ Builds:
     subdir: app
     gradle:
       - yes
+    prebuild: sed -i -e "/legacy/aimplementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'"
+        build.gradle
+
+  - versionName: 4.7.1
+    versionCode: 56
+    commit: v4.7.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "/legacy/aimplementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'"
+        build.gradle
+
+  - versionName: 4.9.1
+    versionCode: 60
+    commit: 4.9.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "/legacy/aimplementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'"
+        build.gradle
+
+  - versionName: 5.0.1
+    versionCode: 62
+    commit: v5.0.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "/legacy/aimplementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'"
+        build.gradle
+
+  - versionName: '5.1'
+    versionCode: 63
+    commit: v5.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e "/legacy/aimplementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'"
+        build.gradle
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '4.6'
-CurrentVersionCode: 53
+CurrentVersion: '5.1'
+CurrentVersionCode: 63

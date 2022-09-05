@@ -13,10 +13,10 @@ Description: |-
 
     Sending SMS from a Nextcloud instance will be coming in a future release.
 
-    Application is fully compatible from Android 4.0 to 8.0
+    Application is fully compatible from Android 4.0 to 10
 
     Note: This app needs a Nextcloud installation running the
-    [https://apps.nextcloud.com/apps/ocsms ocsms]
+    <a href="https://apps.nextcloud.com/apps/ocsms">ocsms</a>
     app.
 
 RepoType: git
@@ -397,10 +397,6 @@ Builds:
     rm:
       - gradle
     prebuild: sed -i -e '/jcenter()/a\        google()' build.gradle
-
-MaintainerNotes: |-
-    distributionUrl specifies Gradle 3.3, while Android Gradle plugin 3.0.0
-    requires Gradle 4.1 or later.
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags

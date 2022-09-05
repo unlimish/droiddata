@@ -1,27 +1,14 @@
 Categories:
-  - Internet
+  - Reading
 License: GPL-3.0-only
+AuthorName: mbach
 WebSite: https://mbach.github.io/LeMondeRssReader/
 SourceCode: https://github.com/MBach/LeMondeRssReader
 IssueTracker: https://github.com/MBach/LeMondeRssReader/issues
 Changelog: https://github.com/MBach/LeMondeRssReader/releases
 Bitcoin: 39RBokXr4V9FPpuF7v1bM6PYcbgRRApp9W
 
-AutoName: LeMonde
-Description: |-
-    This App for Android 4.0.3 Ice Cream Sandwich and later (Android P) features how
-    to read RSS stream from one website, and does some complex Web scraping. It
-    renders the items in the feed directly in native Android components, such as
-    TextView, ImageView.
-
-    This App was also built to be as fastest and simple as possible. Material design
-    guidelines were applied so you'll find:
-
-    * A navigation drawer with a header
-    * A SwipeRefresh layout to simply refresh the RSS feed
-    * A collapsing toolbar layout when you're consulting an article from the feed: expanded toolbar with header image is fading to simple toolbar
-    * Settings lets you customize the article you're currently reading, by excluding unnecessary content (like tweets), to leverage written content instead
-    * For Android 7.1 (API 25): dynamic App Shortcuts to quickly open the category that you're reading the most!
+AutoName: LeMondeRssReader
 
 RepoType: git
 Repo: https://github.com/MBach/LeMondeRssReader.git
@@ -132,7 +119,204 @@ Builds:
         ../build.gradle
       - sed -i -e 's/gradle-4.10/gradle-5.6.2/' gradle/wrapper/gradle-wrapper.properties
 
-AutoUpdateMode: Version v%v
+  - versionName: '1.19'
+    versionCode: 19
+    commit: v1.19
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e 's/com.android.tools.build:gradle:3.2.0-alpha05/com.android.tools.build:gradle:3.1.2/g'
+        ../build.gradle
+      - sed -i -e 's/gradle-4.10/gradle-5.6.2/' gradle/wrapper/gradle-wrapper.properties
+
+  - versionName: '1.20'
+    versionCode: 20
+    commit: v1.20
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e 's/com.android.tools.build:gradle:3.2.0-alpha05/com.android.tools.build:gradle:3.1.2/g'
+        ../build.gradle
+      - sed -i -e 's/gradle-4.10/gradle-5.6.2/' gradle/wrapper/gradle-wrapper.properties
+
+  - versionName: '1.21'
+    versionCode: 21
+    commit: v1.21
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e 's/com.android.tools.build:gradle:3.2.0-alpha05/com.android.tools.build:gradle:3.1.2/g'
+        ../build.gradle
+      - sed -i -e 's/gradle-4.10/gradle-5.6.2/' gradle/wrapper/gradle-wrapper.properties
+
+  - versionName: 2.1.3
+    versionCode: 26
+    commit: v2.1.3
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm
+    init:
+      - sed -E -i 's/^.*(fabric|com\.(crashlytics|google\.(firebase|android.gms))).*$//g'
+        build.gradle
+      - sed -E -i 's/^.*fabric.*$//g' ../build.gradle
+      - sed -E -i 's/libreBuild =.*$/libreBuild = true/g' ../build.gradle
+      - sed -E -i 's/^.*fabric.*$//g' ../../package.json
+      - sed -E -i 's/vcode =.*$/vcode = $$VERCODE$$/g' build.gradle
+      - sed -i '/flow-bin/d' ../../package.json
+      - sed -E -i 's/^.*libflacjs.*$//g' ../../package.json
+      - export LIBRE_BUILD=true
+      - npm install
+    gradle:
+      - yes
+    rm:
+      - node_modules/node-notifier
+      - node_modules/bplist-parser
+      - node_modules/jetifier/lib/*.jar
+      - node_modules/react-native/template
+      - node_modules/react-native/ReactAndroid/src/main/third-party/java/buck-android-support/buck-android-support.jar
+    scanignore:
+      - android/build.gradle
+      - node_modules/jsc-android
+      - node_modules/hermes-engine
+      - node_modules/react-native-svg/android/build.gradle
+      - node_modules/react-native/android
+      - node_modules/react-native-webview/android/build.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/react-native-reanimated/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/react-native-screens/android/build.gradle
+      - node_modules/react-native-safe-area-context/android/build.gradle
+      - node_modules/react-native-localize/android/build.gradle
+      - node_modules/react-native-vector-icons/android/build.gradle
+
+  - versionName: 2.1.4
+    versionCode: 27
+    commit: v2.1.4
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm
+    init:
+      - sed -E -i 's/^.*(fabric|com\.(crashlytics|google\.(firebase|android.gms))).*$//g'
+        build.gradle
+      - sed -E -i 's/^.*fabric.*$//g' ../build.gradle
+      - sed -E -i 's/libreBuild =.*$/libreBuild = true/g' ../build.gradle
+      - sed -E -i 's/^.*fabric.*$//g' ../../package.json
+      - sed -E -i 's/vcode =.*$/vcode = $$VERCODE$$/g' build.gradle
+      - sed -i '/flow-bin/d' ../../package.json
+      - sed -E -i 's/^.*libflacjs.*$//g' ../../package.json
+      - export LIBRE_BUILD=true
+      - npm install
+    gradle:
+      - yes
+    rm:
+      - node_modules/bplist-parser
+      - node_modules/jetifier/lib/*.jar
+      - node_modules/react-native/template
+      - node_modules/react-native/ReactAndroid/src/main/third-party/java/buck-android-support/buck-android-support.jar
+    scanignore:
+      - android/build.gradle
+      - node_modules/jsc-android
+      - node_modules/hermes-engine
+      - node_modules/react-native-svg/android/build.gradle
+      - node_modules/react-native/android
+      - node_modules/react-native-webview/android/build.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/react-native-reanimated/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/react-native-screens/android/build.gradle
+      - node_modules/react-native-safe-area-context/android/build.gradle
+      - node_modules/react-native-localize/android/build.gradle
+      - node_modules/react-native-vector-icons/android/build.gradle
+
+  - versionName: 2.1.5
+    versionCode: 28
+    disable: fails to build
+    commit: v2.1.5
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl -p
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports npm
+    init:
+      - sed -E -i 's/^.*(fabric|com\.(crashlytics|google\.(firebase|android.gms))).*$//g'
+        build.gradle
+      - sed -E -i 's/^.*fabric.*$//g' ../build.gradle
+      - sed -E -i 's/libreBuild =.*$/libreBuild = true/g' ../build.gradle
+      - sed -E -i 's/^.*fabric.*$//g' ../../package.json
+      - sed -E -i 's/vcode =.*$/vcode = $$VERCODE$$/g' build.gradle
+      - sed -i '/flow-bin/d' ../../package.json
+      - sed -E -i 's/^.*libflacjs.*$//g' ../../package.json
+      - export LIBRE_BUILD=true
+      - npm install
+    gradle:
+      - yes
+    rm:
+      - node_modules/bplist-parser
+      - node_modules/jetifier/lib/*.jar
+      - node_modules/react-native/template
+      - node_modules/react-native/ReactAndroid/src/main/third-party/java/buck-android-support/buck-android-support.jar
+    scanignore:
+      - android/build.gradle
+      - node_modules/jsc-android
+      - node_modules/hermes-engine
+      - node_modules/react-native-svg/android/build.gradle
+      - node_modules/react-native/android
+      - node_modules/react-native-webview/android/build.gradle
+      - node_modules/@react-native-community/async-storage/android/build.gradle
+      - node_modules/react-native-reanimated/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+      - node_modules/react-native-screens/android/build.gradle
+      - node_modules/react-native-safe-area-context/android/build.gradle
+      - node_modules/react-native-localize/android/build.gradle
+      - node_modules/react-native-vector-icons/android/build.gradle
+
+  - versionName: 2.1.6
+    versionCode: 29
+    commit: 2.1.6
+    subdir: android/app
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.6/node-v14.17.6-linux-x64.tar.xz
+      - echo "3bbe4faf356738d88b45be222bf5e858330541ff16bd0d4cfad36540c331461b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g yarn
+    gradle:
+      - yes
+    prebuild:
+      - cd ../..
+      - yarn
+      - sed -i -e '/installreferrer/,+11d' node_modules/react-native-device-info/android/build.gradle
+    scanignore:
+      - android/build.gradle
+      - node_modules/jsc-android
+      - node_modules/hermes-engine
+      - node_modules/react-native/android
+      - node_modules/react-native-device-info/android/build.gradle
+      - node_modules/react-native-svg/android/build.gradle
+      - node_modules/react-native-webview/android/build.gradle
+      - node_modules/react-native-reanimated/android/build.gradle
+      - node_modules/react-native-screens/android/build.gradle
+      - node_modules/react-native-safe-area-context/android/build.gradle
+      - node_modules/react-native-localize/android/build.gradle
+      - node_modules/react-native-vector-icons/android/build.gradle
+      - node_modules/@react-native-async-storage/async-storage/android/build.gradle
+      - node_modules/@react-native-community/masked-view/android/build.gradle
+    scandelete:
+      - node_modules
+    ndk: r20
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.18'
-CurrentVersionCode: 18
+CurrentVersion: 2.1.6
+CurrentVersionCode: 29

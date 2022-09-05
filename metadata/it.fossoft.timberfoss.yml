@@ -10,7 +10,7 @@ Description: |-
     because of non-free dependencies. This is the pure FOSS fork of the app,
     where all these non-free dependecies have been removed.
 
-    '''Features:'''
+    <b>Features:</b>
     * Material design
     * Browse Songs, Albums, Artists
     * Create and edit playlists
@@ -28,21 +28,21 @@ RepoType: git
 Repo: https://github.com/fabmazz/Timber
 
 Builds:
-  - versionName: '1.6'
-    versionCode: 20
-    commit: v1.6
+  - versionName: '1.8'
+    versionCode: 22
+    disable: https://github.com/fabmazz/Timber/issues/14
+    commit: 4001f15893d86f4bb94d50515e63e86833e8d028
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
+    prebuild: sed -i -e '/lintOptions {/a abortOnError false' -e '/com.anjlab.android.iab/d'
+        build.gradle
 
-  - versionName: 1.6.1
-    versionCode: 21
-    commit: v1.6.1
-    subdir: app
-    gradle:
-      - yes
-
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-CurrentVersion: 1.6.1
-CurrentVersionCode: 21
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: '1.8'
+CurrentVersionCode: 22

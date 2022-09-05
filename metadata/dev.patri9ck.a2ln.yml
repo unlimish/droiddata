@@ -1,0 +1,78 @@
+Categories:
+  - System
+  - Connectivity
+License: GPL-3.0-only
+AuthorName: patri9ck
+AuthorEmail: patri9ck@gmail.com
+AuthorWebSite: https://www.patri9ck.dev/
+WebSite: https://www.patri9ck.dev/a2ln/
+SourceCode: https://github.com/patri9ck/a2ln-app
+IssueTracker: https://github.com/patri9ck/a2ln-app/issues
+Donate: https://www.buymeacoffee.com/patri9ck
+
+AutoName: Android 2 Linux Notifications
+
+RepoType: git
+Repo: https://github.com/patri9ck/a2ln-app.git
+
+Builds:
+  - versionName: 1.0.2
+    versionCode: 3
+    commit: e119679a3f04c993a7c57e4d070f8d47a0efb7d2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.0
+    versionCode: 4
+    commit: 3aa38856ae0f274ed7cf9929cac7dd358caf64b0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.1
+    versionCode: 5
+    commit: f2a411d98b7cb015fe6e7698234339048d9a9400
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.2.0
+    versionCode: 6
+    commit: 922c360a7e65e18432b873a108a58c5c4f8aeb72
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.2.1
+    versionCode: 7
+    disable: https://github.com/patri9ck/a2ln-app/issues/24
+    commit: 6b761ee5014c1fd3a603370c35897019e777af34
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.2.1
+CurrentVersionCode: 7

@@ -73,7 +73,73 @@ Builds:
       - world
     ndk: r18b
 
+  - versionName: '2020.04'
+    versionCode: 77
+    commit: '2020.04'
+    subdir: app/
+    gradle:
+      - full
+      - world
+    ndk: r21
+
+  - versionName: '2020.09'
+    versionCode: 78
+    commit: '2020.09'
+    subdir: app/
+    gradle:
+      - full
+      - world
+    ndk: r21d
+
+  - versionName: '2021.03'
+    versionCode: 79
+    commit: '2021.03'
+    subdir: app/
+    gradle:
+      - full
+      - world
+    prebuild: sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: '2021.04'
+    versionCode: 80
+    commit: '2021.04'
+    subdir: app/
+    gradle:
+      - full
+      - world
+    prebuild: sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: '2022.04'
+    versionCode: 83
+    commit: 972734c5e5fd41bf51173eaf00dc5fc538e040cf
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - full
+      - world
+    prebuild: sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: '2022.05'
+    versionCode: 84
+    commit: 06d169753bf14fc7fc14187eda79679c2501d171
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - full
+      - world
+    prebuild: sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    ndk: r21e
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '2019.11'
-CurrentVersionCode: 75
+CurrentVersion: '2022.05'
+CurrentVersionCode: 84

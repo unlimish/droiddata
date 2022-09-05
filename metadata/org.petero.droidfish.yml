@@ -29,7 +29,7 @@ Description: |-
     * Gaviota endgame tablebases
     * Syzygy endgame tablebases
 
-    If you have [[org.scid.android]] installed you can read Scid database files
+    If you have https://f-droid.org/packages/org.scid.android installed you can read Scid database files
     directly from the app by long-pressing the board and choosing Load game from
     Scid file.
 
@@ -45,6 +45,7 @@ Builds:
     target: android-10
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '1.45'
     versionCode: 52
@@ -228,8 +229,8 @@ Builds:
     commit: '1.72'
     subdir: DroidFish
     sudo:
-      - apt update || apt update
-      - apt install -y proguard-cli
+      - apt-get update || apt-get update
+      - apt-get install -y proguard-cli
     prebuild:
       - echo 'source.dir=src;../CuckooChessEngine/src' > ant.properties
       - echo 'proguard.jar=/usr/share/java/proguard.jar' >> local.properties
@@ -247,8 +248,8 @@ Builds:
     commit: '1.73'
     subdir: DroidFish
     sudo:
-      - apt update || apt update
-      - apt install -y proguard-cli
+      - apt-get update || apt-get update
+      - apt-get install -y proguard-cli
     prebuild:
       - echo 'source.dir=src;../CuckooChessEngine/src' > ant.properties
       - echo 'proguard.jar=/usr/share/java/proguard.jar' >> local.properties
@@ -316,9 +317,98 @@ Builds:
       - CuckooChessEngine/src/main/resources/book.bin
     ndk: r19c
 
+  - versionName: '1.80'
+    versionCode: 90
+    commit: '1.80'
+    gradle:
+      - yes
+    output: DroidFishApp/build/outputs/apk/release/DroidFishApp-release-unsigned.apk
+    scandelete:
+      - buildSrc
+      - CuckooChessEngine/src/main/resources/book.bin
+    ndk: r19c
+
+  - versionName: '1.81'
+    versionCode: 91
+    commit: '1.81'
+    gradle:
+      - yes
+    output: DroidFishApp/build/outputs/apk/release/DroidFishApp-release-unsigned.apk
+    scandelete:
+      - buildSrc
+      - CuckooChessEngine/src/main/resources/book.bin
+    ndk: r19c
+
+  - versionName: '1.82'
+    versionCode: 92
+    commit: '1.82'
+    gradle:
+      - yes
+    output: DroidFishApp/build/outputs/apk/release/DroidFishApp-release-unsigned.apk
+    scandelete:
+      - buildSrc
+      - CuckooChessEngine/src/main/resources/book.bin
+    ndk: r19c
+
+  - versionName: '1.84'
+    versionCode: 94
+    commit: '1.84'
+    gradle:
+      - yes
+    output: DroidFishApp/build/outputs/apk/release/DroidFishApp-release-unsigned.apk
+    scanignore:
+      - DroidFishApp/src/main/assets/pieces/*.zip
+    scandelete:
+      - buildSrc
+      - CuckooChessEngine/src/main/resources/book.bin
+    ndk: r21d
+
+  - versionName: '1.85'
+    versionCode: 95
+    commit: '1.85'
+    gradle:
+      - yes
+    output: DroidFishApp/build/outputs/apk/release/DroidFishApp-release-unsigned.apk
+    scanignore:
+      - DroidFishApp/src/main/assets/pieces/*.zip
+    scandelete:
+      - buildSrc
+      - CuckooChessEngine/src/main/resources/book.bin
+    ndk: r21d
+
+  - versionName: '1.86'
+    versionCode: 96
+    commit: b64c4d1dac5f797423bbc9a5bf5cc4ccf80c3fa9
+    gradle:
+      - yes
+    output: DroidFishApp/build/outputs/apk/release/DroidFishApp-release-unsigned.apk
+    scanignore:
+      - DroidFishApp/src/main/assets/pieces/*.zip
+    scandelete:
+      - buildSrc
+      - CuckooChessEngine/src/main/resources/book.bin
+    ndk: r21d
+
+  - versionName: '1.87'
+    versionCode: 97
+    commit: 7be558d7732ccfb4ea72668adde8806681220f6b
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: DroidFishApp/build/outputs/apk/release/DroidFishApp-release-unsigned.apk
+    scanignore:
+      - DroidFishApp/src/main/assets/pieces/*.zip
+    scandelete:
+      - buildSrc
+      - CuckooChessEngine/src/main/resources/book.bin
+    ndk: r21e
+
 MaintainerNotes: scandelete cleans up binary files created by `gradle clean`.
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '1.79'
-CurrentVersionCode: 89
+CurrentVersion: '1.87'
+CurrentVersionCode: 97

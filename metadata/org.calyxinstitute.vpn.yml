@@ -1,27 +1,35 @@
 Categories:
   - Internet
   - Security
+  - Connectivity
 License: GPL-3.0-only
+AuthorName: Calyx Institute
+AuthorWebSite: https://calyxinstitute.org/
 WebSite: https://calyx.net
-SourceCode: https://gitlab.com/calyxos/bitmask_android
-IssueTracker: https://gitlab.com/calyxos/bitmask_android/issues
+SourceCode: https://gitlab.com/CalyxOS/bitmask_android
+IssueTracker: https://gitlab.com/CalyxOS/calyxos/-/issues
 Translation: https://www.transifex.com/otf/bitmask-android/
-Changelog: https://gitlab.com/calyxos/bitmask_android/blob/HEAD/CHANGELOG
+Changelog: https://gitlab.com/CalyxOS/bitmask_android/blob/HEAD/CHANGELOG
 Donate: https://calyxinstitute.org/
 Bitcoin: 14wntQ8cBdnhUVfYmDjXz6PbpSSX8nCtkr
 
 AutoName: CalyxVPN
 Description: |-
-    CalyxVPN is an application to provide easy and secure encrypted communication.
-    The app is a custom branded build of [[se.leap.bitmaskclient]]. This version is
-    preconfigured with one trusted provider—The Calyx Institute—and allows
-    anonymous VPN usage without any manual setup.
+    With CalyxVPN, you can safely encrypt all your network traffic and route it through the Calyx Institute.
 
-    By encrypting and securely routing all your network traffic through Calyx's
-    servers, CalyxVPN is able to prevent many forms of censorship and surveillance.
+    * Automatic Setup: There is nothing to configure.
+    * Anonymous VPN: No user accounts and no logging.
+    * Anonymous IP Address: When the VPN connection is active, all the servers on the internet will see you as originating from an anonymous IP hosted by Calyx.
+    * Free: This is a free service provided by the Calyx Institute.
+    * Open Source: Both the client and server are 100% free and open source software.
+    * No IPv6 Leaks: CalyxVPN will not leak IPv6 traffic (requires root).
+    * No DNS Leaks: CalyxVPN is configured on both the client and the server to prevent any leaking of DNS. All DNS requests are anonymously handled by Calyx when the VPN is on.
+    * Circumvention: When "Use Bridges" option is enabled, all your traffic is hidden as normal web traffic, in order to circumvent some censorship systems that block VPN traffic.
+
+    As with all VPNs, CalyxVPN only adds security to your data as it flows over the network. It cannot protect the content of your data that is stored or that you give to a website. It also does not prevent advertising and tracking in your apps or web browser (except when this tracking is based on your IP address).
 
 RepoType: git
-Repo: https://gitlab.com/calyxos/bitmask_android.git
+Repo: https://gitlab.com/CalyxOS/bitmask_android.git
 
 Builds:
   - versionName: 0.9.10
@@ -56,9 +64,144 @@ Builds:
       - gradle main:externalNativeBuildCleanNoovpn3Release main:externalNativeBuildNoovpn3Release
     ndk: r20
 
+  - versionName: 1.0.3
+    versionCode: 147
+    commit: calyx/1.0.3
+    subdir: app
+    submodules: true
+    gradle:
+      - customProductionFat
+    rm:
+      - ics-openvpn/main/src/main/cpp/mbedtls/tests
+      - go/src/golang.org/x/tools/cmd/splitdwarf/internal/macho/testdata
+      - go/src/golang.org/x/tools/go/gccgoexportdata/testdata
+      - go/src/golang.org/x/tools/go/gcexportdata/testdata
+      - go/src/golang.org/x/tools/go/internal/gccgoimporter/testdata/
+      - go/src/golang.org/x/tools/go/internal/gcimporter/testdata/
+      - go/src/github.com/shadowsocks/shadowsocks-go/script/shadowsocks.exe
+      - shapeshifter/*.?ar
+    prebuild: sed -i -e "/^task updateSdkLicences/,/^}/d; /commandLine 'git'/d" build.gradle
+    build:
+      - cd ../go
+      - curl -o go.tar.gz https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz
+      - echo 'b6f9db387340e24f5623e6de0b8aa1387d103277  go.tar.gz' | shasum -c
+      - mkdir -p golang
+      - tar -C golang -xzf go.tar.gz
+      - export GOPATH="$PWD"
+      - export GO_LANG="$PWD/golang/go/bin"
+      - export GO_COMPILED="$PWD/bin"
+      - export PATH="$GO_LANG:$GO_COMPILED:$PATH"
+      - ./golang/go/bin/go get golang.org/x/mobile/cmd/gomobile
+      - ./bin/gomobile init
+      - ./android_build_shapeshifter.sh createLibrary
+      - cd ../ics-openvpn
+      - gradle main:externalNativeBuildCleanNoovpn3Release main:externalNativeBuildNoovpn3Release
+    ndk: r20b
+
+  - versionName: 1.0.5
+    versionCode: 149
+    commit: calyx/1.0.5
+    subdir: app
+    submodules: true
+    gradle:
+      - customProductionFat
+    rm:
+      - go/src/github.com/agl/ed25519/testdata/sign.input.gz
+      - go/src/github.com/shadowsocks/shadowsocks-go/script/shadowsocks.exe
+      - go/src/golang.org/x/crypto/ed25519/testdata/sign.input.gz
+      - go/src/golang.org/x/tools/cmd/splitdwarf/internal/macho/testdata
+      - go/src/golang.org/x/tools/go/gccgoexportdata/testdata
+      - go/src/golang.org/x/tools/go/gcexportdata/testdata
+      - go/src/golang.org/x/tools/go/internal/gccgoimporter/testdata/
+      - go/src/golang.org/x/tools/go/internal/gcimporter/testdata/
+      - go/src/golang.org/x/tools/go/packages/testdata/TestName_ModulesDedup/pkg/mod/cache/download/github.com/heschik/tools-testrepo/@v/*.zip
+      - go/src/golang.org/x/tools/go/packages/testdata/TestName_ModulesDedup/pkg/mod/cache/download/github.com/heschik/tools-testrepo/v2/@v/*.zip
+      - ics-openvpn/main/src/main/cpp/mbedtls/programs/fuzz/corpuses/*
+      - ics-openvpn/main/src/main/cpp/mbedtls/tests
+      - shapeshifter/*.?ar
+    prebuild: sed -i -e "/^task updateSdkLicences/,/^}/d; /commandLine 'git'/d" build.gradle
+    build:
+      - cd ../go
+      - curl -o go.tar.gz https://dl.google.com/go/go1.12.7.linux-amd64.tar.gz
+      - echo 'b6f9db387340e24f5623e6de0b8aa1387d103277  go.tar.gz' | shasum -c
+      - mkdir -p golang
+      - tar -C golang -xzf go.tar.gz
+      - export GOPATH="$PWD"
+      - export GO_LANG="$PWD/golang/go/bin"
+      - export GO_COMPILED="$PWD/bin"
+      - export PATH="$GO_LANG:$GO_COMPILED:$PATH"
+      - ./golang/go/bin/go get golang.org/x/mobile/cmd/gomobile
+      - ./bin/gomobile init
+      - ./android_build_shapeshifter.sh createLibrary
+      - cd ../ics-openvpn
+      - gradle main:externalNativeBuildCleanSkeletonRelease main:externalNativeBuildSkeletonRelease
+    ndk: r20b
+
+  - versionName: 1.0.9
+    versionCode: 155
+    commit: calyx/1.0.9-2
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing golang-go
+    gradle:
+      - customProductionFat
+    prebuild:
+      - $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3' >
+        /dev/null
+      - sed -i -e "/^task updateSdkLicences/,/^}/d; /commandLine 'git'/d" build.gradle
+      - sed -i -e '/android {/a ndkVersion = "20.1.5948944"' ../ics-openvpn/main/build.gradle.kts
+    scandelete:
+      - bitmask-core
+      - bitmask-web-core
+      - go/src
+      - ics-openvpn/main/src/main/cpp
+    build:
+      - cd ../go
+      - export GOPATH="$PWD"
+      - export GO_COMPILED="$PWD/bin"
+      - export PATH="$GO_COMPILED:$PATH"
+      - go get golang.org/x/mobile/cmd/gomobile
+      - gomobile init
+      - mkdir -p ./lib
+      - gomobile bind -target=android -o ./lib/bitmask-web-core.aar se.leap.bitmaskclient/shapeshifter/
+        se.leap.bitmaskclient/pgpverify
+      - cp lib/bitmask-web-core* ../bitmask-web-core/.
+      - gomobile bind -target=android -o ./lib/bitmask-core.aar se.leap.bitmaskclient/shapeshifter/
+      - cp lib/bitmask-core* ../bitmask-core/.
+      - cd ../ics-openvpn
+      - gradle main:externalNativeBuildCleanSkeletonRelease main:externalNativeBuildSkeletonRelease
+    ndk: r20b
+
+  - versionName: 1.1.2
+    versionCode: 160000
+    commit: calyx/1.1.2
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - customProductionFat
+    rm:
+      - tor-android/external/openssl/fuzz
+      - tor-android/external/openssl/boringssl/fuzz
+    prebuild: sed -i -e 's|./gradlew|gradle|' ../scripts/build_deps.sh
+    scandelete:
+      - lib-bitmask-core*
+      - bitmaskcore/IPtProxy
+      - ics-openvpn/main/src/main/cpp
+      - tor-android/external
+    build: ../scripts/build_deps.sh
+    ndk: r21e
+
 MaintainerNotes: The "build" commands are extracted from build_deps.sh.
 
-AutoUpdateMode: Version %v
-UpdateCheckMode: Tags ^calyx/[0-9.]+$
-CurrentVersion: 1.0.1
-CurrentVersionCode: 141
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^calyx\/[0-9.]+$
+VercodeOperation: 1000*%c
+UpdateCheckName: se.leap.bitmaskclient
+CurrentVersion: 1.1.2
+CurrentVersionCode: 160000

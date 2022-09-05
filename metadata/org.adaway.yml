@@ -11,16 +11,6 @@ Donate: https://paypal.me/BruceBUJON
 FlattrID: '369138'
 
 AutoName: AdAway
-Description: |-
-    An ad blocker that uses the hosts file. The hosts file contains a list of
-    mappings between hostnames and IP addresses. When an app requests an ad, that
-    request is directed to 127.0.0.1 which does nothing. There are options to run a
-    web server to respond to blocked hostnames and to direct requests to the IP
-    address of your choosing. You can download hosts files from the app but it is
-    possible to use your own and to add certain sites to the white- and black-lists.
-
-    Requires root as the hosts files is located in /system which is normally
-    read-only.
 
 RequiresRoot: 'yes'
 
@@ -34,6 +24,7 @@ Builds:
     subdir: org_adaway/
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '1.15'
     versionCode: 16
@@ -43,6 +34,7 @@ Builds:
       - defprop.patch
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '1.18'
     versionCode: 19
@@ -52,6 +44,7 @@ Builds:
       - defprop.patch
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '1.19'
     versionCode: 20
@@ -61,6 +54,7 @@ Builds:
       - defprop.patch
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '1.20'
     versionCode: 21
@@ -70,6 +64,7 @@ Builds:
       - defprop.patch
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '1.21'
     versionCode: 22
@@ -79,6 +74,7 @@ Builds:
       - defprop.patch
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '1.23'
     versionCode: 24
@@ -92,6 +88,7 @@ Builds:
     prebuild: android update project -p ../com_actionbarsherlock
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '1.25'
     versionCode: 26
@@ -100,6 +97,7 @@ Builds:
     prebuild: android update project -p ../com_actionbarsherlock
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '1.26'
     versionCode: 27
@@ -108,6 +106,7 @@ Builds:
     prebuild: android update project -p ../com_actionbarsherlock
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '1.27'
     versionCode: 28
@@ -116,6 +115,7 @@ Builds:
     prebuild: android update project -p ../com_actionbarsherlock
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '1.29'
     versionCode: 30
@@ -126,6 +126,7 @@ Builds:
       - rm -rf libs/armeabi/*
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '1.32'
     versionCode: 33
@@ -206,6 +207,7 @@ Builds:
       - android-libs/HtmlSpanner/htmlspanner
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '2.3'
     versionCode: 42
@@ -233,6 +235,7 @@ Builds:
       - android-libs/HtmlSpanner/htmlspanner
     buildjni:
       - yes
+    ndk: r12b
 
   - versionName: '2.6'
     versionCode: 45
@@ -242,6 +245,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -253,6 +257,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -264,6 +269,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -275,6 +281,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -286,6 +293,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -297,6 +305,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -308,6 +317,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -319,6 +329,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -330,6 +341,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -341,6 +353,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -352,6 +365,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -363,6 +377,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -374,6 +389,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -385,6 +401,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -396,6 +413,7 @@ Builds:
       - yes
     buildjni:
       - yes
+    ndk: r12b
     preassemble:
       - renameExecutables
 
@@ -501,7 +519,207 @@ Builds:
       - yes
     ndk: r20
 
+  - versionName: 4.3.4
+    versionCode: 40304
+    commit: v4.3.4
+    subdir: app
+    gradle:
+      - yes
+    ndk: r21
+
+  - versionName: 4.3.6
+    versionCode: 40306
+    commit: v4.3.6
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/21.0.6113669/21.3.6528147/' build.gradle
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r21d
+
+  - versionName: 5.1.0
+    versionCode: 50100
+    commit: v5.1.0
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r21d
+
+  - versionName: 5.2.1
+    versionCode: 50201
+    commit: v5.2.1
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22
+
+  - versionName: 5.3.0
+    versionCode: 50300
+    commit: v5.3.0
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22
+
+  - versionName: 5.4.0
+    versionCode: 50400
+    commit: v5.4.0
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22
+
+  - versionName: 5.5.0
+    versionCode: 50500
+    commit: v5.5.0
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22
+
+  - versionName: 5.5.1
+    versionCode: 50501
+    commit: v5.5.1
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.6.0
+    versionCode: 50600
+    commit: v5.6.0
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.7.0
+    versionCode: 50700
+    commit: a2ae9b99320b0f472ade91502b884636561c1972
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.8.0
+    versionCode: 50800
+    commit: 81a65f82bbddf06eff914ea4d0643f187dd5a5c9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.9.0
+    versionCode: 50900
+    commit: bf267c3d13a7bfcea3cb51f87e0f2e35ebc7bc98
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.10.0
+    versionCode: 51000
+    commit: 17967c4875d31f86e069742141107f86e627e94a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.11.0
+    versionCode: 51100
+    commit: 9fef2b19dc9a99a41ef6be087793bae093cfb840
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.12.0
+    versionCode: 51200
+    commit: 348d062d135e0a8f916e9204053997b220c5e611
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.12.1
+    versionCode: 51201
+    commit: 055253dcf344084640cbb6bbf557dbd90dafc660
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r24
+
+  - versionName: 6.0.3
+    versionCode: 60003
+    commit: 00122cad0c04d3e863e04efec6227fb426bb2cbe
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r24
+
+MaintainerNotes: '* uses Sentry.io (foss, Apache-2.0) in opt-in mode, so no Tracking
+    AntiFeature required for that. See https://gitlab.com/fdroid/fdroiddata/-/issues/2289#note_503409470'
+
 AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-CurrentVersion: 4.3.2
-CurrentVersionCode: 40302
+UpdateCheckMode: Tags .*[0-9]$
+CurrentVersion: 6.0.3
+CurrentVersionCode: 60003

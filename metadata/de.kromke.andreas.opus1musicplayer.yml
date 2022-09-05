@@ -1,0 +1,66 @@
+Categories:
+  - Multimedia
+License: GPL-3.0-only
+AuthorName: Andreas Kromke
+AuthorEmail: Andreas.Krom.ke+Support@gmail.com
+SourceCode: https://gitlab.com/AndreasK/opus1-music-player
+IssueTracker: https://gitlab.com/AndreasK/opus1-music-player/issues
+Changelog: https://gitlab.com/AndreasK/opus1-music-player/-/releases
+
+AutoName: Opus 1 Music Player
+
+RepoType: git
+Repo: https://gitlab.com/AndreasK/opus1-music-player.git
+
+Builds:
+  - versionName: 2.40.1
+    versionCode: 59
+    commit: v2.40.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '2.50'
+    versionCode: 60
+    commit: v2.50
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '2.60'
+    versionCode: 61
+    commit: 530d43d9ced7f3d67eaabf7bc211157f3aac352d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.60.1
+    versionCode: 62
+    commit: ac80e2f4864c3065748304108419b8e87acd55c7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.60.3
+    versionCode: 63
+    commit: 65e12b6e316bf0f4cee0b9cdb26bdc9d574381e5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: 2.60.3
+CurrentVersionCode: 63

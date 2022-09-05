@@ -1,0 +1,93 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Internet
+License: GPL-3.0-only
+AuthorName: Martín Lucas Golini
+AuthorEmail: support@ensoft.dev
+SourceCode: https://github.com/SpartanJ/ImgurViewer
+IssueTracker: https://github.com/SpartanJ/ImgurViewer/issues
+
+AutoName: ImgurViewer
+
+RepoType: git
+Repo: https://github.com/SpartanJ/ImgurViewer
+
+Builds:
+  - versionName: 2.1.6
+    versionCode: 21600
+    disable: contains tracking
+    commit: 2.1.6
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.9
+    versionCode: 21900
+    commit: 2.1.9
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.2.0
+    versionCode: 22000
+    commit: 2.2.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.2.1
+    versionCode: 22100
+    commit: 2.2.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.2.2
+    versionCode: 22200
+    commit: 31e4c75edd1f88d93dfc11b07e0738809a7740d7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.0
+    versionCode: 23000
+    commit: 06b0d67ed3f56c6cfb719bde7eec6ff2a91f3740
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.1
+    versionCode: 23100
+    commit: 581ae82f0e4c17f125f1c5f61725c4d89c5c1b10
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.2
+    versionCode: 23200
+    commit: d9bb87347b1ef84a4a8e31d71e593350f66a64be
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 2.3.2
+CurrentVersionCode: 23200

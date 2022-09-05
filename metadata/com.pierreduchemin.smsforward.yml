@@ -1,0 +1,63 @@
+Categories:
+  - Phone & SMS
+License: GPL-3.0-only
+AuthorName: Pierre Duchemin
+SourceCode: https://gitlab.com/pierreduchemin/smsforward
+IssueTracker: https://gitlab.com/pierreduchemin/smsforward/issues
+
+AutoName: SMS Forward
+
+RepoType: git
+Repo: https://gitlab.com/pierreduchemin/smsforward.git
+
+Builds:
+  - versionName: 1.4.6
+    versionCode: 11
+    commit: 1.4.6
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.5.0
+    versionCode: 12
+    commit: 1.5.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.5.1
+    versionCode: 13
+    commit: 1.5.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.6.0
+    versionCode: 14
+    commit: 1.6.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.6.1
+    versionCode: 15
+    commit: faac096951d6d03be7c88ec931e6d84b922c4141
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.7.0
+    versionCode: 16
+    commit: 0fec382aa84c5237cfd8ee5724327d86d9aa1b65
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 1.7.0
+CurrentVersionCode: 16

@@ -18,7 +18,7 @@ Description: |-
     think of yourself as a codebreaker, download and try our Morse code cypher
     tool! Don’t let the special characters or dots and dashes befuddle you.
 
-    '''Features:'''
+    <b>Features:</b>
 
     * Clean, modern app design and interface.
     * Super easy to use.
@@ -28,15 +28,15 @@ Description: |-
     * Copy the text by pressing copy button.
     * Type in dot and dash using our built-in Morse keyboard.
 
-    '''How Morse is useful for you:'''
-
-    # Tell others when you are in a dangerous situation (SOS).
-    # Hide your secret number or password via dots and dashes.
-    # Cipher/ Decipher hidden clues in games.
-    # Learn cryptography or cryptogram through learning Morse codes.
-    # Become a codebreaker by breaking secret codes in real time translation.
-    # And many more!
-
+    <b>How Morse is useful for you:</b>
+    <ol>
+    <li>Tell others when you are in a dangerous situation (SOS).</li>
+    <li>Hide your secret number or password via dots and dashes.</li>
+    <li>Cipher/ Decipher hidden clues in games.</li>
+    <li>Learn cryptography or cryptogram through learning Morse codes.</li>
+    <li>Become a codebreaker by breaking secret codes in real time translation.</li>
+    <li>And many more!</li>
+    </ol>
     So, what are you waiting for? Use our Morse code cipher tool to decipher
     Morse code to text or text to Morse code now! As a codebreaker & cryptogram
     enthusiast, our cipher tool is a must have! It is useful for all of you.
@@ -67,7 +67,32 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.5'
+    versionCode: 5
+    commit: '1.5'
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.6'
+    versionCode: 7
+    commit: '1.6'
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.7'
+    versionCode: 8
+    commit: 36200b2ddce363dba6b8ffdb812dc9c1726faea0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: '1.4'
-CurrentVersionCode: 4
+CurrentVersion: '1.7'
+CurrentVersionCode: 8

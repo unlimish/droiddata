@@ -1,0 +1,357 @@
+Categories:
+  - Games
+License: Apache-2.0
+AuthorName: Jonathan Herrmann-Engel
+WebSite: https://moroway.de
+SourceCode: https://github.com/MOROway/moroway-app-oc
+IssueTracker: https://github.com/MOROway/moroway-app-oc/issues
+
+AutoName: MOROway
+
+RepoType: git
+Repo: https://github.com/MOROway/moroway-app-oc
+
+Builds:
+  - versionName: 6.2.0
+    versionCode: 60200
+    commit: v6.2.0
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 6.2.3
+    versionCode: 60203
+    commit: v6.2.3
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 6.2.4
+    versionCode: 60204
+    commit: v6.2.4
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 6.2.5
+    versionCode: 60205
+    commit: v6.2.5
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 6.3.0
+    versionCode: 60300
+    commit: v6.3.0
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 6.3.3
+    versionCode: 60303
+    commit: v6.3.3
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 6.4.0
+    versionCode: 60400
+    commit: v6.4.0
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 6.4.2
+    versionCode: 60402
+    commit: v6.4.2
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 7.0.0
+    versionCode: 70000
+    commit: v7.0.0
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 7.0.3
+    versionCode: 70003
+    commit: v7.0.3
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 7.1.0
+    versionCode: 70100
+    commit: v7.1.0
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 7.1.1
+    versionCode: 70101
+    commit: v7.1.1
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 7.1.2
+    versionCode: 70102
+    commit: v7.1.2
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 7.1.4
+    versionCode: 70104
+    commit: v7.1.4
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 7.1.7
+    versionCode: 70107
+    commit: v7.1.7
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 7.2.0
+    versionCode: 70200
+    commit: v7.2.0
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 7.2.1
+    versionCode: 70201
+    commit: 1d3d04867ed01a41997c19b75b3644281c6d0c94
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 7.2.2
+    versionCode: 70202
+    commit: 109e88026670323da05f6bbc7dcc1ec6b723c251
+    subdir: platforms/android/app
+    gradle:
+      - yes
+
+  - versionName: 7.2.4
+    versionCode: 70204
+    disable: fatal error on start
+    commit: a36ec8a26c4dc40795989fabed0ae78ace63353f
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.6/node-v14.17.6-linux-x64.tar.xz
+      - echo "3bbe4faf356738d88b45be222bf5e858330541ff16bd0d4cfad36540c331461b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g npm@latest
+      - npm install -g cordova
+    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - rm -rf platforms
+      - cordova platform add android
+      - cordova build android --release -- --packageType=apk
+
+  - versionName: 7.2.5
+    versionCode: 70205
+    commit: 4a0ef4d493090d652b8d964f0b98621e888ec7c7
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.6/node-v14.17.6-linux-x64.tar.xz
+      - echo "3bbe4faf356738d88b45be222bf5e858330541ff16bd0d4cfad36540c331461b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g npm@latest
+      - npm install -g cordova
+    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - cordova platform add android
+      - cordova build android --release -- --packageType=apk
+
+  - versionName: 7.3.0
+    versionCode: 70300
+    commit: bda1e810530cf005fa0c16619168df9a28ab615d
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.6/node-v14.17.6-linux-x64.tar.xz
+      - echo "3bbe4faf356738d88b45be222bf5e858330541ff16bd0d4cfad36540c331461b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g npm@latest
+      - npm install -g cordova
+    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - cordova platform add android
+      - cordova build android --release -- --packageType=apk
+
+  - versionName: 7.4.0
+    versionCode: 70400
+    commit: 90d95d6219cdbfe9edd5ef2ac742eb43df69ee12
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.6/node-v14.17.6-linux-x64.tar.xz
+      - echo "3bbe4faf356738d88b45be222bf5e858330541ff16bd0d4cfad36540c331461b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g npm@latest
+      - npm install -g cordova
+    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - cordova platform add android
+      - cordova build android --release -- --packageType=apk
+
+  - versionName: 7.4.4
+    versionCode: 70404
+    commit: 0b41482e6fca26f9c49319ba7cbc751024c54237
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.6/node-v14.17.6-linux-x64.tar.xz
+      - echo "3bbe4faf356738d88b45be222bf5e858330541ff16bd0d4cfad36540c331461b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g npm@latest
+      - npm install -g cordova
+    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - cordova platform add android
+      - cordova build android --release -- --packageType=apk
+
+  - versionName: 7.4.8
+    versionCode: 70408
+    commit: ed414555b46a538733aad23345a97e36bd450010
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.6/node-v14.17.6-linux-x64.tar.xz
+      - echo "3bbe4faf356738d88b45be222bf5e858330541ff16bd0d4cfad36540c331461b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g npm@latest
+      - npm install -g cordova
+    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - cordova platform add android
+      - cordova build android --release -- --packageType=apk
+
+  - versionName: 7.4.9
+    versionCode: 70409
+    commit: 49340fe2e9cacff9b4fd4e4960b551a145a33ee9
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.6/node-v14.17.6-linux-x64.tar.xz
+      - echo "3bbe4faf356738d88b45be222bf5e858330541ff16bd0d4cfad36540c331461b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g npm@latest
+      - npm install -g cordova
+    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - cordova platform add android
+      - cordova build android --release -- --packageType=apk
+
+  - versionName: 7.5.0
+    versionCode: 70500
+    commit: bd9f111508496f165b34e0d3d2c870dec6eb617d
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.6/node-v14.17.6-linux-x64.tar.xz
+      - echo "3bbe4faf356738d88b45be222bf5e858330541ff16bd0d4cfad36540c331461b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g npm@latest
+      - npm install -g cordova
+    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - cordova platform add android
+      - cordova build android --release -- --packageType=apk
+
+  - versionName: 7.5.3
+    versionCode: 70503
+    commit: f046df40d3579b5e3406922eb3dc957ec5479d32
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.6/node-v14.17.6-linux-x64.tar.xz
+      - echo "3bbe4faf356738d88b45be222bf5e858330541ff16bd0d4cfad36540c331461b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g npm@latest
+      - npm install -g cordova
+    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - cordova platform add android
+      - cordova build android --release -- --packageType=apk
+
+  - versionName: 8.0.0
+    versionCode: 80000
+    commit: c79e40e4e071b55a7fea296e2f211b95e888af8e
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.6/node-v14.17.6-linux-x64.tar.xz
+      - echo "3bbe4faf356738d88b45be222bf5e858330541ff16bd0d4cfad36540c331461b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g npm@latest
+      - npm install -g cordova
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'platforms;android-32'
+        'build-tools;32.0.0' > /dev/null
+      - JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 cordova platform add android
+    scandelete:
+      - node_modules/cordova-android/framework/cordova-publish.gradle
+    build: JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 cordova build android --release
+        -- --packageType=apk
+
+  - versionName: 8.1.0
+    versionCode: 80100
+    commit: 3a44f71b705bfed91500ebef841b6e4a55a0e19a
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.17.6/node-v14.17.6-linux-x64.tar.xz
+      - echo "3bbe4faf356738d88b45be222bf5e858330541ff16bd0d4cfad36540c331461b node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm install -g npm@latest
+      - npm install -g cordova
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'platforms;android-32'
+        'build-tools;32.0.0' > /dev/null
+      - JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 cordova platform add android
+    scandelete:
+      - node_modules/cordova-android/framework/cordova-publish.gradle
+    build: JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 cordova build android --release
+        -- --packageType=apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: fdroid_version.txt|.+,(\d+)|.|(.+),\d+
+CurrentVersion: 8.1.0
+CurrentVersionCode: 80100

@@ -8,13 +8,13 @@ Changelog: https://github.com/kaputnikGo/PilferShushJammer/blob/HEAD/CHANGELOG.m
 
 AutoName: PilferShush Jammer
 Description: |-
-    Features a '''passive jammer''' technique that engages the microphone thereby
+    Features a <b>passive jammer</b> technique that engages the microphone thereby
     blocking other apps from using it. But does NOT listen to or record any of the
     audio from the microphone. It uses 0% CPU and no noticeable battery use. However
     is not intended to be left on permanently due to the variety of triggers that
     can cause audio_focus_state changes (VOIP etc).
 
-    Also features an '''active jammer''' that emits tones constrained to the NUHF
+    Also features an <b>active jammer</b> that emits tones constrained to the NUHF
     range of 18 kHz to 24 kHz range. User determined carrier frequency and drift
     limits with rate for random tone emissions depending on the device capabilities.
     For instance 20000 Hz carrier, drift limit 1000 Hz and rate slow - will output
@@ -203,7 +203,92 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 4.3.0
+    versionCode: 33
+    commit: 4.3.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.4.0
+    versionCode: 34
+    commit: 4.4.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.4.1
+    versionCode: 35
+    commit: 4.4.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.4.2
+    versionCode: 36
+    commit: 4.4.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.5.0
+    versionCode: 37
+    commit: 4.5.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.5.1
+    versionCode: 38
+    commit: 4.5.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.5.2
+    versionCode: 39
+    commit: 4.5.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.5.3
+    versionCode: 40
+    commit: 4.5.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.6.0
+    versionCode: 41
+    commit: 4.6.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.6.1
+    versionCode: 42
+    commit: ae2b2c53e06aeddbf0bf7b7ded0c232500867e46
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.6.2
+    versionCode: 43
+    commit: f59553e8ea197e609947e3498a1a408e4ed2cc5f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 4.2.0
-CurrentVersionCode: 32
+CurrentVersion: 4.6.2
+CurrentVersionCode: 43

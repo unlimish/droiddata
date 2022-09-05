@@ -10,7 +10,7 @@ Changelog: https://github.com/cbeyls/fosdem-companion-android/releases
 
 AutoName: FOSDEM Companion
 Description: |-
-    Advanced schedule browser for the [https://fosdem.org/ FOSDEM] conference in
+    Advanced schedule browser for the <a href="https://fosdem.org/">FOSDEM</a> conference in
     Brussels, Belgium. Download the most recent schedule and browse it offline.
 
     Features:
@@ -201,7 +201,25 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.0.5
+    versionCode: 1700205
+    commit: 2.0.5
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.0
+    versionCode: 1900210
+    commit: fc86cb4f4fef1761e90f97db15c3c981af66526a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.0.1
-CurrentVersionCode: 1700201
+CurrentVersion: 2.1.0
+CurrentVersionCode: 1900210

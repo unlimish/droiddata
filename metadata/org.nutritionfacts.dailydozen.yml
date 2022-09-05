@@ -21,7 +21,7 @@ Description: |-
     Yes, greens are good for you, but how much should we try to eat each day? Dr.
     Greger’s Daily Dozen details the healthiest foods and how many servings of each
     we should try to check off every day. He explains his rationale in his book
-    [https://NutritionFacts.org/book How Not to Die]. All his proceeds from his
+    <a href="https://NutritionFacts.org/book">How Not to Die</a>. All his proceeds from his
     books, DVDs, and speaking engagements is all donated to charity.
 
     NutritionFacts.org is a non-commercial, nonprofit, science-based public service
@@ -73,7 +73,115 @@ Builds:
       - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
       - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
 
+  - versionName: '17.2'
+    versionCode: 54
+    commit: v17.2
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '17.3'
+    versionCode: 55
+    commit: v17.3
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '18'
+    versionCode: 56
+    commit: v18
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '19'
+    versionCode: 57
+    commit: v19
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '19.1'
+    versionCode: 58
+    commit: v19.1
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '20'
+    versionCode: 61
+    commit: 5280502784e2705c694feccc5c8086be460b1657
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '21'
+    versionCode: 69
+    commit: 6f0edc8bcdaa2043352133649fc8b0e74cbdcce5
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '21.2'
+    versionCode: 72
+    commit: c89d6730a0b28424e1828412b1afbf12a00cffb0
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '21.3'
+    versionCode: 73
+    commit: 979e8977525c3f4240ec46d007fed20630b9c1b6
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9.]*$
-CurrentVersion: '17.1'
-CurrentVersionCode: 52
+CurrentVersion: '21.3'
+CurrentVersionCode: 73

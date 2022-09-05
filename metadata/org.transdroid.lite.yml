@@ -21,10 +21,10 @@ Description: |-
     Torrentflux-b4rt. Plus Synology, D-Link and Buffalo NAS clients.
 
     Transdrone is the little brother to Transdroid. Looking for integrated torrent
-    search or RSS feeds? Then you might check out the full [[org.transdroid.full]]
+    search or RSS feeds? Then you might check out the full https://f-droid.org/packages/org.transdroid.full
     version.
 
-    See also [[org.transdroid.search]].
+    See also https://f-droid.org/packages/org.transdroid.search.
 
 RepoType: git
 Repo: https://github.com/erickok/transdroid.git
@@ -149,8 +149,36 @@ Builds:
       - sed -i 's;<bool name="updatecheck_available">true</bool>;<bool name="updatecheck_available">false</bool>;'
         src/main/res/values/bools.xml
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-UpdateCheckName: org.transdroid.full
-CurrentVersion: 2.5.10
-CurrentVersionCode: 230
+  - versionName: 2.5.19
+    versionCode: 239
+    commit: v2.5.20-beta3
+    subdir: app
+    gradle:
+      - lite
+    prebuild:
+      - sed -i 's;<bool name="updatecheck_available">true</bool>;<bool name="updatecheck_available">false</bool>;'
+        src/full/res/values/bools.xml
+      - sed -i 's;<bool name="updatecheck_available">true</bool>;<bool name="updatecheck_available">false</bool>;'
+        src/main/res/values/bools.xml
+
+  - versionName: 2.5.22
+    versionCode: 242
+    disable: https://github.com/erickok/transdroid/issues/616, com.evernote:android-job
+    commit: 98906e8e2467ed5e065f2a7c22610ae2b1fa9caf
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - lite
+    prebuild:
+      - sed -i 's;<bool name="updatecheck_available">true</bool>;<bool name="updatecheck_available">false</bool>;'
+        src/full/res/values/bools.xml
+      - sed -i 's;<bool name="updatecheck_available">true</bool>;<bool name="updatecheck_available">false</bool>;'
+        src/main/res/values/bools.xml
+
+AutoUpdateMode: None
+UpdateCheckMode: Tags v[\d.]+$
+CurrentVersion: 2.5.22
+CurrentVersionCode: 242

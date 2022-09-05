@@ -7,7 +7,7 @@ IssueTracker: https://github.com/allan-simon/verbiste-android/issues
 AutoName: Verbiste Android
 Description: |-
     Verb conjugation for French, powered by
-    [http://perso.b2b2c.ca/~sarrazip/dev/verbiste.html Verbiste] database.
+    <a href="http://perso.b2b2c.ca/~sarrazip/dev/verbiste.html">Verbiste</a> database.
 
 RepoType: git
 Repo: https://github.com/allan-simon/verbiste-android
@@ -29,9 +29,19 @@ Builds:
       - cp libs/android-support-v4.jar $$Support$$/libs/
     target: android-21
 
+  - versionName: '1.2'
+    versionCode: 2
+    commit: '1.2'
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - cd ../utils
+      - python xml2sqlite.py
+
 MaintainerNotes: Run  cd utils ; python xml2sqlite.py before build.
 
-AutoUpdateMode: None
-UpdateCheckMode: RepoManifest
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
 CurrentVersion: '1.2'
 CurrentVersionCode: 2

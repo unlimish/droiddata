@@ -1,0 +1,72 @@
+AntiFeatures:
+  - NonFreeAdd
+  - NonFreeNet
+Categories:
+  - System
+License: GPL-3.0-or-later
+AuthorName: Olga-Yakovleva
+WebSite: https://github.com/RHVoice/RHVoice/wiki
+SourceCode: https://github.com/RHVoice/RHVoice
+IssueTracker: https://github.com/RHVoice/RHVoice/issues
+
+AutoName: RHVoice
+
+RepoType: git
+Repo: https://github.com/RHVoice/RHVoice.git
+
+Builds:
+  - versionName: 1.2.3
+    versionCode: 10203
+    commit: 7973199ff4d064fd0602ed26ef2d69c10fe29ba7
+    subdir: src/android/RHVoice-core
+    gradle:
+      - yes
+    ndk: r21d
+
+  - versionName: 1.2.4
+    versionCode: 10204
+    commit: 1.2.4
+    subdir: src/android/RHVoice-core
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - src/third-party/cldr
+    ndk: r21e
+
+  - versionName: 1.6.0
+    versionCode: 10600
+    commit: 8cc907d7914f71ec43616b5b0fb50d46f9045612
+    subdir: src/android/RHVoice-core
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - src/third-party/cldr
+    ndk: r21e
+
+  - versionName: 1.8.0
+    versionCode: 108000
+    commit: 0ef92b2b961fa0eeabea1c3acc92155e56bfc980
+    subdir: src/android/RHVoice-core
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -t stretch-backports g++ openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - stable
+    rm:
+      - src/third-party/cldr
+      - external/libs/boost/libs/json/fuzzing/old_crashes/parser/clusterfuzz-testcase-minimized-fuzz_parser-6157345913700352
+    ndk: r21e
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: HTTP
+UpdateCheckData: https://github.com/RHVoice/RHVoice/releases/latest/download/fdroid.txt|VersionCode:\s(\d+)|.|VersionName:\s([\d.]+)
+CurrentVersion: 1.8.0
+CurrentVersionCode: 108000

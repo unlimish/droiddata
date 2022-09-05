@@ -1,31 +1,30 @@
 Categories:
   - Navigation
 License: Apache-2.0
-AuthorName: n76
-AuthorEmail: retired_techie@fitchfamily.org
-AuthorWebSite: https://retiredtechie.fitchfamily.org/
-SourceCode: https://github.com/n76/Local-GSM-Backend
-IssueTracker: https://github.com/n76/Local-GSM-Backend/issues
-Changelog: https://github.com/n76/Local-GSM-Backend/blob/HEAD/CHANGELOG.md
+AuthorName: deveee
+AuthorEmail: deveee@gmail.com
+AuthorWebSite: https://gitlab.com/deveee
+SourceCode: https://gitlab.com/deveee/Local-GSM-Backend
+IssueTracker: https://gitlab.com/deveee/Local-GSM-Backend/-/issues
+Changelog: https://gitlab.com/deveee/Local-GSM-Backend/-/blob/master/CHANGELOG.md
 
 Name: LocalGsmNlpBackend
 AutoName: GSM Location Service
 Description: |-
-    [[com.google.android.gms]] backend that uses local GSM data to resolve user
+    https://f-droid.org/packages/com.google.android.gms backend that uses local GSM data to resolve user
     location.
 
     A facility in the setting menu allows you to create a database using data from
-    [http://opencellid.org OpenCellId] and/or [https://location.services.mozilla.com
-    Mozilla Location Services] CSV files. Alternatively, the on-phone database can
-    be generated in advance via the [https://github.com/n76/lacells-creator
-    lacells-creator] scripts that gather tower information from those two sources,
+    <a href="http://opencellid.org">OpenCellId</a> and/or <a href="https://location.services.mozilla.com
+    Mozilla">Location Services</a> CSV files. Alternatively, the on-phone database can
+    be generated in advance via the <a href="https://github.com/n76/lacells-creator">lacells-creator</a> scripts that gather tower information from those two sources,
     too.
 
     This backend performs no network data. All data acquired by the phone stays on
     the phone and no queries are made to a centralized AP location provider.
 
 RepoType: git
-Repo: https://github.com/n76/Local-GSM-Backend
+Repo: https://gitlab.com/deveee/Local-GSM-Backend.git
 
 Builds:
   - versionName: 0.5.4
@@ -409,7 +408,42 @@ Builds:
       - yes
     prebuild: sed -i -e '/mavenCentral/ajcenter()' build.gradle
 
+  - versionName: 1.4.23
+    versionCode: 69
+    commit: v1.4.23
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.5.0
+    versionCode: 70
+    commit: v1.5.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.5.1
+    versionCode: 71
+    commit: v1.5.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.5.2
+    versionCode: 72
+    commit: v1.5.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.5.3
+    versionCode: 73
+    commit: b08bf48bf75173126a44f3364c9e13f62030f248
+    subdir: app
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.4.22
-CurrentVersionCode: 68
+CurrentVersion: 1.5.3
+CurrentVersionCode: 73

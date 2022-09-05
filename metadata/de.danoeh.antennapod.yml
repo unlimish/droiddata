@@ -1,11 +1,12 @@
 Categories:
   - Multimedia
-License: MIT
+License: GPL-3.0-only
+AuthorEmail: info@antennapod.org
 WebSite: https://antennapod.org
 SourceCode: https://github.com/AntennaPod/AntennaPod
 IssueTracker: https://github.com/AntennaPod/AntennaPod/issues
 Translation: https://www.transifex.com/antennapod/antennapod/
-Changelog: https://github.com/AntennaPod/AntennaPod/blob/develop/CHANGELOG.md
+Changelog: https://github.com/AntennaPod/AntennaPod/releases
 
 AutoName: AntennaPod
 
@@ -634,11 +635,224 @@ Builds:
     gradleprops:
       - freeBuild
 
+  - versionName: 1.8.2
+    versionCode: 1080200
+    commit: 1.8.2
+    subdir: app
+    init: sed -i '/playCompile/d' ../core/build.gradle
+    gradle:
+      - free
+    gradleprops:
+      - freeBuild
+
+  - versionName: 1.8.3
+    versionCode: 1080300
+    commit: 1.8.3
+    subdir: app
+    init: sed -i '/playCompile/d' ../core/build.gradle
+    gradle:
+      - free
+    gradleprops:
+      - freeBuild
+
+  - versionName: 2.0.1
+    versionCode: 2000195
+    commit: 2.0.1
+    subdir: app
+    init: sed -i '/playCompile/d' ../core/build.gradle
+    gradle:
+      - free
+    gradleprops:
+      - freeBuild
+
+  - versionName: 2.0.2
+    versionCode: 2000295
+    commit: 2.0.2
+    subdir: app
+    init: sed -i '/playCompile/d' ../core/build.gradle
+    gradle:
+      - free
+    gradleprops:
+      - freeBuild
+
+  - versionName: 2.0.3
+    versionCode: 2000395
+    commit: 2.0.3
+    subdir: app
+    init: sed -i '/playCompile/d' ../core/build.gradle
+    gradle:
+      - free
+    gradleprops:
+      - freeBuild
+
+  - versionName: 2.1.1
+    versionCode: 2010195
+    commit: 2.1.1
+    subdir: app
+    init: sed -i '/playCompile/d' ../core/build.gradle
+    gradle:
+      - free
+    gradleprops:
+      - freeBuild
+
+  - versionName: 2.1.2
+    versionCode: 2010295
+    commit: 2.1.2
+    subdir: app
+    init: sed -i '/playCompile/d' ../core/build.gradle
+    gradle:
+      - free
+    gradleprops:
+      - freeBuild
+
+  - versionName: 2.1.4
+    versionCode: 2010495
+    commit: 2.1.4
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+
+  - versionName: 2.2.0
+    versionCode: 2020095
+    commit: 2.2.0
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+
+  - versionName: 2.2.1
+    versionCode: 2020195
+    commit: 2.2.1
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+
+  - versionName: 2.3.0
+    versionCode: 2030095
+    commit: e83f746b3657109947978476bf50afa3544946db
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.3.1
+    versionCode: 2030195
+    commit: 8b183915bee1419a0577196b19414529fca75432
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.3.2
+    versionCode: 2030295
+    commit: 7b87b9cd03c4596adbdf383ac540e83d7f4650c1
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.4.0
+    versionCode: 2040095
+    commit: f4d3ebb22de54985466c5776e22ca4da8b3c7acc
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.4.1
+    versionCode: 2040195
+    commit: 19dfa08905e33943995edb1703b8ddc3bb9fc0ea
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.4.2
+    versionCode: 2040295
+    commit: 83f564ffcae24fe2ee56303b6b09e963948d18bf
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.5.0
+    versionCode: 2050095
+    commit: 6a366f0ad190a620eca555f5b9e4396810730349
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.5.1
+    versionCode: 2050195
+    commit: 832b51de7def1f63780c285991733522e6fbd333
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.5.2
+    versionCode: 2050296
+    commit: 1bc02fd84870a98534509878cf87f12c484800b7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.6.1
+    versionCode: 2060195
+    commit: 50eee88484a94eabdd1978961b5c604ea3b818d8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 2.6.2
+    versionCode: 2060295
+    commit: 9e87cf6115cdda78794e7958190a165c4542ae01
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
 MaintainerNotes: |-
     Summary and Description have been moved to the new localizable text files:
     https://f-droid.org/docs/All_About_Descriptions_Graphics_and_Screenshots
 
 AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: 1.8.1
-CurrentVersionCode: 1080195
+UpdateCheckMode: Tags .*[0-9]$
+CurrentVersion: 2.6.2
+CurrentVersionCode: 2060295

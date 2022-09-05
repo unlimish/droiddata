@@ -1,3 +1,5 @@
+AntiFeatures:
+  - NonFreeNet
 Categories:
   - Multimedia
 License: GPL-3.0-or-later
@@ -6,6 +8,10 @@ SourceCode: https://github.com/red-coracle/episodes
 IssueTracker: https://github.com/red-coracle/episodes/issues
 
 AutoName: Episodes
+Description: |-
+    Keep track of which episodes you’ve watched of your favourite TV shows. The data is sourced from TheTVDB.com
+
+    Anti-Feature: NonFreeNet - uses a non-free network service which is impossible, or not easy to replace without rebuilding the app
 
 RepoType: git
 Repo: https://github.com/red-coracle/episodes
@@ -18,7 +24,68 @@ Builds:
     gradle:
       - standard
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: 0.13.2
-CurrentVersionCode: 15
+  - versionName: 0.13.3
+    versionCode: 16
+    commit: 0.13.3
+    subdir: app
+    gradle:
+      - standard
+
+  - versionName: 0.13.4
+    versionCode: 17
+    commit: 0.13.4
+    subdir: app
+    gradle:
+      - standard
+
+  - versionName: 0.13.5
+    versionCode: 18
+    commit: 0.13.5
+    subdir: app
+    gradle:
+      - standard
+
+  - versionName: 0.13.6
+    versionCode: 19
+    commit: 0.13.6
+    subdir: app
+    gradle:
+      - standard
+
+  - versionName: 0.14.0
+    versionCode: 20
+    commit: b116965a69794f4cecb060b06a2d47e4b74a7980
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 0.14.1
+    versionCode: 21
+    commit: 22a052ea8d9149d15bf81ab4f6c29aeb81f609b5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 0.15.0
+    versionCode: 22
+    commit: 49d4b2d9612fca82e6c0a13650fbcf8ee5781871
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags ^[0-9]+\.[0-9]+\.[0-9]+$
+CurrentVersion: 0.15.0
+CurrentVersionCode: 22

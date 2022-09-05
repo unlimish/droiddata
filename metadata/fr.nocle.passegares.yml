@@ -218,7 +218,43 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.4.1
+    versionCode: 201
+    commit: v1.4.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.4.2
+    versionCode: 202
+    commit: v1.4.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.4.3
+    versionCode: 203
+    commit: 8683a2c6cb394775b7523acc3ea3af66c8d42992
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.4.4
+    versionCode: 204
+    commit: bf7639a68ab3e9bee24d170e7e9fd9a3d6bd465c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.4.0
-CurrentVersionCode: 200
+CurrentVersion: 1.4.4
+CurrentVersionCode: 204

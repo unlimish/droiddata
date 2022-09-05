@@ -34,7 +34,75 @@ Builds:
       - yes
     prebuild: sed -i -e '/keystoreProperties/d' build.gradle
 
+  - versionName: 2020.07.24a
+    versionCode: 527
+    commit: v2020.07.24a
+    subdir: app/
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+
+  - versionName: 2020.08.24a
+    versionCode: 533
+    commit: v2020.08.24a
+    subdir: app/
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+
+  - versionName: 2020.12.16b
+    versionCode: 541
+    commit: v2020.12.16b
+    subdir: app/
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+
+  - versionName: 2021.02.22a
+    versionCode: 547
+    commit: v2021.02.22a
+    subdir: app/
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+
+  - versionName: 2021.04.09a
+    versionCode: 551
+    commit: v2021.04.09a
+    subdir: app/
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+
+  - versionName: 2021.09.27a
+    versionCode: 561
+    commit: 449441c9aae05a8f1fa3de0c5bb1112b82580a99
+    subdir: app/
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+
+  - versionName: 2022.06.22b
+    versionCode: 567
+    commit: e5f2c5874942d859cbadd44a7bf8ccc406aa4d63
+    subdir: app/
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+
+  - versionName: 2022.08.12a
+    versionCode: 569
+    commit: 5bada317031f6c3c612ead584a4b4b21633d7f15
+    subdir: app/
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2020.02.03a
-CurrentVersionCode: 523
+CurrentVersion: 2022.08.12a
+CurrentVersionCode: 569

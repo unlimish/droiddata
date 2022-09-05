@@ -2,18 +2,12 @@ Categories:
   - Multimedia
 License: GPL-3.0-only
 AuthorName: Andreas Kromke
+AuthorEmail: Andreas.Krom.ke+Support@gmail.com
 SourceCode: https://gitlab.com/AndreasK/classical-music-tagger
 IssueTracker: https://gitlab.com/AndreasK/classical-music-tagger/issues
-Changelog: https://gitlab.com/AndreasK/classical-music-tagger/blob/HEAD/app/src/main/assets/version-history.txt
+Changelog: https://gitlab.com/AndreasK/classical-music-tagger/-/releases
 
 AutoName: Classical Music Tagger
-Description: |-
-    While most Android applications not even know about composers, this one
-    additionally handles works, movements, conductors etc.
-
-    This application is designed as auxiliary tool for the Unpopular Music Player
-    and the Opus 1 Music Player, but alternatively also runs in a standalone mode
-    showing a file browser.
 
 RepoType: git
 Repo: https://gitlab.com/AndreasK/classical-music-tagger.git
@@ -54,7 +48,92 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.3'
+    versionCode: 15
+    commit: v1.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.3.1
+    versionCode: 16
+    commit: v1.3.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.3.2
+    versionCode: 17
+    commit: v1.3.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.4'
+    versionCode: 18
+    commit: v1.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.4.1
+    versionCode: 19
+    commit: v1.4.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.4.2
+    versionCode: 20
+    commit: v1.4.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.5'
+    versionCode: 21
+    commit: v1.5
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.6'
+    versionCode: 22
+    commit: v1.6
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.7'
+    versionCode: 23
+    commit: acea59c0f8663a2b73758627e6e3659170e83396
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.8'
+    versionCode: 24
+    commit: 8bc499c793ab3ce9562fbc821e393cdc61d31fb8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.8.1
+    versionCode: 25
+    commit: 18fd1a6dc991ecfbda1b590727d5afeb1f63b72d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-CurrentVersion: 1.2.1
-CurrentVersionCode: 14
+UpdateCheckMode: Tags ^v
+CurrentVersion: 1.8.1
+CurrentVersionCode: 25

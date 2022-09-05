@@ -1,0 +1,52 @@
+Categories:
+  - Sports & Health
+License: MIT
+AuthorName: Markus Fisch
+AuthorEmail: mf@markusfisch.de
+AuthorWebSite: https://www.markusfisch.de
+SourceCode: https://github.com/markusfisch/Libra
+IssueTracker: https://github.com/markusfisch/Libra/issues
+Changelog: https://github.com/markusfisch/Libra/releases
+
+AutoName: Decisions
+
+RepoType: git
+Repo: https://github.com/markusfisch/Libra
+
+Builds:
+  - versionName: 1.10.0
+    versionCode: 14
+    commit: 1.10.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.12.0
+    versionCode: 16
+    commit: 1.12.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.12.1
+    versionCode: 17
+    commit: 1.12.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.12.2
+    versionCode: 18
+    commit: e2fcee03b8ead10b592280d4f5ccffedcb4c49b7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: 1.12.2
+CurrentVersionCode: 18

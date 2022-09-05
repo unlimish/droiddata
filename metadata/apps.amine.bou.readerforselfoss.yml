@@ -8,11 +8,6 @@ Translation: https://crowdin.com/project/readerforselfoss
 Changelog: https://github.com/aminecmi/ReaderforSelfoss/blob/HEAD/CHANGELOG.md
 
 AutoName: Reader for Selfoss
-Description: |-
-    A new RSS reader for [http://selfoss.aditu.de/ selfoss].
-
-    It connects to your selfoss instance (works only with selfoss, and can't work
-    without it), and you'll be able to read and manage all your RSS feeds.
 
 RepoType: git
 Repo: https://github.com/aminecmi/ReaderforSelfoss.git
@@ -419,13 +414,120 @@ Builds:
       - appLoginUsername="LOGIN"
       - appLoginPassword="PASS"
 
-MaintainerNotes: |-
-    Version code and name are dynamically generated from the Git tag.
+  - versionName: 1720123583-github
+    versionCode: 1720123583
+    commit: v1720123583
+    subdir: app
+    gradle:
+      - githubConfig
+    gradleprops:
+      - appLoginUrl="URL"
+      - appLoginUsername="LOGIN"
+      - appLoginPassword="PASS"
 
+  - versionName: 1721010103-github
+    versionCode: 1721010103
+    commit: v1721010103
+    subdir: app
+    gradle:
+      - githubConfig
+    gradleprops:
+      - appLoginUrl="URL"
+      - appLoginUsername="LOGIN"
+      - appLoginPassword="PASS"
+
+  - versionName: 1721030811-github
+    versionCode: 1721030811
+    commit: v1721030811
+    subdir: app
+    gradle:
+      - githubConfig
+    gradleprops:
+      - appLoginUrl="URL"
+      - appLoginUsername="LOGIN"
+      - appLoginPassword="PASS"
+
+  - versionName: 1721102811-github
+    versionCode: 1721102811
+    commit: fa697f131338ecb827038936445887af856b9a41
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - githubConfig
+    gradleprops:
+      - appLoginUrl="URL"
+      - appLoginUsername="LOGIN"
+      - appLoginPassword="PASS"
+
+  - versionName: 1721102991-github
+    versionCode: 1721102991
+    commit: v1721102991
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - githubConfig
+    gradleprops:
+      - appLoginUrl="URL"
+      - appLoginUsername="LOGIN"
+      - appLoginPassword="PASS"
+
+  - versionName: 1722010073-github
+    versionCode: 1722010073
+    commit: v1722010073
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - githubConfig
+    gradleprops:
+      - appLoginUrl="URL"
+      - appLoginUsername="LOGIN"
+      - appLoginPassword="PASS"
+
+  - versionName: 1722010141-github
+    versionCode: 1722010141
+    commit: v1722010141
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - githubConfig
+    gradleprops:
+      - appLoginUrl="URL"
+      - appLoginUsername="LOGIN"
+      - appLoginPassword="PASS"
+
+  - versionName: 1722020402-github
+    versionCode: 1722020402
+    commit: v1722020402
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - githubConfig
+    gradleprops:
+      - appLoginUrl="URL"
+      - appLoginUsername="LOGIN"
+      - appLoginPassword="PASS"
+
+MaintainerNotes: |
+    Version code and name are dynamically generated from the Git tag.
     The Gradle properties are added to avoid a Gradle error but they are only used in test builds.
 
 AutoUpdateMode: Version v%c
 UpdateCheckMode: HTTP
-UpdateCheckData: https://www.amine-bou.fr/version.txt|versionCode=(.*)|.|versionName=(.*)
-CurrentVersion: 1720020321-github
-CurrentVersionCode: 1720020321
+UpdateCheckData: https://amine-louveau.fr/version.txt|versionCode=(.*)|.|versionName=(.*)
+CurrentVersion: 1722020402-github
+CurrentVersionCode: 1722020402

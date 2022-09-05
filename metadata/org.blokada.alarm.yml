@@ -1,52 +1,19 @@
+AntiFeatures:
+  - NonFreeNet
+  - Tracking
 Categories:
   - Internet
 License: GPL-3.0-only
 AuthorName: The Blokada Community
 AuthorEmail: hello@blokada.org
 WebSite: https://blokada.org
-SourceCode: https://github.com/blokadaorg/blokada
+SourceCode: https://go.blokada.org/dev_home
 IssueTracker: https://github.com/blokadaorg/blokada/issues
-Changelog: https://blokada.org/docs/changelog.html
-Donate: https://blokada.org/docs/donate.html
+Changelog: https://go.blokada.org/changelog
+Donate: https://go.blokada.org/donate
 Bitcoin: 16rJ49uNKCohVhHvWNganP6Y48Ba9BTyKd
 
 Name: Blokada v4 (ad blocker)
-Description: |-
-    Block ads without killing the battery
-
-    Try the new version of Blokada to experience even higher level of stability,
-    speed and battery efficiency of one of the best ad blockers out there!
-
-    Ad blocker you can trust
-
-    You should be careful when using any apps that filter your traffic, since they
-    can steal your sensitive information. Blokada is open source, which means anyone
-    can see its source code to be certain that its safe to use. Put your trust in a
-    thriving community that believes ad-free world is better!
-
-    You are in control
-
-    While Blokada can be used without spending a second on configuration, you can
-    still adjust it to your needs. You decide what should and should not be blocked,
-    and the filters you add will be automatically kept up to date.
-
-    Protect your privacy
-
-    Just turn on Blokada and it'll show you how the big corporations are tracking
-    your every move. You'll be shocked! Blokada prevents tracking requests to be
-    sent and keeps you anonymous.
-
-    Keep your device safe and fast
-
-    Blokada saves your data plan and makes your device faster by preventing it from
-    downloading and displaying unnecessary content. It works across all of your
-    apps, not only the browser. It doesn't require root or complicated setup,
-    supports both WiFi and mobile networks, and is totally free. Just give it a try!
-
-    Blokada is made by you
-
-    Your involvement is extremely important for Blokada to stay independent and
-    free! See how you can help at [http://blokada.org/#you]
 
 RepoType: git
 Repo: https://github.com/blokadaorg/blokada.git
@@ -423,7 +390,289 @@ Builds:
       - ./build.sh
     ndk: r20b
 
-AutoUpdateMode: None
-UpdateCheckMode: Tags
-CurrentVersion: 4.5.2
-CurrentVersionCode: 405000002
+  - versionName: 4.6.4
+    versionCode: 406000004
+    commit: 4.6.4
+    subdir: app
+    gradle:
+      - Community
+    srclibs:
+      - rustup@1.18.3
+    rm:
+      - app/src/tun-blocka/jniLibs
+    prebuild: sed -i -e '/set -e/a\source $HOME/.cargo.env' ../boringtun/build.sh
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.36.0
+      - rustup target add armv7-linux-androideabi
+      - rustup target add aarch64-linux-android
+      - rustup target add i686-linux-android
+      - rustup target add x86_64-linux-android
+      - export NDK_STANDALONE=$$NDK$$
+      - sed -i -e "s|/Users/kar/Library/Android/sdk/ndk-bundle|$$NDK$$|" ../boringtun/.cargo/config
+      - sed -i -e "s|darwin|linux|" ../boringtun/.cargo/config
+      - cd ../boringtun/
+      - ./build.sh
+    ndk: r20b
+
+  - versionName: 4.7.3
+    versionCode: 407000003
+    commit: 4.7.3
+    subdir: app
+    gradle:
+      - Community
+    srclibs:
+      - rustup@1.18.3
+    rm:
+      - app/src/tun-blocka/jniLibs
+    prebuild: sed -i -e '/set -e/a\source $HOME/.cargo.env' ../boringtun/build.sh
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.36.0
+      - rustup target add armv7-linux-androideabi
+      - rustup target add aarch64-linux-android
+      - rustup target add i686-linux-android
+      - rustup target add x86_64-linux-android
+      - export NDK_STANDALONE=$$NDK$$
+      - sed -i -e "s|/Users/kar/Library/Android/sdk/ndk-bundle|$$NDK$$|" ../boringtun/.cargo/config
+      - sed -i -e "s|darwin|linux|" ../boringtun/.cargo/config
+      - cd ../boringtun/
+      - ./build.sh
+    ndk: r20b
+
+  - versionName: 4.8.3
+    versionCode: 408000003
+    commit: 4.8.3
+    subdir: app
+    gradle:
+      - Community
+    srclibs:
+      - rustup@1.18.3
+    rm:
+      - app/src/tun-blocka/jniLibs
+    prebuild: sed -i -e '/set -e/a\source $HOME/.cargo.env' ../boringtun/build.sh
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.36.0
+      - rustup target add armv7-linux-androideabi
+      - rustup target add aarch64-linux-android
+      - rustup target add i686-linux-android
+      - rustup target add x86_64-linux-android
+      - export NDK_STANDALONE=$$NDK$$
+      - sed -i -e "s|/Users/kar/Library/Android/sdk/ndk-bundle|$$NDK$$|" ../boringtun/.cargo/config
+      - sed -i -e "s|darwin|linux|" ../boringtun/.cargo/config
+      - cd ../boringtun/
+      - ./build.sh
+    ndk: r20b
+
+  - versionName: 4.8.4
+    versionCode: 408000004
+    commit: 4.8.4
+    subdir: app
+    gradle:
+      - Community
+    srclibs:
+      - rustup@1.18.3
+    rm:
+      - app/src/tun-blocka/jniLibs
+    prebuild: sed -i -e '/set -e/a\source $HOME/.cargo.env' ../boringtun/build.sh
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.36.0
+      - rustup target add armv7-linux-androideabi
+      - rustup target add aarch64-linux-android
+      - rustup target add i686-linux-android
+      - rustup target add x86_64-linux-android
+      - export NDK_STANDALONE=$$NDK$$
+      - sed -i -e "s|/Users/kar/Library/Android/sdk/ndk-bundle|$$NDK$$|" ../boringtun/.cargo/config
+      - sed -i -e "s|darwin|linux|" ../boringtun/.cargo/config
+      - cd ../boringtun/
+      - ./build.sh
+    ndk: r20b
+
+  - versionName: 4.8.5
+    versionCode: 408000005
+    commit: 4.8.5
+    subdir: app
+    gradle:
+      - Community
+    srclibs:
+      - rustup@1.18.3
+    rm:
+      - app/src/tun-blocka/jniLibs
+    prebuild: sed -i -e '/set -e/a\source $HOME/.cargo.env' ../boringtun/build.sh
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.36.0
+      - rustup target add armv7-linux-androideabi
+      - rustup target add aarch64-linux-android
+      - rustup target add i686-linux-android
+      - rustup target add x86_64-linux-android
+      - export NDK_STANDALONE=$$NDK$$
+      - sed -i -e "s|/Users/kar/Library/Android/sdk/ndk-bundle|$$NDK$$|" ../boringtun/.cargo/config
+      - sed -i -e "s|darwin|linux|" ../boringtun/.cargo/config
+      - cd ../boringtun/
+      - ./build.sh
+    ndk: r20b
+
+  - versionName: 4.8.6
+    versionCode: 408000006
+    commit: 4.8.6
+    subdir: app
+    gradle:
+      - Community
+    srclibs:
+      - rustup@1.18.3
+    rm:
+      - app/src/tun-blocka/jniLibs
+    prebuild: sed -i -e '/set -e/a\source $HOME/.cargo.env' ../boringtun/build.sh
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.36.0
+      - rustup target add armv7-linux-androideabi
+      - rustup target add aarch64-linux-android
+      - rustup target add i686-linux-android
+      - rustup target add x86_64-linux-android
+      - export NDK_STANDALONE=$$NDK$$
+      - sed -i -e "s|/Users/kar/Library/Android/sdk/ndk-bundle|$$NDK$$|" ../boringtun/.cargo/config
+      - sed -i -e "s|darwin|linux|" ../boringtun/.cargo/config
+      - cd ../boringtun/
+      - ./build.sh
+    ndk: r20b
+
+  - versionName: 4.9.0
+    versionCode: 409000000
+    commit: 4.9.0
+    subdir: android4/app
+    submodules: true
+    gradle:
+      - Droid
+    srclibs:
+      - rustup@1.22.1
+    rm:
+      - android4/app/src/tun-blocka/jniLibs
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default stable
+      - rustup target add armv7-linux-androideabi
+      - rustup target add aarch64-linux-android
+      - rustup target add i686-linux-android
+      - rustup target add x86_64-linux-android
+      - cargo install cargo-ndk
+      - export NDK_STANDALONE=$$NDK$$
+      - cd ./../..
+      - ./build.boringtun.sh
+    ndk: r21d
+
+  - versionName: 4.10.0
+    versionCode: 410000000
+    commit: 4.10.0
+    subdir: android4/app
+    submodules: true
+    gradle:
+      - Droid
+    srclibs:
+      - rustup@1.22.1
+    rm:
+      - android4/app/src/tun-blocka/jniLibs
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default stable
+      - rustup target add armv7-linux-androideabi
+      - rustup target add aarch64-linux-android
+      - rustup target add i686-linux-android
+      - rustup target add x86_64-linux-android
+      - cargo install cargo-ndk --version 1.0.0
+      - export NDK_STANDALONE=$$NDK$$
+      - cd ./../..
+      - ./build.boringtun.sh
+    ndk: r21d
+
+  - versionName: 4.11.1
+    versionCode: 411000001
+    commit: 4.11.1
+    subdir: android4/app
+    submodules: true
+    gradle:
+      - Droid
+    srclibs:
+      - rustup@1.22.1
+    rm:
+      - android4/app/src/tun-blocka/jniLibs
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default stable
+      - rustup target add armv7-linux-androideabi
+      - rustup target add aarch64-linux-android
+      - rustup target add i686-linux-android
+      - rustup target add x86_64-linux-android
+      - cargo install cargo-ndk --version 1.0.0
+      - export NDK_STANDALONE=$$NDK$$
+      - cd ./../..
+      - ./build.boringtun.sh
+    ndk: r21d
+
+  - versionName: 4.14.0
+    versionCode: 414000001
+    commit: 0f1f8afafe045288fec705261990a24423344328
+    subdir: android4/app
+    submodules: true
+    gradle:
+      - Droid
+    srclibs:
+      - rustup@1.22.1
+    rm:
+      - android4/app/src/tun-blocka/jniLibs
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default stable
+      - rustup target add armv7-linux-androideabi
+      - rustup target add aarch64-linux-android
+      - rustup target add i686-linux-android
+      - rustup target add x86_64-linux-android
+      - cargo install cargo-ndk --version 1.0.0
+      - export NDK_STANDALONE=$$NDK$$
+      - cd ./../..
+      - ./build.boringtun.sh
+    ndk: r21d
+
+  - versionName: 4.15.0
+    versionCode: 415000000
+    commit: c38cd0e6e9cd5fad316b19beb932391365a9dbc4
+    subdir: android4/app
+    submodules: true
+    gradle:
+      - Droid
+    srclibs:
+      - rustup@1.22.1
+    rm:
+      - android4/app/src/tun-blocka/jniLibs
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default stable
+      - rustup target add armv7-linux-androideabi
+      - rustup target add aarch64-linux-android
+      - rustup target add i686-linux-android
+      - rustup target add x86_64-linux-android
+      - cargo install cargo-ndk --version 1.0.0
+      - export NDK_STANDALONE=$$NDK$$
+      - cd ./../..
+      - ./build.boringtun.sh
+    ndk: r21d
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^4[\d.]+$
+UpdateCheckName: org.blokada
+CurrentVersion: 4.15.0
+CurrentVersionCode: 415000000

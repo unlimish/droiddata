@@ -1,28 +1,34 @@
 AntiFeatures:
-  - NonFreeAdd
   - Tracking
+  - UpstreamNonFree
 Categories:
   - Internet
 License: MPL-2.0
-WebSite: https://wiki.mozilla.org/Mobile/Platforms/Android#System_Requirements
-SourceCode: https://hg.mozilla.org/releases/mozilla-esr68/
-IssueTracker: https://bugzilla.mozilla.org
-Translation: https://pontoon.mozilla.org/projects/firefox-for-android/
+WebSite: https://support.mozilla.org/products/mobile
+SourceCode: https://github.com/mozilla-mobile/fenix
+IssueTracker: https://github.com/mozilla-mobile/fenix/issues/
 Changelog: https://www.mozilla.org/en-US/firefox/android/notes/
 Donate: https://sendto.mozilla.org/page/contribute/openwebfund
 
 Name: Fennec F-Droid
 Description: |-
-    Browser using the Gecko layout engine to render web pages, which implements
-    current and anticipated web standards.
+    Browser that supports current and anticipated web standards.
 
-    Fennec F-Droid is based on the latest Firefox release. It's focused on removing
-    any proprietary bits found in official Mozilla's builds. There might still be
-    some binaries left and the app (or some builds) might get removed or re-pushed
-    anytime.
+    * Improved tracking protection that blocks over 2000 online trackers.
+    * Private mode available in a single tap.
+    * Customizable navigation bar position.
+    * Dark theme.
+    * Collections of tabs.
+    * Synchronization across multiple devices.
+    * Search widget.
+    * Picture-in-picture mode.
 
-RepoType: hg
-Repo: https://hg.mozilla.org/releases/mozilla-esr68/
+    Fennec F-Droid is based on the latest Firefox release (codenamed Fenix).
+    It has proprietary bits and telemetry removed, but still connects to
+    various Mozilla and Google services that can track users.
+
+RepoType: git
+Repo: https://github.com/mozilla-mobile/fenix
 
 Builds:
   - versionName: '35.0'
@@ -5434,8 +5440,8 @@ Builds:
     commit: FENNEC_59_0_2_RELEASE
     timeout: 21600
     sudo:
-      - apt update
-      - apt install -y g++ proguard-cli/testing libproguard-java/testing
+      - apt-get update
+      - apt-get install -y g++ proguard-cli/testing libproguard-java/testing
     output: obj-arm-linux-androideabi/dist/fennec-$$VERSION$$.en-US.android-arm-unsigned-unaligned.apk
     srclibs:
       - MozLocales@a5bbd6bf9e94673e0ed53b4b8a965db48accc63f
@@ -5482,8 +5488,8 @@ Builds:
     commit: FENNEC_59_0_2_RELEASE
     timeout: 21600
     sudo:
-      - apt update
-      - apt install -y g++ proguard-cli/testing libproguard-java/testing
+      - apt-get update
+      - apt-get install -y g++ proguard-cli/testing libproguard-java/testing
     output: obj-i386-linux-androideabi/dist/fennec-$$VERSION$$.en-US.android-i386-unsigned-unaligned.apk
     srclibs:
       - MozLocales@a5bbd6bf9e94673e0ed53b4b8a965db48accc63f
@@ -5530,8 +5536,8 @@ Builds:
     commit: FENNEC_60_0_RELEASE
     timeout: 21600
     sudo:
-      - apt update
-      - apt install -y g++ proguard-cli/testing libproguard-java/testing
+      - apt-get update
+      - apt-get install -y g++ proguard-cli/testing libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
       - MozLocales@20ad83b906b6c7c8b139356b62915ca32e584001
@@ -5578,8 +5584,8 @@ Builds:
     commit: FENNEC_60_0_RELEASE
     timeout: 21600
     sudo:
-      - apt update
-      - apt install -y g++ proguard-cli/testing libproguard-java/testing
+      - apt-get update
+      - apt-get install -y g++ proguard-cli/testing libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
       - MozLocales@20ad83b906b6c7c8b139356b62915ca32e584001
@@ -5626,8 +5632,8 @@ Builds:
     commit: FENNEC_60_0_1_RELEASE
     timeout: 21600
     sudo:
-      - apt update
-      - apt install -y g++ proguard-cli/testing libproguard-java/testing
+      - apt-get update
+      - apt-get install -y g++ proguard-cli/testing libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
       - MozLocales@20ad83b906b6c7c8b139356b62915ca32e584001
@@ -5673,8 +5679,8 @@ Builds:
     commit: FENNEC_60_0_1_RELEASE
     timeout: 21600
     sudo:
-      - apt update
-      - apt install -y g++ proguard-cli/testing libproguard-java/testing
+      - apt-get update
+      - apt-get install -y g++ proguard-cli/testing libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
       - MozLocales@20ad83b906b6c7c8b139356b62915ca32e584001
@@ -5720,8 +5726,8 @@ Builds:
     commit: FENNEC_60_0_2_RELEASE
     timeout: 21600
     sudo:
-      - apt update
-      - apt install -y g++ proguard-cli/testing libproguard-java/testing
+      - apt-get update
+      - apt-get install -y g++ proguard-cli/testing libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
       - MozLocales@20ad83b906b6c7c8b139356b62915ca32e584001
@@ -5767,8 +5773,8 @@ Builds:
     commit: FENNEC_60_0_2_RELEASE
     timeout: 21600
     sudo:
-      - apt update
-      - apt install -y g++ proguard-cli/testing libproguard-java/testing
+      - apt-get update
+      - apt-get install -y g++ proguard-cli/testing libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
       - MozLocales@20ad83b906b6c7c8b139356b62915ca32e584001
@@ -5814,8 +5820,8 @@ Builds:
     commit: FENNEC_61_0_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
         libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
@@ -5877,8 +5883,8 @@ Builds:
     commit: FENNEC_61_0_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
         libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
@@ -5941,8 +5947,8 @@ Builds:
     commit: FENNEC_61_0_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
         libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
@@ -6005,8 +6011,8 @@ Builds:
     commit: FENNEC_61_0_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
         libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
@@ -6070,8 +6076,8 @@ Builds:
     commit: FENNEC_61_0_2_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
         libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
@@ -6134,8 +6140,8 @@ Builds:
     commit: FENNEC_61_0_2_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
         libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
@@ -6199,8 +6205,8 @@ Builds:
     commit: FENNEC_62_0_1_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
         libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
@@ -6260,8 +6266,8 @@ Builds:
     commit: FENNEC_62_0_1_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
         libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
@@ -6322,8 +6328,8 @@ Builds:
     commit: FENNEC_62_0_1_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
         libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
@@ -6384,8 +6390,8 @@ Builds:
     commit: FENNEC_62_0_2_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
         libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
@@ -6445,8 +6451,8 @@ Builds:
     commit: FENNEC_62_0_2_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli/testing
         libproguard-java/testing
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
@@ -6507,8 +6513,8 @@ Builds:
     commit: FENNEC_62_0_3_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli libproguard-java
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli libproguard-java
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
       - MozLocales@c795b1463d98524da163ae29c0343be13c4f6392
@@ -6555,8 +6561,8 @@ Builds:
     commit: FENNEC_62_0_3_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli libproguard-java
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli libproguard-java
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
       - MozLocales@c795b1463d98524da163ae29c0343be13c4f6392
@@ -6604,9 +6610,9 @@ Builds:
     commit: FENNEC_63_0_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli libproguard-java
-      - apt install -y -t testing nodejs
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli libproguard-java
+      - apt-get install -y -t testing nodejs
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
       - MozLocales@9e2ceb189feea59b7cbae3cd51ebba99bbcc7f53
@@ -6653,9 +6659,9 @@ Builds:
     commit: FENNEC_63_0_RELEASE
     timeout: 28800
     sudo:
-      - apt update
-      - apt install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli libproguard-java
-      - apt install -y -t testing nodejs
+      - apt-get update
+      - apt-get install -y g++ libgmp-dev libmpfr-dev libmpc-dev proguard-cli libproguard-java
+      - apt-get install -y -t testing nodejs
     output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
     srclibs:
       - MozLocales@9e2ceb189feea59b7cbae3cd51ebba99bbcc7f53
@@ -9252,27 +9258,3111 @@ Builds:
         'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
     ndk: r19c
 
+  - versionName: 68.6.0
+    versionCode: 686000
+    commit: FENNEC_68_6_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=arm-linux-androideabi" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --enable-application=mobile/android" >> .mozconfig
+      - echo "ac_add_options --with-branding=mobile/android/branding/unofficial" >>
+        .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.38.0
+      - rustup target add thumbv7neon-linux-androideabi
+      - cargo install --force --vers 0.13.1 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.6.0
+    versionCode: 686010
+    commit: FENNEC_68_6_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=i686-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --enable-application=mobile/android" >> .mozconfig
+      - echo "ac_add_options --with-branding=mobile/android/branding/unofficial" >>
+        .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.38.0
+      - rustup target add i686-linux-android
+      - cargo install --force --vers 0.13.1 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.6.0
+    versionCode: 686020
+    commit: FENNEC_68_6_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=aarch64-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=21" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --enable-application=mobile/android" >> .mozconfig
+      - echo "ac_add_options --with-branding=mobile/android/branding/unofficial" >>
+        .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.38.0
+      - rustup target add aarch64-linux-android
+      - cargo install --force --vers 0.13.1 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.7.0
+    versionCode: 687000
+    commit: FENNEC_68_7_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=arm-linux-androideabi" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --enable-application=mobile/android" >> .mozconfig
+      - echo "ac_add_options --with-branding=mobile/android/branding/unofficial" >>
+        .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.38.0
+      - rustup target add thumbv7neon-linux-androideabi
+      - cargo install --force --vers 0.14 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.7.0
+    versionCode: 687010
+    commit: FENNEC_68_7_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=i686-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --enable-application=mobile/android" >> .mozconfig
+      - echo "ac_add_options --with-branding=mobile/android/branding/unofficial" >>
+        .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.38.0
+      - rustup target add i686-linux-android
+      - cargo install --force --vers 0.14 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.7.0
+    versionCode: 687020
+    commit: FENNEC_68_7_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=aarch64-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=21" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --enable-application=mobile/android" >> .mozconfig
+      - echo "ac_add_options --with-branding=mobile/android/branding/unofficial" >>
+        .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.38.0
+      - rustup target add aarch64-linux-android
+      - cargo install --force --vers 0.14 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.8.0
+    versionCode: 688000
+    commit: FENNEC_68_8_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=arm-linux-androideabi" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --enable-application=mobile/android" >> .mozconfig
+      - echo "ac_add_options --with-branding=mobile/android/branding/unofficial" >>
+        .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.38.0
+      - rustup target add thumbv7neon-linux-androideabi
+      - cargo install --force --vers 0.14.2 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.8.0
+    versionCode: 688010
+    commit: FENNEC_68_8_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=i686-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --enable-application=mobile/android" >> .mozconfig
+      - echo "ac_add_options --with-branding=mobile/android/branding/unofficial" >>
+        .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.38.0
+      - rustup target add i686-linux-android
+      - cargo install --force --vers 0.14.2 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.8.0
+    versionCode: 688020
+    commit: FENNEC_68_8_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=aarch64-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=21" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --enable-application=mobile/android" >> .mozconfig
+      - echo "ac_add_options --with-branding=mobile/android/branding/unofficial" >>
+        .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.38.0
+      - rustup target add aarch64-linux-android
+      - cargo install --force --vers 0.14.2 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.9.0
+    versionCode: 689000
+    commit: FENNEC_68_9_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - hg export b8222f07b0c2bb635353a2b8146f1c4ad4d1cbcb | patch -p1 -R
+      - hg export 1c92814b83dd5717a61109202514ce3c0d48d4f1 | patch -p1 -R
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=arm-linux-androideabi" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --enable-application=mobile/android" >> .mozconfig
+      - echo "ac_add_options --with-branding=mobile/android/branding/unofficial" >>
+        .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.38.0
+      - rustup target add thumbv7neon-linux-androideabi
+      - cargo install --force --vers 0.14.2 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.9.0
+    versionCode: 689010
+    commit: FENNEC_68_9_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - hg export b8222f07b0c2bb635353a2b8146f1c4ad4d1cbcb | patch -p1 -R
+      - hg export 1c92814b83dd5717a61109202514ce3c0d48d4f1 | patch -p1 -R
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=i686-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --enable-application=mobile/android" >> .mozconfig
+      - echo "ac_add_options --with-branding=mobile/android/branding/unofficial" >>
+        .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.38.0
+      - rustup target add i686-linux-android
+      - cargo install --force --vers 0.14.2 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.9.0
+    versionCode: 689020
+    commit: FENNEC_68_9_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - hg export b8222f07b0c2bb635353a2b8146f1c4ad4d1cbcb | patch -p1 -R
+      - hg export 1c92814b83dd5717a61109202514ce3c0d48d4f1 | patch -p1 -R
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=aarch64-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=21" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --enable-application=mobile/android" >> .mozconfig
+      - echo "ac_add_options --with-branding=mobile/android/branding/unofficial" >>
+        .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.38.0
+      - rustup target add aarch64-linux-android
+      - cargo install --force --vers 0.14.2 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.10.0
+    versionCode: 689100
+    commit: FENNEC_68_10_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=arm-linux-androideabi" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    scanignore:
+      - servo/components/style/properties/Mako-0.9.1.zip
+    scandelete:
+      - accessible/tests/mochitest/dumbfile.zip
+      - mozglue/linker/tests
+      - python/mozbuild/mozbuild/test/action/data/package_fennec_apk
+      - security/manager/ssl/tests/unit/test_signed_apps
+      - security/nss/automation/taskcluster/docker-saw/LLVMgold.so.zip
+      - testing/mozbase/mozfile/tests/files/missing_file_attributes.zip
+      - testing/mozbase/mozinstall/tests/installer_stubs/firefox.zip
+      - testing/mozbase/mozproxy/tests/archive.tar.gz
+      - testing/mozharness/test/helper_files/archives
+      - third_party/python/pipenv/pipenv/patched/safety.zip
+      - third_party/rust/flate2/tests
+      - third_party/rust/zip/tests/data
+      - toolkit/modules/tests/xpcshell/zips/zen.zip
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.44.1
+      - rustup target add thumbv7neon-linux-androideabi
+      - cargo install --force --vers 0.14.3 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.10.0
+    versionCode: 689110
+    commit: FENNEC_68_10_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=i686-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    scanignore:
+      - servo/components/style/properties/Mako-0.9.1.zip
+    scandelete:
+      - accessible/tests/mochitest/dumbfile.zip
+      - mozglue/linker/tests
+      - python/mozbuild/mozbuild/test/action/data/package_fennec_apk
+      - security/manager/ssl/tests/unit/test_signed_apps
+      - security/nss/automation/taskcluster/docker-saw/LLVMgold.so.zip
+      - testing/mozbase/mozfile/tests/files/missing_file_attributes.zip
+      - testing/mozbase/mozinstall/tests/installer_stubs/firefox.zip
+      - testing/mozbase/mozproxy/tests/archive.tar.gz
+      - testing/mozharness/test/helper_files/archives
+      - third_party/python/pipenv/pipenv/patched/safety.zip
+      - third_party/rust/flate2/tests
+      - third_party/rust/zip/tests/data
+      - toolkit/modules/tests/xpcshell/zips/zen.zip
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.44.1
+      - rustup target add i686-linux-android
+      - cargo install --force --vers 0.14.3 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.10.0
+    versionCode: 689120
+    commit: FENNEC_68_10_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=aarch64-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=21" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    scanignore:
+      - servo/components/style/properties/Mako-0.9.1.zip
+    scandelete:
+      - accessible/tests/mochitest/dumbfile.zip
+      - mozglue/linker/tests
+      - python/mozbuild/mozbuild/test/action/data/package_fennec_apk
+      - security/manager/ssl/tests/unit/test_signed_apps
+      - security/nss/automation/taskcluster/docker-saw/LLVMgold.so.zip
+      - testing/mozbase/mozfile/tests/files/missing_file_attributes.zip
+      - testing/mozbase/mozinstall/tests/installer_stubs/firefox.zip
+      - testing/mozbase/mozproxy/tests/archive.tar.gz
+      - testing/mozharness/test/helper_files/archives
+      - third_party/python/pipenv/pipenv/patched/safety.zip
+      - third_party/rust/flate2/tests
+      - third_party/rust/zip/tests/data
+      - toolkit/modules/tests/xpcshell/zips/zen.zip
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.44.1
+      - rustup target add aarch64-linux-android
+      - cargo install --force --vers 0.14.3 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/CERT.*' 'META-INF/MANIFEST.MF'
+    ndk: r19c
+
+  - versionName: 68.10.1
+    versionCode: 689200
+    commit: FENNEC_68_10_1_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=arm-linux-androideabi" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    scanignore:
+      - servo/components/style/properties/Mako-0.9.1.zip
+    scandelete:
+      - accessible/tests/mochitest/dumbfile.zip
+      - mozglue/linker/tests
+      - python/mozbuild/mozbuild/test/action/data/package_fennec_apk
+      - security/manager/ssl/tests/unit/test_signed_apps
+      - security/nss/automation/taskcluster/docker-saw/LLVMgold.so.zip
+      - testing/mozbase/mozfile/tests/files/missing_file_attributes.zip
+      - testing/mozbase/mozinstall/tests/installer_stubs/firefox.zip
+      - testing/mozbase/mozproxy/tests/archive.tar.gz
+      - testing/mozharness/test/helper_files/archives
+      - third_party/python/pipenv/pipenv/patched/safety.zip
+      - third_party/rust/flate2/tests
+      - third_party/rust/zip/tests/data
+      - toolkit/modules/tests/xpcshell/zips/zen.zip
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.44.1
+      - rustup target add thumbv7neon-linux-androideabi
+      - cargo install --force --vers 0.14.3 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/*.*'
+    ndk: r19c
+
+  - versionName: 68.10.1
+    versionCode: 689210
+    commit: FENNEC_68_10_1_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=i686-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    scanignore:
+      - servo/components/style/properties/Mako-0.9.1.zip
+    scandelete:
+      - accessible/tests/mochitest/dumbfile.zip
+      - mozglue/linker/tests
+      - python/mozbuild/mozbuild/test/action/data/package_fennec_apk
+      - security/manager/ssl/tests/unit/test_signed_apps
+      - security/nss/automation/taskcluster/docker-saw/LLVMgold.so.zip
+      - testing/mozbase/mozfile/tests/files/missing_file_attributes.zip
+      - testing/mozbase/mozinstall/tests/installer_stubs/firefox.zip
+      - testing/mozbase/mozproxy/tests/archive.tar.gz
+      - testing/mozharness/test/helper_files/archives
+      - third_party/python/pipenv/pipenv/patched/safety.zip
+      - third_party/rust/flate2/tests
+      - third_party/rust/zip/tests/data
+      - toolkit/modules/tests/xpcshell/zips/zen.zip
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.44.1
+      - rustup target add i686-linux-android
+      - cargo install --force --vers 0.14.3 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/*.*'
+    ndk: r19c
+
+  - versionName: 68.10.1
+    versionCode: 689220
+    commit: FENNEC_68_10_1_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.21.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=aarch64-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=21" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    scanignore:
+      - servo/components/style/properties/Mako-0.9.1.zip
+    scandelete:
+      - accessible/tests/mochitest/dumbfile.zip
+      - mozglue/linker/tests
+      - python/mozbuild/mozbuild/test/action/data/package_fennec_apk
+      - security/manager/ssl/tests/unit/test_signed_apps
+      - security/nss/automation/taskcluster/docker-saw/LLVMgold.so.zip
+      - testing/mozbase/mozfile/tests/files/missing_file_attributes.zip
+      - testing/mozbase/mozinstall/tests/installer_stubs/firefox.zip
+      - testing/mozbase/mozproxy/tests/archive.tar.gz
+      - testing/mozharness/test/helper_files/archives
+      - third_party/python/pipenv/pipenv/patched/safety.zip
+      - third_party/rust/flate2/tests
+      - third_party/rust/zip/tests/data
+      - toolkit/modules/tests/xpcshell/zips/zen.zip
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.44.1
+      - rustup target add aarch64-linux-android
+      - cargo install --force --vers 0.14.3 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/*.*'
+    ndk: r19c
+
+  - versionName: 68.11.0
+    versionCode: 689300
+    commit: FENNEC_68_11_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.22.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=arm-linux-androideabi" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    scanignore:
+      - servo/components/style/properties/Mako-0.9.1.zip
+    scandelete:
+      - accessible/tests/mochitest/dumbfile.zip
+      - mozglue/linker/tests
+      - python/mozbuild/mozbuild/test/action/data/package_fennec_apk
+      - security/manager/ssl/tests/unit/test_signed_apps
+      - security/nss/automation/taskcluster/docker-saw/LLVMgold.so.zip
+      - testing/mozbase/mozfile/tests/files/missing_file_attributes.zip
+      - testing/mozbase/mozinstall/tests/installer_stubs/firefox.zip
+      - testing/mozbase/mozproxy/tests/archive.tar.gz
+      - testing/mozharness/test/helper_files/archives
+      - third_party/python/pipenv/pipenv/patched/safety.zip
+      - third_party/rust/flate2/tests
+      - third_party/rust/zip/tests/data
+      - toolkit/modules/tests/xpcshell/zips/zen.zip
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.44.1
+      - rustup target add thumbv7neon-linux-androideabi
+      - cargo install --force --vers 0.14.3 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/*.*'
+    ndk: r19c
+
+  - versionName: 68.11.0
+    versionCode: 689310
+    commit: FENNEC_68_11_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.22.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=i686-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    scanignore:
+      - servo/components/style/properties/Mako-0.9.1.zip
+    scandelete:
+      - accessible/tests/mochitest/dumbfile.zip
+      - mozglue/linker/tests
+      - python/mozbuild/mozbuild/test/action/data/package_fennec_apk
+      - security/manager/ssl/tests/unit/test_signed_apps
+      - security/nss/automation/taskcluster/docker-saw/LLVMgold.so.zip
+      - testing/mozbase/mozfile/tests/files/missing_file_attributes.zip
+      - testing/mozbase/mozinstall/tests/installer_stubs/firefox.zip
+      - testing/mozbase/mozproxy/tests/archive.tar.gz
+      - testing/mozharness/test/helper_files/archives
+      - third_party/python/pipenv/pipenv/patched/safety.zip
+      - third_party/rust/flate2/tests
+      - third_party/rust/zip/tests/data
+      - toolkit/modules/tests/xpcshell/zips/zen.zip
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.44.1
+      - rustup target add i686-linux-android
+      - cargo install --force --vers 0.14.3 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/*.*'
+    ndk: r19c
+
+  - versionName: 68.11.0
+    versionCode: 689320
+    commit: FENNEC_68_11_0_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.22.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=aarch64-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=21" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    scanignore:
+      - servo/components/style/properties/Mako-0.9.1.zip
+    scandelete:
+      - accessible/tests/mochitest/dumbfile.zip
+      - mozglue/linker/tests
+      - python/mozbuild/mozbuild/test/action/data/package_fennec_apk
+      - security/manager/ssl/tests/unit/test_signed_apps
+      - security/nss/automation/taskcluster/docker-saw/LLVMgold.so.zip
+      - testing/mozbase/mozfile/tests/files/missing_file_attributes.zip
+      - testing/mozbase/mozinstall/tests/installer_stubs/firefox.zip
+      - testing/mozbase/mozproxy/tests/archive.tar.gz
+      - testing/mozharness/test/helper_files/archives
+      - third_party/python/pipenv/pipenv/patched/safety.zip
+      - third_party/rust/flate2/tests
+      - third_party/rust/zip/tests/data
+      - toolkit/modules/tests/xpcshell/zips/zen.zip
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.44.1
+      - rustup target add aarch64-linux-android
+      - cargo install --force --vers 0.14.3 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/*.*'
+    ndk: r19c
+
+  - versionName: 68.12.0
+    versionCode: 689400
+    commit: FIREFOX_68_12_0esr_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.22.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=arm-linux-androideabi" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    scanignore:
+      - servo/components/style/properties/Mako-0.9.1.zip
+    scandelete:
+      - accessible/tests/mochitest/dumbfile.zip
+      - mozglue/linker/tests
+      - python/mozbuild/mozbuild/test/action/data/package_fennec_apk
+      - security/manager/ssl/tests/unit/test_signed_apps
+      - security/nss/automation/taskcluster/docker-saw/LLVMgold.so.zip
+      - testing/mozbase/mozfile/tests/files/missing_file_attributes.zip
+      - testing/mozbase/mozinstall/tests/installer_stubs/firefox.zip
+      - testing/mozbase/mozproxy/tests/archive.tar.gz
+      - testing/mozharness/test/helper_files/archives
+      - third_party/python/pipenv/pipenv/patched/safety.zip
+      - third_party/rust/flate2/tests
+      - third_party/rust/zip/tests/data
+      - toolkit/modules/tests/xpcshell/zips/zen.zip
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.44.1
+      - rustup target add thumbv7neon-linux-androideabi
+      - cargo install --force --vers 0.14.4 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/*.*'
+    ndk: r19c
+
+  - versionName: 68.12.0
+    versionCode: 689410
+    commit: FIREFOX_68_12_0esr_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.22.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=i686-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=16" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    scanignore:
+      - servo/components/style/properties/Mako-0.9.1.zip
+    scandelete:
+      - accessible/tests/mochitest/dumbfile.zip
+      - mozglue/linker/tests
+      - python/mozbuild/mozbuild/test/action/data/package_fennec_apk
+      - security/manager/ssl/tests/unit/test_signed_apps
+      - security/nss/automation/taskcluster/docker-saw/LLVMgold.so.zip
+      - testing/mozbase/mozfile/tests/files/missing_file_attributes.zip
+      - testing/mozbase/mozinstall/tests/installer_stubs/firefox.zip
+      - testing/mozbase/mozproxy/tests/archive.tar.gz
+      - testing/mozharness/test/helper_files/archives
+      - third_party/python/pipenv/pipenv/patched/safety.zip
+      - third_party/rust/flate2/tests
+      - third_party/rust/zip/tests/data
+      - toolkit/modules/tests/xpcshell/zips/zen.zip
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.44.1
+      - rustup target add i686-linux-android
+      - cargo install --force --vers 0.14.4 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/*.*'
+    ndk: r19c
+
+  - versionName: 68.12.0
+    versionCode: 689420
+    commit: FIREFOX_68_12_0esr_RELEASE
+    timeout: 28800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y clang-6.0 llvm-6.0 libgmp-dev libmpfr-dev libmpc-dev
+      - update-alternatives --install /usr/bin/clang clang /usr/bin/clang-6.0 100
+      - update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-6.0
+        100
+    output: obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+    srclibs:
+      - MozLocales@e6b88d980bbc157fc7903a42161dd8ccbbc84f98
+      - rustup@1.22.1
+    prebuild:
+      - bash $$MozLocales$$/prebuild.sh
+      - echo "ac_add_options --target=aarch64-linux-android" >> .mozconfig
+      - echo "ac_add_options --with-android-min-sdk=21" >> .mozconfig
+      - echo "ac_add_options --with-android-ndk=\"$$NDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-android-sdk=\"$$SDK$$\"" >> .mozconfig
+      - echo "ac_add_options --with-libclang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/lib64/"
+        >> .mozconfig
+      - echo "ac_add_options --with-clang-path=$$NDK$$/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
+        >> .mozconfig
+      - echo "mk_add_options MOZ_OBJDIR=@TOPSRCDIR@/obj" >> .mozconfig
+      - pushd mobile/android/branding/unofficial/
+      - sed -i -e '/ANDROID_PACKAGE_NAME/d' -e '/MOZ_APP_DISPLAYNAME/d' configure.sh
+      - echo 'ANDROID_PACKAGE_NAME=org.mozilla.fennec_fdroid' >> configure.sh
+      - echo 'MOZ_APP_DISPLAYNAME="Fennec F-Droid"' >> configure.sh
+      - echo 'MOZ_APP_ANDROID_VERSION_CODE=$$VERCODE$$' >> configure.sh
+      - sed -i -e 's/Mozilla Fennec/Fennec F-Droid/g' locales/en-US/brand*
+      - popd
+    scanignore:
+      - servo/components/style/properties/Mako-0.9.1.zip
+    scandelete:
+      - accessible/tests/mochitest/dumbfile.zip
+      - mozglue/linker/tests
+      - python/mozbuild/mozbuild/test/action/data/package_fennec_apk
+      - security/manager/ssl/tests/unit/test_signed_apps
+      - security/nss/automation/taskcluster/docker-saw/LLVMgold.so.zip
+      - testing/mozbase/mozfile/tests/files/missing_file_attributes.zip
+      - testing/mozbase/mozinstall/tests/installer_stubs/firefox.zip
+      - testing/mozbase/mozproxy/tests/archive.tar.gz
+      - testing/mozharness/test/helper_files/archives
+      - third_party/python/pipenv/pipenv/patched/safety.zip
+      - third_party/rust/flate2/tests
+      - third_party/rust/zip/tests/data
+      - toolkit/modules/tests/xpcshell/zips/zen.zip
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup default 1.44.1
+      - rustup target add aarch64-linux-android
+      - cargo install --force --vers 0.14.4 cbindgen
+      - ./mach build
+      - cat used-locales | xargs -I % ./mach build chrome-%
+      - make -C obj/mobile/android/base android_apks
+      - make -C obj package AB_CD=multi
+      - zip -d obj/dist/fennec-$$VERSION$$.multi.android-*-unsigned-unaligned.apk
+        'META-INF/*.*'
+    ndk: r19c
+
+  - versionName: 81.1.1
+    versionCode: 811100
+    commit: v81.1.1
+    timeout: 10800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v57.0.6
+      - MozAndroidComponentsAS@v24.0.0
+      - MozAppServices@v61.0.13
+      - MozBuild@1eb5cb7930baf671648434b0e5a161e64d1834bf
+      - MozFennec@FIREFOX_81_0_RELEASE
+      - MozGlean@v32.1.1
+      - MozGleanAS@v21.3.0
+      - pyenv@v1.2.20
+      - rustup@1.22.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 81.1.1
+    versionCode: 811120
+    commit: v81.1.1
+    timeout: 10800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v57.0.6
+      - MozAndroidComponentsAS@v24.0.0
+      - MozAppServices@v61.0.13
+      - MozBuild@1eb5cb7930baf671648434b0e5a161e64d1834bf
+      - MozFennec@FIREFOX_81_0_RELEASE
+      - MozGlean@v32.1.1
+      - MozGleanAS@v21.3.0
+      - pyenv@v1.2.20
+      - rustup@1.22.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 81.1.3
+    versionCode: 811300
+    commit: v81.1.3
+    timeout: 10800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v57.0.7
+      - MozAndroidComponentsAS@v24.0.0
+      - MozAppServices@v61.0.13
+      - MozBuild@5ae7d3221f4887d03a54d22905afb4b56e2e0f12
+      - MozFennec@FIREFOX_81_0_1_RELEASE
+      - MozGlean@v32.1.1
+      - MozGleanAS@v21.3.0
+      - pyenv@v1.2.20
+      - rustup@1.22.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 81.1.3
+    versionCode: 811320
+    commit: v81.1.3
+    timeout: 10800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v57.0.7
+      - MozAndroidComponentsAS@v24.0.0
+      - MozAppServices@v61.0.13
+      - MozBuild@5ae7d3221f4887d03a54d22905afb4b56e2e0f12
+      - MozFennec@FIREFOX_81_0_1_RELEASE
+      - MozGlean@v32.1.1
+      - MozGleanAS@v21.3.0
+      - pyenv@v1.2.20
+      - rustup@1.22.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 81.1.5
+    versionCode: 811500
+    commit: v81.1.5
+    timeout: 10800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v57.0.8
+      - MozAndroidComponentsAS@v24.0.0
+      - MozAppServices@v61.0.13
+      - MozBuild@e52b65421c2b3837ee334e159c29969b031a0ab5
+      - MozFennec@FIREFOX_81_0_2_RELEASE
+      - MozGlean@v32.1.1
+      - MozGleanAS@v21.3.0
+      - pyenv@v1.2.20
+      - rustup@1.22.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 81.1.5
+    versionCode: 811520
+    commit: v81.1.5
+    timeout: 10800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v57.0.8
+      - MozAndroidComponentsAS@v24.0.0
+      - MozAppServices@v61.0.13
+      - MozBuild@e52b65421c2b3837ee334e159c29969b031a0ab5
+      - MozFennec@FIREFOX_81_0_2_RELEASE
+      - MozGlean@v32.1.1
+      - MozGleanAS@v21.3.0
+      - pyenv@v1.2.20
+      - rustup@1.22.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 82.1.1
+    versionCode: 821100
+    commit: v82.1.1
+    timeout: 10800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v60.0.5
+      - MozAndroidComponentsAS@v56.0.0
+      - MozAppServices@v63.0.0
+      - MozBuild@e28b914f0f609c548d4970acaf63aaed3be55b5d
+      - MozFennec@FIREFOX_82_0_RELEASE
+      - MozGlean@v32.4.1
+      - MozGleanAS@v32.1.1
+      - pyenv@v1.2.21
+      - rustup@1.22.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 82.1.1
+    versionCode: 821120
+    commit: v82.1.1
+    timeout: 10800
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v60.0.5
+      - MozAndroidComponentsAS@v56.0.0
+      - MozAppServices@v63.0.0
+      - MozBuild@e28b914f0f609c548d4970acaf63aaed3be55b5d
+      - MozFennec@FIREFOX_82_0_RELEASE
+      - MozGlean@v32.4.1
+      - MozGleanAS@v32.1.1
+      - pyenv@v1.2.21
+      - rustup@1.22.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 82.1.3
+    versionCode: 821300
+    commit: v82.1.3
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v60.0.8
+      - MozAndroidComponentsAS@v56.0.0
+      - MozAppServices@v63.0.0
+      - MozBuild@e28b914f0f609c548d4970acaf63aaed3be55b5d
+      - MozFennec@FIREFOX_82_0_3_RELEASE
+      - MozGlean@v32.4.1
+      - MozGleanAS@v32.1.1
+      - pyenv@v1.2.21
+      - rustup@1.22.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 82.1.3
+    versionCode: 821320
+    commit: v82.1.3
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v60.0.8
+      - MozAndroidComponentsAS@v56.0.0
+      - MozAppServices@v63.0.0
+      - MozBuild@e28b914f0f609c548d4970acaf63aaed3be55b5d
+      - MozFennec@FIREFOX_82_0_3_RELEASE
+      - MozGlean@v32.4.1
+      - MozGleanAS@v32.1.1
+      - pyenv@v1.2.21
+      - rustup@1.22.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 83.1.0
+    versionCode: 831000
+    commit: v83.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v63.0.9
+      - MozAndroidComponentsAS@v56.0.0
+      - MozAppServices@v63.0.0
+      - MozBuild@26cda4b24ae66ceab8c6f5c93c098a578289dbf2
+      - MozFennec@FIREFOX_83_0_RELEASE
+      - MozGlean@v33.0.4
+      - MozGleanAS@v32.1.1
+      - pyenv@v1.2.21
+      - rustup@1.22.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 83.1.0
+    versionCode: 831020
+    commit: v83.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v63.0.9
+      - MozAndroidComponentsAS@v56.0.0
+      - MozAppServices@v63.0.0
+      - MozBuild@26cda4b24ae66ceab8c6f5c93c098a578289dbf2
+      - MozFennec@FIREFOX_83_0_RELEASE
+      - MozGlean@v33.0.4
+      - MozGleanAS@v32.1.1
+      - pyenv@v1.2.21
+      - rustup@1.22.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 84.1.0
+    versionCode: 841000
+    commit: v84.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v67.0.11
+      - MozAndroidComponentsAS@v63.0.0
+      - MozAppServices@v67.0.0
+      - MozBuild@64881f66e4268c81dac96fde42b1c7c1039a95b2
+      - MozFennec@FIREFOX_84_0_BUILD3
+      - MozGlean@v33.0.4
+      - pyenv@v1.2.21
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 84.1.0
+    versionCode: 841020
+    commit: v84.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v67.0.11
+      - MozAndroidComponentsAS@v63.0.0
+      - MozAppServices@v67.0.0
+      - MozBuild@64881f66e4268c81dac96fde42b1c7c1039a95b2
+      - MozFennec@FIREFOX_84_0_BUILD3
+      - MozGlean@v33.0.4
+      - pyenv@v1.2.21
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 84.1.2
+    versionCode: 841200
+    commit: v84.1.2
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v67.0.14
+      - MozAndroidComponentsAS@v63.0.0
+      - MozAppServices@v67.0.0
+      - MozBuild@64881f66e4268c81dac96fde42b1c7c1039a95b2
+      - MozFennec@FIREFOX_84_0_1_RELEASE
+      - MozGlean@v33.0.4
+      - pyenv@v1.2.21
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 84.1.2
+    versionCode: 841220
+    commit: v84.1.2
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v67.0.14
+      - MozAndroidComponentsAS@v63.0.0
+      - MozAppServices@v67.0.0
+      - MozBuild@64881f66e4268c81dac96fde42b1c7c1039a95b2
+      - MozFennec@FIREFOX_84_0_1_RELEASE
+      - MozGlean@v33.0.4
+      - pyenv@v1.2.21
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 84.1.4
+    versionCode: 841400
+    commit: v84.1.4
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v67.0.17
+      - MozAndroidComponentsAS@v63.0.0
+      - MozAppServices@v67.0.0
+      - MozBuild@64881f66e4268c81dac96fde42b1c7c1039a95b2
+      - MozFennec@FIREFOX_84_0_2_RELEASE
+      - MozGlean@v33.0.4
+      - pyenv@v1.2.21
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 84.1.4
+    versionCode: 841420
+    commit: v84.1.4
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v67.0.17
+      - MozAndroidComponentsAS@v63.0.0
+      - MozAppServices@v67.0.0
+      - MozBuild@64881f66e4268c81dac96fde42b1c7c1039a95b2
+      - MozFennec@FIREFOX_84_0_2_RELEASE
+      - MozGlean@v33.0.4
+      - pyenv@v1.2.21
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 85.1.0
+    versionCode: 851000
+    commit: v85.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v70.0.16
+      - MozAndroidComponentsAS@v63.0.0
+      - MozAppServices@v67.2.0
+      - MozBuild@eeac78ac44ada94cb02e51b6e42a591e78ce76a0
+      - MozFennec@FIREFOX_85_0_RELEASE
+      - MozGlean@v33.1.2
+      - MozGleanAS@v33.0.4
+      - pyenv@v1.2.22
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 85.1.0
+    versionCode: 851020
+    commit: v85.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v70.0.16
+      - MozAndroidComponentsAS@v63.0.0
+      - MozAppServices@v67.2.0
+      - MozBuild@eeac78ac44ada94cb02e51b6e42a591e78ce76a0
+      - MozFennec@FIREFOX_85_0_RELEASE
+      - MozGlean@v33.1.2
+      - MozGleanAS@v33.0.4
+      - pyenv@v1.2.22
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 85.1.3
+    versionCode: 851300
+    commit: v85.1.3
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v70.0.20
+      - MozAndroidComponentsAS@v63.0.0
+      - MozAppServices@v67.2.0
+      - MozBuild@eeac78ac44ada94cb02e51b6e42a591e78ce76a0
+      - MozFennec@FIREFOX_85_0_2_RELEASE
+      - MozGlean@v33.1.2
+      - MozGleanAS@v33.0.4
+      - pyenv@v1.2.22
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 85.1.3
+    versionCode: 851320
+    commit: v85.1.3
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v70.0.20
+      - MozAndroidComponentsAS@v63.0.0
+      - MozAppServices@v67.2.0
+      - MozBuild@eeac78ac44ada94cb02e51b6e42a591e78ce76a0
+      - MozFennec@FIREFOX_85_0_2_RELEASE
+      - MozGlean@v33.1.2
+      - MozGleanAS@v33.0.4
+      - pyenv@v1.2.22
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 86.1.1
+    versionCode: 861100
+    commit: v86.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v72.0.16
+      - MozAndroidComponentsAS@v63.0.0
+      - MozAppServices@v67.2.0
+      - MozBuild@e9b83736ebca0107245be8a8f77ccb41ff1a843d
+      - MozFennec@FIREFOX_86_0_RELEASE
+      - MozGlean@v33.1.2
+      - MozGleanAS@v33.0.4
+      - pyenv@v1.2.23
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 86.1.1
+    versionCode: 861120
+    commit: v86.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+        llvm-6.0
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v72.0.16
+      - MozAndroidComponentsAS@v63.0.0
+      - MozAppServices@v67.2.0
+      - MozBuild@e9b83736ebca0107245be8a8f77ccb41ff1a843d
+      - MozFennec@FIREFOX_86_0_RELEASE
+      - MozGlean@v33.1.2
+      - MozGleanAS@v33.0.4
+      - pyenv@v1.2.23
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 87.0.0-rc.1
+    versionCode: 870000
+    commit: v87.0.0-rc.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v73.0.11
+      - MozAndroidComponentsAS@v71.0.0
+      - MozAppServices@v71.0.0
+      - MozBuild@58676df66e39e804dff55ce7b25aac88eb035bb8
+      - MozFennec@FIREFOX_87_0_RELEASE
+      - MozGlean@v34.1.0
+      - MozGleanAS@v33.1.2
+      - pyenv@1.2.24.1
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 87.0.0-rc.1
+    versionCode: 870020
+    commit: v87.0.0-rc.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v73.0.11
+      - MozAndroidComponentsAS@v71.0.0
+      - MozAppServices@v71.0.0
+      - MozBuild@58676df66e39e804dff55ce7b25aac88eb035bb8
+      - MozFennec@FIREFOX_87_0_RELEASE
+      - MozGlean@v34.1.0
+      - MozGleanAS@v33.1.2
+      - pyenv@1.2.24.1
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 88.1.1
+    versionCode: 881100
+    commit: v88.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v74.0.11
+      - MozAndroidComponentsAS@v71.0.0
+      - MozAppServices@v74.0.1
+      - MozBuild@801a4b3692a28d98a4c0599bf16ec43d737fed29
+      - MozFennec@FIREFOX_88_0_RELEASE
+      - MozGlean@v35.0.0
+      - MozGleanAS@v33.1.2
+      - pyenv@1.2.26
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 88.1.1
+    versionCode: 881120
+    commit: v88.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v74.0.11
+      - MozAndroidComponentsAS@v71.0.0
+      - MozAppServices@v74.0.1
+      - MozBuild@801a4b3692a28d98a4c0599bf16ec43d737fed29
+      - MozFennec@FIREFOX_88_0_RELEASE
+      - MozGlean@v35.0.0
+      - MozGleanAS@v33.1.2
+      - pyenv@1.2.26
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 88.1.3
+    versionCode: 881300
+    commit: v88.1.3
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v74.0.13
+      - MozAndroidComponentsAS@v71.0.0
+      - MozAppServices@v74.0.1
+      - MozBuild@801a4b3692a28d98a4c0599bf16ec43d737fed29
+      - MozFennec@FIREFOX_88_0_1_RELEASE
+      - MozGlean@v35.0.0
+      - MozGleanAS@v33.1.2
+      - pyenv@1.2.26
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 88.1.3
+    versionCode: 881320
+    commit: v88.1.3
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v74.0.13
+      - MozAndroidComponentsAS@v71.0.0
+      - MozAppServices@v74.0.1
+      - MozBuild@801a4b3692a28d98a4c0599bf16ec43d737fed29
+      - MozFennec@FIREFOX_88_0_1_RELEASE
+      - MozGlean@v35.0.0
+      - MozGleanAS@v33.1.2
+      - pyenv@1.2.26
+      - rustup@1.23.1
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 89.1.1
+    versionCode: 891100
+    commit: v89.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v75.0.22
+      - MozAndroidComponentsAS@v71.0.0
+      - MozAppServices@v74.0.1
+      - MozBuild@88e5aa742e19511178e8fb9cc77aa7d2f5f818b1
+      - MozFennec@FIREFOX_89_0_RELEASE
+      - MozGlean@v35.0.0
+      - MozGleanAS@v33.1.2
+      - pyenv@v2.0.0
+      - rustup@1.24.2
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 89.1.1
+    versionCode: 891120
+    commit: v89.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v75.0.22
+      - MozAndroidComponentsAS@v71.0.0
+      - MozAppServices@v74.0.1
+      - MozBuild@88e5aa742e19511178e8fb9cc77aa7d2f5f818b1
+      - MozFennec@FIREFOX_89_0_RELEASE
+      - MozGlean@v35.0.0
+      - MozGleanAS@v33.1.2
+      - pyenv@v2.0.0
+      - rustup@1.24.2
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 90.1.1
+    versionCode: 901100
+    commit: v90.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v90.0.12
+      - MozAndroidComponentsAS@v75.0.0
+      - MozAppServices@v77.0.2
+      - MozBuild@0ff9b69ef093057905a0e45b6f102c4e3f04906a
+      - MozFennec@FIREFOX_90_0_RELEASE
+      - MozGlean@v38.0.0
+      - MozGleanAS@v35.0.0
+      - pyenv@v2.0.3
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 90.1.1
+    versionCode: 901120
+    commit: v90.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v90.0.12
+      - MozAndroidComponentsAS@v75.0.0
+      - MozAppServices@v77.0.2
+      - MozBuild@0ff9b69ef093057905a0e45b6f102c4e3f04906a
+      - MozFennec@FIREFOX_90_0_RELEASE
+      - MozGlean@v38.0.0
+      - MozGleanAS@v35.0.0
+      - pyenv@v2.0.3
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 91.1.0
+    versionCode: 911000
+    commit: v91.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v91.0.12
+      - MozAndroidComponentsAS@v75.0.0
+      - MozAppServices@v79.0.0
+      - MozBuild@402312fb15ffde582cf7868dd34c8ab7b7d24d27
+      - MozFennec@FIREFOX_91_0_RELEASE
+      - MozGlean@v39.0.3
+      - MozGleanAS@v35.0.0
+      - pyenv@v2.0.4
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 91.1.0
+    versionCode: 911020
+    commit: v91.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v91.0.12
+      - MozAndroidComponentsAS@v75.0.0
+      - MozAppServices@v79.0.0
+      - MozBuild@402312fb15ffde582cf7868dd34c8ab7b7d24d27
+      - MozFennec@FIREFOX_91_0_RELEASE
+      - MozGlean@v39.0.3
+      - MozGleanAS@v35.0.0
+      - pyenv@v2.0.4
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 91.2.0
+    versionCode: 912000
+    commit: v91.2.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v91.0.13
+      - MozAndroidComponentsAS@v75.0.0
+      - MozAppServices@v79.0.0
+      - MozBuild@673a410ab3989b1f01015ff7e8733510325146a7
+      - MozFennec@FIREFOX_91_0_1_RELEASE
+      - MozGlean@v39.0.3
+      - MozGleanAS@v35.0.0
+      - pyenv@v2.0.4
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 91.2.0
+    versionCode: 912020
+    commit: v91.2.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y g++ python-setuptools tcl gyp ninja-build libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v91.0.13
+      - MozAndroidComponentsAS@v75.0.0
+      - MozAppServices@v79.0.0
+      - MozBuild@673a410ab3989b1f01015ff7e8733510325146a7
+      - MozFennec@FIREFOX_91_0_1_RELEASE
+      - MozGlean@v39.0.3
+      - MozGleanAS@v35.0.0
+      - pyenv@v2.0.4
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 92.1.1
+    versionCode: 921100
+    commit: v92.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v92.0.15
+      - MozAndroidComponentsAS@v91.0.3
+      - MozAppServices@v82.1.0
+      - MozBuild@43c2ae10f130dfa2b5743ba59bbef0c867d42888
+      - MozFennec@FIREFOX_92_0_RELEASE
+      - MozGlean@v39.0.3
+      - MozGleanAS@v35.0.0
+      - pyenv@v2.0.6
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 92.1.1
+    versionCode: 921120
+    commit: v92.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v92.0.15
+      - MozAndroidComponentsAS@v91.0.3
+      - MozAppServices@v82.1.0
+      - MozBuild@43c2ae10f130dfa2b5743ba59bbef0c867d42888
+      - MozFennec@FIREFOX_92_0_RELEASE
+      - MozGlean@v39.0.3
+      - MozGleanAS@v35.0.0
+      - pyenv@v2.0.6
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 93.1.0
+    versionCode: 931000
+    commit: v93.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v93.0.11
+      - MozAndroidComponentsAS@v91.0.3
+      - MozAppServices@v82.1.0
+      - MozBuild@b49e2d31046c2e2b96f41f7be6e7b943653377f6
+      - MozFennec@FIREFOX_93_0_RELEASE
+      - MozGlean@v39.0.3
+      - MozGleanAS@v35.0.0
+      - pyenv@v2.0.7
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 93.1.0
+    versionCode: 931020
+    commit: v93.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v93.0.11
+      - MozAndroidComponentsAS@v91.0.3
+      - MozAppServices@v82.1.0
+      - MozBuild@b49e2d31046c2e2b96f41f7be6e7b943653377f6
+      - MozFennec@FIREFOX_93_0_RELEASE
+      - MozGlean@v39.0.3
+      - MozGleanAS@v35.0.0
+      - pyenv@v2.0.7
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 94.1.1
+    versionCode: 941100
+    commit: v94.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v94.0.12
+      - MozAndroidComponentsAS@v91.0.3
+      - MozAppServices@v85.4.0
+      - MozBuild@a305761d15f63c7e1d17405eaefc2aa825dd64e6
+      - MozFennec@FIREFOX_94_0_RELEASE
+      - MozGlean@v42.0.1
+      - MozGleanAS@v39.0.3
+      - pyenv@v2.1.0
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 94.1.1
+    versionCode: 941120
+    commit: v94.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v94.0.12
+      - MozAndroidComponentsAS@v91.0.3
+      - MozAppServices@v85.4.0
+      - MozBuild@a305761d15f63c7e1d17405eaefc2aa825dd64e6
+      - MozFennec@FIREFOX_94_0_RELEASE
+      - MozGlean@v42.0.1
+      - MozGleanAS@v39.0.3
+      - pyenv@v2.1.0
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 95.1.0
+    versionCode: 951000
+    commit: v95.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v95.0.13
+      - MozAndroidComponentsAS@v91.0.3
+      - MozAppServices@v86.0.1
+      - MozBuild@c858d69f36c62000fa2d69de60b316820ad154b6
+      - MozFennec@FIREFOX_95_0_RELEASE
+      - MozGlean@v42.0.1
+      - MozGleanAS@v39.0.3
+      - pyenv@v2.2.2
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 95.1.0
+    versionCode: 951020
+    commit: v95.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v95.0.13
+      - MozAndroidComponentsAS@v91.0.3
+      - MozAppServices@v86.0.1
+      - MozBuild@c858d69f36c62000fa2d69de60b316820ad154b6
+      - MozFennec@FIREFOX_95_0_RELEASE
+      - MozGlean@v42.0.1
+      - MozGleanAS@v39.0.3
+      - pyenv@v2.2.2
+      - rustup@1.24.3
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 95.2.0
+    versionCode: 952000
+    commit: v95.2.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v95.0.14
+      - MozAndroidComponentsAS@v91.0.3
+      - MozAppServices@v86.0.1
+      - MozBuild@246f253f2192e8b42c5476c8ecde1f0f8be740d5
+      - MozFennec@FIREFOX_95_0_1_RELEASE
+      - MozGlean@v42.0.1
+      - MozGleanAS@v39.0.3
+      - pyenv@v2.2.2
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 95.2.0
+    versionCode: 952020
+    commit: v95.2.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v95.0.14
+      - MozAndroidComponentsAS@v91.0.3
+      - MozAppServices@v86.0.1
+      - MozBuild@246f253f2192e8b42c5476c8ecde1f0f8be740d5
+      - MozFennec@FIREFOX_95_0_1_RELEASE
+      - MozGlean@v42.0.1
+      - MozGleanAS@v39.0.3
+      - pyenv@v2.2.2
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21e
+
+  - versionName: 96.1.1
+    versionCode: 961100
+    commit: v96.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v96.0.11
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v86.2.1
+      - MozBuild@c9c1b0715c991d4bf793050f89b2c1f702a21aa7
+      - MozFennec@FIREFOX_96_0_RELEASE
+      - MozGlean@v42.0.1
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.2.3
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 96.1.1
+    versionCode: 961120
+    commit: v96.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v96.0.11
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v86.2.1
+      - MozBuild@c9c1b0715c991d4bf793050f89b2c1f702a21aa7
+      - MozFennec@FIREFOX_96_0_RELEASE
+      - MozGlean@v42.0.1
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.2.3
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 96.3.0
+    versionCode: 963000
+    commit: v96.3.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v96.0.15
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v86.2.2
+      - MozBuild@cbd1c8b2d06c33ad5650a956183508c4cd02906a
+      - MozFennec@FIREFOX_96_0_3_RELEASE
+      - MozGlean@v42.1.0
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.2.3
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 96.3.0
+    versionCode: 963020
+    commit: v96.3.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v96.0.15
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v86.2.2
+      - MozBuild@cbd1c8b2d06c33ad5650a956183508c4cd02906a
+      - MozFennec@FIREFOX_96_0_3_RELEASE
+      - MozGlean@v42.1.0
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.2.3
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 97.1.1
+    versionCode: 971100
+    commit: v97.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v97.0.11
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v87.1.0
+      - MozBuild@600125dc67786ff0ab2a4ab753025de0ef940707
+      - MozFennec@FIREFOX_97_0_RELEASE
+      - MozGlean@v42.3.0
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.2.4
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 97.1.1
+    versionCode: 971120
+    commit: v97.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v97.0.11
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v87.1.0
+      - MozBuild@600125dc67786ff0ab2a4ab753025de0ef940707
+      - MozFennec@FIREFOX_97_0_RELEASE
+      - MozGlean@v42.3.0
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.2.4
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 98.1.0
+    versionCode: 981000
+    commit: v98.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v98.0.9
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.0.1
+      - MozBuild@ec0a25634f3f4cd995a30dbe676107a5987c4d7d
+      - MozFennec@FIREFOX_98_0_BUILD2
+      - MozGlean@v43.0.2
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.2.4
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 98.1.0
+    versionCode: 981020
+    commit: v98.1.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v98.0.9
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.0.1
+      - MozBuild@ec0a25634f3f4cd995a30dbe676107a5987c4d7d
+      - MozFennec@FIREFOX_98_0_BUILD2
+      - MozGlean@v43.0.2
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.2.4
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 98.1.1
+    versionCode: 981100
+    commit: v98.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v98.0.11
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.0.1
+      - MozBuild@ec0a25634f3f4cd995a30dbe676107a5987c4d7d
+      - MozFennec@FIREFOX_98_0_RELEASE
+      - MozGlean@v43.0.2
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.2.4
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 98.1.1
+    versionCode: 981120
+    commit: v98.1.1
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v98.0.11
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.0.1
+      - MozBuild@ec0a25634f3f4cd995a30dbe676107a5987c4d7d
+      - MozFennec@FIREFOX_98_0_RELEASE
+      - MozGlean@v43.0.2
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.2.4
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 98.2.0
+    versionCode: 982000
+    commit: v98.2.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v98.0.12
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.0.1
+      - MozBuild@ec0a25634f3f4cd995a30dbe676107a5987c4d7d
+      - MozFennec@FIREFOX_98_0_1_RELEASE
+      - MozGlean@v43.0.2
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.2.4
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 98.2.0
+    versionCode: 982020
+    commit: v98.2.0
+    timeout: 14400
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v98.0.12
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.0.1
+      - MozBuild@ec0a25634f3f4cd995a30dbe676107a5987c4d7d
+      - MozFennec@FIREFOX_98_0_1_RELEASE
+      - MozGlean@v43.0.2
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.2.4
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 100.1.1
+    versionCode: 1001100
+    commit: v100.1.1
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v100.0.10
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.1.1
+      - MozBuild@a664bc18c60b8850e136f3966bb20e90d3865f3b
+      - MozFennec@FIREFOX_100_0_RELEASE
+      - MozGlean@v44.0.0
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.0
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 100.1.1
+    versionCode: 1001120
+    commit: v100.1.1
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v100.0.10
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.1.1
+      - MozBuild@a664bc18c60b8850e136f3966bb20e90d3865f3b
+      - MozFennec@FIREFOX_100_0_RELEASE
+      - MozGlean@v44.0.0
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.0
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 100.1.3
+    versionCode: 1001300
+    commit: v100.1.3
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v100.0.11
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.1.1
+      - MozBuild@0d7c5650af9fdc110953ade9ab4250effb2157c1
+      - MozFennec@FIREFOX_100_0_1_BUILD1
+      - MozGlean@v44.0.0
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.0
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 100.1.3
+    versionCode: 1001320
+    commit: v100.1.3
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v100.0.11
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.1.1
+      - MozBuild@0d7c5650af9fdc110953ade9ab4250effb2157c1
+      - MozFennec@FIREFOX_100_0_1_BUILD1
+      - MozGlean@v44.0.0
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.0
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 100.3.0
+    versionCode: 1003000
+    commit: v100.3.0
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v100.0.12
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.1.1
+      - MozBuild@5601e076a421733ca1a2c22bb8a50c4c125b7eda
+      - MozFennec@FIREFOX_100_0_2_BUILD1
+      - MozGlean@v44.0.0
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.0
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 100.3.0
+    versionCode: 1003020
+    commit: v100.3.0
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v100.0.12
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.1.1
+      - MozBuild@5601e076a421733ca1a2c22bb8a50c4c125b7eda
+      - MozFennec@FIREFOX_100_0_2_BUILD1
+      - MozGlean@v44.0.0
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.0
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 101.1.1
+    versionCode: 1011100
+    commit: v101.1.1
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v101.0.10
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.1.2
+      - MozBuild@8e1bef78e144becfb960e3f08510c298fa737c58
+      - MozFennec@FIREFOX_101_0_RELEASE
+      - MozGlean@v44.1.1
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.1
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 101.1.1
+    versionCode: 1011120
+    commit: v101.1.1
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v101.0.10
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v91.1.2
+      - MozBuild@8e1bef78e144becfb960e3f08510c298fa737c58
+      - MozFennec@FIREFOX_101_0_RELEASE
+      - MozGlean@v44.1.1
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.1
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 102.1.1
+    versionCode: 1021100
+    commit: v102.1.1
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v102.0.12
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v93.1.0
+      - MozBuild@2ce566ca2edbb33895bc3a8ac0cf5ab75bc0f192
+      - MozFennec@FIREFOX_102_0_RELEASE
+      - MozGlean@v44.1.1
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.1
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 102.1.1
+    versionCode: 1021120
+    commit: v102.1.1
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v102.0.12
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v93.1.0
+      - MozBuild@2ce566ca2edbb33895bc3a8ac0cf5ab75bc0f192
+      - MozFennec@FIREFOX_102_0_RELEASE
+      - MozGlean@v44.1.1
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.1
+      - rustup@1.24.3
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 103.1.0
+    versionCode: 1031000
+    commit: v103.1.0
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v103.0.9
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v93.5.0
+      - MozBuild@88ad7fdb5ae872740be8cf3864164e17a4e6804a
+      - MozFennec@FIREFOX_103_0_RELEASE
+      - MozGlean@v50.1.0
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.2
+      - rustup@1.25.1
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 103.1.0
+    versionCode: 1031020
+    commit: v103.1.0
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v103.0.9
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v93.5.0
+      - MozBuild@88ad7fdb5ae872740be8cf3864164e17a4e6804a
+      - MozFennec@FIREFOX_103_0_RELEASE
+      - MozGlean@v50.1.0
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.2
+      - rustup@1.25.1
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 104.1.0
+    versionCode: 1041000
+    commit: v104.1.0
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v104.0.8
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v93.7.2
+      - MozBuild@37953391613205768b8a94b55b0940275257d6d3
+      - MozFennec@FIREFOX_104_0_RELEASE
+      - MozGlean@v50.1.4
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.3
+      - rustup@1.25.1
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
+  - versionName: 104.1.0
+    versionCode: 1041020
+    commit: v104.1.0
+    timeout: 18000
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless g++ python-setuptools tcl gyp ninja-build
+        libffi-dev libsqlite3-dev
+      - update-alternatives --auto java
+    output: app/build/outputs/apk/release/app-*-release-unsigned.apk
+    srclibs:
+      - MozAndroidComponents@v104.0.8
+      - MozAndroidComponentsAS@v94.0.0
+      - MozAppServices@v93.7.2
+      - MozBuild@37953391613205768b8a94b55b0940275257d6d3
+      - MozFennec@FIREFOX_104_0_RELEASE
+      - MozGlean@v50.1.4
+      - MozGleanAS@v41.1.1
+      - pyenv@v2.3.3
+      - rustup@1.25.1
+      - wasi-sdk@f0d40b6491efc1e2332f55eb22e6292abdce4335
+    prebuild: $$MozBuild$$/prebuild.sh $$VERSION$$ $$VERCODE$$
+    build: $$MozBuild$$/build.sh
+    ndk: r21d
+
 MaintainerNotes: |4-
 
-    Updating/Versioning:
-    * Update Check Mode:Tags ^FENNEC_[1-9][0-9]*_[0-9]*_RELEASE$
-    * versionCode via ANDROID_VERSION_CODE is datestring with some magic applied and changes every build!
-    * Since we no longer target an official build, we are free to use any version code.
-    ** Current scheme: XYZAR, where X.Y.Z is upstream version, A is architecture (0 = ARMv7, 1 = x86, 2 = ARMv8), R is revision (if we need to re-release)
-    ** Example: 530210 = Firefox 53.0.2 for x86, initial revision
-    ** Example: 550021 = Firefox 55.0 for ARMv8, second revision
-    * Builds for different architectures target different Android API levels: 16 for 32-bit (ARMv7 and x86) and 21 for 64-bit (ARMv8).
-    * Required SDK and NDK versions: https://developer.mozilla.org/en-US/docs/Mozilla/Developer_guide/Build_Instructions/Simple_Firefox_for_Android_build#Required_Android_SDK_and_NDK_versions
-    * Required Rust versions: https://wiki.mozilla.org/Rust_Update_Policy_for_Firefox#Schedule
-    * Firefox 61 requires at least Python 3.5 and GCC 6.1. We have to install Python and GCC from source because their versions in Debian Jessie are too old. This should be dropped once the build VM is upgraded to Debian Stretch.
+    Version code scheme:
+    XYZAR, where X.Y.Z is upstream version, A is architecture (0 = ARMv7, 1 = x86, 2 = ARMv8), R is revision (if we need to re-release).
+    * Example: 530210 = Firefox 53.0.2 for x86, initial revision
+    * Example: 550021 = Firefox 55.0 for ARMv8, second revision
 
-    Reroute Feedback:
-    * about:feedback links to the Play Store for rating the app. While with F-Droid installed, we can intercept the intent and open the page in F-Droid client instead, there is no way to rate the app. If F-Droid is not installed (or Play is configured to be used always), no app info page is displayed at all: Our package id is not in Play Store! Some options:
-    ** sed -i -e '/OpenPlayStore/,+4s/getPackageName()/"org.mozilla.fennec"/g' mobile/android/base/BrowserApp.java
-    ** sed -i -e 's|about:feedback|https://gitlab.com/fdroid/fdroiddata/issues|g' mobile/android/base/resources/xml/preferences_vendor.xml
+    Android Components version:
+    grep VERSION build/org.mozilla.fennec_fdroid/buildSrc/src/main/java/AndroidComponents.kt
 
-ArchivePolicy: 6 versions
+    Application Services, Glean and GeckoView versions:
+    grep 'mozilla_appservices =' build/srclib/MozAndroidComponents/buildSrc/src/main/java/Dependencies.kt
+    grep 'mozilla_glean =' build/srclib/MozAndroidComponents/buildSrc/src/main/java/Dependencies.kt
+    grep 'version =' build/srclib/MozAndroidComponents/buildSrc/src/main/java/Gecko.kt
+
+    Android Components (AS) version:
+    grep 'android_components_version =' build/srclib/MozAppServices/build.gradle
+
+    Glean (AS) version:
+    grep 'mozilla_glean =' build/srclib/MozAndroidComponentsAS/buildSrc/src/main/java/Dependencies.kt
+
+    Python:
+    * https://github.com/pyenv/pyenv/releases
+    * https://www.python.org/downloads/
+
+    Rust:
+    * https://github.com/rust-lang/rustup/releases
+    * https://www.rust-lang.org/
+
+ArchivePolicy: 4 versions
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 68.5.0
-CurrentVersionCode: 685020
+CurrentVersion: 104.1.0
+CurrentVersionCode: 1041020

@@ -1,0 +1,44 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Multimedia
+License: GPL-3.0-only
+AuthorName: Ankit Sangwan
+SourceCode: https://github.com/Sangwan5688/BlackHole
+IssueTracker: https://github.com/Sangwan5688/BlackHole/issues
+Changelog: https://github.com/Sangwan5688/BlackHole/releases
+Donate: https://buymeacoffee.com/ankitsangwan
+
+AutoName: BlackHole
+
+RepoType: git
+Repo: https://github.com/Sangwan5688/BlackHole
+
+Builds:
+  - versionName: 1.15.2
+    versionCode: 33
+    disable: https://github.com/Sangwan5688/BlackHole/issues/345
+    commit: a7812c3c3872c90b253742392f91e65967834c23
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.3.0
+    rm:
+      - docs
+      - linux
+      - ios
+      - test
+      - windows
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: None
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.15.2
+CurrentVersionCode: 33

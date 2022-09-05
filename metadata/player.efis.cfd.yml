@@ -1,72 +1,15 @@
 Categories:
   - Navigation
 License: Apache-2.0
-WebSite: http://members.iinet.net.au/~ninelima/efis/
+WebSite: https://ninelima.org/efis/
 SourceCode: https://gitlab.com/ninelima/kwikEFIS
 IssueTracker: https://gitlab.com/ninelima/kwikEFIS/issues
 Changelog: https://gitlab.com/ninelima/kwikEFIS/blob/HEAD/CHANGELOG.md
-Bitcoin: 1KKWRF25NwVgNdankr1vBphtkLbX766Ee1
 
 AutoName: Kwik COMP
 Description: |-
-    Kwik COMP is a combined application of EFIS and DMAP. It provides a split
-    screen showing the primary flight display and digital moving map on a single
-    device. COMP can optionally integrate with the Stratux ADS-B/AHRS to provide
-    real-time traffic and enhanced attitude information.
-
-    '''Synthetic Vision'''
-
-    Synthetic vision is built from the USGS 3 arc second Digital Elevation Model
-    data. If enabled, it also allows for some terrain collision detection. The
-    required terrain data packages are available via F-Droid, see:
-
-    * [[player.efis.data.usa.can]]
-    * [[player.efis.data.eur.rus]]
-    * [[player.efis.data.sah.jap]]
-    * [[player.efis.data.zar.aus]]
-    * [[player.efis.data.pan.arg]]
-
-    '''Flight Director'''
-
-    Kwik EFIS has a fully functional flight director built in. It uses the standard
-    V-Bar symbology common to modern flight directors. The target  waypoint and
-    altitude is set on-screen by means of the spinner controls on the right top and
-    bottom of the screen.
-
-    '''Airspace'''
-
-    Airspace data is provided from Worldwide Soaring Turnpoint Exchange Airspace
-    [http://soaringweb.org/Airspace/]
-
-    * North West Sector: United States/Canada.
-    * North East Sector: Europe(Denmark, Germany, Switzerland)/Russia.
-    * South West Sector: South America.
-    * South East Sector: Australia/South Africa.
-
-    '''ADS-B/AHRS'''
-
-    In addition to the internal sensors, a low cost Stratux ADS-B/AHRS can be
-    selected as the input source. See [http://www.stratux.me/ Stratux ADS-B] for
-    more information.
-
-    '''Simulator'''
-
-    There is a simulation mode available in the application. The Flight director is
-    used to select a waypoint and altitude and the simulator will generate the GPS
-    movements to navigate to the selected waypoint. The speed is set at the typical
-    cruise for the currently selected aircraft.
-
-    '''Companion Applications'''
-
-    [[player.efis.pfd]] is the primary flight display
-    application of the EFIS. It provides a modern attitude and flight
-    instrument display.
-
-    [[player.efis.mfd]] is a stand-alone digital
-    moving map application. It provides situational awareness and navigation
-    functionality.
-
-    [http://members.iinet.net.au/~ninelima/efis/gallery.html '''Screenshots''']
+    Kwik COMP (player.efis.cfd) has been superseded by Kwik EFIS Pro
+    (player.efis.pfd)
 
 RepoType: git
 Repo: https://gitlab.com/ninelima/kwikEFIS.git
@@ -128,7 +71,78 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version COMP_%v
-UpdateCheckMode: Tags ^COMP
-CurrentVersion: '5.0'
-CurrentVersionCode: 34
+  - versionName: '5.1'
+    versionCode: 35
+    commit: COMP_5.1
+    subdir: cfd
+    gradle:
+      - yes
+
+  - versionName: '5.2'
+    versionCode: 36
+    commit: COMP_5.2
+    subdir: cfd
+    gradle:
+      - yes
+
+  - versionName: '5.3'
+    versionCode: 37
+    commit: COMP_5.3
+    subdir: cfd
+    gradle:
+      - yes
+
+  - versionName: '6.0'
+    versionCode: 38
+    commit: COMP_6.0
+    subdir: cfd
+    gradle:
+      - yes
+
+  - versionName: '6.1'
+    versionCode: 39
+    commit: COMP_6.1
+    subdir: cfd
+    gradle:
+      - yes
+
+  - versionName: '6.2'
+    versionCode: 40
+    commit: COMP_6.2
+    subdir: cfd
+    gradle:
+      - yes
+
+  - versionName: '6.3'
+    versionCode: 41
+    commit: COMP_6.3
+    subdir: cfd
+    gradle:
+      - yes
+
+  - versionName: '6.4'
+    versionCode: 42
+    commit: COMP_6.4
+    subdir: cfd
+    gradle:
+      - yes
+
+  - versionName: '6.5'
+    versionCode: 43
+    commit: COMP_6.5
+    subdir: cfd
+    gradle:
+      - yes
+
+  - versionName: 6.6rc3
+    versionCode: 44
+    commit: COMP_6.6
+    subdir: cfd
+    gradle:
+      - yes
+
+ArchivePolicy: 0 versions
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 6.6rc3
+CurrentVersionCode: 44

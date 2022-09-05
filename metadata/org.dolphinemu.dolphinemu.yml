@@ -15,11 +15,11 @@ Description: |-
     Triforce compatibility is currently limited to a couple of games - others
     require more of the Triforce-specific peripheral devices to be emulated.
 
-    [https://wiki.dolphin-emu.org Compatibility Wiki]
+    <a href="https://wiki.dolphin-emu.org">Compatibility Wiki</a>
 
-    [https://forums.dolphin-emu.org/Thread-android-usage-guide Usage guide]
+    <a href="https://forums.dolphin-emu.org/Thread-android-usage-guide">Usage guide</a>
 
-    [https://forums.dolphin-emu.org/Thread-opengl-es-3-guide OpenGL ES 3 guide]
+    <a href="https://forums.dolphin-emu.org/Thread-opengl-es-3-guide">OpenGL ES 3 guide</a>
 
     Status: ALPHA. Note that newer versions require ARM64, which only some of the
     newest devices have.
@@ -74,7 +74,89 @@ Builds:
       - docs
     ndk: r16b
 
+  - versionName: 5.0-12716
+    versionCode: 16869
+    commit: 31524288e3b2450eaefff8202c6d26c4ba3f7333
+    subdir: Source/Android/app
+    gradle:
+      - yes
+    prebuild: $ANDROID_HOME/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+    scandelete:
+      - Installer
+      - Externals
+      - Data/Sys
+      - docs
+    ndk: r21d
+
+  - versionName: 5.0-13178
+    versionCode: 17057
+    commit: a34823df61df65168aa40ef5e82e44defd4a0138
+    subdir: Source/Android/app
+    gradle:
+      - yes
+    prebuild: $ANDROID_HOME/tools/bin/sdkmanager 'cmake;3.10.2.4988404'
+    scandelete:
+      - Installer
+      - Externals
+      - Data/Sys
+      - docs
+    ndk: r21d
+
+  - versionName: 5.0-15445
+    versionCode: 17823
+    commit: db02b50d2ecdfbbc21e19aadc57253c353069f77
+    subdir: Source/Android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - yes
+    scanignore:
+      - Data/Sys/codehandler.bin
+      - Data/Sys/GC/dsp_rom.bin
+      - Data/Sys/GC/font_western.bin
+      - Data/Sys/GC/dsp_coef.bin
+      - Data/Sys/GC/font_japanese.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fl.bin
+      - Data/Sys/Wii/shared2/wc24/misc.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24dl.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fls.bin
+    scandelete:
+      - Installer
+      - Externals
+      - docs
+    ndk: r23
+
+  - versionName: 5.0-15993
+    versionCode: 18001
+    commit: 5e595616379a694789fe749e40a27ef069f0090e
+    subdir: Source/Android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1'
+    scanignore:
+      - Data/Sys/codehandler.bin
+      - Data/Sys/GC/dsp_rom.bin
+      - Data/Sys/GC/font_western.bin
+      - Data/Sys/GC/dsp_coef.bin
+      - Data/Sys/GC/font_japanese.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fl.bin
+      - Data/Sys/Wii/shared2/wc24/misc.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24dl.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fls.bin
+    scandelete:
+      - Installer
+      - Externals
+      - docs
+    ndk: r23
+
 AutoUpdateMode: None
-UpdateCheckMode: RepoManifest
-CurrentVersion: 5.0-6374
-CurrentVersionCode: 14523
+UpdateCheckMode: None
+CurrentVersion: 5.0-15993
+CurrentVersionCode: 18001

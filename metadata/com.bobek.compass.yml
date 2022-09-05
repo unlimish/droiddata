@@ -1,0 +1,73 @@
+Categories:
+  - Navigation
+License: GPL-3.0-only
+AuthorName: Philipp Bobek
+AuthorEmail: philipp.bobek@mailbox.org
+SourceCode: https://github.com/Kr0oked/Compass
+IssueTracker: https://github.com/Kr0oked/Compass/issues
+Changelog: https://github.com/Kr0oked/Compass/releases
+
+AutoName: Compass
+
+RepoType: git
+Repo: https://github.com/Kr0oked/Compass.git
+
+Builds:
+  - versionName: '1.2'
+    versionCode: 3
+    commit: v1.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.3'
+    versionCode: 4
+    commit: v1.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.4'
+    versionCode: 5
+    commit: v1.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.5'
+    versionCode: 6
+    commit: 13cbda3b681899886883eb8668a93beb9f67d8ce
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.6'
+    versionCode: 7
+    commit: 205ef6e18d1b1757d795bd36fd9eb33e2a3b8236
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.7'
+    versionCode: 8
+    commit: 093006e581f12ed9564484ea2a11b96223a661a6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '1.7'
+CurrentVersionCode: 8

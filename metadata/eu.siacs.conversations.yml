@@ -3,10 +3,10 @@ Categories:
 License: GPL-3.0-only
 AuthorName: Daniel Gultsch
 WebSite: https://conversations.im/
-SourceCode: https://github.com/siacs/Conversations
-IssueTracker: https://github.com/siacs/Conversations/issues
+SourceCode: https://github.com/iNPUTmice/Conversations
+IssueTracker: https://github.com/iNPUTmice/Conversations/issues
 Translation: https://www.transifex.com/siacs/conversations/
-Changelog: https://github.com/siacs/Conversations/blob/HEAD/CHANGELOG.md
+Changelog: https://github.com/iNPUTmice/Conversations/blob/HEAD/CHANGELOG.md
 Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CW3SYT3KG5PDL
 LiberapayID: '34225'
 Bitcoin: 3KAD8vew6tPZDjiUJNnZ3YUoUxrCEVNwFL
@@ -14,7 +14,7 @@ Bitcoin: 3KAD8vew6tPZDjiUJNnZ3YUoUxrCEVNwFL
 AutoName: Conversations
 
 RepoType: git
-Repo: https://github.com/siacs/Conversations
+Repo: https://github.com/iNPUTmice/Conversations.git
 
 Builds:
   - versionName: 0.1.3
@@ -1787,11 +1787,338 @@ Builds:
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
         \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
-MaintainerNotes: |-
-    We go back to targetSdk 25 so users can disable the foreground service (and
-    annoying notification) if they choose to.
+  - versionName: 2.7.1+fcr
+    versionCode: 367
+    commit: 2.7.1
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
+        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
-AutoUpdateMode: Version ++fcr %v
+  - versionName: 2.8.1+fcr
+    versionCode: 381
+    commit: 2.8.1
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/aabortOnError\
+        false' -e '/libwebrtc/d' -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.+'"
+        -e '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+
+  - versionName: 2.8.2+fcr
+    versionCode: 382
+    commit: 2.8.2
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/aabortOnError\
+        false' -e '/libwebrtc/d' -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.+'"
+        -e '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+
+  - versionName: 2.8.3+fcr
+    versionCode: 383
+    commit: 2.8.3
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/aabortOnError\
+        false' -e '/libwebrtc/d' -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.+'"
+        -e '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+
+  - versionName: 2.8.4+fcr
+    versionCode: 387
+    commit: 2.8.4
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21b
+
+  - versionName: 2.8.5+fcr
+    versionCode: 388
+    commit: 2.8.5
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21b
+
+  - versionName: 2.8.6+fcr
+    versionCode: 390
+    commit: 2.8.6
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21b
+
+  - versionName: 2.8.7+fcr
+    versionCode: 393
+    commit: 2.8.7
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.8.8+fcr
+    versionCode: 394
+    commit: 2.8.8
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.8.9+fcr
+    versionCode: 395
+    commit: 2.8.9
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.8.10+fcr
+    versionCode: 397
+    commit: 2.8.10
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.0+fcr
+    versionCode: 398
+    commit: 2.9.0
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.1+fcr
+    versionCode: 401
+    commit: 2.9.1
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.2+fcr
+    versionCode: 402
+    commit: 2.9.2
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.3+fcr
+    versionCode: 403
+    commit: 2.9.3
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.4+fcr
+    versionCode: 404
+    commit: 2.9.4
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.5+fcr
+    versionCode: 405
+    commit: 2.9.5
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.6+fcr
+    versionCode: 407
+    commit: 2.9.6
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.7+fcr
+    versionCode: 42000
+    commit: 2.9.7
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21d
+
+  - versionName: 2.9.8+fcr
+    versionCode: 42006
+    commit: 2.9.8
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.9+fcr
+    versionCode: 42010
+    commit: 2.9.9
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.10+fcr
+    versionCode: 42012
+    commit: 2.9.10
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.11+fcr
+    versionCode: 42013
+    commit: 2.9.11
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.12+fcr
+    versionCode: 42014
+    commit: 2.9.12
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.13+fcr
+    versionCode: 42015
+    commit: 2.9.13
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.0+fcr
+    versionCode: 42018
+    commit: 3f315751a12fb8178d44733289e77197c7a0f296
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.1+fcr
+    versionCode: 42022
+    commit: cc489ef7bfdba59417e0098779d37c7a7a1bcce4
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.2+fcr
+    versionCode: 42023
+    commit: a8ff88398df1697751d50daa3c4f068508389528
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.2.1+fcr
+    versionCode: 42024
+    commit: fe98cf2c9b28f3a7f59aa4425b9d02c772694aec
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.9+free
+    versionCode: 42037
+    commit: aea1e80900c5ac70ebe01fb736ed3a43df63d1dd
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFree
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/splits/,+5d'
+        -e '/Variants.all/,+10d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.10+free
+    versionCode: 42038
+    commit: 1aaff18bb5ece9ef51a374523957a76be85be26a
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFree
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/splits/,+5d'
+        -e '/Variants.all/,+10d' build.gradle
+    ndk: r21e
+
+MaintainerNotes: Since 2.10.9 it switches the webrtc lib with the one by Threema from
+    maven, but that has compatibility issues so we'll need to start building locally
+    in the future.
+
+AutoUpdateMode: Version ++free %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.7.0
-CurrentVersionCode: 364
+CurrentVersion: 2.10.10+free
+CurrentVersionCode: 42038

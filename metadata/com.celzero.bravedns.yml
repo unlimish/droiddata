@@ -1,0 +1,55 @@
+Categories:
+  - Internet
+  - Security
+  - Connectivity
+License: Apache-2.0
+AuthorName: The RethinkDNS Authors
+AuthorEmail: hello@celzero.com
+WebSite: https://rethinkdns.com/app
+SourceCode: https://github.com/celzero/rethink-app
+IssueTracker: https://github.com/celzero/rethink-app/issues
+Bitcoin: 35dbvH3YNbgqD2xWGXwotjHM7gbVLyno11
+Litecoin: MT8EeqoAT8fM5aN93NAX9qUkF75HetBuKe
+
+AutoName: RethinkDNS
+
+RepoType: git
+Repo: https://github.com/celzero/rethink-app
+
+Builds:
+  - versionName: 0.5.3e
+    versionCode: 16
+    commit: v0.5.3e
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 053g
+    versionCode: 18
+    commit: 63efbf6f5e014bef64b07836cc7e96aa9cf20dd8
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 053h
+    versionCode: 19
+    commit: 161674b1cdbdd72fefee5edd953179a637e00f6f
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 053i
+    versionCode: 20
+    commit: 7a8f95899860e95559bf8f6769b9cd336fd5f856
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 053i
+CurrentVersionCode: 20

@@ -1,3 +1,6 @@
+AntiFeatures:
+  - NonFreeNet
+  - NSFW
 Categories:
   - Reading
 License: MIT
@@ -1398,25 +1401,43 @@ Builds:
       - sed -i -e 's@https://github.com/suckgamony/RapidDecoder/raw/master/repository@https://jitpack.io@g'
         ../build.gradle
 
-  - versionName: '1.124'
-    versionCode: 124
-    disable: unknown maven
-    commit: '1.124'
+  - versionName: '1.129'
+    versionCode: 129
+    commit: '1.129'
     subdir: app
     gradle:
       - fdroid
     srclibs:
-      - RapidDecoder@7cdfca4
+      - RapidDecoderRaulhaag@0.3.1Ax
     prebuild:
-      - cp -fR $$RapidDecoder$$/library/src/main/java/rapid src/main/java/
+      - cp -fR $$RapidDecoderRaulhaag$$/library/src/main/java/rapid src/main/java/
       - sed -i -e '/rapid.decoder/d' -e '/githubImplementation/d' -e '/versionNameSuffix/d'
         build.gradle
       - sed -i -e 's@https://github.com/suckgamony/RapidDecoder/raw/master/repository@https://jitpack.io@g'
         ../build.gradle
 
-MaintainerNotes: RapidDecoder 0.3.0 is required, but this version is not tagged.
+  - versionName: '1.132'
+    versionCode: 132
+    commit: '1.132'
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/githubImplementation/d' build.gradle
+
+  - versionName: '1.133'
+    versionCode: 133
+    commit: '1.133'
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/githubImplementation/d' build.gradle
+
+MaintainerNotes: |-
+    * We use the dev fork of RapidDecoder
+    * upstream repo now archived (hence UCM None)
+    * scanner will detect GMS (/com/google/android/gms) in these APKs; those are only stubs here
 
 AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: '1.124'
-CurrentVersionCode: 124
+UpdateCheckMode: None
+CurrentVersion: '1.133'
+CurrentVersionCode: 133

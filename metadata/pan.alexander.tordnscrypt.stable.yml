@@ -1,0 +1,248 @@
+Categories:
+  - Internet
+  - Security
+License: GPL-3.0-or-later
+AuthorName: Oleksandr Garmatin
+AuthorEmail: invizible.soft@gmail.com
+SourceCode: https://github.com/Gedsh/InviZible
+IssueTracker: https://github.com/Gedsh/InviZible/issues
+Translation: https://poeditor.com/join/project/h6ulNL9gEd
+Changelog: https://github.com/Gedsh/InviZible/blob/HEAD/ChangeLog.md
+Donate: https://github.com/Gedsh/InviZible#donations
+Bitcoin: 1GfJwiHG6xKCQCpHeW6fELzFfgsvcSxVUR
+
+AutoName: InviZible Pro
+
+RepoType: git
+Repo: https://github.com/Gedsh/InviZible.git
+
+Builds:
+  - versionName: 5.1.0
+    versionCode: 2122
+    commit: v5.1.0-stable
+    subdir: tordnscrypt
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y autogen g++
+      - apt-get install -y -t testing golang-go
+    gradle:
+      - fdroidArmv7a
+    prebuild: sed -i 's|^NDK=.*$|NDK=$$NDK$$|' libs/build
+    scandelete:
+      - tordnscrypt/libs/arm64-v8a
+      - tordnscrypt/libs/armeabi-v7a
+    build: libs/build
+    ndk: r21d
+
+  - versionName: 5.2.0
+    versionCode: 2125
+    commit: v5.2.0-stable
+    subdir: tordnscrypt
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y autogen g++
+      - apt-get install -y -t testing golang-go
+    init:
+      - sed -i -e "s/ndkVersion .*/ndkVersion '20.1.5948944'/" build.gradle
+      - libs/prebuild
+    gradle:
+      - fdroidArmv7a
+    rm:
+      - TorBuildScript/external/openssl/fuzz
+      - PurpleI2PBuildScript/external/libs/openssl/fuzz
+    scandelete:
+      - tordnscrypt/libs
+      - TorBuildScript/external
+    build: libs/build
+    ndk: r20b
+
+  - versionName: 5.2.1
+    versionCode: 2128
+    commit: v5.2.1-stable
+    subdir: tordnscrypt
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y autogen g++
+      - apt-get install -y -t testing golang-go
+    init:
+      - sed -i -e "s/ndkVersion .*/ndkVersion '20.1.5948944'/" build.gradle
+      - libs/prebuild
+    gradle:
+      - fdroidArmv7a
+    rm:
+      - TorBuildScript/external/openssl/fuzz
+      - PurpleI2PBuildScript/external/libs/openssl/fuzz
+    scandelete:
+      - tordnscrypt/libs
+      - TorBuildScript/external
+    build: libs/build
+    ndk: r20b
+
+  - versionName: 5.3.0
+    versionCode: 2133
+    commit: v5.3.0-stable
+    subdir: tordnscrypt
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y autogen g++
+      - apt-get install -y -t testing golang-go
+    init:
+      - sed -i -e "s/ndkVersion .*/ndkVersion '20.1.5948944'/" build.gradle
+      - libs/prebuild
+    gradle:
+      - fdroidArmv7a
+    rm:
+      - TorBuildScript/external/openssl/fuzz
+      - PurpleI2PBuildScript/external/libs/openssl/fuzz
+    scandelete:
+      - tordnscrypt/libs
+      - TorBuildScript/external
+    build: libs/build
+    ndk: r20b
+
+  - versionName: 5.4.0
+    versionCode: 2137
+    commit: bf8d093e4e9d1d1da841d3247c77b98f92c2ca7c
+    subdir: tordnscrypt
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y autogen g++ openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - apt-get install -y -t testing golang-go
+    init:
+      - sed -i -e "s/ndkVersion .*/ndkVersion '20.1.5948944'/" build.gradle
+      - libs/prebuild
+    gradle:
+      - fdroidArmv7a
+    rm:
+      - TorBuildScript/external/openssl/fuzz
+      - PurpleI2PBuildScript/external/libs/openssl/fuzz
+    scandelete:
+      - tordnscrypt/libs
+      - TorBuildScript/external
+    build: libs/build
+    ndk: r20b
+
+  - versionName: 5.5.0
+    versionCode: 2143
+    commit: fbd6d276da8c1b996ce17d7742c6864de120a2b8
+    subdir: tordnscrypt
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y autogen g++
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
+      - echo "550f9845451c0c94be679faf116291e7807a8d78b43149f9506c1b15eb89008c go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    init:
+      - sed -i -e "s/ndkVersion .*/ndkVersion '20.1.5948944'/" build.gradle
+      - libs/prebuild
+    gradle:
+      - fdroidArmv7a
+    rm:
+      - TorBuildScript/external/openssl/fuzz
+      - PurpleI2PBuildScript/external/libs/openssl/fuzz
+    scandelete:
+      - tordnscrypt/libs
+      - TorBuildScript/external
+    build: libs/build
+    ndk: r20b
+
+  - versionName: 5.6.0
+    versionCode: 2154
+    commit: 88220c6bdf56f4a12dbd3be8c0fefdddcb086128
+    subdir: tordnscrypt
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y autogen g++
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
+      - echo "550f9845451c0c94be679faf116291e7807a8d78b43149f9506c1b15eb89008c go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    init:
+      - sed -i -e "s/ndkVersion .*/ndkVersion '20.1.5948944'/" build.gradle
+      - libs/prebuild
+    gradle:
+      - fdroidArmv7a
+    rm:
+      - TorBuildScript/external/openssl/fuzz
+      - PurpleI2PBuildScript/external/libs/openssl/fuzz
+    scandelete:
+      - tordnscrypt/libs
+      - TorBuildScript/external
+    build: libs/build
+    ndk: r20b
+
+  - versionName: 5.7.0
+    versionCode: 2162
+    commit: 321b33599a1c8992755a350e00e6e150535548da
+    subdir: tordnscrypt
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y autogen g++
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
+      - echo "550f9845451c0c94be679faf116291e7807a8d78b43149f9506c1b15eb89008c go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    init:
+      - sed -i -e "s/ndkVersion .*/ndkVersion '20.1.5948944'/" build.gradle
+      - libs/prebuild
+    gradle:
+      - fdroidArmv7a
+    rm:
+      - TorBuildScript/external/openssl/fuzz
+      - PurpleI2PBuildScript/external/libs/openssl/fuzz
+    scandelete:
+      - tordnscrypt/libs
+      - TorBuildScript/external
+    build: libs/build
+    ndk: r20b
+
+  - versionName: 5.8.0
+    versionCode: 2170
+    commit: 0af4f19a301ad82c5796b60c6302d5b4eb844ac4
+    subdir: tordnscrypt
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y autogen g++
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
+      - echo "550f9845451c0c94be679faf116291e7807a8d78b43149f9506c1b15eb89008c go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    init:
+      - sed -i -e "s/ndkVersion .*/ndkVersion '20.1.5948944'/" build.gradle
+      - libs/prebuild
+    gradle:
+      - fdroidArmv7a
+    rm:
+      - TorBuildScript/external/openssl/fuzz
+      - PurpleI2PBuildScript/external/libs/openssl/fuzz
+    scandelete:
+      - tordnscrypt/libs
+      - TorBuildScript/external
+    build: libs/build
+    ndk: r20b
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*-stable$
+VercodeOperation: 2000 + %c
+UpdateCheckData: tordnscrypt/build.gradle|versionCode\s(\d+)|.|versionName\s"([\d.]+)"
+CurrentVersion: 5.8.0
+CurrentVersionCode: 2170

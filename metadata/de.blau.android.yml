@@ -4,7 +4,7 @@ License: Apache-2.0
 WebSite: http://vespucci.io/
 SourceCode: https://github.com/MarcusWolschon/osmeditor4android
 IssueTracker: https://github.com/MarcusWolschon/osmeditor4android/issues
-Changelog: https://github.com/MarcusWolschon/osmeditor4android/blob/HEAD/CHANGELOG.txt
+Changelog: https://github.com/MarcusWolschon/osmeditor4android/releases
 
 AutoName: Vespucci
 Description: |-
@@ -30,7 +30,7 @@ Description: |-
 
 
     Help and instructions are available on device and on the
-    [https://vespucci.io/ Vespucci website].
+    <a href="https://vespucci.io/">Vespucci website</a>.
 
 RepoType: git
 Repo: https://github.com/MarcusWolschon/osmeditor4android
@@ -105,6 +105,8 @@ Builds:
       - android/android-support-v4.jar
     prebuild: cp libs/android-support-v4.jar $$ActionBarSherlock$$/libs/
     target: android-19
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.4r741
     versionCode: 28
@@ -115,6 +117,8 @@ Builds:
       - android/android-support-v4.jar
     prebuild: cp libs/android-support-v4.jar $$ActionBarSherlock$$/libs/
     target: android-19
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.4r745
     versionCode: 29
@@ -125,6 +129,8 @@ Builds:
       - android/android-support-v4.jar
     prebuild: cp libs/android-support-v4.jar $$ActionBarSherlock$$/libs/
     target: android-19
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.4r770
     versionCode: 30
@@ -135,6 +141,8 @@ Builds:
       - android/android-support-v4.jar
     prebuild: cp libs/android-support-v4.jar $$ActionBarSherlock$$/libs/
     target: android-19
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.4r781
     versionCode: 31
@@ -145,6 +153,8 @@ Builds:
       - android/android-support-v4.jar
     prebuild: cp libs/android-support-v4.jar $$ActionBarSherlock$$/libs/
     target: android-19
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.4r828
     versionCode: 32
@@ -154,6 +164,8 @@ Builds:
     extlibs:
       - android/android-support-v4.jar
     prebuild: cp libs/android-support-v4.jar $$ActionBarSherlock$$/libs/
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.5.1.965
     versionCode: 44
@@ -167,6 +179,8 @@ Builds:
     prebuild: sed -i -e '/support-v4/acompile "ch.acra:acra:4.5.0"\ncompile "com.adobe.xmp:xmpcore:5.1.2"\ncompile
         "oauth.signpost:signpost-core:1.2.1.2"\ncompile "oauth.signpost:signpost-commonshttp4:1.2.1.2"'
         -e '/versionCode/d' -e '/versionName/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.6.1.990
     versionCode: 48
@@ -180,6 +194,8 @@ Builds:
     prebuild: sed -i -e '/support-v4/acompile "ch.acra:acra:4.5.0"\ncompile "com.adobe.xmp:xmpcore:5.1.2"\ncompile
         "oauth.signpost:signpost-core:1.2.1.2"\ncompile "oauth.signpost:signpost-commonshttp4:1.2.1.2"'
         -e '/versionCode/d' -e '/versionName/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.6.1.1026-fdroid
     versionCode: 55
@@ -196,6 +212,8 @@ Builds:
         "oauth.signpost:signpost-core:1.2.1.2"\ncompile "oauth.signpost:signpost-commonshttp4:1.2.1.2"'
         -e '/versionCode/d' -e '/versionName/d' build.gradle
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' res/values/appname.xml
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.7.0.1062-fdroid
     versionCode: 58
@@ -212,6 +230,8 @@ Builds:
         "oauth.signpost:signpost-core:1.2.1.2"\ncompile "oauth.signpost:signpost-commonshttp4:1.2.1.2"'
         -e '/versionCode/d' -e '/versionName/d' build.gradle
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' res/values/appname.xml
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.7.1.1069-fdroid
     versionCode: 59
@@ -228,6 +248,8 @@ Builds:
         "oauth.signpost:signpost-core:1.2.1.2"\ncompile "oauth.signpost:signpost-commonshttp4:1.2.1.2"'
         -e '/versionCode/d' -e '/versionName/d' build.gradle
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' res/values/appname.xml
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.7.1.1071-fdroid
     versionCode: 60
@@ -244,23 +266,8 @@ Builds:
         "oauth.signpost:signpost-core:1.2.1.2"\ncompile "oauth.signpost:signpost-commonshttp4:1.2.1.2"'
         -e '/versionCode/d' -e '/versionName/d' build.gradle
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' res/values/appname.xml
-
-  - versionName: 0.9.8.0.1090-fdroid
-    versionCode: 65
-    disable: pre-release
-    commit: 0.9.8-beta-1
-    gradle:
-      - yes
-    forceversion: true
-    rm:
-      - libs/acra*.jar
-      - libs/xmpcore*.jar
-      - libs/signpost*.jar
-    prebuild:
-      - sed -i -e '/support-v4/acompile "ch.acra:acra:4.5.0"\ncompile "com.adobe.xmp:xmpcore:5.1.2"\ncompile
-        "oauth.signpost:signpost-core:1.2.1.2"\ncompile "oauth.signpost:signpost-commonshttp4:1.2.1.2"'
-        -e '/versionCode/d' -e '/versionName/d' build.gradle
-      - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' res/values/appname.xml
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.7.1.1147-fdroid
     versionCode: 76
@@ -277,46 +284,8 @@ Builds:
         build.gradle
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' res/values/appname.xml
       - echo -e "android { lintOptions { disable 'ExtraTranslation' } }" >> build.gradle
-
-  - versionName: 0.9.7.1.1151-fdroid
-    versionCode: 77
-    disable: crash
-    commit: acfe44f46c8983dd7bb92c792713ba73527ce027
-    gradle:
-      - yes
-    forceversion: true
-    rm:
-      - libs/acra*.jar
-      - libs/xmpcore*.jar
-      - libs/signpost*.jar
-    prebuild:
-      - sed -i -e 's/minSdkVersion=\"7\"/minSdkVersion="8"/g' AndroidManifest.xml
-      - sed -i -e '/minSdkVersion/s/7/8/g' -e '/support-v4/acompile "ch.acra:acra:4.8.2"\ncompile
-        "com.adobe.xmp:xmpcore:5.1.2"\ncompile "oauth.signpost:signpost-core:1.2.1.2"\ncompile
-        "oauth.signpost:signpost-commonshttp4:1.2.1.2"' -e '/versionCode/d' -e '/versionName/d'
-        build.gradle
-      - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' res/values/appname.xml
-      - echo -e "android { lintOptions { disable 'ExtraTranslation' } }" >> build.gradle
-
-  - versionName: 0.9.7.1.1153-fdroid
-    versionCode: 79
-    disable: crash
-    commit: 472f55c8879ec7bbd431df7bc46305f8076327f2
-    gradle:
-      - yes
-    forceversion: true
-    rm:
-      - libs/acra*.jar
-      - libs/xmpcore*.jar
-      - libs/signpost*.jar
-    prebuild:
-      - sed -i -e 's/minSdkVersion=\"7\"/minSdkVersion="8"/g' AndroidManifest.xml
-      - sed -i -e '/minSdkVersion/s/7/8/g' -e '/support-v4/acompile "ch.acra:acra:4.8.2"\ncompile
-        "com.adobe.xmp:xmpcore:5.1.2"\ncompile "oauth.signpost:signpost-core:1.2.1.2"\ncompile
-        "oauth.signpost:signpost-commonshttp4:1.2.1.2"' -e '/versionCode/d' -e '/versionName/d'
-        build.gradle
-      - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' res/values/appname.xml
-      - echo -e "android { lintOptions { disable 'ExtraTranslation' } }" >> build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.7.1.1155-fdroid
     versionCode: 80
@@ -334,6 +303,8 @@ Builds:
         -e '/versionCode/d' -e '/versionName/d' build.gradle
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' res/values/appname.xml
       - echo -e "android { lintOptions { disable 'ExtraTranslation' } }" >> build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.7.1.1159-fdroid
     versionCode: 83
@@ -351,6 +322,8 @@ Builds:
         -e '/versionCode/d' -e '/versionName/d' build.gradle
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' res/values/appname.xml
       - echo -e "android { lintOptions { disable 'ExtraTranslation' } }" >> build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.8.1.1205-fdroid
     versionCode: 87
@@ -360,6 +333,8 @@ Builds:
     prebuild:
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' -e 's/1205/1205-fdroid/g' res/values/appname.xml
       - sed -i -e '/bintray/d' -e '/markdown/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.8.1.1211-fdroid
     versionCode: 88
@@ -369,6 +344,8 @@ Builds:
     prebuild:
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' -e 's/1211/1211-fdroid/g' res/values/appname.xml
       - sed -i -e '/bintray/d' -e '/markdown/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.8.1.1214-fdroid
     versionCode: 89
@@ -378,6 +355,8 @@ Builds:
     prebuild:
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' -e 's/1214/1214-fdroid/g' res/values/appname.xml
       - sed -i -e '/bintray/d' -e '/markdown/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.8.1.1216-fdroid
     versionCode: 90
@@ -387,6 +366,8 @@ Builds:
     prebuild:
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' -e 's/1216/1216-fdroid/g' res/values/appname.xml
       - sed -i -e '/bintray/d' -e '/markdown/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.8.1.1228-fdroid
     versionCode: 91
@@ -396,6 +377,8 @@ Builds:
     prebuild:
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' -e 's/1228/1228-fdroid/g' res/values/appname.xml
       - sed -i -e '/bintray/d' -e '/markdown/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.8.1.1242-fdroid
     versionCode: 93
@@ -405,6 +388,8 @@ Builds:
     prebuild:
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' -e 's/1242/1242-fdroid/g' res/values/appname.xml
       - sed -i -e '/bintray/d' -e '/markdown/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.9.0.1261-fdroid
     versionCode: 96
@@ -414,6 +399,8 @@ Builds:
     prebuild:
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' -e 's/1261/1261-fdroid/g' src/main/res/values/appname.xml
       - sed -i -e '/bintray/d' -e '/markdown/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.9.0.1266-fdroid
     versionCode: 98
@@ -423,6 +410,8 @@ Builds:
     prebuild:
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' -e 's/1266/1266-fdroid/g' src/main/res/values/appname.xml
       - sed -i -e '/bintray/d' -e '/markdown/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.9.1.1300-fdroid
     versionCode: 204
@@ -432,6 +421,8 @@ Builds:
     prebuild:
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' -e 's/1300/1300-fdroid/g' src/main/res/values/appname.xml
       - sed -i -e '/bintray/d' -e '/markdown/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 0.9.9.1.1311-fdroid
     versionCode: 207
@@ -441,6 +432,8 @@ Builds:
     prebuild:
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' -e 's/1311/1311-fdroid/g' src/main/res/values/appname.xml
       - sed -i -e '/bintray/d' -e '/markdown/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 10.0.5-fdroid
     versionCode: 307
@@ -451,6 +444,8 @@ Builds:
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' -e 's/10.0.5/10.0.5-fdroid/g'
         src/main/res/values/appname.xml
       - sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 10.1.2-fdroid
     versionCode: 403
@@ -461,6 +456,8 @@ Builds:
       - sed -i -e 's/Vespucci/Vespucci (F-Droid)/g' -e 's/10.1.2/10.1.2-fdroid/g'
         src/main/res/values/appname.xml
       - sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 10.2.4.0
     versionCode: 503
@@ -468,6 +465,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 10.2.5.0
     versionCode: 504
@@ -475,6 +474,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 10.2.6.0
     versionCode: 505
@@ -482,6 +483,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 11.0.0.0
     versionCode: 607
@@ -489,6 +492,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 11.0.1.0
     versionCode: 608
@@ -496,6 +501,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 11.0.2.0
     versionCode: 609
@@ -503,6 +510,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 11.0.4.0
     versionCode: 610
@@ -510,6 +519,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 11.0.5.0
     versionCode: 611
@@ -517,6 +528,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 11.1.0.0
     versionCode: 703
@@ -524,14 +537,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
-
-  - versionName: 11.1.2.0
-    versionCode: 704
-    disable: regressions on older devices
-    commit: 11.1.2.0
-    gradle:
-      - yes
-    prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 11.1.4.0
     versionCode: 705
@@ -539,6 +546,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 11.2.0.1
     versionCode: 800
@@ -546,6 +555,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 11.2.0.0
     versionCode: 801
@@ -553,6 +564,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 11.2.1.0
     versionCode: 802
@@ -560,6 +573,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 11.2.2.0
     versionCode: 803
@@ -567,14 +582,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
-
-  - versionName: 12.0.0.1
-    versionCode: 900
-    disable: buggy beta
-    commit: 12.0.0.1
-    gradle:
-      - current
-    prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 12.0.1.0
     versionCode: 904
@@ -582,6 +591,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 12.1.0.0
     versionCode: 1000
@@ -589,6 +600,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 12.1.1.0
     versionCode: 1001
@@ -596,6 +609,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 12.1.2.0
     versionCode: 1002
@@ -603,6 +618,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 12.1.3.0
     versionCode: 1003
@@ -610,6 +627,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 12.1.4.0
     versionCode: 1004
@@ -617,6 +636,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 12.1.5.0
     versionCode: 1005
@@ -624,6 +645,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 12.1.6.0
     versionCode: 1006
@@ -631,6 +654,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 12.1.7.0
     versionCode: 1007
@@ -638,6 +663,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.0.0.3
     versionCode: 1102
@@ -645,6 +672,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.0.0.0
     versionCode: 1103
@@ -652,6 +681,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.0.1.0
     versionCode: 1104
@@ -659,6 +690,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.0.3.0
     versionCode: 1106
@@ -666,6 +699,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.0.4.0
     versionCode: 1107
@@ -673,6 +708,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.1.0.2
     versionCode: 1201
@@ -680,6 +717,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.1.0.0
     versionCode: 1203
@@ -687,6 +726,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.1.2.0
     versionCode: 1205
@@ -694,6 +735,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.1.3.0
     versionCode: 1206
@@ -701,6 +744,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.1.5.0
     versionCode: 1208
@@ -708,6 +753,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.1.6.0
     versionCode: 1209
@@ -715,6 +762,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.1.7.0
     versionCode: 1210
@@ -722,6 +771,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.1.8.0
     versionCode: 1211
@@ -729,6 +780,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 13.1.9.0
     versionCode: 1212
@@ -736,6 +789,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.1.0
     versionCode: 1303
@@ -743,6 +798,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.2.0
     versionCode: 1304
@@ -750,6 +807,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.3.0
     versionCode: 1305
@@ -757,6 +816,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.4.0
     versionCode: 1306
@@ -764,6 +825,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.5.0
     versionCode: 1307
@@ -771,6 +834,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.6.0
     versionCode: 1308
@@ -778,6 +843,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.7.0
     versionCode: 1309
@@ -785,6 +852,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.8.0
     versionCode: 1310
@@ -792,6 +861,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.9.0
     versionCode: 1311
@@ -799,6 +870,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.10.0
     versionCode: 1312
@@ -806,6 +879,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.12.0
     versionCode: 1314
@@ -813,6 +888,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.13.0
     versionCode: 1315
@@ -820,6 +897,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.14.0
     versionCode: 1316
@@ -827,6 +906,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.15.0
     versionCode: 1317
@@ -834,6 +915,8 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 14.0.17.0
     versionCode: 1319
@@ -841,15 +924,422 @@ Builds:
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
-  - versionName: Unknown
-    versionCode: 1320
-    commit: Unknown
+  - versionName: 14.0.19.0
+    versionCode: 1321
+    commit: 14.0.19.0
     gradle:
       - current
     prebuild: sed -i -e '/bintray/d' -e '/markdown/d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
 
-AutoUpdateMode: Version %v
+  - versionName: 14.1.1.0
+    versionCode: 1404
+    commit: 14.1.1.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/ch.poole.gradle.markdow/d' -e '/markdownToHtml
+        {/,+6d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 14.1.3.0
+    versionCode: 1406
+    commit: 14.1.3.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/ch.poole.gradle.markdow/d' -e '/markdownToHtml
+        {/,+6d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 14.1.4.0
+    versionCode: 1407
+    commit: 14.1.4.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/ch.poole.gradle.markdow/d' -e '/markdownToHtml
+        {/,+6d' -e '/preset-utils/d' build.gradle
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 15.0.2.0
+    versionCode: 1503
+    commit: 15.0.2.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 15.0.4.0
+    versionCode: 1505
+    commit: 15.0.4.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 15.0.5.0
+    versionCode: 1506
+    commit: 15.0.5.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 15.0.6.0
+    versionCode: 1507
+    commit: 15.0.6.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 15.1.7.0
+    versionCode: 1610
+    commit: 15.1.7.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 15.2.1.0
+    versionCode: 1703
+    commit: 15.2.1.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 15.2.3.0
+    versionCode: 1705
+    commit: 15.2.3.0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 15.2.4.0
+    versionCode: 1706
+    commit: 4a51cca8107e4482ff484d593f239f258e8cc33d
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 15.2.5.0
+    versionCode: 1707
+    commit: 33ba62252764b94144dfa33fd2e2247f6448a2c0
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 15.2.6.0
+    versionCode: 1708
+    commit: 510339545571eb6d6424436d5c58938e4574e370
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 15.2.7.0
+    versionCode: 1709
+    commit: 0eb6405fd7cdc191840fbea11bdf469fc68a880b
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 15.2.8.0
+    versionCode: 1710
+    commit: b70fa088a9b7f48b76310b8eb21302e18451af46
+    gradle:
+      - current
+    prebuild: sed -i -e '/bintray/d' -e '/preset-utils/d' -e "/'ch.poole.gradle.markdow/d"
+        -e '/markdownToHtml {/,+6d'  -e '/markdownToHtmlRtl(/,+7d' build.gradle
+    scanignore:
+      - src/main/assets/synonyms/synonyms.so
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 16.1.2.0
+    versionCode: 1904
+    commit: 1ca8fa89d208fe3442f8be4df628b0d694cbfb02
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+      - src/androidTest/resources/fixtures/military2.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 16.1.3.0
+    versionCode: 1905
+    commit: 9b9c1c15050ab42aede9ee9c1bdacdf53266e433
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    scandelete:
+      - src/androidTest/resources/fixtures/military.zip
+      - src/androidTest/resources/fixtures/military2.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 17.0.1.0
+    versionCode: 2004
+    commit: 18b8a1d886156aaea94cc1c7fe6c9f570decd8de
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 17.0.2.0
+    versionCode: 2005
+    commit: c482412410c017122f016d51b25268c81de4d3de
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 17.0.4.0
+    versionCode: 2007
+    commit: 933582f1b7e2b7509534ae2ea9563f415e1f9812
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 17.0.5.0
+    versionCode: 2008
+    commit: 1bc7df9aee3d8b2420e15f0c6b37e199909f0a7e
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 17.0.6.0
+    versionCode: 2009
+    commit: b90826bdf18b44f4b651228ff07db18278345b05
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 17.0.7.0
+    versionCode: 2010
+    commit: 4460ac84e4f05ee550b9cf92ac594f515cc9846f
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 17.1.0.0
+    versionCode: 2101
+    commit: c00613758541b94a4d1cfad1de9e305abd733b89
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    rm:
+      - src/androidTest/resources/bicycle_parking.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 17.1.1.0
+    versionCode: 2102
+    commit: c8d07abaf25f8a33e19895deebba43e5cf60351d
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    rm:
+      - src/androidTest/resources/bicycle_parking.zip
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 17.1.2.0
+    versionCode: 2103
+    commit: ece73061489c459b05835c0980e1ac9969721dc3
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    rm:
+      - src/androidTest/resources/bicycle_parking.zip
+
+  - versionName: 17.1.3.0
+    versionCode: 2104
+    commit: 08db4a0242dc5cd1ebc919c0715f545e11922401
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    rm:
+      - src/androidTest/resources/bicycle_parking.zip
+
+  - versionName: 17.1.4.0
+    versionCode: 2105
+    commit: 3f94d8d39cc6448bfd353766fab5d7b0ae95a202
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    rm:
+      - src/androidTest/resources/bicycle_parking.zip
+
+  - versionName: 17.1.5.0
+    versionCode: 2106
+    commit: 714f78ae1cc61d287cdbd16ccbc6b4f1ec855fb9
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    rm:
+      - src/androidTest/resources/bicycle_parking.zip
+
+  - versionName: 17.1.6.0
+    versionCode: 2107
+    commit: 115b5d9b26a3ff3f3ac3cbfdcc7359da6b56da2a
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    rm:
+      - src/androidTest/resources/bicycle_parking.zip
+
+  - versionName: 18.0.0.0
+    versionCode: 2201
+    commit: 4897e7dda8df8a9a616e45e0715c2932f486496f
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - current
+    rm:
+      - src/androidTest/resources/bicycle_parking.zip
+
+MaintainerNotes: synonyms.so is a translation file for Somali.
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9]+\.[0-9]+\.[0-9]+\.0$
-CurrentVersion: Unknown
-CurrentVersionCode: 1320
+UpdateCheckData: src/main/AndroidManifest.xml|android:versionCode="(\d+)"||
+CurrentVersion: 18.0.0.0
+CurrentVersionCode: 2201

@@ -2,17 +2,18 @@ AntiFeatures:
   - NonFreeNet
 Categories:
   - Internet
-License: MIT
+License: GPL-3.0-only
 AuthorName: ZeeRooo
 AuthorEmail: chavesjuan400@gmail.com
 SourceCode: https://github.com/ZeeRooo/MaterialFBook
 IssueTracker: https://github.com/ZeeRooo/MaterialFBook/issues
+Translation: https://www.transifex.com/yaron/materialfbook/
 Changelog: https://github.com/ZeeRooo/MaterialFBook/blob/HEAD/README.md#changelog
 
 AutoName: MaterialFBook
 Description: |-
     Wrapper around Facebook’s mobile website and APIs, based on
-    [[me.jakelane.wrapperforfacebook]].
+    https://f-droid.org/packages/me.jakelane.wrapperforfacebook.
 
 RepoType: git
 Repo: https://github.com/ZeeRooo/MaterialFBook
@@ -154,6 +155,7 @@ Builds:
 
   - versionName: 3.6.1
     versionCode: 54
+    disable: Firebase, Facebook SDK
     commit: a1e0d5c78c4e58e989bdb613ecc311a8256ddca3
     subdir: app
     gradle:
@@ -201,11 +203,39 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 4.0.0
+    versionCode: 71
+    commit: v4.0.0
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 4.0.1
+    versionCode: 73
+    commit: v4.0.1
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 4.0.2
+    versionCode: 74
+    commit: v4.0.2
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 4.0.3
+    versionCode: 75
+    commit: v4.0.3
+    subdir: app
+    gradle:
+      - fdroid
+
 MaintainerNotes: |-
     Upstream changed package id in https://github.com/ZeeRooo/MaterialFBook/commit/8f1294713326cba2d17909c5211fb82c8bc661f4,
     we keep existing one for now. See https://github.com/ZeeRooo/MaterialFBook/issues/71.
 
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 3.8.7
-CurrentVersionCode: 70
+CurrentVersion: 4.0.3
+CurrentVersionCode: 75

@@ -1,0 +1,69 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Sports & Health
+License: GPL-3.0-only
+WebSite: https://github.com/yacgroup/yacguide
+SourceCode: https://github.com/yacgroup/yacguide
+IssueTracker: https://github.com/yacgroup/yacguide/issues
+
+AutoName: YacGuide
+
+RepoType: git
+Repo: https://github.com/yacgroup/yacguide
+
+Builds:
+  - versionName: 0.2.0
+    versionCode: 2000
+    commit: v0.2.0
+    subdir: app
+    gradle:
+      - stable
+
+  - versionName: 0.3.0
+    versionCode: 3000
+    commit: v0.3.0
+    subdir: app
+    gradle:
+      - stable
+
+  - versionName: 0.3.1
+    versionCode: 3001
+    commit: v0.3.1
+    subdir: app
+    gradle:
+      - stable
+
+  - versionName: 0.4.0
+    versionCode: 4000
+    commit: v0.4.0
+    subdir: app
+    gradle:
+      - stable
+
+  - versionName: 0.5.0
+    versionCode: 5000
+    commit: 33206597546b4402407b0ee706db2d00e9d7be7a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - stable
+
+  - versionName: 0.6.0
+    versionCode: 6000
+    commit: 0acf844031e248377bb8433c3330386679b784d2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - stable
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags ^v
+CurrentVersion: 0.6.0
+CurrentVersionCode: 6000

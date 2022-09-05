@@ -165,10 +165,146 @@ Builds:
     prebuild: sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /fabric/d
         -e '/google-services/d' build.gradle
 
+  - versionName: 2.12.0
+    versionCode: 268
+    commit: 2.12.0-release-fdroid
+    subdir: mobile
+    gradle:
+      - foss
+      - stable
+    prebuild: sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /fabric/d
+        -e '/google-services/d' build.gradle
+
+  - versionName: 2.12.1
+    versionCode: 269
+    commit: 2.12.1-release-fdroid
+    subdir: mobile
+    gradle:
+      - foss
+      - stable
+    prebuild: sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /fabric/d
+        -e '/google-services/d' build.gradle
+
+  - versionName: 2.13.0
+    versionCode: 290
+    commit: 2.13.0-release-fdroid
+    subdir: mobile
+    gradle:
+      - foss
+      - stable
+    prebuild: sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /fabric/d
+        -e '/google-services/d' build.gradle
+
+  - versionName: 2.14.0
+    versionCode: 311
+    commit: 2.14.0-release-fdroid
+    subdir: mobile
+    gradle:
+      - foss
+      - stable
+    prebuild: sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /fabric/d
+        -e '/google-services/d' build.gradle
+
+  - versionName: 2.15.0
+    versionCode: 323
+    commit: 2.15.0-release-fdroid
+    subdir: mobile
+    gradle:
+      - foss
+      - stable
+    prebuild: sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /fabric/d
+        -e '/google-services/d' build.gradle
+
+  - versionName: 2.16.1
+    versionCode: 357
+    commit: 2.16.1-release-fdroid
+    subdir: mobile
+    gradle:
+      - foss
+      - stable
+    prebuild: sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /fabric/d
+        -e '/google-services/d' build.gradle
+
+  - versionName: 2.17.0
+    versionCode: 378
+    commit: 2.17.0-release-fdroid
+    subdir: mobile
+    gradle:
+      - foss
+      - stable
+    prebuild: sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /fabric/d
+        -e '/google-services/d' build.gradle
+
+  - versionName: 2.18.0
+    versionCode: 398
+    commit: 50dcdf7835eb1263a4b6b6c5ffd1e5dc29c312d6
+    subdir: mobile
+    gradle:
+      - foss
+      - stable
+    prebuild: sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+
+  - versionName: 2.19.0
+    versionCode: 404
+    commit: ed53c25cd8a81612c790dd0c43bcf0210ce4da0f
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - stable
+    prebuild: sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+
+  - versionName: 2.20.0
+    versionCode: 418
+    commit: 976a802d49fb022cfdeeaf645cfa405f80eacccc
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - stable
+    prebuild: sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+
+  - versionName: 2.21.0
+    versionCode: 435
+    commit: f3df754edb0f47dd31f27f9977d3676196d35e92
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - stable
+    prebuild: sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+
+  - versionName: 2.22.0
+    versionCode: 437
+    commit: 17fd0cab95a3548ec4155cb9bd4fe4652ce592fb
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - stable
+    prebuild: sed -i -e 's|maven.fabric.io/public|repo1.maven.org/maven2|' -e /firebase/d
+        -e '/google-services/d' build.gradle
+
 MaintainerNotes: Replace the fabric.io maven with mavencentral instead of deleting
     it to not trigger fdroid/fdroidserver#463.
 
 AutoUpdateMode: Version %v-release-fdroid
 UpdateCheckMode: Tags ^[0-9.]+-release-fdroid$
-CurrentVersion: 2.11.0
-CurrentVersionCode: 232
+CurrentVersion: 2.22.0
+CurrentVersionCode: 437

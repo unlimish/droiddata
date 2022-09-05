@@ -227,7 +227,19 @@ Builds:
         make
       - mv bin/app.ap_ bin/app.apk
 
+  - versionName: 7.7.3
+    versionCode: 66
+    commit: fd3c22a6e4d41edfb56b255f265b47430069f39c
+    output: gnubuild/bin/app.apk
+    prebuild:
+      - sed -i -e 's|~/Android/Sdk|$$SDK$$|' -e '/all:/s/ sign//' gnubuild/Makefile
+      - android update sdk --no-ui --filter android-30
+    build:
+      - $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") make
+      - mv gnubuild/bin/app.{ap_,apk}
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 7.7.2
-CurrentVersionCode: 65
+CurrentVersion: 7.7.3
+CurrentVersionCode: 66

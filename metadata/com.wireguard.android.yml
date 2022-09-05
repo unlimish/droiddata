@@ -8,13 +8,13 @@ WebSite: https://www.wireguard.com/
 SourceCode: https://git.zx2c4.com/wireguard-android/
 IssueTracker: https://lists.zx2c4.com/mailman/listinfo/wireguard
 Donate: https://www.wireguard.com/donations/
-Bitcoin: 1ASnTs4UjXKR8tHnLi9yG42n42hbFYV2um
+Bitcoin: 3Jsk6BuNkzW22RaCS1UaJy8w4bCwtVCkUF
 
 AutoName: WireGuard
 Description: |-
     WireGuard is a next generation secure network tunnel protocol. This application
     allows users to connect to WireGuard tunnels. More information may be found on
-    the [https://www.wireguard.com project webpage].
+    the <a href="https://www.wireguard.com">project webpage</a>.
 
     If your device has a custom kernel containing the WireGuard module, then the
     module will be used for superior battery life and performance. Otherwise a
@@ -390,7 +390,182 @@ Builds:
       - yes
     ndk: r16b
 
-AutoUpdateMode: Version %v
+  - versionName: 0.0.20200309
+    versionCode: 465
+    commit: 0.0.20200309
+    subdir: ui
+    submodules: true
+    gradle:
+      - yes
+    ndk: r16b
+
+  - versionName: 1.0.20200329
+    versionCode: 470
+    commit: 1.0.20200329
+    subdir: ui
+    submodules: true
+    gradle:
+      - yes
+    ndk: r16b
+
+  - versionName: 1.0.20200401
+    versionCode: 472
+    commit: 1.0.20200401
+    subdir: ui
+    submodules: true
+    gradle:
+      - yes
+    ndk: r21
+
+  - versionName: 1.0.20200407
+    versionCode: 474
+    commit: 1.0.20200407
+    subdir: ui
+    submodules: true
+    gradle:
+      - yes
+    ndk: r21
+
+  - versionName: 1.0.20200724
+    versionCode: 475
+    commit: 1.0.20200724
+    subdir: ui
+    submodules: true
+    gradle:
+      - yes
+    ndk: r21d
+
+  - versionName: 1.0.20200918
+    versionCode: 477
+    commit: 1.0.20200918
+    subdir: ui
+    submodules: true
+    gradle:
+      - yes
+    ndk: r21d
+
+  - versionName: 1.0.20200920
+    versionCode: 478
+    commit: 1.0.20200920
+    subdir: ui
+    submodules: true
+    gradle:
+      - yes
+    ndk: r21d
+
+  - versionName: 1.0.20200923
+    versionCode: 481
+    commit: 1.0.20200923
+    subdir: ui
+    submodules: true
+    gradle:
+      - yes
+    ndk: r21d
+
+  - versionName: 1.0.20200927
+    versionCode: 482
+    commit: 1.0.20200927
+    subdir: ui
+    submodules: true
+    gradle:
+      - yes
+    ndk: r21d
+
+  - versionName: 1.0.20201216
+    versionCode: 484
+    commit: 1.0.20201216
+    subdir: ui
+    submodules: true
+    gradle:
+      - yes
+    prebuild: sed -i -e '/api\.bintray\.com/d' ../tunnel/publish.gradle
+    ndk: r21d
+
+  - versionName: 1.0.20201224
+    versionCode: 485
+    commit: 1.0.20201224
+    subdir: ui
+    submodules: true
+    gradle:
+      - yes
+    prebuild: sed -i -e '/api\.bintray\.com/d' ../tunnel/publish.gradle
+    ndk: r21d
+
+  - versionName: 1.0.20210211
+    versionCode: 486
+    commit: 1.0.20210211
+    subdir: ui
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - tunnel/publish.gradle
+    prebuild: sed -i -e '/publish.gradle/d' ../tunnel/build.gradle
+    ndk: r21d
+
+  - versionName: 1.0.20210506
+    versionCode: 488
+    commit: 1.0.20210506
+    subdir: ui
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - tunnel/publish.gradle
+    prebuild: sed -i -e '/publish.gradle/d' ../tunnel/build.gradle
+    ndk: r21e
+
+  - versionName: 1.0.20210926
+    versionCode: 490
+    commit: b444ea064e7f00daca6f9422550c74ae675a284e
+    subdir: ui
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - tunnel/publish.gradle
+    prebuild: sed -i -e '/publish.gradle/d' ../tunnel/build.gradle
+    ndk: r21e
+
+  - versionName: 1.0.20211029
+    versionCode: 491
+    commit: 1d7d306950082040c41f3b627d57e8c802b4b792
+    subdir: ui
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - tunnel/publish.gradle
+    prebuild: sed -i -e '/publish.gradle/d' ../tunnel/build.gradle
+    ndk: r21e
+
+  - versionName: 1.0.20220516
+    versionCode: 492
+    commit: c762bc3120c54467ab25665214a96f539b9f9139
+    subdir: ui
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - tunnel/publish.gradle
+    prebuild: sed -i -e '/publish.gradle/d' ../tunnel/build.gradle
+    ndk: r21e
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 0.0.20200206
-CurrentVersionCode: 464
+UpdateCheckData: version.gradle|wireguardVersionCode = ([0-9]+)|.|wireguardVersionName
+    = '([0-9.]+)'
+CurrentVersion: 1.0.20220516
+CurrentVersionCode: 492

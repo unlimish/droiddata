@@ -1,6 +1,6 @@
 Categories:
   - System
-License: GPL-3.0-or-later
+License: GPL-3.0-only
 AuthorName: Davide Depau
 AuthorEmail: etchdroid@depau.eu
 AuthorWebSite: https://depau.eu/
@@ -96,7 +96,18 @@ Builds:
       - yes
     ndk: r17c
 
+  - versionName: '1.5'
+    versionCode: 12
+    commit: v1.5
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/21.0.6113669/21.3.6528147/' ../ci-scripts/setup_sdk.sh
+        ../dmg2img/build.gradle
+    ndk: r21d
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.4'
-CurrentVersionCode: 11
+CurrentVersion: '1.5'
+CurrentVersionCode: 12

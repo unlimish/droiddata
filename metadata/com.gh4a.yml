@@ -9,20 +9,6 @@ IssueTracker: https://github.com/slapperwan/gh4a/issues
 Changelog: https://github.com/slapperwan/gh4a/releases
 
 AutoName: OctoDroid
-Description: |-
-    Supports all the basic Github.com features, such as:
-
-    * Watch/unwatch repositories
-    * View branches/tags, pull requests etc. in each repo
-    * View and comment on issues
-    * Home page feed of recent actions and news
-    * Search for repositories
-    * Diff viewer with colorized HTML
-    * Trending repos (today, week, month, forever)
-
-    Uses OAuth2: your password is used to generate a key and is then destroyed. The
-    key can be revoked any time by visiting github.com. Formerly known as GH4A. This
-    application is currently in BETA: please report any issues to the issue tracker.
 
 RepoType: git
 Repo: https://github.com/slapperwan/gh4a.git
@@ -30,6 +16,7 @@ Repo: https://github.com/slapperwan/gh4a.git
 Builds:
   - versionName: '3.6'
     versionCode: 36
+    disable: third party maven repos, jars
     commit: 53d2e5bbfd76d8ad4a779913df7b3f193fb19a3e
     patch:
       - bugsense.patch
@@ -161,7 +148,99 @@ Builds:
     prebuild: sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' -e s/ClientId/\'\"f0f32f2ee4a709ba3640\"\'/
         -e s/ClientSecret/\'\"f94cffda88486696c2762ad986bc0b8b830c9cff\"\'/ build.gradle
 
-AutoUpdateMode: Version v%v
+  - versionName: 4.6.0
+    versionCode: 62
+    commit: 4.6.0
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.2
+    versionCode: 64
+    commit: 4.6.2
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.3
+    versionCode: 65
+    commit: 4.6.3
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.4
+    versionCode: 66
+    commit: 4.6.4
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.5
+    versionCode: 68
+    commit: b2b46f6ade91cfe0da318b20103ab33482d35b17
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.6
+    versionCode: 69
+    commit: 28b954f2ee8ebbea81de9ffca9a925cdf947e5f6
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.7
+    versionCode: 70
+    commit: df734037c42e6017fb27f50c0a4177abbca80fec
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.8
+    versionCode: 71
+    commit: 1827929624092bbae1bca16fc3b5d6010fead765
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 4.5.0
-CurrentVersionCode: 61
+CurrentVersion: 4.6.8
+CurrentVersionCode: 71

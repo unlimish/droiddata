@@ -6,14 +6,14 @@ AuthorName: AlienPants
 AuthorEmail: cro@alienpants.com
 SourceCode: https://github.com/apcro/leafpicrevived
 IssueTracker: https://github.com/apcro/leafpicrevived/issues
-Changelog: https://github.com/apcro/leafpicrevived/blob/dev/CHANGELOG.md
+Changelog: https://github.com/apcro/leafpicrevived/blob/HEAD/CHANGELOG.md
 
 AutoName: LeafPic Revived
 Description: |4-
 
     Advanced replacement for the default image gallery.
 
-    ''LeafPic Revived'' is a fluid, material-designed alternative gallery. It
+    <i>LeafPic Revived</i> is a fluid, material-designed alternative gallery. It
     doesn’t miss any of the main features of a stock gallery, and we also have
     plans to add more useful features.
 
@@ -51,7 +51,16 @@ Builds:
       - sed -i -e 's/uz.shift:colorpicker:0.5@aar/com.github.DASAR:ShiftColorPicker:v0.5@aar/'
         build.gradle
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: v0.8.2
-CurrentVersionCode: 20
+  - versionName: v0.8.7
+    versionCode: 24
+    commit: v0.8.7
+    subdir: leafpicrevived
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+    ndk: r21e
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags
+CurrentVersion: v0.8.7
+CurrentVersionCode: 24

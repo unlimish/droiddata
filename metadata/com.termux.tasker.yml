@@ -11,12 +11,13 @@ Bitcoin: 1BXS5qPhJzhr5iK5nmNDSmoLDfB6VmN5hv
 
 AutoName: Termux:Tasker
 Description: |-
-    This plugin for [[com.termux]] provides a way to run Termux scripts from Tasker.
-
-    # Create a new Tasker Action.
-    # In the resulting Select Action Category dialog, select Plugin.
-    # In the resulting Termux:Task dialog, select Termux:Task.
-    # Edit the configuration to specify the executable in ~/.termux/tasker/ to execute, and if it should be executed in the background (the default) or in a new terminal session.
+    This plugin for https://f-droid.org/packages/com.termux provides a way to run Termux scripts from Tasker.
+    <ol>
+    <li>Create a new Tasker Action.</li>
+    <li>In the resulting Select Action Category dialog, select Plugin.</li>
+    <li>In the resulting Termux:Task dialog, select Termux:Task.</li>
+    <li>Edit the configuration to specify the executable in ~/.termux/tasker/ to execute, and if it should be executed in the background (the default) or in a new terminal session.</li>
+    </ol>
 
 RepoType: git
 Repo: https://github.com/termux/termux-tasker
@@ -50,7 +51,21 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '0.5'
+    versionCode: 5
+    commit: v0.5
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.6.0
+    versionCode: 6
+    commit: 51451acaba236f0ec419e5601e928f489a6a9974
+    subdir: app
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '0.4'
-CurrentVersionCode: 4
+CurrentVersion: 0.6.0
+CurrentVersionCode: 6

@@ -10,7 +10,6 @@ SourceCode: https://github.com/devgianlu/DNSHero
 IssueTracker: https://github.com/devgianlu/DNSHero/issues
 Translation: https://crowdin.com/project/dnshero
 Changelog: https://github.com/devgianlu/DNSHero/blob/HEAD/CHANGELOG.md
-Donate: https://www.paypal.me/devgianlu
 LiberapayID: '1381702'
 
 AutoName: DNS Hero
@@ -187,7 +186,134 @@ Builds:
     prebuild: sed -i -e '/maven.fabric.io/d; /io.fabric/d; /com.crashlytics/d' ../build.gradle
         ../CommonUtils/build.gradle build.gradle
 
+  - versionName: 1.6.4
+    versionCode: 30
+    disable: crashes on startup
+    commit: v1.6.4
+    subdir: app
+    submodules: true
+    gradle:
+      - foss
+    prebuild: sed -i -e '/maven.fabric.io/d; /io.fabric/d; /com.crashlytics/d' ../build.gradle
+        ../CommonUtils/build.gradle build.gradle
+
+  - versionName: 1.6.5
+    versionCode: 31
+    commit: v1.6.5
+    subdir: app
+    submodules: true
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/com.google.firebase/d' ../build.gradle ../CommonUtils/build.gradle
+        build.gradle
+      - sed -i -e '/maven.fabric.io/d; /io.fabric/d' build.gradle ../build.gradle
+        ../CommonUtils/build.gradle
+
+  - versionName: 1.6.6
+    versionCode: 32
+    commit: v1.6.6
+    subdir: app
+    submodules: true
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/com.google.firebase/d' ../build.gradle ../CommonUtils/build.gradle
+        build.gradle
+      - sed -i -e '/maven.fabric.io/d; /io.fabric/d' build.gradle ../build.gradle
+        ../CommonUtils/build.gradle
+
+  - versionName: 1.6.7
+    versionCode: 33
+    commit: v1.6.7
+    subdir: app
+    submodules: true
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/com.google.firebase/d' ../build.gradle ../CommonUtils/build.gradle
+        build.gradle
+      - sed -i -e '/maven.fabric.io/d; /io.fabric/d' build.gradle ../build.gradle
+        ../CommonUtils/build.gradle
+
+  - versionName: 1.6.8
+    versionCode: 34
+    commit: v1.6.8
+    subdir: app
+    submodules: true
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/com.google.firebase/d' ../build.gradle ../CommonUtils/build.gradle
+        build.gradle
+      - sed -i -e '/maven.fabric.io/d; /io.fabric/d' build.gradle ../build.gradle
+        ../CommonUtils/build.gradle
+
+  - versionName: 1.6.9
+    versionCode: 35
+    commit: v1.6.9
+    subdir: app
+    submodules: true
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/com.google.firebase/d' ../build.gradle ../CommonUtils/build.gradle
+        build.gradle
+      - sed -i -e '/maven.fabric.io/d; /io.fabric/d' build.gradle ../build.gradle
+        ../CommonUtils/build.gradle
+
+  - versionName: 1.6.11
+    versionCode: 37
+    commit: a5f2d1c18ff8847dc0f864413905558d89c4774d
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/com.google.firebase/d' ../build.gradle ../CommonUtils/build.gradle
+        build.gradle
+      - sed -i -e '/maven.fabric.io/d; /io.fabric/d' build.gradle ../build.gradle
+        ../CommonUtils/build.gradle
+
+  - versionName: 1.6.12
+    versionCode: 38
+    commit: a1c01fd7c6ef76448f92feb4295149f8833a054b
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/com.google.firebase/d' ../build.gradle ../CommonUtils/build.gradle
+        build.gradle
+      - sed -i -e '/maven.fabric.io/d; /io.fabric/d' build.gradle ../build.gradle
+        ../CommonUtils/build.gradle
+
+  - versionName: 1.6.13
+    versionCode: 39
+    commit: 5d4bff4ba8267ba4e21b7bf6e9e99f0a48d88019
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/com.google.firebase/d' ../build.gradle ../CommonUtils/build.gradle
+        build.gradle
+      - sed -i -e '/maven.fabric.io/d; /io.fabric/d' build.gradle ../build.gradle
+        ../CommonUtils/build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.6.3
-CurrentVersionCode: 29
+CurrentVersion: 1.6.13
+CurrentVersionCode: 39

@@ -1,6 +1,6 @@
 Categories:
   - Internet
-License: GPL-3.0-only
+License: LGPL-3.0-or-later
 AuthorName: Eric Kok
 AuthorWebSite: https://ekok.nl/
 WebSite: https://www.transdroid.org/
@@ -16,7 +16,7 @@ Description: |-
     results are exposed via a ContentProvider that multiple Android apps can use to
     search for torrents while maintaining control over the search interface.
 
-    See also [[org.transdroid.full]].
+    See also https://f-droid.org/packages/org.transdroid.full.
 
 RepoType: git
 Repo: https://github.com/erickok/transdroid-search.git
@@ -142,7 +142,25 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '4.1'
+    versionCode: 37
+    commit: v4.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '4.3'
+    versionCode: 38
+    commit: 34962c8453dc4ba827333d83cd6d60193b00b344
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '4.0'
-CurrentVersionCode: 36
+CurrentVersion: '4.3'
+CurrentVersionCode: 38

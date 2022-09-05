@@ -9,14 +9,14 @@ Changelog: https://github.com/Ryosuke839/UnicodePad/releases
 
 AutoName: UnicodePad
 Description: |-
-    ''UnicodePad'' lets you input every character in Unicode. And input string can
+    <i>UnicodePad</i> lets you input every character in Unicode. And input string can
     be copied to the clipboard or input directly by Mushroom. You can find out
     where selected character is in list. By long clicking, larger character and
     code point will be shown. Favorite characters can be memorized.
 
     If you can’t see special characters, you have to get a font such as Noto font
-    and select it. You can download Noto fonts [https://www.google.com/get/noto/
-    from Google].
+    and select it. You can download Noto fonts <a href="https://www.google.com/get/noto/
+    from">Google</a>.
 
 RepoType: git
 Repo: https://github.com/Ryosuke839/UnicodePad.git
@@ -36,7 +36,30 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 2.9.1
+    versionCode: 46
+    commit: v2.9.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/gms/d' build.gradle
+      - sed -i -e '/gms/,/meta-data/d' src/main/AndroidManifest.xml
+      - sed -i -e '/LinearLayout adConteiner/,/^\t\t\t}/d' -e '/no-ad/,/^\t\t}/d'
+        -e '/ads/d' -e '/AdView/d' src/main/java/jp/ddo/hotmist/unicodepad/UnicodeActivity.java
+    scanignore:
+      - app/src/main/assets/namedb.zip
+
+  - versionName: 2.10.4-fdroid
+    versionCode: 51
+    commit: 1bb4fd6c480ee53ccb1360b9d75d271444543cd4
+    subdir: app
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/assets/namedb.zip
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.5.0
-CurrentVersionCode: 35
+CurrentVersion: 2.10.4-fdroid
+CurrentVersionCode: 51

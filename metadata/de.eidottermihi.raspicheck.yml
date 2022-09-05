@@ -1,7 +1,7 @@
 Categories:
   - Connectivity
   - Development
-License: GPL-2.0-or-later
+License: MIT
 SourceCode: https://github.com/eidottermihi/rpicheck
 IssueTracker: https://github.com/eidottermihi/rpicheck/issues
 Changelog: https://github.com/eidottermihi/rpicheck/releases
@@ -44,7 +44,22 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-CurrentVersion: 1.8.12
-CurrentVersionCode: 53
+  - versionName: 1.8.13
+    versionCode: 55
+    commit: v1.8.13
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.8.14
+    versionCode: 57
+    commit: v1.8.14
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: app/src/main/AndroidManifest.xml|versionCode="(\d+)"|app/gradle.properties|version=([\d.]+)$
+CurrentVersion: 1.8.14
+CurrentVersionCode: 57

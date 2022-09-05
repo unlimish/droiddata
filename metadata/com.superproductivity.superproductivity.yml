@@ -1,0 +1,39 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Time
+License: MIT
+AuthorName: Johannes Millan
+AuthorWebSite: https://super-productivity.com/
+WebSite: https://super-productivity.com/
+SourceCode: https://github.com/johannesjo/super-productivity-android
+IssueTracker: https://github.com/johannesjo/super-productivity-android/issues
+
+AutoName: Super Productivity
+
+RepoType: git
+Repo: https://github.com/johannesjo/super-productivity-android
+
+Builds:
+  - versionName: '7.0'
+    versionCode: 7
+    commit: v7.0
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: '17.0'
+    versionCode: 17
+    commit: 7ff9c3763f5858dcc0c592daee079a32f382caad
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+AutoUpdateMode: None
+UpdateCheckMode: RepoManifest
+CurrentVersion: '17.0'
+CurrentVersionCode: 17

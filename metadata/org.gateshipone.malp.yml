@@ -182,7 +182,64 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.2.6
+    versionCode: 33
+    commit: a60cc6b2c27d5a189fea55c6240c48b9d69811ab
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - image_sources
+
+  - versionName: 1.2.7
+    versionCode: 34
+    commit: release-34
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - image_sources
+
+  - versionName: 1.2.8
+    versionCode: 35
+    commit: bc661be126a975eefa053d99d06528d9634ef5c2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - image_sources
+
+  - versionName: 1.2.9
+    versionCode: 36
+    commit: 93814904691a5f372bc6dff8330ba5dbb021a73f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - image_sources
+
+  - versionName: 1.2.10
+    versionCode: 37
+    commit: e210f5d12835d6bebec16ee40533769fbb2a71f4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - image_sources
+
 AutoUpdateMode: Version release-%c
 UpdateCheckMode: Tags
-CurrentVersion: 1.2.5
-CurrentVersionCode: 32
+CurrentVersion: 1.2.10
+CurrentVersionCode: 37

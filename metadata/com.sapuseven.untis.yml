@@ -3,25 +3,16 @@ AntiFeatures:
 Categories:
   - Internet
 License: GPL-3.0-or-later
+AuthorName: SapuSeven
+AuthorEmail: sapuseven@gmail.com
+AuthorWebSite: https://sapuseven.com/
 SourceCode: https://github.com/SapuSeven/BetterUntis
 IssueTracker: https://github.com/SapuSeven/BetterUntis/issues
+Translation: https://hosted.weblate.org/projects/betteruntis/
 Changelog: https://github.com/SapuSeven/BetterUntis/releases
+Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=A9CN6R4FTY5EQ
 
 AutoName: BetterUntis
-Description: |-
-    An alternative FLOSS Android client for the Untis timetable system.
-
-    Untis is proprietary timetable software. More information about Untis can be
-    found at https://untis.at. To use Untis, your school must provide it. Your
-    school must also give you an account with which you can access your current
-    timetable, though anonymous access may also be available.
-
-    Why use this app when there is an official one? The official app is
-    also proprietary and includes libraries from google and other tracking software.
-    BetterUntis offers you exactly the same features and even more. Free choice of
-    themes and dark mode are of course also included.
-
-    WebUntis is a non-free network.
 
 RepoType: git
 Repo: https://github.com/SapuSeven/BetterUntis
@@ -69,7 +60,100 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 3.3.2
+    versionCode: 22
+    commit: v3.3.2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.3.3
+    versionCode: 23
+    commit: v3.3.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.4.0
+    versionCode: 24
+    commit: v3.4.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.4.1
+    versionCode: 25
+    commit: v3.4.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.4.3
+    versionCode: 27
+    commit: v3.4.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.4.4
+    versionCode: 28
+    commit: v3.4.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.4.5
+    versionCode: 29
+    commit: v3.4.5
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.4.6
+    versionCode: 30
+    commit: e2f2cf573d20b385f4375295b3694c61030b9ce5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.4.7
+    versionCode: 31
+    commit: 13bc5000b914d2294dccbcb8c453a98d5b456766
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.4.8
+    versionCode: 32
+    commit: 12010c29bab9ad585f2fdb3a35db9e110e690cc0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.5.0
+    versionCode: 33
+    commit: bcd24a962fe44c08c1d0a3753224ad3c1cb944de
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 3.3.1
-CurrentVersionCode: 20
+CurrentVersion: 3.5.0
+CurrentVersionCode: 33
