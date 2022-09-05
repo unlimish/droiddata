@@ -43,7 +43,19 @@ Builds:
       - yes
     prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
 
+  - versionName: '6.0'
+    versionCode: 6
+    commit: d5e8d94bbaf992649a0067982292cc93ad64aa7e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '5.0'
-CurrentVersionCode: 5
+CurrentVersion: '6.0'
+CurrentVersionCode: 6
