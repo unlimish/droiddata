@@ -45,7 +45,7 @@ Builds:
       - yarn install --frozen-lockfile
       - chmod +x ./dl_notifee_core.sh
       - ./dl_notifee_core.sh
-      - sed -E -i 's/^.*(fabric|com\.(crashlytics|google\.(firebase|android.gms))).*$//g' 
+      - sed -E -i 's/^.*(fabric|com\.(crashlytics|google\.(firebase|android.gms))).*$//g'
         ./node_modules/@notifee/react-native/android/build.gradle
       - sed "s/<TRANSLATION_IO_APIKEY>//" lingui.config.js.example > lingui.config.js
       - npx lingui compile
