@@ -16,12 +16,11 @@ Builds:
     commit: v1.0.6
     subdir: android/app
     sudo:
-      - sysctl fs.inotify.max_user_watches=524288
+      - sysctl fs.inotify.max_user_watches=524288 || true
       - curl -Lo node.tar.xz https://nodejs.org/dist/v16.16.0/node-v16.16.0-linux-x64.tar.xz
       - echo "edcb6e9bb049ae365611aa209fc03c4bfc7e0295dbcc5b2f1e710ac70384a8ec node.tar.xz"
         | sha256sum -c -
-      - tar xJf node.tar.xz
-      - cp -a node-v16.16.0-linux-x64/. /usr/local/
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
       - npm -g install yarn
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless git
