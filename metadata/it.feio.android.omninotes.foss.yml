@@ -157,12 +157,12 @@ Builds:
     gradle:
       - foss
     prebuild:
-      - sed -i -e '/org.sonarqube/,+999d' ../build.gradle
+      - sed -i -e '/org.sonarqube/,/^}/d' ../build.gradle
       - sed -i -e '/googleAnalyticsRelease/,+2d' build.gradle
       - sed -i -e '/outputFileName/d' build.gradle
 
 AutoUpdateMode: Version
-UpdateCheckMode: Tags ^\d*\.\d*\.\d*$
+UpdateCheckMode: Tags ^[\d.]+$
 UpdateCheckData: gradle.properties|VERSION_CODE=(.*)|.|VERSION_NAME=(.*)
 CurrentVersion: 6.1.0
 CurrentVersionCode: 301
