@@ -14,32 +14,32 @@ Repo: https://github.com/kurxz/Ionic_notes.git
 Builds:
   - versionName: '1.5'
     versionCode: 20220701
-    commit: v1.5.0
+    commit: f3653456ff14c89b05cf6033875674e7852fa57b
     subdir: android/app/
     sudo:
-      - sysctl fs.inotify.max_user_watches=524288
-      - curl -Lo node.tar.gz https://nodejs.org/download/release/v14.18.2/node-v14.18.2-linux-x64.tar.gz
-      - echo "83fa18a0e3642235446b66653eb27c169224ae9c1a15a32d6c3d9ddefb154ed4 node.tar.gz"
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - apt-get update
+      - apt-get install -y g++ openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/download/release/v16.17.0/node-v16.17.0-linux-x64.tar.xz
+      - echo "f0867d7a17a4d0df7dbb7df9ac3f9126c2b58f75450647146749ef296b31b49b node.tar.xz"
         | sha256sum -c -
-      - tar xf node.tar.gz
-      - cp -a node-v*-linux-x64/. /usr/local/
-      - rm -rf node-v*-linux-x64/
-      - pushd build/srclib/cpython
-      - ./configure
-      - make -j$(nproc)
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+      - npm -g install @ionic/cli
+    init:
+      - pushd ../../../srclib/cpython
+      - export temp=$(mktemp -d)
+      - mkdir -p $temp/cpython
+      - ./configure --prefix=$temp/cpython --enable-optimizations
+      - make -j`nproc`
       - make install
       - popd
-      - npm -g install @ionic/cli
-      - apt-get update || apt-get update
-      - apt-get install -y g++
-      - apt-get install -y -t stretch-backports openjdk-11-jdk-headless
-      - update-alternatives --auto java
-    init:
-      - cd ../..
-      - npm config set python $(which python3.10)
+      - export PATH=$temp/cpython/bin:$PATH
+      - pushd ../..
       - npm install --build-from-source
       - ionic cap copy
       - ionic cap sync
+      - popd
     gradle:
       - yes
     srclibs:
