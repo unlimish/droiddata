@@ -334,7 +334,29 @@ Builds:
       - TMessagesProj/jni
     ndk: r21e
 
+  - versionName: 9.0.0.0
+    versionCode: 279909
+    commit: 9.0.0.0
+    timeout: 18000
+    subdir: TMessagesProj_AppFork
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk ninja-build golang-go wget
+      - update-alternatives --auto java
+      - wget https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2-linux-x86_64.sh
+        -O cmake.sh
+      - sh cmake.sh --prefix=/usr/local/ --exclude-subdir
+    gradle:
+      - afat
+    rm:
+      - TMessagesProj_AppHuawei
+    prebuild: ./prebuild_fdroid.sh 0 14577864 54d3ae230fd8f985ce9adccf08fbd9d6
+    scandelete:
+      - TMessagesProj/jni
+    ndk: r21e
+
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 8.9.3.0
-CurrentVersionCode: 275709
+CurrentVersion: 9.0.0.0
+CurrentVersionCode: 279909
