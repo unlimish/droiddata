@@ -1,0 +1,38 @@
+Categories:
+  - Connectivity
+  - Internet
+  - Phone & SMS
+  - Security
+  - System
+License: GPL-3.0-or-later
+AuthorName: Casper Verswijvelt
+AuthorEmail: casperverswijveltdev@gmail.com
+WebSite: https://casperverswijvelt.be
+SourceCode: https://github.com/CasperVerswijvelt/Better-Internet-Tiles
+IssueTracker: https://github.com/CasperVerswijvelt/Better-Internet-Tiles/issues
+Donate: https://ko-fi.com/casperverswijvelt
+
+AutoName: Better Internet Tiles
+Summary: Bring back Wi-Fi and mobile data tiles on Android 12 and higher
+
+RepoType: git
+Repo: https://github.com/CasperVerswijvelt/Better-Internet-Tiles
+
+Builds:
+  - versionName: 2.4.0-fdroid
+    versionCode: 2040003
+    commit: v2.4.0.3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y librsvg2-bin openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/com.google.gms/d' -e '/com.google.firebase/d' build.gradle
+        ../build.gradle
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: v2.4.0.3
+CurrentVersionCode: 2040003
