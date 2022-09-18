@@ -17,10 +17,12 @@ Builds:
     versionCode: 1
     commit: 0.0.1
     output: drawterm-unsigned.apk
-    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-24' >/dev/null
+    prebuild:
+      - $$SDK$$/tools/bin/sdkmanager 'platforms;android-24' 'build-tools;30.0.3' >/dev/null
     build:
       - export ANDROID_SDK=$$SDK$$
       - export ANDROID_NDK=$$NDK$$
+      - export BUILD_TOOLS=30.0.3
       - ./fdroid-build.sh
     ndk: r25b
 
