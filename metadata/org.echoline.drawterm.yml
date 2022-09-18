@@ -17,10 +17,7 @@ Builds:
     versionCode: 1
     commit: 0.0.1
     output: drawterm-unsigned.apk
-    build:
-      - export ANDROID_SDK=$$SDK$$
-      - export ANDROID_NDK=$$NDK$$
-      - ./fdroid-build.sh
+    build: ANDROID_SDK=$$SDK$$ ANDROID_NDK=$$NDK$$ ./fdroid-build.sh
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
