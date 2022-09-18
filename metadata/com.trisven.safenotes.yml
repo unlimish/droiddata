@@ -1,0 +1,32 @@
+Categories:
+  - Writing
+  - Security
+License: GPL-3.0-or-later
+SourceCode: https://github.com/keshav-space/safenotes
+IssueTracker: https://github.com/keshav-space/safenotes/issues
+Changelog: https://github.com/keshav-space/safenotes/releases
+
+AutoName: Safe Notes - Encrypted Notepad
+Description: A encrypted, private note keeper for Android.
+
+RepoType: git
+Repo: https://github.com/keshav-space/safenotes
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 3
+    commit: 88fd423db0c9e75987ec9f3277b823027c39b20d
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: None
+UpdateCheckMode: Tags
