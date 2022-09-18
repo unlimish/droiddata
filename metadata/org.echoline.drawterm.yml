@@ -17,10 +17,13 @@ Builds:
     versionCode: 1
     commit: 0.0.1
     output: drawterm-unsigned.apk
+    prebuild: android update sdk --no-ui --filter android-31
     build:
-      - ls $$SDK$$/platforms
-      - ANDROID_SDK=$$SDK$$ ANDROID_NDK=$$NDK$$ ./fdroid-build.sh
-    ndk: r21e
+      - $$SDK$$/tools/bin/sdkmanager 'platforms;android-31' 'build-tools;31.0.0'
+      - export ANDROID_SDK=$$SDK$$
+      - export ANDROID_NDK=$$NDK$$
+      - ./fdroid-build.sh
+    ndk: r25b
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
