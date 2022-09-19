@@ -33,8 +33,6 @@ Builds:
         = false/g' build.gradle
       - sed -i 's/universalApk false/universalApk true/g' build.gradle
       - npm install
-      - npx react-native bundle --platform android --dev false --entry-file index.js
-        --bundle-output src/main/assets/index.android.bundle
     gradle:
       - yes
     scanignore:
@@ -144,11 +142,12 @@ Builds:
 
   - versionName: 1.0.6
     versionCode: 5
+    disable: crashes
     commit: 4180b9c7cfc17911e2df6ee640451e2486e0dc2f
     subdir: android/app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y librsvg2-bin openjdk-11-jdk-headless
+      - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
       - curl -Lo node.tar.xz https://nodejs.org/dist/v16.13.1/node-v16.13.1-linux-x64.tar.xz
       - echo "a3721f87cecc0b52b0be8587c20776ac7305db413751db02c55aa2bffac15198 node.tar.xz"
@@ -160,6 +159,8 @@ Builds:
         = false/g' build.gradle
       - sed -i 's/universalApk false/universalApk true/g' build.gradle
       - npm install
+      - npx react-native bundle --platform android --dev false --entry-file index.js
+        --bundle-output src/main/assets/index.android.bundle
     gradle:
       - yes
     scanignore:
