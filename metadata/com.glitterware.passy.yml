@@ -1,0 +1,52 @@
+Categories:
+  - Internet
+  - Security
+License: GPL-3.0-only
+WebSite: https://glitterware.github.io/Passy
+SourceCode: https://github.com/GlitterWare/Passy
+IssueTracker: https://github.com/GlitterWare/Passy/issues
+Donate: https://github.com/sponsors/GlitterWare
+
+Name: Passy - cross-platform password manager
+Summary: Offline password manager with cross-platform synchronization
+Description: |-
+    Store passwords, payment cards notes, ID cards and identities offline and
+    safe, synchronized between all of your devices.
+
+    Bulleted lists can be used:
+
+    * Security - All your information is encrypted in AES and stored offline on your devices, providing highest-tier security.
+    * Synchronization - Share data between separate devices within seconds.
+    * Biometrics - Quickly unlock the app using your fingerprint.
+    * Multipurpose - Store passwords, payment cards, notes, id cards and identities, all in one place.
+    * Autofill - Quickly fill fields in apps and websites without having to open the app.
+
+    [https://glitterware.github.io/Passy Official website]
+
+RepoType: git
+Repo: https://github.com/GlitterWare/Passy
+
+Builds:
+  - versionName: 1.0.2
+    versionCode: 2
+    commit: v1.0.2
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    prebuild:
+      - rm -rf ios
+      - rm -rf linux
+      - rm -rf windows
+    build:
+      - wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.16+8/openlogic-openjdk-11.0.16+8-linux-x64.tar.gz
+      - tar -xvzf openlogic-openjdk-11.0.16+8-linux-x64.tar.gz
+      - export JAVA_HOME=$PWD/openlogic-openjdk-11.0.16+8-linux-x64
+      - export ANDROID_HOME=/opt/android-sdk
+      - export ANDROID_SDK_ROOT=$ANDROID_HOME
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter build apk
+
+AutoUpdateMode: None
+UpdateCheckMode: Static
+CurrentVersion: v1.0.2
+CurrentVersionCode: 2
