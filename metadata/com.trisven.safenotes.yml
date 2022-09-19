@@ -7,7 +7,6 @@ IssueTracker: https://github.com/keshav-space/safenotes/issues
 Changelog: https://github.com/keshav-space/safenotes/releases
 
 AutoName: Safe Notes - Encrypted Notepad
-Description: A encrypted, private note keeper for Android.
 
 RepoType: git
 Repo: https://github.com/keshav-space/safenotes
@@ -28,5 +27,8 @@ Builds:
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk
 
-AutoUpdateMode: None
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.0.0
+CurrentVersionCode: 3
