@@ -20,13 +20,11 @@ Builds:
     prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-24' 'build-tools;30.0.3'
         > /dev/null
     build:
-      - export ANDROID_SDK=$$SDK$$
-      - export ANDROID_NDK=$$NDK$$
       - export BUILD_TOOLS=30.0.3
       - ./fdroid-build.sh
     ndk: r25b
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: 0.0.1
 CurrentVersionCode: 1
