@@ -445,6 +445,23 @@ Builds:
     commit: 72bb26c9592a1e2c93b7abf5bc0cb24a08f743ed
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
+      - flutter@3.0.5
+    rm:
+      - .vscode
+      - ios
+      - linux
+      - test
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.7.2
+    versionCode: 55
+    commit: 36bd829bbffbcb2a23c73e8cd396042497cbcc7c
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
       - flutter@3.3.2
     rm:
       - .vscode
