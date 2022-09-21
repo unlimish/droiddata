@@ -186,11 +186,14 @@ Builds:
       - make fdroid-build-env
     init: nix/scripts/setup.sh
     output: result/app-release-unsigned.apk
+    prebuild: sed -i -e '/extra/d' nix/nix.conf
     scanignore:
       - android/build.gradle
     scandelete:
       - ios
-    build: make build-fdroid BUILD_NUMBER=$$VERCODE$$
+    build:
+      - ulimit -n 4096
+      - make build-fdroid BUILD_NUMBER=$$VERCODE$$
 
 MaintainerNotes: |-
     Status.im mobile app is built in a deterministic way using Nix package manager.
