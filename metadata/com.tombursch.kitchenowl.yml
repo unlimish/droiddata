@@ -16,6 +16,10 @@ Builds:
   - versionName: 0.3.0
     versionCode: 57
     commit: v0.3.0
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@3.3.2
