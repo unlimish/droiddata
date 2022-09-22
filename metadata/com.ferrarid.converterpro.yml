@@ -211,6 +211,8 @@ Builds:
     prebuild: sed -i -e '/minifyEnabled/d' -e '/signingConfig /d' android/app/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/dart pub global activate melos
+      - melos bootstrap
       - $$flutter$$/bin/flutter build apk
 
 AutoUpdateMode: Version
