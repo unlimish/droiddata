@@ -1124,15 +1124,15 @@ Builds:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+    patch:
+      - streetcomplete-remove-arcore.patch
+    gradle:
+      - yes
     rm:
       - app/src/main/java/de/westnordost/streetcomplete/screens/measure/ArCoreSessionCreator.kt
       - app/src/main/java/de/westnordost/streetcomplete/screens/measure/ArCoreXt.kt
       - app/src/main/java/de/westnordost/streetcomplete/screens/measure/MeasureActivity.kt
       - app/src/main/java/de/westnordost/streetcomplete/screens/measure/TakeMeasurementLauncher.kt
-    patch:
-      - streetcomplete-remove-arcore.patch
-    gradle:
-      - yes
     prebuild:
       - sed -i -e 's/java.net.URI/uri/' ../build.gradle.kts
       - sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d' build.gradle.kts
