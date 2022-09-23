@@ -1136,6 +1136,7 @@ Builds:
     prebuild:
       - sed -i -e 's/java.net.URI/uri/' ../build.gradle.kts
       - sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d' build.gradle.kts
+      - sed -i -e 'com\.google\.ar/d' build.gradle.kts
 
 AutoUpdateMode: None
 UpdateCheckMode: Tags ^v\d+(\.\d+)?$
