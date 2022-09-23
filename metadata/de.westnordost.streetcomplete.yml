@@ -1116,6 +1116,22 @@ Builds:
       - sed -i -e 's/java.net.URI/uri/' ../build.gradle.kts
       - sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d' build.gradle.kts
 
+  - versionName: '46.0'
+    versionCode: 4601
+    commit: 7e9f6cafb5bbdb05feaf0d32e6d3ce7c3483b841
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    patch:
+      - streetcomplete-remove-arcore.patch
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e 's/java.net.URI/uri/' ../build.gradle.kts
+      - sed -i -e '/keystorePropertiesFile.*{/,/}/d; /keystorePropertiesFile/d' build.gradle.kts
+
 AutoUpdateMode: None
 UpdateCheckMode: Tags ^v\d+(\.\d+)?$
 CurrentVersion: '46.1'
