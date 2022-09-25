@@ -1,0 +1,44 @@
+Categories:
+  - System
+  - Multimedia
+License: MIT
+AuthorName: Alex at AddisMap
+AuthorEmail: alex@addismap.com
+AuthorWebSite: https://www.addismap.com/bandira
+WebSite: https://www.addismap.com/
+SourceCode: https://github.com/addismap/addismaptransit
+IssueTracker: https://github.com/addismap/addismaptransit/issues
+Changelog: https://github.com/addismap/addismaptransit/releases
+
+AutoName: AddisMapTransit
+
+RepoType: git
+Repo: https://github.com/addismap/addismaptransit.git
+
+Builds:
+  - versionName: 0.2.0
+    versionCode: 2
+    commit: 3f5fc3b5748a1a9c05e2daa60c3f947341c32912
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.3.0
+    rm:
+      - artwork
+      - ios
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 0.2.0
+CurrentVersionCode: 2
