@@ -7,28 +7,6 @@ WebSite: https://secure-system.gitlab.io/Insular/
 SourceCode: https://gitlab.com/secure-system/Insular
 IssueTracker: https://gitlab.com/secure-system/Insular/issues
 
-Description: |-
-    Insular is a FLOSS fork of Island.
-    With Insular, you can:<ul>
-    <li>Isolate app, for privacy protection.</li>
-    <li>Clone app, for parallel running.</li>
-    <li>Freeze app, to completely block its background behaviors.</li>
-    <li>Hide app, for various reasons.</li>
-    <li>Archive app, for potential future use on-demand.</li>
-    <li>Use VPN only on one side, or different VPN on both sides.</li>
-    <li>Prohibit USB access</li></ul>
-    If your device is incompatible or not encrypted, you can skip this limitation manually. Please refer to <a href="https://forum.xda-developers.com/android/-t3366295">the XDA post</a> for details.
-    To uninstall and remove Insular completely, please first "Destroy Insular" in Settings - Setup - Click the recycle-bin icon besides Insular. If you have already uninstalled Insular app, please "Remove work profile" in your device "Settings - Accounts".
-
-    <b>PERMISSIONS</b><ul>
-    <li>DEVICE-ADMIN: Device administrator privilege is required to create the Insular space (work profile), which serves as the fundamental functionality of Insular. It will be explicitly requested for your consent.</li>
-    <li>PACKAGE_USAGE_STATS: Required to correctly recognize the running state of apps. It will be explicitly requested for your consent.</li></ul>
-    We will never collect any data and Insular has no Internet permission. Please read our privacy policy for more details.
-
-    <b>Differences from Island</b><ul>
-    <li>all blobs (gms, crashlytics, etc) are removed to comply with F-droid's policy</li>
-    <li>Internet access for this app is removed because we just don't need it</li>
-
 RepoType: git
 Repo: https://gitlab.com/secure-system/Insular.git
 
@@ -309,7 +287,322 @@ Builds:
     prebuild: sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
         ../settings.gradle
 
+  - versionName: 5.5-4b104c42
+    versionCode: 51590
+    commit: 100ab50078723da0f7ec57f1e25370b61997516d
+    subdir: assembly
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@d4767d5e69074b03e641186fa9504be37f09c673
+      - setupwizard@android10-mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild: sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+
+  - versionName: 5.5-404b5a48
+    versionCode: 51593
+    commit: 982b843f305db2c1eac6f22344cfae50ea3063f2
+    subdir: assembly
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@d4767d5e69074b03e641186fa9504be37f09c673
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild: sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+
+  - versionName: 5.5.1-40729b7f
+    versionCode: 51598
+    commit: 20f1d9cb18562c812712a2e752767d8d33b349b9
+    subdir: assembly
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@d4767d5e69074b03e641186fa9504be37f09c673
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild: sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+
+  - versionName: 5.5.1-c37b25e9
+    versionCode: 51601
+    commit: 72d33bb5aad9ce38205b5b070cb21fe0be59b0d4
+    subdir: assembly
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@d4767d5e69074b03e641186fa9504be37f09c673
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild: sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+
+  - versionName: 5.5.1-0e1b5b1d
+    versionCode: 51604
+    commit: 765cf15b77914e55b8bc4bdcb5af65b5d83adffa
+    subdir: assembly
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@d4767d5e69074b03e641186fa9504be37f09c673
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild:
+      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 6.0-7771b196
+    versionCode: 51607
+    commit: 821836706af4082c8c1b44ecf031598ef1ca4d9b
+    subdir: assembly
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@d4767d5e69074b03e641186fa9504be37f09c673
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild:
+      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 6.0.2-f615cf58
+    versionCode: 51613
+    commit: b8511405d57c7075556749fcf4e8e92b0eb39e6d
+    subdir: assembly
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@d4767d5e69074b03e641186fa9504be37f09c673
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild:
+      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 6.0.3-e7d5e308
+    versionCode: 51628
+    disable: https://gitlab.com/secure-system/Insular/-/issues/43
+    commit: 139359166a02a913c9a9b10a6722588310312bd9
+    subdir: assembly
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@d4767d5e69074b03e641186fa9504be37f09c673
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild:
+      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 6.0.3-7cf8202b
+    versionCode: 51631
+    commit: ffcc770fb35495d7dd5faa0dba22c4cf380a80b6
+    subdir: assembly
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@d4767d5e69074b03e641186fa9504be37f09c673
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild:
+      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 6.0.3-0abb0c15
+    versionCode: 51635
+    commit: d47e9bcae22b9f8cbf1ee2293d682020100ee15f
+    subdir: assembly
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@d4767d5e69074b03e641186fa9504be37f09c673
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild:
+      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 6.0.4-7d3bbc7c
+    versionCode: 51638
+    commit: 9c5bb75c8de7d297492e5a16dd32312ffcadb695
+    subdir: assembly
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@d4767d5e69074b03e641186fa9504be37f09c673
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild:
+      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 6.0.5-9859c283
+    versionCode: 51642
+    commit: 40b69b179e772e3738b4a41a209f2994bbf9f410
+    subdir: assembly
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@d4767d5e69074b03e641186fa9504be37f09c673
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild:
+      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 6.0.5-43c525bd
+    versionCode: 51657
+    commit: 65271c1ae05c98d01e6e7d3da766e536db9b79ad
+    subdir: assembly
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@2430a73ecb0fb3f0d0f9cdf443b7863eb07a988d
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild:
+      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 6.0.5-6f72adc7
+    versionCode: 51660
+    commit: 57d77c1b58d624c47d81905de5d070f7a4b7bf5e
+    subdir: assembly
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@2430a73ecb0fb3f0d0f9cdf443b7863eb07a988d
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild:
+      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
+  - versionName: 6.0.5-e104be1b
+    versionCode: 51663
+    commit: 76248abe72954b5fee2f3db2755fd8faf24cff94
+    subdir: assembly
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y --no-install-recommends openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - complete
+      - fdroid
+    srclibs:
+      - deagle@2430a73ecb0fb3f0d0f9cdf443b7863eb07a988d
+      - setupwizard@android12--mainline-release
+    rm:
+      - assembly/google-services.json
+      - shared/src/main/res/xml/analytics_tracker.xml
+    prebuild:
+      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
+        ../settings.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags v[\d.]+-\w+$
-CurrentVersion: 5.5-cc477d99
-CurrentVersionCode: 51586
+CurrentVersion: 6.0.5-e104be1b
+CurrentVersionCode: 51663

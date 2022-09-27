@@ -8,7 +8,6 @@ IssueTracker: https://github.com/Dimowner/AudioRecorder/issues
 Changelog: https://github.com/Dimowner/AudioRecorder/releases
 
 AutoName: Audio Recorder
-Summary: gives easy audio recording experience
 Description: |-
     <i>Audio recorder</i> (Voice recorder, Sound recorder) is an application makes an easy audio recording experience. The app is optimized for the fastest start as possible and helps not to miss important sound for the user.
 
@@ -46,9 +45,33 @@ Builds:
       - yes
     output: build/outputs/apk/releaseConfig/release/app-releaseConfig-release-unsigned.apk
 
+  - versionName: 0.9.22
+    versionCode: 922
+    commit: 5a23bff336261e402a859779389a1594600e2a2d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/releaseConfig/release/app-releaseConfig-release-unsigned.apk
+
+  - versionName: 0.9.26
+    versionCode: 926
+    commit: 554c9c8805f3d5629475fc1538362c8c2ef66cf6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/releaseConfig/release/app-releaseConfig-release-unsigned.apk
+
 MaintainerNotes: Yes, 'output' really has to be specified.
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.9.14
-CurrentVersionCode: 914
+CurrentVersion: 0.9.26
+CurrentVersionCode: 926

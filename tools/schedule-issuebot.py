@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 
-import gitlab
 import json
 import os
 import pprint
 import re
 import subprocess
 
+import gitlab
+
 os.chdir(os.path.join(os.path.dirname(__file__), '..'))
 
 private_token = os.getenv('PERSONAL_ACCESS_TOKEN')
-gl = gitlab.Gitlab('https://gitlab.com', api_version=4, private_token=private_token)
+gl = gitlab.Gitlab('https://gitlab.com', private_token=private_token)
 project = gl.projects.get(os.getenv('CI_PROJECT_PATH'), lazy=True)
 
 TRIGGER_COMMIT_PAT = re.compile(r'<tt>([0-9a-f]{40})</tt>')
@@ -26,7 +27,9 @@ for mr in project.mergerequests.list(state='opened', order_by='updated_at'):
                 if m:
                     commit_ids.append(m.group(1))
     if not commit_ids and found_issuebot_post:
-        print(mr.iid, 'issuebot has posted without trigger commit ID, not running again')
+        print(
+            mr.iid, 'issuebot has posted without trigger commit ID, not running again'
+        )
     elif mr.sha in commit_ids:
         print(mr.iid, 'issuebot has run on %s, not running again' % mr.sha)
     else:

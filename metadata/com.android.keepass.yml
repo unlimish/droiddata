@@ -5,7 +5,7 @@ WebSite: http://www.keepassdroid.com
 SourceCode: https://github.com/bpellin/keepassdroid
 IssueTracker: https://github.com/bpellin/keepassdroid/issues
 Changelog: https://github.com/bpellin/keepassdroid/blob/HEAD/CHANGELOG
-Donate: http://www.keepassdroid.com
+Donate: https://www.keepassdroid.com
 
 AutoName: KeePassDroid
 Description: |-
@@ -52,36 +52,6 @@ Builds:
     versionCode: 85
     commit: v1.9.8
     target: android-8
-
-  - versionName: 1.9.9
-    versionCode: 86
-    disable: ndk build fails - needs aes.h (at v1.9.9)
-    commit: v1.9.9
-    prebuild:
-      - sed -i 's/mips-r2//' jni/Application.mk
-      - sed -i 's/mips-r2-sf//' jni/Application.mk
-    target: android-8
-    buildjni:
-      - yes
-    ndk: r12b
-
-  - versionName: 1.9.14
-    versionCode: 91
-    disable: ndk build fails - needs sha2.h (at v1.9.14)
-    commit: v1.9.14
-    target: android-8
-    buildjni:
-      - yes
-    ndk: r12b
-
-  - versionName: 1.9.17
-    versionCode: 94
-    disable: ndk build fails - needs sha2.h - might need MIPS ndk (at v1.9.17)
-    commit: v1.9.17
-    target: android-8
-    buildjni:
-      - yes
-    ndk: r12b
 
   - versionName: 1.9.18.3
     versionCode: 98
@@ -222,17 +192,6 @@ Builds:
       - yes
     ndk: r12b
 
-  - versionName: 2.0.2
-    versionCode: 135
-    disable: unzip in prep_build.sh fails (domain expired)
-    commit: v2.0.2
-    prebuild:
-      - cd jni
-      - sh prep_build.sh
-    buildjni:
-      - yes
-    ndk: r12b
-
   - versionName: 2.0.3
     versionCode: 136
     commit: v2.0.3
@@ -265,44 +224,6 @@ Builds:
     buildjni:
       - yes
     ndk: r12b
-
-  - versionName: 2.0.5beta1
-    versionCode: 139
-    disable: pre-release
-    commit: v2.0.5beta1
-    prebuild:
-      - cd jni
-      - sed -i -e 's/brgladman.org/173.254.28.24\/~brgladma/g' prep_build.sh
-      - sh prep_build.sh
-    buildjni:
-      - yes
-    ndk: r12b
-
-  - versionName: 2.0.6.1
-    versionCode: 151
-    disable: needs jni fixes
-    commit: v2.0.6.1
-    subdir: app
-    init: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.8\" }' >> ../build.gradle"
-    gradle:
-      - yes
-    prebuild:
-      - cd src/main/jni/
-      - sed -i -e 's/brgladman.org/173.254.28.24\/~brgladma/g' prep_build.sh
-      - sh prep_build.sh
-    buildjni:
-      - yes
-    ndk: r12b
-
-  - versionName: 2.0.6.3
-    versionCode: 153
-    disable: https://github.com/bpellin/keepassdroid/issues/142
-    commit: v2.0.6.3
-    subdir: app
-    gradle:
-      - yes
-    scandelete:
-      - app/src/main/jniLibs
 
   - versionName: 2.0.6.4
     versionCode: 154
@@ -530,7 +451,49 @@ Builds:
       - app/libs
     ndk: r21d
 
+  - versionName: 2.6.2
+    versionCode: 208
+    commit: e9e503843cbe2479587d4f895847b5afd6fb0198
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - general
+    rm:
+      - app/libs
+    ndk: r21d
+
+  - versionName: 2.6.3
+    versionCode: 209
+    commit: f9f20a009d7d3671074715bd5f772182c06e2757
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - general
+    rm:
+      - app/libs
+    ndk: r21d
+
+  - versionName: 2.6.5
+    versionCode: 211
+    commit: 0d109a01ae071b1b68c9b2e6e8ee16da056f75df
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - general
+    rm:
+      - app/libs
+    ndk: r21d
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.5.17.2
-CurrentVersionCode: 203
+CurrentVersion: 2.6.5
+CurrentVersionCode: 211

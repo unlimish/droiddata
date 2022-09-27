@@ -531,10 +531,128 @@ Builds:
       - app/gplay.gradle
     prebuild: sed -i -e '/work-firebase/d' build.gradle
 
+  - versionName: 12.2.0
+    versionCode: 120020090
+    commit: 28594cf18d58e32cb39bc09cdc6e148de5b8c55f
+    subdir: app
+    gradle:
+      - generic
+    rm:
+      - app/gplay.gradle
+    prebuild: sed -i -e '/work-firebase/d' build.gradle
+
+  - versionName: 12.2.0
+    versionCode: 120020091
+    commit: f8ce30c6152d1876872a7060c658dce972ca3c34
+    subdir: app
+    gradle:
+      - generic
+    rm:
+      - app/gplay.gradle
+    prebuild: sed -i -e '/work-firebase/d' build.gradle
+
+  - versionName: 12.2.1
+    versionCode: 120020190
+    commit: 1f11271074f7bc2624737b2cee0c996bcca928fe
+    subdir: app
+    gradle:
+      - generic
+    rm:
+      - app/gplay.gradle
+    prebuild: sed -i -e '/work-firebase/d' build.gradle
+
+  - versionName: 12.3.0
+    versionCode: 120030090
+    commit: f2a76060b911765d4fd168a95aa8b1175e6985e2
+    subdir: app
+    gradle:
+      - generic
+    rm:
+      - app/gplay.gradle
+    prebuild: sed -i -e '/work-firebase/d' build.gradle
+
+  - versionName: 12.4.0
+    versionCode: 120040090
+    commit: f6d00136a9f2649a9fc0a25acb07c6e0982a9bed
+    subdir: app
+    gradle:
+      - generic
+    rm:
+      - app/gplay.gradle
+    prebuild: sed -i -e '/work-firebase/d' build.gradle
+
+  - versionName: 13.0.0
+    versionCode: 130000090
+    commit: c107f680ed15100297e5b18c8aa3d67ec59e6fe6
+    subdir: app
+    gradle:
+      - generic
+    prebuild: sed -i -e '/work-firebase/d' build.gradle
+
+  - versionName: 14.0.0
+    versionCode: 140000090
+    commit: 1d79ca851706ecc02af1eb48cb6ae17711587fdb
+    subdir: app
+    gradle:
+      - generic
+    prebuild: sed -i -e '/work-firebase/d' build.gradle
+
+  - versionName: 14.0.1
+    versionCode: 140000190
+    commit: 0904d2e289a8e65b3c000fd6eb9a2254cd580b72
+    subdir: app
+    gradle:
+      - generic
+    prebuild: sed -i -e '/work-firebase/d' build.gradle
+
+  - versionName: 14.0.2
+    versionCode: 140000290
+    commit: 9dec7742d41c618d1ce1350f14df7744b9d3ba88
+    subdir: app
+    gradle:
+      - generic
+    prebuild: sed -i -e '/work-firebase/d' build.gradle
+
+  - versionName: 14.1.0
+    versionCode: 140010090
+    commit: 2596bc1ab183f6829df1b8779bf49f5560c1bf51
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - generic
+    prebuild: sed -i -e '/work-firebase/d' build.gradle
+
+  - versionName: 14.1.1
+    versionCode: 140010190
+    commit: 129ffa2fc4f71972596e9a20ca33389185d78795
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - generic
+    prebuild: sed -i -e '/work-firebase/d' build.gradle
+
+  - versionName: 14.2.0
+    versionCode: 140020090
+    commit: da6e21bbd469b0502f158249b2a2b86737456daf
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - generic
+    prebuild: sed -i -e '/work-firebase/d' build.gradle
+
 MaintainerNotes: https://github.com/nextcloud/talk-android/issues/534.
 
 ArchivePolicy: 5 versions
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags ^v[0-9]+\.[0-9]+\.[0-9]+$
-CurrentVersion: 12.1.2
-CurrentVersionCode: 120010290
+CurrentVersion: 14.2.0
+CurrentVersionCode: 140020090

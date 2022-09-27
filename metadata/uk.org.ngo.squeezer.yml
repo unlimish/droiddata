@@ -71,7 +71,36 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.2.7
+    versionCode: 104
+    commit: 85c19a40adf571ff44881e37a7448fda81624ea0
+    subdir: Squeezer
+    gradle:
+      - yes
+
+  - versionName: 2.2.8
+    versionCode: 110
+    commit: 4be630900331c8c68fe0d7594de98e49a0182bcf
+    subdir: Squeezer
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.2.9
+    versionCode: 111
+    commit: d4c31f8108dc804d4910af865fe6be225edbcf97
+    subdir: Squeezer
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.2.6
-CurrentVersionCode: 101
+CurrentVersion: 2.2.9
+CurrentVersionCode: 111

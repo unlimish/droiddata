@@ -25,7 +25,21 @@ Builds:
         -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
         '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
 
-AutoUpdateMode: Version ++fcr v%v
+  - versionName: 0.1.6+free
+    versionCode: 42031
+    commit: v0.1.6
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y thrift-compiler
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFree
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
+        '/enable true/d' -e '/Variants.all/,/^    }/d' build.gradle
+
+AutoUpdateMode: Version ++free v%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.1.5
-CurrentVersionCode: 42012
+CurrentVersion: 0.1.6
+CurrentVersionCode: 42031

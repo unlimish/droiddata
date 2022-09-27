@@ -167,7 +167,33 @@ Builds:
       - yes
     prebuild: echo "android.useAndroidX=true" > ../gradle.properties
 
+  - versionName: 1.8.10
+    versionCode: 1810
+    commit: 72c5e2a220a32396f65536e954d851938ce2129e
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo "android.useAndroidX=true" > ../gradle.properties
+
+  - versionName: 1.8.14
+    versionCode: 1814
+    commit: 971ba9e54f59af07bb5ad0dd48aa0501a1127272
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: echo "android.useAndroidX=true" > ../gradle.properties
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.8.00
-CurrentVersionCode: 1800
+CurrentVersion: 1.8.14
+CurrentVersionCode: 1814

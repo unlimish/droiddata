@@ -1,0 +1,65 @@
+Categories:
+  - Connectivity
+  - System
+License: Apache-2.0
+AuthorName: UnifiedPush
+WebSite: https://unifiedpush.org/
+SourceCode: https://github.com/UnifiedPush/android-example
+IssueTracker: https://github.com/UnifiedPush/android-example/issues
+Changelog: https://github.com/UnifiedPush/android-example/releases
+
+Name: UP-Example
+AutoName: UP-Example
+
+RepoType: git
+Repo: https://github.com/UnifiedPush/android-example.git
+
+Builds:
+  - versionName: 1.2.4
+    versionCode: 13
+    commit: 1.2.4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - mainFlavor
+
+  - versionName: 1.2.5
+    versionCode: 14
+    commit: c25ebfe80c8cc9d0e1961c8e643966acd14d3f0d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - mainFlavor
+
+  - versionName: 1.3.0
+    versionCode: 15
+    commit: 9b39ffd0c56ad2dd37fa2d09d1287f22404db262
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - mainFlavor
+
+  - versionName: 1.4.0
+    versionCode: 16
+    commit: 376f98b90c364b8f93d9bdf195c15578aab1bd83
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - mainFlavor
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: Tags \d+\.\d+(\.\d+)?
+CurrentVersion: 1.4.0
+CurrentVersionCode: 16

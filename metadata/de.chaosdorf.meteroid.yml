@@ -127,7 +127,52 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.10.0
+    versionCode: 42
+    disable: https://github.com/chaosdorf/meteroid/issues/26
+    commit: ef6a3f900f64fa42c0a3ab01b9a8de8b029c8c4d
+    subdir: meteroid
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.10.1
+    versionCode: 43
+    commit: c30a94c77f2573fda9bf67ecc81050908f6be768
+    subdir: meteroid
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.11.0
+    versionCode: 50
+    commit: b15237af8e7f1b1f0a4a7f44be6c0c8e505c0932
+    subdir: meteroid
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.12.0
+    versionCode: 55
+    commit: b7e542f7984006443f5cb45116d655997f30a13f
+    subdir: meteroid
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.9.0
-CurrentVersionCode: 41
+CurrentVersion: 2.12.0
+CurrentVersionCode: 55

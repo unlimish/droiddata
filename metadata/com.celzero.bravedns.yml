@@ -24,7 +24,43 @@ Builds:
     gradle:
       - fdroid
 
-AutoUpdateMode: Version v%v
+  - versionName: 053g
+    versionCode: 18
+    commit: 63efbf6f5e014bef64b07836cc7e96aa9cf20dd8
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 053h
+    versionCode: 19
+    commit: 161674b1cdbdd72fefee5edd953179a637e00f6f
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 053i
+    versionCode: 20
+    commit: 7a8f95899860e95559bf8f6769b9cd336fd5f856
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 053j
+    versionCode: 21
+    commit: adf8b89f65570ebce92c95e3804e61d058b86b52
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 0.5.3e
-CurrentVersionCode: 16
+CurrentVersion: 053j
+CurrentVersionCode: 21

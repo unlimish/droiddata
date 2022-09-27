@@ -25,8 +25,30 @@ Builds:
     gradle:
       - yes
 
+  - versionName: v22.04
+    versionCode: 280
+    commit: cc65731ba4a07255cac52721d741c5780207c850
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: v22.10.4
+    versionCode: 291
+    commit: 79d2fa629d7d47dcd6b927af8ce7d48d5f2dff6e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/apk/release/*.apk
+    build: JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 gradle assembleRelease
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
 UpdateCheckData: version.txt|\+(\d+)|.|(.+)\+
-CurrentVersion: v21.10.2
-CurrentVersionCode: 267
+CurrentVersion: v22.10.4
+CurrentVersionCode: 291

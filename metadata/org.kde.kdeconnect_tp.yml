@@ -511,7 +511,51 @@ Builds:
       - yes
     prebuild: sed -i -e '/javaMaxHeapSize/s/4g/2g/g' build.gradle
 
+  - versionName: 1.18.0
+    versionCode: 11800
+    commit: bfb3eae49242aed0e0f51115b433d8d522931291
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/javaMaxHeapSize/s/4g/2g/g' build.gradle
+
+  - versionName: 1.18.1
+    versionCode: 11810
+    commit: f3fb7acef732332b2a10108073e68a7c2186b881
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/javaMaxHeapSize/s/4g/2g/g' build.gradle
+
+  - versionName: '1.19'
+    versionCode: 11900
+    commit: f74763930489a7432d66f9111d6921c564340b31
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/javaMaxHeapSize/s/4g/2g/g' build.gradle
+
+  - versionName: 1.19.1
+    versionCode: 11910
+    commit: db3f8f7f748895eae5778983d3b05fc067705d73
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/javaMaxHeapSize/s/4g/2g/g' build.gradle
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.17.0
-CurrentVersionCode: 11700
+CurrentVersion: 1.19.1
+CurrentVersionCode: 11910

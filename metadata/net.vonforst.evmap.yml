@@ -13,199 +13,191 @@ RepoType: git
 Repo: https://github.com/johan12345/EVMap
 
 Builds:
-  - versionName: 0.3.4a-foss
-    versionCode: 26
-    commit: 0.3.4a
+  - versionName: 1.3.5
+    versionCode: 94
+    commit: ed80d7b968826701d59b6590dfba7cf5a9611d74
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - foss
-    rm:
-      - app/libs/*.aar
-    prebuild: sed -i -e '/places-maps-sdk-3.1.0-beta/d' build.gradle
+      - normal
     gradleprops:
       - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
       - GOOGLE_MAPS_API_KEY=
-      - MAPBOX_API_KEY=pk.eyJ1IjoiZXZtYXAiLCJhIjoiY2tkbHQwdmNwMTF3YTJxbzhpbTVmZTlhaSJ9.jPLwERG4o6fAPP98wneezg
-
-  - versionName: 0.4.1
-    versionCode: 28
-    commit: 0.4.1
-    subdir: app
-    gradle:
-      - foss
-    rm:
-      - app/libs/*.aar
-    prebuild: sed -i -e '/places-maps-sdk-3.1.0-beta/d' build.gradle
-    gradleprops:
-      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
-      - GOOGLE_MAPS_API_KEY=
-      - MAPBOX_API_KEY=pk.eyJ1IjoiZXZtYXAiLCJhIjoiY2tkbHQwdmNwMTF3YTJxbzhpbTVmZTlhaSJ9.jPLwERG4o6fAPP98wneezg
-
-  - versionName: 0.4.2
-    versionCode: 34
-    commit: 0.4.2
-    subdir: app
-    gradle:
-      - foss
-    rm:
-      - app/libs/*.aar
-    prebuild: sed -i -e '/places-maps-sdk-3.1.0-beta/d' build.gradle
-    gradleprops:
-      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
-      - GOOGLE_MAPS_API_KEY=
-      - MAPBOX_API_KEY=pk.eyJ1IjoiZXZtYXAiLCJhIjoiY2tkbHQwdmNwMTF3YTJxbzhpbTVmZTlhaSJ9.jPLwERG4o6fAPP98wneezg
-
-  - versionName: 0.4.3
-    versionCode: 37
-    commit: 0.4.3
-    subdir: app
-    gradle:
-      - foss
-    rm:
-      - app/libs/*.aar
-    prebuild: sed -i -e '/places-maps-sdk-3.1.0-beta/d' build.gradle
-    gradleprops:
-      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
-      - GOOGLE_MAPS_API_KEY=
-      - MAPBOX_API_KEY=pk.eyJ1IjoiZXZtYXAiLCJhIjoiY2tkbHQwdmNwMTF3YTJxbzhpbTVmZTlhaSJ9.jPLwERG4o6fAPP98wneezg
-
-  - versionName: 0.6.0
-    versionCode: 42
-    commit: 0.6.0
-    subdir: app
-    gradle:
-      - foss
-    rm:
-      - app/libs/*.aar
-    prebuild: sed -i -e '/places-maps-sdk-3.1.0-beta/d' build.gradle
-    gradleprops:
-      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
-      - GOOGLE_MAPS_API_KEY=
-      - MAPBOX_API_KEY=pk.eyJ1IjoiZXZtYXAiLCJhIjoiY2tkbHQwdmNwMTF3YTJxbzhpbTVmZTlhaSJ9.jPLwERG4o6fAPP98wneezg
-
-  - versionName: 0.6.1
-    versionCode: 43
-    commit: 0.6.1
-    subdir: app
-    gradle:
-      - foss
-    rm:
-      - app/libs/*.aar
-    prebuild: sed -i -e '/places-maps-sdk-3.1.0-beta/d' build.gradle
-    gradleprops:
-      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
-      - GOOGLE_MAPS_API_KEY=
-      - MAPBOX_API_KEY=pk.eyJ1IjoiZXZtYXAiLCJhIjoiY2tkbHQwdmNwMTF3YTJxbzhpbTVmZTlhaSJ9.jPLwERG4o6fAPP98wneezg
-
-  - versionName: 0.7.0
-    versionCode: 44
-    commit: 0.7.0
-    subdir: app
-    gradle:
-      - foss
-    rm:
-      - app/libs/*.aar
-    prebuild: sed -i -e '/places-maps-sdk-3.1.0-beta/d' build.gradle
-    gradleprops:
-      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
-      - GOOGLE_MAPS_API_KEY=
-      - MAPBOX_API_KEY=pk.eyJ1IjoiZXZtYXAiLCJhIjoiY2tkbHQwdmNwMTF3YTJxbzhpbTVmZTlhaSJ9.jPLwERG4o6fAPP98wneezg
-      - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
-
-  - versionName: 0.7.1
-    versionCode: 45
-    commit: 0.7.1
-    subdir: app
-    gradle:
-      - foss
-    rm:
-      - app/libs/*.aar
-    prebuild: sed -i -e '/places-maps-sdk-3.1.0-beta/d' build.gradle
-    gradleprops:
-      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
-      - GOOGLE_MAPS_API_KEY=
-      - MAPBOX_API_KEY=pk.eyJ1IjoiZXZtYXAiLCJhIjoiY2tkbHQwdmNwMTF3YTJxbzhpbTVmZTlhaSJ9.jPLwERG4o6fAPP98wneezg
-      - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
-
-  - versionName: 0.7.2
-    versionCode: 46
-    commit: 0.7.2
-    subdir: app
-    gradle:
-      - foss
-    rm:
-      - app/libs/*.aar
-    prebuild: sed -i -e '/places-maps-sdk-3.1.0-beta/d' build.gradle
-    gradleprops:
-      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
-      - GOOGLE_MAPS_API_KEY=
-      - MAPBOX_API_KEY=pk.eyJ1IjoiZXZtYXAiLCJhIjoiY2tkbHQwdmNwMTF3YTJxbzhpbTVmZTlhaSJ9.jPLwERG4o6fAPP98wneezg
-      - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
-
-  - versionName: 0.7.3
-    versionCode: 47
-    commit: 498dc63f91e4c655e676925b68f9f2c8be977636
-    subdir: app
-    gradle:
-      - foss
-    rm:
-      - app/libs/*.aar
-    prebuild: sed -i -e '/places-maps-sdk-3.1.0-beta/d' build.gradle
-    gradleprops:
-      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
-      - GOOGLE_MAPS_API_KEY=
-      - MAPBOX_API_KEY=pk.eyJ1IjoiZXZtYXAiLCJhIjoiY2tkbHQwdmNwMTF3YTJxbzhpbTVmZTlhaSJ9.jPLwERG4o6fAPP98wneezg
-      - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
-
-  - versionName: 0.8.0
-    versionCode: 48
-    commit: 27ff992d97b7651898fbe4103f0351b9f4a0457f
-    subdir: app
-    gradle:
-      - foss
-    rm:
-      - app/libs/*.aar
-    prebuild: sed -i -e '/places-maps-sdk-3.1.0-beta/d' build.gradle
-    gradleprops:
-      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
-      - GOOGLE_MAPS_API_KEY=
-      - MAPBOX_API_KEY=pk.eyJ1IjoiZXZtYXAiLCJhIjoiY2tkbHQwdmNwMTF3YTJxbzhpbTVmZTlhaSJ9.jPLwERG4o6fAPP98wneezg
+      - MAPBOX_API_KEY_ENCRYPTED=NgZlSx1mHC9AH0IoHHEjEnkkDT8FJyNnDkNEPxgEGxMAYTouSwlUPgFVPE8wZlgFbSYaPAMSPhITEh0pBSdyAAVYVyNDRn0IIltkDRksPjArAhh6MFs=
       - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
       - OPENCHARGEMAP_API_KEY_ENCRYPTED=dw4uF1YdTFIHQEpHdgZjcxJRSRFyW3sDBhwaBU9CTUp3Tm99
 
-  - versionName: 0.8.1
-    versionCode: 49
-    commit: f155f7615fb07baea2dd594abda26c67c97ccc1d
+  - versionName: 1.3.6
+    versionCode: 96
+    commit: bbb5c93132085abb0f9c66ea4849ecc367f51399
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - foss
-    rm:
-      - app/libs/*.aar
-    prebuild: sed -i -e '/places-maps-sdk-3.1.0-beta/d' build.gradle
+      - normal
     gradleprops:
       - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
       - GOOGLE_MAPS_API_KEY=
-      - MAPBOX_API_KEY=pk.eyJ1IjoiZXZtYXAiLCJhIjoiY2tkbHQwdmNwMTF3YTJxbzhpbTVmZTlhaSJ9.jPLwERG4o6fAPP98wneezg
+      - MAPBOX_API_KEY_ENCRYPTED=NgZlSx1mHC9AH0IoHHEjEnkkDT8FJyNnDkNEPxgEGxMAYTouSwlUPgFVPE8wZlgFbSYaPAMSPhITEh0pBSdyAAVYVyNDRn0IIltkDRksPjArAhh6MFs=
       - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
       - OPENCHARGEMAP_API_KEY_ENCRYPTED=dw4uF1YdTFIHQEpHdgZjcxJRSRFyW3sDBhwaBU9CTUp3Tm99
 
-  - versionName: 0.8.2
-    versionCode: 50
-    commit: 5f69123d890f5a181876ef940486044b341a3fd5
+  - versionName: 1.3.7
+    versionCode: 98
+    commit: 4a82250a3deb57235db2c03e0d20c1ebfa65c2a7
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - foss
-    rm:
-      - app/libs/*.aar
-    prebuild: sed -i -e '/places-maps-sdk-3.1.0-beta/d' build.gradle
+      - normal
     gradleprops:
       - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
       - GOOGLE_MAPS_API_KEY=
-      - MAPBOX_API_KEY=pk.eyJ1IjoiZXZtYXAiLCJhIjoiY2tkbHQwdmNwMTF3YTJxbzhpbTVmZTlhaSJ9.jPLwERG4o6fAPP98wneezg
+      - MAPBOX_API_KEY_ENCRYPTED=NgZlSx1mHC9AH0IoHHEjEnkkDT8FJyNnDkNEPxgEGxMAYTouSwlUPgFVPE8wZlgFbSYaPAMSPhITEh0pBSdyAAVYVyNDRn0IIltkDRksPjArAhh6MFs=
       - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
       - OPENCHARGEMAP_API_KEY_ENCRYPTED=dw4uF1YdTFIHQEpHdgZjcxJRSRFyW3sDBhwaBU9CTUp3Tm99
+
+  - versionName: 1.3.8
+    versionCode: 102
+    commit: a9e90556713087c4ae244f17c6518bf9f513690c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - normal
+    gradleprops:
+      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
+      - GOOGLE_MAPS_API_KEY=
+      - MAPBOX_API_KEY_ENCRYPTED=NgZlSx1mHC9AH0IoHHEjEnkkDT8FJyNnDkNEPxgEGxMAYTouSwlUPgFVPE8wZlgFbSYaPAMSPhITEh0pBSdyAAVYVyNDRn0IIltkDRksPjArAhh6MFs=
+      - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
+      - OPENCHARGEMAP_API_KEY_ENCRYPTED=dw4uF1YdTFIHQEpHdgZjcxJRSRFyW3sDBhwaBU9CTUp3Tm99
+
+  - versionName: 1.3.9
+    versionCode: 104
+    commit: 1b374cda1c23b65ec5ea4f903c3dbec1e60086de
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - normal
+    gradleprops:
+      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
+      - GOOGLE_MAPS_API_KEY=
+      - MAPBOX_API_KEY_ENCRYPTED=NgZlSx1mHC9AH0IoHHEjEnkkDT8FJyNnDkNEPxgEGxMAYTouSwlUPgFVPE8wZlgFbSYaPAMSPhITEh0pBSdyAAVYVyNDRn0IIltkDRksPjArAhh6MFs=
+      - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
+      - OPENCHARGEMAP_API_KEY_ENCRYPTED=dw4uF1YdTFIHQEpHdgZjcxJRSRFyW3sDBhwaBU9CTUp3Tm99
+
+  - versionName: 1.3.10
+    versionCode: 106
+    commit: 90968029ad3ef1f457054ee30e5765f989bbb1c9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - normal
+    gradleprops:
+      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
+      - GOOGLE_MAPS_API_KEY=
+      - MAPBOX_API_KEY_ENCRYPTED=NgZlSx1mHC9AH0IoHHEjEnkkDT8FJyNnDkNEPxgEGxMAYTouSwlUPgFVPE8wZlgFbSYaPAMSPhITEh0pBSdyAAVYVyNDRn0IIltkDRksPjArAhh6MFs=
+      - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
+      - OPENCHARGEMAP_API_KEY_ENCRYPTED=dw4uF1YdTFIHQEpHdgZjcxJRSRFyW3sDBhwaBU9CTUp3Tm99
+
+  - versionName: 1.3.11
+    versionCode: 108
+    commit: 4fb5090e9b2d72b483964cef2cf8ad664d36c07c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - normal
+    gradleprops:
+      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
+      - GOOGLE_MAPS_API_KEY=
+      - MAPBOX_API_KEY_ENCRYPTED=NgZlSx1mHC9AH0IoHHEjEnkkDT8FJyNnDkNEPxgEGxMAYTouSwlUPgFVPE8wZlgFbSYaPAMSPhITEh0pBSdyAAVYVyNDRn0IIltkDRksPjArAhh6MFs=
+      - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
+      - OPENCHARGEMAP_API_KEY_ENCRYPTED=dw4uF1YdTFIHQEpHdgZjcxJRSRFyW3sDBhwaBU9CTUp3Tm99
+
+  - versionName: 1.3.11
+    versionCode: 114
+    commit: e3f271be5d4fad3d5f5fa03d14eeab4783931736
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - normal
+    gradleprops:
+      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
+      - GOOGLE_MAPS_API_KEY=
+      - MAPBOX_API_KEY_ENCRYPTED=NgZlSx1mHC9AH0IoHHEjEnkkDT8FJyNnDkNEPxgEGxMAYTouSwlUPgFVPE8wZlgFbSYaPAMSPhITEh0pBSdyAAVYVyNDRn0IIltkDRksPjArAhh6MFs=
+      - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
+      - OPENCHARGEMAP_API_KEY_ENCRYPTED=dw4uF1YdTFIHQEpHdgZjcxJRSRFyW3sDBhwaBU9CTUp3Tm99
+
+  - versionName: 1.3.11
+    versionCode: 116
+    commit: 31fcee97e16470367157c74d13693b4422628feb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - normal
+    gradleprops:
+      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
+      - GOOGLE_MAPS_API_KEY=
+      - MAPBOX_API_KEY_ENCRYPTED=NgZlSx1mHC9AH0IoHHEjEnkkDT8FJyNnDkNEPxgEGxMAYTouSwlUPgFVPE8wZlgFbSYaPAMSPhITEh0pBSdyAAVYVyNDRn0IIltkDRksPjArAhh6MFs=
+      - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
+      - OPENCHARGEMAP_API_KEY_ENCRYPTED=dw4uF1YdTFIHQEpHdgZjcxJRSRFyW3sDBhwaBU9CTUp3Tm99
+
+  - versionName: 1.3.12
+    versionCode: 120
+    commit: 8a0224707bbe0e92adb3cc714c3a8bb55aecf4c0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+      - normal
+    scanignore:
+      - app/build.gradle
+    gradleprops:
+      - GOINGELECTRIC_API_KEY=7ef9a064ec4602a853c9201ac35be94b
+      - GOOGLE_MAPS_API_KEY=
+      - MAPBOX_API_KEY_ENCRYPTED=NgZlSx1mHC9AH0IoHHEjEnkkDT8FJyNnDkNEPxgEGxMAYTouSwlUPgFVPE8wZlgFbSYaPAMSPhITEh0pBSdyAAVYVyNDRn0IIltkDRksPjArAhh6MFs=
+      - CHARGEPRICE_API_KEY_ENCRYPTED=JVwoGQcbTgIbFUlHIE5leEAEVRZzCC1LAh5JAB4UT0Y=
+      - OPENCHARGEMAP_API_KEY_ENCRYPTED=dw4uF1YdTFIHQEpHdgZjcxJRSRFyW3sDBhwaBU9CTUp3Tm99
+
+MaintainerNotes: scanignore is used to allow the patched version of com.mapbox
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.8.2
-CurrentVersionCode: 50
+CurrentVersion: 1.3.12
+CurrentVersionCode: 120

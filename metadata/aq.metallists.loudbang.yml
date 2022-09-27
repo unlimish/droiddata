@@ -2,6 +2,7 @@ Categories:
   - Connectivity
 License: GPL-3.0-only
 AuthorName: TheMetallists
+AuthorEmail: metallists@outlook.com
 SourceCode: https://github.com/TheMetallists/LoudBang
 IssueTracker: https://github.com/TheMetallists/LoudBang/issues
 Changelog: https://github.com/TheMetallists/LoudBang/releases
@@ -37,7 +38,47 @@ Builds:
       - yes
     ndk: r22
 
+  - versionName: '0.44'
+    versionCode: 44
+    commit: d052e5b132a59e63f95967bed6cc45ac76dda97e
+    subdir: app
+    gradle:
+      - yes
+    ndk: r22
+
+  - versionName: '0.45'
+    versionCode: 45
+    commit: 466fea19bd2daf1f088717abbd69f66b704adbc7
+    subdir: app
+    gradle:
+      - yes
+    ndk: r22
+
+  - versionName: '0.46'
+    versionCode: 46
+    commit: a9bbcd69c49be6fdc80ceb3638f68090d5a357a3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    ndk: r22
+
+  - versionName: '0.47'
+    versionCode: 47
+    commit: 5e3da4f622798f73f4513715c856d30e4d41a7be
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    ndk: r22
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '0.43'
-CurrentVersionCode: 43
+CurrentVersion: '0.47'
+CurrentVersionCode: 47

@@ -1,0 +1,81 @@
+Categories:
+  - System
+License: Apache-2.0
+AuthorName: Absinthe
+AuthorEmail: zhaobozhen2025@gmail.com
+AuthorWebSite: https://absinthe.life
+SourceCode: https://github.com/zhaobozhen/LibChecker
+IssueTracker: https://github.com/zhaobozhen/LibChecker/issues
+Changelog: https://github.com/zhaobozhen/LibChecker/releases
+
+AutoName: LibChecker
+
+RepoType: git
+Repo: https://github.com/zhaobozhen/LibChecker.git
+
+Builds:
+  - versionName: 2.3.0.dev.a32aba40
+    versionCode: 1300
+    commit: a32aba40d4f2f99a76dad2fbda501453af226807
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    rm:
+      - app/ohos
+
+  - versionName: 2.3.0.10a449fd
+    versionCode: 1341
+    commit: 10a449fd9923c6923355f5de2271b5943dbc036c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    rm:
+      - app/ohos
+    scanignore:
+      - app/src/main/assets/anim/*.json.zip
+
+  - versionName: 2.3.0.90c36232
+    versionCode: 1344
+    commit: 90c36232237e1570c883ced3f0b18b67004cc3c6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    rm:
+      - app/ohos
+    scanignore:
+      - app/src/main/assets/anim/*.json.zip
+
+  - versionName: 2.3.2.d08396fa
+    versionCode: 1403
+    commit: d08396faafa378e5b7ff239d150bb31d9c86d9c3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    rm:
+      - app/ohos
+    scanignore:
+      - app/src/main/assets/anim/*.json.zip
+    scandelete:
+      - build-logic/build
+
+AutoUpdateMode: None
+UpdateCheckMode: HTTP
+UpdateCheckData: https://github.com/zhaobozhen/LibChecker/releases/latest|LibChecker-.+-(\d+)-foss|.|LibChecker-(.+)-\d+-foss
+CurrentVersion: 2.3.2.d08396fa
+CurrentVersionCode: 1403

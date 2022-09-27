@@ -2026,13 +2026,583 @@ Builds:
         ./prepare_gdk_clang.sh
     ndk: r19c
 
+  - versionName: 3.6.4
+    versionCode: 22000364
+    commit: 95987f9de6b69899c2400af4508befdf9f483b7e
+    timeout: 25200
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    output: green/build/outputs/apk/production/release/*.apk
+    srclibs:
+      - cpython@v3.9.6
+    prebuild: sed -i -e 's/-p python3/-p python3.9/' crypto/prepare_gdk_clang.sh
+    scanignore:
+      - app/src/main/assets/production/checkpoints
+    scandelete:
+      - app/src/main/assets/btctestnet/checkpoints
+    build:
+      - cd crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r19c
+
+  - versionName: 3.7.0
+    versionCode: 22000370
+    commit: 5f087d14ddcb15c64cc6068134c69ef0885aba73
+    timeout: 25200
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    output: green/build/outputs/apk/production/release/*.apk
+    srclibs:
+      - cpython@v3.9.6
+    prebuild: sed -i -e 's/-p python3/-p python3.9/' crypto/prepare_gdk_clang.sh
+    scanignore:
+      - app/src/main/assets/production/checkpoints
+    scandelete:
+      - app/src/main/assets/btctestnet/checkpoints
+    build:
+      - cd crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r19c
+
+  - versionName: 3.7.1
+    versionCode: 22000371
+    commit: 41f8faa992e0168b79dcbcf10351589da2eae753
+    timeout: 25200
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    output: green/build/outputs/apk/production/release/*.apk
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild: sed -i -e 's/-p python3/-p python3.9/' crypto/prepare_gdk_clang.sh
+    scanignore:
+      - app/src/main/assets/production/checkpoints
+    scandelete:
+      - app/src/main/assets/btctestnet/checkpoints
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.49.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r19c
+
+  - versionName: 3.7.2
+    versionCode: 22000372
+    commit: 0fded0ee40dc51eea4bfae09cebb637badb35b11
+    timeout: 25200
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    output: green/build/outputs/apk/production/release/*.apk
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild: sed -i -e 's/-p python3/-p python3.9/' crypto/prepare_gdk_clang.sh
+    scanignore:
+      - app/src/main/assets/production/checkpoints
+    scandelete:
+      - app/src/main/assets/btctestnet/checkpoints
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.49.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r19c
+
+  - versionName: 3.7.3
+    versionCode: 22000373
+    commit: a2ce021d7752fe489314728ef6a6e25225aecb5d
+    timeout: 25200
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    output: green/build/outputs/apk/production/release/*.apk
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild: sed -i -e 's/-p python3/-p python3.9/' crypto/prepare_gdk_clang.sh
+    scanignore:
+      - app/src/main/assets/production/checkpoints
+    scandelete:
+      - app/src/main/assets/btctestnet/checkpoints
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.49.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r19c
+
+  - versionName: 3.7.4
+    versionCode: 22000374
+    commit: 18d12b7be0d9990fe2a02fdabf476c7b763ec85a
+    timeout: 25200
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    output: green/build/outputs/apk/production/release/*.apk
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild: sed -i -e 's/-p python3/-p python3.9/' crypto/prepare_gdk_clang.sh
+    scanignore:
+      - app/src/main/assets/production/checkpoints
+    scandelete:
+      - app/src/main/assets/btctestnet/checkpoints
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.49.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r19c
+
+  - versionName: 3.7.5
+    versionCode: 22000375
+    commit: 7c4f6792ccb29c076ed64bb3d8933b9a2c133ff8
+    timeout: 25200
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    output: green/build/outputs/apk/production/release/*.apk
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild: sed -i -e 's/-p python3/-p python3.9/' crypto/prepare_gdk_clang.sh
+    scanignore:
+      - app/src/main/assets/production/checkpoints
+    scandelete:
+      - app/src/main/assets/btctestnet/checkpoints
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.49.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r19c
+
+  - versionName: 3.7.6
+    versionCode: 22000376
+    commit: e8ece72ff88f91adf9ef2c82af67a864de91708f
+    timeout: 25200
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    output: green/build/outputs/apk/production/release/*.apk
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild: sed -i -e 's/-p python3/-p python3.9/' crypto/prepare_gdk_clang.sh
+    scanignore:
+      - app/src/main/assets/production/checkpoints
+    scandelete:
+      - app/src/main/assets/btctestnet/checkpoints
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.49.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r19c
+
+  - versionName: 3.7.7
+    versionCode: 22000377
+    commit: 7d413583d5facb4e1950c612d72ff1a456072d94
+    timeout: 25200
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    output: green/build/outputs/apk/production/release/*.apk
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild: sed -i -e 's/-p python3/-p python3.9/' crypto/prepare_gdk_clang.sh
+    scanignore:
+      - app/src/main/assets/production/checkpoints
+    scandelete:
+      - app/src/main/assets/btctestnet/checkpoints
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.49.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r19c
+
+  - versionName: 3.7.8
+    versionCode: 22000378
+    commit: a4250edf21eef528a852d9748af2f8735969d78e
+    timeout: 25200
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    output: green/build/outputs/apk/production/release/*.apk
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild: sed -i -e 's/-p python3/-p python3.9/' crypto/prepare_gdk_clang.sh
+    scanignore:
+      - app/src/main/assets/production/checkpoints
+    scandelete:
+      - app/src/main/assets/btctestnet/checkpoints
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.49.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r19c
+
+  - versionName: 3.7.9
+    versionCode: 22000379
+    commit: df3d4d4265b3221c584a73465e68ee290b30515d
+    timeout: 25200
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    output: green/build/outputs/apk/production/release/*.apk
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild: sed -i -e 's/-p python3/-p python3.9/' crypto/prepare_gdk_clang.sh
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.49.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r19c
+
+  - versionName: 3.8.0
+    versionCode: 22000380
+    commit: bde3bbdd506304181752533a72eb08b0d400345d
+    timeout: 25200
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    output: green/build/outputs/apk/production/release/*.apk
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild: sed -i -e 's/-p python3/-p python3.9/' crypto/prepare_gdk_clang.sh
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.49.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r19c
+
+  - versionName: 3.8.3
+    versionCode: 22000383
+    commit: 446b6f1ce03acd2a797898b758ef4f4c47eae243
+    timeout: 25200
+    subdir: green
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild:
+      - sed -i -e 's/-p python3/-p python3.9/' ../crypto/prepare_gdk_clang.sh
+      - sed -i -e '/signingConfigs/,/^            }/d' build.gradle
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.56.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd ../crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r23b
+
+  - versionName: 3.8.4
+    versionCode: 22000384
+    commit: 1d09c652dd66c55fe46a17ce39c68d8d304d733b
+    timeout: 25200
+    subdir: green
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild:
+      - sed -i -e 's/-p python3/-p python3.9/' ../crypto/prepare_gdk_clang.sh
+      - sed -i -e '/signingConfigs/,/^            }/d' build.gradle
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.56.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd ../crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r23b
+
+  - versionName: 3.8.5
+    versionCode: 22000385
+    disable: https://github.com/Blockstream/green_android/issues/150
+    commit: 5354b9dab14e2daf488be287477d10041d330eb1
+    timeout: 25200
+    subdir: green
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild:
+      - sed -i -e 's/-p python3/-p python3.9/' ../crypto/prepare_gdk_clang.sh
+      - sed -i -e '/signingConfigs/,/^            }/d' build.gradle
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.56.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd ../crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r23b
+
+  - versionName: 3.8.6
+    versionCode: 22000386
+    commit: e9548081648e77390a917ab3a34aa0934b230e43
+    timeout: 25200
+    subdir: green
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild:
+      - sed -i -e 's/-p python3/-p python3.9/' ../crypto/prepare_gdk_clang.sh
+      - sed -i -e '/signingConfigs/,/^            }/d' build.gradle
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.56.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd ../crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r23b
+
+  - versionName: 3.8.7
+    versionCode: 22000387
+    commit: 88c15767d8dbf8de4f5e30a36670d940847b68a5
+    timeout: 25200
+    subdir: green
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y build-essential clang jq libffi-dev virtualenv openjdk-11-jdk
+      - update-alternatives --auto java
+      - pushd build/srclib/cpython
+      - ./configure
+      - make -j`nproc`
+      - make altinstall
+      - popd
+    gradle:
+      - production
+    srclibs:
+      - cpython@v3.9.6
+      - rustup@1.24.3
+    prebuild:
+      - sed -i -e 's/-p python3/-p python3.9/' ../crypto/prepare_gdk_clang.sh
+      - sed -i -e '/signingConfigs/,/^            }/d' build.gradle
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.56.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
+        i686-linux-android
+      - cd ../crypto
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh
+    ndk: r23b
+
 MaintainerNotes: |-
     Watch prepare_gdk_clang.sh for changes on new builds.
 
-    The two files app/src/main/assets/btctestnet/checkpoints and app/src/main/assets/production/checkpoints are hashes of the blocks of the respective chains (testnet3 and mainnet) and are re-generated ad-hoc occasionally by using the tool ./buildCheckpoints.sh inside the repo while having a bitcoin full node for each chain runnin on localhost. They are used to speed up SPV verification when possible and they can be verified independently by checking each hash against the blockchain.
+    The two files app/src/main/assets/btctestnet/checkpoints and app/src/main/assets/production/checkpoints
+    are hashes of the blocks of the respective chains (testnet3 and mainnet) and are re-generated ad-hoc
+    occasionally by using the tool ./buildCheckpoints.sh inside the repo while having a bitcoin full node
+    for each chain runnin on localhost. They are used to speed up SPV verification when possible and they
+    can be verified independently by checking each hash against the blockchain.
 
 AutoUpdateMode: Version release_%v
 UpdateCheckMode: Tags
 VercodeOperation: 22000000 + %c
-CurrentVersion: 3.6.3
-CurrentVersionCode: 22000363
+CurrentVersion: 3.8.7
+CurrentVersionCode: 22000387

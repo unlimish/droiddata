@@ -7,8 +7,6 @@ SourceCode: https://github.com/ashutoshgngwr/10-bitClockWidget
 IssueTracker: https://github.com/ashutoshgngwr/10-bitClockWidget/issues
 
 AutoName: 10-bit Clock Widget
-Description: 10-bit Clock Widget uses 10 binary dots and their color to represent
-    current time in 12-hour format.
 
 RepoType: git
 Repo: https://github.com/ashutoshgngwr/10-bitClockWidget.git
@@ -70,7 +68,40 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.0-3
+    versionCode: 203
+    commit: 5c0ed3de6dbc068a8cef6e29d6850a88ae1e21f9
+    subdir: 10-bitClockWidget/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '2.1'
+    versionCode: 210
+    commit: b9f908ba68a83ab8a13d7ec8c06898d1c1ac9dd2
+    subdir: 10-bitClockWidget/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.1-1
+    versionCode: 211
+    commit: f3389cad07eb397064d863a4399353066b8cd595
+    subdir: 10-bitClockWidget/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.0-1
-CurrentVersionCode: 201
+CurrentVersion: 2.1-1
+CurrentVersionCode: 211

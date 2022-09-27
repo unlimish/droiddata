@@ -8,7 +8,7 @@ SourceCode: https://github.com/dkrivoruchko/ScreenStream
 IssueTracker: https://github.com/dkrivoruchko/ScreenStream/issues
 Changelog: https://github.com/dkrivoruchko/ScreenStream/releases
 
-AutoName: ScreenStream
+AutoName: Screen Stream
 Description: |-
     The application allows viewing the device screen in your web browser. The main
     idea is to show your device screen during presentations and demos. No need of
@@ -681,10 +681,14 @@ Builds:
       - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
         libs/
 
-  - versionName: 3.7.4
-    versionCode: 30704
-    commit: 17d75190c9045531e0023687c135d0e57cb27157
+  - versionName: 3.7.5
+    versionCode: 30705
+    commit: 3.7.5
     subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
     gradle:
       - firebasefree
     srclibs:
@@ -706,7 +710,414 @@ Builds:
       - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
         libs/
 
-AutoUpdateMode: Version %v
+  - versionName: 3.7.6
+    versionCode: 30706
+    commit: 4ea2e0063dfc5ecbbe950a0c7288e9c2249a586e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/com\.google\.firebase/d; /com\.google\.gms/d' ../build.gradle
+        build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+  - versionName: 3.8.0
+    versionCode: 30800
+    commit: ecee00c43a1478470fbe27fe63d61bd583403825
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/com\.google\.firebase/d; /com\.google\.gms/d' ../build.gradle
+        build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+  - versionName: 3.8.1
+    versionCode: 30801
+    commit: efd7a84f8454d296351ddb4f81fbb1e7b3cab237
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/com\.google\.firebase/d; /com\.google\.gms/d' ../build.gradle
+        build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+  - versionName: 3.8.2
+    versionCode: 30802
+    commit: 0362169d1d9289cc34e15255dafdb2fdbedc2029
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/com\.google\.firebase/d; /com\.google\.gms/d' ../build.gradle
+        build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+  - versionName: 3.8.3
+    versionCode: 30803
+    commit: e0ef74294c7da824c5b41157a97d3a4b633b289a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/com\.google\.firebase/d; /com\.google\.gms/d' ../build.gradle
+        build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+  - versionName: 3.8.4
+    versionCode: 30804
+    commit: f22b115736e88471e58f25101b5a282b799246ca
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/com\.google\.firebase/d; /com\.google\.gms/d' ../build.gradle
+        build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+  - versionName: 3.8.5
+    versionCode: 30805
+    disable: https://github.com/dkrivoruchko/ScreenStream/issues/189
+    commit: d350620ce4250d12e6a010c9712681c925bb5e6c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/com\.google\.firebase/d; /com\.google\.gms/d' ../build.gradle
+        build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+  - versionName: 3.8.6
+    versionCode: 30806
+    commit: 15769711008d61cb57a0a5f86865c3cdd292f206
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/com\.google\.firebase/d; /com\.google\.gms/d' ../build.gradle
+        build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+  - versionName: 3.8.7
+    versionCode: 30807
+    commit: 2e9b5ac761117001ea75a795cd7de4ef8adc3bb4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/com\.google\.firebase/d; /com\.google\.gms/d' ../build.gradle
+        build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+  - versionName: 3.8.8
+    versionCode: 30808
+    commit: 8fa592c49532aa31e5e084537ac2ea5225c45255
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/com\.google\.firebase/d; /com\.google\.gms/d' ../build.gradle
+        build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+  - versionName: 3.9.5
+    versionCode: 30905
+    commit: 13217548672a0981efd084738e29f503346db6ef
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/google.firebase/d; /gms/d' ../build.gradle build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - sed -i -e '/app-update-ktx/s/implementation/firebaseImplementation/' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+  - versionName: 3.9.6
+    versionCode: 30906
+    commit: 83158dd080ce5a727643aa73008fc25b0642cf4e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/google.firebase/d; /gms/d' ../build.gradle build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - sed -i -e '/app-update-ktx/s/implementation/firebaseImplementation/' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+  - versionName: 3.10.0
+    versionCode: 31000
+    commit: e3ee332fb2ba4fa72f7f5228384c0faa71fe51b2
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/google.firebase/d; /gms/d' ../build.gradle build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - sed -i -e '/app-update-ktx/s/implementation/firebaseImplementation/' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+  - versionName: 3.10.1
+    versionCode: 31001
+    commit: 2fdb8cf18dad1a4e0396c24484bc16c6b2a6aede
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - firebasefree
+    srclibs:
+      - Material-Dialogs@3.3.0
+    rm:
+      - app/libs/bottomsheets-release.aar
+    prebuild:
+      - sed -i -e 's|= uri("https://jitpack\.io")|"https://jitpack.io"|' ../build.gradle
+      - sed -i -e '/google.firebase/d; /gms/d' ../build.gradle build.gradle
+      - sed -i -e '/firebaseCrashlytics/d' -e '/^android\.applicationVariants\.all
+        {/,/^}$/d' build.gradle
+      - sed -i -e '/app-update-ktx/s/implementation/firebaseImplementation/' build.gradle
+      - pushd $$Material-Dialogs$$
+      - sed -i -e '241d' bottomsheets/src/main/java/com/afollestad/materialdialogs/bottomsheets/BottomSheet.kt
+    build:
+      - pushd $$Material-Dialogs$$
+      - gradle bottomsheets:assembleRelease
+      - popd
+      - cp $$Material-Dialogs$$/bottomsheets/build/outputs/aar/bottomsheets-release.aar
+        libs/
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.7.4
-CurrentVersionCode: 30704
+CurrentVersion: 3.10.1
+CurrentVersionCode: 31001

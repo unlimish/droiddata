@@ -5,7 +5,7 @@ License: GPL-2.0-or-later
 WebSite: http://tuxpaint.org
 SourceCode: https://github.com/tux4kids/Tuxpaint-Android
 IssueTracker: https://sourceforge.net/p/tuxpaint/bugs/?source=navbar
-Donate: http://www.newbreedsoftware.com/donate/
+Donate: https://www.newbreedsoftware.com/donate/
 
 AutoName: Tux Paint
 
@@ -254,7 +254,58 @@ Builds:
       - app/src/main/jni/
     ndk: r19c
 
+  - versionName: 0.9.27
+    versionCode: 9270
+    commit: 7171f5d27892f5130eccb44acab396f03b36d8c9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - cd src/main/jni/tuxpaint/
+      - ./mkzip_assets.sh
+    scandelete:
+      - app/src/main/jni/
+    ndk: r19c
+
+  - versionName: 0.9.28
+    versionCode: 9280
+    commit: ff2751c7a2b8e0937b7d43a3507c6d2237048da9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - cd src/main/jni/tuxpaint/
+      - ./mkzip_assets.sh
+    scandelete:
+      - app/src/main/jni/
+    ndk: r19c
+
+  - versionName: 0.9.28b
+    versionCode: 9281
+    commit: be3b8950acb81cbabd362fd6131798d3815ceb55
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - cd src/main/jni/tuxpaint/
+      - ./mkzip_assets.sh
+    scandelete:
+      - app/src/main/jni/
+    ndk: r19c
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.9.26
-CurrentVersionCode: 9260
+CurrentVersion: 0.9.28b
+CurrentVersionCode: 9281

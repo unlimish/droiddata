@@ -1,5 +1,7 @@
 AntiFeatures:
+  - Tracking
   - NonFreeNet
+  - NSFW
 Categories:
   - Internet
 License: Apache-2.0
@@ -239,11 +241,150 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.8.4-stable-release
+    versionCode: 284
+    commit: 2.8.4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.8.5-stable-release
+    versionCode: 285
+    commit: 2.8.5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.8.6-stable-release
+    versionCode: 286
+    commit: 2.8.6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.8.7-stable-release
+    versionCode: 287
+    commit: 2.8.7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.8.8-stable-release
+    versionCode: 288
+    commit: 2.8.8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.8.9-stable-release
+    versionCode: 289
+    commit: 2.8.9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.9.0-stable-release
+    versionCode: 290
+    commit: 2.9.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.9.1-stable-release
+    versionCode: 291
+    commit: 2.9.1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.9.2-stable-release
+    versionCode: 292
+    commit: 3ce600c8b62270bc13bdcca96f658e68220722f0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.9.3-stable-release
+    versionCode: 293
+    commit: 2.9.3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.9.4-stable-release
+    versionCode: 294
+    commit: 2.9.4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.9.6-stable-release
+    versionCode: 296
+    commit: 2.9.6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.9.7-stable-release
+    versionCode: 297
+    commit: 2.9.7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 MaintainerNotes: UpdateCheckMode stays as HTTP as beta version are not reflected in
     git tags.
 
 AutoUpdateMode: Version +-stable-release %v
 UpdateCheckMode: HTTP
 UpdateCheckData: https://raw.githubusercontent.com/Dar9586/NClientV2/master/app/build.gradle|versionCode\s+(\d+)|.|versionName\s"([\d.]+)-stable"
-CurrentVersion: 2.8.3
-CurrentVersionCode: 283
+CurrentVersion: 2.9.7
+CurrentVersionCode: 297

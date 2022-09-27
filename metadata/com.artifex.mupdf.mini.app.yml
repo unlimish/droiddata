@@ -149,6 +149,90 @@ Builds:
     build: make -C ../jni/libmupdf generate
     ndk: r21d
 
+  - versionName: 1.19.0
+    versionCode: 90
+    commit: 252f187e2eb77c290ae0967b53d8d3f0e139febd
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/maven.ghostscript.com/d' ../build.gradle
+      - sed -i -e '/MAVEN_REPO/,+2d' ../build.gradle
+      - sed -i -e 's/enable true/enable false/' build.gradle
+      - sed -i -e "s/'-j4'/'-j`nproc`'/" ../jni/build.gradle
+      - echo 'ABI_FILTERS=armeabi-v7a,arm64-v8a,x86' >> ../gradle.properties
+    scandelete:
+      - jni/libmupdf/thirdparty
+    build: make -C ../jni/libmupdf generate
+    ndk: r21d
+
+  - versionName: 1.20.0
+    versionCode: 100
+    commit: 8385dc885948ac3fc7b96ce74dad47cb26858532
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/maven.ghostscript.com/d' -e '/user.home/d' -e '/url.*MAVEN_REPO/d'
+        ../build.gradle ../*/build.gradle
+      - sed -i -e 's/enable true/enable false/' build.gradle
+      - sed -i -e "s/'-j4'/'-j`nproc`'/" ../jni/build.gradle
+      - echo 'ABI_FILTERS=armeabi-v7a,arm64-v8a,x86' >> ../gradle.properties
+    scandelete:
+      - jni/libmupdf/thirdparty
+    build: make -C ../jni/libmupdf generate
+    ndk: r23c
+
+  - versionName: 1.20.1a
+    versionCode: 101
+    commit: f496944b563bf23f6ef19f2ebf072860b0796a46
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/maven.ghostscript.com/d' -e '/user.home/d' -e '/url.*MAVEN_REPO/d'
+        ../build.gradle ../*/build.gradle
+      - sed -i -e 's/enable true/enable false/' build.gradle
+      - sed -i -e "s/'-j4'/'-j`nproc`'/" ../jni/build.gradle
+      - echo 'ABI_FILTERS=armeabi-v7a,arm64-v8a,x86' >> ../gradle.properties
+    scandelete:
+      - jni/libmupdf/thirdparty
+    build: make -C ../jni/libmupdf generate
+    ndk: r23c
+
+  - versionName: 1.20.2a
+    versionCode: 102
+    commit: fb5292259d1b5169144131545994dca3f132ba0a
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/maven.ghostscript.com/d' -e '/user.home/d' -e '/url.*MAVEN_REPO/d'
+        ../build.gradle ../*/build.gradle
+      - sed -i -e 's/enable true/enable false/' build.gradle
+      - sed -i -e "s/'-j4'/'-j`nproc`'/" ../jni/build.gradle
+      - echo 'ABI_FILTERS=armeabi-v7a,arm64-v8a,x86' >> ../gradle.properties
+    scandelete:
+      - jni/libmupdf/thirdparty
+    build: make -C ../jni/libmupdf generate
+    ndk: r23c
+
 MaintainerNotes: |-
     Upstream builds separate APKs for all target architectures supported by NDK
     (7 as of r16). We build universal APK with armeabi-v7a, arm64-v8a and x86
@@ -156,5 +240,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 1.18.0
-CurrentVersionCode: 80
+CurrentVersion: 1.20.2a
+CurrentVersionCode: 102

@@ -107,7 +107,67 @@ Builds:
       - $$flutter$$/bin/flutter pub get
       - $$flutter$$/bin/flutter build apk
 
+  - versionName: 2.1.1
+    versionCode: 9
+    commit: ab4aa737e46dd6678304c59e5670ad8ecf45d87f
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@2.2.1
+    rm:
+      - ios
+    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
+        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.1.2
+    versionCode: 10
+    commit: 83cbc6321af5f3844cdc9163bc43873ce20ee046
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@2.2.1
+    rm:
+      - ios
+    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
+        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.2.0
+    versionCode: 11
+    commit: 8561a740f2e9322cc501d67e852fa2303f5f367b
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@2.5.3
+    rm:
+      - ios
+    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
+        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.2.1
+    versionCode: 12
+    commit: a73fc507e27eb515102b8d2d1f47ef2007f25a9b
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@2.5.3
+    rm:
+      - ios
+    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
+        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter build apk
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.1.0
-CurrentVersionCode: 8
+CurrentVersion: 2.2.1
+CurrentVersionCode: 12

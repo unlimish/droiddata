@@ -4,7 +4,7 @@ License: GPL-3.0-only
 AuthorName: Exodus Privacy
 AuthorEmail: contact@exodus-privacy.eu.org
 AuthorWebSite: https://exodus-privacy.eu.org/
-WebSite: https://news.exodus-privacy.eu.org/
+WebSite: https://exodus-privacy.eu.org/
 SourceCode: https://github.com/Exodus-Privacy/exodus-android-app
 IssueTracker: https://github.com/Exodus-Privacy/exodus-android-app/issues
 Donate: https://exodus-privacy.eu.org/en/page/contribute/#finance
@@ -72,7 +72,40 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.2.0
+    versionCode: 11
+    commit: 236e0518037e5bf03a8eb0b80c565433b3b8b364
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - exodus_fdroid
+
+  - versionName: 2.2.1
+    versionCode: 12
+    commit: 4e26708e0e2f7578ede16b289f9652f7431104cd
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - exodus
+
+  - versionName: 3.0.0
+    versionCode: 13
+    commit: 7b966b1bcbf7c84be332ec85314b34889b049a13
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version release-v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.1.1
-CurrentVersionCode: 10
+CurrentVersion: 3.0.0
+CurrentVersionCode: 13

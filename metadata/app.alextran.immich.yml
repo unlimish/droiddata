@@ -1,0 +1,569 @@
+Categories:
+  - System
+  - Multimedia
+License: MIT
+AuthorName: Alex Tran
+AuthorEmail: alex.tran1502@gmail.com
+AuthorWebSite: https://hautran.net
+WebSite: https://github.com/alextran1502/immich
+SourceCode: https://github.com/alextran1502/immich
+IssueTracker: https://github.com/alextran1502/immich/issues
+Changelog: https://github.com/alextran1502/immich/releases
+Donate: https://github.com/sponsors/alextran1502
+Bitcoin: 1PtkQfxHViZ8ugQ6U1sEzwoaBuT67xAUaj
+
+AutoName: Immich
+
+RepoType: git
+Repo: https://github.com/alextran1502/immich.git
+
+Builds:
+  - versionName: 1.5.1
+    versionCode: 9
+    commit: v1.5.1+9-dev
+    subdir: mobile
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.6.0
+    versionCode: 10
+    commit: c7dff229dbffd6f5abbd9a79a90492dc323e7cf5
+    subdir: mobile
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.7.0
+    versionCode: 11
+    commit: 4309104925cbaf349cbc6ef63715175448d5c5c8
+    subdir: mobile
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.8.0
+    versionCode: 12
+    commit: 2c4243b3d09efa80c2cb70f8f6ffc043d29535d9
+    subdir: mobile
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.9.0
+    versionCode: 13
+    commit: 373b6918f8208d8ae7b4d5f814f90333398561d9
+    subdir: mobile
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.9.1
+    versionCode: 14
+    commit: bb89fa4aab64f2f4ff7170e4b3ef65d7e8ed4c71
+    subdir: mobile
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.3
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.10.0
+    versionCode: 15
+    commit: b34de624cef43a4fdc571d70d15bacbbcf1e6d49
+    subdir: mobile
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.1
+    rm:
+      - design
+      - docker
+      - machine_learning
+      - microservices
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.11.0
+    versionCode: 17
+    commit: a8220172f8b2d5d30484f433187d95def84a1576
+    subdir: mobile
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.1
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.12.0
+    versionCode: 18
+    commit: b7603fd1509fb259dcd50f3a0ae1b30ccb062521
+    subdir: mobile
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.1
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.14.0
+    versionCode: 21
+    commit: 5f00d8b9c6169d6a85a02f2ce40040f313fdcc48
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.16.0
+    versionCode: 23
+    commit: e84c705e31dc10da9e67b9fbfe3c21cfa57c481f
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.17.0
+    versionCode: 25
+    commit: f3032f74a40b3475b17747b34a894bc81b80dc29
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.18.0
+    versionCode: 27
+    commit: 72c334e5e0154ee206228eb367184123301cfb83
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.19.0
+    versionCode: 29
+    commit: 1ba998aa68ad91aa3951c81fdf3f0570b7e2b704
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.20.0
+    versionCode: 30
+    commit: 46f49052592a9ea057adfdf36d7c0abd624ff41a
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.21.0
+    versionCode: 31
+    commit: bd5ed1b6844704d21a0161e1b86e92e93256096f
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.22.0
+    versionCode: 32
+    commit: 5c1d1dd5a12826b7e0a638ee7fa4ab90e04f0082
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.23.0
+    versionCode: 33
+    commit: 1390d0176374daa96e50f544805c5aaadffe47fc
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.24.0
+    versionCode: 34
+    commit: 25338ce02fed0ce24015f628302991e1f727978a
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.25.0
+    versionCode: 35
+    commit: 83716ae1bc9a6edce252bb411205a8318c798646
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.27.0
+    versionCode: 37
+    commit: de0c59efe77871253e5fe1e8186c829c179f65cf
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.28.0
+    versionCode: 38
+    commit: 853a65aef11bcb7d47a330ca5c20e3a23469cb83
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.3
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.28.2
+    versionCode: 40
+    commit: 31739aca02a5b8f8c208f7673dfd6a7ca6722f44
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.3.0
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.28.3
+    versionCode: 41
+    commit: 4271e24e59f190099e2bbf44c946efd1675544a1
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.3.0
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.29.0
+    versionCode: 42
+    commit: 97aed8ef239fd650491b3d9daabf7ecc8f49d841
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.3.0
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.29.1
+    versionCode: 43
+    commit: e997bd371b59dde046bd2825c1fa5ffe3072a903
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.3.0
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 1.29.4
+    versionCode: 44
+    commit: 10239161fd04a3551a0ee23dae3112456b3ac53d
+    subdir: mobile
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.3.0
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --release
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: mobile/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.29.4
+CurrentVersionCode: 44

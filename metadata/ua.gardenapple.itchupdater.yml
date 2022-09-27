@@ -9,6 +9,7 @@ AuthorEmail: gardenapple@posteo.net
 WebSite: https://gardenapple.itch.io/mitch
 SourceCode: https://sr.ht/~gardenapple/mitch/
 IssueTracker: https://todo.sr.ht/~gardenapple/mitch
+Translation: https://hosted.weblate.org/projects/mitch/
 Changelog: https://gardenapple.itch.io/mitch/devlog
 
 AutoName: Mitch
@@ -122,7 +123,51 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 1.4.5
+    versionCode: 37
+    commit: b088864abf7111c7a2b9345d4450907f7cf2f789
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 1.4.6
+    versionCode: 38
+    commit: 69c15e15d3259a32da6284f70b339bdafc1cd3dc
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 1.4.7
+    versionCode: 39
+    commit: 66005be9b2c49e9c0618f3a73302308bd3cc5883
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: 2.1.0
+    versionCode: 101
+    commit: 498d40a73ad1aaba765d0abf6b26b459491c1198
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 1.3.9
-CurrentVersionCode: 31
+CurrentVersion: 2.1.0
+CurrentVersionCode: 101

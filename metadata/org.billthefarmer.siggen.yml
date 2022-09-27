@@ -8,15 +8,6 @@ SourceCode: https://github.com/billthefarmer/sig-gen
 IssueTracker: https://github.com/billthefarmer/sig-gen/issues
 
 AutoName: Signal Generator
-Description: |-
-    An android signal generator with twirly knob.
-
-    * Frequency range 10Hz - 25KHz
-    * Level range 0dB - -80dB
-
-    The frequency knob responds to finger twirling. The fine frequency and level
-    sliders allow for fine adjustments of frequency and output level. The frequency
-    knob is also adjustable using the left and right arrow buttons.
 
 RepoType: git
 Repo: https://github.com/billthefarmer/sig-gen
@@ -158,7 +149,37 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.25'
+    versionCode: 125
+    commit: 51a35e3ce6aa53a1a6840cb21e64935fd9b81250
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.26'
+    versionCode: 126
+    commit: 1d095a394403140c5f0579e65f8ca45ae7c71532
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.27'
+    versionCode: 127
+    commit: 770b790c9b1b6861928a451afbf5131f99e1edcf
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.24'
-CurrentVersionCode: 124
+CurrentVersion: '1.27'
+CurrentVersionCode: 127

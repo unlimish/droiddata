@@ -2,6 +2,7 @@ Categories:
   - System
   - Development
 License: Apache-2.0
+AuthorName: TacoTheDank
 SourceCode: https://github.com/TacoTheDank/Scoop
 IssueTracker: https://github.com/TacoTheDank/Scoop/issues
 Changelog: https://github.com/TacoTheDank/Scoop/releases
@@ -28,7 +29,64 @@ Builds:
     scandelete:
       - app/libs
 
+  - versionName: 2.3.0
+    versionCode: 30
+    commit: 8c09aea822265f9b8d5b9529d82b8860e3c5cb4e
+    subdir: app
+    gradle:
+      - yes
+    scandelete:
+      - app/libs
+
+  - versionName: 2.3.1
+    versionCode: 31
+    commit: bc9a3584f02dd6f71f64bfd835433fe76ac00b2d
+    subdir: app
+    gradle:
+      - yes
+    scandelete:
+      - app/libs
+
+  - versionName: 2.4.0
+    versionCode: 32
+    commit: 3294bf4a4fd9dc47f779ea715ac8106260ddacf5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - app/libs
+
+  - versionName: 2.4.1
+    versionCode: 33
+    commit: 79ea8e97593b45d4c94f96765031bda6710da7e5
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - app/libs
+
+  - versionName: 2.4.2
+    versionCode: 34
+    commit: 32506555a2eacdaf092b7076d8922a9675da578b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - app/libs
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 2.2.0
-CurrentVersionCode: 29
+CurrentVersion: 2.4.2
+CurrentVersionCode: 34

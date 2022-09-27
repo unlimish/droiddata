@@ -1,0 +1,232 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Multimedia
+License: AGPL-3.0-only
+AuthorName: ente
+AuthorEmail: support+fdroid@ente.io
+AuthorWebSite: https://ente.io
+WebSite: https://ente.io
+SourceCode: https://github.com/ente-io/frame
+IssueTracker: https://roadmap.ente.io
+
+AutoName: ente
+
+RepoType: git
+Repo: https://github.com/ente-io/frame
+
+Builds:
+  - versionName: 0.5.16
+    versionCode: 296
+    commit: b62740ab209d00768363f5be1ed912c62ba968d2
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@2.8.1
+    rm:
+      - ios
+    build:
+      - cd thirdparty/transistor-background-fetch/android
+      - gradle :tsbackgroundfetch:publishRelease
+      - cd ../../../
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter config --no-analytics
+      - flutter packages pub get
+      - flutter packages pub run flutter_launcher_icons:main
+      - flutter build apk --flavor fdroid -t lib/main.dart
+    ndk: r21
+
+  - versionName: 0.5.35
+    versionCode: 315
+    commit: 4128cfdfb5a4f4ae5349ee5620e8ebd8397cc7f6
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.0.0
+    rm:
+      - ios
+    build:
+      - cd thirdparty/transistor-background-fetch/android
+      - gradle :tsbackgroundfetch:publishRelease
+      - cd ../../../
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter config --no-analytics
+      - flutter packages pub get
+      - flutter packages pub run flutter_launcher_icons:main
+      - flutter build apk --flavor fdroid -t lib/main.dart
+    ndk: r21
+
+  - versionName: 0.6.3
+    versionCode: 333
+    commit: 9e7895386cdf1dbd1b550f08f111c193181a5112
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - thirdparty/extended_image/example
+    build:
+      - cd thirdparty/transistor-background-fetch/android
+      - gradle :tsbackgroundfetch:publishRelease
+      - cd ../../../
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter config --no-analytics
+      - flutter packages pub get
+      - flutter packages pub run flutter_launcher_icons:main
+      - flutter build apk --flavor fdroid -t lib/main.dart
+    ndk: r21
+
+  - versionName: 0.6.11
+    versionCode: 341
+    commit: a6681a2fc8181f2ce45fed6662e0518480187df7
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - thirdparty/extended_image/example
+    build:
+      - cd thirdparty/transistor-background-fetch/android
+      - gradle :tsbackgroundfetch:publishRelease
+      - cd ../../../
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter config --no-analytics
+      - flutter packages pub get
+      - flutter packages pub run flutter_launcher_icons:main
+      - flutter build apk --flavor fdroid -t lib/main.dart
+    ndk: r21
+
+  - versionName: 0.6.11
+    versionCode: 342
+    commit: 1da9410e8a5a7554eeca0877bf563d0e66ae4c8b
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - thirdparty/extended_image/example
+    build:
+      - cd thirdparty/transistor-background-fetch/android
+      - gradle :tsbackgroundfetch:publishRelease
+      - cd ../../../
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter config --no-analytics
+      - flutter packages pub get
+      - flutter packages pub run flutter_launcher_icons:main
+      - flutter build apk --flavor fdroid -t lib/main.dart
+    ndk: r21
+
+  - versionName: 0.6.13
+    versionCode: 343
+    commit: 67f5e5d87ee3d91bc96e115efd8853901acf07b7
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - thirdparty/extended_image/example
+    build:
+      - cd thirdparty/transistor-background-fetch/android
+      - gradle :tsbackgroundfetch:publishRelease
+      - cd ../../../
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter config --no-analytics
+      - flutter packages pub get
+      - flutter packages pub run flutter_launcher_icons:main
+      - flutter build apk --flavor fdroid -t lib/main.dart
+    ndk: r21
+
+  - versionName: 0.6.17
+    versionCode: 347
+    disable: https://github.com/ente-io/frame/issues/411
+    commit: 17f1de69e6b4f1ee7d0bf3a390e8eb98ef298a47
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - thirdparty/extended_image/example
+    build:
+      - cd thirdparty/transistor-background-fetch/android
+      - gradle :tsbackgroundfetch:publishRelease
+      - cd ../../../
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter config --no-analytics
+      - flutter packages pub get
+      - flutter packages pub run flutter_launcher_icons:main
+      - flutter build apk --flavor fdroid -t lib/main.dart
+    ndk: r21
+
+  - versionName: 0.6.19
+    versionCode: 349
+    commit: 5f49e174be3fa0bd1bb9ea4da064089d1c271ce7
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - thirdparty/extended_image/example
+    build:
+      - cd thirdparty/transistor-background-fetch/android
+      - gradle :tsbackgroundfetch:publishRelease
+      - cd ../../../
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter config --no-analytics
+      - flutter packages pub get
+      - flutter packages pub run flutter_launcher_icons:main
+      - flutter build apk --flavor fdroid -t lib/main.dart
+    ndk: r21
+
+  - versionName: 0.6.34
+    versionCode: 364
+    commit: a462db27e1d85f4b76f2469c4086922fae644a4a
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - thirdparty/extended_image/example
+    build:
+      - cd thirdparty/transistor-background-fetch/android
+      - gradle :tsbackgroundfetch:publishRelease
+      - cd ../../../
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter config --no-analytics
+      - flutter packages pub get
+      - flutter packages pub run flutter_launcher_icons:main
+      - flutter build apk --flavor fdroid -t lib/main.dart
+    ndk: r21
+
+  - versionName: 0.6.35
+    versionCode: 365
+    commit: f9a4cdaca2a5814b5fb80b86ef6336d4eea1faf1
+    submodules: true
+    output: build/app/outputs/apk/fdroid/release/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+      - thirdparty/extended_image/example
+    build:
+      - cd thirdparty/transistor-background-fetch/android
+      - gradle :tsbackgroundfetch:publishRelease
+      - cd ../../../
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter config --no-analytics
+      - flutter packages pub get
+      - flutter packages pub run flutter_launcher_icons:main
+      - flutter build apk --flavor fdroid -t lib/main.dart
+    ndk: r21
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^fdroid-
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 0.6.35
+CurrentVersionCode: 365

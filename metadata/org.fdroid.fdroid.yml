@@ -7,9 +7,8 @@ IssueTracker: https://gitlab.com/fdroid/fdroidclient/issues
 Translation: https://hosted.weblate.org/projects/f-droid/f-droid
 Changelog: https://gitlab.com/fdroid/fdroidclient/raw/HEAD/CHANGELOG.md
 Donate: https://f-droid.org/donate
-FlattrID: '343053'
 LiberapayID: '27859'
-Bitcoin: 15u8aAPK4jJ5N8wpWJ5gutAyyeHtKX5i18
+OpenCollective: F-Droid-Euro
 
 AutoName: F-Droid
 
@@ -134,7 +133,7 @@ Builds:
 
   - versionName: '0.43'
     versionCode: 43
-    disable: sdk doesn't like tzm (at f2109e4e0bf1597c625221d8d2d10050f146ba5a)
+    disable: sdk does not like tzm (at f2109e4e0bf1597c625221d8d2d10050f146ba5a)
     commit: f2109e4e0bf1597c625221d8d2d10050f146ba5a
     target: android-15
 
@@ -1710,8 +1709,159 @@ Builds:
       - app/src/androidTest/assets
       - app/src/test/resources
 
-ArchivePolicy: 6 versions
+  - versionName: 1.13.1
+    versionCode: 1013051
+    commit: 1.13.1
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.14-alpha0
+    versionCode: 1014000
+    commit: 1.14-alpha0
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.14-alpha1
+    versionCode: 1014001
+    commit: 1.14-alpha1
+    subdir: app
+    gradle:
+      - full
+    prebuild:
+      - max=$(expr $(sed -En 's,^MemAvailable:\s*([0-9]+)[^0-9]*$,\1,p' /proc/meminfo)
+        / 1024 / 1024)
+      - printf "\norg.gradle.jvmargs=-Xms1g -Xmx${max}g -XX:MaxPermSize=${max}g\n"
+        >> ../gradle.properties
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.14-alpha2
+    versionCode: 1014002
+    commit: 1.14-alpha2
+    subdir: app
+    gradle:
+      - full
+    prebuild:
+      - max=$(expr $(sed -En 's,^MemAvailable:\s*([0-9]+)[^0-9]*$,\1,p' /proc/meminfo)
+        / 1024 / 1024)
+      - printf "\norg.gradle.jvmargs=-Xms1g -Xmx${max}g -XX:MaxPermSize=${max}g\n"
+        >> ../gradle.properties
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.14-alpha3
+    versionCode: 1014003
+    commit: 1.14-alpha3
+    subdir: app
+    gradle:
+      - full
+    prebuild:
+      - max=$(expr $(sed -En 's,^MemAvailable:\s*([0-9]+)[^0-9]*$,\1,p' /proc/meminfo)
+        / 1024 / 1024)
+      - printf "\norg.gradle.jvmargs=-Xms1g -Xmx${max}g -XX:MaxPermSize=${max}g\n"
+        >> ../gradle.properties
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.14-alpha4
+    versionCode: 1014004
+    disable: crash issue 2326
+    commit: 1.14-alpha4
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.14-alpha5
+    versionCode: 1014005
+    commit: 1.14-alpha5
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: '1.14'
+    versionCode: 1014050
+    commit: '1.14'
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15-alpha0
+    versionCode: 1015000
+    commit: 1.15-alpha0
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15-alpha1
+    versionCode: 1015001
+    commit: 1.15-alpha1
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: '1.15'
+    versionCode: 1015050
+    commit: '1.15'
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15.1
+    versionCode: 1015051
+    commit: 1.15.1
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15.2
+    versionCode: 1015052
+    commit: 1.15.2
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+MaintainerNotes: |
+    This is maintained in tight conjunction with fdroidclient releases.
+    Please check with the fdroidclient maintainers before making
+    changes.
+
+ArchivePolicy: 8 versions
 AutoUpdateMode: None
 UpdateCheckMode: Static
-CurrentVersion: 1.12.1
-CurrentVersionCode: 1012051
+CurrentVersion: 1.15.2
+CurrentVersionCode: 1015052

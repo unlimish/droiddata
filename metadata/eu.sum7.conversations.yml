@@ -5,7 +5,7 @@ AuthorName: genofire
 SourceCode: https://dev.sum7.eu/sum7/Conversations
 IssueTracker: https://dev.sum7.eu/sum7/Conversations/issues
 Translation: https://www.transifex.com/projects/p/conversations/
-Changelog: https://dev.sum7.eu/sum7/Conversations/blob/HEAD/CHANGELOG.md
+Changelog: https://dev.sum7.eu/sum7/Conversations/src/branch/develop/metadata/en-US/changelogs
 
 AutoName: Conv6ations for Sum7
 
@@ -561,11 +561,87 @@ Builds:
         s/eu.siacs./eu.sum7./" "{}" \;
     ndk: r21e
 
+  - versionName: 2.10.0
+    versionCode: 42018
+    commit: eba5dd865486accc6598056e789d88c98398d56e
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild:
+      - find -type d -name "siacs" -print0 | xargs --null -I{} bash -c 'x="{}"; mv
+        "$x" "${x/siacs/sum7}" '
+      - find -type f -name "*.java" -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+      - find -type f -name "*.xml"  -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+    ndk: r21e
+
+  - versionName: 2.10.1
+    versionCode: 42022
+    commit: a124b3df9ac702fcf7eb3fcc75bf99c3d2cb7ff7
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild:
+      - find -type d -name "siacs" -print0 | xargs --null -I{} bash -c 'x="{}"; mv
+        "$x" "${x/siacs/sum7}" '
+      - find -type f -name "*.java" -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+      - find -type f -name "*.xml"  -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+    ndk: r21e
+
+  - versionName: 2.10.2
+    versionCode: 4202300
+    commit: fa1363cea039f588de133ca84c618fd57cf4a4cf
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild:
+      - find -type d -name "siacs" -print0 | xargs --null -I{} bash -c 'x="{}"; mv
+        "$x" "${x/siacs/sum7}" '
+      - find -type f -name "*.java" -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+      - find -type f -name "*.xml"  -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+    ndk: r21e
+
+  - versionName: 2.10.2
+    versionCode: 420230100
+    disable: method setLocalDescription in class PeerConnection cannot be applied
+        to given types
+    commit: aa8b9f338f8b855d11853104690baf450b16af35
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild:
+      - find -type d -name "siacs" -print0 | xargs --null -I{} bash -c 'x="{}"; mv
+        "$x" "${x/siacs/sum7}" '
+      - find -type f -name "*.java" -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+      - find -type f -name "*.xml"  -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+    ndk: r21e
+
 MaintainerNotes: |-
     We rename package on fork to work more smoothly (sharing button) - https://github.com/kriztan/Pix-Art-Messenger/issues/160,
     but without in git repository to make it easier for update to upstream (see .gitlab-ci.yml).
 
-AutoUpdateMode: Version %v-sum7
-UpdateCheckMode: Tags ^[0-9.]+
-CurrentVersion: 2.9.13
-CurrentVersionCode: 42015
+ArchivePolicy: 0 versions
+AutoUpdateMode: None
+UpdateCheckMode: None
+VercodeOperation: 100*%c
+CurrentVersion: 2.10.2
+CurrentVersionCode: 420230100

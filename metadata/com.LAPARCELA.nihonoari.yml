@@ -62,8 +62,21 @@ Builds:
       - $$flutter$$/bin/flutter config --no-analytics
     build: $$flutter$$/bin/flutter build apk
 
+  - versionName: 1.6.1
+    versionCode: 9
+    commit: d2e1ce6113155afe27004fa8e215cf6c6eb236d9
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.3
+    rm:
+      - ios
+      - android/app/proguard-rules.pro
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.5.0
-CurrentVersionCode: 7
+CurrentVersion: 1.6.1
+CurrentVersionCode: 9

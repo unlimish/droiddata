@@ -94,7 +94,120 @@ Builds:
       - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
     ndk: r21e
 
+  - versionName: 2.6.3
+    versionCode: 392
+    commit: 64b5330ce343e347df15d58001e0ce8bde22dab4
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.4
+    versionCode: 394
+    commit: 1751bb0027e812c5a2eb2c558e527229c41cb249
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.5
+    versionCode: 396
+    commit: 8b67b87ce29db15a105d5da41494bb6d188f9d9c
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 2.6.5.1
+    versionCode: 397
+    commit: 77a24051a5cdeed2d8f97a8a4f448b86bf77cb5e
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/scanner/DexClasses.java
+    ndk: r21e
+
+  - versionName: 3.0.0-alpha01
+    versionCode: 400
+    disable: buggy version, per upstream
+    commit: 186dcc2432641ee3ec08f3785e869fc2f6878bfb
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/intercept/ActivityInterceptor.java
+    ndk: r21e
+
+  - versionName: 3.0.0
+    versionCode: 410
+    commit: b3036067f17e46434a0779fe005b59daf2ffb9ea
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/intercept/ActivityInterceptor.java
+    ndk: r21e
+
+  - versionName: 3.0.1
+    versionCode: 412
+    commit: 31d407ad5a57f1f472dab5bd60d192d4ad116e23
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/intercept/ActivityInterceptor.java
+    ndk: r21e
+
+  - versionName: 3.0.2
+    versionCode: 413
+    commit: 8498b6628cbefcd3ee97cc3044dd017a9c603f13
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/java/io/github/muntashirakon/AppManager/intercept/ActivityInterceptor.java
+    ndk: r21e
+
 AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags ^v
-CurrentVersion: 2.6.2
-CurrentVersionCode: 389
+UpdateCheckMode: Tags ^v[\d.]+$
+CurrentVersion: 3.0.2
+CurrentVersionCode: 413

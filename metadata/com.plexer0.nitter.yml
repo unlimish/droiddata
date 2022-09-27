@@ -1,0 +1,50 @@
+Categories:
+  - Internet
+License: AGPL-3.0-only
+AuthorName: Plexer
+SourceCode: https://gitlab.com/Plexer0/Nitter-Android
+IssueTracker: https://gitlab.com/Plexer0/Nitter-Android/issues
+
+AutoName: Nitter
+
+RepoType: git
+Repo: https://gitlab.com/Plexer0/Nitter-Android.git
+
+Builds:
+  - versionName: '1.4'
+    versionCode: 5
+    commit: v1.4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.5'
+    versionCode: 6
+    commit: 70a97257b53abedd5dc3259449e567993aa96352
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.6'
+    versionCode: 7
+    commit: 1b08cba89eb2c4668d8f7a8acca684691a3e86a9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+CurrentVersion: '1.6'
+CurrentVersionCode: 7

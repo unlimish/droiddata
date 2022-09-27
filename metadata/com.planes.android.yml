@@ -67,7 +67,47 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 0.3.13
+    versionCode: 18
+    commit: 01b8a77545c2591e614c8eb997f824ae80670b68
+    subdir: java/PlanesAndroid/app
+    gradle:
+      - yes
+
+  - versionName: 0.3.15
+    versionCode: 21
+    commit: cedfc3188f188cc1c8440ac370cfbc68b7c6e93c
+    subdir: kotlin/PlanesAndroid/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.3.16
+    versionCode: 22
+    commit: 4ceeead1e2e9b0a0b7b5504cd68413f8d3e6c815
+    subdir: kotlin/PlanesAndroid/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.4.0
+    versionCode: 23
+    commit: 62e97329f59f1ea17e149d57b0b9aa375039f508
+    subdir: kotlin/PlanesAndroid/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.3.12
-CurrentVersionCode: 17
+CurrentVersion: 0.4.0
+CurrentVersionCode: 23

@@ -111,7 +111,40 @@ Builds:
     gradle:
       - dev
 
+  - versionName: '20211123'
+    versionCode: 20211123
+    commit: 1b988cef4122c4388ccb34ec3bf96afb2a06ed85
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - dev
+
+  - versionName: '20220106'
+    versionCode: 20220106
+    commit: 11d3b7c97b1e33e12488aecf125c0b73c33ead7a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - dev
+
+  - versionName: '20220317'
+    versionCode: 20220317
+    commit: 96f4a6dd66e66b310cc8a1c35c47e270f9cc64bd
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - dev
+
 AutoUpdateMode: Version dev-%c
 UpdateCheckMode: Tags ^dev
-CurrentVersion: '20210518'
-CurrentVersionCode: 20210518
+CurrentVersion: '20220317'
+CurrentVersionCode: 20220317

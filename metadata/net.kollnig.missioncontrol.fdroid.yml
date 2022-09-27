@@ -3,15 +3,18 @@ Categories:
   - Security
 License: GPL-3.0-only
 AuthorName: Oxford HCC
-WebSite: https://hcc.cs.ox.ac.uk/projects/#TrackerControl
-SourceCode: https://github.com/OxfordHCC/tracker-control-android
-IssueTracker: https://github.com/OxfordHCC/tracker-control-android/issues
-Changelog: https://github.com/OxfordHCC/tracker-control-android/releases
+AuthorEmail: hello@trackercontrol.org
+AuthorWebSite: https://hcc.cs.ox.ac.uk/
+WebSite: https://trackercontrol.org/
+SourceCode: https://github.com/TrackerControl/tracker-control-android
+IssueTracker: https://github.com/TrackerControl/tracker-control-android/issues
+Translation: https://crowdin.com/project/trackercontrol
+Changelog: https://github.com/TrackerControl/tracker-control-android/releases
 
 AutoName: TrackerControl
 
 RepoType: git
-Repo: https://github.com/OxfordHCC/tracker-control-android
+Repo: https://github.com/TrackerControl/tracker-control-android
 
 Builds:
   - versionName: 2020.04.25-fdroid
@@ -253,7 +256,74 @@ Builds:
     prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
     ndk: r21e
 
+  - versionName: 2021.12.09-fdroid
+    versionCode: 2021120901
+    commit: 205960fa0b8e0ee4a21e936fa7536f49d3413c9c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: 2022.02.10-fdroid
+    versionCode: 2022021001
+    commit: 7b99997ee864897262c1721349a222bc10374d91
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: 2022.05.21-fdroid
+    versionCode: 2022052101
+    commit: e6c44dbd38cca58e02d54bdf50739a1300f0003f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: 2022.06.15-fdroid
+    versionCode: 2022061501
+    commit: 4ff5763cb0d666beee5c3c006107a48d164bc67e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: 2022.07.04-fdroid
+    versionCode: 2022070401
+    commit: 764c5bfa6622ec904aaeee4b78fec22d8248c411
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/21.0.6113669/21.4.7075529/' build.gradle
+    ndk: r21e
+
+MaintainerNotes: ACRA is configured exclusively for email reports, see see https://github.com/TrackerControl/tracker-control-android/issues/174
+
 AutoUpdateMode: Version %c
 UpdateCheckMode: Tags ^[0-9]+$
-CurrentVersion: 2021.07.23-fdroid
-CurrentVersionCode: 2021072301
+CurrentVersion: 2022.07.04-fdroid
+CurrentVersionCode: 2022070401

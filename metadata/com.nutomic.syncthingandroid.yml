@@ -1665,6 +1665,305 @@ Builds:
     preassemble:
       - buildNative
 
+  - versionName: 1.18.1
+    versionCode: 4283
+    commit: 9ab1faa6d0f7f820268e3335a0883bf353891150
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing golang-go
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r21e
+    preassemble:
+      - buildNative
+
+  - versionName: 1.18.2
+    versionCode: 4285
+    commit: 2f15d352da5e198df4f731e9d25436f550a46ebb
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y -t testing golang-go
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r21e
+    preassemble:
+      - buildNative
+
+  - versionName: 1.18.3
+    versionCode: 4286
+    commit: 63cb62df320e13029839c9053cf301552c07ae9e
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
+      - echo "f242a9db6a0ad1846de7b6d94d507915d14062660616a61ef7c808a76e4f1676 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r21e
+    preassemble:
+      - buildNative
+
+  - versionName: 1.19.0
+    versionCode: 4295
+    commit: b19c7f6f6f62740a739489afd6d66a86df12ee0a
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
+      - echo "f242a9db6a0ad1846de7b6d94d507915d14062660616a61ef7c808a76e4f1676 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r23
+    preassemble:
+      - buildNative
+
+  - versionName: 1.19.0.2
+    versionCode: 4297
+    commit: 1634019cc13bf39c4bac7e790c91151f7c04031d
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
+      - echo "f242a9db6a0ad1846de7b6d94d507915d14062660616a61ef7c808a76e4f1676 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r23
+    preassemble:
+      - buildNative
+
+  - versionName: 1.19.0.3
+    versionCode: 4298
+    commit: 2df2d499833c3b10f87d308e55f13bb72b4d5e37
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
+      - echo "f242a9db6a0ad1846de7b6d94d507915d14062660616a61ef7c808a76e4f1676 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r23
+    preassemble:
+      - buildNative
+
+  - versionName: 1.19.1
+    versionCode: 4302
+    commit: 73cca3df888985f8079afbede490563dacde6ce0
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
+      - echo "f242a9db6a0ad1846de7b6d94d507915d14062660616a61ef7c808a76e4f1676 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r23
+    preassemble:
+      - buildNative
+
+  - versionName: 1.19.2
+    versionCode: 4305
+    commit: 769166ea05a083e28de6da4d7b54f5c5e27f3807
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
+      - echo "f242a9db6a0ad1846de7b6d94d507915d14062660616a61ef7c808a76e4f1676 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r23
+    preassemble:
+      - buildNative
+
+  - versionName: 1.20.0
+    versionCode: 4308
+    commit: 841f89b8863102608e8d6c3d24272e1a71cb9449
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
+      - echo "f242a9db6a0ad1846de7b6d94d507915d14062660616a61ef7c808a76e4f1676 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r23
+    preassemble:
+      - buildNative
+
+  - versionName: 1.20.1
+    versionCode: 4309
+    commit: be8d3f04df44d2ab0b29eac60b1d42e814a65400
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
+      - echo "f242a9db6a0ad1846de7b6d94d507915d14062660616a61ef7c808a76e4f1676 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r23
+    preassemble:
+      - buildNative
+
+  - versionName: 1.20.2
+    versionCode: 4311
+    commit: 39dd85899321b7996cb0d118c2a57bc4792bc5ed
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
+      - echo "f242a9db6a0ad1846de7b6d94d507915d14062660616a61ef7c808a76e4f1676 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r23
+    preassemble:
+      - buildNative
+
+  - versionName: 1.20.3
+    versionCode: 4314
+    commit: 135584b3a2528dc112613fcfad3475bc80fbc5f1
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
+      - echo "f242a9db6a0ad1846de7b6d94d507915d14062660616a61ef7c808a76e4f1676 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r23
+    preassemble:
+      - buildNative
+
+  - versionName: 1.20.4
+    versionCode: 4316
+    commit: 7c82d6e851ccd83ca7f20de61d5a5bd8472e67f0
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.2.linux-amd64.tar.gz
+      - echo "f242a9db6a0ad1846de7b6d94d507915d14062660616a61ef7c808a76e4f1676 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r23
+    preassemble:
+      - buildNative
+
+  - versionName: 1.21.0
+    versionCode: 4319
+    disable: https://github.com/syncthing/syncthing-android/issues/1830
+    commit: 3dc29468bc9ef9ca6dfcbc651bf9c3be641cf409
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.18.6.linux-amd64.tar.gz
+      - echo "bb05f179a773fed60c6a454a24141aaa7e71edfd0f2d465ad610a3b8f1dc7fe8 go.tar.gz"
+        | sha256sum -c -
+      - tar xzf go.tar.gz --strip-components=1 -C /usr/local/
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sed -i -e '/signingConfig/d' app/build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    ndk: r23
+    preassemble:
+      - buildNative
+
 MaintainerNotes: |-
     The submodule in syncthing/src/github.com/syncthing/syncthing must be
     pristine, as the version/release information is taken from git.
@@ -1673,7 +1972,7 @@ MaintainerNotes: |-
     contains pre-generated data for testing and is thus not involved in the build
     process.
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9.]*$
-CurrentVersion: 1.18.0
-CurrentVersionCode: 4279
+CurrentVersion: 1.21.0
+CurrentVersionCode: 4319

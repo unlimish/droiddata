@@ -199,7 +199,25 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 0.5.16
+    versionCode: 5160
+    commit: 2aa8d218f611e94d661c218d686a47db65412d6a
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.5.17
+    versionCode: 5170
+    commit: 4a1981879bd63f35b5357df83addba71ef21be4c
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags .*[0-9]$
-CurrentVersion: 0.5.15
-CurrentVersionCode: 5150
+CurrentVersion: 0.5.17
+CurrentVersionCode: 5170

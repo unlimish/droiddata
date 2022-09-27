@@ -5,6 +5,7 @@ SourceCode: https://github.com/tenzap/exif-thumbnail-adder
 IssueTracker: https://github.com/tenzap/exif-thumbnail-adder/issues
 Translation: https://crowdin.com/project/exif-thumbnail-adder
 Changelog: https://github.com/tenzap/exif-thumbnail-adder/releases
+Liberapay: tenzap
 
 AutoName: Exif Thumbnail Adder
 
@@ -102,7 +103,90 @@ Builds:
       - libs.prebuilt
     ndk: r22b
 
+  - versionName: 0.9.10
+    versionCode: 194
+    commit: c09d9a1fc985835c9edf712d2d9ce8ace175507a
+    subdir: app
+    gradle:
+      - standard
+    scandelete:
+      - library
+      - libs.prebuilt
+    ndk: r22b
+
+  - versionName: 0.9.11
+    versionCode: 201
+    commit: ffa7d1ded4d92931bc3ecd3888100148e39edd1e
+    subdir: app
+    gradle:
+      - standard
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+    scandelete:
+      - library
+      - libs.prebuilt
+    ndk: r22b
+
+  - versionName: 0.9.12
+    versionCode: 213
+    commit: 9e7418aef4c6d67437d70368476acf575f8562d3
+    subdir: app
+    gradle:
+      - standard
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+    scandelete:
+      - library
+      - libs.prebuilt
+    ndk: r22b
+
+  - versionName: 0.9.13
+    versionCode: 232
+    commit: 694342a66e5501477242d05dbe6cfabd412673df
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+    scandelete:
+      - library
+      - libs.prebuilt
+    ndk: r23b
+
+  - versionName: 0.9.14
+    versionCode: 237
+    commit: 8702fea29b6c3609bbe98fcdfef627839e51e473
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+    scandelete:
+      - library
+      - libs.prebuilt
+    ndk: r23b
+
+  - versionName: 0.9.15
+    versionCode: 247
+    commit: 95abf7a97ff1effbf2f28100a4d9412833a5e7eb
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle
+    scandelete:
+      - library
+      - libs.prebuilt
+    ndk: r23b
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.9.9
-CurrentVersionCode: 181
+CurrentVersion: 0.9.15
+CurrentVersionCode: 247

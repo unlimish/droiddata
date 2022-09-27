@@ -1,0 +1,166 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Multimedia
+  - Internet
+License: GPL-3.0-or-later
+AuthorName: Team LibreTube
+SourceCode: https://github.com/libre-tube/LibreTube
+IssueTracker: https://github.com/libre-tube/LibreTube/issues
+Changelog: https://github.com/libre-tube/LibreTube/releases
+Bitcoin: bc1qfcgqwddr894mywn9rk2crzlgvlac3prkwhdrdq
+
+AutoName: LibreTube
+
+RepoType: git
+Repo: https://github.com/libre-tube/LibreTube
+
+Builds:
+  - versionName: 0.2.3
+    versionCode: 5
+    commit: bf6009b229934642377fe28da30d19a28ef7075a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+8d' build.gradle
+
+  - versionName: 0.2.4
+    versionCode: 6
+    commit: a066a86268e4349e182d0c009bd98178672c9c7f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+8d' build.gradle
+
+  - versionName: 0.2.6
+    versionCode: 8
+    commit: 6e6a31740c9202e873b8db78c529aaa2436bbbd3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+8d' build.gradle
+
+  - versionName: 0.3.0
+    versionCode: 10
+    commit: 540ff2d2e6abcd498896344842f06ea20a85d78a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+8d' build.gradle
+
+  - versionName: 0.3.1
+    versionCode: 11
+    commit: dcc6d6d41c664c70a8f79e691229fb394a9c5794
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+8d' build.gradle
+
+  - versionName: 0.3.2
+    versionCode: 12
+    commit: b25b65d3c8552ab7ea2cc76c3665475ef0519248
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+8d' build.gradle
+
+  - versionName: 0.3.3
+    versionCode: 13
+    commit: 48fc7c7b3aee6ffe12889efc6f1e8f821a280ac4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+8d' build.gradle
+
+  - versionName: 0.4.1
+    versionCode: 15
+    commit: b39e56f59b0d113a42d4e26106208029e3acbd32
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+8d' build.gradle
+
+  - versionName: 0.4.2
+    versionCode: 16
+    commit: fd00deb661a33deee666c5b2d9e718065a812f1e
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+8d' build.gradle
+
+  - versionName: 0.5.0
+    versionCode: 17
+    commit: 3ca43d9ad0487caca6cc2400e46200ca06ffb7a4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+8d' build.gradle
+
+  - versionName: 0.5.1
+    versionCode: 18
+    commit: 52ce8340036d042a38138e0303a3ff7c5697eac6
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+8d' build.gradle
+
+  - versionName: 0.6.0
+    versionCode: 19
+    commit: 99bf1bf71fadfab5eec4a0f3479093a6e429e434
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+8d' build.gradle
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags .*[0-9]$
+CurrentVersion: 0.6.0
+CurrentVersionCode: 19

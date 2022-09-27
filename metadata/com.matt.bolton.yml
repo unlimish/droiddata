@@ -27,7 +27,29 @@ Builds:
       - yes
     output: app/build/outputs/apk/release/app-release-unsigned.apk
 
+  - versionName: '4'
+    versionCode: 4
+    commit: 7235bf7055aa3bcd1fbef6570d9d9c4544c222ff
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '5'
+    versionCode: 5
+    commit: a34bfe05403deecfd3c120d48a54940025cc546d
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '3'
-CurrentVersionCode: 3
+CurrentVersion: '5'
+CurrentVersionCode: 5

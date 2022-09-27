@@ -29,9 +29,65 @@ Builds:
     gradle:
       - yes
 
-MaintainerNotes: version code is computed so AUM is disabled.
+  - versionName: 1.4.0
+    versionCode: 10400
+    commit: v1.4.0
+    subdir: app
+    gradle:
+      - yes
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: 1.3.0
-CurrentVersionCode: 10300
+  - versionName: 1.4.1
+    versionCode: 10401
+    commit: e2548f82b238be41d0d05e1ca3eac3452aebc61f
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.4.2
+    versionCode: 10402
+    commit: 1a343ef826d212de2d29bd52fe33f6007cb55360
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/apk/release/app-release-unsigned.apk
+    build: gradle assembleRelease -x lintVitalAnalyzeRelease
+
+  - versionName: 1.4.3
+    versionCode: 10403
+    commit: 8b8e723fc8143ca2c18aa9d5d32acf36f5585861
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/apk/release/app-release-unsigned.apk
+    build: gradle assembleRelease -x lintVitalAnalyzeRelease
+
+  - versionName: 1.4.4
+    versionCode: 10404
+    commit: 890332d2860558000371467f0f443b6ffee00741
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/apk/release/app-release-unsigned.apk
+    build: gradle assembleRelease -x lintVitalAnalyzeRelease
+
+  - versionName: 1.4.5
+    versionCode: 10405
+    commit: d10bde8bddff68adf7d1745caf65682d87d24016
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/outputs/apk/release/app-release-unsigned.apk
+    build: gradle assembleRelease -x lintVitalAnalyzeRelease
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags v.*[0-9]$
+CurrentVersion: 1.4.5
+CurrentVersionCode: 10405

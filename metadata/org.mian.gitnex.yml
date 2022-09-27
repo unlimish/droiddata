@@ -3,10 +3,10 @@ Categories:
 License: GPL-3.0-only
 AuthorName: M M Arif
 WebSite: https://gitnex.com
-SourceCode: https://codeberg.org/gitnex/GitNex/src/branch/master
+SourceCode: https://codeberg.org/gitnex/GitNex
 IssueTracker: https://codeberg.org/gitnex/GitNex/issues
 Translation: https://crowdin.com/project/GitNex
-Changelog: https://codeberg.org/gitnex/GitNex/src/branch/master/CHANGELOG.md
+Changelog: https://codeberg.org/gitnex/GitNex/releases
 Donate: https://www.patreon.com/mmarif
 
 AutoName: GitNex
@@ -330,7 +330,75 @@ Builds:
     gradle:
       - free
 
+  - versionName: 4.0.0
+    versionCode: 400
+    commit: 8ea7e470c5b9c903e1c77eee61365fe60a42e092
+    subdir: app
+    gradle:
+      - free
+
+  - versionName: 4.1.0
+    versionCode: 410
+    commit: 495c9b41795c7d689ce7a6fc66e0941edfd830b1
+    subdir: app
+    gradle:
+      - free
+
+  - versionName: 4.2.0
+    versionCode: 420
+    commit: 96b5665c89b66c23615ecd64ca1663b6d6578eb9
+    subdir: app
+    gradle:
+      - free
+
+  - versionName: 4.2.1
+    versionCode: 421
+    commit: 293d1162b1b260d6724c00c97e0d5e52597f5b7b
+    subdir: app
+    gradle:
+      - free
+
+  - versionName: 4.2.2
+    versionCode: 422
+    commit: 53deb372172cee00df295bc0aaa75c705e83a24e
+    subdir: app
+    gradle:
+      - free
+
+  - versionName: 4.3.0
+    versionCode: 430
+    commit: 2643e92119ddfe95fd35444a4a0885edb44baf88
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+
+  - versionName: 4.4.0
+    versionCode: 440
+    commit: 48fa38dbe806c3a0d26f84edb165a2d0c1084ec1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+
+  - versionName: 4.5.0
+    versionCode: 450
+    commit: 8bea1cdc51a1c9504cc73f4d962b29a2df42ea1a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 3.5.1
-CurrentVersionCode: 351
+CurrentVersion: 4.5.0
+CurrentVersionCode: 450

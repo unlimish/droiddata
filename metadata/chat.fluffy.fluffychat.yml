@@ -1,0 +1,118 @@
+Categories:
+  - Internet
+  - Phone & SMS
+License: AGPL-3.0-only
+AuthorName: Famedly
+SourceCode: https://gitlab.com/famedly/fluffychat
+IssueTracker: https://gitlab.com/famedly/fluffychat/-/issues
+Translation: https://hosted.weblate.org/projects/fluffychat/
+Changelog: https://gitlab.com/famedly/fluffychat/-/blob/main/CHANGELOG.md
+
+AutoName: FluffyChat
+
+RepoType: git
+Repo: https://gitlab.com/famedly/fluffychat
+
+Builds:
+  - versionName: 1.6.0
+    versionCode: 2324
+    commit: 77cf773d71203962eef1f99775e2e059901c1e14
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.1
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1'
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+  - versionName: 1.6.2
+    versionCode: 2325
+    commit: 67f5a76f166a6cf8a5984c4956f89badbd05a376
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.1
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1'
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+  - versionName: 1.6.3
+    versionCode: 2326
+    commit: 9ed1fcf2c72f041baab1ffaf824e0fdb3e4be216
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.1
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1'
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+  - versionName: 1.6.4
+    versionCode: 2327
+    commit: 560ee3d39ff8197429949ff8be900de818147230
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y ninja-build openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.3.0
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+      - winuwp
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.18.1'
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags v\d+.\d+.\d+
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.6.4
+CurrentVersionCode: 2327

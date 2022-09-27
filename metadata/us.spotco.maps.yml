@@ -7,7 +7,8 @@ AuthorName: Divested Computing Group
 AuthorWebSite: https://divestos.org
 SourceCode: https://gitlab.com/divested-mobile/maps
 IssueTracker: https://gitlab.com/divested-mobile/maps/issues
-Donate: https://divestos.org/index.php?page=about#donate
+Donate: https://divested.dev/donate
+Liberapay: Tad
 Bitcoin: bc1qkjtp2k7cc4kuv8k9wjdlxkeuqczenrpv5mwasl
 
 AutoName: GMaps WV
@@ -44,7 +45,39 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.5'
+    versionCode: 19
+    commit: 2f37796713ab83718e72405518c4825e84393e0c
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.5'
+    versionCode: 21
+    commit: 550160f69754f2bc018d9249e658a4105020e238
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.5'
+    versionCode: 22
+    commit: 5310485f73f382e46ba3fa69826605ec442e0903
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.5'
+    versionCode: 23
+    commit: 2c69a54b56c103fbefc7aaec0b48ea7463f047e8
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v-%c
 UpdateCheckMode: Tags
 CurrentVersion: '1.5'
-CurrentVersionCode: 18
+CurrentVersionCode: 23

@@ -56,8 +56,29 @@ Builds:
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk
 
+  - versionName: 1.6.0
+    versionCode: 15
+    commit: e6b36189ac48689300cbcbf6cf67a4351a5ddcd7
+    subdir: app
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.0-5.2.pre
+    rm:
+      - app/ios
+      - app/linux
+      - app/macos
+      - app/test
+      - app/web
+      - app/windows
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+MaintainerNotes: Builds with Flutter beta channel.
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
 UpdateCheckData: app/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s'(.+)\+
-CurrentVersion: 1.5.2
-CurrentVersionCode: 14
+CurrentVersion: 1.6.0
+CurrentVersionCode: 15

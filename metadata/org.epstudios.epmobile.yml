@@ -223,7 +223,62 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.26.1
+    versionCode: 71
+    commit: 6cb818e1b70fb8b60b067e4a6470a5a2f3f8cb4e
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.27.0
+    versionCode: 72
+    commit: 17fc8948f46fd06eb5b4249d6a737b79e86e526f
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.28.0
+    versionCode: 73
+    commit: bb97677cd236e4c3295a3cbdb909f04824895ef7
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.29.0
+    versionCode: 74
+    commit: e440fc1b7a39c3f8516d94b63da6684d2d941835
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.29.1
+    versionCode: 75
+    commit: f83f58887b0115cad097bff5706fe4ac52d1d4e4
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.30.0
+    versionCode: 76
+    commit: 54a71eedfb59b55d4989d2e5605b04ab9265e00a
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/unsafe/d' ../gradle.properties
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 2.25.4
-CurrentVersionCode: 69
+CurrentVersion: 2.30.0
+CurrentVersionCode: 76

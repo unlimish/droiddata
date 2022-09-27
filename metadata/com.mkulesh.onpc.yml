@@ -6,7 +6,7 @@ SourceCode: https://github.com/mkulesh/onpc
 IssueTracker: https://github.com/mkulesh/onpc/issues
 Changelog: https://github.com/mkulesh/onpc/releases
 
-AutoName: Enhanced Controller for Onkyo and Pioneer
+AutoName: Enhanced Music Controller Lite
 Description: |-
     This app allows remote control of an Onkyo Network Player or a Network A/V
     Receiver via the "Integra Serial Communication  Protocol". Its two most
@@ -211,7 +211,40 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.24'
+    versionCode: 37
+    commit: 3f7ac9348dc3818585389311eb13a2d5dd8c46cf
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.25'
+    versionCode: 38
+    commit: a68fa2209cbf695b86e2a20159c7998599e8d3ba
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.26'
+    versionCode: 39
+    commit: 3a9a6f1be21720bfa3403eddee1d58d1d714d832
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.27'
+    versionCode: 40
+    commit: 6d1053f466e071a7802cc20d87103df49397873a
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'build-tools;32.0.0'
+        'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.23'
-CurrentVersionCode: 36
+CurrentVersion: '1.27'
+CurrentVersionCode: 40

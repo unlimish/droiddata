@@ -7,6 +7,7 @@ AuthorEmail: msal.coding@gmail.com
 SourceCode: https://github.com/sal0max/muzei-nationalgeographic
 IssueTracker: https://github.com/sal0max/muzei-nationalgeographic/issues
 Changelog: https://github.com/sal0max/muzei-nationalgeographic/releases
+Donate: https://www.paypal.com/donate/?hosted_button_id=2JCY7E99V9DGC
 
 AutoName: National Geographic for Muzei
 
@@ -63,7 +64,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.4.2
+    versionCode: 20402
+    commit: 95f87df1c2aee6e8016fa89cd1a676a39de1a8fc
+    subdir: muzei-nationalgeographic
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.4.3
+    versionCode: 20403
+    commit: 10419ea2b958a07de77563b6a4cf1ef9737a1dd8
+    subdir: muzei-nationalgeographic
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags \d+\.\d+\.\d+
-CurrentVersion: 2.4.0
-CurrentVersionCode: 20400
+CurrentVersion: 2.4.3
+CurrentVersionCode: 20403

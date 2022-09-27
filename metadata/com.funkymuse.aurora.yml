@@ -1,5 +1,8 @@
+AntiFeatures:
+  - NonFreeNet
 Categories:
   - Multimedia
+  - Reading
 License: GPL-3.0-only
 AuthorName: FunkyMuse
 AuthorWebSite: https://funkymuse.dev/
@@ -25,8 +28,30 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.1.1
+    versionCode: 3
+    commit: be6c1918f948dbbe1dfc9d8895bca819ef5e1c3f
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.2.0
+    versionCode: 4
+    commit: f659c3e499d324683cc73680639c135a401c34e7
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: build.gradle|verCode\s?=\s=?(\d+)|.|verName\s?=\s?["'](.+)["']
-CurrentVersion: 1.0.0
-CurrentVersionCode: 1
+CurrentVersion: 1.2.0
+CurrentVersionCode: 4

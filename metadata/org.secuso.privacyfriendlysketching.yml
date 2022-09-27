@@ -42,7 +42,19 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.1.0
+    versionCode: 2
+    commit: cb8056afd7c77a60b8a58d159046698443475085
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: '1.0'
-CurrentVersionCode: 1
+CurrentVersion: 1.1.0
+CurrentVersionCode: 2

@@ -97,7 +97,46 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 0.5a1
+    versionCode: 15
+    commit: 7193a23cf307e65a35521302def9cf4686be2f20
+    subdir: android
+    gradle:
+      - yes
+
+  - versionName: '0.51'
+    versionCode: 17
+    commit: b9bb3711cdee7e8eeccaaa45981571fb02c6d0e1
+    subdir: android
+    gradle:
+      - yes
+
+  - versionName: '0.52'
+    versionCode: 19
+    commit: e7a77409a1ef385b738daab544640b152ee45055
+    subdir: android
+    gradle:
+      - yes
+
+  - versionName: '1.0'
+    versionCode: 20
+    commit: ef7b1c9925deb474a33dd3ce551f93b9730dab68
+    subdir: android
+    gradle:
+      - yes
+
+  - versionName: 1.0.1
+    versionCode: 21
+    commit: 07485c184f4e94439c07eddf5eae53d77734d213
+    subdir: android
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version %v
 UpdateCheckMode: Tags
-CurrentVersion: 0.46.2
-CurrentVersionCode: 14
+CurrentVersion: 1.0.1
+CurrentVersionCode: 21

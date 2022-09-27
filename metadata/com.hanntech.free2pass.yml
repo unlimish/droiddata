@@ -4,56 +4,30 @@ Categories:
   - Sports & Health
 License: AGPL-3.0-or-later
 AuthorName: free2pass GmbH
-SourceCode: https://gitlab.com/free2pass/free2pass-app
-IssueTracker: https://gitlab.com/free2pass/free2pass-app/-/issues
-Translation: https://gitlab.com/free2pass/free2pass-app/-/tree/main/lib/l10n
+SourceCode: https://gitlab.com/hanntech-gmbh/free2pass/free2pass-app
+IssueTracker: https://gitlab.com/hanntech-gmbh/free2pass/free2pass-app/-/issues
+Translation: https://gitlab.com/hanntech-gmbh/free2pass/free2pass-app/-/tree/main/lib/l10n
 
 AutoName: free2pass
 
 RepoType: git
-Repo: https://gitlab.com/free2pass/free2pass-app.git
+Repo: https://gitlab.com/hanntech-gmbh/free2pass/free2pass-app.git
 
 Builds:
-  - versionName: 1.4.5
-    versionCode: 28
-    commit: Release-1.4.5+28
-    subdir: android/app
-    output: ../../build/app/outputs/flutter-apk/app-fdroid-release.apk
+  - versionName: 1.5.0
+    versionCode: 38
+    commit: 41b18cf00a68e127775df60361b577c5a92e4828
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
     srclibs:
-      - flutter@2.2.0-10.3.pre
+      - flutter@2.8.1
     rm:
       - ios
-    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
-    build:
-      - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter packages pub get
-      - $$flutter$$/bin/flutter build apk --flavor fdroid -t lib/entrypoints/fdroid.entrypoint.dart
-
-  - versionName: 1.4.7
-    versionCode: 31
-    commit: Release-1.4.7+31
-    subdir: android/app
-    output: ../../build/app/outputs/flutter-apk/app-fdroid-release.apk
-    srclibs:
-      - flutter@2.2.0
-    rm:
-      - ios
-    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
-    build:
-      - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter packages pub get
-      - $$flutter$$/bin/flutter build apk --flavor fdroid -t lib/entrypoints/fdroid.entrypoint.dart
-
-  - versionName: 1.4.8
-    versionCode: 32
-    commit: Release-1.4.8+32
-    subdir: android/app
-    output: ../../build/app/outputs/flutter-apk/app-fdroid-release.apk
-    srclibs:
-      - flutter@2.2.0
-    rm:
-      - ios
-    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+      - linux
+      - macos
+      - web
+      - windows
+      - android/app/proguard-rules.pro
+    prebuild: sed -i -e '/signingConfig /,/proguardFiles/d' android/app/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
@@ -63,5 +37,5 @@ Builds:
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^Release-.*$
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.4.8
-CurrentVersionCode: 32
+CurrentVersion: 1.5.0
+CurrentVersionCode: 38

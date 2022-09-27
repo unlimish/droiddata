@@ -1,3 +1,5 @@
+AntiFeatures:
+  - UpstreamNonFree
 Categories:
   - Reading
 License: MIT
@@ -1430,7 +1432,226 @@ Builds:
       - echo 'package com.newsblur.activity;public class Premium extends NbActivity{}'
         > src/com/newsblur/activity/Premium.java
 
+  - versionName: '11.0'
+    versionCode: 193
+    commit: 3915e3c53b3c7c7e48837b84edb0c17fd879285c
+    subdir: clients/android/NewsBlur
+    gradle:
+      - yes
+    rm:
+      - api
+      - apps
+      - clients/ios
+      - config
+      - docker
+      - documents
+      - flask_monitor
+      - logs
+      - media
+      - newsblur_web
+      - node
+      - perf
+      - templates
+      - terraform
+      - utils
+      - vendor
+      - '[_a-z]*.*'
+      - clients/android/NewsBlur/libs/*.jar
+      - clients/android/NewsBlur/buildtools/*.jar
+    prebuild:
+      - sed -i -e '/com.google.android.play/d' -e '/billingclient/d' build.gradle
+      - sed -i -e '/play.core/d' -e '/void checkInAppReview/,/^    }/d' -e '/checkInAppReview/d'
+        -e '/void onBackPressed/a super.onBackPressed();}' -e '/reviewInfo != null/,/^    }/d'
+        -e '/Review/d' src/com/newsblur/activity/FeedItemsList.java
+      - echo 'package com.newsblur.activity;public class Premium extends NbActivity{}'
+        > src/com/newsblur/activity/Premium.java
+
+  - versionName: 11.1.1
+    versionCode: 196
+    commit: 82ff87481b656cc12e29a2627860f8e47d18a647
+    subdir: clients/android/NewsBlur
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - api
+      - apps
+      - clients/ios
+      - config
+      - docker
+      - documents
+      - flask_monitor
+      - logs
+      - media
+      - newsblur_web
+      - node
+      - perf
+      - templates
+      - terraform
+      - utils
+      - vendor
+      - '[_a-z]*.*'
+      - clients/android/NewsBlur/libs/*.jar
+      - clients/android/NewsBlur/buildtools/*.jar
+    prebuild:
+      - sed -i -e '/com.google.android.play/d' -e '/billingclient/d' build.gradle
+      - sed -i -e '/play.core/d' -e '/void checkInAppReview/,/^    }/d' -e '/checkInAppReview/d'
+        -e '/void onBackPressed/a super.onBackPressed();}' -e '/reviewInfo != null/,/^    }/d'
+        -e '/Review/d' src/com/newsblur/activity/FeedItemsList.java
+      - echo 'package com.newsblur.activity;class Premium:NbActivity() {}' > src/com/newsblur/activity/Premium.kt
+
+  - versionName: 11.1.1
+    versionCode: 198
+    commit: aead462e8a4f62ba3e8f917adf7c02bfefd7d405
+    subdir: clients/android/NewsBlur
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - api
+      - apps
+      - clients/ios
+      - config
+      - docker
+      - documents
+      - flask_monitor
+      - logs
+      - media
+      - newsblur_web
+      - node
+      - perf
+      - templates
+      - terraform
+      - utils
+      - vendor
+      - '[_a-z]*.*'
+      - clients/android/NewsBlur/libs/*.jar
+      - clients/android/NewsBlur/buildtools/*.jar
+    prebuild:
+      - sed -i -e '/com.google.android.play/d' -e '/billingclient/d' build.gradle
+      - sed -i -e '/play.core/d' -e '/void checkInAppReview/,/^    }/d' -e '/checkInAppReview/d'
+        -e '/void onBackPressed/a super.onBackPressed();}' -e '/reviewInfo != null/,/^    }/d'
+        -e '/Review/d' src/com/newsblur/activity/FeedItemsList.java
+      - echo 'package com.newsblur.activity;class Premium:NbActivity() {}' > src/com/newsblur/activity/Premium.kt
+
+  - versionName: '11.2'
+    versionCode: 199
+    commit: 77ad32dfcb1be7d604a91dce34ccb3d9300bdb3e
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - clients/android/NewsBlur/libs/*.jar
+      - clients/android/NewsBlur/buildtools/*.jar
+      - clients/android/NewsBlur/src/com/newsblur/service/SubscriptionSyncService.kt
+      - clients/android/NewsBlur/src/com/newsblur/subscription
+    prebuild:
+      - mv clients/android/NewsBlur ..
+      - rm -r ./*
+      - mv ../NewsBlur/* .
+      - rm -r ../NewsBlur
+      - sed -i -e '/com.google.android.play/d' -e '/billingclient/d' build.gradle
+      - cd src/com/newsblur
+      - sed -i -e '/play.core/d' -e '/void checkInAppReview/,/^    }/d' -e '/checkInAppReview/d'
+        -e '/void onBackPressed/a super.onBackPressed();}' -e '/reviewInfo != null/,/^    }/d'
+        -e '/Review/d' activity/FeedItemsList.java
+      - sed -i -e '/SubscriptionSyncService/d' activity/InitActivity.kt activity/LoginProgress.kt
+        util/PrefsUtils.java
+      - echo 'package com.newsblur.activity;class Premium:NbActivity() {}' > activity/Premium.kt
+
+  - versionName: 11.3.0
+    versionCode: 202
+    commit: 62d0a92d3f59a4fee4e4582f1782218e357c7af7
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - clients/android/NewsBlur/libs/*.jar
+      - clients/android/NewsBlur/buildtools/*.jar
+      - clients/android/NewsBlur/src/com/newsblur/service/SubscriptionSyncService.kt
+      - clients/android/NewsBlur/src/com/newsblur/subscription
+    prebuild:
+      - mv clients/android/NewsBlur ..
+      - rm -r ./*
+      - mv ../NewsBlur/* .
+      - rm -r ../NewsBlur
+      - sed -i -e '/com.google.android.play/d' -e '/billingclient/d' build.gradle
+      - cd src/com/newsblur
+      - sed -i -e '/play.core/d' -e '/void checkInAppReview/,/^    }/d' -e '/checkInAppReview/d'
+        -e '/void onBackPressed/a super.onBackPressed();}' -e '/reviewInfo != null/,/^    }/d'
+        -e '/Review/d' activity/FeedItemsList.java
+      - sed -i -e '/SubscriptionSyncService/d' activity/InitActivity.kt activity/LoginProgress.kt
+        util/PrefsUtils.java
+      - echo 'package com.newsblur.activity;class Premium:NbActivity() {}' > activity/Premium.kt
+
+  - versionName: '12.0'
+    versionCode: 204
+    commit: 8cb1af8acc3bb9bba1b9347f89eaa31aec7600a3
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - clients/android/NewsBlur/buildtools/*.jar
+      - clients/android/NewsBlur/src/com/newsblur/service/SubscriptionSyncService.kt
+      - clients/android/NewsBlur/src/com/newsblur/subscription
+    prebuild:
+      - mv clients/android/NewsBlur ..
+      - rm -r ./*
+      - mv ../NewsBlur/* .
+      - rm -r ../NewsBlur
+      - sed -i -e '/com.google.android.play/d' -e '/billingclient/d' build.gradle
+      - cd src/com/newsblur
+      - sed -i -e '/play.core/d' -e '/void checkInAppReview/,/^    }/d' -e '/checkInAppReview/d'
+        -e '/void onBackPressed/a super.onBackPressed();}' -e '/reviewInfo != null/,/^    }/d'
+        -e '/Review/d' activity/FeedItemsList.java
+      - sed -i -e '/SubscriptionSyncService/d' activity/InitActivity.kt activity/LoginProgress.kt
+        util/PrefsUtils.java
+      - echo 'package com.newsblur.activity;class Premium:NbActivity() {}' > activity/Premium.kt
+
+  - versionName: 12.0.1
+    versionCode: 205
+    commit: a08f6135d5b1398afa4cd1379b061175dbf85c40
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - clients/android/NewsBlur/buildtools/*.jar
+      - clients/android/NewsBlur/src/com/newsblur/service/SubscriptionSyncService.kt
+      - clients/android/NewsBlur/src/com/newsblur/subscription
+    prebuild:
+      - mv clients/android/NewsBlur ..
+      - rm -r ./*
+      - mv ../NewsBlur/* .
+      - rm -r ../NewsBlur
+      - sed -i -e '/com.google.android.play/d' -e '/billingclient/d' build.gradle
+      - sed -i -z -E -e 's/<service[^>]+SubscriptionSyncService[^>]+\/>//' AndroidManifest.xml
+      - cd src/com/newsblur
+      - sed -i -e '/play.core/d' -e '/void checkInAppReview/,/^    }/d' -e '/checkInAppReview/d'
+        -e '/reviewInfo != null/,/^        }$/c super.onBackPressed();' -e '/Review/d'
+        activity/FeedItemsList.java
+      - sed -i -e '/SubscriptionSyncService/d' activity/InitActivity.kt activity/LoginProgress.kt
+        util/PrefsUtils.java
+      - echo 'package com.newsblur.activity;class Premium:NbActivity() {}' > activity/Premium.kt
+
 AutoUpdateMode: None
 UpdateCheckMode: RepoManifest
-CurrentVersion: '11.0'
-CurrentVersionCode: 193
+CurrentVersion: 12.0.1
+CurrentVersionCode: 205
