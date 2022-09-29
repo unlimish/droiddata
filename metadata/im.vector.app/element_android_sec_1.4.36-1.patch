@@ -1,5 +1,59 @@
+From f926cfbae9f0d42120f4ce40d09245a075324e2d Mon Sep 17 00:00:00 2001
+Date: Wed, 28 Sep 2022 16:57:24 +0000
+Subject: [PATCH 1/1] element_android_sec_1.4.37.patch
+
+---
+ .../src/main/res/values/strings.xml           |   1 +
+ .../ui-styles/src/main/res/values/colors.xml  |   1 +
+ .../android/sdk/common/CommonTestHelper.kt    |  12 +-
+ .../android/sdk/common/CryptoTestHelper.kt    |   3 +-
+ .../sdk/internal/crypto/E2eeSanityTests.kt    |  73 +++---
+ .../crypto/E2eeShareKeysHistoryTest.kt        |  14 +-
+ .../sdk/internal/crypto/UnwedgingTest.kt      |   6 +-
+ .../crypto/gossiping/KeyShareTests.kt         |  82 ++++--
+ .../crypto/gossiping/WithHeldTests.kt         |  11 +-
+ .../android/sdk/api/crypto/MXCryptoConfig.kt  |   5 +-
+ .../crypto/model/MXEventDecryptionResult.kt   |   4 +-
+ .../crypto/model/OlmDecryptionResult.kt       |   7 +-
+ .../sdk/api/session/events/model/Event.kt     |  18 +-
+ .../internal/crypto/DefaultCryptoService.kt   |  30 ++-
+ .../crypto/InboundGroupSessionStore.kt        |  15 ++
+ .../sdk/internal/crypto/MXOlmDevice.kt        |  60 ++++-
+ .../sdk/internal/crypto/SecretShareManager.kt |  13 +-
+ .../crypto/algorithms/IMXDecrypting.kt        |   2 +-
+ .../algorithms/megolm/MXMegolmDecryption.kt   | 122 ++++++---
+ .../megolm/MXMegolmDecryptionFactory.kt       |  24 +-
+ .../algorithms/megolm/MXMegolmEncryption.kt   |   3 +-
+ .../megolm/UnRequestedForwardManager.kt       | 150 +++++++++++
+ .../keysbackup/DefaultKeysBackupService.kt    |   7 -
+ .../crypto/model/InboundGroupSessionData.kt   |   9 +-
+ .../model/MXInboundMegolmSessionWrapper.kt    |   1 +
+ .../store/db/RealmCryptoStoreMigration.kt     |   4 +-
+ .../store/db/migration/MigrateCryptoTo018.kt  |  52 ++++
+ .../internal/crypto/tasks/EncryptEventTask.kt |   3 +-
+ .../database/helper/ThreadSummaryHelper.kt    |   3 +-
+ .../internal/database/model/EventEntity.kt    |   3 +-
+ .../threads/FetchThreadTimelineTask.kt        |   3 +-
+ .../session/room/timeline/GetEventTask.kt     |   3 +-
+ .../session/sync/handler/CryptoSyncHandler.kt |  30 ++-
+ .../sync/handler/room/RoomSyncHandler.kt      |   6 +-
+ .../crypto/UnRequestedKeysManagerTest.kt      | 248 ++++++++++++++++++
+ .../app/core/ui/views/ShieldImageView.kt      |  34 +++
+ .../action/MessageActionsEpoxyController.kt   |   8 +
+ .../edithistory/ViewEditHistoryViewModel.kt   |   3 +-
+ .../helper/MessageInformationDataFactory.kt   |  66 +++--
+ .../timeline/item/AbsBaseMessageItem.kt       |  13 +-
+ .../timeline/item/MessageInformationData.kt   |   4 +-
+ .../notifications/NotifiableEventResolver.kt  |   3 +-
+ .../src/main/res/drawable/ic_shield_gray.xml  |  11 +
+ 43 files changed, 970 insertions(+), 200 deletions(-)
+ create mode 100644 matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/UnRequestedForwardManager.kt
+ create mode 100644 matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/store/db/migration/MigrateCryptoTo018.kt
+ create mode 100644 matrix-sdk-android/src/test/java/org/matrix/android/sdk/internal/crypto/UnRequestedKeysManagerTest.kt
+ create mode 100644 vector/src/main/res/drawable/ic_shield_gray.xml
+
 diff --git a/library/ui-strings/src/main/res/values/strings.xml b/library/ui-strings/src/main/res/values/strings.xml
-index 6a87ce8..0b7d4b3 100644
+index 6a87ce82f4..0b7d4b31cc 100644
 --- a/library/ui-strings/src/main/res/values/strings.xml
 +++ b/library/ui-strings/src/main/res/values/strings.xml
 @@ -2613,6 +2613,7 @@
@@ -11,7 +65,7 @@ index 6a87ce8..0b7d4b3 100644
      <string name="verify_other_sessions">Verify all your sessions to ensure your account &amp; messages are safe</string>
      <!-- Argument will be replaced by the other session name (e.g, Desktop, mobile) -->
 diff --git a/library/ui-styles/src/main/res/values/colors.xml b/library/ui-styles/src/main/res/values/colors.xml
-index 01af740..d64056a 100644
+index 01af740d43..d64056ab9c 100644
 --- a/library/ui-styles/src/main/res/values/colors.xml
 +++ b/library/ui-styles/src/main/res/values/colors.xml
 @@ -142,6 +142,7 @@
@@ -23,7 +77,7 @@ index 01af740..d64056a 100644
      <color name="shield_color_warning_background">#0FFF4B55</color>
  
 diff --git a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/common/CommonTestHelper.kt b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/common/CommonTestHelper.kt
-index a78953c..43f42a3 100644
+index a78953caac..43f42a3ed4 100644
 --- a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/common/CommonTestHelper.kt
 +++ b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/common/CommonTestHelper.kt
 @@ -38,6 +38,7 @@ import org.matrix.android.sdk.api.MatrixCallback
@@ -67,7 +121,7 @@ index a78953c..43f42a3 100644
              )
          }
 diff --git a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/common/CryptoTestHelper.kt b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/common/CryptoTestHelper.kt
-index f36bfb6..210ce90 100644
+index f36bfb6210..210ce90692 100644
 --- a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/common/CryptoTestHelper.kt
 +++ b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/common/CryptoTestHelper.kt
 @@ -529,7 +529,8 @@ class CryptoTestHelper(val testHelper: CommonTestHelper) {
@@ -81,7 +135,7 @@ index f36bfb6..210ce90 100644
                              }
                          } catch (error: MXCryptoError) {
 diff --git a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/E2eeSanityTests.kt b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/E2eeSanityTests.kt
-index f883295..410fb4f 100644
+index f883295495..410fb4f5d4 100644
 --- a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/E2eeSanityTests.kt
 +++ b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/E2eeSanityTests.kt
 @@ -29,9 +29,9 @@ import org.junit.runner.RunWith
@@ -210,7 +264,7 @@ index f883295..410fb4f 100644
          val cryptoTestData = cryptoTestHelper.doE2ETestWithAliceAndBobInARoom(true)
          val aliceSession = cryptoTestData.firstSession
 diff --git a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/E2eeShareKeysHistoryTest.kt b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/E2eeShareKeysHistoryTest.kt
-index 32a9500..4b44aab 100644
+index 32a95008b1..4b44aab18b 100644
 --- a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/E2eeShareKeysHistoryTest.kt
 +++ b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/E2eeShareKeysHistoryTest.kt
 @@ -77,6 +77,7 @@ class E2eeShareKeysHistoryTest : InstrumentedTest {
@@ -262,8 +316,32 @@ index 32a9500..4b44aab 100644
      }
  
      private fun ensureMembersHaveJoined(aliceSession: Session, otherAccounts: List<Session>, e2eRoomID: String, testHelper: CommonTestHelper) {
+diff --git a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/UnwedgingTest.kt b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/UnwedgingTest.kt
+index 5fe7376184..130c8d13f9 100644
+--- a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/UnwedgingTest.kt
++++ b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/UnwedgingTest.kt
+@@ -29,6 +29,7 @@ import org.matrix.android.sdk.api.auth.UIABaseAuth
+ import org.matrix.android.sdk.api.auth.UserInteractiveAuthInterceptor
+ import org.matrix.android.sdk.api.auth.UserPasswordAuth
+ import org.matrix.android.sdk.api.auth.registration.RegistrationFlowResponse
++import org.matrix.android.sdk.api.crypto.MXCryptoConfig
+ import org.matrix.android.sdk.api.extensions.tryOrNull
+ import org.matrix.android.sdk.api.session.crypto.MXCryptoError
+ import org.matrix.android.sdk.api.session.events.model.EventType
+@@ -82,7 +83,10 @@ class UnwedgingTest : InstrumentedTest {
+      * -> This is automatically fixed after SDKs restarted the olm session
+      */
+     @Test
+-    fun testUnwedging() = runCryptoTest(context()) { cryptoTestHelper, testHelper ->
++    fun testUnwedging() = runCryptoTest(
++            context(),
++            cryptoConfig = MXCryptoConfig(limitRoomKeyRequestsToMyDevices = false)
++    ) { cryptoTestHelper, testHelper ->
+         val cryptoTestData = cryptoTestHelper.doE2ETestWithAliceAndBobInARoom()
+ 
+         val aliceSession = cryptoTestData.firstSession
 diff --git a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/gossiping/KeyShareTests.kt b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/gossiping/KeyShareTests.kt
-index 7bb53e1..df0b10e 100644
+index 7bb53e139c..df0b10ea6d 100644
 --- a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/gossiping/KeyShareTests.kt
 +++ b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/gossiping/KeyShareTests.kt
 @@ -22,15 +22,16 @@ import androidx.test.filters.LargeTest
@@ -473,7 +551,7 @@ index 7bb53e1..df0b10e 100644
          // /!\ Stop initial alice session syncing so that it can't reply
          aliceSession.cryptoService().enableKeyGossiping(false)
 diff --git a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/gossiping/WithHeldTests.kt b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/gossiping/WithHeldTests.kt
-index 0aac429..910a349 100644
+index 0aac4297e4..910a349b40 100644
 --- a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/gossiping/WithHeldTests.kt
 +++ b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/gossiping/WithHeldTests.kt
 @@ -27,6 +27,7 @@ import org.junit.runner.RunWith
@@ -508,32 +586,8 @@ index 0aac429..910a349 100644
  
          val testData = cryptoTestHelper.doE2ETestWithAliceAndBobInARoom()
          val aliceSession = testData.firstSession
-diff --git a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/UnwedgingTest.kt b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/UnwedgingTest.kt
-index 5fe7376..130c8d1 100644
---- a/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/UnwedgingTest.kt
-+++ b/matrix-sdk-android/src/androidTest/java/org/matrix/android/sdk/internal/crypto/UnwedgingTest.kt
-@@ -29,6 +29,7 @@ import org.matrix.android.sdk.api.auth.UIABaseAuth
- import org.matrix.android.sdk.api.auth.UserInteractiveAuthInterceptor
- import org.matrix.android.sdk.api.auth.UserPasswordAuth
- import org.matrix.android.sdk.api.auth.registration.RegistrationFlowResponse
-+import org.matrix.android.sdk.api.crypto.MXCryptoConfig
- import org.matrix.android.sdk.api.extensions.tryOrNull
- import org.matrix.android.sdk.api.session.crypto.MXCryptoError
- import org.matrix.android.sdk.api.session.events.model.EventType
-@@ -82,7 +83,10 @@ class UnwedgingTest : InstrumentedTest {
-      * -> This is automatically fixed after SDKs restarted the olm session
-      */
-     @Test
--    fun testUnwedging() = runCryptoTest(context()) { cryptoTestHelper, testHelper ->
-+    fun testUnwedging() = runCryptoTest(
-+            context(),
-+            cryptoConfig = MXCryptoConfig(limitRoomKeyRequestsToMyDevices = false)
-+    ) { cryptoTestHelper, testHelper ->
-         val cryptoTestData = cryptoTestHelper.doE2ETestWithAliceAndBobInARoom()
- 
-         val aliceSession = cryptoTestData.firstSession
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/crypto/MXCryptoConfig.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/crypto/MXCryptoConfig.kt
-index 015cb6a..38f5225 100644
+index 015cb6a1a2..38f522586f 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/crypto/MXCryptoConfig.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/crypto/MXCryptoConfig.kt
 @@ -35,8 +35,9 @@ data class MXCryptoConfig constructor(
@@ -549,7 +603,7 @@ index 015cb6a..38f5225 100644
  
          )
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/session/crypto/model/MXEventDecryptionResult.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/session/crypto/model/MXEventDecryptionResult.kt
-index 0a0ccc2..66d7558 100755
+index 0a0ccc2db3..66d7558fe2 100755
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/session/crypto/model/MXEventDecryptionResult.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/session/crypto/model/MXEventDecryptionResult.kt
 @@ -43,5 +43,7 @@ data class MXEventDecryptionResult(
@@ -562,7 +616,7 @@ index 0a0ccc2..66d7558 100755
 +        val isSafe: Boolean = false
  )
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/session/crypto/model/OlmDecryptionResult.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/session/crypto/model/OlmDecryptionResult.kt
-index a26f660..6d57318 100755
+index a26f6606ed..6d57318f87 100755
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/session/crypto/model/OlmDecryptionResult.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/session/crypto/model/OlmDecryptionResult.kt
 @@ -44,5 +44,10 @@ data class OlmDecryptionResult(
@@ -578,7 +632,7 @@ index a26f660..6d57318 100755
 +        @Json(name = "key_safety") val isSafe: Boolean? = null,
  )
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/session/events/model/Event.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/session/events/model/Event.kt
-index 59dc6c4..f5d2c0d 100644
+index 59dc6c434d..f5d2c0d9a0 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/session/events/model/Event.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/api/session/events/model/Event.kt
 @@ -174,15 +174,29 @@ data class Event(
@@ -613,8 +667,274 @@ index 59dc6c4..f5d2c0d 100644
      }
  
      fun toContentStringWithIndent(): String {
+diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/DefaultCryptoService.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/DefaultCryptoService.kt
+index 8dd7c309c6..322f297ac3 100755
+--- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/DefaultCryptoService.kt
++++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/DefaultCryptoService.kt
+@@ -79,6 +79,7 @@ import org.matrix.android.sdk.internal.crypto.actions.SetDeviceVerificationActio
+ import org.matrix.android.sdk.internal.crypto.algorithms.IMXEncrypting
+ import org.matrix.android.sdk.internal.crypto.algorithms.IMXGroupEncryption
+ import org.matrix.android.sdk.internal.crypto.algorithms.megolm.MXMegolmEncryptionFactory
++import org.matrix.android.sdk.internal.crypto.algorithms.megolm.UnRequestedForwardManager
+ import org.matrix.android.sdk.internal.crypto.algorithms.olm.MXOlmEncryptionFactory
+ import org.matrix.android.sdk.internal.crypto.crosssigning.DefaultCrossSigningService
+ import org.matrix.android.sdk.internal.crypto.keysbackup.DefaultKeysBackupService
+@@ -183,7 +184,8 @@ internal class DefaultCryptoService @Inject constructor(
+         private val cryptoCoroutineScope: CoroutineScope,
+         private val eventDecryptor: EventDecryptor,
+         private val verificationMessageProcessor: VerificationMessageProcessor,
+-        private val liveEventManager: Lazy<StreamEventsManager>
++        private val liveEventManager: Lazy<StreamEventsManager>,
++        private val unrequestedForwardManager: UnRequestedForwardManager,
+ ) : CryptoService {
+ 
+     private val isStarting = AtomicBoolean(false)
+@@ -399,6 +401,7 @@ internal class DefaultCryptoService @Inject constructor(
+         cryptoCoroutineScope.coroutineContext.cancelChildren(CancellationException("Closing crypto module"))
+         incomingKeyRequestManager.close()
+         outgoingKeyRequestManager.close()
++        unrequestedForwardManager.close()
+         olmDevice.release()
+         cryptoStore.close()
+     }
+@@ -485,6 +488,14 @@ internal class DefaultCryptoService @Inject constructor(
+                     // just for safety but should not throw
+                     Timber.tag(loggerTag.value).w("failed to process incoming room key requests")
+                 }
++
++                unrequestedForwardManager.postSyncProcessParkedKeysIfNeeded(clock.epochMillis()) { events ->
++                    cryptoCoroutineScope.launch(coroutineDispatchers.crypto) {
++                        events.forEach {
++                            onRoomKeyEvent(it, true)
++                        }
++                    }
++                }
+             }
+         }
+     }
+@@ -845,9 +856,9 @@ internal class DefaultCryptoService @Inject constructor(
+      *
+      * @param event the key event.
+      */
+-    private fun onRoomKeyEvent(event: Event) {
+-        val roomKeyContent = event.getClearContent().toModel<RoomKeyContent>() ?: return
+-        Timber.tag(loggerTag.value).i("onRoomKeyEvent() from: ${event.senderId} type<${event.getClearType()}> , sessionId<${roomKeyContent.sessionId}>")
++    private fun onRoomKeyEvent(event: Event, acceptUnrequested: Boolean = false) {
++        val roomKeyContent = event.getDecryptedContent().toModel<RoomKeyContent>() ?: return
++        Timber.tag(loggerTag.value).i("onRoomKeyEvent(forceAccept:$acceptUnrequested) from: ${event.senderId} type<${event.getClearType()}> , sessionId<${roomKeyContent.sessionId}>")
+         if (roomKeyContent.roomId.isNullOrEmpty() || roomKeyContent.algorithm.isNullOrEmpty()) {
+             Timber.tag(loggerTag.value).e("onRoomKeyEvent() : missing fields")
+             return
+@@ -857,7 +868,7 @@ internal class DefaultCryptoService @Inject constructor(
+             Timber.tag(loggerTag.value).e("GOSSIP onRoomKeyEvent() : Unable to handle keys for ${roomKeyContent.algorithm}")
+             return
+         }
+-        alg.onRoomKeyEvent(event, keysBackupService)
++        alg.onRoomKeyEvent(event, keysBackupService, acceptUnrequested)
+     }
+ 
+     private fun onKeyWithHeldReceived(event: Event) {
+@@ -950,6 +961,15 @@ internal class DefaultCryptoService @Inject constructor(
+      * @param event the membership event causing the change
+      */
+     private fun onRoomMembershipEvent(roomId: String, event: Event) {
++        // because the encryption event can be after the join/invite in the same batch
++        event.stateKey?.let { _ ->
++            val roomMember: RoomMemberContent? = event.content.toModel()
++            val membership = roomMember?.membership
++            if (membership == Membership.INVITE) {
++                unrequestedForwardManager.onInviteReceived(roomId, event.senderId.orEmpty(), clock.epochMillis())
++            }
++        }
++
+         roomEncryptorsStore.get(roomId) ?: /* No encrypting in this room */ return
+ 
+         event.stateKey?.let { userId ->
+diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/InboundGroupSessionStore.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/InboundGroupSessionStore.kt
+index 39dfb72149..6d197a09ed 100644
+--- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/InboundGroupSessionStore.kt
++++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/InboundGroupSessionStore.kt
+@@ -91,6 +91,21 @@ internal class InboundGroupSessionStore @Inject constructor(
+         internalStoreGroupSession(new, sessionId, senderKey)
+     }
+ 
++    @Synchronized
++    fun updateToSafe(old: InboundGroupSessionHolder, sessionId: String, senderKey: String) {
++        Timber.tag(loggerTag.value).v("## updateToSafe for session ${old.wrapper.roomId}-${old.wrapper.senderKey}")
++
++        store.storeInboundGroupSessions(
++                listOf(
++                        old.wrapper.copy(
++                                sessionData = old.wrapper.sessionData.copy(trusted = true)
++                        )
++                )
++        )
++        // will release it :/
++        sessionCache.remove(CacheKey(sessionId, senderKey))
++    }
++
+     @Synchronized
+     fun storeInBoundGroupSession(holder: InboundGroupSessionHolder, sessionId: String, senderKey: String) {
+         internalStoreGroupSession(holder, sessionId, senderKey)
+diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/MXOlmDevice.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/MXOlmDevice.kt
+index 96ccba51dc..b6a5136b8f 100755
+--- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/MXOlmDevice.kt
++++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/MXOlmDevice.kt
+@@ -19,6 +19,7 @@ package org.matrix.android.sdk.internal.crypto
+ import androidx.annotation.VisibleForTesting
+ import kotlinx.coroutines.sync.Mutex
+ import kotlinx.coroutines.sync.withLock
++import org.matrix.android.sdk.api.extensions.orFalse
+ import org.matrix.android.sdk.api.extensions.tryOrNull
+ import org.matrix.android.sdk.api.logger.LoggerTag
+ import org.matrix.android.sdk.api.session.crypto.MXCryptoError
+@@ -612,7 +613,8 @@ internal class MXOlmDevice @Inject constructor(
+             forwardingCurve25519KeyChain: List<String>,
+             keysClaimed: Map<String, String>,
+             exportFormat: Boolean,
+-            sharedHistory: Boolean
++            sharedHistory: Boolean,
++            trusted: Boolean
+     ): AddSessionResult {
+         val candidateSession = tryOrNull("Failed to create inbound session in room $roomId") {
+             if (exportFormat) {
+@@ -620,6 +622,8 @@ internal class MXOlmDevice @Inject constructor(
+             } else {
+                 OlmInboundGroupSession(sessionKey)
+             }
++        } ?: return AddSessionResult.NotImported.also {
++            Timber.tag(loggerTag.value).d("## addInboundGroupSession() : failed to import key candidate $senderKey/$sessionId")
+         }
+ 
+         val existingSessionHolder = tryOrNull { getInboundGroupSession(sessionId, senderKey, roomId) }
+@@ -631,31 +635,49 @@ internal class MXOlmDevice @Inject constructor(
+                 val existingFirstKnown = tryOrNull { existingSession.session.firstKnownIndex } ?: return AddSessionResult.NotImported.also {
+                     // This is quite unexpected, could throw if native was released?
+                     Timber.tag(loggerTag.value).e("## addInboundGroupSession() null firstKnownIndex on existing session")
+-                    candidateSession?.releaseSession()
++                    candidateSession.releaseSession()
+                     // Probably should discard it?
+                 }
+-                val newKnownFirstIndex = tryOrNull("Failed to get candidate first known index") { candidateSession?.firstKnownIndex }
++                val newKnownFirstIndex = tryOrNull("Failed to get candidate first known index") { candidateSession.firstKnownIndex }
++                        ?: return AddSessionResult.NotImported.also {
++                            candidateSession.releaseSession()
++                            Timber.tag(loggerTag.value).d("## addInboundGroupSession() : Failed to get new session index")
++                        }
++
++                val keyConnects = existingSession.session.connects(candidateSession)
++                if (!keyConnects) {
++                    Timber.tag(loggerTag.value)
++                            .e("## addInboundGroupSession() Unconnected key")
++                    if (!trusted) {
++                        // Ignore the not connecting unsafe, keep existing
++                        Timber.tag(loggerTag.value)
++                                .e("## addInboundGroupSession() Received unsafe unconnected key")
++                        return AddSessionResult.NotImported
++                    }
++                    // else if the new one is safe and does not connect with existing, import the new one
++                } else {
+                 // If our existing session is better we keep it
+-                if (newKnownFirstIndex != null && existingFirstKnown <= newKnownFirstIndex) {
++                    if (existingFirstKnown <= newKnownFirstIndex) {
++                        val shouldUpdateTrust = trusted && (existingSession.sessionData.trusted != true)
++                        Timber.tag(loggerTag.value).d("## addInboundGroupSession() : updateTrust for $sessionId")
++                        if (shouldUpdateTrust) {
++                            // the existing as a better index but the new one is trusted so update trust
++                            inboundGroupSessionStore.updateToSafe(existingSessionHolder, sessionId, senderKey)
++                        }
+                     Timber.tag(loggerTag.value).d("## addInboundGroupSession() : ignore session our is better $senderKey/$sessionId")
+-                    candidateSession?.releaseSession()
++                        candidateSession.releaseSession()
+                     return AddSessionResult.NotImportedHigherIndex(newKnownFirstIndex.toInt())
+                 }
++                }
+             } catch (failure: Throwable) {
+                 Timber.tag(loggerTag.value).e("## addInboundGroupSession() Failed to add inbound: ${failure.localizedMessage}")
+-                candidateSession?.releaseSession()
++                candidateSession.releaseSession()
+                 return AddSessionResult.NotImported
+             }
+         }
+ 
+         Timber.tag(loggerTag.value).d("## addInboundGroupSession() : Candidate session should be added $senderKey/$sessionId")
+ 
+-        // sanity check on the new session
+-        if (null == candidateSession) {
+-            Timber.tag(loggerTag.value).e("## addInboundGroupSession : invalid session <null>")
+-            return AddSessionResult.NotImported
+-        }
+-
+         try {
+             if (candidateSession.sessionIdentifier() != sessionId) {
+                 Timber.tag(loggerTag.value).e("## addInboundGroupSession : ERROR: Mismatched group session ID from senderKey: $senderKey")
+@@ -674,6 +696,7 @@ internal class MXOlmDevice @Inject constructor(
+                 keysClaimed = keysClaimed,
+                 forwardingCurve25519KeyChain = forwardingCurve25519KeyChain,
+                 sharedHistory = sharedHistory,
++                trusted = trusted
+         )
+ 
+         val wrapper = MXInboundMegolmSessionWrapper(
+@@ -689,6 +712,16 @@ internal class MXOlmDevice @Inject constructor(
+         return AddSessionResult.Imported(candidateSession.firstKnownIndex.toInt())
+     }
+ 
++    fun OlmInboundGroupSession.connects(other: OlmInboundGroupSession): Boolean {
++        return try {
++            val lowestCommonIndex = this.firstKnownIndex.coerceAtLeast(other.firstKnownIndex)
++            this.export(lowestCommonIndex) == other.export(lowestCommonIndex)
++        } catch (failure: Throwable) {
++            // native error? key disposed?
++            false
++        }
++    }
++
+     /**
+      * Import an inbound group sessions to the session store.
+      *
+@@ -821,7 +854,8 @@ internal class MXOlmDevice @Inject constructor(
+                 payload,
+                 wrapper.sessionData.keysClaimed,
+                 senderKey,
+-                wrapper.sessionData.forwardingCurve25519KeyChain
++                wrapper.sessionData.forwardingCurve25519KeyChain,
++                isSafe = sessionHolder.wrapper.sessionData.trusted.orFalse()
+         )
+     }
+ 
+diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/SecretShareManager.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/SecretShareManager.kt
+index a79e1a8901..5691f24d17 100644
+--- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/SecretShareManager.kt
++++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/SecretShareManager.kt
+@@ -267,13 +267,24 @@ internal class SecretShareManager @Inject constructor(
+             Timber.tag(loggerTag.value).e("onSecretSend() :Received unencrypted secret send event")
+             return
+         }
++        // no need to download keys, after a verification we already forced download
++        val sendingDevice = toDevice.getSenderKey()?.let { cryptoStore.deviceWithIdentityKey(it) }
++        if (sendingDevice == null) {
++            Timber.tag(loggerTag.value).e("onSecretSend() : Ignore secret from unknown  device ${toDevice.getSenderKey()}")
++            return
++        }
+ 
+         // Was that sent by us?
+-        if (toDevice.senderId != credentials.userId) {
++        if (sendingDevice.userId != credentials.userId) {
+             Timber.tag(loggerTag.value).e("onSecretSend() : Ignore secret from other user ${toDevice.senderId}")
+             return
+         }
+ 
++        if (!sendingDevice.isVerified) {
++            Timber.tag(loggerTag.value).e("onSecretSend() : Ignore secret from untrusted device ${toDevice.getSenderKey()}")
++            return
++        }
++
+         val secretContent = toDevice.getClearContent().toModel<SecretSendEventContent>() ?: return
+ 
+         val existingRequest = verifMutex.withLock {
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/IMXDecrypting.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/IMXDecrypting.kt
-index 6847a46..e2ddd5d 100644
+index 6847a46369..e2ddd5d19f 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/IMXDecrypting.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/IMXDecrypting.kt
 @@ -42,5 +42,5 @@ internal interface IMXDecrypting {
@@ -625,7 +945,7 @@ index 6847a46..e2ddd5d 100644
 +    fun onRoomKeyEvent(event: Event, defaultKeysBackupService: DefaultKeysBackupService, forceAccept: Boolean = false) {}
  }
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/MXMegolmDecryption.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/MXMegolmDecryption.kt
-index 410b74e..5354cbf 100644
+index 410b74e19f..5354cbff3b 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/MXMegolmDecryption.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/MXMegolmDecryption.kt
 @@ -17,7 +17,8 @@
@@ -759,22 +1079,22 @@ index 410b74e..5354cbf 100644
 +                unrequestedForwardManager.onUnRequestedKeyForward(roomKeyContent.roomId, event, clock.epochMillis())
 +                // Ignore unsolicited
 +                Timber.tag(loggerTag.value).w("Ignoring forwarded_room_key_event for ${roomKeyContent.sessionId} that was not requested")
-                 return
-             }
- 
++                return
++            }
++
 +            // Check who sent the request, as we requested we have the device keys (no need to download)
 +            val sessionThatIsSharing = cryptoStore.deviceWithIdentityKey(eventSenderKey)
 +            if (sessionThatIsSharing == null) {
 +                Timber.tag(loggerTag.value).w("Ignoring forwarded_room_key from unknown device with identity $eventSenderKey")
-+                return
-+            }
+                 return
+             }
 +            val isOwnDevice = myUserId == sessionThatIsSharing.userId
 +            val isDeviceVerified = sessionThatIsSharing.isVerified
 +            val isFromSessionInitiator = sessionThatIsSharing.identityKey() == sessionInitiatorSenderKey
 +
 +            val isLegitForward = (isOwnDevice && isDeviceVerified) ||
 +                    (!cryptoConfig.limitRoomKeyRequestsToMyDevices && isFromSessionInitiator)
-+
+ 
 +            val shouldAcceptForward = forceAccept || isLegitForward
 +
 +            if (!shouldAcceptForward) {
@@ -861,7 +1181,7 @@ index 410b74e..5354cbf 100644
      }
  
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/MXMegolmDecryptionFactory.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/MXMegolmDecryptionFactory.kt
-index 38edbb7..99f8bc6 100644
+index 38edbb7430..99f8bc69e0 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/MXMegolmDecryptionFactory.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/MXMegolmDecryptionFactory.kt
 @@ -17,28 +17,36 @@
@@ -910,7 +1230,7 @@ index 38edbb7..99f8bc6 100644
      }
  }
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/MXMegolmEncryption.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/MXMegolmEncryption.kt
-index 771b5f9..fca6fab 100644
+index 771b5f9a62..fca6fab66c 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/MXMegolmEncryption.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/MXMegolmEncryption.kt
 @@ -162,7 +162,8 @@ internal class MXMegolmEncryption(
@@ -925,7 +1245,7 @@ index 771b5f9..fca6fab 100644
          defaultKeysBackupService.maybeBackupKeys()
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/UnRequestedForwardManager.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/UnRequestedForwardManager.kt
 new file mode 100644
-index 0000000..42629b6
+index 0000000000..42629b617e
 --- /dev/null
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/algorithms/megolm/UnRequestedForwardManager.kt
 @@ -0,0 +1,150 @@
@@ -1079,117 +1399,8 @@ index 0000000..42629b6
 +        }
 +    }
 +}
-diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/DefaultCryptoService.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/DefaultCryptoService.kt
-index 8dd7c30..322f297 100755
---- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/DefaultCryptoService.kt
-+++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/DefaultCryptoService.kt
-@@ -79,6 +79,7 @@ import org.matrix.android.sdk.internal.crypto.actions.SetDeviceVerificationActio
- import org.matrix.android.sdk.internal.crypto.algorithms.IMXEncrypting
- import org.matrix.android.sdk.internal.crypto.algorithms.IMXGroupEncryption
- import org.matrix.android.sdk.internal.crypto.algorithms.megolm.MXMegolmEncryptionFactory
-+import org.matrix.android.sdk.internal.crypto.algorithms.megolm.UnRequestedForwardManager
- import org.matrix.android.sdk.internal.crypto.algorithms.olm.MXOlmEncryptionFactory
- import org.matrix.android.sdk.internal.crypto.crosssigning.DefaultCrossSigningService
- import org.matrix.android.sdk.internal.crypto.keysbackup.DefaultKeysBackupService
-@@ -183,7 +184,8 @@ internal class DefaultCryptoService @Inject constructor(
-         private val cryptoCoroutineScope: CoroutineScope,
-         private val eventDecryptor: EventDecryptor,
-         private val verificationMessageProcessor: VerificationMessageProcessor,
--        private val liveEventManager: Lazy<StreamEventsManager>
-+        private val liveEventManager: Lazy<StreamEventsManager>,
-+        private val unrequestedForwardManager: UnRequestedForwardManager,
- ) : CryptoService {
- 
-     private val isStarting = AtomicBoolean(false)
-@@ -399,6 +401,7 @@ internal class DefaultCryptoService @Inject constructor(
-         cryptoCoroutineScope.coroutineContext.cancelChildren(CancellationException("Closing crypto module"))
-         incomingKeyRequestManager.close()
-         outgoingKeyRequestManager.close()
-+        unrequestedForwardManager.close()
-         olmDevice.release()
-         cryptoStore.close()
-     }
-@@ -485,6 +488,14 @@ internal class DefaultCryptoService @Inject constructor(
-                     // just for safety but should not throw
-                     Timber.tag(loggerTag.value).w("failed to process incoming room key requests")
-                 }
-+
-+                unrequestedForwardManager.postSyncProcessParkedKeysIfNeeded(clock.epochMillis()) { events ->
-+                    cryptoCoroutineScope.launch(coroutineDispatchers.crypto) {
-+                        events.forEach {
-+                            onRoomKeyEvent(it, true)
-+                        }
-+                    }
-+                }
-             }
-         }
-     }
-@@ -845,9 +856,9 @@ internal class DefaultCryptoService @Inject constructor(
-      *
-      * @param event the key event.
-      */
--    private fun onRoomKeyEvent(event: Event) {
--        val roomKeyContent = event.getClearContent().toModel<RoomKeyContent>() ?: return
--        Timber.tag(loggerTag.value).i("onRoomKeyEvent() from: ${event.senderId} type<${event.getClearType()}> , sessionId<${roomKeyContent.sessionId}>")
-+    private fun onRoomKeyEvent(event: Event, acceptUnrequested: Boolean = false) {
-+        val roomKeyContent = event.getDecryptedContent().toModel<RoomKeyContent>() ?: return
-+        Timber.tag(loggerTag.value).i("onRoomKeyEvent(forceAccept:$acceptUnrequested) from: ${event.senderId} type<${event.getClearType()}> , sessionId<${roomKeyContent.sessionId}>")
-         if (roomKeyContent.roomId.isNullOrEmpty() || roomKeyContent.algorithm.isNullOrEmpty()) {
-             Timber.tag(loggerTag.value).e("onRoomKeyEvent() : missing fields")
-             return
-@@ -857,7 +868,7 @@ internal class DefaultCryptoService @Inject constructor(
-             Timber.tag(loggerTag.value).e("GOSSIP onRoomKeyEvent() : Unable to handle keys for ${roomKeyContent.algorithm}")
-             return
-         }
--        alg.onRoomKeyEvent(event, keysBackupService)
-+        alg.onRoomKeyEvent(event, keysBackupService, acceptUnrequested)
-     }
- 
-     private fun onKeyWithHeldReceived(event: Event) {
-@@ -950,6 +961,15 @@ internal class DefaultCryptoService @Inject constructor(
-      * @param event the membership event causing the change
-      */
-     private fun onRoomMembershipEvent(roomId: String, event: Event) {
-+        // because the encryption event can be after the join/invite in the same batch
-+        event.stateKey?.let { _ ->
-+            val roomMember: RoomMemberContent? = event.content.toModel()
-+            val membership = roomMember?.membership
-+            if (membership == Membership.INVITE) {
-+                unrequestedForwardManager.onInviteReceived(roomId, event.senderId.orEmpty(), clock.epochMillis())
-+            }
-+        }
-+
-         roomEncryptorsStore.get(roomId) ?: /* No encrypting in this room */ return
- 
-         event.stateKey?.let { userId ->
-diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/InboundGroupSessionStore.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/InboundGroupSessionStore.kt
-index 39dfb72..6d197a0 100644
---- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/InboundGroupSessionStore.kt
-+++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/InboundGroupSessionStore.kt
-@@ -92,6 +92,21 @@ internal class InboundGroupSessionStore @Inject constructor(
-     }
- 
-     @Synchronized
-+    fun updateToSafe(old: InboundGroupSessionHolder, sessionId: String, senderKey: String) {
-+        Timber.tag(loggerTag.value).v("## updateToSafe for session ${old.wrapper.roomId}-${old.wrapper.senderKey}")
-+
-+        store.storeInboundGroupSessions(
-+                listOf(
-+                        old.wrapper.copy(
-+                                sessionData = old.wrapper.sessionData.copy(trusted = true)
-+                        )
-+                )
-+        )
-+        // will release it :/
-+        sessionCache.remove(CacheKey(sessionId, senderKey))
-+    }
-+
-+    @Synchronized
-     fun storeInBoundGroupSession(holder: InboundGroupSessionHolder, sessionId: String, senderKey: String) {
-         internalStoreGroupSession(holder, sessionId, senderKey)
-     }
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/keysbackup/DefaultKeysBackupService.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/keysbackup/DefaultKeysBackupService.kt
-index 8691c08..e8700b7 100644
+index 8691c08779..e8700b7809 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/keysbackup/DefaultKeysBackupService.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/keysbackup/DefaultKeysBackupService.kt
 @@ -652,14 +652,7 @@ internal class DefaultKeysBackupService @Inject constructor(
@@ -1208,7 +1419,7 @@ index 8691c08..e8700b7 100644
                          cryptoStore.saveBackupRecoveryKey(recoveryKey, keysBackupVersion.version)
                      }
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/model/InboundGroupSessionData.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/model/InboundGroupSessionData.kt
-index 2ce36aa..15e8ba8 100644
+index 2ce36aa209..15e8ba835b 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/model/InboundGroupSessionData.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/model/InboundGroupSessionData.kt
 @@ -38,9 +38,6 @@ data class InboundGroupSessionData(
@@ -1233,7 +1444,7 @@ index 2ce36aa..15e8ba8 100644
 +
          )
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/model/MXInboundMegolmSessionWrapper.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/model/MXInboundMegolmSessionWrapper.kt
-index 2772b34..2c6a0a9 100644
+index 2772b34835..2c6a0a967a 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/model/MXInboundMegolmSessionWrapper.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/model/MXInboundMegolmSessionWrapper.kt
 @@ -86,6 +86,7 @@ data class MXInboundMegolmSessionWrapper(
@@ -1244,166 +1455,37 @@ index 2772b34..2c6a0a9 100644
              )
  
              return MXInboundMegolmSessionWrapper(
-diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/MXOlmDevice.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/MXOlmDevice.kt
-index 96ccba5..48b4652 100755
---- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/MXOlmDevice.kt
-+++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/MXOlmDevice.kt
-@@ -19,6 +19,7 @@ package org.matrix.android.sdk.internal.crypto
- import androidx.annotation.VisibleForTesting
- import kotlinx.coroutines.sync.Mutex
- import kotlinx.coroutines.sync.withLock
-+import org.matrix.android.sdk.api.extensions.orFalse
- import org.matrix.android.sdk.api.extensions.tryOrNull
- import org.matrix.android.sdk.api.logger.LoggerTag
- import org.matrix.android.sdk.api.session.crypto.MXCryptoError
-@@ -612,7 +613,8 @@ internal class MXOlmDevice @Inject constructor(
-             forwardingCurve25519KeyChain: List<String>,
-             keysClaimed: Map<String, String>,
-             exportFormat: Boolean,
--            sharedHistory: Boolean
-+            sharedHistory: Boolean,
-+            trusted: Boolean
-     ): AddSessionResult {
-         val candidateSession = tryOrNull("Failed to create inbound session in room $roomId") {
-             if (exportFormat) {
-@@ -620,6 +622,8 @@ internal class MXOlmDevice @Inject constructor(
-             } else {
-                 OlmInboundGroupSession(sessionKey)
-             }
-+        } ?: return AddSessionResult.NotImported.also {
-+            Timber.tag(loggerTag.value).d("## addInboundGroupSession() : failed to import key candidate $senderKey/$sessionId")
-         }
- 
-         val existingSessionHolder = tryOrNull { getInboundGroupSession(sessionId, senderKey, roomId) }
-@@ -631,31 +635,49 @@ internal class MXOlmDevice @Inject constructor(
-                 val existingFirstKnown = tryOrNull { existingSession.session.firstKnownIndex } ?: return AddSessionResult.NotImported.also {
-                     // This is quite unexpected, could throw if native was released?
-                     Timber.tag(loggerTag.value).e("## addInboundGroupSession() null firstKnownIndex on existing session")
--                    candidateSession?.releaseSession()
-+                    candidateSession.releaseSession()
-                     // Probably should discard it?
-                 }
--                val newKnownFirstIndex = tryOrNull("Failed to get candidate first known index") { candidateSession?.firstKnownIndex }
-+                val newKnownFirstIndex = tryOrNull("Failed to get candidate first known index") { candidateSession.firstKnownIndex }
-+                        ?: return AddSessionResult.NotImported.also {
-+                            candidateSession.releaseSession()
-+                            Timber.tag(loggerTag.value).d("## addInboundGroupSession() : Failed to get new session index")
-+                        }
-+
-+                val keyConnects = existingSession.session.connects(candidateSession)
-+                if (!keyConnects) {
-+                    Timber.tag(loggerTag.value)
-+                            .e("## addInboundGroupSession() Unconnected key")
-+                    if (!trusted) {
-+                        // Ignore the not connecting unsafe, keep existing
-+                        Timber.tag(loggerTag.value)
-+                                .e("## addInboundGroupSession() Received unsafe unconnected key")
-+                        return AddSessionResult.NotImported
-+                    }
-+                    // else if the new one is safe and does not connect with existing, import the new one
-+                } else {
-                     // If our existing session is better we keep it
--                if (newKnownFirstIndex != null && existingFirstKnown <= newKnownFirstIndex) {
-+                    if (existingFirstKnown <= newKnownFirstIndex) {
-+                        val shouldUpdateTrust = trusted && (existingSession.sessionData.trusted != true)
-+                        Timber.tag(loggerTag.value).d("## addInboundGroupSession() : updateTrust for $sessionId")
-+                        if (shouldUpdateTrust) {
-+                            // the existing as a better index but the new one is trusted so update trust
-+                            inboundGroupSessionStore.updateToSafe(existingSessionHolder, sessionId, senderKey)
-+                        }
-                         Timber.tag(loggerTag.value).d("## addInboundGroupSession() : ignore session our is better $senderKey/$sessionId")
--                    candidateSession?.releaseSession()
-+                        candidateSession.releaseSession()
-                         return AddSessionResult.NotImportedHigherIndex(newKnownFirstIndex.toInt())
-                     }
-+                }
-             } catch (failure: Throwable) {
-                 Timber.tag(loggerTag.value).e("## addInboundGroupSession() Failed to add inbound: ${failure.localizedMessage}")
--                candidateSession?.releaseSession()
-+                candidateSession.releaseSession()
-                 return AddSessionResult.NotImported
-             }
-         }
- 
-         Timber.tag(loggerTag.value).d("## addInboundGroupSession() : Candidate session should be added $senderKey/$sessionId")
- 
--        // sanity check on the new session
--        if (null == candidateSession) {
--            Timber.tag(loggerTag.value).e("## addInboundGroupSession : invalid session <null>")
--            return AddSessionResult.NotImported
--        }
--
-         try {
-             if (candidateSession.sessionIdentifier() != sessionId) {
-                 Timber.tag(loggerTag.value).e("## addInboundGroupSession : ERROR: Mismatched group session ID from senderKey: $senderKey")
-@@ -674,6 +696,7 @@ internal class MXOlmDevice @Inject constructor(
-                 keysClaimed = keysClaimed,
-                 forwardingCurve25519KeyChain = forwardingCurve25519KeyChain,
-                 sharedHistory = sharedHistory,
-+                trusted = trusted
-         )
- 
-         val wrapper = MXInboundMegolmSessionWrapper(
-@@ -689,6 +712,16 @@ internal class MXOlmDevice @Inject constructor(
-         return AddSessionResult.Imported(candidateSession.firstKnownIndex.toInt())
-     }
- 
-+    fun OlmInboundGroupSession.connects(other: OlmInboundGroupSession): Boolean {
-+        return try {
-+            val lowestCommonIndex = this.firstKnownIndex.coerceAtLeast(other.firstKnownIndex)
-+            this.export(lowestCommonIndex) == other.export(lowestCommonIndex)
-+        } catch (failure: Throwable) {
-+            // native error? key disposed?
-+            false
-+        }
-+    }
-+
+diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/store/db/RealmCryptoStoreMigration.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/store/db/RealmCryptoStoreMigration.kt
+index c36d572da6..426d50a54f 100644
+--- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/store/db/RealmCryptoStoreMigration.kt
++++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/store/db/RealmCryptoStoreMigration.kt
+@@ -34,6 +34,7 @@ import org.matrix.android.sdk.internal.crypto.store.db.migration.MigrateCryptoTo
+ import org.matrix.android.sdk.internal.crypto.store.db.migration.MigrateCryptoTo015
+ import org.matrix.android.sdk.internal.crypto.store.db.migration.MigrateCryptoTo016
+ import org.matrix.android.sdk.internal.crypto.store.db.migration.MigrateCryptoTo017
++import org.matrix.android.sdk.internal.crypto.store.db.migration.MigrateCryptoTo018
+ import org.matrix.android.sdk.internal.util.database.MatrixRealmMigration
+ import org.matrix.android.sdk.internal.util.time.Clock
+ import javax.inject.Inject
+@@ -48,7 +49,7 @@ internal class RealmCryptoStoreMigration @Inject constructor(
+         private val clock: Clock,
+ ) : MatrixRealmMigration(
+         dbName = "Crypto",
+-        schemaVersion = 17L,
++        schemaVersion = 18L,
+ ) {
      /**
-      * Import an inbound group sessions to the session store.
-      *
-@@ -821,7 +854,8 @@ internal class MXOlmDevice @Inject constructor(
-                 payload,
-                 wrapper.sessionData.keysClaimed,
-                 senderKey,
--                wrapper.sessionData.forwardingCurve25519KeyChain
-+                wrapper.sessionData.forwardingCurve25519KeyChain,
-+                isSafe = sessionHolder.wrapper.sessionData.trusted.orFalse()
-         )
+      * Forces all RealmCryptoStoreMigration instances to be equal.
+@@ -75,5 +76,6 @@ internal class RealmCryptoStoreMigration @Inject constructor(
+         if (oldVersion < 15) MigrateCryptoTo015(realm).perform()
+         if (oldVersion < 16) MigrateCryptoTo016(realm).perform()
+         if (oldVersion < 17) MigrateCryptoTo017(realm).perform()
++        if (oldVersion < 18) MigrateCryptoTo018(realm).perform()
      }
- 
-diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/SecretShareManager.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/SecretShareManager.kt
-index a79e1a8..5691f24 100644
---- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/SecretShareManager.kt
-+++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/SecretShareManager.kt
-@@ -267,13 +267,24 @@ internal class SecretShareManager @Inject constructor(
-             Timber.tag(loggerTag.value).e("onSecretSend() :Received unencrypted secret send event")
-             return
-         }
-+        // no need to download keys, after a verification we already forced download
-+        val sendingDevice = toDevice.getSenderKey()?.let { cryptoStore.deviceWithIdentityKey(it) }
-+        if (sendingDevice == null) {
-+            Timber.tag(loggerTag.value).e("onSecretSend() : Ignore secret from unknown  device ${toDevice.getSenderKey()}")
-+            return
-+        }
- 
-         // Was that sent by us?
--        if (toDevice.senderId != credentials.userId) {
-+        if (sendingDevice.userId != credentials.userId) {
-             Timber.tag(loggerTag.value).e("onSecretSend() : Ignore secret from other user ${toDevice.senderId}")
-             return
-         }
- 
-+        if (!sendingDevice.isVerified) {
-+            Timber.tag(loggerTag.value).e("onSecretSend() : Ignore secret from untrusted device ${toDevice.getSenderKey()}")
-+            return
-+        }
-+
-         val secretContent = toDevice.getClearContent().toModel<SecretSendEventContent>() ?: return
- 
-         val existingRequest = verifMutex.withLock {
+ }
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/store/db/migration/MigrateCryptoTo018.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/store/db/migration/MigrateCryptoTo018.kt
 new file mode 100644
-index 0000000..3bedf58
+index 0000000000..3bedf58ca2
 --- /dev/null
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/store/db/migration/MigrateCryptoTo018.kt
 @@ -0,0 +1,52 @@
@@ -1459,36 +1541,8 @@ index 0000000..3bedf58
 +                }
 +    }
 +}
-diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/store/db/RealmCryptoStoreMigration.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/store/db/RealmCryptoStoreMigration.kt
-index c36d572..426d50a 100644
---- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/store/db/RealmCryptoStoreMigration.kt
-+++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/store/db/RealmCryptoStoreMigration.kt
-@@ -34,6 +34,7 @@ import org.matrix.android.sdk.internal.crypto.store.db.migration.MigrateCryptoTo
- import org.matrix.android.sdk.internal.crypto.store.db.migration.MigrateCryptoTo015
- import org.matrix.android.sdk.internal.crypto.store.db.migration.MigrateCryptoTo016
- import org.matrix.android.sdk.internal.crypto.store.db.migration.MigrateCryptoTo017
-+import org.matrix.android.sdk.internal.crypto.store.db.migration.MigrateCryptoTo018
- import org.matrix.android.sdk.internal.util.database.MatrixRealmMigration
- import org.matrix.android.sdk.internal.util.time.Clock
- import javax.inject.Inject
-@@ -48,7 +49,7 @@ internal class RealmCryptoStoreMigration @Inject constructor(
-         private val clock: Clock,
- ) : MatrixRealmMigration(
-         dbName = "Crypto",
--        schemaVersion = 17L,
-+        schemaVersion = 18L,
- ) {
-     /**
-      * Forces all RealmCryptoStoreMigration instances to be equal.
-@@ -75,5 +76,6 @@ internal class RealmCryptoStoreMigration @Inject constructor(
-         if (oldVersion < 15) MigrateCryptoTo015(realm).perform()
-         if (oldVersion < 16) MigrateCryptoTo016(realm).perform()
-         if (oldVersion < 17) MigrateCryptoTo017(realm).perform()
-+        if (oldVersion < 18) MigrateCryptoTo018(realm).perform()
-     }
- }
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/tasks/EncryptEventTask.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/tasks/EncryptEventTask.kt
-index a4b4cd0..f93da74 100644
+index a4b4cd0761..f93da74507 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/tasks/EncryptEventTask.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/crypto/tasks/EncryptEventTask.kt
 @@ -82,7 +82,8 @@ internal class DefaultEncryptEventTask @Inject constructor(
@@ -1502,7 +1556,7 @@ index a4b4cd0..f93da74 100644
              } else {
                  null
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/database/helper/ThreadSummaryHelper.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/database/helper/ThreadSummaryHelper.kt
-index 0a6d4bf..193710f 100644
+index 0a6d4bf833..193710f962 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/database/helper/ThreadSummaryHelper.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/database/helper/ThreadSummaryHelper.kt
 @@ -228,7 +228,8 @@ private fun decryptIfNeeded(cryptoService: CryptoService?, eventEntity: EventEnt
@@ -1516,7 +1570,7 @@ index 0a6d4bf..193710f 100644
              // Save decryption result, to not decrypt every time we enter the thread list
              eventEntity.setDecryptionResult(result)
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/database/model/EventEntity.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/database/model/EventEntity.kt
-index 8b5a211..ee5c3d9 100644
+index 8b5a211fba..ee5c3d90c1 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/database/model/EventEntity.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/database/model/EventEntity.kt
 @@ -87,7 +87,8 @@ internal open class EventEntity(
@@ -1530,7 +1584,7 @@ index 8b5a211..ee5c3d9 100644
          val adapter = MoshiProvider.providesMoshi().adapter(OlmDecryptionResult::class.java)
          decryptionResultJson = adapter.toJson(decryptionResult)
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/room/relation/threads/FetchThreadTimelineTask.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/room/relation/threads/FetchThreadTimelineTask.kt
-index bac810f..edd74c2 100644
+index bac810f424..edd74c2ce0 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/room/relation/threads/FetchThreadTimelineTask.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/room/relation/threads/FetchThreadTimelineTask.kt
 @@ -225,7 +225,8 @@ internal class DefaultFetchThreadTimelineTask @Inject constructor(
@@ -1544,7 +1598,7 @@ index bac810f..edd74c2 100644
          } catch (e: MXCryptoError) {
              if (e is MXCryptoError.Base) {
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/room/timeline/GetEventTask.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/room/timeline/GetEventTask.kt
-index 7c66244..e075186 100644
+index 7c662444e4..e0751865ad 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/room/timeline/GetEventTask.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/room/timeline/GetEventTask.kt
 @@ -56,7 +56,8 @@ internal class DefaultGetEventTask @Inject constructor(
@@ -1558,7 +1612,7 @@ index 7c66244..e075186 100644
                      }
          }
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/sync/handler/CryptoSyncHandler.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/sync/handler/CryptoSyncHandler.kt
-index b6142b3..b2fe12e 100644
+index b6142b3a7a..7bda5f0a2f 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/sync/handler/CryptoSyncHandler.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/sync/handler/CryptoSyncHandler.kt
 @@ -16,6 +16,7 @@
@@ -1577,11 +1631,11 @@ index b6142b3..b2fe12e 100644
 +        toDevice.events
 +                ?.filter { isSupportedToDevice(it) }
 +                ?.forEachIndexed { index, event ->
-                     progressReporter?.reportProgress(index * 100F / total)
-                     // Decrypt event if necessary
-                     Timber.tag(loggerTag.value).i("To device event from ${event.senderId} of type:${event.type}")
+             progressReporter?.reportProgress(index * 100F / total)
+             // Decrypt event if necessary
+             Timber.tag(loggerTag.value).i("To device event from ${event.senderId} of type:${event.type}")
 @@ -57,6 +60,28 @@ internal class CryptoSyncHandler @Inject constructor(
-                 }
+         }
      }
  
 +    private val unsupportedPlainToDeviceEventTypes = listOf(
@@ -1620,7 +1674,7 @@ index b6142b3..b2fe12e 100644
                  return true
              } else {
 diff --git a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/sync/handler/room/RoomSyncHandler.kt b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/sync/handler/room/RoomSyncHandler.kt
-index bc91ca2..a2f2251 100644
+index bc91ca205d..a2f2251b70 100644
 --- a/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/sync/handler/room/RoomSyncHandler.kt
 +++ b/matrix-sdk-android/src/main/java/org/matrix/android/sdk/internal/session/sync/handler/room/RoomSyncHandler.kt
 @@ -40,6 +40,7 @@ import org.matrix.android.sdk.api.session.sync.model.RoomSync
@@ -1659,7 +1713,7 @@ index bc91ca2..a2f2251 100644
              if (e is MXCryptoError.Base) {
 diff --git a/matrix-sdk-android/src/test/java/org/matrix/android/sdk/internal/crypto/UnRequestedKeysManagerTest.kt b/matrix-sdk-android/src/test/java/org/matrix/android/sdk/internal/crypto/UnRequestedKeysManagerTest.kt
 new file mode 100644
-index 0000000..9500937
+index 0000000000..950093760a
 --- /dev/null
 +++ b/matrix-sdk-android/src/test/java/org/matrix/android/sdk/internal/crypto/UnRequestedKeysManagerTest.kt
 @@ -0,0 +1,248 @@
@@ -1912,7 +1966,7 @@ index 0000000..9500937
 +    }
 +}
 diff --git a/vector/src/main/java/im/vector/app/core/ui/views/ShieldImageView.kt b/vector/src/main/java/im/vector/app/core/ui/views/ShieldImageView.kt
-index 4d947f1..4642fb8 100644
+index 4d947f134b..4642fb8525 100644
 --- a/vector/src/main/java/im/vector/app/core/ui/views/ShieldImageView.kt
 +++ b/vector/src/main/java/im/vector/app/core/ui/views/ShieldImageView.kt
 @@ -22,6 +22,7 @@ import androidx.annotation.DrawableRes
@@ -1964,7 +2018,7 @@ index 4d947f1..4642fb8 100644
  
  @DrawableRes
 diff --git a/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/action/MessageActionsEpoxyController.kt b/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/action/MessageActionsEpoxyController.kt
-index d918703..5daf82f 100644
+index d918703f95..5daf82fae6 100644
 --- a/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/action/MessageActionsEpoxyController.kt
 +++ b/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/action/MessageActionsEpoxyController.kt
 @@ -143,6 +143,14 @@ class MessageActionsEpoxyController @Inject constructor(
@@ -1983,7 +2037,7 @@ index d918703..5daf82f 100644
                  // nothing
              }
 diff --git a/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/edithistory/ViewEditHistoryViewModel.kt b/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/edithistory/ViewEditHistoryViewModel.kt
-index c8a3bb8..ca93c13 100644
+index c8a3bb8967..ca93c1389e 100644
 --- a/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/edithistory/ViewEditHistoryViewModel.kt
 +++ b/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/edithistory/ViewEditHistoryViewModel.kt
 @@ -83,7 +83,8 @@ class ViewEditHistoryViewModel @AssistedInject constructor(
@@ -1997,7 +2051,7 @@ index c8a3bb8..ca93c13 100644
                      } catch (e: MXCryptoError) {
                          Timber.w("Failed to decrypt event in history")
 diff --git a/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/helper/MessageInformationDataFactory.kt b/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/helper/MessageInformationDataFactory.kt
-index b711bf3..b91545f 100644
+index b711bf37bd..85a4c9da8a 100644
 --- a/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/helper/MessageInformationDataFactory.kt
 +++ b/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/helper/MessageInformationDataFactory.kt
 @@ -31,7 +31,6 @@ import org.matrix.android.sdk.api.extensions.orFalse
@@ -2054,19 +2108,19 @@ index b711bf3..b91545f 100644
 +                    if (event.root.mxDecryptionResult?.isSafe == false) {
 +                        E2EDecoration.WARN_UNSAFE_KEY
 +                    } else {
-                         when {
-                             sendingDevice == null -> {
-                                 // For now do not decorate this with warning
-                                 // maybe it's a deleted session
+                     when {
+                         sendingDevice == null -> {
+                             // For now do not decorate this with warning
+                             // maybe it's a deleted session
 -                            E2EDecoration.NONE
 +                                E2EDecoration.WARN_SENT_BY_DELETED_SESSION
-                             }
-                             sendingDevice.trustLevel == null -> {
-                                 E2EDecoration.WARN_SENT_BY_UNKNOWN
+                         }
+                         sendingDevice.trustLevel == null -> {
+                             E2EDecoration.WARN_SENT_BY_UNKNOWN
 @@ -181,19 +191,35 @@ class MessageInformationDataFactory @Inject constructor(
-                             }
                          }
                      }
+                 }
 +                }
              } else {
 -                if (event.root.isStateEvent()) {
@@ -2084,11 +2138,11 @@ index b711bf3..b91545f 100644
 -                    if (eventTs > ts) E2EDecoration.WARN_IN_CLEAR else E2EDecoration.NONE
 -                }
 +                    E2EDecoration.WARN_UNSAFE_KEY
-                 }
-             } else {
-                 E2EDecoration.NONE
              }
+         } else {
+             E2EDecoration.NONE
          }
+     }
 +    }
 +
 +    private fun e2EDecorationForClearEventInE2ERoom(event: TimelineEvent, roomSummary: RoomSummary) =
@@ -2105,7 +2159,7 @@ index b711bf3..b91545f 100644
      /**
       * Tiles type message never show the sender information (like verification request), so we should repeat it for next message
 diff --git a/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/item/AbsBaseMessageItem.kt b/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/item/AbsBaseMessageItem.kt
-index 5e23f4d..ab383f0 100644
+index 5e23f4db16..ab383f04ff 100644
 --- a/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/item/AbsBaseMessageItem.kt
 +++ b/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/item/AbsBaseMessageItem.kt
 @@ -40,7 +40,6 @@ import im.vector.app.features.home.room.detail.timeline.TimelineEventController
@@ -2136,7 +2190,7 @@ index 5e23f4d..ab383f0 100644
          holder.view.setOnLongClickListener(baseAttributes.itemLongClickListener)
          (holder.view as? TimelineMessageLayoutRenderer)?.renderMessageLayout(baseAttributes.informationData.messageLayout)
 diff --git a/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/item/MessageInformationData.kt b/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/item/MessageInformationData.kt
-index 9b24720..757246d 100644
+index 9b24720c88..757246d4e4 100644
 --- a/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/item/MessageInformationData.kt
 +++ b/vector/src/main/java/im/vector/app/features/home/room/detail/timeline/item/MessageInformationData.kt
 @@ -106,7 +106,9 @@ enum class E2EDecoration {
@@ -2151,7 +2205,7 @@ index 9b24720..757246d 100644
  
  enum class SendStateDecoration {
 diff --git a/vector/src/main/java/im/vector/app/features/notifications/NotifiableEventResolver.kt b/vector/src/main/java/im/vector/app/features/notifications/NotifiableEventResolver.kt
-index ae5a8ae..90138fd 100644
+index ae5a8aec7d..90138fd495 100644
 --- a/vector/src/main/java/im/vector/app/features/notifications/NotifiableEventResolver.kt
 +++ b/vector/src/main/java/im/vector/app/features/notifications/NotifiableEventResolver.kt
 @@ -213,7 +213,8 @@ class NotifiableEventResolver @Inject constructor(
@@ -2166,7 +2220,7 @@ index ae5a8ae..90138fd 100644
              }
 diff --git a/vector/src/main/res/drawable/ic_shield_gray.xml b/vector/src/main/res/drawable/ic_shield_gray.xml
 new file mode 100644
-index 0000000..a4c52d7
+index 0000000000..a4c52d74ba
 --- /dev/null
 +++ b/vector/src/main/res/drawable/ic_shield_gray.xml
 @@ -0,0 +1,11 @@
@@ -2181,3 +2235,6 @@ index 0000000..a4c52d7
 +      android:fillColor="@color/shield_color_gray"
 +      android:strokeColor="#ffffff"/>
 +</vector>
+-- 
+2.30.2
+
