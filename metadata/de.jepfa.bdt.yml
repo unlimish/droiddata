@@ -18,6 +18,10 @@ Builds:
     versionCode: 10000
     commit: v1.0.0
     submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@3.0.4
