@@ -216,7 +216,19 @@ Builds:
       - fdroid
     prebuild: sed -i -e '/sonatype/d' build.gradle.kts
 
-AutoUpdateMode: None
+  - versionName: 3.0.2
+    versionCode: 3002
+    commit: db5db9e8a181f79bfbbb68647a53bc18beea8506
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/sonatype/d' build.gradle.kts  
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.10.0
-CurrentVersionCode: 2100
+CurrentVersion: 3.0.2
+CurrentVersionCode: 3002
