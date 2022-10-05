@@ -1070,8 +1070,7 @@ Builds:
       - jitsi-meet@android-sdk-5.0.2
       - maplibre-gl-native@android-v9.5.2
     prebuild:
-      - export CI=true
-      - sed -i -e 's/def isCiBuild =.*/def isCiBuild = System.env.CI == "true"/' ../tools/gradle/doctor.gradle
+      - sed -i -e 's/def isCiBuild =.*/def isCiBuild = true/' ../tools/gradle/doctor.gradle
       - sed -i -e '/applicationIdSuffix/d' -e '/^repositories {/a mavenLocal()' build.gradle
       - sed -i -e 's/org.maplibre.gl/org.fdroid/' build.gradle $$maplibre-gl-native$$/platform/android/gradle/artifact-settings.gradle
       - pushd $$maplibre-gl-native$$/platform/android/MapboxGLAndroidSDK
