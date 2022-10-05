@@ -1,0 +1,51 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Internet
+License: GPL-3.0-only
+SourceCode: https://patrice.asgardius.company/gitea/asgardius/s3manager
+IssueTracker: https://patrice.asgardius.company/gitea/asgardius/s3manager/issues
+
+AutoName: S3 Manager
+
+RepoType: git
+Repo: https://patrice.asgardius.company/gitea/asgardius/s3manager.git
+
+Builds:
+  - versionName: 0.1.16
+    versionCode: 18
+    commit: ba764121c7d0ff00e859fc5d60549d44e6d82c09
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.1.17
+    versionCode: 19
+    commit: 2822f299f1e79b07b4d865d30bd76f65be196eda
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.1.18
+    versionCode: 20
+    commit: 5cf91a5d7d5fc88adde827e65bae4c7e91f1afb1
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 0.1.18
+CurrentVersionCode: 20
