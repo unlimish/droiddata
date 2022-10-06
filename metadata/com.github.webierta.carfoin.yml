@@ -1,0 +1,40 @@
+Categories:
+  - Money
+License: GPL-3.0-only
+AuthorName: Webierta
+AuthorWebSite: https://webierta.github.io/
+SourceCode: https://github.com/Webierta/carfoin
+IssueTracker: https://github.com/Webierta/carfoin/issues
+Changelog: https://github.com/Webierta/carfoin/releases
+
+AutoName: Carfoin
+
+RepoType: git
+Repo: https://github.com/Webierta/carfoin
+
+Builds:
+  - versionName: 2.0.1
+    versionCode: 16
+    commit: v2.0.1
+    subdir: android/app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - flutter@3.3.4
+    rm:
+      - test
+    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 2.0.1
+CurrentVersionCode: 16
