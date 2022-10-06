@@ -1709,6 +1709,25 @@ Builds:
       - ./build_fossil_hr_watchface.sh
     ndk: r21e
 
+  - versionName: 0.71.1
+    versionCode: 217
+    commit: 7d516a9c966d25f9ae42b08ff36fb2f4c15b8ac1
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - main
+    scandelete:
+      - app/src/main/assets/fossil_hr
+      - external/fossil-hr-watchface/build/files/icons
+    build:
+      - cd ../external
+      - ./build_fossil_hr_watchface.sh
+    ndk: r21e
+
 AutoUpdateMode: None
 UpdateCheckMode: Tags
 CurrentVersion: 0.71.1
