@@ -16,24 +16,21 @@ Builds:
   - versionName: 2.0.2
     versionCode: 17
     commit: v2.0.2
-    subdir: android/app
     sudo:
       - apt-get update || apt-get update
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
-    gradle:
-      - yes
+    output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@3.3.4
     rm:
       - test
-    prebuild: echo "flutter.sdk=$$flutter$$" >> ../local.properties
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
       - $$flutter$$/bin/flutter build apk
 
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
 CurrentVersion: 2.0.2
