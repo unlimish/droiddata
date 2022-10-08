@@ -1,0 +1,48 @@
+AntiFeatures:
+  - NonFreeNet
+Categories:
+  - Multimedia
+License: Apache-2.0
+AuthorName: iota9star
+AuthorEmail: iota9star@foxmail.com
+AuthorWebSite: https://nichijou.io
+SourceCode: https://github.com/iota9star/mikan_flutter
+IssueTracker: https://github.com/iota9star/mikan_flutter/issues
+Changelog: https://github.com/iota9star/mikan_flutter/releases
+
+RepoType: git
+Repo: https://github.com/iota9star/mikan_flutter.git
+
+Builds:
+  - versionName: 1.0.0-RC27
+    versionCode: 49
+    commit: af1bb72bbdd42cc4c82a5bbebb52f1be947572c4
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.1
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - windows
+    prebuild:
+      - sed -i -e '/aliyun/d' -e '/flutter.io/d' android/build.gradle
+      - sed -i -e '/gms/d' -e '/firebase/d' android/app/build.gradle android/build.gradle
+      - sed -i -e '/firebase/d' pubspec.yaml
+      - sed -i -e '/firebase_analytics/d' -e '/^  /d' lib/providers/firebase_model.dart
+      - sed -i -e '/package:firebase/d' -e '/Future _initFirebase/,/^}/d' -e '/_initFirebase/d'
+        -e '/observer/d' lib/main.dart
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.0.0-RC27
+CurrentVersionCode: 49
