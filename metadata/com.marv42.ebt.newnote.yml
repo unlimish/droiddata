@@ -106,6 +106,17 @@ Builds:
     gradle:
       - withoutKey
 
+  - versionName: 0.66.0
+    versionCode: 6600
+    commit: v0.66.0
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - withoutKey
+
 AutoUpdateMode: None
 UpdateCheckMode: Tags v\d+\.\d+(\.\d+)?
 CurrentVersion: 0.66.0
