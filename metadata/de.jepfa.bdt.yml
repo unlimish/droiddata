@@ -25,6 +25,8 @@ Builds:
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@3.0.4
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+        'cmake;3.10.2.4988404' > /dev/null
     build:
       - export PATH=$$flutter$$/bin:$PATH
       - flutter packages pub get
