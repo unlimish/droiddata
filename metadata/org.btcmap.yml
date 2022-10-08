@@ -102,7 +102,46 @@ Builds:
     preassemble:
       - bundleData
 
+  - versionName: 0.3.9
+    versionCode: 12
+    commit: a55b4a32a459decdc2767096fc611009fca150c3
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    preassemble:
+      - bundleData
+
+  - versionName: 0.3.11
+    versionCode: 14
+    commit: 775b4aabe85a6c0b5ee57438f33cdd75184b2d29
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    preassemble:
+      - bundleData
+
+  - versionName: 0.4.0
+    versionCode: 15
+    commit: b1f473075085027e6cf041ba67100c93fba30e1b
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    preassemble:
+      - bundleData
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: Tags
-CurrentVersion: 0.3.7
-CurrentVersionCode: 10
+CurrentVersion: 0.4.0
+CurrentVersionCode: 15
