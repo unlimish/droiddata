@@ -132,7 +132,7 @@ Builds:
 
   - versionName: 2022-05-21-1809-c43a34fb-fdroid
     versionCode: 133
-    commit: 2022-05-21-1809-c43a34fb
+    commit: 75f3b5783f24af2bd1fc9db351989c66a003a962
     subdir: app
     sudo:
       - apt-get update || apt-get update
@@ -148,7 +148,8 @@ MaintainerNotes: |-
     * Cannot use UCM/AUM because of dynamic versionName.
     * Check not only installation, but actual games to ensure correct JNI build.
 
-AutoUpdateMode: None
-UpdateCheckMode: None
+AutoUpdateMode: Version +-fdroid %v
+UpdateCheckMode: Tags
+UpdateCheckData: app/build.gradle|versionCode\s(\d+)||
 CurrentVersion: 2022-05-21-1809-c43a34fb-fdroid
 CurrentVersionCode: 133
