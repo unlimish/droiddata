@@ -1,0 +1,60 @@
+Categories:
+  - Internet
+License: GPL-3.0-only
+AuthorName: Daniel Wolf
+WebSite: https://nebulo.app
+SourceCode: https://git.frostnerd.com/PublicAndroidApps/smokescreen
+IssueTracker: https://git.frostnerd.com/PublicAndroidApps/smokescreen/-/issues
+Changelog: https://git.frostnerd.com/PublicAndroidApps/smokescreen/-/releases
+
+RepoType: git
+Repo: https://git.frostnerd.com/PublicAndroidApps/smokescreen
+
+Builds:
+  - versionName: 2.1.2-adblock
+    versionCode: 80
+    commit: 4a2ff9b6c09a544f12a11cbbaf5df1c20c2c3ff9
+    subdir: app
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroidofficial
+    srclibs:
+      - frostnerd-lifecycle@v1.2.5
+      - frostnerd-preferences@v1.5.35
+      - frostnerd-navigationdraweractivity@v1.4.7
+      - frostnerd-vpntunnelproxy@v3.1.21
+      - frostnerd-dnstunnelproxy@v2.2.2
+      - frostnerd-encrypteddnstunnelproxy@v2.2.2
+      - frostnerd-general@v1.0.29
+      - frostnerd-adapters@v1.3.10
+    prebuild:
+      - mkdir -p ../library
+      - for srclib in $$frostnerd-lifecycle$$ $$frostnerd-preferences$$ $$frostnerd-navigationdraweractivity$$
+        $$frostnerd-vpntunnelproxy$$ $$frostnerd-dnstunnelproxy$$ $$frostnerd-encrypteddnstunnelproxy$$
+        $$frostnerd-general$$ $$frostnerd-adapters$$; do pushd $srclib; sed -i -e
+        's|nexus.frostnerd.com/repository/libs-release/|jitpack.io|' -e '/repositories
+        {/a mavenLocal()' build.gradle library/build.gradle; popd; mv $srclib ../library;
+        done
+      - sed -i -e 's|nexus.frostnerd.com/repository/libs-release/|jitpack.io|' -e
+        '/repositories {/a mavenLocal()' ../build.gradle
+      - sed -i -e '/fun tryCheckUpdate()/,/^    }/d' -e '/tryCheckUpdate/d' -e '/com.google.android.play/d'
+        src/main/java/com/frostnerd/smokescreen/activity/MainActivity.kt
+    scandelete:
+      - library
+    build:
+      - export NEXUS_USER=user NEXUS_PASSWORD=password
+      - for srclib in frostnerd-lifecycle frostnerd-preferences frostnerd-navigationdraweractivity
+        frostnerd-vpntunnelproxy frostnerd-dnstunnelproxy frostnerd-encrypteddnstunnelproxy
+        frostnerd-general frostnerd-adapters; do pushd ../library/$srclib/library;
+        gradle assembleRelease publishToMavenLocal; popd; done
+
+MaintainerNotes: Export invalid credentials in case private maven repo in srclibs
+    are used accidently.
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 2.1.2-adblock
+CurrentVersionCode: 80
