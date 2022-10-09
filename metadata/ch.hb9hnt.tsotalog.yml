@@ -1,0 +1,43 @@
+Categories:
+  - Science & Education
+License: MIT
+SourceCode: https://codeberg.org/hb9hnt/tSotaLog
+IssueTracker: https://codeberg.org/hb9hnt/tSotaLog/issues
+Changelog: https://codeberg.org/hb9hnt/tSotaLog/releases
+
+RepoType: git
+Repo: https://codeberg.org/hb9hnt/tSotaLog
+
+Builds:
+  - versionName: 0.1.0
+    versionCode: 1
+    commit: v0.1.0
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get -y install -t stretch-backports g++ init-system-helpers
+      - apt-get -y install gpg-agent libvips-dev
+      - sysctl fs.inotify.max_user_watches=524288
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v14.18.2/node-v14.18.2-linux-x64.tar.xz
+      - echo "dae683f911fe5af11f1dc9d7746d80fccdb1e7b4bef31a570f5daffadd897c42 node.tar.xz"
+        | sha256sum -c -
+      - tar xJf node.tar.xz
+      - cp -a node-v14.18.2-linux-x64/. /usr/local/
+      - npm i -g npm@latest
+      - npm install -g @ionic/cli -g cordova
+      - npm install -g cordova-res
+    output: platforms/android/app/build/outputs/bundle/release/app-release.aab
+    prebuild: $$SDK$$/tools/bin/sdkmanager 'platforms;android-30' 'build-tools;30.0.3'
+        > /dev/null
+    build:
+      - npm install
+      - ionic cordova platform remove android
+      - ionic cordova resources --cordova-res
+      - ionic cordova platform add android
+      - ionic cordova resources android --force
+      - ionic cordova build --release android
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: config.xml|android-versionCode="(\d+)"|.|version="(.*)"
+CurrentVersion: 0.1.0
+CurrentVersionCode: 1
