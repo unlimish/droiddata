@@ -23,8 +23,8 @@ Builds:
       - macos
       - web
     build:
-      - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter build apk --flavor fdroid
+      - export PATH=$$flutter$$/bin:$PATH
+      - flutter build apk --flavor fdroid
 
   - versionName: 1.1.0
     versionCode: 2
