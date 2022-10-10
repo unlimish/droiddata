@@ -214,12 +214,15 @@ Builds:
     commit: 356ced50a8ea1df4c1b594426e1cf32096a57154
     subdir: app
     submodules: true
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y maven
     gradle:
       - yes
     rm:
       - app/src/main/libs/jaku-1.6.jar
     build:
-      - $$MVN3$$ install -f ../Jaku/pom.xml -Dmaven.test.skip=true
+      - mvn install -f ../Jaku/pom.xml -Dmaven.test.skip=true
       - cp ~/.m2/repository/com/wseemann/jaku/1.6/jaku-1.6.jar src/main/libs/
 
 AutoUpdateMode: Version v%v
