@@ -1083,15 +1083,13 @@ Builds:
     subdir: android
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk-headless
-      - update-alternatives --auto java
+      - apt-get install -y sdkmanager
     gradle:
       - yes
     rm:
       - desktop
       - ios
-    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
-        'platforms;android-31' 'build-tools;30.0.2' > /dev/null
+    prebuild: sdkmanager 'platforms;android-31' 'build-tools;30.0.2'
     scandelete:
       - android/libs/*
 

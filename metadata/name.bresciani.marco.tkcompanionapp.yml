@@ -937,14 +937,8 @@ Builds:
     subdir: android/app
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk-headless
-      - update-alternatives --auto java
+      - apt-get install -y -t testing npm
       - sysctl fs.inotify.max_user_watches=524288
-      - curl -Lo node.tar.xz https://nodejs.org/dist/v16.17.1/node-v16.17.1-linux-x64.tar.xz
-      - echo "06ba2eb34aa385967f5f58c87a44753f83212f6cccea892b33f80a2e7fda8384 node.tar.xz"
-        | sha256sum -c -
-      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
-      - npm install -g npm@8.19.2
     init: npm install
     gradle:
       - yes

@@ -246,28 +246,16 @@ Builds:
     submodules: true
     sudo:
       - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk-headless
-      - update-alternatives --auto java
-      - apt-get install -y tcl gettext libcurl4-openssl-dev ninja-build pkg-config
-      - apt-get remove -y libc6-i386 --autoremove
+      - apt-get install -y make tcl gettext libcurl4-openssl-dev ninja-build pkg-config
     gradle:
       - fdroid
-    srclibs:
-      - cpython@v3.10.7
     prebuild:
       - pushd ../..
       - ./run fdroid prebuild_plugin_naive
-      - echo -e '\nexport PATH="$$cpython$$/bin:$PATH"' >> ./bin/plugin/naive/build.sh
     scandelete:
       - external
       - plugin
-    build:
-      - pushd $$cpython$$
-      - ./configure --prefix=$$cpython$$
-      - make -j`nproc`
-      - make install
-      - popd
-    ndk: r23b
+    ndk: r25
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^naive-plugin-.*
