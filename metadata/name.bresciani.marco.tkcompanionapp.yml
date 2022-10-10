@@ -933,7 +933,7 @@ Builds:
 
   - versionName: 4.0.1
     versionCode: 401
-    commit: 49c586f5db54eae73b2a49e23664cdfd63b9a78a
+    commit: 60eeb52bc4395fd726e7b0178e30a339fac48e12
     subdir: android/app
     sudo:
       - apt-get update || apt-get update
@@ -965,6 +965,8 @@ Builds:
       - node_modules/react-native-screens/android/build.gradle
       - node_modules/react-native-vector-icons/android/build.gradle
       - node_modules/react-native/ReactAndroid/build.gradle
+      - node_modules/react-native/ReactAndroid/hermes-engine/build.gradle
+      - node_modules/react-native/android/com/facebook/react/hermes-engine/
     scandelete:
       - node_modules/
     ndk: r23c
