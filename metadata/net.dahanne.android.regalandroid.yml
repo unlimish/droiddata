@@ -34,8 +34,8 @@ Builds:
       - svn co http://piwigo.org/svn/extensions/jiwigo-ws-api
       - sed -i '68,82d' jiwigo-ws-api/pom.xml
     build:
-      - mvn install:install-file -DgroupId=net.iharder -DartifactId=filedrop
-        -Dversion=1.0 -Dpackaging=jar -Dfile=libs/filedrop.jar
+      - mvn install:install-file -DgroupId=net.iharder -DartifactId=filedrop -Dversion=1.0
+        -Dpackaging=jar -Dfile=libs/filedrop.jar
       - mvn -Dmaven.test.skip=true install -f jiwigo-ws-api/pom.xml
 
   - versionName: 1.2.0
