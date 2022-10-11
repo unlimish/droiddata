@@ -1184,6 +1184,7 @@ Builds:
       - apt-get install -y --no-install-recommends libgmp-dev
       - apt-get install -y openjdk-11-jdk-headless
       - update-alternatives --auto java
+      - apt-get install -y sdkmanager/bullseye-backports
     gradle:
       - prod
     output: build/outputs/apk/prod/release/ProtonVPN-*-prod-release-unsigned.apk
@@ -1196,7 +1197,7 @@ Builds:
       - openvpn/src/main/cpp/openvpn3/test/unittests
       - openvpn/src/main/cpp/mbedtls/programs/fuzz/corpuses/*
     prebuild:
-      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.18.1'
+      - sdkmanager 'cmake;3.18.1'
       - sed -i -e '/triple/d' -e '/play\ {/,+4d' build.gradle
       - git submodule update --init --recursive ../strongswan
       - cd ../strongswan
