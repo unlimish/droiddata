@@ -2853,6 +2853,7 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'cmake;3.22.1'
     build:
       - pushd ../libbaresip-android
       - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|..|'
