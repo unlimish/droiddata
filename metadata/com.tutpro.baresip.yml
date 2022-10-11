@@ -2848,8 +2848,9 @@ Builds:
     subdir: app
     submodules: true
     sudo:
-      - apt-get update
-      - apt-get install -y sdkmanager wget make libtool m4 automake cmake
+      - apt update
+      - apt install -y sdkmanager wget make libtool m4 automake
+      - apt install -t bullseye-backports cmake
     gradle:
       - yes
     prebuild: sdkmanager 'cmake;3.22.1'
