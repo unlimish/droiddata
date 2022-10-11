@@ -1224,7 +1224,7 @@ Builds:
       - popd
       - pushd ../strongswan
       - ./autogen.sh
-      - ./configure
+      - ./configure || cat config.log
       - make dist
       - pushd src/frontends/android/app
       - sed -i -e '/android\ {/alintOptions\ {abortOnError\ false}' build.gradle
