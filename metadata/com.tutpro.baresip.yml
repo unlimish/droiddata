@@ -2843,17 +2843,16 @@ Builds:
     ndk: r25b
 
   - versionName: 49.1.2
-    versionCode: 238
-    commit: d5ecb0f3b367a79357eedcd9dd86485238a07e08
+    versionCode: 237
+    commit: 8cf77fa39039722b9dee2aef3bcd4c2583fce6f2
     subdir: app
+    submodules: true
     sudo:
       - apt-get update
       - apt-get install -y openjdk-11-jdk-headless wget
       - update-alternatives --auto java
     gradle:
       - yes
-    srclibs:
-      - libbaresip-android@26.0
     build:
       - pushd $$libbaresip-android$$
       - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
