@@ -342,13 +342,9 @@ Builds:
     versionCode: 35
     commit: v1.11.0
     subdir: app
-    sudo:
-      - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk-headless
-      - update-alternatives --auto java
     gradle:
       - yes
-    scanignore:
+    scandelete:
       - app/libs/*
 
 MaintainerNotes: |-
