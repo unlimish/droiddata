@@ -76,6 +76,16 @@ Builds:
       - sed -i -e "s/0.10.+/1.0.0/" $$PreferenceFragment$$/build.gradle
       - sed -i -e '/[Cc]rashlytics/d' build.gradle AndroidManifest.xml src/com/gh4a/Gh4Application.java
 
+  - versionName: 4.2.0
+    versionCode: 54
+    commit: v4.2.0
+    subdir: app
+    patch:
+      - 0001-remove-nonfree-dependencies.patch
+      - 0002-add-clientid-and-secret.patch
+    gradle:
+      - foss
+
   - versionName: 4.2.1
     versionCode: 55
     commit: v4.2.1
