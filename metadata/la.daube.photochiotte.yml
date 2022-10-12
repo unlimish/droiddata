@@ -465,12 +465,9 @@ Builds:
     subdir: app
     sudo:
       - apt-get update
-      - apt-get install -y nasm ninja-build meson
-      - apt-get install -y pkg-config libtool autoconf
-      - apt-get install -y automake make
+      - apt-get install -y autoconf automake libtool make nasm pkg-config meson ninja-build
     gradle:
       - flavorA
-    prebuild: sed -i -e 's/ndkVersion .*//' build.gradle
     build:
       - cd ..
       - bash dlbuild.sh all
