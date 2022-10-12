@@ -470,8 +470,7 @@ Builds:
       - apt-get install -y automake make
     gradle:
       - flavorA
-    prebuild:
-      - sed -i -e 's/ndkVersion .*//' build.gradle
+    prebuild: sed -i -e 's/ndkVersion .*//' build.gradle
     build:
       - cd ..
       - bash dlbuild.sh all
