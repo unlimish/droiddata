@@ -2855,8 +2855,8 @@ Builds:
     srclibs:
       - libbaresip-android@27.0
     build:
-      - pushd ../libbaresip-android
-      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|..|'
+      - pushd $$libbaresip-android$$
+      - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|../../com.tutpro.baresip|'
         Makefile
       - make download-sources
       - make install-all
