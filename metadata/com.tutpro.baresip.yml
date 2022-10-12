@@ -2844,7 +2844,7 @@ Builds:
 
   - versionName: 49.1.2
     versionCode: 238
-    commit: 8cf77fa39039722b9dee2aef3bcd4c2583fce6f2
+    commit: 7b5459ce318f10da01594a1ca8fe9b72e895288d
     subdir: app
     submodules: true
     sudo:
@@ -2853,7 +2853,8 @@ Builds:
       - apt-get install -t bullseye-backports cmake
     gradle:
       - yes
-    prebuild: sdkmanager
+    srclibs:
+      - libbaresip-android@27.0
     build:
       - pushd ../libbaresip-android
       - sed -i -e 's|/opt/Android/ndk/.*|$$NDK$$|' -e 's|/usr/src/baresip-studio|..|'
