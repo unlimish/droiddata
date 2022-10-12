@@ -9,17 +9,13 @@ IssueTracker: https://github.com/abh80/smart-edge/issues
 AutoName: Smart Edge
 
 RepoType: git
-Repo: https://github.com/abh80/smart-edge
+Repo: https://github.com/abh80/smart-edge.git
 
 Builds:
   - versionName: 2.2.2
     versionCode: 20202
     commit: 8f5ae29f43d6778d35dd0f17a12396d164b49522
     subdir: app
-    sudo:
-      - apt-get update || apt-get update
-      - apt-get install -y openjdk-11-jdk-headless
-      - update-alternatives --auto java
     gradle:
       - yes
 
