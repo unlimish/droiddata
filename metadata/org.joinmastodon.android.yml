@@ -1,0 +1,30 @@
+Categories:
+  - Connectivity
+  - Multimedia
+  - Internet
+License: GPL-3.0-or-later
+WebSite: https://joinmastodon.org
+SourceCode: https://github.com/mastodon/mastodon-android
+IssueTracker: https://github.com/mastodon/mastodon-android/issues
+
+AutoName: Mastodon
+
+RepoType: git
+Repo: https://github.com/mastodon/mastodon-android
+
+Builds:
+  - versionName: '1.0.3'
+    versionCode: 33
+    commit: e8eb12532ae81219f8ce7db31eb2d377f34c5b80
+    subdir: mastodon
+    sudo:
+      - apt-get update || apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '1.0.3'
+CurrentVersionCode: 33
