@@ -1204,8 +1204,6 @@ Builds:
       - ln -s -T $$android-ndk-boringssl$$ src/frontends/android/app/src/main/jni/openssl
       - cd ..
       - echo ndk.dir="$ANDROID_SDK/ndk/21.4.7075529" > strongswan/src/frontends/android/local.properties
-    scanignore:
-      - build/gradle-build-cache
     scandelete:
       - strongswan/testing
       - openvpn/src/main/cpp/lz4/tmp
@@ -1223,6 +1221,8 @@ Builds:
       - cd ../openvpn
       - gradle assembleRelease
       - rm -fr build/intermediates build/kotlin build/tmp .cxx
+      - cd ..
+      - rm -fr build/gradle-build-cache
     ndk: r23b
     gradleprops:
       - buildUniversalApk
