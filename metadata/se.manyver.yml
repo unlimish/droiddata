@@ -5,7 +5,7 @@ AuthorName: André Staltz
 AuthorEmail: andre@staltz.com
 AuthorWebSite: https://staltz.com/
 WebSite: https://manyver.se
-SourceCode: https://gitlab.com/staltz/manyverse/tree/HEAD
+SourceCode: https://gitlab.com/staltz/manyverse
 IssueTracker: https://gitlab.com/staltz/manyverse/issues
 Translation: https://gitlab.com/staltz/manyverse/-/blob/master/TRANSLATING.md
 Changelog: https://gitlab.com/staltz/manyverse/blob/HEAD/CHANGELOG.md
@@ -2817,8 +2817,8 @@ Builds:
     subdir: android/app
     sudo:
       - apt-get update
-      - apt-get install -y g++ g++-multilib make libtool npm python2 python-is-python2
-        autoconf automake libtool
+      - apt-get install -y g++ g++-multilib make autoconf automake libtool patch
+        npm python2 python-is-python2
       - sysctl fs.inotify.max_user_watches=524288
       - npm install -g react-native-cli
     init: npm install --no-optional
@@ -2845,15 +2845,10 @@ Builds:
       - node_modules/react-native-svg/android/build.gradle
       - node_modules/react-native-vector-icons/android/build.gradle
       - node_modules/@react-native-async-storage/async-storage/android/build.gradle
+      - node_modules/nodejs-mobile-react-native/android/libnode
     scandelete:
       - node_modules
     build:
-      - pushd $$NodejsMobile$$
-      - ./tools/android_build.sh $$NDK$$ arm > /dev/null
-      - ./tools/android_build.sh $$NDK$$ arm64 > /dev/null
-      - popd
-      - mv $$NodejsMobile$$/out_android/armeabi-v7a/libnode.so ../../node_modules/nodejs-mobile-react-native/android/libnode/bin/armeabi-v7a/libnode.so
-      - mv $$NodejsMobile$$/out_android/arm64-v8a/libnode.so ../../node_modules/nodejs-mobile-react-native/android/libnode/bin/arm64-v8a/libnode.so
       - npm run build-android-assets
     ndk: r21e
 
