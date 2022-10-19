@@ -22,29 +22,29 @@ RepoType: git
 Repo: https://git.openprivacy.ca/cwtch.im/cwtch-ui.git
 
 Builds:
-  - versionName: 1.8.0
-    versionCode: 30
-    commit: 4404977128fb62b2978f4a5f94bbc22af28bf80e
+  - versionName: 1.9.0
+    versionCode: 35
+    commit: 2d89b30881ae81808c1c6c1b7d4d4a77def06390
     sudo:
-      - apt-get update || apt-get update
-      - apt-get install -y autogen build-essential gcc-arm-linux-gnueabihf libevent-dev
-        openjdk-11-jdk-headless
-      - update-alternatives --auto java
+      - apt-get update
+      - apt-get install -y autoconf autogen automake autopoint autotools-dev build-essential
+        gcc-arm-linux-gnueabihf libevent-dev libtool libssl-dev m4 pkg-config zlib1g-dev
     output: build/app/outputs/apk/release/app-release-unsigned.apk
     srclibs:
       - flutter@3.0.5
-      - libcwtch-go@v1.8.0
-      - tor-android@0.4.6.9
+      - libcwtch-go@397d264bd9ff1cf0a83e62c5c079b3894c069250
+      - tor-android@3fd6787249dc83e8a1d3403043ae4ded0641977c
     prebuild:
+      - mkdir -p android/app/src/main/jniLibs/{arm64-v8a,armeabi-v7a,x86,x86_64}
       - sed -i -e '/InvalidPackage/aabortOnError false' android/app/build.gradle
       - sed -i -e 's/3.5.4/4.0.1/' android/build.gradle
       - echo `git describe --tags --abbrev=1` > VERSION
       - echo `date +%G-%m-%d-%H-%M` > BUILDDATE
-      - pushd $$tor-android$$
-      - sed -i -e  "/$1 = 'debug/,+4d" tor-droid-make.sh
+      - cd $$tor-android$$
+      - sed -i -e "/$1 = 'debug/,+4d" tor-droid-make.sh
+      - sed -i -e '/dirauth/a--disable-tool-name-check --disable-asciidoc --disable-manpage
+        --disable-html-manual \\' external/Makefile
       - ./tor-droid-make.sh fetch
-      - popd
-      - mkdir -p android/app/src/main/jniLibs/{arm64-v8a,armeabi-v7a,x86,x86_64}
     scandelete:
       - integration_test
     build:
@@ -56,19 +56,19 @@ Builds:
       - cp $$tor-android$$/external/lib/armeabi-v7a/libtor.so android/app/src/main/jniLibs/armeabi-v7a/
       - cp $$tor-android$$/external/lib/x86/libtor.so android/app/src/main/jniLibs/x86/
       - pushd $$libcwtch-go$$
-      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.4.linux-amd64.tar.gz
-      - echo "adab2483f644e2f8a10ae93122f0018cef525ca48d0b8764dae87cb5f4fd4206 go.tar.gz"
+      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.13.linux-amd64.tar.gz
+      - echo "4cdd2bc664724dc7db94ad51b503512c5ae7220951cac568120f64f8e94399fc go.tar.gz"
         | sha256sum -c -
       - tar xzf go.tar.gz
       - export GOPATH="$PWD/golang"
       - export GOPROXY=direct
       - export PATH="$GOPATH/bin:$PWD/go/bin:$PATH"
       - export ANDROID_NDK_HOME=$$NDK$$
-      - go install golang.org/x/mobile/cmd/gomobile@4e6c2922fdeed32d3596616518aaee7b0d79ce55
-      - go get cwtch.im/cwtch@v0.16.8
-      - go get git.openprivacy.ca/cwtch.im/server@v1.4.4
-      - go get github.com/mutecomm/go-sqlcipher/v4@v4.4.2
-      - go get golang.org/x/text@v0.3.7
+      - go mod download
+      - go get -u golang.org/x/mobile@bdb1ca9a1e083af5929a8214e8a056d638ebbf2d
+      - go get -u golang.org/x/mobile/cmd/gomobile
+      - go get -u golang.org/x/mobile/cmd/gobind
+      - go get -u golang.org/x/mobile/bind
       - ./switch-gomobile.sh
       - gomobile init
       - gomobile bind -target android -ldflags="-X cwtch.buildVer=$(git describe --tags)
@@ -79,10 +79,10 @@ Builds:
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk --dart-define BUILD_VER=`cat VERSION` --dart-define
         BUILD_DATE=`cat BUILDDATE`
-    ndk: r21e
+    ndk: r21
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.*\+(\d+)|.|version:\s(.*)\+
-CurrentVersion: 1.8.0
-CurrentVersionCode: 30
+CurrentVersion: 1.9.0
+CurrentVersionCode: 35
