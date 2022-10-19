@@ -27,8 +27,8 @@ Builds:
     commit: 2d89b30881ae81808c1c6c1b7d4d4a77def06390
     sudo:
       - apt-get update
-      - apt-get install -y autoconf autogen automake autopoint autotools-dev build-essential
-        gcc-arm-linux-gnueabihf libevent-dev libtool libssl-dev m4 pkg-config zlib1g-dev
+      - apt-get install -y autoconf autogen automake autopoint build-essential golang-1.17-go
+        gcc-arm-linux-gnueabihf libevent-dev libtool libssl-dev pkg-config zlib1g-dev
     output: build/app/outputs/apk/release/app-release-unsigned.apk
     srclibs:
       - flutter@3.0.5
@@ -38,8 +38,6 @@ Builds:
       - mkdir -p android/app/src/main/jniLibs/{arm64-v8a,armeabi-v7a,x86,x86_64}
       - sed -i -e '/InvalidPackage/aabortOnError false' android/app/build.gradle
       - sed -i -e 's/3.5.4/4.0.1/' android/build.gradle
-      - echo `git describe --tags --abbrev=1` > VERSION
-      - echo `date +%G-%m-%d-%H-%M` > BUILDDATE
       - cd $$tor-android$$
       - sed -i -e "/$1 = 'debug/,+4d" tor-droid-make.sh
       - sed -i -e '/dirauth/a--disable-tool-name-check --disable-asciidoc --disable-manpage
@@ -56,14 +54,9 @@ Builds:
       - cp $$tor-android$$/external/lib/armeabi-v7a/libtor.so android/app/src/main/jniLibs/armeabi-v7a/
       - cp $$tor-android$$/external/lib/x86/libtor.so android/app/src/main/jniLibs/x86/
       - pushd $$libcwtch-go$$
-      - curl -Lso go.tar.gz https://golang.org/dl/go1.17.13.linux-amd64.tar.gz
-      - echo "4cdd2bc664724dc7db94ad51b503512c5ae7220951cac568120f64f8e94399fc go.tar.gz"
-        | sha256sum -c -
-      - tar xzf go.tar.gz
       - export GOPATH="$PWD/golang"
       - export GOPROXY=direct
-      - export PATH="$GOPATH/bin:$PWD/go/bin:$PATH"
-      - export ANDROID_NDK_HOME=$$NDK$$
+      - export PATH="$GOPATH/bin:/usr/lib/go-1.17/bin:$PATH"
       - go mod download
       - go get -u golang.org/x/mobile@bdb1ca9a1e083af5929a8214e8a056d638ebbf2d
       - go get -u golang.org/x/mobile/cmd/gomobile
@@ -77,8 +70,8 @@ Builds:
       - mv $$libcwtch-go$$/cwtch.aar android/cwtch/
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
-      - $$flutter$$/bin/flutter build apk --dart-define BUILD_VER=`cat VERSION` --dart-define
-        BUILD_DATE=`cat BUILDDATE`
+      - $$flutter$$/bin/flutter build apk --dart-define BUILD_VER=`git describe --tags
+        --abbrev=1` --dart-define BUILD_DATE=`date +%G-%m-%d-%H-%M`
     ndk: r21
 
 AutoUpdateMode: Version
