@@ -1,0 +1,33 @@
+Categories:
+  - Money
+License: MIT
+SourceCode: https://github.com/dreautall/waterfly-iii
+IssueTracker: https://github.com/dreautall/waterfly-iii/issues
+
+AutoName: Waterfly III
+Description: WaterFly III, a mobile client for Firefly III
+
+RepoType: git
+Repo: https://github.com/dreautall/waterfly-iii
+
+Builds:
+  - versionName: 0.1.0-f-beta
+    versionCode: 42
+    commit: ece0d2eda04cf5ee109a6707421b76180e4dae70
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@stable
+    build:
+      - $$flutter$$/bin/dart --disable-analytics
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/dart format --set-exit-if-changed .
+      - $$flutter$$/bin/dart analyze .
+      - $$flutter$$/bin/flutter build apk --obfuscate --split-debug-info=build/app/outputs/symbols/apk
+        --release --build-number $$VERCODE$$ --build-name=$$VERSION$$
+
+AutoUpdateMode: Version %v
+UpdateCheckMode: HTTP
+UpdateCheckData: https://raw.githubusercontent.com/dreautall/waterfly-iii/master/fastlane/metadata/android/version.txt|versionCode=(\d+)|.|versionName=(.*)
+CurrentVersion: 0.1.0-f-beta
+CurrentVersionCode: 42
