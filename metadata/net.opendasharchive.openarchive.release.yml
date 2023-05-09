@@ -109,10 +109,6 @@ Builds:
     versionCode: 20529
     commit: 04d069fbb133370e1bd152e47f130fd6deab2d59
     subdir: app
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-11-jdk-headless
-      - update-alternatives --auto java
     gradle:
       - yes
     prebuild: sed -i -e 's/getDropboxKey()$/""/' build.gradle
