@@ -1,0 +1,28 @@
+Categories:
+  - Science & Education
+License: GPL-3.0-only
+AuthorName: Piotr Lange
+AuthorEmail: zpl20052020@protonmail.ch
+WebSite: https://piotrlange.de/
+SourceCode: https://github.com/PiotrZPL/PrimeCheck-android
+
+RepoType: git
+Repo: https://github.com/PiotrZPL/PrimeCheck-android
+
+Builds:
+  - versionName: 0.2.0
+    versionCode: 1
+    commit: 19a5e11d5a8b776515377197862825b5e196f3bf
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.3.7
+    rm:
+      - ios
+      - linux
+      - macos
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: None
+UpdateCheckMode: None
