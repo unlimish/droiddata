@@ -11,54 +11,12 @@ RepoType: git
 Repo: https://github.com/dreautall/waterfly-iii
 
 Builds:
-  - versionName: 0.1.7-beta
-    versionCode: 1096
-    commit: v0.1.7-beta
-    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
-    srclibs:
-      - flutter@3.10.3
-    prebuild:
-      - export PUB_CACHE=$(pwd)/.pub-cache
-      - $$flutter$$/bin/dart --disable-analytics
-      - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter pub get
-      - $$flutter$$/bin/dart format --set-exit-if-changed .
-      - $$flutter$$/bin/dart analyze .
-    scandelete:
-      - .pub-cache
-    build:
-      - export PUB_CACHE=$(pwd)/.pub-cache
-      - $$flutter$$/bin/flutter build apk --obfuscate --split-debug-info=build/app/outputs/symbols/apk
-        --release --split-per-abi --build-number $(($$VERCODE$$ - 1000)) --build-name=$$VERSION$$
-        --target-platform="android-arm"
-
-  - versionName: 0.1.7-beta
-    versionCode: 2096
-    commit: v0.1.7-beta
-    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
-    srclibs:
-      - flutter@3.10.3
-    prebuild:
-      - export PUB_CACHE=$(pwd)/.pub-cache
-      - $$flutter$$/bin/dart --disable-analytics
-      - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter pub get
-      - $$flutter$$/bin/dart format --set-exit-if-changed .
-      - $$flutter$$/bin/dart analyze .
-    scandelete:
-      - .pub-cache
-    build:
-      - export PUB_CACHE=$(pwd)/.pub-cache
-      - $$flutter$$/bin/flutter build apk --obfuscate --split-debug-info=build/app/outputs/symbols/apk
-        --release --split-per-abi --build-number $(($$VERCODE$$ - 2000)) --build-name=$$VERSION$$
-        --target-platform="android-arm64"
-
-  - versionName: 0.1.7-beta
-    versionCode: 4096
-    commit: v0.1.7-beta
+  - versionName: 0.1.8-beta
+    versionCode: 1081
+    commit: v0.1.8-beta
     output: build/app/outputs/flutter-apk/app-x86_64-release.apk
     srclibs:
-      - flutter@3.10.3
+      - flutter@3.10.4
     prebuild:
       - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/dart --disable-analytics
@@ -71,15 +29,57 @@ Builds:
     build:
       - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/flutter build apk --obfuscate --split-debug-info=build/app/outputs/symbols/apk
-        --release --split-per-abi --build-number $(($$VERCODE$$ - 4000)) --build-name=$$VERSION$$
+        --release --split-per-abi --build-number $(( ($$VERCODE$$ - 1)/10 )) --build-name=$$VERSION$$
         --target-platform="android-x64"
+
+  - versionName: 0.1.8-beta
+    versionCode: 1082
+    commit: v0.1.8-beta
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    srclibs:
+      - flutter@3.10.4
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/dart --disable-analytics
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/dart format --set-exit-if-changed .
+      - $$flutter$$/bin/dart analyze .
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --obfuscate --split-debug-info=build/app/outputs/symbols/apk
+        --release --split-per-abi --build-number $(( ($$VERCODE$$ - 2)/10 )) --build-name=$$VERSION$$
+        --target-platform="android-arm"
+
+  - versionName: 0.1.8-beta
+    versionCode: 1083
+    commit: v0.1.8-beta
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    srclibs:
+      - flutter@3.10.4
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/dart --disable-analytics
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/dart format --set-exit-if-changed .
+      - $$flutter$$/bin/dart analyze .
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --obfuscate --split-debug-info=build/app/outputs/symbols/apk
+        --release --split-per-abi --build-number $(( ($$VERCODE$$ - 3)/10 )) --build-name=$$VERSION$$
+        --target-platform="android-arm64"
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: HTTP
 VercodeOperation:
-  - 1 * 1000 + %c
-  - 2 * 1000 + %c
-  - 4 * 1000 + %c
+  - '%c * 10 + 1'
+  - '%c * 10 + 2'
+  - '%c * 10 + 3'
 UpdateCheckData: https://raw.githubusercontent.com/dreautall/waterfly-iii/master/fastlane/metadata/android/version.txt|versionCode=(\d+)|.|versionName=(.*)
-CurrentVersion: 0.1.7-beta
-CurrentVersionCode: 4096
+CurrentVersion: 0.1.8-beta
+CurrentVersionCode: 1083
