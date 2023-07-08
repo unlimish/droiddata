@@ -605,9 +605,24 @@ Builds:
       - yes
     ndk: r23b
 
-  - versionName: 1.9.7
-    versionCode: 77
-    commit: d471602ac126d936cc3f7fcd0eed11a6c1948fe2
+  - versionName: 1.9.9
+    versionCode: 79
+    commit: c065d21a84fafcfc54e9d8f2307694edc3bde019
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y -t bullseye-backports cmake
+      - apt-get install -y automake libsqlite3-dev libtool make ninja-build
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    ndk: r23b
+
+  - versionName: 1.9.10
+    versionCode: 80
+    commit: c6febb453199b880cfb8c5a9359826d64aa6a276
     subdir: app
     submodules: true
     sudo:
@@ -622,5 +637,5 @@ Builds:
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.9.7
-CurrentVersionCode: 77
+CurrentVersion: 1.9.10
+CurrentVersionCode: 80
