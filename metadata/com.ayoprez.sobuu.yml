@@ -22,17 +22,12 @@ Repo: https://gitlab.com/ayoprez/sobuu.git
 Builds:
   - versionName: 1.0.0
     versionCode: 1
-    commit: 014e0213b310dedf9eeff47de0953d7810510b9b
+    commit: 7e7db736006655403857e47085196eaf2f2980ae
     subdir: sobuu_androidApp
     sudo:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
       - update-alternatives --auto java
-      - touch /build/com.ayoprez.sobuu/local.properties
-      - echo 'PROD_API_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNpeHphaXpyeWppcWxoeW1rcG1mIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzk1MDQ0NjksImV4cCI6MTk5NTA4MDQ2OX0.bD8kv7qwY-tTLgoBBQ5Bm0Kbdm9QsogrFvuMeRU8fNI' >> ~/com.ayoprez.sobuu/local.properties
-      - echo '\n' >> ~/com.ayoprez.sobuu/local.properties
-      - echo 'PROD_API_URL=https://cixzaizryjiqlhymkpmf.functions.supabase.co/' >> ~/com.ayoprez.sobuu/local.properties
-      - echo '\n' >> ~/com.ayoprez.sobuu/local.properties
     gradle:
       - yes
 
