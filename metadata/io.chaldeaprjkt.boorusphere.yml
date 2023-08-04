@@ -1,0 +1,79 @@
+Categories:
+  - Multimedia
+  - Internet
+License: BSD-3-Clause
+AuthorName: Nauval Rizky
+AuthorEmail: enuma.alrizky@gmail.com
+SourceCode: https://github.com/nullxception/boorusphere
+IssueTracker: https://github.com/nullxception/boorusphere/issues
+Changelog: https://github.com/nullxception/boorusphere/releases
+
+AutoName: Boorusphere
+
+RepoType: git
+Repo: https://github.com/nullxception/boorusphere
+
+Builds:
+  - versionName: 1.4.1
+    versionCode: 1039
+    commit: 1.4.1
+    output: build/app/outputs/apk/release/app-armeabi-v7a-release.apk
+    srclibs:
+      - flutter@3.10.5
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/dart run slang
+      - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform=android-arm
+
+  - versionName: 1.4.1
+    versionCode: 2039
+    commit: 1.4.1
+    output: build/app/outputs/apk/release/app-arm64-v8a-release.apk
+    srclibs:
+      - flutter@3.10.5
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/dart run slang
+      - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform=android-arm64
+
+  - versionName: 1.4.1
+    versionCode: 4039
+    commit: 1.4.1
+    output: build/app/outputs/apk/release/app-x86_64-release.apk
+    srclibs:
+      - flutter@3.10.5
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter pub run build_runner build --delete-conflicting-outputs
+      - $$flutter$$/bin/dart run slang
+      - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform=android-x64
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+VercodeOperation:
+  - '1000 + %c'
+  - '2000 + %c'
+  - '4000 + %c'
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.4.1
+CurrentVersionCode: 39
