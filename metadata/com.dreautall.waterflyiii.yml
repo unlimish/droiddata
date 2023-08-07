@@ -11,9 +11,9 @@ RepoType: git
 Repo: https://github.com/dreautall/waterfly-iii
 
 Builds:
-  - versionName: 0.1.8-beta
-    versionCode: 1081
-    commit: v0.1.8-beta
+  - versionName: 0.1.10-beta
+    versionCode: 1351
+    commit: v0.1.10-beta
     output: build/app/outputs/flutter-apk/app-x86_64-release.apk
     srclibs:
       - flutter@3.10.4
@@ -30,9 +30,9 @@ Builds:
         --release --split-per-abi --build-number $(( $$VERCODE$$/10 )) --build-name=$$VERSION$$
         --target-platform="android-x64"
 
-  - versionName: 0.1.8-beta
-    versionCode: 1082
-    commit: v0.1.8-beta
+  - versionName: 0.1.10-beta
+    versionCode: 1352
+    commit: v0.1.10-beta
     output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
     srclibs:
       - flutter@3.10.4
@@ -49,9 +49,9 @@ Builds:
         --release --split-per-abi --build-number $(( $$VERCODE$$/10 )) --build-name=$$VERSION$$
         --target-platform="android-arm"
 
-  - versionName: 0.1.8-beta
-    versionCode: 1083
-    commit: v0.1.8-beta
+  - versionName: 0.1.10-beta
+    versionCode: 1353
+    commit: v0.1.10-beta
     output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
     srclibs:
       - flutter@3.10.4
@@ -75,5 +75,5 @@ VercodeOperation:
   - '%c * 10 + 2'
   - '%c * 10 + 3'
 UpdateCheckData: https://raw.githubusercontent.com/dreautall/waterfly-iii/master/fastlane/metadata/android/version.txt|versionCode=(\d+)|.|versionName=(.*)
-CurrentVersion: 0.1.8-beta
-CurrentVersionCode: 1083
+CurrentVersion: 0.1.10-beta
+CurrentVersionCode: 1353
