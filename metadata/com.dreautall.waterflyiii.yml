@@ -21,6 +21,7 @@ Builds:
       - apt-get install -y openjdk-17-jdk-headless
       - update-java-alternatives -a
     output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/dreautall/waterfly-iii/releases/download/v%v/app-x86_64-release.apk
     srclibs:
       - flutter@3.13.3
     prebuild:
@@ -44,6 +45,7 @@ Builds:
       - apt-get install -y openjdk-17-jdk-headless
       - update-java-alternatives -a
     output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/dreautall/waterfly-iii/releases/download/v%v/app-armeabi-v7a-release.apk
     srclibs:
       - flutter@3.13.3
     prebuild:
@@ -67,6 +69,7 @@ Builds:
       - apt-get install -y openjdk-17-jdk-headless
       - update-java-alternatives -a
     output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/dreautall/waterfly-iii/releases/download/v%v/app-arm64-v8a-release.apk
     srclibs:
       - flutter@3.13.3
     prebuild:
@@ -81,6 +84,8 @@ Builds:
       - $$flutter$$/bin/flutter build apk --obfuscate --split-debug-info=build/app/outputs/symbols/apk
         --release --split-per-abi --build-number $(( $$VERCODE$$/10 )) --build-name=$$VERSION$$
         --target-platform="android-arm64"
+
+AllowedAPKSigningKeys: b3b639d89f1bf02d4d9f9adc08bf60f792cebc36bfc13d81311a7413e7c867dc
 
 AutoUpdateMode: Version %v
 UpdateCheckMode: HTTP
