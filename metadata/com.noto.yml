@@ -15,13 +15,37 @@ AutoName: Noto
 
 RepoType: git
 Repo: https://github.com/alialbaali/Noto.git
-Binaries: https://github.com/alialbaali/Noto/releases/download/v%v/Noto.apk
+Binaries: https://github.com/alialbaali/Noto/releases/download/v%v/Noto-F-Droid.apk
 
 Builds:
   - versionName: 2.2.3
     versionCode: 54
     commit: v2.2.3.4
     subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.3.0
+    versionCode: 59
+    commit: v2.3.0
+    subdir: app
+
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.3.1
+    versionCode: 60
+    commit: v2.3.1
+    subdir: app
+
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
 
