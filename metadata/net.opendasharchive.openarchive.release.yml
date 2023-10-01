@@ -111,6 +111,9 @@ Builds:
     subdir: app
     gradle:
       - yes
+    prebuild:
+      - cat ../local.properties >> ../gradle.properties
+      - sed -i -e 's/local.properties/gradle.properties/' build.gradle
     scandelete:
       - art
 
