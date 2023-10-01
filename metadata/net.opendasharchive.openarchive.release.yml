@@ -79,6 +79,10 @@ Builds:
     versionCode: 20537
     commit: fe58470b8e63ced88d923b353592e88aea1d47f4
     subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
     init:
       - cat ../local.properties >> ../gradle.properties
       - sed -i -e 's/local.properties/gradle.properties/' build.gradle
