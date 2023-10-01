@@ -109,11 +109,11 @@ Builds:
     versionCode: 20529
     commit: 04d069fbb133370e1bd152e47f130fd6deab2d59
     subdir: app
-    gradle:
-      - yes
-    prebuild:
+    init:
       - cat ../local.properties >> ../gradle.properties
       - sed -i -e 's/local.properties/gradle.properties/' build.gradle
+    gradle:
+      - yes
     scandelete:
       - art
 
