@@ -85,6 +85,7 @@ Builds:
       - update-alternatives --auto java
     init:
       - cat ../local.properties >> ../gradle.properties
+      - sed -i -e 's/-XX:MaxPermSize=512m//' ../gradle.properties
       - sed -i -e 's/local.properties/gradle.properties/' build.gradle
     gradle:
       - yes
