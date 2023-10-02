@@ -86,9 +86,8 @@ Builds:
     gradle:
       - releaseflavor
     prebuild:
-      - cat ../local.properties >> ../gradle.properties
       - sed -i -e 's/-XX:MaxPermSize=512m//' ../gradle.properties
-      - sed -i -e 's/local.properties/gradle.properties/' -e '/gms/d' build.gradle
+      - sed -i -e '/gms/d' build.gradle
       - sed -i -e 's/org.proofmode/com.github.guardianproject.proofmode-android/'
         -e 's|https://raw.*master|https://jitpack.io|' -e '/android_libproofmode/s/1.0.26/0901a325b1/'
         ../build.gradle ../dependencies.gradle
