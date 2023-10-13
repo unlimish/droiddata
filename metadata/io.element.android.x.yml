@@ -30,7 +30,6 @@ Builds:
     output: build/outputs/apk/release/app-armeabi-v7a-release-unsigned.apk
     rm:
       - libraries/pushproviders/firebase
-      - tools/templates/file_templates.zip
     prebuild:
       - sed -i -e '/firebase.appdistribution/d' -e '/firebaseAppDistribution {/,+14d'
         -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
@@ -56,7 +55,6 @@ Builds:
     output: build/outputs/apk/release/app-arm64-v8a-release-unsigned.apk
     rm:
       - libraries/pushproviders/firebase
-      - tools/templates/file_templates.zip
     prebuild:
       - sed -i -e '/firebase.appdistribution/d' -e '/firebaseAppDistribution {/,+14d'
         -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
@@ -82,7 +80,6 @@ Builds:
     output: build/outputs/apk/release/app-x86-release-unsigned.apk
     rm:
       - libraries/pushproviders/firebase
-      - tools/templates/file_templates.zip
     prebuild:
       - sed -i -e '/firebase.appdistribution/d' -e '/firebaseAppDistribution {/,+14d'
         -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
@@ -108,7 +105,6 @@ Builds:
     output: build/outputs/apk/release/app-x86_64-release-unsigned.apk
     rm:
       - libraries/pushproviders/firebase
-      - tools/templates/file_templates.zip
     prebuild:
       - sed -i -e '/firebase.appdistribution/d' -e '/firebaseAppDistribution {/,+14d'
         -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
@@ -127,5 +123,5 @@ MaintainerNotes: Do not update unless requested by the Element team! The Element
 
 AutoUpdateMode: None
 UpdateCheckMode: Tags
-CurrentVersion: 0.2.3
-CurrentVersionCode: 40002034
+CurrentVersion: 0.2.4
+CurrentVersionCode: 40002044
