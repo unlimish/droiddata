@@ -13,9 +13,9 @@ RepoType: git
 Repo: https://github.com/dreautall/waterfly-iii
 
 Builds:
-  - versionName: 0.1.12-beta
-    versionCode: 1581
-    commit: v0.1.11-beta
+  - versionName: 0.2.1-beta
+    versionCode: 1801
+    commit: v0.2.1-beta
     sudo:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
@@ -23,7 +23,7 @@ Builds:
     output: build/app/outputs/flutter-apk/app-x86_64-release.apk
     binary: https://github.com/dreautall/waterfly-iii/releases/download/v%v/app-x86_64-release.apk
     srclibs:
-      - flutter@3.13.3
+      - flutter@3.13.6
     prebuild:
       - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/dart --disable-analytics
@@ -37,9 +37,9 @@ Builds:
         --release --split-per-abi --build-number $(( $$VERCODE$$/10 )) --build-name=$$VERSION$$
         --target-platform="android-x64"
 
-  - versionName: 0.1.12-beta
-    versionCode: 1582
-    commit: v0.1.11-beta
+  - versionName: 0.2.1-beta
+    versionCode: 1802
+    commit: v0.2.1-beta
     sudo:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
@@ -47,7 +47,7 @@ Builds:
     output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
     binary: https://github.com/dreautall/waterfly-iii/releases/download/v%v/app-armeabi-v7a-release.apk
     srclibs:
-      - flutter@3.13.3
+      - flutter@3.13.6
     prebuild:
       - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/dart --disable-analytics
@@ -61,9 +61,9 @@ Builds:
         --release --split-per-abi --build-number $(( $$VERCODE$$/10 )) --build-name=$$VERSION$$
         --target-platform="android-arm"
 
-  - versionName: 0.1.12-beta
-    versionCode: 1583
-    commit: v0.1.11-beta
+  - versionName: 0.2.1-beta
+    versionCode: 1803
+    commit: v0.2.1-beta
     sudo:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
@@ -71,7 +71,7 @@ Builds:
     output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
     binary: https://github.com/dreautall/waterfly-iii/releases/download/v%v/app-arm64-v8a-release.apk
     srclibs:
-      - flutter@3.13.3
+      - flutter@3.13.6
     prebuild:
       - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/dart --disable-analytics
@@ -94,5 +94,5 @@ VercodeOperation:
   - '%c * 10 + 2'
   - '%c * 10 + 3'
 UpdateCheckData: https://raw.githubusercontent.com/dreautall/waterfly-iii/master/fastlane/metadata/android/version.txt|versionCode=(\d+)|.|versionName=(.*)
-CurrentVersion: 0.1.12-beta
-CurrentVersionCode: 1583
+CurrentVersion: 0.2.1-beta
+CurrentVersionCode: 1803
