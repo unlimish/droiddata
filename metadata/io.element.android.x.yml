@@ -17,9 +17,9 @@ RepoType: git
 Repo: https://github.com/vector-im/element-x-android.git
 
 Builds:
-  - versionName: 0.3.1
-    versionCode: 40003011
-    commit: 07dfdb333b33a63563993f371d46be39ce6e0ee1
+  - versionName: 0.3.2
+    versionCode: 40003021
+    commit: 1952bfc8aad81e9ac8817de7c147067eae51154b
     subdir: app
     sudo:
       - apt-get update
@@ -31,9 +31,10 @@ Builds:
     rm:
       - libraries/pushproviders/firebase
     prebuild:
-      - sed -i -e '/firebase.appdistribution/d' -e '/firebaseAppDistribution {/,+14d'
-        -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
-        "x86", "arm64-v8a", "x86_64"/include("armeabi-v7a"/' -e '/ndk {/,+2d' build.gradle.kts
+      - sed -i -e '/plugins.firebaseAppDistribution/d' -e '/firebaseAppDistribution
+        {/,/^            }/d' -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
+        "x86", "arm64-v8a", "x86_64"/include("x86_64"/' -e '/ndk {/,/^        }/d'
+        build.gradle.kts
       - sed -i -e '/gms/d' ../build.gradle.kts
       - sed -i -e '/firebase/d' ../gradle/libs.versions.toml ../plugins/build.gradle.kts
         ../plugins/src/main/kotlin/extension/DependencyHandleScope.kt
@@ -42,9 +43,9 @@ Builds:
     scandelete:
       - plugins
 
-  - versionName: 0.3.1
-    versionCode: 40003012
-    commit: 07dfdb333b33a63563993f371d46be39ce6e0ee1
+  - versionName: 0.3.2
+    versionCode: 40003022
+    commit: 1952bfc8aad81e9ac8817de7c147067eae51154b
     subdir: app
     sudo:
       - apt-get update
@@ -56,9 +57,10 @@ Builds:
     rm:
       - libraries/pushproviders/firebase
     prebuild:
-      - sed -i -e '/firebase.appdistribution/d' -e '/firebaseAppDistribution {/,+14d'
-        -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
-        "x86", "arm64-v8a", "x86_64"/include("arm64-v8a"/' -e '/ndk {/,+2d' build.gradle.kts
+      - sed -i -e '/plugins.firebaseAppDistribution/d' -e '/firebaseAppDistribution
+        {/,/^            }/d' -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
+        "x86", "arm64-v8a", "x86_64"/include("x86_64"/' -e '/ndk {/,/^        }/d'
+        build.gradle.kts
       - sed -i -e '/gms/d' ../build.gradle.kts
       - sed -i -e '/firebase/d' ../gradle/libs.versions.toml ../plugins/build.gradle.kts
         ../plugins/src/main/kotlin/extension/DependencyHandleScope.kt
@@ -67,9 +69,9 @@ Builds:
     scandelete:
       - plugins
 
-  - versionName: 0.3.1
-    versionCode: 40003013
-    commit: 07dfdb333b33a63563993f371d46be39ce6e0ee1
+  - versionName: 0.3.2
+    versionCode: 40003023
+    commit: 1952bfc8aad81e9ac8817de7c147067eae51154b
     subdir: app
     sudo:
       - apt-get update
@@ -81,9 +83,10 @@ Builds:
     rm:
       - libraries/pushproviders/firebase
     prebuild:
-      - sed -i -e '/firebase.appdistribution/d' -e '/firebaseAppDistribution {/,+14d'
-        -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
-        "x86", "arm64-v8a", "x86_64"/include("x86"/' -e '/ndk {/,+2d' build.gradle.kts
+      - sed -i -e '/plugins.firebaseAppDistribution/d' -e '/firebaseAppDistribution
+        {/,/^            }/d' -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
+        "x86", "arm64-v8a", "x86_64"/include("x86_64"/' -e '/ndk {/,/^        }/d'
+        build.gradle.kts
       - sed -i -e '/gms/d' ../build.gradle.kts
       - sed -i -e '/firebase/d' ../gradle/libs.versions.toml ../plugins/build.gradle.kts
         ../plugins/src/main/kotlin/extension/DependencyHandleScope.kt
@@ -92,9 +95,9 @@ Builds:
     scandelete:
       - plugins
 
-  - versionName: 0.3.1
-    versionCode: 40003014
-    commit: 07dfdb333b33a63563993f371d46be39ce6e0ee1
+  - versionName: 0.3.2
+    versionCode: 40003024
+    commit: 1952bfc8aad81e9ac8817de7c147067eae51154b
     subdir: app
     sudo:
       - apt-get update
@@ -106,9 +109,10 @@ Builds:
     rm:
       - libraries/pushproviders/firebase
     prebuild:
-      - sed -i -e '/firebase.appdistribution/d' -e '/firebaseAppDistribution {/,+14d'
-        -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
-        "x86", "arm64-v8a", "x86_64"/include("x86_64"/' -e '/ndk {/,+2d' build.gradle.kts
+      - sed -i -e '/plugins.firebaseAppDistribution/d' -e '/firebaseAppDistribution
+        {/,/^            }/d' -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
+        "x86", "arm64-v8a", "x86_64"/include("x86_64"/' -e '/ndk {/,/^        }/d'
+        build.gradle.kts
       - sed -i -e '/gms/d' ../build.gradle.kts
       - sed -i -e '/firebase/d' ../gradle/libs.versions.toml ../plugins/build.gradle.kts
         ../plugins/src/main/kotlin/extension/DependencyHandleScope.kt
