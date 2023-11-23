@@ -33,7 +33,7 @@ Builds:
     prebuild:
       - sed -i -e '/plugins.firebaseAppDistribution/d' -e '/firebaseAppDistribution
         {/,/^            }/d' -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
-        "x86", "arm64-v8a", "x86_64"/include("x86_64"/' -e '/ndk {/,/^        }/d'
+        "x86", "arm64-v8a", "x86_64"/include("armeabi-v7a"/' -e '/ndk {/,/^        }/d'
         build.gradle.kts
       - sed -i -e '/gms/d' ../build.gradle.kts
       - sed -i -e '/firebase/d' ../gradle/libs.versions.toml ../plugins/build.gradle.kts
@@ -59,7 +59,7 @@ Builds:
     prebuild:
       - sed -i -e '/plugins.firebaseAppDistribution/d' -e '/firebaseAppDistribution
         {/,/^            }/d' -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
-        "x86", "arm64-v8a", "x86_64"/include("x86_64"/' -e '/ndk {/,/^        }/d'
+        "x86", "arm64-v8a", "x86_64"/include("arm64-v8a"/' -e '/ndk {/,/^        }/d'
         build.gradle.kts
       - sed -i -e '/gms/d' ../build.gradle.kts
       - sed -i -e '/firebase/d' ../gradle/libs.versions.toml ../plugins/build.gradle.kts
@@ -85,7 +85,7 @@ Builds:
     prebuild:
       - sed -i -e '/plugins.firebaseAppDistribution/d' -e '/firebaseAppDistribution
         {/,/^            }/d' -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
-        "x86", "arm64-v8a", "x86_64"/include("x86_64"/' -e '/ndk {/,/^        }/d'
+        "x86", "arm64-v8a", "x86_64"/include("x86"/' -e '/ndk {/,/^        }/d'
         build.gradle.kts
       - sed -i -e '/gms/d' ../build.gradle.kts
       - sed -i -e '/firebase/d' ../gradle/libs.versions.toml ../plugins/build.gradle.kts
