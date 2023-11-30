@@ -8,11 +8,10 @@ Categories:
   - Reading
 License: GPL-3.0-or-later
 AuthorName: Koitharu
-WebSite: https://kotatsuapp.github.io
+WebSite: https://kotatsu.app
 SourceCode: https://github.com/KotatsuApp/Kotatsu
 IssueTracker: https://github.com/KotatsuApp/Kotatsu/issues
 Translation: https://hosted.weblate.org/engage/kotatsu/
-Donate: https://yoomoney.ru/to/410012543938752
 
 Name: Kotatsu
 AutoName: Kotatsu
@@ -1003,7 +1002,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '6.4'
+    versionCode: 600
+    commit: 012eefe4fef8e21d9bf7c87a4a2dc4fff4c06f42
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 6.4.1
+    versionCode: 601
+    commit: 03426694c801aee7316871fdd8f5c0fd1f95dbb1
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]+$
-CurrentVersion: 6.3.1
-CurrentVersionCode: 598
+CurrentVersion: 6.4.1
+CurrentVersionCode: 601
