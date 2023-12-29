@@ -14,6 +14,7 @@ Repo: https://github.com/dreautall/waterfly-iii
 Builds:
   - versionName: 0.3.0-beta
     versionCode: 1991
+    disable: not reproducible
     commit: v0.3.0-beta
     sudo:
       - apt-get update
@@ -51,7 +52,6 @@ Builds:
         --target-platform="android-x64"
       - popd
       - mv $repo/waterfly-iii com.dreautall.waterflyiii
-      - cd com.dreautall.waterflyiii
 
   - versionName: 0.3.0-beta
     versionCode: 1992
@@ -60,22 +60,38 @@ Builds:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
       - update-java-alternatives -a
+      - mkdir -p /home/runner/
+      - chown vagrant /home/runner/
     output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
     binary: https://github.com/dreautall/waterfly-iii/releases/download/v%v/app-armeabi-v7a-release.apk
     srclibs:
       - flutter@3.13.9
     prebuild:
+      - export repo=/home/runner/work/waterfly-iii
+      - mkdir -p $repo
+      - cd ..
+      - mv com.dreautall.waterflyiii $repo/waterfly-iii
+      - pushd $repo/waterfly-iii
       - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/dart --disable-analytics
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
+      - popd
+      - mv $repo/waterfly-iii com.dreautall.waterflyiii
+      - cd com.dreautall.waterflyiii
     scandelete:
       - .pub-cache
     build:
+      - export repo=/home/runner/work/waterfly-iii
+      - cd ..
+      - mv com.dreautall.waterflyiii $repo/waterfly-iii
+      - pushd $repo/waterfly-iii
       - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/flutter build apk --obfuscate --split-debug-info=build/app/outputs/symbols/apk
         --release --split-per-abi --build-number $(( $$VERCODE$$/10 )) --build-name=$$VERSION$$
         --target-platform="android-arm"
+      - popd
+      - mv $repo/waterfly-iii com.dreautall.waterflyiii
 
   - versionName: 0.3.0-beta
     versionCode: 1993
@@ -84,22 +100,38 @@ Builds:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
       - update-java-alternatives -a
+      - mkdir -p /home/runner/
+      - chown vagrant /home/runner/
     output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
     binary: https://github.com/dreautall/waterfly-iii/releases/download/v%v/app-arm64-v8a-release.apk
     srclibs:
       - flutter@3.13.9
     prebuild:
+      - export repo=/home/runner/work/waterfly-iii
+      - mkdir -p $repo
+      - cd ..
+      - mv com.dreautall.waterflyiii $repo/waterfly-iii
+      - pushd $repo/waterfly-iii
       - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/dart --disable-analytics
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
+      - popd
+      - mv $repo/waterfly-iii com.dreautall.waterflyiii
+      - cd com.dreautall.waterflyiii
     scandelete:
       - .pub-cache
     build:
+      - export repo=/home/runner/work/waterfly-iii
+      - cd ..
+      - mv com.dreautall.waterflyiii $repo/waterfly-iii
+      - pushd $repo/waterfly-iii
       - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/flutter build apk --obfuscate --split-debug-info=build/app/outputs/symbols/apk
         --release --split-per-abi --build-number $(( $$VERCODE$$/10 )) --build-name=$$VERSION$$
         --target-platform="android-arm64"
+      - popd
+      - mv $repo/waterfly-iii com.dreautall.waterflyiii
 
 AllowedAPKSigningKeys: b3b639d89f1bf02d4d9f9adc08bf60f792cebc36bfc13d81311a7413e7c867dc
 
