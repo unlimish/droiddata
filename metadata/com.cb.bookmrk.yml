@@ -13,10 +13,12 @@ Builds:
     subdir: app
     sudo:
       - apt-get update
-      - apt-get install -y librsvg2-bin openjdk-17-jdk-headless
+      - apt-get install -y openjdk-17-jdk-headless
       - update-alternatives --auto java
     gradle:
       - yes
+    scandelete:
+      - build-logic/convention/build
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
