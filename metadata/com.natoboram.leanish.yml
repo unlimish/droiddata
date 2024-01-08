@@ -13,7 +13,6 @@ AutoName: Leanish
 
 RepoType: git
 Repo: https://github.com/NatoBoram/Leanish.git
-Binaries: https://github.com/NatoBoram/Leanish/releases/download/v%v/leanish-v%v.apk
 
 Builds:
   - versionName: 0.0.1
@@ -61,7 +60,6 @@ Builds:
     gradle:
       - yes
     output: build/outputs/apk/release/app-release-unsigned.apk
-    binary: https://github.com/NatoBoram/Leanish/releases/download/v%v/app-release.apk
     prebuild: sdkmanager --install "build-tools;33.0.2" "platforms;android-33"
     scandelete:
       - node_modules
@@ -86,12 +84,9 @@ Builds:
     gradle:
       - yes
     output: build/outputs/apk/release/app-release-unsigned.apk
-    binary: https://github.com/NatoBoram/Leanish/releases/download/v%v/app-release.apk
     prebuild: sdkmanager --install "build-tools;33.0.2" "platforms;android-33"
     scandelete:
       - node_modules
-
-AllowedAPKSigningKeys: dae27a8d5dc771341376c9661a1c68a7184782950ae1926f975bbc135c45854a
 
 MaintainerNotes: |-
   This app is build using Capacitor.
