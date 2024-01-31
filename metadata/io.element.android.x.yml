@@ -17,104 +17,81 @@ RepoType: git
 Repo: https://github.com/vector-im/element-x-android.git
 
 Builds:
-  - versionName: 0.4.1
-    versionCode: 40004011
-    commit: 3f0a42bcc25bae83f815159660dd852469628534
+  - versionName: 0.4.2
+    versionCode: 40004021
+    commit: d78ae8097fca72fc5a03be97c78bd72d46fef90e
     subdir: app
     sudo:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
       - update-java-alternatives -a
     gradle:
-      - yes
-    output: build/outputs/apk/release/app-armeabi-v7a-release-unsigned.apk
+      - fdroid
     rm:
       - libraries/pushproviders/firebase
-    prebuild:
-      - sed -i -e '/plugins.firebaseAppDistribution/d' -e '/firebaseAppDistribution
-        {/,/^            }/d' -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
-        "x86", "arm64-v8a", "x86_64"/include("armeabi-v7a"/' -e '/ndk {/,/^        }/d'
-        build.gradle.kts
-      - sed -i -e '/gms/d' ../build.gradle.kts
-      - sed -i -e '/firebase/d' ../gradle/libs.versions.toml ../plugins/build.gradle.kts
-        ../plugins/src/main/kotlin/extension/DependencyHandleScope.kt
+    prebuild: sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
+      "x86", "arm64-v8a", "x86_64")/("armeabi-v7a")/' -e '/ndk {/,/^        }/d' -e
+      '/gplayImplementation/d' build.gradle.kts
     scanignore:
       - settings.gradle.kts
     scandelete:
       - plugins
 
-  - versionName: 0.4.1
-    versionCode: 40004012
-    commit: 3f0a42bcc25bae83f815159660dd852469628534
+  - versionName: 0.4.2
+    versionCode: 40004022
+    commit: d78ae8097fca72fc5a03be97c78bd72d46fef90e
     subdir: app
     sudo:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
       - update-java-alternatives -a
     gradle:
-      - yes
-    output: build/outputs/apk/release/app-arm64-v8a-release-unsigned.apk
+      - fdroid
     rm:
       - libraries/pushproviders/firebase
-    prebuild:
-      - sed -i -e '/plugins.firebaseAppDistribution/d' -e '/firebaseAppDistribution
-        {/,/^            }/d' -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
-        "x86", "arm64-v8a", "x86_64"/include("arm64-v8a"/' -e '/ndk {/,/^        }/d'
-        build.gradle.kts
-      - sed -i -e '/gms/d' ../build.gradle.kts
-      - sed -i -e '/firebase/d' ../gradle/libs.versions.toml ../plugins/build.gradle.kts
-        ../plugins/src/main/kotlin/extension/DependencyHandleScope.kt
+    prebuild: sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
+      "x86", "arm64-v8a", "x86_64")/("arm64-v8a")/' -e '/ndk {/,/^        }/' -e '/gplayImplementation/d'
+      build.gradle.kts
     scanignore:
       - settings.gradle.kts
     scandelete:
       - plugins
 
-  - versionName: 0.4.1
-    versionCode: 40004013
-    commit: 3f0a42bcc25bae83f815159660dd852469628534
+  - versionName: 0.4.2
+    versionCode: 40004023
+    commit: d78ae8097fca72fc5a03be97c78bd72d46fef90e
     subdir: app
     sudo:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
       - update-java-alternatives -a
     gradle:
-      - yes
-    output: build/outputs/apk/release/app-x86-release-unsigned.apk
+      - fdroid
     rm:
       - libraries/pushproviders/firebase
-    prebuild:
-      - sed -i -e '/plugins.firebaseAppDistribution/d' -e '/firebaseAppDistribution
-        {/,/^            }/d' -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
-        "x86", "arm64-v8a", "x86_64"/include("x86"/' -e '/ndk {/,/^        }/d' build.gradle.kts
-      - sed -i -e '/gms/d' ../build.gradle.kts
-      - sed -i -e '/firebase/d' ../gradle/libs.versions.toml ../plugins/build.gradle.kts
-        ../plugins/src/main/kotlin/extension/DependencyHandleScope.kt
+    prebuild: sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
+      "x86", "arm64-v8a", "x86_64")/("x86")/' -e '/ndk {/,/^        }/d' -e '/gplayImplementation/d'
+      build.gradle.kts
     scanignore:
       - settings.gradle.kts
     scandelete:
       - plugins
 
-  - versionName: 0.4.1
-    versionCode: 40004014
-    commit: 3f0a42bcc25bae83f815159660dd852469628534
+  - versionName: 0.4.2
+    versionCode: 40004024
+    commit: d78ae8097fca72fc5a03be97c78bd72d46fef90e
     subdir: app
     sudo:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
       - update-java-alternatives -a
     gradle:
-      - yes
-    output: build/outputs/apk/release/app-x86_64-release-unsigned.apk
+      - fdroid
     rm:
       - libraries/pushproviders/firebase
-    prebuild:
-      - sed -i -e '/plugins.firebaseAppDistribution/d' -e '/firebaseAppDistribution
-        {/,/^            }/d' -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/include("armeabi-v7a",
-        "x86", "arm64-v8a", "x86_64"/include("x86_64"/' -e '/ndk {/,/^        }/d'
-        build.gradle.kts
-      - sed -i -e '/gms/d' ../build.gradle.kts
-      - sed -i -e '/firebase/d' ../gradle/libs.versions.toml ../plugins/build.gradle.kts
-        ../plugins/src/main/kotlin/extension/DependencyHandleScope.kt
+    prebuild: sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
+      "x86", "arm64-v8a", "x86_64")/("x86_64")/' -e '/ndk {/,/^        }/d' -e '/gplayImplementation/d'
+      build.gradle.kts
     scanignore:
       - settings.gradle.kts
     scandelete:
