@@ -12,13 +12,17 @@ Changelog: https://github.com/BasicAirData/GPSLogger/releases
 AutoName: GPS Logger
 
 RepoType: git
-Repo: https://github.com/BasicAirData/GPSLogger
+Repo: https://github.com/BasicAirData/GPSLogger.git
 
 Builds:
-  - versionName: 3.2.1
-    versionCode: 50
-    commit: v3.2.1
+  - versionName: 3.2.2
+    versionCode: 51
+    commit: 0d358e25a3d326c531bf4783b1e497a8e6b77684
     subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
     gradle:
       - yes
     rm:
@@ -27,5 +31,5 @@ Builds:
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.2.1
-CurrentVersionCode: 50
+CurrentVersion: 3.2.2
+CurrentVersionCode: 51
