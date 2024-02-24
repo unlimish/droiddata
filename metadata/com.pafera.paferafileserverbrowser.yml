@@ -7,40 +7,27 @@ SourceCode: https://codeberg.org/pafera/paferafileserverbrowser
 IssueTracker: https://codeberg.org/pafera/paferafileserverbrowser/issues
 
 AutoName: PaferaShare
-Summary: Runs a web file manager from your device to easily share files
+Summary: Runs a web based file manager from your device to easily share files
 
 RepoType: git
 Repo: https://codeberg.org/pafera/paferafileserverbrowser
 
 Builds:
   - versionName: 1.0.2
-    versionCode: 6
-    commit: v1.0
+    versionCode: 7
+    commit: de67b5f9f0858631bf5cb9f0552a86cc52cfb528
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@3.16.9
-    rm:
-      - ios
-      - linux
-      - macos
-      - web
-      - windows
     prebuild:
-      - version=$(sed -n -E "s/.*flutter-version:\ '(.*)'/\1/p" .github/workflows/release.yml)
-      - pushd $$flutter$$
-      - git checkout -f $version
-      - popd
       - export PUB_CACHE=$(pwd)/.pub-cache
-      - .flutter/bin/flutter config --no-analytics
-      - .flutter/bin/flutter pub get
-    scanignore:
-      - .flutter/bin/cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
     scandelete:
-      - .flutter
       - .pub-cache
     build:
       - export PUB_CACHE=$(pwd)/.pub-cache
-      - .flutter/bin/flutter build apk --release
+      - $$flutter$$/bin/flutter build apk --release
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
@@ -50,4 +37,4 @@ VercodeOperation:
   - '%c * 10 + 3'
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
 CurrentVersion: 1.0.2
-CurrentVersionCode: 6
+CurrentVersionCode: 7
