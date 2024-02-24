@@ -75,33 +75,24 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 0.2.4-RC-7
-    versionCode: 20437
-    disable: https://github.com/OpenArchive/Save-app-android/issues/320
-    commit: 2d70d53dc6416f025d9ae146a7e074e7251977b8
+  - versionName: 0.3.0-beta1
+    versionCode: 20538
+    commit: de2e936a6772a24366a2f5c7c1c5ee225a3c70e4
     subdir: app
     sudo:
       - apt-get update
-      - apt-get install -y openjdk-11-jdk-headless
+      - apt-get install -y openjdk-17-jdk-headless
       - update-alternatives --auto java
     gradle:
-      - yes
-    prebuild: sed -i -e 's/getDropboxKey()$/""/' build.gradle
-    scandelete:
-      - art
-
-  - versionName: 0.2.4-RC-10
-    versionCode: 20440
-    disable: https://github.com/OpenArchive/Save-app-android/issues/320
-    commit: 04d069fbb133370e1bd152e47f130fd6deab2d59
-    subdir: app
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-11-jdk-headless
-      - update-alternatives --auto java
-    gradle:
-      - yes
-    prebuild: sed -i -e 's/getDropboxKey()$/""/' build.gradle
+      - releaseflavor
+    prebuild:
+      - sed -i -e 's/-XX:MaxPermSize=512m//' ../gradle.properties
+      - sed -i -e '/gms/d' build.gradle
+      - sed -i -e 's/org.proofmode/com.github.guardianproject.proofmode-android/'
+        -e 's|https://raw.*master|https://jitpack.io|' -e '/android_libproofmode/s/1.0.26/0901a325b1/'
+        ../build.gradle ../dependencies.gradle
+      - sed -i -e '/gms/d' -e 's/ProviderInstaller.*//g' -e '/onProviderInstall/,/^    }/d'
+        src/main/java/net/opendasharchive/openarchive/MainActivity.kt
     scandelete:
       - art
 
@@ -110,7 +101,7 @@ MaintainerNotes: |
   https://github.com/OpenArchive/openarchive/releases/download/%v/openarchive-%v.apk
   but doesn't verify, so this is included via the normal process.
 
-AutoUpdateMode: None
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: config.gradle|versionCode\s+:\s(\d+)|.|versionName\s+:\s'(.+)'
 CurrentVersion: 0.3.1-alpha2
