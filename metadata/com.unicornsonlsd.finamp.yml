@@ -9,7 +9,7 @@ Changelog: https://github.com/UnicornsOnLSD/finamp/releases
 AutoName: Finamp
 
 RepoType: git
-Repo: https://github.com/UnicornsOnLSD/finamp
+Repo: https://github.com/UnicornsOnLSD/finamp.git
 
 Builds:
   - versionName: 0.6.4
@@ -186,8 +186,76 @@ Builds:
       - ./flutterw build apk
     ndk: r21
 
+  - versionName: 0.6.15
+    versionCode: 36
+    commit: c57bc1293cf422f2f1e29ab9efaef05ec744d8c7
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - ios
+    prebuild:
+      - sed -i -e '/signingConfig /,/minifyEnabled/d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutterw config --no-analytics
+      - ./flutterw packages pub get
+    scanignore:
+      - .flutter/packages/flutter_tools/gradle/flutter.gradle
+      - .flutter/bin/cache
+    scandelete:
+      - .flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutterw build apk
+    ndk: r21
+
+  - versionName: 0.6.17
+    versionCode: 38
+    commit: 4e9ede8a609cbcbd3a048c613b9d5302beeae250
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - ios
+    prebuild:
+      - sed -i -e '/signingConfig /,/minifyEnabled/d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutterw config --no-analytics
+      - ./flutterw packages pub get
+    scanignore:
+      - .flutter/packages/flutter_tools/gradle/flutter.gradle
+      - .flutter/bin/cache
+    scandelete:
+      - .flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutterw build apk
+    ndk: r21
+
+  - versionName: 0.6.18
+    versionCode: 39
+    commit: de47df82aba04b9d989c0da0f9483a3a0d4b11f1
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - ios
+    prebuild:
+      - sed -i -e '/signingConfig /,/minifyEnabled/d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutterw config --no-analytics
+      - ./flutterw packages pub get
+    scanignore:
+      - .flutter/bin/cache
+    scandelete:
+      - .flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutterw build apk
+    ndk: r21
+
 AutoUpdateMode: Version
-UpdateCheckMode: Tags
+UpdateCheckMode: Tags .*[0-9]$
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 0.6.14
-CurrentVersionCode: 32
+CurrentVersion: 0.6.18
+CurrentVersionCode: 39

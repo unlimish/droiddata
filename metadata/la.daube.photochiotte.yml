@@ -675,7 +675,196 @@ Builds:
         .
     ndk: r25c
 
+  - versionName: '1.41'
+    versionCode: 42
+    commit: 06851aed5b0b8c8bc368f6ca4ea9f22979d86149
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+      - apt-get install -y meson ninja-build -t bullseye-backports
+      - apt-get install -y autoconf automake libtool make nasm pkg-config autopoint
+        cmake
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r25c
+
+  - versionName: '1.42'
+    versionCode: 43
+    commit: 429e4531e7ef46858787caca68ba2bdc3d7fd93b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+      - apt-get install -y meson ninja-build -t bullseye-backports
+      - apt-get install -y autoconf automake libtool make nasm pkg-config autopoint
+        cmake
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=21 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r25c
+
+  - versionName: '1.43'
+    versionCode: 44
+    commit: 59f71275ec875b2172da76e8d420796a3c32395b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+      - apt-get install -y meson ninja-build -t bullseye-backports
+      - apt-get install -y autoconf automake libtool make nasm pkg-config autopoint
+        cmake
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=24 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r26
+
+  - versionName: '1.44'
+    versionCode: 45
+    commit: 178b651e5ff7cc13c7c1e357bdd0316e099b05ec
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+      - apt-get install -y meson ninja-build -t bullseye-backports
+      - apt-get install -y autoconf automake libtool make nasm pkg-config autopoint
+        cmake
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=24 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r26b
+
+  - versionName: '1.45'
+    versionCode: 46
+    commit: 9c6a38cbeb5173f1ef9cb851f4315d42bddab35d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+      - apt-get install -y meson ninja-build -t bullseye-backports
+      - apt-get install -y autoconf automake libtool make nasm pkg-config autopoint
+        cmake
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=24 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r26b
+
+  - versionName: '1.46'
+    versionCode: 47
+    commit: 88f91d90f6fd9f4061dc11cd142c4c86df502d40
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+      - apt-get install -y meson ninja-build -t bullseye-backports
+      - apt-get install -y autoconf automake libtool make nasm pkg-config autopoint
+        cmake
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=24 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r26b
+
+  - versionName: '1.47'
+    versionCode: 48
+    commit: d4cca0c3cb2e9fda73da1b607380c4f1920d68f1
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+      - apt-get install -y meson ninja-build -t bullseye-backports
+      - apt-get install -y autoconf automake libtool make nasm pkg-config autopoint
+        cmake python3-markupsafe python3-jsonschema python3-jinja2 gperf
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=24 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r26b
+
+  - versionName: '1.48'
+    versionCode: 49
+    commit: cd98494ef76cf68400b2dba70573e41459ad9617
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+      - apt-get install -y meson ninja-build -t bullseye-backports
+      - apt-get install -y autoconf automake libtool make nasm pkg-config autopoint
+        cmake python3-markupsafe python3-jsonschema python3-jinja2 gperf
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=24 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r26b
+
+  - versionName: '1.49'
+    versionCode: 50
+    commit: 14d6379583bfcddd7aa2f8ee7b44056823c55e77
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+      - apt-get install -y meson ninja-build -t bullseye-backports
+      - apt-get install -y autoconf automake libtool make nasm pkg-config autopoint
+        cmake python3-markupsafe python3-jsonschema python3-jinja2 gperf
+    gradle:
+      - flavorA
+    build:
+      - cd ..
+      - bash dlbuild.sh all
+      - cd app/src/main/cpp
+      - cmake -DANDROID_NATIVE_API_LEVEL=24 -DCMAKE_TOOLCHAIN_FILE=$$NDK$$/build/cmake/android.toolchain.cmake
+        .
+    ndk: r26b
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.40'
-CurrentVersionCode: 41
+CurrentVersion: '1.49'
+CurrentVersionCode: 50

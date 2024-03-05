@@ -181,8 +181,8 @@ Builds:
     subdir: News-Android-App
     submodules: true
     init: sed -i -e '/ANDROID_BUILD_TOOLS_VERSION/d' -e '/ANDROID_BUILD_SDK_VERSION/abuildToolsVersion
-        "21"' build.gradle ../ownCloud-Account-Importer/build.gradle ../MessageBar/build.gradle
-        ../Changeloglib/ChangeLogLibrary/build.gradle
+      "21"' build.gradle ../ownCloud-Account-Importer/build.gradle ../MessageBar/build.gradle
+      ../Changeloglib/ChangeLogLibrary/build.gradle
     gradle:
       - yes
     rm:
@@ -202,8 +202,8 @@ Builds:
     subdir: News-Android-App
     submodules: true
     init: sed -i -e '/ANDROID_BUILD_TOOLS_VERSION/d' -e '/ANDROID_BUILD_SDK_VERSION/abuildToolsVersion
-        "21"' build.gradle ../ownCloud-Account-Importer/build.gradle ../MessageBar/build.gradle
-        ../Changeloglib/ChangeLogLibrary/build.gradle
+      "21"' build.gradle ../ownCloud-Account-Importer/build.gradle ../MessageBar/build.gradle
+      ../Changeloglib/ChangeLogLibrary/build.gradle
     gradle:
       - yes
     rm:
@@ -365,7 +365,7 @@ Builds:
     subdir: News-Android-App
     submodules: true
     init: sed -i -e '/ANDROID_BUILD_TOOLS_VERSION/d' -e '/ANDROID_BUILD_SDK_VERSION/abuildToolsVersion
-        "24"' build.gradle ../ownCloud-Account-Importer/build.gradle ../Changeloglib/ChangeLogLibrary/build.gradle
+      "24"' build.gradle ../ownCloud-Account-Importer/build.gradle ../Changeloglib/ChangeLogLibrary/build.gradle
     gradle:
       - yes
 
@@ -375,7 +375,7 @@ Builds:
     subdir: News-Android-App
     submodules: true
     init: sed -i -e '/ANDROID_BUILD_TOOLS_VERSION/d' -e '/ANDROID_BUILD_SDK_VERSION/abuildToolsVersion
-        "24"' build.gradle ../ownCloud-Account-Importer/build.gradle ../Changeloglib/ChangeLogLibrary/build.gradle
+      "24"' build.gradle ../ownCloud-Account-Importer/build.gradle ../Changeloglib/ChangeLogLibrary/build.gradle
     gradle:
       - yes
 
@@ -385,7 +385,7 @@ Builds:
     subdir: News-Android-App
     submodules: true
     init: sed -i -e '/ANDROID_BUILD_TOOLS_VERSION/d' -e '/ANDROID_BUILD_SDK_VERSION/abuildToolsVersion
-        "24"' build.gradle ../ownCloud-Account-Importer/build.gradle ../Changeloglib/ChangeLogLibrary/build.gradle
+      "24"' build.gradle ../ownCloud-Account-Importer/build.gradle ../Changeloglib/ChangeLogLibrary/build.gradle
     gradle:
       - yes
 
@@ -1693,7 +1693,64 @@ Builds:
       - cp -a $$JavaOptionClass$$/src/ src/
       - sed -i -e '/com.gu.option/s/#-keep class/-dontwarn/g' proguard-rules.pro
 
+  - versionName: 0.9.9.82
+    versionCode: 186
+    commit: 0e8e3c150bce16f56f0246b44bed21ab1ceaa252
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a31d68b38130e8dc9cb007c7d975195148
+    prebuild:
+      - sed -i -e '/guardian.github.io/d' -e '/dirchooser/a exclude group:"com.gu",
+        module:"option"' build.gradle
+      - cp -a $$JavaOptionClass$$/src/ src/
+      - sed -i -e '/com.gu.option/s/#-keep class/-dontwarn/g' proguard-rules.pro
+
+  - versionName: 0.9.9.83
+    versionCode: 187
+    commit: b23cf2a9eb7fbefeba0891e3b85f2257a26da4b6
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a31d68b38130e8dc9cb007c7d975195148
+    prebuild:
+      - sed -i -e '/guardian.github.io/d' -e '/dirchooser/a exclude group:"com.gu",
+        module:"option"' build.gradle
+      - cp -a $$JavaOptionClass$$/src/ src/
+      - sed -i -e '/com.gu.option/s/#-keep class/-dontwarn/g' proguard-rules.pro
+
+  - versionName: 0.9.9.84
+    versionCode: 188
+    commit: 1c05c70e772c5f4485a940b5b925db6d6ccebbeb
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a31d68b38130e8dc9cb007c7d975195148
+    prebuild:
+      - sed -i -e '/guardian.github.io/d' -e '/dirchooser/a exclude group:"com.gu",
+        module:"option"' build.gradle
+      - cp -a $$JavaOptionClass$$/src/ src/
+      - sed -i -e '/com.gu.option/s/#-keep class/-dontwarn/g' proguard-rules.pro
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 0.9.9.81
-CurrentVersionCode: 185
+CurrentVersion: 0.9.9.84
+CurrentVersionCode: 188

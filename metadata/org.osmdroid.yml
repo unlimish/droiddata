@@ -31,7 +31,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e 's/4.2-SNAPSHOT/4.2/g' -e 's/android.support:compatibility-v4/com.android.support:support-v4/g'
-        build.gradle
+      build.gradle
 
   - versionName: 6.0.1
     versionCode: 31
@@ -95,8 +95,28 @@ Builds:
       - testzoom4.zip
       - OSMMapTilePackager/fr_mapnik_12.zip
 
+  - versionName: 6.1.17
+    versionCode: 53
+    commit: a40150d07ead36a61227cb398b141d80277b9a3a
+    subdir: OpenStreetMapViewer
+    gradle:
+      - yes
+    rm:
+      - testzoom4.zip
+      - OSMMapTilePackager/fr_mapnik_12.zip
+
+  - versionName: 6.1.18
+    versionCode: 54
+    commit: 05123e524f717cbd2667bdc51541f2ceed39d003
+    subdir: OpenStreetMapViewer
+    gradle:
+      - yes
+    rm:
+      - testzoom4.zip
+      - OSMMapTilePackager/fr_mapnik_12.zip
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags osmdroid-parent-
 UpdateCheckData: gradle.properties|android\.versionCode=(\d+)|.|pom\.version=(.*)
-CurrentVersion: 6.1.16
-CurrentVersionCode: 52
+CurrentVersion: 6.1.18
+CurrentVersionCode: 54

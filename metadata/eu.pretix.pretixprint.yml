@@ -1,5 +1,6 @@
 AntiFeatures:
-  - Tracking
+  Tracking:
+    en-US: Sentry is used and cannot be disabled by the user.
 Categories:
   - Multimedia
 License: GPL-3.0-only
@@ -11,8 +12,8 @@ IssueTracker: https://github.com/pretix/pretixprint-android/issues
 
 AutoName: pretixPRINT
 Description: |-
-    Android app that drives the printers used by other pretix applications. This contains all print logic, but no application logic. It is called by other applications using system broadcasts.
-    Tracking due to Sentry which cannot be disabled by the user.
+  Android app that drives the printers used by other pretix applications. This contains all print logic, but no application logic. It is called by other applications using system broadcasts.
+  Tracking due to Sentry which cannot be disabled by the user.
 
 RepoType: git
 Repo: https://github.com/pretix/pretixprint-android
@@ -366,7 +367,39 @@ Builds:
     gradle:
       - foss
 
+  - versionName: 2.16.0-foss
+    versionCode: 61
+    commit: b769d485e9a4492fa1a6649c1c40ce07c6f1d170
+    subdir: pretixprint/app
+    submodules: true
+    gradle:
+      - foss
+
+  - versionName: 2.16.1-foss
+    versionCode: 62
+    commit: c960d38effb53451d780c07c03eac752f1ea1be5
+    subdir: pretixprint/app
+    submodules: true
+    gradle:
+      - foss
+
+  - versionName: 2.16.2-foss
+    versionCode: 63
+    commit: f4715b8191c7d1f1c6df897abad4dccc874ecab9
+    subdir: pretixprint/app
+    submodules: true
+    gradle:
+      - foss
+
+  - versionName: 2.16.3-foss
+    versionCode: 64
+    commit: 18a0eb4dc355d1719a22e13587c9df5f36ff9270
+    subdir: pretixprint/app
+    submodules: true
+    gradle:
+      - foss
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.14.3-foss
-CurrentVersionCode: 59
+CurrentVersion: 2.16.3-foss
+CurrentVersionCode: 64

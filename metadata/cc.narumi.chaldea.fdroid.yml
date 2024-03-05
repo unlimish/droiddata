@@ -8,9 +8,9 @@ AuthorEmail: chaldea@narumi.cc
 WebSite: https://docs.chaldea.center
 SourceCode: https://github.com/chaldea-center/chaldea
 IssueTracker: https://github.com/chaldea-center/chaldea/issues
-Translation: https://docs.chaldea.center/translation.html#ui-text
+Translation: https://docs.chaldea.center/guide/translation#ui-text
 Changelog: https://github.com/chaldea-center/chaldea/releases
-Donate: https://docs.chaldea.center/donation
+Donate: https://docs.chaldea.center/guide/donation
 
 AutoName: chaldea
 
@@ -223,7 +223,7 @@ Builds:
       - web
       - windows
     prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
-        'cmake;3.10.2.4988404'
+      'cmake;3.10.2.4988404'
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --flavor fdroid
@@ -246,7 +246,7 @@ Builds:
       - web
       - windows
     prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
-        'cmake;3.10.2.4988404'
+      'cmake;3.10.2.4988404'
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --flavor fdroid
@@ -695,8 +695,559 @@ Builds:
       - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/flutter build apk --flavor fdroid
 
+  - versionName: 2.4.6
+    versionCode: 946
+    commit: 788cc24c28e305ab17da65e456648a6f87de3a69
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.4.7
+    versionCode: 947
+    commit: 87bcbe906e6f57daf715beac48d468c72c783dc4
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.4.8
+    versionCode: 948
+    commit: cf70463b36ffe5ed5dbad3d8a47e7ccef43a2c65
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.4.9
+    versionCode: 949
+    commit: 4b13f023b7a72441dffe589c4999ffa4ac11d711
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.4.10
+    versionCode: 950
+    commit: 5b6b44bb157ec845e2d6cc3421b6ad3e8d311d9a
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.4.11
+    versionCode: 951
+    commit: a487f3c67d6323418abc8e47926fc4d3d263ebca
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.4.12
+    versionCode: 952
+    commit: 3e9d7366f1911c8f1cce1e103cd29f2a95797473
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.4.14
+    versionCode: 954
+    commit: b96198690b1640e95fce631baf8d7da769245e68
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.4.15
+    versionCode: 955
+    commit: c747f7d29238db6c0b0c459f1625fcfdb2e7a851
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.4.17
+    versionCode: 957
+    commit: bd61ab8696d62d3c4b228376cd771dd92ee3b62d
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.4.18
+    versionCode: 958
+    commit: 10f54eb1347352004a6aee6b2ad7a1fd7fdc9dfd
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.4.19
+    versionCode: 959
+    commit: f468fb5be5c86cf527cb4cbd0d77c97337ec1c2e
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.4.20
+    versionCode: 960
+    commit: 46597e9df2d6f6df69fc8932c0099b7df111d995
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.5.0
+    versionCode: 961
+    commit: eecbf37beb1d2b245556d7b92c43fbfe25e2dc0f
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.5.1
+    versionCode: 962
+    commit: f421f0f842552d683e374964e756b39b1b5482d4
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.5.2
+    versionCode: 963
+    commit: ff5a96236ab002c344c0d5dd073c6ca3281255ba
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.5.3
+    versionCode: 964
+    commit: 7155576a8cdc9e478a2bd860372637c98c0dbf1b
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.5.4
+    versionCode: 965
+    commit: 5180e28ed170e5d8b4dc290553f61b2937ae69c8
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 2.5.5
+    versionCode: 966
+    commit: e089464a2b49a30655cabd859653c8e9d58ba7b3
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "\ \ FLUTTER_VERSION" .github/workflows/deploy-github-release.yml
+        | cut -d "\"" -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - sdkmanager 'cmake;3.10.2.4988404'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
 AutoUpdateMode: Version
-UpdateCheckMode: Tags
+UpdateCheckMode: Tags ^v[\d.]+
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 2.4.5
-CurrentVersionCode: 945
+CurrentVersion: 2.5.5
+CurrentVersionCode: 966

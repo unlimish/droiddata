@@ -37,7 +37,19 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version
+  - versionName: 1.1.5
+    versionCode: 8
+    disable: https://github.com/DavidBerdik/MACsposed/issues/8
+    commit: 851e0bb814be649a28fcbb81aa4daa07e4cbcba2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: None
 UpdateCheckMode: Tags
-CurrentVersion: 1.1.3
-CurrentVersionCode: 6
+CurrentVersion: 1.1.5
+CurrentVersionCode: 8

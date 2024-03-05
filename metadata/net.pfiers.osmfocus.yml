@@ -8,7 +8,7 @@ Donate: https://pfiers.net/donate
 AutoName: OSMfocus Reborn
 
 RepoType: git
-Repo: https://github.com/ubipo/osmfocus
+Repo: https://github.com/ubipo/osmfocus.git
 
 Builds:
   - versionName: 1.0.0
@@ -124,7 +124,19 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 1.5.1-fdroid
+    versionCode: 151
+    commit: 3963320bfc946d4263e57defbdd603ba45c8aa98
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/kotlinx/d' -e '/r8-releases/d' ../build.gradle.kts
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.5.0-fdroid
-CurrentVersionCode: 150
+CurrentVersion: 1.5.1-fdroid
+CurrentVersionCode: 151

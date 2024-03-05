@@ -9,11 +9,11 @@ Bitcoin: 1BXS5qPhJzhr5iK5nmNDSmoLDfB6VmN5hv
 
 AutoName: Termux:Styling
 Description: |-
-    This plugin for https://f-droid.org/packages/com.termux provides beautiful color schemes and
-    powerline-ready fonts to customize the appearance of the terminal.
+  This plugin for https://f-droid.org/packages/com.termux provides beautiful color schemes and
+  powerline-ready fonts to customize the appearance of the terminal.
 
-    Long-press anywhere on the Termux terminal and use the "Style" menu entry to use
-    after installation.
+  Long-press anywhere on the Termux terminal and use the "Style" menu entry to use
+  after installation.
 
 RepoType: git
 Repo: https://github.com/termux/termux-styling
@@ -159,7 +159,19 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '0.31'
+    versionCode: 31
+    commit: 66602f7bb5154c2801ab8ed23e8bd48e36f0060c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/android {/a lintOptions{abortOnError false}' build.gradle
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '0.30'
-CurrentVersionCode: 30
+CurrentVersion: '0.31'
+CurrentVersionCode: 31

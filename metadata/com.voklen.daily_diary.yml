@@ -6,6 +6,7 @@ AuthorName: Alex Gorichev
 AuthorEmail: Alex.Gorichev@protonmail.com
 SourceCode: https://github.com/Voklen/Daily-Diary
 IssueTracker: https://github.com/Voklen/Daily-Diary/issues
+Changelog: https://github.com/Voklen/Daily-Diary/releases
 
 AutoName: Daily Diary
 
@@ -205,8 +206,125 @@ Builds:
       - export PUB_CACHE=$(pwd)/.pub-cache
       - submodules/flutter/bin/flutter build apk --release
 
+  - versionName: 1.3.0
+    versionCode: 10
+    commit: 8b3fc448234780c207f793467047973fba03e264
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - ios
+      - linux
+      - macos
+      - windows
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+    scanignore:
+      - submodules/flutter/packages/flutter_tools/gradle/flutter.gradle
+      - submodules/flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - submodules/flutter
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter build apk --release
+
+  - versionName: 1.3.1
+    versionCode: 11
+    commit: b5ab146ab7e2d8796746313244fecc6e5f5430c6
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - ios
+      - linux
+      - macos
+      - windows
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+    scanignore:
+      - submodules/flutter/packages/flutter_tools/gradle/flutter.gradle
+      - submodules/flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - submodules/flutter
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter build apk --release
+
+  - versionName: 1.4.1
+    versionCode: 13
+    commit: 42419842b9c4c72cf2cd530ba8a8b65cdc74247f
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - ios
+      - linux
+      - macos
+      - windows
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - submodules/flutter
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter build apk --release
+
+  - versionName: 1.4.2
+    versionCode: 14
+    commit: 61483feb582e173259f1a8df556a7723a5755c4d
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - ios
+      - linux
+      - macos
+      - windows
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - submodules/flutter
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter build apk --release
+
+  - versionName: 1.4.3
+    versionCode: 15
+    commit: 416aa61d432aa3a5d8f25357fe427955f9b6e444
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - ios
+      - linux
+      - macos
+      - windows
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - submodules/flutter
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter build apk --release
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.2.5
-CurrentVersionCode: 9
+CurrentVersion: 1.4.3
+CurrentVersionCode: 15

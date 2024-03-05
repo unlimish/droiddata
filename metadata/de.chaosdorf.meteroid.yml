@@ -7,9 +7,9 @@ Changelog: https://github.com/chaosdorf/meteroid/releases
 
 AutoName: meteroid
 Description: |-
-    <a href="https://github.com/chaosdorf/mete">Mete</a> is a system to have donations prepaid.
-    You can create an account and deposit money. Later you can use your account
-    balance to buy drinks and snacks.
+  <a href="https://github.com/chaosdorf/mete">Mete</a> is a system to have donations prepaid.
+  You can create an account and deposit money. Later you can use your account
+  balance to buy drinks and snacks.
 
 RepoType: git
 Repo: https://github.com/chaosdorf/meteroid.git
@@ -178,7 +178,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.15.0
+    versionCode: 58
+    commit: 66aedae1c8d3deaf0ce712492a7d00dca2817867
+    subdir: meteroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.14.0
-CurrentVersionCode: 57
+CurrentVersion: 2.15.0
+CurrentVersionCode: 58

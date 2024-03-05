@@ -134,10 +134,9 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 1.8.0
-    versionCode: 24
-    disable: not RB
-    commit: b6c6bb8fa5fb3aaf92398242f97e62589948b5d7
+  - versionName: 1.10.0
+    versionCode: 27
+    commit: 75cb6d42e0c72698897de3d704667b46871969d2
     subdir: app
     sudo:
       - apt-get update
@@ -146,10 +145,109 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 1.9.0
-    versionCode: 25
-    disable: fails RB
-    commit: 7191e7f2e05ffa41436f52817d914299ea6936e6
+  - versionName: 1.12.0
+    versionCode: 29
+    commit: 7ad97b668e4955f06db88cad6f9a379b07dac983
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.13.0
+    versionCode: 30
+    commit: eeafe524df310f20013cbdc3396b2535cc008b21
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.2.0
+    versionCode: 36
+    commit: c3a5353a49526ef9cf1400574aef9601c75055cc
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.5.2
+    versionCode: 42
+    commit: 5debea250201bed2d3b91e74b7404dd10914b76d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.6.1
+    versionCode: 44
+    commit: f6656a07044e7545b932ac5865cbfbb15286cc0b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.6.4
+    versionCode: 47
+    commit: 11f798251bcc8d68c9de6d0152fa09b09f7073ca
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.6.6
+    versionCode: 49
+    commit: b143fde760b49836d10078bd0a57edc507a847f4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.6.7
+    versionCode: 50
+    disable: https://github.com/dessalines/thumb-key/issues/400
+    commit: 4dea2816f2c4a1affdbe13efc078267433a63fb7
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.6.8
+    versionCode: 51
+    commit: 1ac4469ba7ed991488f7e279ba36cdc8592b7566
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.6.9
+    versionCode: 52
+    commit: cefdea562b6eb3af900580f41594dea98f9e690f
     subdir: app
     sudo:
       - apt-get update
@@ -162,5 +260,5 @@ AllowedAPKSigningKeys: ea7195cfce638ae6b1a8002ddc0d4863366095ea5b8d95c1cd5e25db0
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.9.0
-CurrentVersionCode: 25
+CurrentVersion: 2.6.9
+CurrentVersionCode: 52

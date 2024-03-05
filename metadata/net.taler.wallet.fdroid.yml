@@ -5,20 +5,21 @@ AuthorName: GNU Taler
 AuthorWebSite: https://taler.net/
 SourceCode: https://git.taler.net/taler-android.git/
 IssueTracker: https://bugs.gnunet.org/
+Translation: https://weblate.taler.net/projects/gnu-taler/wallet-android
 
 AutoName: Taler Wallet
 Description: |-
-    This app is a wallet for GNU Taler. It is highly experimental, and not ready for production use yet.
+  This app is a wallet for GNU Taler. It is highly experimental, and not ready for production use yet.
 
-    GNU Taler is a privacy-preserving payment system. Customers can stay anonymous, but merchants can not hide their income through payments with GNU Taler. This helps to avoid tax evasion and money laundering.
+  GNU Taler is a privacy-preserving payment system. Customers can stay anonymous, but merchants can not hide their income through payments with GNU Taler. This helps to avoid tax evasion and money laundering.
 
-    The primary use case of GNU Taler is payments; it is not meant as a store of value. Payments are always backed by an existing currency.
+  The primary use case of GNU Taler is payments; it is not meant as a store of value. Payments are always backed by an existing currency.
 
-    Payment are made after exchanging existing money into electronic money with the help of an Exchange service, that is, a payment service provider for Taler.
+  Payment are made after exchanging existing money into electronic money with the help of an Exchange service, that is, a payment service provider for Taler.
 
-    When making a payment, customers only need a charged wallet. A merchant can accept payments without making their customers register on the merchant's Website.
+  When making a payment, customers only need a charged wallet. A merchant can accept payments without making their customers register on the merchant's Website.
 
-    GNU Taler is immune against many types of fraud, such as phishing of credit card information or chargeback fraud. In case of loss or theft, only the limited amount of money left in the wallet might be gone.
+  GNU Taler is immune against many types of fraud, such as phishing of credit card information or chargeback fraud. In case of loss or theft, only the limited amount of money left in the wallet might be gone.
 
 RepoType: git
 Repo: https://git.taler.net/taler-android.git
@@ -101,8 +102,116 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 0.9.3+p6
+    versionCode: 32
+    commit: 793746ef485e8409298fcbdf601d4d1965c9b732
+    subdir: wallet
+    gradle:
+      - fdroid
+
+  - versionName: 0.9.3+p7
+    versionCode: 33
+    commit: 76572dc6696314797b79495e712a79127425faf9
+    subdir: wallet
+    gradle:
+      - fdroid
+
+  - versionName: 0.9.3+p8
+    versionCode: 34
+    commit: 2a91350f267fa6b4a56bb54039db6d71318fc9e4
+    subdir: wallet
+    gradle:
+      - fdroid
+
+  - versionName: 0.9.3+p9
+    versionCode: 35
+    commit: 7f351d48e856bcfbbe1bdd27b7ab85e131f90e3b
+    subdir: wallet
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+
+  - versionName: 0.9.3+p10
+    versionCode: 36
+    commit: 17fa11376d1fa6502c438a56c7352d3157cb47c4
+    subdir: wallet
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+
+  - versionName: 0.9.4
+    versionCode: 371
+    commit: 2e1f7e8b447371e61c8a3fec4e9d6b85b0b4b15d
+    subdir: wallet
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/include "armeabi-v7a", "arm64-v8a", "x86", "x86_64"/include
+      "armeabi-v7a"/' build.gradle
+    gradleprops:
+      - splitApk
+
+  - versionName: 0.9.4
+    versionCode: 372
+    commit: 2e1f7e8b447371e61c8a3fec4e9d6b85b0b4b15d
+    subdir: wallet
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/include "armeabi-v7a", "arm64-v8a", "x86", "x86_64"/include
+      "arm64-v8a"/' build.gradle
+    gradleprops:
+      - splitApk
+
+  - versionName: 0.9.4
+    versionCode: 373
+    commit: 2e1f7e8b447371e61c8a3fec4e9d6b85b0b4b15d
+    subdir: wallet
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/include "armeabi-v7a", "arm64-v8a", "x86", "x86_64"/include
+      "x86"/' build.gradle
+    gradleprops:
+      - splitApk
+
+  - versionName: 0.9.4
+    versionCode: 374
+    commit: 2e1f7e8b447371e61c8a3fec4e9d6b85b0b4b15d
+    subdir: wallet
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/include "armeabi-v7a", "arm64-v8a", "x86", "x86_64"/include
+      "x86_64"/' build.gradle
+    gradleprops:
+      - splitApk
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^wallet-v?[0-9.]+(|\+.*)$
+VercodeOperation:
+  - 10 * %c + 1
+  - 10 * %c + 2
+  - 10 * %c + 3
+  - 10 * %c + 4
 UpdateCheckData: wallet/build.gradle|versionCode (\d+)|.|versionName "(.+)"
-CurrentVersion: 0.9.3+p5
-CurrentVersionCode: 31
+CurrentVersion: 0.9.4
+CurrentVersionCode: 374

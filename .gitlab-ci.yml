@@ -43,7 +43,7 @@ variables:
   - apt-get --allow-releaseinfo-change update
   - apt-get -qy dist-upgrade
   - echo "locales locales/locales_to_be_generated multiselect en_US.UTF-8 UTF-8" | debconf-set-selections
-  - apt-get install -qy --no-install-recommends fdroidserver apksigner mercurial git git-svn brz locales
+  - apt-get install -qy --no-install-recommends fdroidserver apksigner mercurial git git-svn brz python3-launchpadlib locales curl
 
 .get_target_source_refs: &get_target_source_refs
   - |
@@ -52,8 +52,8 @@ variables:
         export SOURCE_REF="${CI_COMMIT_SHA}"
     else
         git remote add upstream https://gitlab.com/fdroid/fdroiddata.git || true
-        git fetch upstream ${CI_DEFAULT_BRANCH}
-        export TARGET_REF=$(git merge-base HEAD upstream/${CI_DEFAULT_BRANCH})
+        git fetch upstream ${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:-master}
+        export TARGET_REF=$(git merge-base HEAD upstream/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME:-master})
         export SOURCE_REF="${CI_COMMIT_SHA}"
     fi;
 
@@ -96,7 +96,9 @@ variables:
 checkupdates:
   stage: test
   needs: []
-  image: debian:bullseye-slim
+  image: debian:bookworm-slim
+  tags:
+    - saas-linux-medium-amd64
   rules: *app_verification_rules
   before_script:
     - *install_fdroid_server_deb
@@ -115,7 +117,9 @@ checkupdates:
 git redirect:
   stage: test
   needs: []
-  image: debian:bullseye-slim
+  image: debian:bookworm-slim
+  tags:
+    - saas-linux-medium-amd64
   rules: *app_verification_rules
   script:
     - apt-get -qy update
@@ -132,7 +136,9 @@ git redirect:
 fdroid lint:
   stage: test
   needs: []
-  image: debian:bullseye-slim
+  image: debian:bookworm-slim
+  tags:
+    - saas-linux-medium-amd64
   rules: *app_verification_rules
   before_script:
     - *install_fdroid_server_deb
@@ -155,10 +161,48 @@ fdroid lint:
       fi
     - exit $EXITVALUE
 
+
+fdroid lint config:
+  stage: test
+  needs: []
+  image: debian:bookworm-slim
+  before_script:
+    - apt-get -qy update
+    - apt-get -qy dist-upgrade
+    - apt-get -qy install --no-install-recommends
+        ca-certificates
+        curl
+        git
+        python3-defusedxml
+        python3-git
+        python3-pyasn1-modules
+        python3-pycountry
+        python3-qrcode
+        python3-requests
+        python3-ruamel.yaml
+        yamllint
+    - export fdroidserver=$CI_PROJECT_DIR/fdroidserver
+    - *install_fdroid_server
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" || $CI_PIPELINE_SOURCE == "push"
+      changes:
+        paths:
+          - config.yml
+          - config/*.yml
+          - config/*/*.yml
+  script:
+    - fdroid lint config/*.yml config/*/*.yml
+    # TODO once config.yml is added to fdroiddata, add it to the line above
+    - test -e config.yml || exit 0
+    - fdroid lint config.yml
+
+
 lint:
   stage: test
   needs: []
-  image: debian:bullseye-slim
+  image: debian:bookworm-slim
+  tags:
+    - saas-linux-medium-amd64
   rules: *app_verification_rules
   script:
     - apt-get -qy update
@@ -199,7 +243,7 @@ schema validation:
 trigger-issuebot:
   stage: prepare
   needs: []
-  rules: *app_verification_rules
+  when: manual
   image: alpine
   variables:
     GIT_DEPTH: "1"
@@ -240,7 +284,7 @@ schedule-issuebot:
 
 checkupdates_runner:
   stage: prepare
-  image: debian:bullseye-slim
+  image: debian:bookworm-slim
   variables:
     GIT_DEPTH: "1"
   parallel: 10
@@ -253,8 +297,14 @@ checkupdates_runner:
     - *install_fdroid_server_deb
     - export fdroidserver=../fdroidserver
     - *install_fdroid_server
+    - apt-get install -y openssh-client
     - git config --global user.email "fdroidci@bubu1.eu"
     - git config --global user.name "F-Droid checkupdates bot"
+
+    # gitlab.com was still vulnerable to https://terrapin-attack.com/ when this was added
+    - printf 'Ciphers -chacha20-poly1305@openssh.com,*-cbc\nMACs -*etm*,*-sha1*\n'
+        > /etc/ssh/ssh_config.d/0-terrapin-workaround.conf
+
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - cp "${GITLAB_KNOWN_HOSTS}" ~/.ssh/known_hosts
@@ -312,7 +362,11 @@ checkupdates_runner:
 fdroid build:
   stage: build
   needs: []
+  # Some env vars are setup in https://gitlab.com/fdroid/fdroidserver/-/blob/master/buildserver/setup-env-vars
+  # home_vagrant=/home/vagrant
   image: registry.gitlab.com/fdroid/fdroidserver:buildserver-bullseye
+  tags:
+    - saas-linux-medium-amd64
   artifacts:
     name: "${CI_PROJECT_PATH}_${CI_JOB_STAGE}_${CI_COMMIT_REF_NAME}_${CI_COMMIT_SHA}"
     paths:
@@ -346,15 +400,21 @@ fdroid build:
 
     - *install_fdroid_server
 
-    - ln -s $home_vagrant/build $CI_PROJECT_DIR/build
+    # Set up git config something like the production buildserver. The
+    # difference is that in production, this is installed on the
+    # buildserver VM host, while here it is basically in the
+    # buildserver VM.
+    # https://gitlab.com/fdroid/fdroid-bootstrap-buildserver/-/merge_requests/30
+    - curl --silent 'https://gitlab.com/fdroid/fdroid-bootstrap-buildserver/-/raw/master/roles/production_hardening/files/gitconfig' >> $CI_PROJECT_DIR/../.gitconfig
 
-    # make sure .gradle stores inside $CI_PROJECT_DIR to make it cacheable
-    - ln -s $home_vagrant/.gradle $CI_PROJECT_DIR/.gradle
-
-    - for d in logs tmp unsigned $home_vagrant/build $home_vagrant/.android $home_vagrant/.gradle $ANDROID_HOME; do
+    - for d in logs tmp unsigned $home_vagrant/.android $home_vagrant/.gradle $home_vagrant/metadata; do
           test -d $d || mkdir $d;
           chown -R vagrant $d;
       done
+    # make sure .gradle stores inside $CI_PROJECT_DIR to make it cacheable
+    - ln -s $home_vagrant/.gradle $CI_PROJECT_DIR/.gradle
+    - ln -s $CI_PROJECT_DIR/tmp $home_vagrant/tmp
+    - ln -s $CI_PROJECT_DIR/srclibs $home_vagrant/srclibs
 
     - export GRADLE_USER_HOME=$home_vagrant/.gradle
     # each `fdroid build --on-server` run expects sudo, then uninstalls it
@@ -373,16 +433,27 @@ fdroid build:
     - printf 'keydname\x3a "CN=Birdman, OU=Cell, O=Alcatraz, L=Alcatraz, S=California, C=US"\n' >> config.yml
     - keystore=$fdroidserver/tests/keystore.jks
     - printf "keystore\x3a $keystore\n" >> config.yml
-    - chown vagrant $keystore
 
     - APPS="$(./tools/find-changed-builds.py)"
     - for build in $APPS; do
           set -x;
           apt-get install sudo;
-          chown -R vagrant $home_vagrant;
+          cp -R $CI_PROJECT_DIR/build $home_vagrant/build;
+          appid=${build%:*};
+          [ -d metadata/$appid ] && cp -R metadata/$appid $home_vagrant/metadata;
+          cp -R metadata/$appid.yml $home_vagrant/metadata;
+          chown -R vagrant $home_vagrant $CI_PROJECT_DIR;
+          pushd $home_vagrant;
+          ln -s $CI_PROJECT_DIR $home_vagrant/fdroiddata;
+          ln -s $CI_PROJECT_DIR/../.gitconfig $home_vagrant/.gitconfig;
           $fdroid fetchsrclibs $build --verbose;
-          $fdroid build --verbose --test --scan-binary --on-server --no-tarball $build;
-          rm -rf "build/${build%:*}" || true;
+          rm $home_vagrant/fdroiddata $home_vagrant/.gitconfig;
+          $fdroid build --verbose --test --refresh-scanner --scan-binary --on-server --no-tarball $build;
+          popd;
+          rm -rf $home_vagrant/build || true;
+          rm -rf $ANDROID_HOME/ndk || true;
+          apt-get install -y openjdk-11-jdk-headless;
+          update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java;
           ./tools/build-contains-signatures.py $build || continue;
           apt-get install sudo;
           $fdroid publish --verbose $build;
@@ -453,7 +524,7 @@ pages:
 
 
 check_git_repos:
-  image: debian:bullseye-slim
+  image: debian:bookworm-slim
   stage: test
   needs: []
   only:
@@ -476,6 +547,8 @@ check_git_repos:
 
 sast:
   stage: report
+  tags:
+    - saas-linux-medium-amd64
   needs:
     - fdroid build
   dependencies:

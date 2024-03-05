@@ -5,6 +5,7 @@ License: GPL-3.0-only
 AuthorEmail: peter@niendo.de
 SourceCode: https://github.com/niendo1/ImapNotes3
 IssueTracker: https://github.com/niendo1/ImapNotes3/issues
+Changelog: https://github.com/niendo1/ImapNotes3/releases
 
 AutoName: ImapNotes3
 
@@ -101,9 +102,32 @@ Builds:
     gradle:
       - yes
 
+  - versionName: v1.3-03
+    versionCode: 10303
+    commit: f74721763f5fc99335a3062da4551071149ba8a7
+    subdir: ImapNotes3
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: v1.3-04
+    versionCode: 10304
+    commit: 7113e47b411b0f78c7d3eb22b5f535d6da8ca42c
+    subdir: ImapNotes3
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AllowedAPKSigningKeys: efad1559e516914bc855fc6950fe2ab7ee2620a60d36977818dc9da152123461
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: v1.3-01
-CurrentVersionCode: 10301
+CurrentVersion: v1.3-04
+CurrentVersionCode: 10304

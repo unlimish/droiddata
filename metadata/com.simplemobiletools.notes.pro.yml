@@ -15,7 +15,7 @@ Name: Simple Notes Pro
 AutoName: Notes
 
 RepoType: git
-Repo: https://github.com/SimpleMobileTools/Simple-Notes
+Repo: https://github.com/SimpleMobileTools/Simple-Notes.git
 
 Builds:
   - versionName: 6.0.0
@@ -434,7 +434,48 @@ Builds:
       - fdroid
     prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
 
-AutoUpdateMode: Version
+  - versionName: 6.15.6
+    versionCode: 107
+    commit: 24373d92958aaac1db4ff0bd331445a0bc552054
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.16.1
+    versionCode: 109
+    commit: f4667afa3752875aa194b53dda07c7b486250d30
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.16.5
+    versionCode: 113
+    commit: 9bcb6e0856376cfaec565044b7140e6923c40f45
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
+  - versionName: 6.17.0
+    versionCode: 114
+    commit: 886a397d2387b3f3538c46287315d0ffa003302f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
+AutoUpdateMode: None
 UpdateCheckMode: Tags
-CurrentVersion: 6.15.5
-CurrentVersionCode: 105
+UpdateCheckData: gradle/libs.versions.toml|app-version-versionCode\s=\s"(\d+)"|.|app-version-versionName\s=\s"(.*)"
+CurrentVersion: 6.17.0
+CurrentVersionCode: 114

@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: App depends on Youtube.
 Categories:
   - Internet
   - Multimedia
@@ -12,7 +13,7 @@ Changelog: https://github.com/SkyTubeTeam/SkyTube/releases
 AutoName: SkyTube
 
 RepoType: git
-Repo: https://github.com/SkyTubeTeam/SkyTube
+Repo: https://github.com/SkyTubeTeam/SkyTube.git
 
 Builds:
   - versionName: 1.0 OSS
@@ -478,9 +479,23 @@ Builds:
     rm:
       - app/libs/*.jar
 
+  - versionName: '2.987'
+    versionCode: 47
+    commit: 28fe0952fe51bf8282ae0e700b678452ad08f7ec
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - oss
+    rm:
+      - app/libs/*.jar
+
 MaintainerNotes: '* Current versions include app/libs/*.jar. Remove them.'
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '2.986'
-CurrentVersionCode: 46
+CurrentVersion: '2.987'
+CurrentVersionCode: 47

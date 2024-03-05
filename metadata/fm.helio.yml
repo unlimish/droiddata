@@ -1,34 +1,34 @@
-AntiFeatures:
-  - NonFreeNet
 Categories:
   - Multimedia
   - Writing
 License: GPL-3.0-only
 WebSite: https://helio.fm
-SourceCode: https://github.com/helio-fm/helio-workstation
-IssueTracker: https://github.com/helio-fm/helio-workstation/issues
-Changelog: https://github.com/helio-fm/helio-workstation/blob/develop/CHANGELOG.md
-Donate: https://github.com/helio-fm/helio-workstation#support-the-project
+SourceCode: https://github.com/helio-fm/helio-sequencer
+IssueTracker: https://github.com/helio-fm/helio-sequencer/issues
+Translation: https://helio.fm/translations
+Changelog: https://github.com/helio-fm/helio-sequencer/blob/develop/CHANGELOG.md
+Donate: https://github.com/helio-fm/helio-sequencer#support-the-project
+OpenCollective: helio-workstation
 
 AutoName: Helio
 Description: |-
-    Most of the DAW interfaces often seem overcomplicated,
-    and they only tend to get more and more bloated over time.
-    Many of them are commercial, proprietary-licensed and almost none
-    of them support all major operating systems at the same time.
+  Most of the DAW interfaces often seem overcomplicated,
+  and they only tend to get more and more bloated over time.
+  Many of them are commercial, proprietary-licensed and almost none
+  of them support all major operating systems at the same time.
 
-    Helio is an attempt to rethink a music sequencer to create a
-    tool that feels right.
+  Helio is an attempt to rethink a music sequencer to create a
+  tool that feels right.
 
-    It aims to be a modern music creation software,
-    featuring linear-based/pattern-based sequencer with clean UI,
-    integrated version control for synchronizing project between
-    devices, microtonal temperaments support, small portable builds
-    and more; mainly targeted at hobbyist composers, game developers
-    and indie artists.
+  It aims to be a modern music creation software,
+  featuring linear-based/pattern-based sequencer with clean UI,
+  integrated version control for synchronizing project between
+  devices, microtonal temperaments support, small portable builds
+  and more; mainly targeted at hobbyist composers, game developers
+  and indie artists.
 
 RepoType: git
-Repo: https://github.com/helio-fm/helio-workstation
+Repo: https://github.com/helio-fm/helio-workstation.git
 
 Builds:
   - versionName: '3.4'
@@ -43,6 +43,9 @@ Builds:
     scandelete:
       - .
     ndk: r22
+    antifeatures:
+      NonFreeNet:
+        en-US: App connects to api.helio.fm
 
   - versionName: '3.5'
     versionCode: 35
@@ -56,6 +59,9 @@ Builds:
     scandelete:
       - .
     ndk: r22b
+    antifeatures:
+      NonFreeNet:
+        en-US: App connects to api.helio.fm
 
   - versionName: '3.6'
     versionCode: 36
@@ -135,7 +141,20 @@ Builds:
       - .
     ndk: r22b
 
+  - versionName: '3.12'
+    versionCode: 312
+    commit: 61f7db380f083b424418d65f4e26addc1370ddea
+    subdir: Projects/Android/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/release_/release/app-release_-release-unsigned.apk
+    prebuild: sed -i 's/21\.3\.6528147/22.1.7171670/g' build.gradle
+    scandelete:
+      - .
+    ndk: r22b
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '3.11'
-CurrentVersionCode: 311
+CurrentVersion: '3.12'
+CurrentVersionCode: 312

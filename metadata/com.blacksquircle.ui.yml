@@ -40,7 +40,7 @@ Builds:
     gradle:
       - fdroid
     prebuild: sed -i -e 's|https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/|https://jitpack.io|'
-        ../gradle/publish.gradle
+      ../gradle/publish.gradle
 
   - versionName: 2022.1.0
     versionCode: 10009
@@ -53,7 +53,7 @@ Builds:
     gradle:
       - fdroid
     prebuild: sed -i -e 's|https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/|https://jitpack.io|'
-        ../gradle/publish.gradle
+      ../gradle/publish.gradle
 
   - versionName: 2022.1.1
     versionCode: 10010
@@ -66,7 +66,7 @@ Builds:
     gradle:
       - fdroid
     prebuild: sed -i -e 's|https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/|https://jitpack.io|'
-        ../gradle/publish.gradle
+      ../gradle/publish.gradle
 
   - versionName: 2022.1.2
     versionCode: 10011
@@ -79,7 +79,7 @@ Builds:
     gradle:
       - fdroid
     prebuild: sed -i -e 's|https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/|https://jitpack.io|'
-        ../gradle/publish.gradle
+      ../gradle/publish.gradle
 
   - versionName: 2022.2.0
     versionCode: 10012
@@ -92,7 +92,7 @@ Builds:
     gradle:
       - fdroid
     prebuild: sed -i -e 's|https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/|https://jitpack.io|'
-        ../gradle/publish.gradle
+      ../gradle/publish.gradle
 
   - versionName: 2022.2.1
     versionCode: 10013
@@ -105,7 +105,7 @@ Builds:
     gradle:
       - fdroid
     prebuild: sed -i -e 's|https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/|https://jitpack.io|'
-        ../gradle/publish.gradle
+      ../gradle/publish.gradle
 
   - versionName: 2023.1.0
     versionCode: 10014
@@ -114,7 +114,7 @@ Builds:
     gradle:
       - fdroid
     prebuild: sed -i -e 's|https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/|https://jitpack.io|'
-        ../gradle/publish.gradle
+      ../gradle/publish.gradle
 
   - versionName: 2023.1.1
     versionCode: 10015
@@ -123,7 +123,7 @@ Builds:
     gradle:
       - fdroid
     prebuild: sed -i -e 's|https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/|https://jitpack.io|'
-        ../gradle/publish.gradle
+      ../gradle/publish.gradle
 
   - versionName: 2023.1.2
     versionCode: 10016
@@ -133,7 +133,7 @@ Builds:
     gradle:
       - fdroid
     prebuild: sed -i -e 's|https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/|https://jitpack.io|'
-        ../gradle/publish.gradle
+      ../gradle/publish.gradle
 
   - versionName: 2023.1.3
     versionCode: 10017
@@ -143,7 +143,7 @@ Builds:
     gradle:
       - fdroid
     prebuild: sed -i -e 's|https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/|https://jitpack.io|'
-        ../gradle/publish.gradle
+      ../gradle/publish.gradle
 
   - versionName: 2023.1.4
     versionCode: 10018
@@ -159,7 +159,7 @@ Builds:
     rm:
       - filesystems/filesystem-sftp/libs/bcprov-jdk18on-172.jar
     prebuild: sed -i -e "s!implementation files(\"libs/bcprov-jdk18on-172.jar\")!implementation
-        'org.bouncycastle:bcprov-jdk18on:1.72'!" ../filesystems/filesystem-sftp/build.gradle
+      'org.bouncycastle:bcprov-jdk18on:1.72'!" ../filesystems/filesystem-sftp/build.gradle
 
   - versionName: 2023.1.5
     versionCode: 10019
@@ -176,15 +176,30 @@ Builds:
     scandelete:
       - build-logic
 
-MaintainerNotes: |-
-    Both app and library gets tagged, so
-    we're only looking for 0000.00.00
-    tag schema.
+  - versionName: 2023.2.0
+    versionCode: 10022
+    commit: f774f6936994b0145b12a7772820ae78e385f9a0
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/signingConfig =/d' -e '/storeFile =/,+3d' ../build-logic/convention/src/main/kotlin/com/blacksquircle/ui/ApplicationModulePlugin.kt
+    scandelete:
+      - build-logic
 
-    Squircle was rebranded from Brackeys (com.brackeys.ui), see
-    https://github.com/massivemadness/Squircle-IDE/pull/29#issuecomment-844784646
+MaintainerNotes: |-
+  Both app and library gets tagged, so
+  we're only looking for 0000.00.00
+  tag schema.
+
+  Squircle was rebranded from Brackeys (com.brackeys.ui), see
+  https://github.com/massivemadness/Squircle-IDE/pull/29#issuecomment-844784646
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9]{4}\.[0-9]{1,2}\.[0-9]{1,2}$
-CurrentVersion: 2023.1.5
-CurrentVersionCode: 10019
+CurrentVersion: 2023.2.0
+CurrentVersionCode: 10022

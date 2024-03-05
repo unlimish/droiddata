@@ -3,6 +3,7 @@ Categories:
 License: GPL-3.0-only
 AuthorName: Beem Development
 AuthorEmail: beemdevelopment@gmail.com
+WebSite: https://getaegis.app
 SourceCode: https://github.com/beemdevelopment/Aegis
 IssueTracker: https://github.com/beemdevelopment/Aegis/issues
 Translation: https://crowdin.com/project/aegis-authenticator
@@ -12,7 +13,7 @@ Donate: https://www.buymeacoffee.com/beemdevelopment
 AutoName: Aegis
 
 RepoType: git
-Repo: https://github.com/beemdevelopment/Aegis
+Repo: https://github.com/beemdevelopment/Aegis.git
 
 Builds:
   - versionName: '0.2'
@@ -232,7 +233,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.2.2
+    versionCode: 62
+    commit: dd9c307deacfe75c968ecb14221cb72fcf121b63
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^((?!alpha|beta).)*$
-CurrentVersion: 2.1.3
-CurrentVersionCode: 58
+CurrentVersion: 2.2.2
+CurrentVersionCode: 62

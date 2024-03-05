@@ -9,8 +9,8 @@ Translation: https://crowdin.com/project/ActivityLauncher
 
 AutoName: Activity Launcher
 Description: |-
-    Create shortcuts for any installed app and even hidden activities to launch them
-    with ease.
+  Create shortcuts for any installed app and even hidden activities to launch them
+  with ease.
 
 RepoType: git
 Repo: https://github.com/butzist/ActivityLauncher.git
@@ -200,7 +200,51 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.14.7
+    versionCode: 37
+    commit: ca0c2d3d0bb7fb2e04364508e8429b249c412669
+    subdir: ActivityLauncherApp
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.14.8
+    versionCode: 38
+    commit: 1c975beb7357fc2ee4b36eac9122e64f63389ad8
+    subdir: ActivityLauncherApp
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.15.0
+    versionCode: 40
+    commit: 6f9610662667fbb36d2635200250589ab42b026b
+    subdir: ActivityLauncherApp
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.15.2
+    versionCode: 41
+    commit: 953acd82e8c4bfddc3158c288b4cc133c96eace2
+    subdir: ActivityLauncherApp
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.14.6
-CurrentVersionCode: 36
+CurrentVersion: 1.15.2
+CurrentVersionCode: 41

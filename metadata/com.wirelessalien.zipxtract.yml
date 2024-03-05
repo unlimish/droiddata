@@ -1,6 +1,6 @@
 Categories:
   - System
-License: Apache-2.0
+License: GPL-3.0-only
 AuthorName: Abhilash
 SourceCode: https://github.com/WirelessAlien/ZipXtract
 IssueTracker: https://github.com/WirelessAlien/ZipXtract/issues
@@ -9,8 +9,8 @@ Changelog: https://github.com/WirelessAlien/ZipXtract/releases
 AutoName: ZipXtract
 
 RepoType: git
-Repo: https://github.com/WirelessAlien/ZipXtract
-Binaries: https://github.com/WirelessAlien/ZipXtract/releases/download/v%c/app-release.apk
+Repo: https://github.com/WirelessAlien/ZipXtract.git
+Binaries: https://github.com/WirelessAlien/ZipXtract/releases/download/v%v/app-release.apk
 
 Builds:
   - versionName: '2.0'
@@ -19,10 +19,82 @@ Builds:
     subdir: app
     gradle:
       - yes
+    binary: https://github.com/WirelessAlien/ZipXtract/releases/download/v%c/app-release.apk
+
+  - versionName: '2.1'
+    versionCode: 3
+    commit: e2122fff81181a76df27a69939c997ac9d43ef0b
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '2.2'
+    versionCode: 4
+    commit: ee82f4b33d4882fca2a3ca1bdb1ca9d09669bf31
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '3.0'
+    versionCode: 5
+    commit: db6a6fe91681701232faee580e43c6bc175ee1ff
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '4.0'
+    versionCode: 6
+    commit: 7c457f83c036efa679eedb2dd702f5e6d582c323
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.0.1
+    versionCode: 7
+    commit: a9a3dddb05ea323ce6333faa1f1d33fd481fb509
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.0.2
+    versionCode: 8
+    commit: a51a392a0bc34dba50e86366cb95142a5fde7ee4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '4.1'
+    versionCode: 9
+    commit: c4a7da45ff6afef0bd909cd1f1655b7fa92aeb47
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '4.2'
+    versionCode: 10
+    commit: 2e50d40422da1977676ef73a8bff09ad1ac59896
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: '4.3'
+    versionCode: 11
+    commit: c4dde1a182c16ba09b5e74548f6ebbc4ffc10c74
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
 
 AllowedAPKSigningKeys: fff2ac2bbfeaed303051caf138c14fcd980a926f56296543df05c255fd89a6b7
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '2.0'
-CurrentVersionCode: 2
+CurrentVersion: '4.3'
+CurrentVersionCode: 11

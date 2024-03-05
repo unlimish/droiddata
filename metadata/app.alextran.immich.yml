@@ -1359,8 +1359,867 @@ Builds:
       - $$flutter$$/bin/flutter build apk --release
     ndk: r25c
 
+  - versionName: 1.68.0
+    versionCode: 91
+    commit: 1835fbae49c21d1a0c9ae8243c186c9ce6d311ed
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.10.1
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.69.0
+    versionCode: 92
+    commit: f41e1159d1e666cfebd75ddce65e91349cc45baf
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.10.1
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.70.0
+    versionCode: 93
+    commit: 2872886e7754fb7a8e8280cd2caed4d5a867b3ad
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.10.1
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.71.0
+    versionCode: 94
+    commit: 3f1cf44717ad26694c777da46f1e9f437746d4f9
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.10.1
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.72.1
+    versionCode: 95
+    commit: b3b5f063cf00e0e6d230df12c7cc8682ffe2cbee
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.10.1
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.73.0
+    versionCode: 96
+    commit: a3b6095b614ae5123cf7ce3fbead8c234da7d56e
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.10.1
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.74.0
+    versionCode: 97
+    commit: d2bad1d5539cfedd703fcbb958a634d360f899d0
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.0
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.75.2
+    versionCode: 98
+    commit: f1027d7807610b6d2200c9cff533a77bb8cdfb23
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.0
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.77.0
+    versionCode: 100
+    commit: 608543da0b41c265c8efd18569b1100498ed79ee
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.78.1
+    versionCode: 102
+    commit: a3206bf950f6df7eae1622ba4baa4ae9bcc229b4
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.79.1
+    versionCode: 103
+    commit: e050121dbf02d362caedb89f3cc3ef28239cec9f
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.81.0
+    versionCode: 105
+    commit: 81d51fbd7e7b1133366c94e4952cfb7590b4062c
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.82.0
+    versionCode: 106
+    commit: 219f99e516abaa4f60a9e9c809b71743d47f30a8
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.83.0
+    versionCode: 107
+    commit: d98a2a5f79f3fc06c0fcba94da84748fec7fd9d4
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.84.0
+    versionCode: 108
+    commit: cf4ec067505e3af84bce490e65d4e8c7b609ba3b
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.85.0
+    versionCode: 109
+    commit: 37ab37bffcb681b41d20b746070e826e9f84f50d
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.86.0
+    versionCode: 110
+    commit: a7cacafe25ba1d9293b3df645867a9cb8ac767ba
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.87.0
+    versionCode: 111
+    commit: ec51a9f6d673607c28be0662942347205ed554c0
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.88.1
+    versionCode: 112
+    commit: 9cf40afaf0bec5ccdc31d91ffdcaba90f44f721c
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.89.0
+    versionCode: 113
+    commit: 8b6a79ad9e6dedfbe7b7eb5d8ef6239ea45d36fd
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.90.0
+    versionCode: 114
+    commit: c174f0e8710e41f26ee03e1ce276517be02c268e
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.91.0
+    versionCode: 115
+    commit: e9a8daa92471a1e00bd3876dda5c6f0ec571486e
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.91.4
+    versionCode: 116
+    commit: b40859551b2e792afafdfe4057de6ef1276ad47c
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.92.1
+    versionCode: 117
+    commit: df59b2099fe6d29e3cfdcaabce010e6b2f29af3d
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
+  - versionName: 1.93.2
+    versionCode: 119
+    commit: 3dddc6b449048a5b551d53540ea9acda53579bc8
+    subdir: mobile
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc-multilib libc-dev make
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.2
+      - rustup@1.25.2
+    rm:
+      - design
+      - docker
+      - machine-learning
+      - mobile/ios
+      - server
+      - web
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - sed -i -e "s/^\#f//" pubspec.yaml
+      - sed -i -e 's/^\/\/f //' android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - mobile/.pub-cache
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - bash ./scripts/fdroid_build_isar.sh
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r25c
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: mobile/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.67.1
-CurrentVersionCode: 90
+CurrentVersion: 1.93.2
+CurrentVersionCode: 119

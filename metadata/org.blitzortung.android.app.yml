@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: App is tethered to blitzortung.org, which is proprietary.
 Categories:
   - Science & Education
 License: Apache-2.0
@@ -12,7 +13,7 @@ Changelog: https://github.com/wuan/bo-android/blob/HEAD/ChangeLog
 AutoName: Blitzortung Lightning Monitor
 
 RepoType: git
-Repo: https://github.com/wuan/bo-android
+Repo: https://github.com/wuan/bo-android.git
 
 Builds:
   - versionName: 2.0.1
@@ -318,7 +319,62 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.1.14
+    versionCode: 292
+    commit: 3c543af9dcc0bc61a49b146fadb388849b0e3d00
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.1.15
+    versionCode: 305
+    commit: f539b0a504912be7ddb7f3895e06f31b36c616be
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.2.0
+    versionCode: 313
+    commit: 8f9b429b330f463e107b99a59eb234909fa97b02
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.2.1
+    versionCode: 315
+    commit: c79a9aead2400d45450c8388507704d4274c853b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.2.2
+    versionCode: 316
+    commit: 05975d34aba562ee80d9ae7434eb365495d493f3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9]+\.[0-9]+\.[0-9]+\_[0-9]+$
-CurrentVersion: 2.1.12
-CurrentVersionCode: 286
+CurrentVersion: 2.2.2
+CurrentVersionCode: 316

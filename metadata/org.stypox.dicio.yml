@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Accesses APIs of Genius, OpenWeatherMap and DuckDuckGo
 Categories:
   - Internet
   - System
@@ -31,7 +32,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '0.10'
+    versionCode: 10
+    commit: 7d30e9853fd9fe3a96906e7efeb7cf773690a039
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags .*[0-9]$
-CurrentVersion: '0.9'
-CurrentVersionCode: 9
+CurrentVersion: '0.10'
+CurrentVersionCode: 10

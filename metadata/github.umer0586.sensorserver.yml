@@ -9,7 +9,7 @@ Changelog: https://github.com/umer0586/SensorServer/releases
 AutoName: Sensor Server
 
 RepoType: git
-Repo: https://github.com/umer0586/SensorServer
+Repo: https://github.com/umer0586/SensorServer.git
 Binaries: https://github.com/umer0586/SensorServer/releases/download/v%v/SensorServer-v%v.apk
 
 Builds:
@@ -27,9 +27,20 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 5.1.0
+    versionCode: 24
+    commit: 844a695e5f412fd6076043feb5c1a4718e1a5e2d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AllowedAPKSigningKeys: fc20c11e46319aaedd0fab6876bfcb2f06afb57f53ea14748590676e727b3200
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 4.0.0
-CurrentVersionCode: 22
+CurrentVersion: 5.1.0
+CurrentVersionCode: 24

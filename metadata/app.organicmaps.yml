@@ -1373,8 +1373,194 @@ Builds:
       - ./b2 headers
     ndk: r25c
 
-AutoUpdateMode: Version
+  - versionName: 2023.08.18-8-FDroid
+    versionCode: 23081808
+    commit: aa23f8e258dfb03ab3801ed563249fb5a7ca596b
+    subdir: android
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y g++ ninja-build
+      - apt-get install -t bullseye-backports cmake
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    rm:
+      - iphone
+      - qt
+      - tools/shaders_compiler
+      - xcode
+    prebuild:
+      - sed -i -e '/com.google.firebase/d; /com.google.gms/d; /com.google.android.gms/d'
+        build.gradle
+      - touch secure.properties
+      - echo '<?xml version="1.0" encoding="utf-8"?><network-security-config/>' >
+        res/xml/network_security_config.xml
+      - cp ../private_default.h ../private.h
+    scanignore:
+      - data/*.bin
+    scandelete:
+      - 3party
+    build:
+      - cd ../3party/boost
+      - ./bootstrap.sh
+      - ./b2 headers
+    ndk: r25c
+
+  - versionName: 2023.09.22-27-FDroid
+    versionCode: 23092227
+    commit: 3fc5d227ff7131a993c8fafc09b8fe3249d9a6ab
+    subdir: android/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y g++ ninja-build
+      - apt-get install -t bullseye-backports cmake
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    rm:
+      - iphone
+      - qt
+      - tools/shaders_compiler
+      - xcode
+    prebuild:
+      - sed -i -e '/com.google.firebase/d; /gms/d' build.gradle
+      - touch secure.properties
+      - echo '<?xml version="1.0" encoding="utf-8"?><network-security-config/>' >
+        src/main/res/xml/network_security_config.xml
+      - cp ../../private_default.h ../../private.h
+    scanignore:
+      - data/*.bin
+    scandelete:
+      - 3party
+    build:
+      - cd ../../3party/boost
+      - ./bootstrap.sh
+      - ./b2 headers
+    ndk: r25c
+
+  - versionName: 2023.11.17-17-FDroid
+    versionCode: 23111717
+    disable: https://github.com/organicmaps/organicmaps/issues/6967#issuecomment-1890782874
+    commit: 1a466dcec23ba554f5a32c67d1e41247ab6e2e47
+    subdir: android/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y g++ ninja-build
+      - apt-get install -t bullseye-backports cmake
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    rm:
+      - iphone
+      - qt
+      - tools/shaders_compiler
+      - xcode
+    prebuild:
+      - sed -i -e '/com.google.firebase/d; /gms/d' build.gradle
+      - touch secure.properties
+      - echo '<?xml version="1.0" encoding="utf-8"?><network-security-config/>' >
+        src/main/res/xml/network_security_config.xml
+      - cp ../../private_default.h ../../private.h
+    scanignore:
+      - data/*.bin
+    scandelete:
+      - 3party
+    build:
+      - cd ../../3party/boost
+      - ./bootstrap.sh
+      - ./b2 headers
+    ndk: r26b
+    antifeatures:
+      Ads:
+        en-US: Hotel features have paid referral links to Kayak not contained in original
+          map data.
+
+  - versionName: 2023.12.18-11-FDroid
+    versionCode: 23121811
+    disable: https://github.com/organicmaps/organicmaps/issues/6967#issuecomment-1890782874
+    commit: ccde5da061b16ec27554f39259772b15a72849ae
+    subdir: android/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y g++ ninja-build
+      - apt-get install -t bullseye-backports cmake
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    rm:
+      - iphone
+      - qt
+      - tools/shaders_compiler
+      - xcode
+    prebuild:
+      - sed -i -e '/com.google.firebase/d; /gms/d' build.gradle
+      - touch secure.properties
+      - echo '<?xml version="1.0" encoding="utf-8"?><network-security-config/>' >
+        src/main/res/xml/network_security_config.xml
+      - cp ../../private_default.h ../../private.h
+    scanignore:
+      - data/*.bin
+    scandelete:
+      - 3party
+    build:
+      - cd ../../3party/boost
+      - ./bootstrap.sh
+      - ./b2 headers
+    ndk: r26b
+    antifeatures:
+      Ads:
+        en-US: Hotel features have paid referral links to Kayak not contained in original
+          map data.
+
+  - versionName: 2023.12.20-4-FDroid
+    versionCode: 23122004
+    disable: https://github.com/organicmaps/organicmaps/issues/6967#issuecomment-1890782874
+    commit: b7489fa2a66285c48aeda5047d7e18c8a2b9bd19
+    subdir: android/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y g++ ninja-build
+      - apt-get install -t bullseye-backports cmake
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    rm:
+      - iphone
+      - qt
+      - tools/shaders_compiler
+      - xcode
+    prebuild:
+      - sed -i -e '/com.google.firebase/d; /gms/d' build.gradle
+      - touch secure.properties
+      - echo '<?xml version="1.0" encoding="utf-8"?><network-security-config/>' >
+        src/main/res/xml/network_security_config.xml
+      - cp ../../private_default.h ../../private.h
+    scanignore:
+      - data/*.bin
+    scandelete:
+      - 3party
+    build:
+      - cd ../../3party/boost
+      - ./bootstrap.sh
+      - ./b2 headers
+    ndk: r26b
+    antifeatures:
+      Ads:
+        en-US: Hotel features have paid referral links to Kayak not contained in original
+          map data.
+
+AutoUpdateMode: None
 UpdateCheckMode: Tags .*android$
-UpdateCheckData: android/src/fdroid/play/version.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 2023.07.13-10-FDroid
-CurrentVersionCode: 23071310
+UpdateCheckData: android/app/src/fdroid/play/version.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 2023.12.20-4-FDroid
+CurrentVersionCode: 23122004

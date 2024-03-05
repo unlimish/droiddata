@@ -12,11 +12,11 @@ Changelog: https://github.com/ktt-ol/hacs/blob/HEAD/CHANGELOG.md
 
 AutoName: HACS
 Description: An app for our "keyholder" to view and manage the door states of the
-    hackspace. It uses an mqtt service to get the current status and sends door commands
-    per ssh.
+  hackspace. It uses an mqtt service to get the current status and sends door commands
+  per ssh.
 
 RepoType: git
-Repo: https://github.com/ktt-ol/hacs
+Repo: https://github.com/ktt-ol/hacs.git
 
 Builds:
   - versionName: 2.6.5
@@ -173,7 +173,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.13.2
+    versionCode: 69
+    commit: 44e6686cfc5b7c8b6a6a7f96ebbb484e442d9dd9
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.12.0
-CurrentVersionCode: 66
+CurrentVersion: 2.13.2
+CurrentVersionCode: 69

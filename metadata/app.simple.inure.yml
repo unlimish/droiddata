@@ -1,6 +1,8 @@
 AntiFeatures:
-  - NonFreeAdd
-  - NonFreeAssets
+  NonFreeAdd:
+    en-US: Promotes its non-libre paid version
+  NonFreeDep:
+    en-US: Depends on Shizuku for functionality
 Categories:
   - System
 License: GPL-3.0-only
@@ -328,7 +330,293 @@ Builds:
       - sed -i -e '/:manager/d' ../settings.gradle
       - gradle -Dorg.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64 assembleRelease
 
+  - versionName: build87
+    versionCode: 87
+    commit: e3c0f58c0128f9037cdf5db004fec6cfd1f8cd2f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - github
+    srclibs:
+      - shizuku@v13.3.0
+    rm:
+      - app/src/main/assets/rish/rish_shizuku.dex
+    scanignore:
+      - app/src/main/java/app/simple/inure/trackers/dex/DexLoaderBuilder.java
+    build:
+      - appdir=$(pwd)
+      - cd $$shizuku$$/shell
+      - sed -i -e "s|into dexPath|into '$appdir/src/main/assets/rish/'|" build.gradle
+      - sed -i -e '/:manager/d' ../settings.gradle
+      - gradle assembleRelease
+
+  - versionName: build88
+    versionCode: 88
+    commit: 204a39ba8bcbeb39893f63cb3aeb398fb8c724d3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - github
+    srclibs:
+      - shizuku@v13.3.0
+    rm:
+      - app/src/main/assets/rish/rish_shizuku.dex
+    scanignore:
+      - app/src/main/java/app/simple/inure/trackers/dex/DexLoaderBuilder.java
+    build:
+      - appdir=$(pwd)
+      - cd $$shizuku$$/shell
+      - sed -i -e "s|into dexPath|into '$appdir/src/main/assets/rish/'|" build.gradle
+      - sed -i -e '/:manager/d' ../settings.gradle
+      - gradle assembleRelease
+
+  - versionName: build89
+    versionCode: 89
+    commit: 413bf187ba0c4759e7af15ecf6595a55707df0fc
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - github
+    srclibs:
+      - shizuku@v13.3.0
+    rm:
+      - app/src/main/assets/rish/rish_shizuku.dex
+    scanignore:
+      - app/src/main/java/app/simple/inure/trackers/dex/DexLoaderBuilder.java
+    build:
+      - appdir=$(pwd)
+      - cd $$shizuku$$/shell
+      - sed -i -e "s|into dexPath|into '$appdir/src/main/assets/rish/'|" build.gradle
+      - sed -i -e '/:manager/d' ../settings.gradle
+      - gradle assembleRelease
+
+  - versionName: build91
+    versionCode: 91
+    commit: 445e4aeea311b84a773100bd9641d6c5767ba22f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - github
+    srclibs:
+      - shizuku@v13.3.0
+    rm:
+      - app/src/main/assets/rish/rish_shizuku.dex
+    scanignore:
+      - app/src/main/java/app/simple/inure/trackers/dex/DexLoaderBuilder.java
+    build:
+      - appdir=$(pwd)
+      - cd $$shizuku$$/shell
+      - sed -i -e "s|into dexPath|into '$appdir/src/main/assets/rish/'|" build.gradle
+      - sed -i -e '/:manager/d' ../settings.gradle
+      - gradle assembleRelease
+
+  - versionName: build92
+    versionCode: 92
+    commit: c5ec57a989c124a5a9c49423fa2485c947dbd8bb
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - github
+    srclibs:
+      - shizuku@v13.3.0
+    rm:
+      - app/src/main/assets/rish/rish_shizuku.dex
+    scanignore:
+      - app/src/main/java/app/simple/inure/trackers/dex/DexLoaderBuilder.java
+    build:
+      - appdir=$(pwd)
+      - cd $$shizuku$$/shell
+      - sed -i -e "s|into dexPath|into '$appdir/src/main/assets/rish/'|" build.gradle
+      - sed -i -e '/:manager/d' ../settings.gradle
+      - gradle assembleRelease
+
+  - versionName: build93
+    versionCode: 93
+    commit: 9768a547a3a632d59df05550742a920b590b681d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - github
+    srclibs:
+      - shizuku@v13.3.0
+    rm:
+      - app/src/main/assets/rish/rish_shizuku.dex
+    scanignore:
+      - app/src/main/java/app/simple/inure/trackers/dex/DexLoaderBuilder.java
+    build:
+      - appdir=$(pwd)
+      - cd $$shizuku$$/shell
+      - sed -i -e "s|into dexPath|into '$appdir/src/main/assets/rish/'|" build.gradle
+      - sed -i -e '/:manager/d' ../settings.gradle
+      - gradle assembleRelease
+
+  - versionName: Build94
+    versionCode: 94
+    commit: 4b1ebb6281016f45d8dbb4c33f3427375eba7e73
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - github
+    srclibs:
+      - shizuku@v13.3.0
+    rm:
+      - app/src/main/assets/rish/rish_shizuku.dex
+    scanignore:
+      - app/src/main/java/app/simple/inure/trackers/dex/DexLoaderBuilder.java
+    build:
+      - appdir=$(pwd)
+      - cd $$shizuku$$/shell
+      - sed -i -e "s|into dexPath|into '$appdir/src/main/assets/rish/'|" build.gradle
+      - sed -i -e '/:manager/d' ../settings.gradle
+      - gradle assembleRelease
+
+  - versionName: Build95
+    versionCode: 95
+    commit: 31933c27886aef848882bee760163eb9bf156d12
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - github
+    srclibs:
+      - shizuku@v13.3.0
+    rm:
+      - app/src/beta/assets/rish/rish_shizuku.dex
+      - app/src/main/assets/rish/rish_shizuku.dex
+      - app/src/play/assets/rish/rish_shizuku.dex
+    scanignore:
+      - app/src/main/java/app/simple/inure/trackers/dex/DexLoaderBuilder.java
+    build:
+      - appdir=$(pwd)
+      - cd $$shizuku$$/shell
+      - sed -i -e "s|into dexPath|into '$appdir/src/main/assets/rish/'|" build.gradle
+      - sed -i -e '/:manager/d' ../settings.gradle
+      - gradle assembleRelease
+
+  - versionName: Build96
+    versionCode: 96
+    commit: 23a524d2250ea0995ce79796c2e815da0520c60e
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - github
+    srclibs:
+      - shizuku@v13.3.0
+    rm:
+      - app/src/beta/assets/rish/rish_shizuku.dex
+      - app/src/main/assets/rish/rish_shizuku.dex
+      - app/src/play/assets/rish/rish_shizuku.dex
+    scanignore:
+      - app/src/main/java/app/simple/inure/trackers/dex/DexLoaderBuilder.java
+    build:
+      - appdir=$(pwd)
+      - cd $$shizuku$$/shell
+      - sed -i -e "s|into dexPath|into '$appdir/src/main/assets/rish/'|" build.gradle
+      - sed -i -e '/:manager/d' ../settings.gradle
+      - gradle assembleRelease
+
+  - versionName: Build98
+    versionCode: 98
+    commit: 30e8e29b11ff9089fc6633ee5a6d383348cc4a33
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - github
+    srclibs:
+      - shizuku@v13.3.0
+    rm:
+      - app/src/beta/assets/rish/rish_shizuku.dex
+      - app/src/main/assets/rish/rish_shizuku.dex
+      - app/src/play/assets/rish/rish_shizuku.dex
+    scanignore:
+      - app/src/main/java/app/simple/inure/trackers/dex/DexLoaderBuilder.java
+    build:
+      - appdir=$(pwd)
+      - cd $$shizuku$$/shell
+      - sed -i -e "s|into dexPath|into '$appdir/src/main/assets/rish/'|" build.gradle
+      - sed -i -e '/:manager/d' ../settings.gradle
+      - gradle assembleRelease
+
+  - versionName: Build99.0.1
+    versionCode: 9901
+    commit: 0494a9da07b18a1f184d61d3da0fd3e0ee6e93c0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - github
+    srclibs:
+      - shizuku@v13.3.0
+    rm:
+      - app/src/beta/assets/rish/rish_shizuku.dex
+      - app/src/main/assets/rish/rish_shizuku.dex
+      - app/src/play/assets/rish/rish_shizuku.dex
+    scanignore:
+      - app/src/main/java/app/simple/inure/trackers/dex/DexLoaderBuilder.java
+    build:
+      - appdir=$(pwd)
+      - cd $$shizuku$$/shell
+      - sed -i -e "s|into dexPath|into '$appdir/src/main/assets/rish/'|" build.gradle
+      - sed -i -e '/:manager/d' ../settings.gradle
+      - gradle assembleRelease
+
+  - versionName: Build99.0.3
+    versionCode: 9903
+    commit: 4c4f1c4e29c430b6b7f6f23b6331921571614537
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - github
+    srclibs:
+      - shizuku@v13.3.0
+    rm:
+      - app/src/beta/assets/rish/rish_shizuku.dex
+      - app/src/main/assets/rish/rish_shizuku.dex
+      - app/src/play/assets/rish/rish_shizuku.dex
+    scanignore:
+      - app/src/main/java/app/simple/inure/trackers/dex/DexLoaderBuilder.java
+    build:
+      - appdir=$(pwd)
+      - cd $$shizuku$$/shell
+      - sed -i -e "s|into dexPath|into '$appdir/src/main/assets/rish/'|" build.gradle
+      - sed -i -e '/:manager/d' ../settings.gradle
+      - gradle assembleRelease
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: build86
-CurrentVersionCode: 86
+CurrentVersion: Build99.0.3
+CurrentVersionCode: 9903

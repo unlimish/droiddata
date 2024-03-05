@@ -5,7 +5,7 @@ AuthorName: Herbert Reiter
 WebSite: https://moasdawiki.net/
 SourceCode: https://gitlab.com/moasdawiki/moasdawiki-app
 IssueTracker: https://gitlab.com/moasdawiki/moasdawiki-app/-/issues
-Changelog: https://gitlab.com/moasdawiki/moasdawiki-app/-/blob/master/CHANGELOG.md
+Changelog: https://gitlab.com/moasdawiki/moasdawiki-app/-/blob/HEAD/CHANGELOG.md
 
 AutoName: MoasdaWiki App
 
@@ -162,7 +162,54 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 3.6.2.1
+    versionCode: 38
+    commit: 8c0326cebbeb4424bc5c4c83277e1056433f7f67
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 3.6.3.0
+    versionCode: 39
+    commit: 10e8c2a1e6aaf49d9b11eeaa2ef81d2d064a960c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i '/android {/alintOptions{checkReleaseBuilds false}' build.gradle
+
+  - versionName: 3.6.3.1
+    versionCode: 40
+    commit: a5b1d6ab98e34342b971bdc1b51f5e487f6b6b17
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i '/android {/alintOptions{checkReleaseBuilds false}' build.gradle
+
+  - versionName: 3.7.1.0
+    versionCode: 42
+    commit: 74c539c1de414fa598683285b0287eca3cc1b729
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i '/android {/alintOptions{checkReleaseBuilds false}' build.gradle
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.6.1.0
-CurrentVersionCode: 36
+CurrentVersion: 3.7.1.0
+CurrentVersionCode: 42

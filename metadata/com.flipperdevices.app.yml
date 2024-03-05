@@ -4,6 +4,7 @@ License: MIT
 WebSite: https://flipperzero.one/
 SourceCode: https://github.com/flipperdevices/Flipper-Android-App
 IssueTracker: https://github.com/flipperdevices/Flipper-Android-App/issues
+Changelog: https://github.com/flipperdevices/Flipper-Android-App/blob/dev/CHANGELOG.md
 
 AutoName: Flipper
 
@@ -317,8 +318,184 @@ Builds:
       - is_sentry_publish=false
       - is_metric_enabled=false
 
+  - versionName: 1.6.1
+    versionCode: 1110
+    commit: 18e55174edcd1f32cfb9df15d609f4f285bb436c
+    subdir: instances/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - printf "\nversion_code=$$VERCODE$$\nversion_name=$$VERSION$$" >> ../../gradle.properties
+      - sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - build-logic/plugins/convention/build
+    ndk: r25b
+    gradleprops:
+      - is_google_feature=false
+      - is_sentry_publish=false
+      - is_metric_enabled=false
+
+  - versionName: 1.6.2
+    versionCode: 1135
+    commit: 0184da25ef7f8032a750a2a4045b178d49b9145e
+    subdir: instances/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - printf "\nversion_code=$$VERCODE$$\nversion_name=$$VERSION$$" >> ../../gradle.properties
+      - sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - build-logic/plugins/convention/build
+    ndk: r25b
+    gradleprops:
+      - is_google_feature=false
+      - is_sentry_publish=false
+      - is_metric_enabled=false
+
+  - versionName: 1.6.2
+    versionCode: 1142
+    commit: d21e750c2cbdd5ce5c63787c446fae1265fdaeeb
+    subdir: instances/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - printf "\nversion_code=$$VERCODE$$\nversion_name=$$VERSION$$" >> ../../gradle.properties
+      - sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - build-logic/plugins/convention/build
+    ndk: r25b
+    gradleprops:
+      - is_google_feature=false
+      - is_sentry_publish=false
+      - is_metric_enabled=false
+
+  - versionName: 1.6.3
+    versionCode: 1150
+    commit: ff1e6edf4badaaf1067bcae07f393082b15bc037
+    subdir: instances/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - printf "\nversion_code=$$VERCODE$$\nversion_name=$$VERSION$$" >> ../../gradle.properties
+      - sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - build-logic/plugins/convention/build
+    ndk: r25b
+    gradleprops:
+      - is_google_feature=false
+      - is_sentry_publish=false
+      - is_metric_enabled=false
+
+  - versionName: 1.6.4
+    versionCode: 1211
+    commit: 1a4a9fcdbeafeba158e8f9e75f83f6619f2fe368
+    subdir: instances/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - printf "\nversion_code=$$VERCODE$$\nversion_name=$$VERSION$$" >> ../../gradle.properties
+      - sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - build-logic/plugins/convention/build
+    ndk: r25b
+    gradleprops:
+      - is_google_feature=false
+      - is_sentry_publish=false
+      - is_metric_enabled=false
+
+  - versionName: 1.6.5
+    versionCode: 1270
+    commit: e5bb0d826832c172adfd0388530b3beb07364554
+    subdir: instances/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - printf "\nversion_code=$$VERCODE$$\nversion_name=$$VERSION$$" >> ../../gradle.properties
+      - sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - build-logic/plugins/convention/build
+    ndk: r25b
+    gradleprops:
+      - is_google_feature=false
+      - is_sentry_publish=false
+      - is_metric_enabled=false
+
+  - versionName: 1.6.6
+    versionCode: 1294
+    commit: 3c6eb77bd8829dc8479a16abc6ce69214fefa75d
+    subdir: instances/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - printf "\nversion_code=$$VERCODE$$\nversion_name=$$VERSION$$" >> ../../gradle.properties
+      - sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - build-logic/plugins/convention/build
+    ndk: r25b
+    gradleprops:
+      - is_google_feature=false
+      - is_sentry_publish=false
+      - is_metric_enabled=false
+
+  - versionName: 1.6.7
+    versionCode: 1326
+    commit: a6d54528101a9de2f101ed377bb1174beaf5b644
+    subdir: instances/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - printf "\nversion_code=$$VERCODE$$\nversion_name=$$VERSION$$" >> ../../gradle.properties
+      - sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - build-logic/plugins/convention/build
+    ndk: 26.1.10909125
+    gradleprops:
+      - is_google_feature=false
+      - is_sentry_publish=false
+      - is_metric_enabled=false
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags (\d+\.){3}\d+-release
 UpdateCheckData: '|[\d.]+\.(\d+)-release||([\d.]+)\.\d+-release'
-CurrentVersion: 1.6.0
-CurrentVersionCode: 1086
+CurrentVersion: 1.6.7
+CurrentVersionCode: 1326

@@ -11,23 +11,23 @@ Changelog: https://github.com/commons-app/apps-android-commons/blob/HEAD/CHANGEL
 
 AutoName: Commons
 Description: |-
-    Images you upload via the app are added to Wikimedia Commons, a repository of
-    freely-licensed media used to illustrate Wikipedia and its sister projects. By
-    uploading your photos, you can help further the goal of spreading free knowledge
-    around the world.
+  Images you upload via the app are added to Wikimedia Commons, a repository of
+  freely-licensed media used to illustrate Wikipedia and its sister projects. By
+  uploading your photos, you can help further the goal of spreading free knowledge
+  around the world.
 
-    The Wikimedia Commons app is created and maintained by grantees and volunteers
-    of the Wikimedia community to allow the Wikimedia community to contribute
-    content to Wikimedia Commons. Wikimedia Commons, along with the other Wikimedia
-    projects, is hosted by the Wikimedia Foundation.
+  The Wikimedia Commons app is created and maintained by grantees and volunteers
+  of the Wikimedia community to allow the Wikimedia community to contribute
+  content to Wikimedia Commons. Wikimedia Commons, along with the other Wikimedia
+  projects, is hosted by the Wikimedia Foundation.
 
-    <b>Features:</b>
+  <b>Features:</b>
 
-    * Upload photos to Commons directly from your smartphone
-    * Categorize your photos to make them easier for other people to find
-    * Categories are automatically suggested based on photo location data and title
-    * View nearby missing images - this helps Wikipedia to have images for all articles, and you will discover beautiful places close to you
-    * View all the contributions you have made to Commons in one gallery
+  * Upload photos to Commons directly from your smartphone
+  * Categorize your photos to make them easier for other people to find
+  * Categories are automatically suggested based on photo location data and title
+  * View nearby missing images - this helps Wikipedia to have images for all articles, and you will discover beautiful places close to you
+  * View all the contributions you have made to Commons in one gallery
 
 RepoType: git
 Repo: https://github.com/commons-app/apps-android-commons.git
@@ -181,7 +181,33 @@ Builds:
     prebuild: sed -i -e '/proxy/d' ../gradle.properties
     ndk: r21
 
+  - versionName: 4.2.0
+    versionCode: 1035
+    commit: e5e3a6b87570bcfc41d238e5005b5dc567f88422
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - prod
+    prebuild: sed -i -e '/proxy/d' ../gradle.properties
+    ndk: r21
+
+  - versionName: 4.2.1
+    versionCode: 1036
+    commit: 14b6c455bf74b1b2e210d13d46da54f51b803f9b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - prod
+    prebuild: sed -i -e '/proxy/d' ../gradle.properties
+    ndk: r21
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 4.1.0
-CurrentVersionCode: 1034
+CurrentVersion: 4.2.1
+CurrentVersionCode: 1036

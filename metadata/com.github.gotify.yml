@@ -10,12 +10,12 @@ Changelog: https://github.com/gotify/android/releases
 
 AutoName: Gotify
 Description: |-
-    Gotify is a service for sending and receiving push notifications.
-    This app subscribes to <a href="https://github.com/gotify/server">gotify/server</a> and creates push notifications for incoming messages.
-    Note: A self-hosted <a href="https://github.com/gotify/server">gotify/server</a> is required for this app to work.
+  Gotify is a service for sending and receiving push notifications.
+  This app subscribes to <a href="https://github.com/gotify/server">gotify/server</a> and creates push notifications for incoming messages.
+  Note: A self-hosted <a href="https://github.com/gotify/server">gotify/server</a> is required for this app to work.
 
 RepoType: git
-Repo: https://github.com/gotify/android
+Repo: https://github.com/gotify/android.git
 
 Builds:
   - versionName: 2.0.1
@@ -198,7 +198,18 @@ Builds:
       - yes
     prebuild: sed -i -e 's/6.3-rc-4-all/6.3-all/' ../gradle/wrapper/gradle-wrapper.properties
 
+  - versionName: 2.7.1
+    versionCode: 30
+    commit: 2082e6d46e2b78dd533ef655f4c88e8566d73108
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags v\d+\.\d+(\.\d+)?
-CurrentVersion: 2.7.0
-CurrentVersionCode: 29
+CurrentVersion: 2.7.1
+CurrentVersionCode: 30
