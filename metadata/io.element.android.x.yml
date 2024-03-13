@@ -32,8 +32,6 @@ Builds:
     prebuild: sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
       "x86", "arm64-v8a", "x86_64")/("armeabi-v7a")/' -e '/ndk {/,/^        }/d' -e
       '/gplayImplementation/d' build.gradle.kts
-    scanignore:
-      - settings.gradle.kts
     scandelete:
       - plugins
 
@@ -52,8 +50,6 @@ Builds:
     prebuild: sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
       "x86", "arm64-v8a", "x86_64")/("arm64-v8a")/' -e '/ndk {/,/^        }/d' -e
       '/gplayImplementation/d' build.gradle.kts
-    scanignore:
-      - settings.gradle.kts
     scandelete:
       - plugins
 
@@ -72,8 +68,6 @@ Builds:
     prebuild: sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
       "x86", "arm64-v8a", "x86_64")/("x86")/' -e '/ndk {/,/^        }/d' -e '/gplayImplementation/d'
       build.gradle.kts
-    scanignore:
-      - settings.gradle.kts
     scandelete:
       - plugins
 
@@ -92,8 +86,6 @@ Builds:
     prebuild: sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
       "x86", "arm64-v8a", "x86_64")/("x86_64")/' -e '/ndk {/,/^        }/d' -e '/gplayImplementation/d'
       build.gradle.kts
-    scanignore:
-      - settings.gradle.kts
     scandelete:
       - plugins
 
