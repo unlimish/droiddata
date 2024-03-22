@@ -77,7 +77,13 @@ MaintainerNotes: Do not update unless requested by the Element team! The Element
   will ping us whenever they feel a new release is ready. See https://github.com/vector-im/element-android/issues/3728
   as an example of their release process.
 
-AutoUpdateMode: None
-UpdateCheckMode: Tags
+AutoUpdateMode: Version v%v
+UpdateCheckMode: HTTP
+VercodeOperation:
+  - 1 + %c
+  - 2 + %c
+  - 3 + %c
+  - 4 + %c
+UpdateCheckData: https://api.github.com/repos/element-hq/element-x-android/releases/latest|"name":"(\d+)-|.|"tag_name":"v(\d+\.\d+\.\d+)"
 CurrentVersion: 0.4.6
 CurrentVersionCode: 40004064
