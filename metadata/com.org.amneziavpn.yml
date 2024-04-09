@@ -1,0 +1,75 @@
+
+Categories: 
+  - Connectivity
+  - Internet
+  - Security
+License: GPL-3.0-only
+AuthorName: AmneziaVPN
+AuthorEmail: support@amnezia.org
+WebSite: https://amnezia.org/en
+SourceCode: https://github.com/amnezia-vpn/amnezia-client
+IssueTracker: https://github.com/amnezia-vpn/amnezia-client/issues
+Changelog: https://github.com/amnezia-vpn/amnezia-client/releases
+
+Autoname: AmneziaVPN
+
+Description: |-
+  Get your own self-hosted VPN!
+  
+  AmneziaVPN is a multi-protocol, open-source VPN client that offers the option to set up your own server.Free open-source software to create a personal VPN on your server. Helps to access blocked content without revealing privacy even to VPN providers.
+
+  Specify IP address, login and password for your server and Amnezia will configure it to connect via VPN automatically.
+
+  We are not a VPN service, you don't have to connect to our servers and pay us anything. You free to use your own self-hosted VPS or you could purchase any VPS from any provider. To connect, use your own or purchase any VPS from any provider.
+
+Donate: 
+ - Patreon: https://www.patreon.com/amneziavpn
+ - Payeer: P2561305
+ - Bitcoin: bc1qn9rhsffuxwnhcuuu4qzrwp4upkrq94xnh8r26u
+ - XMR: 48spms39jt1L2L5vyw2RQW6CXD6odUd4jFu19GZcDyKKQV9U88wsJVjSbL4CfRys37jVMdoaWVPSvezCQPhHXUW5UKLqUp3
+
+
+RepoType: git
+Repo: https://github.com/amnezia-vpn/amnezia-client.git
+#Binaries: (Upstream binary link for reproducible build)
+
+Builds:
+  - versionName: 4.2.1.0
+    versionCode: 1
+    commit: 4.2.1.0
+    subdir: mobile
+    submodules: true
+    gradle: 
+     - prod
+    ndk: r26b
+    target: "android-33"
+    jdk: 11
+    CMake: 3.25
+    Qt: 6.6.1
+  - versionName: 4.3.0.0
+    versionCode: 1
+    commit: 4.3.0.0
+    subdir: mobile
+    gradle:
+     - prod
+    ndk: r26b
+    target: "android-33"
+    jdk: 11
+    CMake: 3.25
+    Qt: 6.6.1
+  - versionName: 4.4.0.0
+    versionCode: 1
+    commit: 4.4.0.0
+    subdir: mobile
+    gradle:
+     - prod
+    ndk: r26b
+    target: "android-33"
+    jdk: 11
+    CMake: 3.25
+    Qt: 6.6.1
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 4.4.0.0
+CurrentVersionCode: 1
