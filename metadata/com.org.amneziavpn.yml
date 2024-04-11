@@ -37,7 +37,8 @@ Builds:
     submodules: true
     sudo:
       # downloading jdk: 11
-      - sudo apt-get update
+      - sudo add-apt-repository ppa:openjdk-r/ppa
+      - sudo apt update && sudo apt upgrade -y
       - sudo apt-get install openjdk-11-jdk
 
       # downloading CMake 3.25
@@ -83,7 +84,7 @@ Builds:
     ndk: r26b
 
   - versionName: 4.4.0.0
-    versionCode: 4400
+    versionCode: 44000
     commit: 3012559
     subdir: deploy
     submodules: true
@@ -111,4 +112,4 @@ Builds:
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: 4.4.0.0
-CurrentVersionCode: 1
+CurrentVersionCode: 44000
