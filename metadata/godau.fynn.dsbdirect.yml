@@ -194,7 +194,22 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 3.4.1
+    versionCode: 42
+    commit: a16abfcbdeb47288079952f8aab09b0c1e07bd2b
+    subdir: app
+    gradle:
+      - fdroid
+    srclibs:
+      - ShiftColorPicker@v0.5
+    prebuild:
+      - cp -a $$ShiftColorPicker$$/src/main/java src/main
+      - cat $$ShiftColorPicker$$/src/main/res/values/attrs.xml >> src/main/res/values/attrs.xml
+      - sed -i -e '/<\/resources></,/<resources>/d' src/main/res/values/attrs.xml
+      - sed -i -e '2a import godau.fynn.dsbdirect.R;' src/main/java/uz/shift/colorpicker/LineColorPicker.java
+      - sed -i -e '/ShiftColorPicker/d'  build.gradle
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '3.4'
-CurrentVersionCode: 41
+CurrentVersion: 3.4.1
+CurrentVersionCode: 42
