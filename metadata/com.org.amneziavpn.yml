@@ -30,33 +30,6 @@ RepoType: git
 Repo: https://github.com/amnezia-vpn/amnezia-client.git
 
 Builds:
-  - versionName: 4.2.1.0
-    versionCode: 42100
-    commit: b9ee600
-    subdir: deploy
-    submodules: true
-    sudo:
-      # downloading jdk: 11
-      - sudo add-apt-repository ppa:openjdk-r/ppa
-      - sudo apt update && sudo apt upgrade -y
-      - sudo apt-get install openjdk-11-jdk
-
-      # downloading CMake 3.25
-      - sudo apt remove cmake
-      - wget http://www.cmake.org/files/v3.15/cmake-3.25.0.tar.gz
-      - tar xf cmake-3.25.0.tar.gz
-      - cd cmake-3.25.0.tar.gz
-      - ./configure
-      - make && sudo make install
-
-      # downlading Qt 6.6.1
-      - sudo apt install build-essential libgl1-mesa-dev
-      - sudo apt install -y qt6.6.1-full-dev
-    gradle: 
-     - yes
-    target: "android-33"
-    ndk: r26b
-    
   - versionName: 4.3.0.0
     versionCode: 43000
     commit: 72b20ef
