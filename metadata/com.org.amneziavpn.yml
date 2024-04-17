@@ -75,7 +75,7 @@ Builds:
     commit: 3012559
     subdir: deploy
     submodules: true
-    prebuild:
+    sudo:
       # download jdk 11
       - sudo apt-get update && sudo apt-get upgrade -y
       - sudo apt install wget
@@ -108,7 +108,7 @@ Builds:
     gradle:
      - yes
     target: "android-33"
-    ndk: r26d
+    ndk: r26
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
