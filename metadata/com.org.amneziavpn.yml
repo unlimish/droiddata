@@ -48,16 +48,18 @@ Builds:
       # download CMake 3.25.3
       - sudo apt-get remove cmake
       - sudo wget https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-linux-x86_64.tar.gz
-      - tar xf cmake-3.25.3-linux-x86_64.tar.gz -C /usr/lib/cmake
+      - sudo mkdir -p /usr/lib/cmake
+      - sudo tar xf cmake-3.25.3-linux-x86_64.tar.gz -C /usr/lib/cmake
       - export CMAKE_PATH=/usr/lib/cmake/cmake-3.25.3-linux-x86_64/bin
       - export PATH=$PATH:$CMAKE_PATH
 
       # downlad Qt 6.6.1
       - sudo apt install build-essential libgl1-mesa-dev
       - wget https://qtproject.mirror.liquidtelecom.com/archive/qt/6.6/6.6.1/single/qt-everywhere-src-6.6.1.tar.xz
+      - sudo mkdir -p /usr/lib/Qt
       - sudo tar xf qt-everywhere-src-6.6.1.tar.xz -C /usr/lib/Qt
-      - cd /usr/lib/Qt
-      - mkdir build
+      - cd /usr/lib/Qt/qt-everywhere-src-6.6.1
+      - sudo mkdir -p /usr/lib/Qt/qt-everywhere-src-6.6.1/build
       - cd build
       - .././configure
       - cmake --build . --parallel
@@ -87,17 +89,21 @@ Builds:
 
       # download CMake 3.25.3
       - sudo apt-get remove cmake
+      - sudo apt install wget
       - sudo wget https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-linux-x86_64.tar.gz
-      - tar xf cmake-3.25.3-linux-x86_64.tar.gz -C /usr/lib/cmake
+      - sudo mkdir -p /usr/lib/cmake
+      - sudo tar xf cmake-3.25.3-linux-x86_64.tar.gz -C /usr/lib/cmake
       - export CMAKE_PATH=/usr/lib/cmake/cmake-3.25.3-linux-x86_64/bin
       - export PATH=$PATH:$CMAKE_PATH
 
       # downlad Qt 6.6.1
       - sudo apt install build-essential libgl1-mesa-dev
+      - sudo apt install wget
       - wget https://qtproject.mirror.liquidtelecom.com/archive/qt/6.6/6.6.1/single/qt-everywhere-src-6.6.1.tar.xz
+      - sudo mkdir -p /usr/lib/Qt
       - sudo tar xf qt-everywhere-src-6.6.1.tar.xz -C /usr/lib/Qt
-      - cd /usr/lib/Qt
-      - sudo mkdir -p /usr/lib/build
+      - cd /usr/lib/Qt/qt-everywhere-src-6.6.1
+      - sudo mkdir -p /usr/lib/Qt/qt-everywhere-src-6.6.1/build
       - cd build
       - .././configure
       - cmake --build . --parallel
