@@ -35,52 +35,80 @@ Builds:
     commit: 72b20ef
     subdir: deploy
     submodules: true
-    sudo:
-      # downloading jdk: 11
-      - sudo apt-get update
-      - sudo apt-get install openjdk-11-jdk
+    prebuild:
+      # download jdk 11
+      - sudo apt-get update && sudo apt-get upgrade -y
+      - sudo apt install wget
+      - wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.10%2B9/openlogic-openjdk-11.0.10%2B9-linux-x64.tar.gz
+      - sudo mkdir -p /usr/lib/jvm
+      - sudo tar xf openlogic-openjdk-11.0.10+9-linux-x64.tar.gz -C /usr/lib/jvm
+      - export JAVA_HOME=/usr/lib/jvm/openlogic-openjdk-11.0.10+9-linux-x64/bin
+      - export PATH=$PATH:$JAVA_HOME
 
-      # downloading CMake 3.25
-      - sudo apt remove cmake
-      - wget http://www.cmake.org/files/v3.15/cmake-3.25.0.tar.gz
-      - tar xf cmake-3.25.0.tar.gz
-      - cd cmake-3.25.0.tar.gz
-      - ./configure
-      - make && sudo make install
+      # download CMake 3.25.3
+      - sudo apt-get remove cmake
+      - sudo wget https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-linux-x86_64.tar.gz
+      - tar xf cmake-3.25.3-linux-x86_64.tar.gz -C /usr/lib/cmake
+      - export CMAKE_PATH=/usr/lib/cmake/cmake-3.25.3-linux-x86_64/bin
+      - export PATH=$PATH:$CMAKE_PATH
 
-      # downlading Qt 6.6.1
+      # downlad Qt 6.6.1
       - sudo apt install build-essential libgl1-mesa-dev
-      - sudo apt install -y qt6.6.1-full-dev
+      - wget https://qtproject.mirror.liquidtelecom.com/archive/qt/6.6/6.6.1/single/qt-everywhere-src-6.6.1.tar.xz
+      - sudo tar xf qt-everywhere-src-6.6.1.tar.xz -C /usr/lib/Qt
+      - cd /usr/lib/Qt
+      - mkdir build
+      - cd build
+      - .././configure
+      - cmake --build . --parallel
+      - cmake --install .
+      - export Qt_PATH=/usr/lib/Qt/qt-everywhere-src-6.6.1/build/qtbase/bin
+      - export PATH=$PATH:$Qt_PATH
+
     gradle:
      - yes
     target: "android-33"
-    ndk: r26b
+    ndk: r26d
 
   - versionName: 4.4.0.0
     versionCode: 44000
     commit: 3012559
     subdir: deploy
     submodules: true
-    sudo:
-      # downloading jdk: 11
-      - sudo apt-get update
-      - sudo apt-get install openjdk-11-jdk
+    prebuild:
+      # download jdk 11
+      - sudo apt-get update && sudo apt-get upgrade -y
+      - sudo apt install wget
+      - wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.10%2B9/openlogic-openjdk-11.0.10%2B9-linux-x64.tar.gz
+      - sudo mkdir -p /usr/lib/jvm
+      - sudo tar xf openlogic-openjdk-11.0.10+9-linux-x64.tar.gz -C /usr/lib/jvm
+      - export JAVA_HOME=/usr/lib/jvm/openlogic-openjdk-11.0.10+9-linux-x64/bin
+      - export PATH=$PATH:$JAVA_HOME
 
-      # downloading CMake 3.25
-      - sudo apt remove cmake
-      - wget http://www.cmake.org/files/v3.15/cmake-3.25.0.tar.gz
-      - tar xf cmake-3.25.0.tar.gz
-      - cd cmake-3.25.0.tar.gz
-      - ./configure
-      - make && sudo make install
+      # download CMake 3.25.3
+      - sudo apt-get remove cmake
+      - sudo wget https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-linux-x86_64.tar.gz
+      - tar xf cmake-3.25.3-linux-x86_64.tar.gz -C /usr/lib/cmake
+      - export CMAKE_PATH=/usr/lib/cmake/cmake-3.25.3-linux-x86_64/bin
+      - export PATH=$PATH:$CMAKE_PATH
 
-      # downlading Qt 6.6.1
+      # downlad Qt 6.6.1
       - sudo apt install build-essential libgl1-mesa-dev
-      - sudo apt install -y qt6.6.1-full-dev
+      - wget https://qtproject.mirror.liquidtelecom.com/archive/qt/6.6/6.6.1/single/qt-everywhere-src-6.6.1.tar.xz
+      - sudo tar xf qt-everywhere-src-6.6.1.tar.xz -C /usr/lib/Qt
+      - cd /usr/lib/Qt
+      - sudo mkdir -p /usr/lib/build
+      - cd build
+      - .././configure
+      - cmake --build . --parallel
+      - cmake --install .
+      - export Qt_PATH=/usr/lib/Qt/qt-everywhere-src-6.6.1/build/qtbase/bin
+      - export PATH=$PATH:$Qt_PATH
+
     gradle:
      - yes
     target: "android-33"
-    ndk: r26b
+    ndk: r26d
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
