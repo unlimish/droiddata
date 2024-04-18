@@ -14,9 +14,9 @@ RepoType: git
 Repo: https://github.com/nullxception/boorusphere
 
 Builds:
-  - versionName: 1.4.1
-    versionCode: 1039
-    commit: 1.4.1
+  - versionName: 1.4.2
+    versionCode: 401
+    commit: 1.4.2
     output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
     srclibs:
       - flutter@3.10.5
@@ -32,9 +32,9 @@ Builds:
       - $$flutter$$/bin/dart run slang
       - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform=android-arm
 
-  - versionName: 1.4.1
-    versionCode: 2039
-    commit: 1.4.1
+  - versionName: 1.4.2
+    versionCode: 402
+    commit: 1.4.2
     output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
     srclibs:
       - flutter@3.10.5
@@ -50,9 +50,9 @@ Builds:
       - $$flutter$$/bin/dart run slang
       - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform=android-arm64
 
-  - versionName: 1.4.1
-    versionCode: 4039
-    commit: 1.4.1
+  - versionName: 1.4.2
+    versionCode: 404
+    commit: 1.4.2
     output: build/app/outputs/flutter-apk/app-x86_64-release.apk
     srclibs:
       - flutter@3.10.5
@@ -71,9 +71,9 @@ Builds:
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 VercodeOperation:
-  - %c * 10 + 1
-  - %c * 10 + 2
-  - %c * 10 + 4
+  - 10 * %c + 1
+  - 10 * %c + 2
+  - 10 * %c + 4
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.4.1
-CurrentVersionCode: 4039
+CurrentVersion: 1.4.2
+CurrentVersionCode: 404
