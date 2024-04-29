@@ -17,10 +17,9 @@ RepoType: git
 Repo: https://github.com/protonpass/android-pass.git
 
 Builds:
-  - versionName: 1.20.3
-    versionCode: 12003000
-    disable: https://gitlab.com/fdroid/fdroiddata/-/merge_requests/14773#note_1856586599
-    commit: 586e6e1f9c0a8a7edab5a2da760ea39331ec2f8a
+  - versionName: 1.20.4
+    versionCode: 12004000
+    commit: 32b9158d61d5d3c0e415a815dbbc77df4473b531
     subdir: app
     sudo:
       - apt-get update
@@ -33,6 +32,8 @@ Builds:
       - protoncore@e87ee6de512763d4b530d6097d3329ffb81ca6e8
       - proton-pass-contents-proto-definition@1.1.2
     prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms1g -Xmx5g -XX:+UseParallelGC -Dfile.encoding=UTF-8
+        -XX:MaxMetaspaceSize=1g" >> ../gradle.properties
       - sed -i -e 's/+ jobId//' build.gradle.kts
       - sed -i -e '/plugins {/,/^}/d' -e '/includeCoreBuild {/,/^}/d' ../settings.gradle.kts
       - sed -i -e '/signingConfigs/d' -e '/signingConfig/,/}$/d' build.gradle.kts
@@ -69,5 +70,5 @@ MaintainerNotes: |
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: metadata/fdroid_version.txt|versionCode=(\d+)|.|versionName=(.*)
-CurrentVersion: 1.20.3
-CurrentVersionCode: 12003000
+CurrentVersion: 1.20.4
+CurrentVersionCode: 12004000

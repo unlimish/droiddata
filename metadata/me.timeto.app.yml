@@ -5,14 +5,14 @@ AuthorName: timeto.me
 AuthorEmail: hi@timeto.me
 AuthorWebSite: https://timeto.me
 WebSite: https://timeto.me
-SourceCode: https://github.com/appstome/timetome-app
-IssueTracker: https://github.com/appstome/timetome-app/issues
+SourceCode: https://github.com/medvedev91/timetome
+IssueTracker: https://github.com/medvedev91/timetome/issues
 
 AutoName: timeto.me
 
 RepoType: git
-Repo: https://github.com/appstome/timetome-app.git
-Binaries: https://github.com/appstome/timetome-app/releases/download/v%v.%c/fdroid-release.apk
+Repo: https://github.com/medvedev91/timetome.git
+Binaries: https://github.com/medvedev91/timetome/releases/download/v%v.%c/fdroid-release.apk
 
 Builds:
   - versionName: 2023.12.18
@@ -25,7 +25,7 @@ Builds:
       - update-alternatives --auto java
     gradle:
       - yes
-    binary: https://github.com/appstome/timetome-app/releases/download/%v.%c/android_app-release.apk
+    binary: https://github.com/medvedev91/timetome/releases/download/%v.%c/android_app-release.apk
     rm:
       - ios_app
 
@@ -90,9 +90,18 @@ Builds:
     rm:
       - ios_app
 
+  - versionName: 2024.04.18
+    versionCode: 500
+    commit: 0514625c246ae24ebde79a51dcb93de49e05c160
+    subdir: android_app
+    gradle:
+      - fdroid
+    rm:
+      - ios_app
+
 AllowedAPKSigningKeys: 6934159449967ff5446a766d0d8b6ee9c0f68de70e1bb85c6140599e4e477793
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2024.04.08
-CurrentVersionCode: 489
+CurrentVersion: 2024.04.18
+CurrentVersionCode: 500
