@@ -36,16 +36,17 @@ Builds:
     subdir: deploy
     submodules: true
     
-prebuild:
+    prebuild:
       # Install Prerequisites for Qt
       - sudo apt-get update && sudo apt-get upgrade -y
       - sudo apt install wget
+        # Install jdk 17
       - sudo apt-get install openjdk-17-jdk
         # Install CMake 3.26.0
       - cd ~/
       - sudo apt-get remove cmake
       - wget https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-linux-x86_64.tar.gz
-        # download Ninja 1.10.1
+        # Install Ninja 1.10.1
       - sudo apt-get install ninja-build
 
       # Install Qt 6.6.2
@@ -55,16 +56,14 @@ prebuild:
     build:
       - sudo apt-get install libstdc++6 libncurses5
       - export CMAKE_PATH=~/cmake-3.26.0-linux-x86_64/bin
-      - export NINJA_PATH=~/NINJA
       - export PATH=$PATH:$CMAKE_PATH
-      - export PATH=$PATH:$NINJA_PATH
 
       # Build host-build
       - tar -xf qt-everywhere-src-6.6.2.tar.xz
       - cd ~/qt-everywhere-src-6.6.2
       - mkdir build-host
       - cd build-host
-      - ../configure -developer-build -nomake tests -nomake examples
+      - ../configure --release -developer-build -nomake tests -nomake examples
       - cmake --build . --target host_tools
 
       # Build qt-android-build
@@ -114,7 +113,7 @@ prebuild:
       - cd ~/qt-everywhere-src-6.6.2
       - mkdir build-host
       - cd build-host
-      - ../configure -developer-build -nomake tests -nomake examples
+      - ../configure --release -developer-build -nomake tests -nomake examples
       - cmake --build . --target host_tools
 
       # Build qt-android-build
@@ -125,7 +124,8 @@ prebuild:
       - export NDK_PATH=$$NDK$$/26.1.10909125
       - export QT_HOST_PATH=~/qt-everywhere-src-6.6.2/build-host
       - export CMAKE_PREFIX_PATH=~/qt-everywhere-src-6.6.2/build-host/qtbase/lib/cmake
-      - ../configure -prefix $INSTALL_PATH -qt-host-path $QT_HOST_PATH -android-sdk $SDK_PATH -android-ndk $NDK_PATH 
+      - ../configure -prefix $INSTALL_PATH -qt-host-path $QT_HOST_PATH -android-sdk $SDK_PATH -android-ndk $NDK_PATH
+
     gradle:
      - yes
     target: "android-34"
