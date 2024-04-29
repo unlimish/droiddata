@@ -1,4 +1,4 @@
-AntiFeatures:
+  AntiFeatures:
   NonFreeNet:
     en-US: Users need to use their own self-hosted VPS or they can purchase any VPS from any provider.
 Categories: 
@@ -32,438 +32,104 @@ Repo: https://github.com/amnezia-vpn/amnezia-client.git
 Builds:
   - versionName: 4.3.0.0
     versionCode: 43000
-    commit: 72b20ef
+    commit: 4.3.0.0
     subdir: deploy
     submodules: true
     
-    prebuild:
-      # download jdk 11
+prebuild:
+      # Install Prerequisites for Qt
       - sudo apt-get update && sudo apt-get upgrade -y
       - sudo apt install wget
-      - wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.10%2B9/openlogic-openjdk-11.0.10%2B9-linux-x64.tar.gz
-      - sudo mkdir -p /usr/lib/jvm
-      - sudo tar xf openlogic-openjdk-11.0.10+9-linux-x64.tar.gz -C /usr/lib/jvm
-      - export JAVA_HOME=/usr/lib/jvm/openlogic-openjdk-11.0.10+9-linux-x64/bin
-      - export PATH=$PATH:$JAVA_HOME
-
-      # download CMake 3.25.3
+      - sudo apt-get install openjdk-17-jdk
+        # Install CMake 3.26.0
+      - cd ~/
       - sudo apt-get remove cmake
-      - sudo wget https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-linux-x86_64.tar.gz
-      - sudo mkdir -p /usr/lib/cmake
-      - sudo tar xf cmake-3.25.3-linux-x86_64.tar.gz -C /usr/lib/cmake
-      - export CMAKE_PATH=/usr/lib/cmake/cmake-3.25.3-linux-x86_64/bin
-      - export PATH=$PATH:$CMAKE_PATH
+      - wget https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-linux-x86_64.tar.gz
+        # download Ninja 1.10.1
+      - sudo apt-get install ninja-build
 
-      # downlad Qt 6.6.1
-      - sudo apt install build-essential libgl1-mesa-dev
-      - wget https://qtproject.mirror.liquidtelecom.com/archive/qt/6.6/6.6.1/single/qt-everywhere-src-6.6.1.tar.xz
-      - sudo mkdir -p /usr/lib/Qt
-      - sudo tar xf qt-everywhere-src-6.6.1.tar.xz -C /usr/lib/Qt
-      - cd /usr/lib/Qt/qt-everywhere-src-6.6.1
-      - sudo mkdir -p /usr/lib/Qt/qt-everywhere-src-6.6.1/build
-      - cd build
-      - .././configure
-      - cmake --build . --parallel
-      - cmake --install .
-      - export Qt_PATH=/usr/lib/Qt/qt-everywhere-src-6.6.1/build/qtbase/bin
-      - export PATH=$PATH:$Qt_PATH
+      # Install Qt 6.6.2
+      - sudo apt-get install build-essential libgl1-mesa-dev
+      - wget https://qtproject.mirror.liquidtelecom.com/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz
 
     build:
-      - set -o errexit -o nounset
-      - usage() {
-      - cat <<EOT
+      - sudo apt-get install libstdc++6 libncurses5
+      - export CMAKE_PATH=~/cmake-3.26.0-linux-x86_64/bin
+      - export NINJA_PATH=~/NINJA
+      - export PATH=$PATH:$CMAKE_PATH
+      - export PATH=$PATH:$NINJA_PATH
 
-      - Usage:
-      -   build_android [options] <artifact_types>
-      - 
-      - Build AmneziaVPN android client.
-      - 
-      - Artifact types:
-      -  -u, --aab                        Build Android App Bundle (AAB)
-      -  -a, --apk (<abi_list> | all)     Build APKs for the specified ABIs or for all available ABIs
-      -                                   Available ABIs: 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
-      -                                   <abi_list> - list of ABIs delimited by ';'
-      - 
-      - Options:
-      -  -d, --debug                      Build debug version
-      -  -b, --build-platform <platform>  The SDK platform used for building the Java code of the application
-      -                                   By default, the latest available platform is used
-      -  -m, --move                       Move the build result to the root of the build directory
-      -  -h, --help                       Display this help
-      - 
-      - EOT
-      - }
-      - 
-      - BUILD_TYPE="release"
-      - 
-      - opts=$(getopt -l debug,aab,apk:,build-platform:,move,help -o "dua:b:mh" -- "$@")
-      - eval set -- "$opts"
-      - while true; do
-      -   case "$1" in
-      -     -d | --debug) BUILD_TYPE="debug"; shift;;
-      -     -u | --aab) AAB=1; shift;;
-      -     -a | --apk) ABIS=$2; shift 2;;
-      -     -b | --build-platform) ANDROID_BUILD_PLATFORM=$2; shift 2;;
-      -     -m | --move) MOVE_RESULT=1; shift;;
-      -     -h | --help) usage; exit 0;;
-      -     --) shift; break;;
-      -   esac
-      - done
-      - 
-      - # Validate ABIS parameter
-      - if [[ -v ABIS && \
-      -     ! "$ABIS" = "all" && \
-      -     ! "$ABIS" =~ ^((x86|x86_64|armeabi-v7a|arm64-v8a);)*(x86|x86_64|armeabi-v7a|arm64-v8a)$ ]]; then
-      -   echo "The 'apk' option must be a list of ['x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a']" \
-      -        "delimited by ';' or 'all', but is '$ABIS'"
-      -   exit 1
-      - fi
-      - 
-      - # At least one artifact type must be specified
-      - if [[ ! (-v AAB || -v ABIS) ]]; then
-      -   usage; exit 0
-      - fi
-      - 
-      - echo "Build script started..."
-      - 
-      - PROJECT_DIR=$(pwd)
-      - DEPLOY_DIR=$PROJECT_DIR/deploy
-      - 
-      - mkdir -p $DEPLOY_DIR/build
-      - BUILD_DIR=$DEPLOY_DIR/build
-      - OUT_APP_DIR=$BUILD_DIR/client
-      - 
-      - echo "Project dir: $PROJECT_DIR"
-      - echo "Build dir: $BUILD_DIR"
-      - 
-      - # Determine path to qt bin folder with qt-cmake
-      - if [[ -v AAB || "$ABIS" = "all" ]]; then
-      -   qt_bin_dir_suffix="x86_64"
-      - else
-      -   if [[ $ABIS = *";"* ]]; then
-      -     oneOf=$(echo $ABIS | cut -d';' -f 1)
-      -   else
-      -     oneOf=$ABIS
-      -   fi
-      -   case $oneOf in
-      -     "armeabi-v7a") qt_bin_dir_suffix="armv7";;
-      -     "arm64-v8a") qt_bin_dir_suffix="arm64_v8a";;
-      -     *) qt_bin_dir_suffix=$oneOf;;
-      -   esac
-      - fi
-      - # get real path
-      - # calls on paths containing '..' may result in a 'Permission denied'
-      - QT_BIN_DIR=$(cd $QT_HOST_PATH/../android_$qt_bin_dir_suffix/bin && pwd)
-      - 
-      - echo "Building App..."
-      - 
-      - echo "Qt host: $QT_HOST_PATH"
-      - echo "Using Qt in $QT_BIN_DIR"
-      - echo "Using Android SDK in $ANDROID_SDK_ROOT"
-      - echo "Using Android NDK in $ANDROID_NDK_ROOT"
-      - 
-      - # Run qt-cmake to configure build
-      - qt_cmake_opts=()
-      - 
-      - if [[ -v AAB || "$ABIS" = "all" ]]; then
-      -   qt_cmake_opts+=(-DQT_ANDROID_BUILD_ALL_ABIS=ON)
-      - else
-      -   qt_cmake_opts+=(-DQT_ANDROID_ABIS="$ABIS")
-      - fi
-      - 
-      - # QT_NO_GLOBAL_APK_TARGET_PART_OF_ALL=ON - Skip building apks as part of the default 'ALL' target
-      - # We'll build apks during androiddeployqt
-      - $QT_BIN_DIR/qt-cmake -S $PROJECT_DIR -B $BUILD_DIR \
-      -   -DQT_NO_GLOBAL_APK_TARGET_PART_OF_ALL=ON \
-      -   -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
-      -   "${qt_cmake_opts[@]}"
-      - 
-      - # Build app
-      - cmake --build $BUILD_DIR --config $BUILD_TYPE
-      - 
-      - # Build and package APK or AAB
-      - echo "Building APK/AAB..."
-      - 
-      - deployqt_opts=()
-      - 
-      - if [ -v AAB ]; then
-      -   deployqt_opts+=(--aab)
-      - fi
-      - 
-      - if [ -v ANDROID_BUILD_PLATFORM ]; then
-      -   deployqt_opts+=(--android-platform "$ANDROID_BUILD_PLATFORM")
-      - fi
-      - 
-      - if [ "$BUILD_TYPE" = "release" ]; then
-      -   deployqt_opts+=(--release)
-      - fi
-      - 
-      - # for gradle to skip all tasks when it is executed by androiddeployqt
-      - # gradle is started later explicitly
-      - export ANDROIDDEPLOYQT_RUN=1
-      - 
-      - $QT_HOST_PATH/bin/androiddeployqt \
-      -   --input $OUT_APP_DIR/android-AmneziaVPN-deployment-settings.json \
-      -   --output $OUT_APP_DIR/android-build \
-      -   "${deployqt_opts[@]}"
-      - 
-      - # run gradle
-      - gradle_opts=()
-      - 
-      - if [ -v AAB ]; then
-      -   gradle_opts+=(bundle"${BUILD_TYPE^}")
-      - fi
-      - if [ -v ABIS ]; then
-      -   gradle_opts+=(assemble"${BUILD_TYPE^}")
-      - fi
-      - 
-      - $OUT_APP_DIR/android-build/gradlew \
-      -   --project-dir $OUT_APP_DIR/android-build \
-      -   -DexplicitRun=1 \
-      -   "${gradle_opts[@]}"
-      - 
-      - if [[ -v CI || -v MOVE_RESULT ]]; then
-      -   echo "Moving APK/AAB..."
-      -   if [ -v AAB ]; then
-      -     mv -u $OUT_APP_DIR/android-build/build/outputs/bundle/$BUILD_TYPE/AmneziaVPN-$BUILD_TYPE.aab \
-      -        $PROJECT_DIR/deploy/build/
-      -   fi
-      - 
-      -   if [ -v ABIS ]; then
-      -     if [ "$ABIS" = "all" ]; then
-      -       ABIS="x86;x86_64;armeabi-v7a;arm64-v8a"
-      -     fi
-      - 
-      -     IFS=';' read -r -a abi_array <<< "$ABIS"
-      -     for ABI in "${abi_array[@]}"
-      -     do
-      -       mv -u $OUT_APP_DIR/android-build/build/outputs/apk/$BUILD_TYPE/AmneziaVPN-$ABI-$BUILD_TYPE.apk \
-      -        $PROJECT_DIR/deploy/build/
-      -     done
-      -   fi
-      - fi
+      # Build host-build
+      - tar -xf qt-everywhere-src-6.6.2.tar.xz
+      - cd ~/qt-everywhere-src-6.6.2
+      - mkdir build-host
+      - cd build-host
+      - ../configure -developer-build -nomake tests -nomake examples
+      - cmake --build . --target host_tools
+
+      # Build qt-android-build
+      - mkdir ../build-qt-android
+      - cd ../build-qt-android
+      - export INSTALL_PATH=~/
+      - export SDK_PATH=$$SDK$$
+      - export NDK_PATH=$$NDK$$/26.1.10909125
+      - export QT_HOST_PATH=~/qt-everywhere-src-6.6.2/build-host
+      - export CMAKE_PREFIX_PATH=~/qt-everywhere-src-6.6.2/build-host/qtbase/lib/cmake
+      - ../configure -prefix $INSTALL_PATH -qt-host-path $QT_HOST_PATH -android-sdk $SDK_PATH -android-ndk $NDK_PATH
 
     gradle:
      - yes
-    target: "android-33"
-    ndk: r26
+    target: "android-34"
+    ndk: r26b
 
   - versionName: 4.4.0.0
     versionCode: 44000
-    commit: 3012559
+    commit: 4.4.0.0
     subdir: deploy
     submodules: true
     prebuild:
-      # download jdk 11
+      # Install Prerequisites for Qt
       - sudo apt-get update && sudo apt-get upgrade -y
       - sudo apt install wget
-      - wget https://builds.openlogic.com/downloadJDK/openlogic-openjdk/11.0.10%2B9/openlogic-openjdk-11.0.10%2B9-linux-x64.tar.gz
-      - sudo mkdir -p /usr/lib/jvm
-      - sudo tar xf openlogic-openjdk-11.0.10+9-linux-x64.tar.gz -C /usr/lib/jvm
-      - export JAVA_HOME=/usr/lib/jvm/openlogic-openjdk-11.0.10+9-linux-x64/bin
-      - export PATH=$PATH:$JAVA_HOME
-
-      # download CMake 3.25.3
+        # Install jdk 17
+      - sudo apt-get install openjdk-17-jdk
+        # Install CMake 3.26.0
+      - cd ~/
       - sudo apt-get remove cmake
-      - sudo wget https://github.com/Kitware/CMake/releases/download/v3.25.3/cmake-3.25.3-linux-x86_64.tar.gz
-      - sudo mkdir -p /usr/lib/cmake
-      - sudo tar xf cmake-3.25.3-linux-x86_64.tar.gz -C /usr/lib/cmake
-      - export CMAKE_PATH=/usr/lib/cmake/cmake-3.25.3-linux-x86_64/bin
+      - wget https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-linux-x86_64.tar.gz
+        # Install Ninja 1.10.1
+      - sudo apt-get install ninja-build
+
+      # Install Qt 6.6.2
+      - sudo apt-get install build-essential libgl1-mesa-dev
+      - wget https://qtproject.mirror.liquidtelecom.com/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz
+
+    build:
+      - sudo apt-get install libstdc++6 libncurses5
+      - export CMAKE_PATH=~/cmake-3.26.0-linux-x86_64/bin
       - export PATH=$PATH:$CMAKE_PATH
 
-      # downlad Qt 6.6.1
-      - sudo apt install build-essential libgl1-mesa-dev
-      - wget https://qtproject.mirror.liquidtelecom.com/archive/qt/6.6/6.6.1/single/qt-everywhere-src-6.6.1.tar.xz
-      - sudo mkdir -p /usr/lib/Qt
-      - sudo tar xf qt-everywhere-src-6.6.1.tar.xz -C /usr/lib/Qt
-      - cd /usr/lib/Qt/qt-everywhere-src-6.6.1
-      - sudo mkdir -p /usr/lib/Qt/qt-everywhere-src-6.6.1/build
-      - cd build
-      - .././configure
-      - cmake --build . --parallel
-      - cmake --install .
-      - export Qt_PATH=/usr/lib/Qt/qt-everywhere-src-6.6.1/build/qtbase/bin
-      - export PATH=$PATH:$Qt_PATH
-      
-    build:
-      - set -o errexit -o nounset
-      - usage() {
-      - cat <<EOT
+      # Build host-build
+      - tar -xf qt-everywhere-src-6.6.2.tar.xz
+      - cd ~/qt-everywhere-src-6.6.2
+      - mkdir build-host
+      - cd build-host
+      - ../configure -developer-build -nomake tests -nomake examples
+      - cmake --build . --target host_tools
 
-      - Usage:
-      -   build_android [options] <artifact_types>
-      - 
-      - Build AmneziaVPN android client.
-      - 
-      - Artifact types:
-      -  -u, --aab                        Build Android App Bundle (AAB)
-      -  -a, --apk (<abi_list> | all)     Build APKs for the specified ABIs or for all available ABIs
-      -                                   Available ABIs: 'x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a'
-      -                                   <abi_list> - list of ABIs delimited by ';'
-      - 
-      - Options:
-      -  -d, --debug                      Build debug version
-      -  -b, --build-platform <platform>  The SDK platform used for building the Java code of the application
-      -                                   By default, the latest available platform is used
-      -  -m, --move                       Move the build result to the root of the build directory
-      -  -h, --help                       Display this help
-      - 
-      - EOT
-      - }
-      - 
-      - BUILD_TYPE="release"
-      - 
-      - opts=$(getopt -l debug,aab,apk:,build-platform:,move,help -o "dua:b:mh" -- "$@")
-      - eval set -- "$opts"
-      - while true; do
-      -   case "$1" in
-      -     -d | --debug) BUILD_TYPE="debug"; shift;;
-      -     -u | --aab) AAB=1; shift;;
-      -     -a | --apk) ABIS=$2; shift 2;;
-      -     -b | --build-platform) ANDROID_BUILD_PLATFORM=$2; shift 2;;
-      -     -m | --move) MOVE_RESULT=1; shift;;
-      -     -h | --help) usage; exit 0;;
-      -     --) shift; break;;
-      -   esac
-      - done
-      - 
-      - # Validate ABIS parameter
-      - if [[ -v ABIS && \
-      -     ! "$ABIS" = "all" && \
-      -     ! "$ABIS" =~ ^((x86|x86_64|armeabi-v7a|arm64-v8a);)*(x86|x86_64|armeabi-v7a|arm64-v8a)$ ]]; then
-      -   echo "The 'apk' option must be a list of ['x86', 'x86_64', 'armeabi-v7a', 'arm64-v8a']" \
-      -        "delimited by ';' or 'all', but is '$ABIS'"
-      -   exit 1
-      - fi
-      - 
-      - # At least one artifact type must be specified
-      - if [[ ! (-v AAB || -v ABIS) ]]; then
-      -   usage; exit 0
-      - fi
-      - 
-      - echo "Build script started..."
-      - 
-      - PROJECT_DIR=$(pwd)
-      - DEPLOY_DIR=$PROJECT_DIR/deploy
-      - 
-      - mkdir -p $DEPLOY_DIR/build
-      - BUILD_DIR=$DEPLOY_DIR/build
-      - OUT_APP_DIR=$BUILD_DIR/client
-      - 
-      - echo "Project dir: $PROJECT_DIR"
-      - echo "Build dir: $BUILD_DIR"
-      - 
-      - # Determine path to qt bin folder with qt-cmake
-      - if [[ -v AAB || "$ABIS" = "all" ]]; then
-      -   qt_bin_dir_suffix="x86_64"
-      - else
-      -   if [[ $ABIS = *";"* ]]; then
-      -     oneOf=$(echo $ABIS | cut -d';' -f 1)
-      -   else
-      -     oneOf=$ABIS
-      -   fi
-      -   case $oneOf in
-      -     "armeabi-v7a") qt_bin_dir_suffix="armv7";;
-      -     "arm64-v8a") qt_bin_dir_suffix="arm64_v8a";;
-      -     *) qt_bin_dir_suffix=$oneOf;;
-      -   esac
-      - fi
-      - # get real path
-      - # calls on paths containing '..' may result in a 'Permission denied'
-      - QT_BIN_DIR=$(cd $QT_HOST_PATH/../android_$qt_bin_dir_suffix/bin && pwd)
-      - 
-      - echo "Building App..."
-      - 
-      - echo "Qt host: $QT_HOST_PATH"
-      - echo "Using Qt in $QT_BIN_DIR"
-      - echo "Using Android SDK in $ANDROID_SDK_ROOT"
-      - echo "Using Android NDK in $ANDROID_NDK_ROOT"
-      - 
-      - # Run qt-cmake to configure build
-      - qt_cmake_opts=()
-      - 
-      - if [[ -v AAB || "$ABIS" = "all" ]]; then
-      -   qt_cmake_opts+=(-DQT_ANDROID_BUILD_ALL_ABIS=ON)
-      - else
-      -   qt_cmake_opts+=(-DQT_ANDROID_ABIS="$ABIS")
-      - fi
-      - 
-      - # QT_NO_GLOBAL_APK_TARGET_PART_OF_ALL=ON - Skip building apks as part of the default 'ALL' target
-      - # We'll build apks during androiddeployqt
-      - $QT_BIN_DIR/qt-cmake -S $PROJECT_DIR -B $BUILD_DIR \
-      -   -DQT_NO_GLOBAL_APK_TARGET_PART_OF_ALL=ON \
-      -   -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
-      -   "${qt_cmake_opts[@]}"
-      - 
-      - # Build app
-      - cmake --build $BUILD_DIR --config $BUILD_TYPE
-      - 
-      - # Build and package APK or AAB
-      - echo "Building APK/AAB..."
-      - 
-      - deployqt_opts=()
-      - 
-      - if [ -v AAB ]; then
-      -   deployqt_opts+=(--aab)
-      - fi
-      - 
-      - if [ -v ANDROID_BUILD_PLATFORM ]; then
-      -   deployqt_opts+=(--android-platform "$ANDROID_BUILD_PLATFORM")
-      - fi
-      - 
-      - if [ "$BUILD_TYPE" = "release" ]; then
-      -   deployqt_opts+=(--release)
-      - fi
-      - 
-      - # for gradle to skip all tasks when it is executed by androiddeployqt
-      - # gradle is started later explicitly
-      - export ANDROIDDEPLOYQT_RUN=1
-      - 
-      - $QT_HOST_PATH/bin/androiddeployqt \
-      -   --input $OUT_APP_DIR/android-AmneziaVPN-deployment-settings.json \
-      -   --output $OUT_APP_DIR/android-build \
-      -   "${deployqt_opts[@]}"
-      - 
-      - # run gradle
-      - gradle_opts=()
-      - 
-      - if [ -v AAB ]; then
-      -   gradle_opts+=(bundle"${BUILD_TYPE^}")
-      - fi
-      - if [ -v ABIS ]; then
-      -   gradle_opts+=(assemble"${BUILD_TYPE^}")
-      - fi
-      - 
-      - $OUT_APP_DIR/android-build/gradlew \
-      -   --project-dir $OUT_APP_DIR/android-build \
-      -   -DexplicitRun=1 \
-      -   "${gradle_opts[@]}"
-      - 
-      - if [[ -v CI || -v MOVE_RESULT ]]; then
-      -   echo "Moving APK/AAB..."
-      -   if [ -v AAB ]; then
-      -     mv -u $OUT_APP_DIR/android-build/build/outputs/bundle/$BUILD_TYPE/AmneziaVPN-$BUILD_TYPE.aab \
-      -        $PROJECT_DIR/deploy/build/
-      -   fi
-      - 
-      -   if [ -v ABIS ]; then
-      -     if [ "$ABIS" = "all" ]; then
-      -       ABIS="x86;x86_64;armeabi-v7a;arm64-v8a"
-      -     fi
-      - 
-      -     IFS=';' read -r -a abi_array <<< "$ABIS"
-      -     for ABI in "${abi_array[@]}"
-      -     do
-      -       mv -u $OUT_APP_DIR/android-build/build/outputs/apk/$BUILD_TYPE/AmneziaVPN-$ABI-$BUILD_TYPE.apk \
-      -        $PROJECT_DIR/deploy/build/
-      -     done
-      -   fi
-      - fi
-
+      # Build qt-android-build
+      - mkdir ../build-qt-android
+      - cd ../build-qt-android
+      - export INSTALL_PATH=~/
+      - export SDK_PATH=$$SDK$$
+      - export NDK_PATH=$$NDK$$/26.1.10909125
+      - export QT_HOST_PATH=~/qt-everywhere-src-6.6.2/build-host
+      - export CMAKE_PREFIX_PATH=~/qt-everywhere-src-6.6.2/build-host/qtbase/lib/cmake
+      - ../configure -prefix $INSTALL_PATH -qt-host-path $QT_HOST_PATH -android-sdk $SDK_PATH -android-ndk $NDK_PATH 
     gradle:
      - yes
-    target: "android-33"
-    ndk: r26
+    target: "android-34"
+    ndk: 26.1.10909125
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
