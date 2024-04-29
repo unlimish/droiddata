@@ -3,15 +3,19 @@ Categories:
   - Phone & SMS
 License: AGPL-3.0-only
 AuthorName: Famedly
-SourceCode: https://gitlab.com/famedly/fluffychat
-IssueTracker: https://gitlab.com/famedly/fluffychat/-/issues
+AuthorWebSite: https://krille-chan.github.io
+WebSite: https://fluffychat.im
+SourceCode: https://github.com/krille-chan/fluffychat
+IssueTracker: https://github.com/krille-chan/fluffychat/issues
 Translation: https://hosted.weblate.org/projects/fluffychat/
-Changelog: https://gitlab.com/famedly/fluffychat/-/blob/main/CHANGELOG.md
+Changelog: https://github.com/krille-chan/fluffychat/blob/HEAD/CHANGELOG.md
+Donate: https://ko-fi.com/krille
+Liberapay: KrilleChritzelius
 
 AutoName: FluffyChat
 
 RepoType: git
-Repo: https://gitlab.com/famedly/fluffychat.git
+Repo: https://github.com/krille-chan/fluffychat.git
 
 Builds:
   - versionName: 1.6.0
@@ -32,7 +36,7 @@ Builds:
       - web
       - windows
     prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
-        'cmake;3.18.1'
+      'cmake;3.18.1'
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --release
@@ -56,7 +60,7 @@ Builds:
       - web
       - windows
     prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
-        'cmake;3.18.1'
+      'cmake;3.18.1'
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --release
@@ -80,7 +84,7 @@ Builds:
       - web
       - windows
     prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
-        'cmake;3.18.1'
+      'cmake;3.18.1'
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --release
@@ -105,7 +109,7 @@ Builds:
       - windows
       - winuwp
     prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
-        'cmake;3.18.1'
+      'cmake;3.18.1'
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --release
@@ -342,8 +346,382 @@ Builds:
       - $$flutter$$/bin/flutter build apk --release
     ndk: r21e
 
+  - versionName: 1.13.0
+    versionCode: 3514
+    commit: 28c3dfa2bb0c86ee2a028481cefa44b5ddc21c8a
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+      - winuwp
+    prebuild:
+      - source .github/workflows/versions.env
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - sdkmanager 'cmake;3.18.1'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+  - versionName: 1.14.1
+    versionCode: 3516
+    commit: 2713b38b80af3287bfc9ce94af59a59aa06f2fdf
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+      - winuwp
+    prebuild:
+      - source .github/workflows/versions.env
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - sdkmanager 'cmake;3.18.1'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+  - versionName: 1.14.2
+    versionCode: 3517
+    commit: 1c863fe769cdd180b98c14c847276c0890392038
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+      - winuwp
+    prebuild:
+      - source .github/workflows/versions.env
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - sdkmanager 'cmake;3.18.1'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+  - versionName: 1.14.3
+    versionCode: 3518
+    commit: 73d1b7e190c63e6835d64675df11b617f76c4042
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+      - winuwp
+    prebuild:
+      - source .github/workflows/versions.env
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - sdkmanager 'cmake;3.18.1'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+  - versionName: 1.14.4
+    versionCode: 3519
+    commit: 4420696dbfb641e242d2792032e4139761cdd943
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+      - winuwp
+    prebuild:
+      - source .github/workflows/versions.env
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - sdkmanager 'cmake;3.18.1'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+  - versionName: 1.15.0
+    versionCode: 3521
+    commit: 81943f062c8d95a29c2f7963b92c1789316f59e0
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+      - winuwp
+    prebuild:
+      - source .github/workflows/versions.env
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - sdkmanager 'cmake;3.18.1'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+  - versionName: 1.15.1
+    versionCode: 3522
+    commit: a3db754b854bdbf286e4d0504d1db9c55d9cfa02
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+      - winuwp
+    prebuild:
+      - source .github/workflows/versions.env
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - sdkmanager 'cmake;3.18.1'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+  - versionName: 1.16.0
+    versionCode: 3523
+    commit: 73038ad5d1dbaef139aec1f8e785326a22885741
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+      - winuwp
+    prebuild:
+      - source .github/workflows/versions.env
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - sdkmanager 'cmake;3.18.1'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+  - versionName: 1.17.0
+    versionCode: 3524
+    commit: d8414e8d15b3ce63304382154e99bc53adc26f69
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+      - winuwp
+    prebuild:
+      - source .github/workflows/versions.env
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - sdkmanager 'cmake;3.18.1'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+  - versionName: 1.17.1
+    versionCode: 3525
+    commit: 9981826f7ba8f4d130766f175bf69ceb01298d64
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+      - winuwp
+    prebuild:
+      - source .github/workflows/versions.env
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - sdkmanager 'cmake;3.18.1'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
+  - versionName: 1.17.2
+    versionCode: 3526
+    commit: 3fa9c65a2b6ad27dc1068cdffa9c0c27b1797e7c
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - test
+      - web
+      - windows
+      - winuwp
+    prebuild:
+      - source .github/workflows/versions.env
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - sdkmanager 'cmake;3.18.1'
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+    ndk: r21e
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags v\d+.\d+.\d+
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.12.0
-CurrentVersionCode: 3452
+CurrentVersion: 1.17.2
+CurrentVersionCode: 3526

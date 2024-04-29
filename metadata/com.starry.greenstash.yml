@@ -3,11 +3,12 @@ Categories:
 License: MIT
 AuthorName: Stɑrry Shivɑm
 AuthorEmail: starry369126@outlook.com
-AuthorWebSite: https://github.com/starry69
+AuthorWebSite: https://starry-shivam.github.io
 SourceCode: https://github.com/Pool-Of-Tears/GreenStash
 IssueTracker: https://github.com/Pool-Of-Tears/GreenStash/issues
+Translation: https://github.com/Pool-Of-Tears/GreenStash#translations
 Changelog: https://github.com/Pool-Of-Tears/GreenStash/releases
-Donate: https://paypal.me/starryrays
+Donate: https://github.com/Pool-Of-Tears/GreenStash#donations
 Bitcoin: bc1q82qh9hw5xupwlf0f3ddfud63sek53lavk6cf0k
 
 AutoName: GreenStash
@@ -112,7 +113,36 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.7.0
+    versionCode: 27
+    commit: cd0c0fcdf3cd52049ac2ad5674c94f38668ccaf9
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.8.0
+    versionCode: 280
+    commit: 98c4cb759501996a372de8ae8d89e39e5a168ed6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.9.0
+    versionCode: 290
+    commit: e9da1294bcfc69f42655bab5ff109e5114e51a19
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.6.0
-CurrentVersionCode: 26
+CurrentVersion: 2.9.0
+CurrentVersionCode: 290

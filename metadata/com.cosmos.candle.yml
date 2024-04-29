@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Uses non-libre APIs to retrieve stock prices.
 Categories:
   - Internet
   - Money
@@ -8,7 +9,7 @@ AuthorName: CosmosApps
 AuthorEmail: cosmos.dev@protonmail.com
 SourceCode: https://gitlab.com/cosmosapps/candle
 IssueTracker: https://gitlab.com/cosmosapps/candle/issues
-Changelog: https://gitlab.com/cosmosapps/candle/-/blob/master/CHANGELOG.md
+Changelog: https://gitlab.com/cosmosapps/candle/-/blob/HEAD/CHANGELOG.md
 
 AutoName: Candle
 
@@ -60,7 +61,15 @@ Builds:
       - yes
     prebuild: sed -i -e '/keystorePropertiesFile/,+7d' build.gradle
 
+  - versionName: 0.2.3
+    versionCode: 10
+    commit: fbf7c35a8f5d704ece7a42454c0113ae5147e13b
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile/,+7d' build.gradle
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 0.2.2
-CurrentVersionCode: 9
+CurrentVersion: 0.2.3
+CurrentVersionCode: 10

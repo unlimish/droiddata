@@ -150,7 +150,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: v0.38
+    versionCode: 73
+    commit: 7caf7f0afebb2f5a921f0220f0869738d3fbd418
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags v\d+\.\d+
-CurrentVersion: v0.37
-CurrentVersionCode: 72
+CurrentVersion: v0.38
+CurrentVersionCode: 73

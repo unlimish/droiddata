@@ -12,7 +12,7 @@ Bitcoin: 38mRQy6oDJjZNR3xxiNRVS5obqLMnwonFD
 AutoName: Lunar Launcher
 
 RepoType: git
-Repo: https://github.com/iamrasel/lunar-launcher
+Repo: https://github.com/iamrasel/lunar-launcher.git
 
 Builds:
   - versionName: '15.0'
@@ -196,7 +196,40 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.7.2
+    versionCode: 34
+    commit: c88a2324cf39d9369f58672765ad6d23a4a39151
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: '2.8'
+    versionCode: 35
+    commit: bdd6e0e1db62ef4c9d26309367eb4bec6881563b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.8.1.1
+    versionCode: 37
+    commit: c21c03ff18f696904526cf8cbeda40741e790cd7
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.7.1
-CurrentVersionCode: 33
+CurrentVersion: 2.8.1.1
+CurrentVersionCode: 37

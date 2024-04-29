@@ -22,10 +22,31 @@ Builds:
     gradle:
       - yes
 
-  - versionName: BETA-1.6.3
-    versionCode: 15
-    disable: RB fail
-    commit: 2e0f28cae7c2f26b115eaa3ed46424933ef328d8
+  - versionName: BETA-1.6.4
+    versionCode: 16
+    commit: 0700d0a6618da48a94b73a4633f8c7582af7a387
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: BETA-1.7.1
+    versionCode: 21
+    commit: 1e2a2142e6783f35e485228b69797c2d6e613dc5
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: BETA-1.8.0
+    versionCode: 22
+    commit: 59a2de1431e9818e41e77b3af35de87f3eb1e0b5
     subdir: app
     sudo:
       - apt-get update
@@ -38,5 +59,5 @@ AllowedAPKSigningKeys: 76ff63eb1d5d833f640e9707f997bdf3ccf8868ecac78dc8a9fff85bd
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags BETA.*[0-9]$
-CurrentVersion: BETA-1.6.3
-CurrentVersionCode: 15
+CurrentVersion: BETA-1.8.0
+CurrentVersionCode: 22

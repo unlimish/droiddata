@@ -6,13 +6,14 @@ AuthorWebSite: https://developers.yubico.com
 WebSite: https://developers.yubico.com/yubioath-flutter
 SourceCode: https://github.com/Yubico/yubioath-flutter
 IssueTracker: https://github.com/Yubico/yubioath-flutter/issues
+Changelog: https://raw.githubusercontent.com/Yubico/yubioath-flutter/HEAD/NEWS
 
 AutoName: Yubico Authenticator
 Description: |-
-    Store your unique credential on a hardware-backed security key and take it wherever
-    you go from mobile to desktop. No more storing sensitive secrets on your mobile
-    phone, leaving your account vulnerable to takeovers. With the Yubico Authenticator
-    you can raise the bar for security.
+  Store your unique credential on a hardware-backed security key and take it wherever
+  you go from mobile to desktop. No more storing sensitive secrets on your mobile
+  phone, leaving your account vulnerable to takeovers. With the Yubico Authenticator
+  you can raise the bar for security.
 
 RepoType: git
 Repo: https://github.com/Yubico/yubioath-flutter.git
@@ -359,12 +360,168 @@ Builds:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform="android-x64"
 
+  - versionName: 6.3.0
+    versionCode: 603001
+    commit: 9467d9a4a03df483c938f7de96fb661a81568d39
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    srclibs:
+      - flutter@3.13.2
+    rm:
+      - linux
+      - macos
+      - test
+      - windows
+    prebuild:
+      - sed -i -e '/gms/d' android/{app/build.gradle,build.gradle}
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform="android-arm"
+
+  - versionName: 6.3.0
+    versionCode: 603002
+    commit: 9467d9a4a03df483c938f7de96fb661a81568d39
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    srclibs:
+      - flutter@3.13.2
+    rm:
+      - linux
+      - macos
+      - test
+      - windows
+    prebuild:
+      - sed -i -e '/gms/d' android/{app/build.gradle,build.gradle}
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 6.3.0
+    versionCode: 603004
+    commit: 9467d9a4a03df483c938f7de96fb661a81568d39
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    srclibs:
+      - flutter@3.13.2
+    rm:
+      - linux
+      - macos
+      - test
+      - windows
+    prebuild:
+      - sed -i -e '/gms/d' android/{app/build.gradle,build.gradle}
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform="android-x64"
+
+  - versionName: 6.3.1
+    versionCode: 603021
+    commit: 899bb65768da812ffa4e1e8c0f5a6d8e57346a8c
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    srclibs:
+      - flutter@3.16.4
+    rm:
+      - linux
+      - macos
+      - test
+      - windows
+    prebuild:
+      - sed -i -e '/gms/d' android/{app/build.gradle,build.gradle}
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform="android-arm"
+
+  - versionName: 6.3.1
+    versionCode: 603022
+    commit: 899bb65768da812ffa4e1e8c0f5a6d8e57346a8c
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    srclibs:
+      - flutter@3.16.4
+    rm:
+      - linux
+      - macos
+      - test
+      - windows
+    prebuild:
+      - sed -i -e '/gms/d' android/{app/build.gradle,build.gradle}
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 6.3.1
+    versionCode: 603024
+    commit: 899bb65768da812ffa4e1e8c0f5a6d8e57346a8c
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    srclibs:
+      - flutter@3.16.4
+    rm:
+      - linux
+      - macos
+      - test
+      - windows
+    prebuild:
+      - sed -i -e '/gms/d' android/{app/build.gradle,build.gradle}
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform="android-x64"
+
 AutoUpdateMode: Version
-UpdateCheckMode: Tags
+UpdateCheckMode: Tags ^[\d.]+$
 VercodeOperation:
   - '%c * 10 + 1'
   - '%c * 10 + 2'
   - '%c * 10 + 4'
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 6.2.0
-CurrentVersionCode: 602004
+CurrentVersion: 6.3.1
+CurrentVersionCode: 603024

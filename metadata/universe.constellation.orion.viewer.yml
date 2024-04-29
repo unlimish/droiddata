@@ -1,5 +1,3 @@
-AntiFeatures:
-  - KnownVuln
 Categories:
   - Reading
 License: GPL-3.0-or-later
@@ -14,7 +12,7 @@ Changelog: https://github.com/max-kammerer/orion-viewer/releases
 AutoName: Orion Viewer
 
 RepoType: git
-Repo: https://github.com/max-kammerer/orion-viewer
+Repo: https://github.com/max-kammerer/orion-viewer.git
 
 Builds:
   - versionName: 0.81.2
@@ -30,15 +28,85 @@ Builds:
     scandelete:
       - nativeLibs/mupdf
     ndk: r20b
+    antifeatures:
+      KnownVuln:
+        en-US: Uses outdated MuPDF 1.16.1 library which has security issues.
 
-MaintainerNotes: |-
-    KnownVuln: MuPDF 1.16.1 noted at below link
-    https://github.com/max-kammerer/orion-viewer/commits/$TAG/nativeLibs/mupdfModule
-    https://github.com/max-kammerer/orion-viewer/issues/40
-    https://gitlab.com/fdroid/fdroiddata/-/merge_requests/11496
+  - versionName: 0.82.5
+    versionCode: 2033
+    commit: 88d9f79d2ec96c92e60f0304dc94d7f32081fd84
+    subdir: orion-viewer
+    sudo:
+      - apt-get update
+      - apt-get install -y make g++ pkg-config
+    gradle:
+      - yes
+    output: build/outputs/apk/release/orion-viewer-$$VERSION$$-armeabi-v7a-release-unsigned.apk
+    prebuild:
+      - cd ..
+      - gradle -b thirdparty_build.gradle downloadAndPatchDjvu downloadAndMakeMupdf
+    scandelete:
+      - nativeLibs/mupdf
+    ndk: 23.2.8568313
+
+  - versionName: 0.82.5
+    versionCode: 2034
+    commit: 88d9f79d2ec96c92e60f0304dc94d7f32081fd84
+    subdir: orion-viewer
+    sudo:
+      - apt-get update
+      - apt-get install -y make g++ pkg-config
+    gradle:
+      - yes
+    output: build/outputs/apk/release/orion-viewer-$$VERSION$$-x86-release-unsigned.apk
+    prebuild:
+      - cd ..
+      - gradle -b thirdparty_build.gradle downloadAndPatchDjvu downloadAndMakeMupdf
+    scandelete:
+      - nativeLibs/mupdf
+    ndk: 23.2.8568313
+
+  - versionName: 0.82.5
+    versionCode: 2035
+    commit: 88d9f79d2ec96c92e60f0304dc94d7f32081fd84
+    subdir: orion-viewer
+    sudo:
+      - apt-get update
+      - apt-get install -y make g++ pkg-config
+    gradle:
+      - yes
+    output: build/outputs/apk/release/orion-viewer-$$VERSION$$-x86_64-release-unsigned.apk
+    prebuild:
+      - cd ..
+      - gradle -b thirdparty_build.gradle downloadAndPatchDjvu downloadAndMakeMupdf
+    scandelete:
+      - nativeLibs/mupdf
+    ndk: 23.2.8568313
+
+  - versionName: 0.82.5
+    versionCode: 2036
+    commit: 88d9f79d2ec96c92e60f0304dc94d7f32081fd84
+    subdir: orion-viewer
+    sudo:
+      - apt-get update
+      - apt-get install -y make g++ pkg-config
+    gradle:
+      - yes
+    output: build/outputs/apk/release/orion-viewer-$$VERSION$$-arm64-v8a-release-unsigned.apk
+    prebuild:
+      - cd ..
+      - gradle -b thirdparty_build.gradle downloadAndPatchDjvu downloadAndMakeMupdf
+    scandelete:
+      - nativeLibs/mupdf
+    ndk: 23.2.8568313
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
+VercodeOperation:
+  - 1 + %c
+  - 2 + %c
+  - 3 + %c
+  - 4 + %c
 UpdateCheckData: orion-viewer/version.properties|orion\.version\.code\s*=\s*([0-9]+)|.|orion.version.name\s*=\s*(.+)
-CurrentVersion: 0.81.2
-CurrentVersionCode: 198
+CurrentVersion: 0.82.5
+CurrentVersionCode: 2036

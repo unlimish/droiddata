@@ -4,33 +4,33 @@ License: MPL-2.0
 WebSite: https://github.com/Catfriend1/syncthing-android/wiki
 SourceCode: https://github.com/Catfriend1/syncthing-android-fdroid
 IssueTracker: https://github.com/Catfriend1/syncthing-android/issues
-Translation: https://www.transifex.com/catfriend1/syncthing-android-1
+Translation: https://hosted.weblate.org/projects/syncthing/android/catfriend1
 Changelog: https://github.com/Catfriend1/syncthing-android/releases
 Liberapay: cf4friends
 
 AutoName: Syncthing-Fork
 Description: |-
-    This is a fork of https://f-droid.org/packages/com.nutomic.syncthingandroid that brings major
-    enhancements like:
-    * Individual sync conditions can be applied per device and per folder
-    * Recent changes UI, click to open files.
-    * "Battery eater" problem is fixed.
-    * Android 8 and 9 support.
-    Syncthing replaces proprietary sync and cloud services with something open,
-    trustworthy and decentralized. Your data is your data alone and you deserve to
-    choose where it is stored, if it is shared with some third party and how it's
-    transmitted over the Internet. Syncthing-Fork for Android is a wrapper for
-    Syncthing that provides an Android UI instead of Syncthing's built-in Web UI.
-    Goals of the fork:
-    * Develop and try out enhancements together with the community.
-    * Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
-    * Make enhancements configurable in the UI, users should be able to turn them on and off
-    Comparison between upstream and fork at the time of writing this:
-    * Both contain the syncthing binary built from the official source at GitHub:syncthing/syncthing
-    * Syncing functionality and reliability depends on the syncthing binary submodule version.
-    * Fork gets along with upstream and sometimes they pick up my improvements.
-    * Strategy and release frequency is different
-    * Only the wrapper containing the Android UI is addressed by the fork.
+  This is a fork of https://f-droid.org/packages/com.nutomic.syncthingandroid that brings major
+  enhancements like:
+  * Individual sync conditions can be applied per device and per folder
+  * Recent changes UI, click to open files.
+  * "Battery eater" problem is fixed.
+  * Android 8 and 9 support.
+  Syncthing replaces proprietary sync and cloud services with something open,
+  trustworthy and decentralized. Your data is your data alone and you deserve to
+  choose where it is stored, if it is shared with some third party and how it's
+  transmitted over the Internet. Syncthing-Fork for Android is a wrapper for
+  Syncthing that provides an Android UI instead of Syncthing's built-in Web UI.
+  Goals of the fork:
+  * Develop and try out enhancements together with the community.
+  * Release the wrapper more frequently to identify and fix bugs caused by changes in the syncthing submodule
+  * Make enhancements configurable in the UI, users should be able to turn them on and off
+  Comparison between upstream and fork at the time of writing this:
+  * Both contain the syncthing binary built from the official source at GitHub:syncthing/syncthing
+  * Syncing functionality and reliability depends on the syncthing binary submodule version.
+  * Fork gets along with upstream and sometimes they pick up my improvements.
+  * Strategy and release frequency is different
+  * Only the wrapper containing the Android UI is addressed by the fork.
 
 RepoType: git
 Repo: https://github.com/Catfriend1/syncthing-android-fdroid.git
@@ -1945,15 +1945,160 @@ Builds:
     preassemble:
       - :syncthing:buildNative
 
+  - versionName: 1.23.6.0
+    versionCode: 1230600
+    commit: 8b2d3e7f271daeecbc26e587ef619cc0877056ad
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc libc6-dev
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+      - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+    preassemble:
+      - :syncthing:buildNative
+
+  - versionName: 1.26.0.2
+    versionCode: 1260002
+    commit: 73e08963f8b8067218abda32ef8a44ff9546f056
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y gcc libc6-dev
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+    build: gradle :syncthing:buildNative
+
+  - versionName: 1.26.1.0
+    versionCode: 1260100
+    commit: 1e5bb769b23eaca06d74af9284eeb32487ba0b16
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    srclibs:
+      - go@go1.21.4
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+      - echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+    build:
+      - export ndkversion=$(grep "NDK_VERSION = " ../syncthing/build-syncthing.py|cut
+        -d "'" -f 2)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/26.1.10909125
+      - export goversion=$(grep "GO_VERSION = " ../syncthing/build-syncthing.py|cut
+        -d "'" -f 2)
+      - pushd $$go$$
+      - git checkout -f go$goversion
+      - cd src
+      - ./make.bash
+      - popd
+      - export PATH=$$go$$/bin:$PATH
+      - gradle :syncthing:buildNative
+
+  - versionName: 1.27.0.1
+    versionCode: 1270001
+    commit: 629115a4b534c810cfab0dc734dc2d6a50237ea3
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    srclibs:
+      - go@go1.21.4
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+      - echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+    build:
+      - export ndkversion=$(grep "ndkVersionShared = " ../build.gradle | cut -d "'"
+        -f 2)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+      - export goversion=$(grep "GO_VERSION = " ../syncthing/build-syncthing.py|cut
+        -d "'" -f 2)
+      - pushd $$go$$
+      - git checkout -f go$goversion
+      - cd src
+      - ./make.bash
+      - popd
+      - export PATH=$$go$$/bin:$PATH
+      - gradle :syncthing:buildNative
+
+  - versionName: 1.27.2.1
+    versionCode: 1270201
+    commit: 1440f85f96ac466c0efd7f1742dcb3ed824039ae
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    srclibs:
+      - go@go1.21.4
+    rm:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    prebuild:
+      - sed -i -e '/signingConfig/d' build.gradle
+      - sed -i -e '/executable/s/python/python3/' {../syncthing,.}/build.gradle
+      - echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+    build:
+      - export ndkversion=$(grep "ndkVersionShared = " ../build.gradle | cut -d "'"
+        -f 2)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK_HOME=$$SDK$$/ndk/$ndkversion
+      - export goversion=$(grep "GO_VERSION = " ../syncthing/build-syncthing.py|cut
+        -d "'" -f 2)
+      - pushd $$go$$
+      - git checkout -f go$goversion
+      - cd src
+      - ./make.bash
+      - popd
+      - export PATH=$$go$$/bin:$PATH
+      - gradle :syncthing:buildNative
+
 MaintainerNotes: |-
-    The submodule in syncthing/src/github.com/syncthing/syncthing must be
-    pristine, as the version/release information is taken from git.
-    The ignored directory
-    syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
-    contains pre-generated data for testing and is thus not involved in the build
-    process.
+  The submodule in syncthing/src/github.com/syncthing/syncthing must be
+  pristine, as the version/release information is taken from git.
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[a-z0-9.]*$
-CurrentVersion: 1.23.5.0
-CurrentVersionCode: 1230500
+CurrentVersion: 1.27.2.1
+CurrentVersionCode: 1270201

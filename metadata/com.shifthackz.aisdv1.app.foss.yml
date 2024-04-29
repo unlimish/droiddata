@@ -1,0 +1,94 @@
+Categories:
+  - Graphics
+License: AGPL-3.0-only
+AuthorName: Dmitriy Moroz
+AuthorEmail: dmitriy@moroz.cc
+AuthorWebSite: https://moroz.cc
+SourceCode: https://github.com/ShiftHackZ/Stable-Diffusion-Android
+IssueTracker: https://github.com/ShiftHackZ/Stable-Diffusion-Android/issues
+
+RepoType: git
+Repo: https://github.com/ShiftHackZ/Stable-Diffusion-Android.git
+Binaries: https://github.com/ShiftHackZ/Stable-Diffusion-Android/releases/download/%v/sdai-foss-release-%v.apk
+
+Builds:
+  - versionName: 0.4.10
+    versionCode: 157
+    commit: 4e7df87202e57b9d7af38782b18be3c0428fe458
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/gms/d' -e '/firebase/d' ../build.gradle
+      - sed -i -e '/plugins.gradle/d' build.gradle
+
+  - versionName: 0.4.11
+    versionCode: 158
+    commit: c13b3a024a1fb2f8d117e9f32b6e3c9a3bd77b28
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/gms/d' -e '/firebase/d' ../build.gradle
+      - sed -i -e '/plugins.gradle/d' build.gradle
+
+  - versionName: 0.5.0
+    versionCode: 161
+    commit: 67dd78f832a3a35cd1001cee853defde88e043ca
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/gms/d' -e '/firebase/d' ../build.gradle
+      - sed -i -e '/plugins.gradle/d' build.gradle
+
+  - versionName: 0.5.2
+    versionCode: 165
+    commit: aae90531291a21011c3a691e785199e3ce6ea551
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/gms/d' -e '/firebase/d' ../build.gradle
+      - sed -i -e '/plugins.gradle/d' build.gradle
+      - sed -i -e "s/onnxruntimeVersion = 'latest.release'/onnxruntimeVersion = '1.15.1'/"
+        ../dependencies.gradle
+
+  - versionName: 0.5.3
+    versionCode: 166
+    commit: 9c3a819e546e0fe883be442ae12eac2a840a3585
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/gms/d' -e '/firebase/d' ../build.gradle
+      - sed -i -e '/plugins.gradle/d' build.gradle
+      - sed -i -e "s/onnxruntimeVersion = 'latest.release'/onnxruntimeVersion = '1.15.1'/"
+        ../dependencies.gradle
+
+AllowedAPKSigningKeys: 8974efc853e2d5e93eb29dd809fc57cae7411fcfaca03de3f7c152f441a90064
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 0.5.3
+CurrentVersionCode: 166

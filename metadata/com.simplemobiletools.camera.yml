@@ -472,7 +472,27 @@ Builds:
       - fdroid
     prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
 
-AutoUpdateMode: Version
+  - versionName: 5.7.0
+    versionCode: 87
+    commit: 0dc52efb3ef3868d20660eb20d5fdbe0f386cb57
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.7.2
+    versionCode: 89
+    commit: 959b2802a38dae7704b36c9873ec5bd3fb436aeb
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+
+AutoUpdateMode: None
 UpdateCheckMode: Tags
-CurrentVersion: 5.6.3
-CurrentVersionCode: 86
+UpdateCheckData: gradle/libs.versions.toml|app-version-versionCode\s=\s"(\d+)"|.|app-version-versionName\s=\s"(.*)"
+CurrentVersion: 5.7.2
+CurrentVersionCode: 89

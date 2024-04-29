@@ -8,25 +8,25 @@ AuthorWebSite: https://calyxinstitute.org/
 WebSite: https://calyx.net
 SourceCode: https://gitlab.com/CalyxOS/bitmask_android
 IssueTracker: https://gitlab.com/CalyxOS/calyxos/-/issues
-Translation: https://www.transifex.com/otf/bitmask-android/
+Translation: https://explore.transifex.com/otf/bitmask/
 Changelog: https://gitlab.com/CalyxOS/bitmask_android/blob/HEAD/CHANGELOG
 Donate: https://calyxinstitute.org/
 Bitcoin: 14wntQ8cBdnhUVfYmDjXz6PbpSSX8nCtkr
 
 AutoName: CalyxVPN
 Description: |-
-    With CalyxVPN, you can safely encrypt all your network traffic and route it through the Calyx Institute.
+  With CalyxVPN, you can safely encrypt all your network traffic and route it through the Calyx Institute.
 
-    * Automatic Setup: There is nothing to configure.
-    * Anonymous VPN: No user accounts and no logging.
-    * Anonymous IP Address: When the VPN connection is active, all the servers on the internet will see you as originating from an anonymous IP hosted by Calyx.
-    * Free: This is a free service provided by the Calyx Institute.
-    * Open Source: Both the client and server are 100% free and open source software.
-    * No IPv6 Leaks: CalyxVPN will not leak IPv6 traffic (requires root).
-    * No DNS Leaks: CalyxVPN is configured on both the client and the server to prevent any leaking of DNS. All DNS requests are anonymously handled by Calyx when the VPN is on.
-    * Circumvention: When "Use Bridges" option is enabled, all your traffic is hidden as normal web traffic, in order to circumvent some censorship systems that block VPN traffic.
+  * Automatic Setup: There is nothing to configure.
+  * Anonymous VPN: No user accounts and no logging.
+  * Anonymous IP Address: When the VPN connection is active, all the servers on the internet will see you as originating from an anonymous IP hosted by Calyx.
+  * Free: This is a free service provided by the Calyx Institute.
+  * Open Source: Both the client and server are 100% free and open source software.
+  * No IPv6 Leaks: CalyxVPN will not leak IPv6 traffic (requires root).
+  * No DNS Leaks: CalyxVPN is configured on both the client and the server to prevent any leaking of DNS. All DNS requests are anonymously handled by Calyx when the VPN is on.
+  * Circumvention: When "Use Bridges" option is enabled, all your traffic is hidden as normal web traffic, in order to circumvent some censorship systems that block VPN traffic.
 
-    As with all VPNs, CalyxVPN only adds security to your data as it flows over the network. It cannot protect the content of your data that is stored or that you give to a website. It also does not prevent advertising and tracking in your apps or web browser (except when this tracking is based on your IP address).
+  As with all VPNs, CalyxVPN only adds security to your data as it flows over the network. It cannot protect the content of your data that is stored or that you give to a website. It also does not prevent advertising and tracking in your apps or web browser (except when this tracking is based on your IP address).
 
 RepoType: git
 Repo: https://gitlab.com/CalyxOS/bitmask_android.git
@@ -34,6 +34,7 @@ Repo: https://gitlab.com/CalyxOS/bitmask_android.git
 Builds:
   - versionName: 0.9.10
     versionCode: 137
+    disable: https://gitlab.com/CalyxOS/calyxos/-/issues/1755#note_1472289443
     commit: calyx/0.9.10
     subdir: app
     submodules: true
@@ -51,6 +52,7 @@ Builds:
 
   - versionName: 1.0.1
     versionCode: 141
+    disable: https://gitlab.com/CalyxOS/calyxos/-/issues/1755#note_1472289443
     commit: calyx/1.0.1
     subdir: app
     submodules: true
@@ -66,6 +68,7 @@ Builds:
 
   - versionName: 1.0.3
     versionCode: 147
+    disable: https://gitlab.com/CalyxOS/calyxos/-/issues/1755#note_1472289443
     commit: calyx/1.0.3
     subdir: app
     submodules: true
@@ -100,6 +103,7 @@ Builds:
 
   - versionName: 1.0.5
     versionCode: 149
+    disable: https://gitlab.com/CalyxOS/calyxos/-/issues/1755#note_1472289443
     commit: calyx/1.0.5
     subdir: app
     submodules: true
@@ -139,6 +143,7 @@ Builds:
 
   - versionName: 1.0.9
     versionCode: 155
+    disable: https://gitlab.com/CalyxOS/calyxos/-/issues/1755#note_1472289443
     commit: calyx/1.0.9-2
     subdir: app
     submodules: true
@@ -176,6 +181,7 @@ Builds:
 
   - versionName: 1.1.2
     versionCode: 160000
+    disable: https://gitlab.com/CalyxOS/calyxos/-/issues/1755#note_1472289443
     commit: calyx/1.1.2
     subdir: app
     submodules: true
@@ -197,12 +203,58 @@ Builds:
     build: ../scripts/build_deps.sh
     ndk: r21e
 
+  - versionName: 1.1.8
+    versionCode: 169000
+    commit: calyx/1.1.8
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y make gcc swig lib32stdc++6 lib32z1 autogen automake autopoint
+        libtool pkg-config po4a
+    gradle:
+      - customProductionFat
+    rm:
+      - tor-android/external/openssl/fuzz
+      - tor-android/external/openssl/boringssl/fuzz
+    prebuild: sed -i -e 's|./gradlew|gradle|' ../scripts/build_deps.sh
+    scandelete:
+      - bitmaskcore/obfsvpn/mobile/android/obfsvpn-sources.jar
+      - bitmaskcore/obfsvpn/mobile/android/obfsvpn.aar
+      - bitmaskcore/IPtProxy
+      - ics-openvpn/main/src/main/cpp
+      - tor-android/external
+    build: ../scripts/build_deps.sh
+    ndk: r21e
+
+  - versionName: 1.1.8-1
+    versionCode: 169001
+    commit: 320bf30b7432bb8ffebd2b27fe9216820a66d37f
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y make gcc swig lib32stdc++6 lib32z1 autogen automake autopoint
+        libtool pkg-config po4a
+    gradle:
+      - customProductionFat
+    rm:
+      - tor-android/external/openssl/fuzz
+      - tor-android/external/openssl/boringssl/fuzz
+    prebuild: sed -i -e 's|./gradlew|gradle|' ../scripts/build_deps.sh
+    scandelete:
+      - bitmaskcore/obfsvpn/mobile/android/obfsvpn-sources.jar
+      - bitmaskcore/obfsvpn/mobile/android/obfsvpn.aar
+      - bitmaskcore/IPtProxy
+      - ics-openvpn/main/src/main/cpp
+      - tor-android/external
+    build: ../scripts/build_deps.sh
+    ndk: r21e
+
 MaintainerNotes: The "build" commands are extracted from build_deps.sh.
 
 AutoUpdateMode: Version
-UpdateCheckMode: Tags ^calyx\/[0-9.]+$
-VercodeOperation:
-  - 1000*%c
+UpdateCheckMode: Tags ^calyx\/[\d.-]+$
 UpdateCheckName: se.leap.bitmaskclient
-CurrentVersion: 1.1.2
-CurrentVersionCode: 160000
+CurrentVersion: 1.1.8-1
+CurrentVersionCode: 169001

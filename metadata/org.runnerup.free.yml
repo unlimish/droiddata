@@ -1,19 +1,21 @@
 AntiFeatures:
-  - NonFreeNet
-  - UpstreamNonFree
+  NonFreeNet:
+    en-US: Uploading to Strava and other services makes use of non free net services.
+  UpstreamNonFree:
+    en-US: The Play version has additional features using non free libraries
 Categories:
   - Sports & Health
 License: GPL-3.0-only
 WebSite: https://github.com/jonasoreland/runnerup/wiki
 SourceCode: https://github.com/jonasoreland/runnerup
 IssueTracker: https://github.com/jonasoreland/runnerup/issues
-Translation: https://www.transifex.com/runner-up/runner-up-android/dashboard
+Translation: https://explore.transifex.com/runner-up/runner-up-android/
 Changelog: https://htmlpreview.github.io/?https://raw.githubusercontent.com/jonasoreland/runnerup/blob/HEAD/app/assets/changes.html
 
 AutoName: RunnerUp
 
 RepoType: git
-Repo: https://github.com/jonasoreland/runnerup
+Repo: https://github.com/jonasoreland/runnerup.git
 
 Builds:
   - versionName: 2.0.2.1
@@ -252,7 +254,7 @@ Builds:
       - wear
       - ANT-Android-SDKs
     prebuild: sed -i -e '/play-services/d' -e '/mapboxsdk/d' -e '/api.mapbox.com/d'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.1.0
     versionCode: 15000307
@@ -268,7 +270,7 @@ Builds:
       - wear
       - ANT-Android-SDKs
     prebuild: sed -i -e '/play-services/d' -e '/mapboxsdk/d' -e '/api.mapbox.com/d'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.3.1
     versionCode: 15000310
@@ -284,7 +286,7 @@ Builds:
       - wear
       - ANT-Android-SDKs
     prebuild: sed -i -e '/play-services/d' -e '/mapboxsdk/d' -e '/api.mapbox.com/d'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.4.0
     versionCode: 15000311
@@ -300,7 +302,7 @@ Builds:
       - wear
       - ANT-Android-SDKs
     prebuild: sed -i -e '/play-services/d' -e '/mapboxsdk/d' -e '/api.mapbox.com/d'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.5.0
     versionCode: 15000312
@@ -316,7 +318,7 @@ Builds:
       - wear
       - ANT-Android-SDKs
     prebuild: sed -i -e '/play-services/d' -e '/mapboxsdk/d' -e '/api.mapbox.com/d'
-        build.gradle
+      build.gradle
 
   - versionName: 2.5.0.5
     versionCode: 15000323
@@ -328,7 +330,7 @@ Builds:
       - wear
       - ANT-Android-SDKs
     prebuild: sed -i -e '/play-services/d' -e '/mapboxsdk/d' -e '/api.mapbox.com/d'
-        build.gradle
+      build.gradle
 
   - versionName: 2.5.0.6
     versionCode: 15000324
@@ -340,7 +342,7 @@ Builds:
       - wear
       - ANT-Android-SDKs
     prebuild: sed -i -e '/play-services/d' -e '/mapboxsdk/d' -e '/api.mapbox.com/d'
-        build.gradle
+      build.gradle
 
   - versionName: 2.5.0.7
     versionCode: 15000325
@@ -352,7 +354,7 @@ Builds:
       - wear
       - ANT-Android-SDKs
     prebuild: sed -i -e '/play-services/d' -e '/mapboxsdk/d' -e '/api.mapbox.com/d'
-        build.gradle
+      build.gradle
 
   - versionName: 2.5.1.0
     versionCode: 15000326
@@ -364,7 +366,7 @@ Builds:
       - wear
       - ANT-Android-SDKs
     prebuild: sed -i -e '/play-services/d' -e '/mapboxsdk/d' -e '/api.mapbox.com/d'
-        build.gradle
+      build.gradle
 
   - versionName: 2.5.2.0
     versionCode: 15000327
@@ -376,13 +378,29 @@ Builds:
       - wear
       - ANT-Android-SDKs
     prebuild: sed -i -e '/play-services/d' -e '/mapboxsdk/d' -e '/api.mapbox.com/d'
-        build.gradle
+      build.gradle
+
+  - versionName: 2.6.0.2
+    versionCode: 21000331
+    commit: 0d5e405acb180cdbae59da72e060c68531bb29aa
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - latest
+    rm:
+      - wear
+      - ANT-Android-SDKs
+    prebuild: sed -i -e '/play-services/d' -e '/mapboxsdk/d' -e '/api.mapbox.com/d'
+      build.gradle
 
 MaintainerNotes: This replaces RunnerUp 1.x https://f-droid.org/packages/org.runnerup
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]*$
 VercodeOperation:
-  - '%c + 15000000'
-CurrentVersion: 2.5.2.0
-CurrentVersionCode: 15000327
+  - '%c + 21000000'
+CurrentVersion: 2.6.0.2
+CurrentVersionCode: 21000331

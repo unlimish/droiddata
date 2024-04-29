@@ -102,13 +102,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 0.7.3.4
-    versionCode: 734
-    disable: no tag
-    commit: v0.7.3.4
-    gradle:
-      - yes
-
   - versionName: 0.7.3.6
     versionCode: 736
     commit: v0.7.3.6
@@ -262,15 +255,6 @@ Builds:
   - versionName: 1.6.6
     versionCode: 1660
     commit: v1.6.6
-    gradle:
-      - yes
-    prebuild: sed -i -e '/javaMaxHeapSize/s/4g/2g/g' build.gradle
-
-  - versionName: 1.7.1
-    versionCode: 1710
-    disable: Cannot resolve external dependency com.android.tools.build:gradle:3.0.1
-        because no repositories are defined
-    commit: v1.7.1
     gradle:
       - yes
     prebuild: sed -i -e '/javaMaxHeapSize/s/4g/2g/g' build.gradle
@@ -679,7 +663,70 @@ Builds:
       - yes
     prebuild: sed -i -e '/javaMaxHeapSize/s/4g/2g/g' build.gradle
 
+  - versionName: 1.26.4
+    versionCode: 12604
+    commit: af922a4277ca3a932c092223861b6e986ea6a20b
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/javaMaxHeapSize/s/4g/2g/g' build.gradle
+
+  - versionName: 1.27.0
+    versionCode: 12700
+    commit: 49e2b2d9a2a22bc997d5baf9eae05b1091d546ac
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/javaMaxHeapSize/s/4g/2g/g' build.gradle
+
+  - versionName: 1.27.1
+    versionCode: 12701
+    commit: a2ef4659d94187331c2681e240f8666610bcd738
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/javaMaxHeapSize/s/4g/2g/g' build.gradle
+
+  - versionName: 1.28.0
+    versionCode: 12800
+    commit: f89c01ec17e927a3a2c0cca0f19f73c370c424e2
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.28.0
+    versionCode: 12801
+    commit: 29b5f5a25cfcc4c6979aa0176f256830cd1e7ee8
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.29.0
+    versionCode: 12900
+    commit: f2af39aa8e79566e44f95441603ef506d1cbe626
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.26.3
-CurrentVersionCode: 12603
+CurrentVersion: 1.29.0
+CurrentVersionCode: 12900

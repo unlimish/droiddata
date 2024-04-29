@@ -102,7 +102,67 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.8.0-beta2
+    versionCode: 19
+    commit: 70ef6f99d0d0b9aa603c6e54f082d34463649d7a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.8.0
+    versionCode: 20
+    commit: 6a826c0bd6bfc63159d6a66e5d20b0f01d892afa
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.0.1
+    versionCode: 23
+    disable: https://github.com/wa2c/cifs-documents-provider/issues/42#issuecomment-1824102913
+    commit: 6bb308e64e7859dc6d2f268f9a62b4673d8ca941
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/opennms/d' ../build.gradle.kts
+
+  - versionName: 2.0.2
+    versionCode: 24
+    commit: 07660a8e7edfb65470129fcd005924859547bae0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/opennms/d' ../build.gradle.kts
+
+  - versionName: 2.1.0
+    versionCode: 25
+    commit: a43a1215308184dcc7c3ca28e48625242c4d5fe0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/opennms/d' ../build.gradle.kts
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.7.0
-CurrentVersionCode: 17
+UpdateCheckData: gradle/libs.versions.toml|appVersionCode\s=\s"(\d+)"|.|appVersionName\s=\s"(.*)"
+CurrentVersion: 2.1.0
+CurrentVersionCode: 25

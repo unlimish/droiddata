@@ -4,9 +4,12 @@ License: Apache-2.0
 AuthorName: Oleg Koretsky
 AuthorEmail: oleg@radiokot.com.ua
 AuthorWebSite: https://radiokot.com.ua
+WebSite: https://radiokot.com.ua/p/ln-addr-to-invoice
 SourceCode: https://github.com/Radiokot/ln-addr-to-invoice
 IssueTracker: https://github.com/Radiokot/ln-addr-to-invoice/issues
-Donate: https://iris.to/radiokot@nostr.21ideas.org
+Changelog: https://github.com/Radiokot/ln-addr-to-invoice/blob/HEAD/CHANGELOG.md
+Donate: https://radiokot.com.ua/tip
+Bitcoin: bc1qx7nja8gaykyd4encua90wnz8rygt572ddgnzmg
 
 AutoName: LN Address to Invoice
 
@@ -24,7 +27,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'META-INF/services/*' 'assets/app.properties'
+      'META-INF/services/*' 'assets/app.properties'
 
   - versionName: 1.1.1
     versionCode: 3
@@ -35,11 +38,22 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'META-INF/services/*' 'assets/app.properties'
+      'META-INF/services/*' 'assets/app.properties'
+
+  - versionName: 1.2.0
+    versionCode: 4
+    commit: 25cb8ad00e91909a3634ca927f7171caf193b922
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*' 'assets/app.properties'
 
 AllowedAPKSigningKeys: 7fb81b777ce2521269c6844e563aa5bc4da4b97269ff3721952f3b445c741146
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.1.1
-CurrentVersionCode: 3
+CurrentVersion: 1.2.0
+CurrentVersionCode: 4

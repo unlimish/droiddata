@@ -10,12 +10,12 @@ Changelog: https://github.com/PaulWoitaschek/Voice/releases
 
 AutoName: Voice
 Description: |-
-    Audiobook player with the following basic features:
+  Audiobook player with the following basic features:
 
-    * Remembers last position
-    * Easy, intuitive interface
-    * Sleep-timer
-    * Easily jump to a position
+  * Remembers last position
+  * Easy, intuitive interface
+  * Sleep-timer
+  * Easily jump to a position
 
 RepoType: git
 Repo: https://github.com/PaulWoitaschek/Voice.git
@@ -282,7 +282,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.0.1
     versionCode: 73
@@ -292,7 +292,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.1
     versionCode: 74
@@ -302,7 +302,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.2
     versionCode: 76
@@ -312,7 +312,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.3
     versionCode: 83
@@ -322,7 +322,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.3.2
     versionCode: 85
@@ -332,7 +332,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.4
     versionCode: 86
@@ -342,7 +342,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.4.1
     versionCode: 87
@@ -352,7 +352,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.2.2
     versionCode: 89
@@ -518,7 +518,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.3.4
     versionCode: 192
@@ -527,7 +527,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.3.5
     versionCode: 193
@@ -536,7 +536,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.3.6
     versionCode: 194
@@ -545,7 +545,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.3.6.2
     versionCode: 196
@@ -554,7 +554,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.4
     versionCode: 197
@@ -563,7 +563,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.5
     versionCode: 198
@@ -572,7 +572,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.6.2
     versionCode: 201
@@ -1154,8 +1154,46 @@ Builds:
     scandelete:
       - plugins/build
 
+  - versionName: 8.1.3
+    versionCode: 3603030
+    commit: eea9cc8415521640b9d065c3a611052ae1730d76
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 8.2.0
+    versionCode: 3603031
+    commit: 7a8a185725f69b69cdd3bcd491654ef5638f8bdb
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e 's/(this as ApplicationAndroidResources).//'
+        build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9.]+$
 UpdateCheckData: gradle/libs.versions.toml|versionCode\s*=\s*"([0-9]+)"|.|versionName\s*=\s*"(.+)"
-CurrentVersion: 8.1.2
-CurrentVersionCode: 3603029
+CurrentVersion: 8.2.0
+CurrentVersionCode: 3603031

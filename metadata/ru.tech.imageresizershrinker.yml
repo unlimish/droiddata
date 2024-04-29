@@ -13,7 +13,7 @@ AutoName: Image Toolbox (Resizer)
 
 RepoType: git
 Repo: https://github.com/T8RIN/ImageResizer.git
-Binaries: https://github.com/T8RIN/ImageToolbox/releases/download/%v/image-toolbox-%v.apk
+Binaries: https://github.com/T8RIN/ImageToolbox/releases/download/%v/image-toolbox-%v-foss-universal.apk
 
 Builds:
   - versionName: 1.7.6
@@ -228,21 +228,159 @@ Builds:
       - yes
     binary: https://github.com/T8RIN/ImageResizer/releases/download/%v/image-resizer-%v.apk
 
-  - versionName: 2.2.0-beta4
-    versionCode: 70
-    disable: https://github.com/T8RIN/ImageToolbox/discussions/151
-    commit: bd2cb3bc66b991486c652224d29e29e9064ce10b
+  - versionName: 2.4.1
+    versionCode: 94
+    commit: 8c6eaea39341086e591592066314b92f594fbaa2
     subdir: app
     sudo:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
       - update-java-alternatives -a
     gradle:
-      - yes
+      - foss
+    output: build/outputs/apk/foss/release/image-toolbox-*-foss-universal-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/google-services/d' -e '/firebase/d' ../build.gradle.kts
+      - sed -i -e '/mlkit/,+14d' -e '/google-services/d' -e '/firebase/d' build.gradle.kts
+
+  - versionName: 2.4.2-alpha01
+    versionCode: 95
+    commit: b65d7f3f6af6e3ba2b5ba993d7c45398ec200fb4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - foss
+    output: build/outputs/apk/foss/release/image-toolbox-*-foss-universal-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/google-services/d' -e '/firebase/d' ../build.gradle.kts
+      - sed -i -e '/mlkit/,+14d' -e '/google-services/d' -e '/firebase/d' build.gradle.kts
+
+  - versionName: 2.4.2
+    versionCode: 97
+    commit: bce382f6f85c780797c2879061e93929274e4256
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - foss
+    output: build/outputs/apk/foss/release/image-toolbox-*-foss-universal-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/google-services/d' -e '/firebase/d' ../build.gradle.kts
+      - sed -i -e '/mlkit/,+14d' -e '/google-services/d' -e '/firebase/d' build.gradle.kts
+
+  - versionName: 2.4.3-alpha01
+    versionCode: 98
+    commit: 5263471e75ce24e8f425949a1b59373e8fc65336
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - foss
+    output: build/outputs/apk/foss/release/image-toolbox-*-foss-universal-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/google-services/d' -e '/firebase/d' ../build.gradle.kts
+      - sed -i -e '/mlkit/,+14d' -e '/google-services/d' -e '/firebase/d' build.gradle.kts
+
+  - versionName: 2.4.3-alpha02
+    versionCode: 99
+    commit: 0911c85259e5ede75ef0c8fce6b6db7df21c0063
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - foss
+    output: build/outputs/apk/foss/release/image-toolbox-*-foss-universal-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/google-services/d' -e '/firebase/d' ../build.gradle.kts
+      - sed -i -e '/mlkit/,+14d' -e '/google-services/d' -e '/firebase/d' build.gradle.kts
+
+  - versionName: 2.4.3-alpha03
+    versionCode: 100
+    commit: ef1a815e9c63b519b65afdd934ee40f608556ab4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - foss
+    output: build/outputs/apk/foss/release/image-toolbox-*-foss-universal-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/google-services/d' -e '/firebase/d' ../build.gradle.kts
+      - sed -i -e '/mlkit/,+14d' -e '/google-services/d' -e '/firebase/d' build.gradle.kts
+
+  - versionName: 2.4.3-beta01
+    versionCode: 101
+    commit: 49ee2482064469e0de31bf1cf9566820ade5d539
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - foss
+    output: build/outputs/apk/foss/release/image-toolbox-*-foss-universal-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/google-services/d' -e '/firebase/d' ../build.gradle.kts
+      - sed -i -e '/mlkit/,+14d' -e '/google-services/d' -e '/firebase/d' build.gradle.kts
+
+  - versionName: 2.5.0-rc02
+    versionCode: 103
+    commit: 61410578f898053b1579bd106c2f4b75ea5271b3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - foss
+    output: build/outputs/apk/foss/release/image-toolbox-*-foss-universal-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/google-services/d' -e '/firebase/d' ../build.gradle.kts
+      - sed -i -e '/mlkit/,+14d' -e '/google-services/d' -e '/firebase/d' build.gradle.kts
+
+  - versionName: 2.5.0
+    versionCode: 104
+    commit: 8bdaafe605f6c4ebbd14bb15ac45368d21ff7b3c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - foss
+    output: build/outputs/apk/foss/release/image-toolbox-*-foss-universal-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/google-services/d' -e '/firebase/d' ../build.gradle.kts
+      - sed -i -e '/mlkit/,+14d' -e '/google-services/d' -e '/firebase/d' build.gradle.kts
+
+  - versionName: 2.5.1
+    versionCode: 105
+    commit: 7d042222a3464cecbfeb16ed4405312048207b75
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - foss
+    output: build/outputs/apk/foss/release/image-toolbox-*-foss-universal-release-unsigned.apk
+    prebuild:
+      - sed -i -e '/google-services/d' -e '/firebase/d' ../build.gradle.kts
+      - sed -i -e '/mlkit/,+14d' -e '/google-services/d' -e '/firebase/d' build.gradle.kts
 
 AllowedAPKSigningKeys: 20d7689de0874f00015ea3e31fa067c15c03457d362d41d5e793db3a864fa534
 
-AutoUpdateMode: None
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.2.0-rc1
-CurrentVersionCode: 72
+CurrentVersion: 2.5.1
+CurrentVersionCode: 105

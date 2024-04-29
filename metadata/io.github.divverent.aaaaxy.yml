@@ -29,7 +29,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e 's,^aaaaxy_build_use_version_file=false$,aaaaxy_build_use_version_file=true,'
-        ../gradle.properties
+      ../gradle.properties
     ndk: r25
 
   - versionName: 1.2.280+20220822.2294.9ff4b8b7
@@ -48,7 +48,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e 's,^aaaaxy_build_use_version_file=false$,aaaaxy_build_use_version_file=true,'
-        ../gradle.properties
+      ../gradle.properties
     ndk: r25
 
   - versionName: 1.2.300+20220829.2314.6a38b6e0
@@ -67,7 +67,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e 's,^aaaaxy_build_use_version_file=false$,aaaaxy_build_use_version_file=true,'
-        ../gradle.properties
+      ../gradle.properties
     ndk: r25
 
   - versionName: 1.2.321+20220905.2335.e05b1efe
@@ -86,7 +86,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e 's,^aaaaxy_build_use_version_file=false$,aaaaxy_build_use_version_file=true,'
-        ../gradle.properties
+      ../gradle.properties
     ndk: r25
 
   - versionName: 1.2.331+20220912.2345.cbfba5a3
@@ -105,7 +105,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e 's,^aaaaxy_build_use_version_file=false$,aaaaxy_build_use_version_file=true,'
-        ../gradle.properties
+      ../gradle.properties
     ndk: r25
 
   - versionName: 1.2.336+20220919.2350.a525d576
@@ -124,7 +124,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e 's,^aaaaxy_build_use_version_file=false$,aaaaxy_build_use_version_file=true,'
-        ../gradle.properties
+      ../gradle.properties
     ndk: r25
 
   - versionName: 1.2.342+20220926.2356.1993297e
@@ -143,7 +143,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e 's,^aaaaxy_build_use_version_file=false$,aaaaxy_build_use_version_file=true,'
-        ../gradle.properties
+      ../gradle.properties
     ndk: r25
 
   - versionName: 1.2.356+20221001.2370.44fbf2a3
@@ -162,7 +162,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e 's,^aaaaxy_build_use_version_file=false$,aaaaxy_build_use_version_file=true,'
-        ../gradle.properties
+      ../gradle.properties
     ndk: r25
 
   - versionName: 1.2.367+20221015.2381.5ec5e851
@@ -1137,10 +1137,730 @@ Builds:
       - aaaaxy_build_use_version_file=true
       - aaaaxy_build_versioncode_add=4
 
+  - versionName: 1.4.33+20230710.3052.1e2a5fd3
+    versionCode: 104300331
+    commit: e59f9e0def72a85c64b63c13b74ae469b861f196
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/386
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=1
+
+  - versionName: 1.4.33+20230710.3052.1e2a5fd3
+    versionCode: 104300332
+    commit: e59f9e0def72a85c64b63c13b74ae469b861f196
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/amd64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=2
+
+  - versionName: 1.4.33+20230710.3052.1e2a5fd3
+    versionCode: 104300333
+    commit: e59f9e0def72a85c64b63c13b74ae469b861f196
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=3
+
+  - versionName: 1.4.33+20230710.3052.1e2a5fd3
+    versionCode: 104300334
+    commit: e59f9e0def72a85c64b63c13b74ae469b861f196
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=4
+
+  - versionName: 1.4.39+20230725.3058.087fe586
+    versionCode: 104300391
+    commit: 832ed4d88913a69642898b09a09f60d645663eca
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/386
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=1
+
+  - versionName: 1.4.39+20230725.3058.087fe586
+    versionCode: 104300392
+    commit: 832ed4d88913a69642898b09a09f60d645663eca
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/amd64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=2
+
+  - versionName: 1.4.39+20230725.3058.087fe586
+    versionCode: 104300393
+    commit: 832ed4d88913a69642898b09a09f60d645663eca
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=3
+
+  - versionName: 1.4.39+20230725.3058.087fe586
+    versionCode: 104300394
+    commit: 832ed4d88913a69642898b09a09f60d645663eca
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=4
+
+  - versionName: 1.4.42+20230807.3061.173c7520
+    versionCode: 104300421
+    commit: 33bdf36951f4dad0a10e289cb7737d34dc2bed16
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/386
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=1
+
+  - versionName: 1.4.42+20230807.3061.173c7520
+    versionCode: 104300422
+    commit: 33bdf36951f4dad0a10e289cb7737d34dc2bed16
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/amd64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=2
+
+  - versionName: 1.4.42+20230807.3061.173c7520
+    versionCode: 104300423
+    commit: 33bdf36951f4dad0a10e289cb7737d34dc2bed16
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=3
+
+  - versionName: 1.4.42+20230807.3061.173c7520
+    versionCode: 104300424
+    commit: 33bdf36951f4dad0a10e289cb7737d34dc2bed16
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=4
+
+  - versionName: 1.4.45+20230904.3064.9129c289
+    versionCode: 104300451
+    commit: a73d3e550a292856327036a51c5c7c54944ce193
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/386
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=1
+
+  - versionName: 1.4.45+20230904.3064.9129c289
+    versionCode: 104300452
+    commit: a73d3e550a292856327036a51c5c7c54944ce193
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/amd64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=2
+
+  - versionName: 1.4.45+20230904.3064.9129c289
+    versionCode: 104300453
+    commit: a73d3e550a292856327036a51c5c7c54944ce193
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=3
+
+  - versionName: 1.4.45+20230904.3064.9129c289
+    versionCode: 104300454
+    commit: a73d3e550a292856327036a51c5c7c54944ce193
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=4
+
+  - versionName: 1.4.50+20230927.3069.edb8f108
+    versionCode: 104300501
+    commit: 84506eabbeadaae9f725c308496d59f1546406d0
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/386
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=1
+
+  - versionName: 1.4.50+20230927.3069.edb8f108
+    versionCode: 104300502
+    commit: 84506eabbeadaae9f725c308496d59f1546406d0
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/amd64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=2
+
+  - versionName: 1.4.50+20230927.3069.edb8f108
+    versionCode: 104300503
+    commit: 84506eabbeadaae9f725c308496d59f1546406d0
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=3
+
+  - versionName: 1.4.50+20230927.3069.edb8f108
+    versionCode: 104300504
+    commit: 84506eabbeadaae9f725c308496d59f1546406d0
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=4
+
+  - versionName: 1.4.72+20231030.3091.de20c129
+    versionCode: 104300721
+    commit: 48591944f998278c352b0e786516556299255179
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/386
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=1
+
+  - versionName: 1.4.72+20231030.3091.de20c129
+    versionCode: 104300722
+    commit: 48591944f998278c352b0e786516556299255179
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/amd64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=2
+
+  - versionName: 1.4.72+20231030.3091.de20c129
+    versionCode: 104300723
+    commit: 48591944f998278c352b0e786516556299255179
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=3
+
+  - versionName: 1.4.72+20231030.3091.de20c129
+    versionCode: 104300724
+    commit: 48591944f998278c352b0e786516556299255179
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=4
+
+  - versionName: 1.4.101+20231111.3120.29c354f1
+    versionCode: 104301011
+    commit: f4c7d6da65840fae9208c317007d47d18484c9fe
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/386
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=1
+
+  - versionName: 1.4.101+20231111.3120.29c354f1
+    versionCode: 104301012
+    commit: f4c7d6da65840fae9208c317007d47d18484c9fe
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/amd64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=2
+
+  - versionName: 1.4.101+20231111.3120.29c354f1
+    versionCode: 104301013
+    commit: f4c7d6da65840fae9208c317007d47d18484c9fe
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=3
+
+  - versionName: 1.4.101+20231111.3120.29c354f1
+    versionCode: 104301014
+    commit: f4c7d6da65840fae9208c317007d47d18484c9fe
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=4
+
+  - versionName: 1.4.119+20231211.3138.91e031e1
+    versionCode: 104301191
+    commit: c6ab3043bdf4ea63b70a9b1f28b8244ad8aa6f9d
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/386
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=1
+
+  - versionName: 1.4.119+20231211.3138.91e031e1
+    versionCode: 104301192
+    commit: c6ab3043bdf4ea63b70a9b1f28b8244ad8aa6f9d
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/amd64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=2
+
+  - versionName: 1.4.119+20231211.3138.91e031e1
+    versionCode: 104301193
+    commit: c6ab3043bdf4ea63b70a9b1f28b8244ad8aa6f9d
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=3
+
+  - versionName: 1.4.119+20231211.3138.91e031e1
+    versionCode: 104301194
+    commit: c6ab3043bdf4ea63b70a9b1f28b8244ad8aa6f9d
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=4
+
+  - versionName: 1.4.137+20240106.3156.7c674330
+    versionCode: 104301371
+    commit: 5af6b6e79a5fffad98faf47f698aef9e0f266b9e
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/386
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=1
+
+  - versionName: 1.4.137+20240106.3156.7c674330
+    versionCode: 104301372
+    commit: 5af6b6e79a5fffad98faf47f698aef9e0f266b9e
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/amd64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=2
+
+  - versionName: 1.4.137+20240106.3156.7c674330
+    versionCode: 104301373
+    commit: 5af6b6e79a5fffad98faf47f698aef9e0f266b9e
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=3
+
+  - versionName: 1.4.137+20240106.3156.7c674330
+    versionCode: 104301374
+    commit: 5af6b6e79a5fffad98faf47f698aef9e0f266b9e
+    subdir: AndroidStudioProjects/AAAAXY/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y advancecomp build-essential
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    scanignore:
+      - third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz
+    ndk: r25b
+    gradleprops:
+      - aaaaxy_build_gomobile_targets=android/arm64
+      - aaaaxy_build_tags=embed
+      - aaaaxy_build_use_version_file=true
+      - aaaaxy_build_versioncode_add=4
+
 MaintainerNotes: |
-    third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz is scanignore'd
-    as a third party asset that is unlikely to receive updates and gzip'd to
-    simplify the build process while minimizing binary size.
+  third_party/gnu_unifont/assets/fonts/unifont-15.0.01.bdf.gz is scanignore'd
+  as a third party asset that is unlikely to receive updates and gzip'd to
+  simplify the build process while minimizing binary size.
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
@@ -1150,5 +1870,5 @@ VercodeOperation:
   - '%c + 3'
   - '%c + 4'
 UpdateCheckData: .lastreleaseversioncode|(\d+)|.lastreleaseversion|(\S+)
-CurrentVersion: 1.4.18+20230626.3037.9eec6b33
-CurrentVersionCode: 104300184
+CurrentVersion: 1.4.137+20240106.3156.7c674330
+CurrentVersionCode: 104301374

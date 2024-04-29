@@ -5,11 +5,13 @@ Categories:
   - Science & Education
 License: GPL-3.0-only
 AuthorName: DanXi-Dev
-AuthorEmail: danxi_dev@pm.me
+AuthorEmail: dev@fduhole.com
 AuthorWebSite: https://github.com/DanXi-Dev
 WebSite: https://danxi.fduhole.com/
 SourceCode: https://github.com/DanXi-Dev/DanXi/tree/foss-build
 IssueTracker: https://github.com/DanXi-Dev/DanXi/issues
+Translation: https://crowdin.com/project/danxi
+Donate: https://afdian.net/a/danxi-dev
 
 AutoName: 旦夕
 
@@ -136,8 +138,39 @@ Builds:
       - .flutter/bin/flutter pub global run intl_utils:generate
       - .flutter/bin/flutter build apk --release
 
+  - versionName: 1.4.0
+    versionCode: 336
+    commit: b2b8ea43c97654cda941d2b9f6000f1d3551808d
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - .github
+      - .gradle
+      - CI
+      - ios
+      - macos
+      - test
+      - web
+      - windows
+      - android/app/proguard-rules.pro
+    prebuild:
+      - sed -i -e '/minifyEnabled/,+2d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - .flutter/bin/flutter config --no-analytics
+      - .flutter/bin/flutter pub get
+    scanignore:
+      - .flutter/bin/cache
+    scandelete:
+      - .flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - .flutter/bin/flutter pub global activate intl_utils
+      - .flutter/bin/flutter pub global run intl_utils:generate
+      - .flutter/bin/flutter build apk --release
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^foss-v
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.3.13
-CurrentVersionCode: 335
+CurrentVersion: 1.4.0
+CurrentVersionCode: 336

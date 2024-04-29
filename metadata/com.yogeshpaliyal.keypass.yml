@@ -6,6 +6,7 @@ AuthorEmail: yogeshpaliyal.foss@gmail.com
 AuthorWebSite: https://yogeshpaliyal.com
 SourceCode: https://github.com/yogeshpaliyal/KeyPass
 IssueTracker: https://github.com/yogeshpaliyal/KeyPass/issues
+Translation: https://hosted.weblate.org/projects/keypass/keypass/
 Changelog: https://github.com/yogeshpaliyal/KeyPass/releases
 
 AutoName: KeyPass
@@ -219,8 +220,81 @@ Builds:
       - production
     prebuild: sed -i -e '/pkg.jetbrains/d' ../settings.gradle.kts
 
+  - versionName: 1.4.18
+    versionCode: 1418
+    disable: https://github.com/yogeshpaliyal/KeyPass/discussions/576#discussioncomment-6573327
+    commit: ab9030fbc5e2ce14bcf443c94ff6b6dbf106fb12
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - production
+    prebuild: sed -i -e '/pkg.jetbrains/d' ../settings.gradle.kts
+
+  - versionName: 1.4.19
+    versionCode: 1419
+    commit: 83ab5d0255105d7f45035ba4084544da0823df24
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - production
+    prebuild: sed -i -e '/pkg.jetbrains/d' ../settings.gradle.kts
+
+  - versionName: 1.4.20
+    versionCode: 1420
+    commit: 7eeea207c074ca48acd15ba8a3e9ae33f2265852
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/pkg.jetbrains/d' ../settings.gradle.kts
+
+  - versionName: 1.4.21
+    versionCode: 1421
+    commit: e6c04d3058da791bc6e7520b3a7d7cac84748ca7
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/pkg.jetbrains/d' ../settings.gradle.kts
+
+  - versionName: 1.4.22
+    versionCode: 1422
+    commit: ca0873e3a3bb4f21383d5aed3b177c39a925d91e
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/pkg.jetbrains/d' ../settings.gradle.kts
+
+  - versionName: 1.4.23
+    versionCode: 1423
+    commit: fc1ec1a53586ec73905240bc71072e9cb7482809
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/pkg.jetbrains/d' ../settings.gradle.kts
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags v.*[0-9]$
 UpdateCheckData: app/build.gradle.kts|versionCode =\s(\d+)|.|versionName = "(\d.+)+"
-CurrentVersion: 1.4.17
-CurrentVersionCode: 1417
+CurrentVersion: 1.4.23
+CurrentVersionCode: 1423

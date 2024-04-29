@@ -317,7 +317,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
-        = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
     ndk: r23c
 
   - versionName: 2.24.0
@@ -331,7 +331,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
-        = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
     ndk: r23c
 
   - versionName: 2.25.1
@@ -341,7 +341,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
-        = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
     ndk: r23c
 
   - versionName: 2.26.0
@@ -351,7 +351,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
-        = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
     ndk: r23c
 
   - versionName: 2.27.0
@@ -361,7 +361,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
-        = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
     ndk: r23c
 
   - versionName: 2.28.0
@@ -371,7 +371,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
-        = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
     ndk: r23c
 
   - versionName: 2.29.0
@@ -381,7 +381,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
-        = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
     ndk: r23c
 
   - versionName: 2.30.0
@@ -391,7 +391,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
-        = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
     ndk: r23c
 
   - versionName: 2.31.0
@@ -401,7 +401,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
-        = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
     ndk: r23c
 
   - versionName: 3.0.1
@@ -411,7 +411,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
-        = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
     ndk: r23c
 
   - versionName: 3.0.2
@@ -425,7 +425,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
-        = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
     ndk: r23c
 
   - versionName: 3.1.0
@@ -439,10 +439,122 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
-        = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
     ndk: r23c
+
+  - versionName: 3.2.0
+    versionCode: 1103020001
+    commit: ce78b6432895da68a5127dc2d95dbb451c1411bc
+    subdir: HTTPShortcuts/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+    ndk: r23c
+
+  - versionName: 3.3.0
+    versionCode: 1103030000
+    commit: b0b252fa6f52cc8f425452ec6213af41f2c180c9
+    subdir: HTTPShortcuts/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+    ndk: r23c
+
+  - versionName: 3.4.0
+    versionCode: 1103040001
+    commit: 0f35097e015dd00e246062d470a7095b174e2a04
+    subdir: HTTPShortcuts/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+    ndk: r23c
+
+  - versionName: 3.5.0
+    versionCode: 1103050003
+    commit: 100dbae674edce192c0e67aa9896ee1b455c5878
+    subdir: HTTPShortcuts/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+    ndk: r23c
+
+  - versionName: 3.6.0
+    versionCode: 1103060002
+    commit: 975ed2080bdcc6789b5b51e403e0f8217d07af6e
+    subdir: HTTPShortcuts/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+    ndk: 23.2.8568313
+
+  - versionName: 3.7.0
+    versionCode: 1103070002
+    commit: e8c267b3fe38c0973efa6a3795fed3b0057d69af
+    subdir: HTTPShortcuts/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+    ndk: 23.2.8568313
+
+  - versionName: 3.8.0
+    versionCode: 1103080000
+    commit: 3c5102414e9b03da62c80e374034827093957d13
+    subdir: HTTPShortcuts/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+    ndk: 23.2.8568313
+
+  - versionName: 3.9.0
+    versionCode: 1103090002
+    commit: 282116e60642b366eff174c751f8dc89cd1bb849
+    subdir: HTTPShortcuts/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/isEnable = true/d' -e 's:File("app/:File(":' -e 's:inputFile
+      = ":inputFile = "../:g' -e 's:templateFile = ":templateFile = "../:g' build.gradle.kts
+    ndk: 23.2.8568313
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.1.0
-CurrentVersionCode: 1103010000
+CurrentVersion: 3.9.0
+CurrentVersionCode: 1103090002

@@ -248,8 +248,316 @@ Builds:
       - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/flutter build apk --release
 
+  - versionName: 0.4.7
+    versionCode: 78
+    commit: 5ea3a4886562d36891e3efbf5ca21347a6933bd4
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.10.0
+    rm:
+      - ios
+      - linux
+      - windows
+      - web
+      - macos
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 0.4.8
+    versionCode: 79
+    commit: c69eb66d0dde84bd7afc8552228a1b60203625de
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.10.0
+    rm:
+      - ios
+      - linux
+      - windows
+      - web
+      - macos
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+
+  - versionName: 0.4.11
+    versionCode: 82
+    commit: 3d1cd6282988f3142176bf4ef61dc81a37870529
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - test
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter config --no-analytics
+      - ./flutter/bin/flutter pub get
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter build apk --release
+
+  - versionName: 0.4.12
+    versionCode: 83
+    commit: de8c548474f6ef0d0007126d734618362da0aa56
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - test
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter config --no-analytics
+      - ./flutter/bin/flutter pub get
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter build apk --release
+
+  - versionName: 0.4.13
+    versionCode: 84
+    commit: d97bffad06bee4242b6a40c9267b2a7af0af7b5d
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - test
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter config --no-analytics
+      - ./flutter/bin/flutter pub get
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter build apk --release
+
+  - versionName: 0.4.14
+    versionCode: 85
+    commit: be3244e8d2e011db8aeedf87ef6d17ba6fbe2b13
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - test
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter config --no-analytics
+      - ./flutter/bin/flutter pub get
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter build apk --release
+
+  - versionName: 0.4.15
+    versionCode: 86
+    commit: f1fc7027f38ba03211374cc7920bb1f869560a51
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - test
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter config --no-analytics
+      - ./flutter/bin/flutter pub get
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter build apk --release
+
+  - versionName: 0.4.16
+    versionCode: 87
+    commit: 15fe63893e8c68cb684e658f9ea570d07d7ff8ac
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - test
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter config --no-analytics
+      - ./flutter/bin/flutter pub get
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter build apk --release
+
+  - versionName: 0.4.17
+    versionCode: 88
+    commit: 5e867fd11ce42c5f3ae17d66e3c94edb138b2f80
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - test
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter config --no-analytics
+      - ./flutter/bin/flutter pub get
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter build apk --release
+
+  - versionName: 0.4.18
+    versionCode: 89
+    commit: d2e4384f078229f71d7efb1304fc5d720da6bf06
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - test
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter config --no-analytics
+      - ./flutter/bin/flutter pub get
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter build apk --release
+
+  - versionName: 0.4.19
+    versionCode: 90
+    commit: 73336f2bea3c271a2fd37321b669435492a5810d
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - test
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter config --no-analytics
+      - ./flutter/bin/flutter pub get
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter build apk --release
+
+  - versionName: 0.4.20
+    versionCode: 91
+    commit: 9c697cfb62526d1f22a404566e5a26a38bcb08f7
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - test
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter config --no-analytics
+      - ./flutter/bin/flutter pub get
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter build apk --release
+
+  - versionName: 0.4.21
+    versionCode: 92
+    commit: 9b12d7dc06420765d91bbfea597bcc37b4f95968
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    rm:
+      - test
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter config --no-analytics
+      - ./flutter/bin/flutter pub get
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - ./flutter/bin/flutter build apk --release
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 0.4.6
-CurrentVersionCode: 77
+CurrentVersion: 0.4.21
+CurrentVersionCode: 92

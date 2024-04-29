@@ -11,7 +11,7 @@ AutoName: Let Me Downgrade
 RequiresRoot: true
 
 RepoType: git
-Repo: https://github.com/DavidBerdik/Let-Me-Downgrade
+Repo: https://github.com/DavidBerdik/Let-Me-Downgrade.git
 
 Builds:
   - versionName: 1.0.0
@@ -58,7 +58,19 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version
+  - versionName: 1.0.4
+    versionCode: 7
+    disable: https://github.com/DavidBerdik/Let-Me-Downgrade/issues/6
+    commit: 37dcfe8750dec73c32eb2fed2d7c53acf42a2a36
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: None
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.2
-CurrentVersionCode: 5
+CurrentVersion: 1.0.4
+CurrentVersionCode: 7

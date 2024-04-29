@@ -8,15 +8,15 @@ Donate: https://www.roguetemple.com/z/donate.php?id=HyperRogue
 
 AutoName: HyperRogue
 Description: |-
-    You are a lone outsider in a strange, non-Euclidean world. As a Rogue, your goal
-    is to collect as many treasures as possible. However, collecting treasures
-    attracts dangerous monsters (on the other hand, killing the monsters allows more
-    treasures to be generated).
+  You are a lone outsider in a strange, non-Euclidean world. As a Rogue, your goal
+  is to collect as many treasures as possible. However, collecting treasures
+  attracts dangerous monsters (on the other hand, killing the monsters allows more
+  treasures to be generated).
 
-    You can kill most monsters by moving into them. Similarly, if the monster was
-    next to you at the end of your turn, it would kill you. The game protects you
-    from getting yourself killed accidentally by ignoring moves which lead to
-    instant death (similar to the check rule from Chess).
+  You can kill most monsters by moving into them. Similarly, if the monster was
+  next to you at the end of your turn, it would kill you. The game protects you
+  from getting yourself killed accidentally by ignoring moves which lead to
+  instant death (similar to the check rule from Chess).
 
 RepoType: git
 Repo: https://github.com/zenorogue/hyperrogue.git
@@ -74,7 +74,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
-        'arm64-v8a'/" build.gradle
+      'arm64-v8a'/" build.gradle
     scandelete:
       - hyper.exe
     build:
@@ -93,7 +93,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
-        'arm64-v8a'/" build.gradle
+      'arm64-v8a'/" build.gradle
     build:
       - pushd ..
       - bash copy.sh
@@ -110,7 +110,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
-        'arm64-v8a'/" build.gradle
+      'arm64-v8a'/" build.gradle
     build:
       - pushd ..
       - bash copy.sh
@@ -127,7 +127,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
-        'arm64-v8a'/" build.gradle
+      'arm64-v8a'/" build.gradle
     build:
       - pushd ..
       - bash copy.sh
@@ -144,7 +144,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
-        'arm64-v8a'/" build.gradle
+      'arm64-v8a'/" build.gradle
     build:
       - pushd ..
       - bash copy.sh
@@ -166,10 +166,10 @@ Builds:
       - bash copy.sh
     ndk: r21e
 
-  - versionName: 12.0v
-    versionCode: 12080
+  - versionName: 13.0a
+    versionCode: 13001
     disable: https://github.com/zenorogue/hyperrogue/issues/286
-    commit: b0577deb9a88d1f17a0577ddb69c6bc622b92fa2
+    commit: 51f59cc2facc800cbae75fa9c1027025b4db2eb4
     subdir: hyperroid/app
     sudo:
       - apt-get update
@@ -184,5 +184,5 @@ Builds:
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 12.0v
-CurrentVersionCode: 12080
+CurrentVersion: 13.0a
+CurrentVersionCode: 13001

@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: App uses a non-libre service for currency conversion.
 Categories:
   - Science & Education
 License: GPL-3.0-only
@@ -14,7 +15,7 @@ Donate: https://www.paypal.com/paypalme/DemApps
 AutoName: Converter NOW
 
 RepoType: git
-Repo: https://github.com/ferraridamiano/ConverterNOW
+Repo: https://github.com/ferraridamiano/ConverterNOW.git
 
 Builds:
   - versionName: 3.1.3
@@ -146,8 +147,64 @@ Builds:
       - export PATH=$PUB_CACHE/bin/:$$flutter$$/bin/:$PATH
       - flutter build apk
 
+  - versionName: 4.1.0
+    versionCode: 40
+    commit: 585aee1db2b026e24509c169597e69b565b26581
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.13.1
+    rm:
+      - .github
+      - linux
+      - snap
+      - web
+      - windows
+    prebuild:
+      - sed -i -e '/minifyEnabled/d' -e '/signingConfig /d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$PUB_CACHE/bin/:$$flutter$$/bin/:$PATH
+      - flutter config --no-analytics
+      - flutter doctor --verbose
+      - dart pub global activate melos
+      - dart pub global activate vector_graphics_compiler
+      - melos bootstrap
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$PUB_CACHE/bin/:$$flutter$$/bin/:$PATH
+      - flutter build apk
+
+  - versionName: 4.2.0
+    versionCode: 41
+    commit: c64aee572a6115a27b54a218ff948a910347e519
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.16.2
+    rm:
+      - .github
+      - linux
+      - snap
+      - web
+      - windows
+    prebuild:
+      - sed -i -e '/minifyEnabled/d' -e '/signingConfig /d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$PUB_CACHE/bin/:$$flutter$$/bin/:$PATH
+      - flutter config --no-analytics
+      - flutter doctor --verbose
+      - dart pub global activate melos
+      - dart pub global activate vector_graphics_compiler
+      - melos bootstrap
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$PUB_CACHE/bin/:$$flutter$$/bin/:$PATH
+      - flutter build apk
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 4.0.1
-CurrentVersionCode: 39
+CurrentVersion: 4.2.0
+CurrentVersionCode: 41

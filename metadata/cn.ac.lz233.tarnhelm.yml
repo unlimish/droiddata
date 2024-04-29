@@ -83,8 +83,56 @@ Builds:
       - fdroid
     prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
 
+  - versionName: 1.5.4
+    versionCode: 20230925
+    commit: 40a765b39cc6fdd02ee57db796907db17aac6d26
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.5.5
+    versionCode: 20231015
+    commit: 304fd6673d72ff05609abe31523c9bcff295e049
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.6.0
+    versionCode: 20231120
+    commit: a5bbc9e0e4c030364d0494cf65ea7759a8ac36aa
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.6.0
+    versionCode: 20240111
+    commit: 71382a1cfe0719220117da44c41d213ecae83ea8
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: '||app/build.gradle|versionName\s"([\d.]+)"'
-CurrentVersion: 1.5.2
-CurrentVersionCode: 20230528
+CurrentVersion: 1.6.0
+CurrentVersionCode: 20240111

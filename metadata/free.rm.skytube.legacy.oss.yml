@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Depends on Youtube.
 Categories:
   - Internet
   - Multimedia
@@ -13,7 +14,7 @@ Changelog: https://github.com/SkyTubeTeam/SkyTubeLegacy/releases
 AutoName: SkyTube Legacy
 
 RepoType: git
-Repo: https://github.com/SkyTubeTeam/SkyTubeLegacy
+Repo: https://github.com/SkyTubeTeam/SkyTubeLegacy.git
 
 Builds:
   - versionName: '2.984'
@@ -47,9 +48,22 @@ Builds:
     rm:
       - app/libs/*.jar
 
+  - versionName: '2.987'
+    versionCode: 47
+    commit: 66fa3b0669e26e0efa1022ac365c132a3138826c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - oss
+    rm:
+      - app/libs/*.jar
+
 MaintainerNotes: '* Current versions include app/libs/*.jar. Remove them.'
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '2.986'
-CurrentVersionCode: 46
+CurrentVersion: '2.987'
+CurrentVersionCode: 47

@@ -8,13 +8,6 @@ Changelog: https://github.com/owncloud/android/blob/HEAD/CHANGELOG.md
 Donate: https://www.bountysource.com/teams/owncloud
 
 AutoName: ownCloud
-Description: |-
-    ownCloud is a free software package you can install on a server to manage files,
-    contacts, calendars, music, pictures and much more. This is the official Android
-    app which enables you to browse all of your ownCloud synced files, create and
-    edit new files, share these files and folders with co-workers, and keep the
-    contents of those folders in sync across all of your devices. Simply copy a file
-    into a directory on your server and ownCloud does the rest.
 
 RepoType: git
 Repo: https://github.com/owncloud/android.git
@@ -57,14 +50,14 @@ Builds:
     commit: oc-android-1-3-14
     submodules: true
     prebuild: $$SDK$$/tools/android update project -p actionbarsherlock/library -s
-        -t 13
+      -t 13
 
   - versionName: 1.3.17
     versionCode: 103017
     commit: oc-android-1-3-17
     submodules: true
     prebuild: $$SDK$$/tools/android update project -p actionbarsherlock/library -s
-        -t 13
+      -t 13
 
   - versionName: 1.3.18
     versionCode: 103018
@@ -955,7 +948,36 @@ Builds:
     rm:
       - user_manual
 
+  - versionName: 4.1.0
+    versionCode: 41000000
+    commit: 71a07623792d8201878f71a406554ed154b57de5
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 4.1.1
+    versionCode: 41000100
+    commit: cde9bb8415aa4fc3ea7d960fcce42925a011eccd
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 4.2-beta.1
+    versionCode: 41000101
+    commit: 3cce58dff8c46ab1b5826f7550816f7dbd4ffec8
+    subdir: owncloudApp
+    gradle:
+      - original
+    rm:
+      - user_manual
+
 AutoUpdateMode: Version
-UpdateCheckMode: Tags ^oc-android-[0-9.]*(-beta.[0-9])?$
-CurrentVersion: '4.0'
-CurrentVersionCode: 40000000
+UpdateCheckMode: Tags ^v[0-9.]*[0-9](-beta.[0-9])?$
+CurrentVersion: 4.2-beta.1
+CurrentVersionCode: 41000101

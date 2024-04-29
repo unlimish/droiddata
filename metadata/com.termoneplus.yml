@@ -6,14 +6,14 @@ IssueTracker: https://gitlab.com/termapps/termoneplus/issues
 
 AutoName: Terminal Emulator
 Description: |-
-    "TermOne Plus" is a terminal emulator for communicating with the built-in
-    Android shell. It emulates a reasonably large subset of Digital Equipment
-    Corporation VT-100 terminal codes. Supported terminal types include vt100,
-    screen (default), linux and xterm. As result console programs like "vi"
-    (unix visual editor), "emacs", "mc" (Midnight Commander file manager), nano
-    (Nano's ANOther editor) and other work smoothly.
+  "TermOne Plus" is a terminal emulator for communicating with the built-in
+  Android shell. It emulates a reasonably large subset of Digital Equipment
+  Corporation VT-100 terminal codes. Supported terminal types include vt100,
+  screen (default), linux and xterm. As result console programs like "vi"
+  (unix visual editor), "emacs", "mc" (Midnight Commander file manager), nano
+  (Nano's ANOther editor) and other work smoothly.
 
-    This application is a clone of Jack Palevich's https://f-droid.org/packages/jackpal.androidterm.
+  This application is a clone of Jack Palevich's https://f-droid.org/packages/jackpal.androidterm.
 
 RepoType: git
 Repo: https://gitlab.com/termapps/termoneplus.git
@@ -252,7 +252,38 @@ Builds:
     prebuild: sed -i -e 's/elf-cleaner/echo/' build.gradle
     ndk: r23c
 
+  - versionName: 4.4.0/X
+    versionCode: 440
+    commit: 5eb93382b8acd5c4c7f5dbc3e7d7b85e53935405
+    subdir: term
+    gradle:
+      - full
+    prebuild: sed -i -e 's/elf-cleaner/echo/' build.gradle
+    ndk: r23c
+
+  - versionName: 4.5.0/X
+    versionCode: 450
+    commit: 4c26212437f0c191843337f3db7444fa5c511d34
+    subdir: term
+    gradle:
+      - full
+    prebuild: sed -i -e 's/elf-cleaner/echo/' build.gradle
+    ndk: r23c
+
+  - versionName: 4.6.0/X
+    versionCode: 460
+    commit: 7b81c76f1e29f59b6fc6c2c8622b06ac67e929ff
+    subdir: term
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - full
+    prebuild: sed -i -e 's/elf-cleaner/echo/' build.gradle
+    ndk: r23c
+
 AutoUpdateMode: Version +/X v%v
 UpdateCheckMode: Tags
-CurrentVersion: 4.3.1
-CurrentVersionCode: 431
+CurrentVersion: 4.6.0
+CurrentVersionCode: 460

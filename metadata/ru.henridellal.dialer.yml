@@ -68,7 +68,25 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.0.14
+    versionCode: 15
+    commit: 0320e1dec2c776077b9154640968dcb1f9c3edfe
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.15
+    versionCode: 16
+    commit: bdbe737d2f2f544b8b044f8796e3c3ba77b7de17
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'build-tools;34.0.0' 'build-tools;30.0.3'
+      - cp /opt/android-sdk/build-tools/30.0.3/lib/dx.jar /opt/android-sdk/build-tools/34.0.0/lib/dx.jar
+      - cp /opt/android-sdk/build-tools/30.0.3/dx /opt/android-sdk/build-tools/34.0.0/dx
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.13
-CurrentVersionCode: 14
+CurrentVersion: 1.0.15
+CurrentVersionCode: 16

@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Infomaniak service itself is not libre.
 Categories:
   - Internet
 License: GPL-3.0-only
@@ -158,7 +159,62 @@ Builds:
     gradle:
       - ose
 
+  - versionName: 4.3.5
+    versionCode: 403050002
+    commit: 12a1c7b3f798acef4db09b8e9f7a66e6d8430dd0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+
+  - versionName: 4.3.5.2
+    versionCode: 403050200
+    commit: f0f69214f7abe437652753a6b62c8f12efa0f3e5
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+
+  - versionName: 4.3.7
+    versionCode: 403070001
+    commit: 85ed60b9af8f9db6631a87217001df4ce8a9ddf3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+
+  - versionName: 4.3.8
+    versionCode: 403080000
+    commit: 4d7db2f25f36b1471a429dd6dfa26490abc9db48
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+
+  - versionName: 4.3.9
+    versionCode: 403090002
+    commit: d5885a33d5106c74e83d247dd11181f4c2cc4819
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 4.3.4.1
-CurrentVersionCode: 403040101
+CurrentVersion: 4.3.9
+CurrentVersionCode: 403090002

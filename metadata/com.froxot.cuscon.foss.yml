@@ -1,0 +1,107 @@
+Categories:
+  - Theming
+License: Apache-2.0
+AuthorName: MiepHD
+AuthorEmail: cuscon@froxot.de
+WebSite: https://miep-hd.froxot.com/cuscon
+SourceCode: https://github.com/MiepHD/cuscon
+IssueTracker: https://github.com/MiepHD/cuscon/issues
+Changelog: https://github.com/MiepHD/cuscon/releases
+Donate: https://www.patreon.com/Cuscon
+
+AutoName: Cuscon
+
+RepoType: git
+Repo: https://github.com/MiepHD/cuscon
+Binaries: https://github.com/MiepHD/cuscon/releases/download/v%v/Cuscon-v%c-foss-release.apk
+
+Builds:
+  - versionName: 3.0.2.7
+    versionCode: 3027
+    commit: v3.0.2.7
+    subdir: app
+    gradle:
+      - foss
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 3.0.2.8
+    versionCode: 3028
+    commit: a2f6871e741172725be3650b7ca0c73109f66849
+    subdir: app
+    gradle:
+      - foss
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 3.0.2.9
+    versionCode: 3029
+    commit: 722a2c426ca283ac21d858641ce419491dd22944
+    subdir: app
+    gradle:
+      - foss
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 3.0.3.3
+    versionCode: 3033
+    commit: 390aeff5b0a3fe0c2d3396da6f66115ae404469c
+    subdir: app
+    gradle:
+      - foss
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 3.0.3.4
+    versionCode: 3034
+    commit: 606220997346beaf031b1eb215efb82da2e12d17
+    subdir: app
+    gradle:
+      - foss
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    rm:
+      - requests
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 3.0.3.5
+    versionCode: 3035
+    commit: a3243a82fac2dda4ad22f485e570eee12c960392
+    subdir: app
+    gradle:
+      - foss
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    rm:
+      - requests
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 4.0.0.2
+    versionCode: 4002
+    commit: 3c0272e5a0a4e970aa9cbc18a96ffc2faa56cc08
+    subdir: app
+    gradle:
+      - foss
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    rm:
+      - requests
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+AllowedAPKSigningKeys: d5389d12207abb575db074d7d00798328aa328fa8a1d25d12234e354adae1514
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 4.0.0.2
+CurrentVersionCode: 4002

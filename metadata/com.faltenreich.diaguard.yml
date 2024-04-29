@@ -122,7 +122,25 @@ Builds:
     gradle:
       - store
 
+  - versionName: 3.11.1
+    versionCode: 58
+    commit: d4967edeeddbddc1a3a55e5ca2de56530d52a4e5
+    subdir: app
+    gradle:
+      - store
+
+  - versionName: 3.12.1
+    versionCode: 60
+    commit: 7ed6540465ee218f966d9bd58d8897d445e7905c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - store
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.11.0
-CurrentVersionCode: 57
+CurrentVersion: 3.12.1
+CurrentVersionCode: 60

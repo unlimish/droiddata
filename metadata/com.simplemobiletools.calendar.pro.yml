@@ -15,7 +15,7 @@ Name: Simple Calendar Pro
 AutoName: Calendar
 
 RepoType: git
-Repo: https://github.com/SimpleMobileTools/Simple-Calendar
+Repo: https://github.com/SimpleMobileTools/Simple-Calendar.git
 
 Builds:
   - versionName: 6.0.1
@@ -750,7 +750,38 @@ Builds:
       - fdroid
     prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
 
-AutoUpdateMode: Version
+  - versionName: 6.22.2
+    versionCode: 238
+    commit: f8959bcfd437adee2f89c2abb1272e680ed9c697
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 6.23.0
+    versionCode: 239
+    commit: 884b6347fc3d89e8071d7a81279a13dea2e2d4a0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+
+  - versionName: 6.23.1
+    versionCode: 240
+    commit: ec81a35828bb4f4801caefc870d1eecf0bc02093
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+
+AutoUpdateMode: None
 UpdateCheckMode: Tags
-CurrentVersion: 6.22.1
-CurrentVersionCode: 237
+UpdateCheckData: gradle/libs.versions.toml|app-version-versionCode\s=\s"(\d+)"|.|app-version-versionName\s=\s"(.*)"
+CurrentVersion: 6.23.1
+CurrentVersionCode: 240

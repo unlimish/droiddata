@@ -1,0 +1,103 @@
+AntiFeatures:
+  Tracking:
+    en-US: This app connects to Sentry.io on start. NextDNS's default configuration
+      usually blocks Sentry.io, or it can be manually blacklisted.
+Categories:
+  - Connectivity
+  - Internet
+License: MIT
+AuthorName: Matt VerLee
+AuthorEmail: nextdns@doubleangels.com
+AuthorWebSite: https://doubleangels.com/
+SourceCode: https://github.com/doubleangels/NextDNSManager
+IssueTracker: https://github.com/doubleangels/NextDNSManager/issues
+Changelog: https://github.com/doubleangels/NextDNSManager/releases
+
+AutoName: NextDNS Manager
+
+RepoType: git
+Repo: https://github.com/doubleangels/NextDNSManager.git
+
+Builds:
+  - versionName: 4.7.7
+    versionCode: 174
+    commit: 01a912931dee6ec48dcdc9cb8f4124afea1d901d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.7.8
+    versionCode: 178
+    commit: b0641afa47425931512461ebe20566e3a63ba610
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.7.12
+    versionCode: 182
+    commit: abf910c209727a74d6c1d15c45f9d37d57ba6df6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.7.16
+    versionCode: 186
+    disable: https://github.com/doubleangels/NextDNSManager/issues/37
+    commit: 42e89878d100bf1cf3f82ef9d5027ad2c503d4ac
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.7.17
+    versionCode: 187
+    commit: 560d302421b0c31e42eaca54c1ecd83b062db0f2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '4.8'
+    versionCode: 188
+    commit: d0d2d748a632dfb1d62dce7daa3b74a656acd8c5
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.8.2
+    versionCode: 190
+    commit: 214430eec6725850bc61728980cfa04816196dc2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 4.8.2
+CurrentVersionCode: 190

@@ -26,7 +26,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.4.0
     versionCode: 7
@@ -37,7 +37,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.5.0
     versionCode: 8
@@ -48,7 +48,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.5.1
     versionCode: 9
@@ -59,7 +59,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.5.2
     versionCode: 11
@@ -75,7 +75,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.6.0
     versionCode: 12
@@ -91,7 +91,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.7.0
     versionCode: 13
@@ -106,7 +106,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.7.1
     versionCode: 14
@@ -121,7 +121,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.8.0
     versionCode: 15
@@ -136,7 +136,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.8.1
     versionCode: 16
@@ -151,7 +151,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.9.0
     versionCode: 17
@@ -166,7 +166,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.10.0
     versionCode: 18
@@ -181,7 +181,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.11.0
     versionCode: 19
@@ -196,7 +196,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.12.0
     versionCode: 20
@@ -211,7 +211,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
 
   - versionName: 1.13.0
     versionCode: 21
@@ -226,11 +226,236 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.3
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-        'assets/app.properties'
+      'assets/app.properties'
+
+  - versionName: 1.14.0
+    versionCode: 22
+    commit: b50aa5ca59f2e4f3d5848e95453af82004ea983e
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.15.0
+    versionCode: 23
+    commit: 57b8745f17a9cea9f18f3cf1c78bd1d10f5dab28
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.15.1
+    versionCode: 24
+    commit: 477b4d36135e3f3405109f8aa1118fe5c755c592
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.16.0
+    versionCode: 25
+    commit: 35cfe4e9ff2c9a91ce8067e2c4231a57fe9e7f51
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.16.1
+    versionCode: 26
+    commit: b5850d905520ea6a897820e511b9e83b241fa899
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.17.0
+    versionCode: 27
+    commit: d1c58dbe8b6711c99a477587a2a1c2a30ec9aac5
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.18.0
+    versionCode: 28
+    commit: 65b27b50a5000c129bc555b8bca7f5a764fc9605
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.19.0
+    versionCode: 29
+    commit: 258a9090d6d1e95843fd2060775966f600a73c60
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.20.0
+    versionCode: 30
+    commit: fdf68c8ef8d786e0e189e0384f0cc9c5f0fdcbcd
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.20.1
+    versionCode: 31
+    commit: 4eeace105826ef9b818bae3678225b37c9ac85f8
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.20.2
+    versionCode: 32
+    commit: 0dc36ba38cdd3cdb8825ab3181bb35521860fb47
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.20.3
+    versionCode: 33
+    commit: 7b6d73b655da9492e938b25a3ac5b8f9f7b850f0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.21.0
+    versionCode: 34
+    commit: 643c3d467e70d3742c3be354eb3d125385b11072
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.22.0
+    versionCode: 35
+    commit: 13a750ed65547d8d31b120c7f6ffdbf4c2f4b3a4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.23.0
+    versionCode: 36
+    commit: 2fdc9e7148ee3b46f3bbfaa9b35ad21afad977c4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
 
 AllowedAPKSigningKeys: e7da1b20559ba52c615cfddeb770e59db792718637678ae635e357a472455d0a
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.13.0
-CurrentVersionCode: 21
+CurrentVersion: 1.23.0
+CurrentVersionCode: 36

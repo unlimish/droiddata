@@ -1,11 +1,14 @@
 AntiFeatures:
-  - NonFreeNet
-  - NSFW
+  NonFreeNet:
+    en-US: NHentai website itself is non-libre.
+  NSFW:
+    en-US: App shows explicit content.
 Categories:
   - Internet
 License: Apache-2.0
 SourceCode: https://github.com/Dar9586/NClientV2
 IssueTracker: https://github.com/Dar9586/NClientV2/issues
+Translation: https://crowdin.com/project/nclientv2
 Changelog: https://github.com/Dar9586/NClientV2/releases
 
 AutoName: NClientV2
@@ -491,11 +494,25 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 3.0.2-stable-release
+    versionCode: 302
+    commit: b189f00ea5f780cf64fcca42428b12f34ea92896
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.0.5-stable-release
+    versionCode: 305
+    commit: d418226f423bb61312a35840dea4ce685b5cc213
+    subdir: app
+    gradle:
+      - yes
+
 MaintainerNotes: UpdateCheckMode stays as HTTP as beta version are not reflected in
-    git tags.
+  git tags.
 
 AutoUpdateMode: Version +-stable-release %v
 UpdateCheckMode: Tags
 UpdateCheckData: app/build.gradle|versionCode\s+(\d+)|.|versionName\s"([\d.]+)-stable"
-CurrentVersion: 3.0.1
-CurrentVersionCode: 301
+CurrentVersion: 3.0.5
+CurrentVersionCode: 305

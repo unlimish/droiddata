@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: App connects to gutenberg.org and gutendex.com.
 Categories:
   - Reading
 License: Apache-2.0
@@ -84,23 +85,42 @@ Builds:
       - $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines build/outputs/apk/release/*.apk
         'META-INF/services/*'
 
-  - versionName: 1.8.0
-    versionCode: 12
-    disable: https://github.com/Pool-Of-Tears/Myne/issues/51
-    commit: 6f9af6d0be7744e19c048e509497b69fac7a0367
+  - versionName: 2.6.0
+    versionCode: 20
+    commit: 4ace350f42dca1ec0bd2e7a4032691f1fd64b534
     subdir: app
-    output: build/outputs/apk/release/*.apk
-    srclibs:
-      - reproducible-apk-tools@c08142d2cd256e7c0f3b7eebf1fad21ee307f9c3
-    prebuild: gradle clean
-    build:
-      - gradle assembleRelease
-      - $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines build/outputs/apk/release/*.apk
-        'META-INF/services/*'
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.7.0
+    versionCode: 21
+    commit: cb6c9a5879fc940eda7b75eb5af9669c41b03249
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.8.0
+    versionCode: 22
+    commit: bb25858c8651b4ba7a249461e7731870610c1bd4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
 
 AllowedAPKSigningKeys: 5dfe06da0fe3b0813f3f3dc5305699c2dbb9dfdbab1349da7c41c59d2fcf319c
 
-AutoUpdateMode: None
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.3.0
-CurrentVersionCode: 17
+CurrentVersion: 2.8.0
+CurrentVersionCode: 22

@@ -1,0 +1,82 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: App uses multiple wallpaper APIs which are unfree unfortunately.
+Categories:
+  - System
+License: GPL-3.0-only
+AuthorName: You Apps
+WebSite: https://you-apps.github.io/
+SourceCode: https://github.com/you-apps/WallYou
+IssueTracker: https://github.com/you-apps/WallYou/issues
+Translation: https://hosted.weblate.org/projects/you-apps/wall-you/
+Changelog: https://github.com/you-apps/WallYou/releases
+
+AutoName: Wall You
+
+RepoType: git
+Repo: https://github.com/you-apps/WallYou.git
+Binaries: https://github.com/you-apps/WallYou/releases/download/v%v/app-release.apk
+
+Builds:
+  - versionName: '4.1'
+    versionCode: 19
+    disable: key changed
+    commit: 724535428b60e2627dfc3c637792019242a14cd8
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: '5.0'
+    versionCode: 20
+    commit: 07b9b00a6b32c87f4666b5bb46bfc718cb35aab6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: '6.0'
+    versionCode: 21
+    commit: 72a6bc0ac3637872b1f3fa3dab94df67dd63d3b3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: '6.1'
+    versionCode: 22
+    commit: a4c4f97f7ea75b1c67a589f399781b6448559e7a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: '6.2'
+    versionCode: 23
+    commit: c506568c4f5592642fe5bcebbfe9e484203ea58f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AllowedAPKSigningKeys: b3bc73b117df5dfe38130c6c2b946852ae7088557fe8e433f0d9983a6b55cc95
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '6.2'
+CurrentVersionCode: 23

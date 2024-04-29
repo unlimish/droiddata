@@ -1,0 +1,90 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: Depends on Youtube for music and GitHub for update check
+Categories:
+  - Multimedia
+License: Apache-2.0
+AuthorName: fast4x
+SourceCode: https://github.com/fast4x/RiMusic
+IssueTracker: https://github.com/fast4x/RiMusic/issues
+Changelog: https://github.com/fast4x/RiMusic/releases
+
+RepoType: git
+Repo: https://github.com/fast4x/RiMusic.git
+Binaries: https://github.com/fast4x/RiMusic/releases/download/v%v/app-release.apk
+
+Builds:
+  - versionName: 0.6.14
+    versionCode: 8
+    commit: 43d9cf1ded7bd9cc0ba5945512cbbb7a0fb627f0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    prebuild: sed -i -e '/android {/a lintOptions {isCheckReleaseBuilds = false}'
+      build.gradle.kts
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 0.6.15.1
+    versionCode: 10
+    commit: 7b809abc3cf56439ff5e2e1c79bf916fd33bd6b0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    prebuild: sed -i -e '/android {/a lintOptions {isCheckReleaseBuilds = false}'
+      build.gradle.kts
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 0.6.16.1
+    versionCode: 12
+    commit: ef1b516773cb51747904d963387b3a2c4b0e5f49
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    prebuild: sed -i -e '/android {/a lintOptions {isCheckReleaseBuilds = false}'
+      build.gradle.kts
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 0.6.18
+    versionCode: 14
+    commit: 1607af94be28bea412e83586a3b2d9490b5c8b4d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    prebuild: sed -i -e '/android {/a lintOptions {isCheckReleaseBuilds = false}'
+      build.gradle.kts
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+AllowedAPKSigningKeys: a1ba8bd74af8f92cb3719a072113a218cfaec02bce2b736a280e31d8cd11808c
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 0.6.18
+CurrentVersionCode: 14

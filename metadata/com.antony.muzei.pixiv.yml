@@ -157,8 +157,30 @@ Builds:
     gradle:
       - prod
 
+  - versionName: 3.5.0
+    versionCode: 314
+    commit: f16dd91c75f800a097d3e641171a11155c4cb8c6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - prod
+
+  - versionName: '3.6'
+    versionCode: 316
+    commit: 479a161d915757a94f14f82dafa6aa727666583a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - prod
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: gradle.properties|app\.version\.code=(\d+)|.|app\.version\.name=([\d.]+)
-CurrentVersion: 3.4.5.1
-CurrentVersionCode: 313
+CurrentVersion: '3.6'
+CurrentVersionCode: 316

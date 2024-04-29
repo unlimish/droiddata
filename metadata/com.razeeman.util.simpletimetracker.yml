@@ -23,7 +23,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.0
     prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
-        > deps.gradle
+      > deps.gradle
     build:
       - gradle assembleRelease
       - $$reproducible-apk-tools$$/fix-newlines.py build/outputs/apk/release/*.apk
@@ -41,7 +41,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.0
     prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
-        > deps.gradle
+      > deps.gradle
     build:
       - gradle assembleRelease
       - $$reproducible-apk-tools$$/fix-newlines.py build/outputs/apk/release/*.apk
@@ -59,7 +59,7 @@ Builds:
     srclibs:
       - reproducible-apk-tools@v0.2.0
     prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
-        > deps.gradle
+      > deps.gradle
     build:
       - gradle assembleRelease
       - $$reproducible-apk-tools$$/fix-newlines.py build/outputs/apk/release/*.apk
@@ -74,7 +74,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
-        > deps.gradle
+      > deps.gradle
 
   - versionName: '1.26'
     versionCode: 27
@@ -83,7 +83,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
-        > deps.gradle
+      > deps.gradle
 
   - versionName: '1.27'
     versionCode: 28
@@ -92,13 +92,117 @@ Builds:
     gradle:
       - yes
     prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
-        > deps.gradle
+      > deps.gradle
+
+  - versionName: '1.28'
+    versionCode: 29
+    commit: 72fa0ef74d3951c287ada986c853f07be0ca44e6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
+      > deps.gradle
+
+  - versionName: '1.29'
+    versionCode: 30
+    commit: 3622653457419160b2794865a0b2803d6b076320
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
+      > deps.gradle
+
+  - versionName: '1.30'
+    versionCode: 31
+    commit: a71f1bf7fc45b7184336fc6fa896683142a46b9c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
+      > deps.gradle
+
+  - versionName: '1.31'
+    versionCode: 32
+    commit: ca8ef950e8608c945e59ef8d65ce00422291b83f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
+      > deps.gradle
+
+  - versionName: '1.32'
+    versionCode: 33
+    commit: 91f637520b9606a5be75dd99b7068ed5c9f0aefa
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
+      > deps.gradle
+
+  - versionName: '1.33'
+    versionCode: 34
+    commit: df3a13af9988dbf4e83f2cf08d23944e44a408ea
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
+      > deps.gradle
+
+  - versionName: '1.34'
+    versionCode: 35
+    commit: 5f7ae1546791f936a3205530d24f9836daa0c125
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
+      > deps.gradle
+
+  - versionName: '1.35'
+    versionCode: 36
+    commit: 393fcb4819a4875b838f609cba6f09e484ed303f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -e 's/\s\+"/implementation "/g' ../buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Deps.kt
+      > deps.gradle
 
 AllowedAPKSigningKeys: 9f2241eaf78be6b8415f2db424ef99c9745576fe07b0e58b08c922289a3633e4
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: buildSrc/src/main/kotlin/com/example/util/simpletimetracker/Base.kt|versionCode
-    = (\d+)|.|versionName = "(.*)"
-CurrentVersion: '1.27'
-CurrentVersionCode: 28
+  = (\d+)|.|versionName = "(.*)"
+CurrentVersion: '1.35'
+CurrentVersionCode: 36

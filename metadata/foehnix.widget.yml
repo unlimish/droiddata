@@ -8,11 +8,11 @@ Changelog: https://github.com/dzmanto/foehnix/releases
 
 AutoName: Föhnix
 Description: |-
-    * Assessment of Foehn conditions for pilots.
-    * Intended for paraglider and for hangglider pilots.
-    * Displays pressure differences + relevant wind gusts.
-    * Updates every 15 minutes or on request.
-    * Share functionality via text message, emails.
+  * Assessment of Foehn conditions for pilots.
+  * Intended for paraglider and for hangglider pilots.
+  * Displays pressure differences + relevant wind gusts.
+  * Updates every 15 minutes or on request.
+  * Share functionality via text message, emails.
 
 RepoType: git
 Repo: https://github.com/dzmanto/foehnix.git
@@ -83,7 +83,15 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '3.8'
+    versionCode: 38
+    commit: f7c8b4681a8efc4350707a73d78c67cfbdadd64c
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/gradle:4.1.1/gradle:4.2.0/' ../build.gradle
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '3.5'
-CurrentVersionCode: 35
+CurrentVersion: '3.8'
+CurrentVersionCode: 38

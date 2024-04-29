@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Depends on the IVPN VPN service.
 Categories:
   - Security
 License: GPL-3.0-only
@@ -11,28 +12,12 @@ Changelog: https://github.com/ivpn/android-app/releases
 AutoName: IVPN
 
 RepoType: git
-Repo: https://github.com/ivpn/android-app
+Repo: https://github.com/ivpn/android-app.git
 
 Builds:
   - versionName: 2.6.0
     versionCode: 100
     commit: v2.6.0
-    subdir: fdroid
-    submodules: true
-    gradle:
-      - production
-    rm:
-      - site
-      - store
-      - core/src/main/cpp/mbedtls/tests
-      - core/src/main/cpp/mbedtls/crypto/tests
-      - core/src/main/cpp/openvpn3/test
-    ndk: r21e
-
-  - versionName: 2.8.0
-    versionCode: 107
-    disable: https://github.com/ivpn/android-app/issues/110
-    commit: 269471f5b30659522a3496e7c268d38d6250c2b0
     subdir: fdroid
     submodules: true
     gradle:
@@ -65,25 +50,6 @@ Builds:
     commit: b93846b877b3c11ce262f92b41073a0810e9ca36
     subdir: fdroid
     submodules: true
-    gradle:
-      - production
-    rm:
-      - site
-      - store
-      - core/src/main/cpp/mbedtls/tests
-      - core/src/main/cpp/mbedtls/crypto/tests
-      - core/src/main/cpp/openvpn3/test
-    ndk: r21e
-
-  - versionName: 2.8.4
-    versionCode: 115
-    disable: https://github.com/ivpn/android-app/issues/205
-    commit: 541fd64e0b8dbb06c467e9f6f1ae737d85ed6efe
-    subdir: fdroid
-    submodules: true
-    sudo:
-      - apt-get update
-      - apt-get install -y make swig
     gradle:
       - production
     rm:
@@ -151,7 +117,88 @@ Builds:
     prebuild: sdkmanager 'cmake;3.22.1'
     ndk: r21e
 
+  - versionName: 2.10.3
+    versionCode: 126
+    commit: 5c622c75389f097ea9f7dffe6b523b9fc74db077
+    subdir: fdroid
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake gcc g++ make swig
+    gradle:
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    prebuild: sdkmanager 'cmake;3.22.1'
+    ndk: r25b
+
+  - versionName: 2.10.4
+    versionCode: 127
+    commit: 03c653e634ce536c8d675b1d4f577da98e395659
+    subdir: fdroid
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake gcc g++ make swig
+    gradle:
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    prebuild: sdkmanager 'cmake;3.22.1'
+    ndk: r25b
+
+  - versionName: 2.10.5
+    versionCode: 128
+    disable: https://github.com/ivpn/android-app/issues/303
+    commit: d92f38300afdc8a086afb5574750cab49dc60663
+    subdir: fdroid
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake gcc g++ make swig
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    prebuild: sdkmanager 'cmake;3.22.1'
+    ndk: r25b
+
+  - versionName: 2.10.6
+    versionCode: 129
+    commit: 1ffa005ea19c3097cbffb09f871aa1705f5d77bb
+    subdir: fdroid
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake gcc g++ make swig
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    prebuild: sdkmanager 'cmake;3.22.1'
+    ndk: r25b
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.9.0
-CurrentVersionCode: 118
+CurrentVersion: 2.10.6
+CurrentVersionCode: 129

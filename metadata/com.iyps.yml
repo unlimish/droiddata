@@ -1,15 +1,16 @@
 Categories:
   - Security
 License: GPL-3.0-only
-AuthorName: the-weird-aquarian
-SourceCode: https://github.com/the-weird-aquarian/IYPS
-IssueTracker: https://github.com/the-weird-aquarian/IYPS/issues
-Changelog: https://github.com/the-weird-aquarian/IYPS/releases
+AuthorName: StellarSand
+SourceCode: https://github.com/StellarSand/IYPS
+IssueTracker: https://github.com/StellarSand/IYPS/issues
+Translation: https://github.com/StellarSand/IYPS/blob/main/CONTRIBUTING.md
+Changelog: https://github.com/StellarSand/IYPS/releases
 
 AutoName: IYPS
 
 RepoType: git
-Repo: https://github.com/the-weird-aquarian/IYPS.git
+Repo: https://github.com/StellarSand/IYPS.git
 
 Builds:
   - versionName: 1.1.0
@@ -56,7 +57,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.4.3
+    versionCode: 143
+    commit: 6a6fa97ac72430d68e3d2566744792adf29392b2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.4.6
+    versionCode: 146
+    commit: ddce4c0f33a21dfb58ed8962a781de388bd1fb18
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.4.2
-CurrentVersionCode: 142
+CurrentVersion: 1.4.6
+CurrentVersionCode: 146

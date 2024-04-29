@@ -2,12 +2,12 @@ Categories:
   - Internet
 License: GPL-3.0-only
 AuthorName: Team Tusky
-AuthorEmail: tusky@connyduck.at
+AuthorEmail: contact@tusky.app
 WebSite: https://tusky.app/
 SourceCode: https://github.com/tuskyapp/Tusky
 IssueTracker: https://github.com/tuskyapp/Tusky/issues
 Translation: https://weblate.tusky.app/projects/tusky/
-Changelog: https://github.com/tuskyapp/Tusky/releases
+Changelog: https://github.com/tuskyapp/Tusky/blob/develop/CHANGELOG.md
 OpenCollective: tusky
 
 AutoName: Tusky
@@ -591,8 +591,59 @@ Builds:
     gradle:
       - blue
 
+  - versionName: '23.0'
+    versionCode: 113
+    commit: bfc84e4b85a62b84fbfaa121dfaf5665105c1661
+    subdir: app
+    gradle:
+      - blue
+
+  - versionName: 24.0 beta 1
+    versionCode: 114
+    commit: v24.0-beta.1
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - blue
+
+  - versionName: '24.0'
+    versionCode: 115
+    commit: a7e0fa26b7ba60ce996cf6e19c9b496750b1b1d4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - blue
+
+  - versionName: 24.1 beta 1
+    versionCode: 116
+    commit: v24.1-beta.1
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - blue
+
+  - versionName: '24.1'
+    versionCode: 117
+    commit: 3bea267407e80df0f6af384c6df0987deb779e2f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - blue
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[\d.]+$
 UpdateCheckData: app/build.gradle|versionCode\s(\d+)|.|versionName\s"([\d.]+)"
-CurrentVersion: '22.0'
-CurrentVersionCode: 110
+CurrentVersion: '24.1'
+CurrentVersionCode: 117
