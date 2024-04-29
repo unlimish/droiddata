@@ -1,63 +1,64 @@
-  AntiFeatures:
+AntiFeatures:
   NonFreeNet:
-    en-US: Users need to use their own self-hosted VPS or they can purchase any VPS from any provider.
-Categories: 
+    en-US: >-
+      Users need to use their own self-hosted VPS or they can purchase any VPS
+      from any provider.
+Categories:
   - Connectivity
   - Internet
   - Security
 License: GPL-3.0-only
 AuthorName: AmneziaVPN
 AuthorEmail: support@amnezia.org
-WebSite: https://amnezia.org/en
-SourceCode: https://github.com/amnezia-vpn/amnezia-client
-IssueTracker: https://github.com/amnezia-vpn/amnezia-client/issues
-Changelog: https://github.com/amnezia-vpn/amnezia-client/releases
-Donate: https://amnezia.org/en/about
+WebSite: 'https://amnezia.org/en'
+SourceCode: 'https://github.com/amnezia-vpn/amnezia-client'
+IssueTracker: 'https://github.com/amnezia-vpn/amnezia-client/issues'
+Changelog: 'https://github.com/amnezia-vpn/amnezia-client/releases'
+Donate: 'https://amnezia.org/en/about'
 Bitcoin: bc1qn9rhsffuxwnhcuuu4qzrwp4upkrq94xnh8r26u
-
 AutoName: AmneziaVPN
-
-Description:
+Description: >-
   Get your own self-hosted VPN!
-  
-  AmneziaVPN is a multi-protocol, open-source VPN client that offers the option to set up your own server. Free open-source software to create a personal VPN on your server. Helps to access blocked content without revealing privacy even to VPN providers.
 
-  Specify IP address, credentials for your server and Amnezia will configure it to connect via VPN automatically.
+  AmneziaVPN is a multi-protocol, open-source VPN client that offers the option
+  to set up your own server. Free open-source software to create a personal VPN
+  on your server. Helps to access blocked content without revealing privacy even
+  to VPN providers.
 
-  We are not a VPN service, you don't have to connect to our servers and pay us anything. You free to use your own self-hosted VPS or you could purchase any VPS from any provider. To connect, use your own or purchase any VPS from any provider.
+  Specify IP address, credentials for your server and Amnezia will configure it
+  to connect via VPN automatically.
 
+  We are not a VPN service, you don't have to connect to our servers and pay us
+  anything. You free to use your own self-hosted VPS or you could purchase any
+  VPS from any provider. To connect, use your own or purchase any VPS from any
+  provider.
 RepoType: git
-Repo: https://github.com/amnezia-vpn/amnezia-client.git
-
+Repo: 'https://github.com/amnezia-vpn/amnezia-client.git'
 Builds:
   - versionName: 4.3.0.0
     versionCode: 43000
     commit: 4.3.0.0
     subdir: deploy
     submodules: true
-    
     prebuild:
       # Install Prerequisites for Qt
       - sudo apt-get update && sudo apt-get upgrade -y
       - sudo apt install wget
         # Install jdk 17
       - sudo apt-get install openjdk-17-jdk
-        # Install CMake 3.26.0
+        # Install Cmake 3.26.0
       - cd ~/
       - sudo apt-get remove cmake
       - wget https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-linux-x86_64.tar.gz
         # Install Ninja 1.10.1
       - sudo apt-get install ninja-build
-
-      # Install Qt 6.6.2
+        # Install Qt 6.6.2
       - sudo apt-get install build-essential libgl1-mesa-dev
       - wget https://qtproject.mirror.liquidtelecom.com/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz
-
     build:
       - sudo apt-get install libstdc++6 libncurses5
       - export CMAKE_PATH=~/cmake-3.26.0-linux-x86_64/bin
       - export PATH=$PATH:$CMAKE_PATH
-
       # Build host-build
       - tar -xf qt-everywhere-src-6.6.2.tar.xz
       - cd ~/qt-everywhere-src-6.6.2
@@ -65,7 +66,6 @@ Builds:
       - cd build-host
       - ../configure --release -developer-build -nomake tests -nomake examples
       - cmake --build . --target host_tools
-
       # Build qt-android-build
       - mkdir ../build-qt-android
       - cd ../build-qt-android
@@ -73,14 +73,14 @@ Builds:
       - export SDK_PATH=$$SDK$$
       - export NDK_PATH=$$NDK$$/26.1.10909125
       - export QT_HOST_PATH=~/qt-everywhere-src-6.6.2/build-host
-      - export CMAKE_PREFIX_PATH=~/qt-everywhere-src-6.6.2/build-host/qtbase/lib/cmake
-      - ../configure -prefix $INSTALL_PATH -qt-host-path $QT_HOST_PATH -android-sdk $SDK_PATH -android-ndk $NDK_PATH
-
+      - export
+        CMAKE_PREFIX_PATH=~/qt-everywhere-src-6.6.2/build-host/qtbase/lib/cmake
+      - ../configure -prefix $INSTALL_PATH -qt-host-path $QT_HOST_PATH
+        -android-sdk $SDK_PATH -android-ndk $NDK_PATH
     gradle:
-     - yes
-    target: "android-34"
+      - 'yes'
+    target: android-34
     ndk: r26b
-
   - versionName: 4.4.0.0
     versionCode: 44000
     commit: 4.4.0.0
@@ -90,7 +90,7 @@ Builds:
       # Install Prerequisites for Qt
       - sudo apt-get update && sudo apt-get upgrade -y
       - sudo apt install wget
-        # Install jdk 17
+        # Install jkk 17
       - sudo apt-get install openjdk-17-jdk
         # Install CMake 3.26.0
       - cd ~/
@@ -98,16 +98,13 @@ Builds:
       - wget https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-linux-x86_64.tar.gz
         # Install Ninja 1.10.1
       - sudo apt-get install ninja-build
-
-      # Install Qt 6.6.2
+        # Install Qt 6.6.2
       - sudo apt-get install build-essential libgl1-mesa-dev
       - wget https://qtproject.mirror.liquidtelecom.com/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz
-
     build:
       - sudo apt-get install libstdc++6 libncurses5
       - export CMAKE_PATH=~/cmake-3.26.0-linux-x86_64/bin
       - export PATH=$PATH:$CMAKE_PATH
-
       # Build host-build
       - tar -xf qt-everywhere-src-6.6.2.tar.xz
       - cd ~/qt-everywhere-src-6.6.2
@@ -115,7 +112,6 @@ Builds:
       - cd build-host
       - ../configure --release -developer-build -nomake tests -nomake examples
       - cmake --build . --target host_tools
-
       # Build qt-android-build
       - mkdir ../build-qt-android
       - cd ../build-qt-android
@@ -124,13 +120,12 @@ Builds:
       - export NDK_PATH=$$NDK$$/26.1.10909125
       - export QT_HOST_PATH=~/qt-everywhere-src-6.6.2/build-host
       - export CMAKE_PREFIX_PATH=~/qt-everywhere-src-6.6.2/build-host/qtbase/lib/cmake
-      - ../configure -prefix $INSTALL_PATH -qt-host-path $QT_HOST_PATH -android-sdk $SDK_PATH -android-ndk $NDK_PATH
-
+      - ../configure -prefix $INSTALL_PATH -qt-host-path $QT_HOST_PATH
+        -android-sdk $SDK_PATH -android-ndk $NDK_PATH
     gradle:
-     - yes
-    target: "android-34"
+      - 'yes'
+    target: android-34
     ndk: 26.1.10909125
-
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: 4.4.0.0
