@@ -11,7 +11,7 @@ Changelog: https://github.com/zamojski/TowerCollector/releases
 AutoName: Tower Collector
 
 RepoType: git
-Repo: https://github.com/zamojski/TowerCollector
+Repo: https://github.com/zamojski/TowerCollector.git
 
 Builds:
   - versionName: 1.19.0-fdroid
@@ -412,7 +412,28 @@ Builds:
       - productionFdroid
     prebuild: sed -i -e '/signingConfigs/d' build.gradle
 
+  - versionName: 2.14.5
+    versionCode: 2140505
+    commit: 76f3ee937e7c8f996a0ffb9fc70e9e6b95601b76
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - productionFdroid
+    prebuild: sed -i -e '/signingConfigs/d' build.gradle
+
+  - versionName: 2.14.6
+    versionCode: 2140610
+    commit: d00fd21102f247fc8255ca0572f5c9ce0cf14389
+    subdir: app
+    gradle:
+      - production
+      - fdroid
+    prebuild: sed -i -e '/signingConfigs/d' build.gradle
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.14.4
-CurrentVersionCode: 2140403
+CurrentVersion: 2.14.6
+CurrentVersionCode: 2140610

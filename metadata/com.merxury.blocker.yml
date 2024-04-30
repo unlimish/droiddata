@@ -170,7 +170,33 @@ Builds:
     scandelete:
       - build-logic
 
+  - versionName: 2.0.3662-fdroid
+    versionCode: 3662
+    commit: 5d9fdc60b34efb65674d7bc7b8b69bf310e0e678
+    subdir: app-compose
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    scandelete:
+      - build-logic
+
+  - versionName: 2.0.3961-fdroid
+    versionCode: 3961
+    commit: d077bec574a6e3369b460508a04af650be0bf64f
+    subdir: app-compose
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    scandelete:
+      - build-logic
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags v[\d.]+-fdroid$
-CurrentVersion: 2.0.3607
-CurrentVersionCode: 3607
+CurrentVersion: 2.0.3961-fdroid
+CurrentVersionCode: 3961

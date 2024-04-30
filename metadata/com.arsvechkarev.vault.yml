@@ -27,9 +27,22 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.0.4
+    versionCode: 5
+    disable: https://github.com/arsvechkarev/Vault/issues/54
+    commit: a647aba415fd3e1a98cc099ee9e09fd2a2100b0c
+    subdir: android-app/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: cp -R ../../gradle ..
+
 AllowedAPKSigningKeys: 19629cdbefa786fee17c35e77984d7a75eb69dcf5c4427904b3312446a1e35dd
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.1
-CurrentVersionCode: 2
+CurrentVersion: 1.0.4
+CurrentVersionCode: 5

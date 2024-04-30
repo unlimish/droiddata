@@ -22,22 +22,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: '1.6'
-    versionCode: 8
-    disable: wrong version name/code
-    commit: v1.6
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: '1.7'
-    versionCode: 9
-    disable: wrong version name/code
-    commit: v1.7
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 1.7.1
     versionCode: 10
     commit: v1.7.1
@@ -931,10 +915,18 @@ Builds:
       - yes
     prebuild: sed -i -e '/android {/a lint {abortOnError false}' build.gradle
 
+  - versionName: 5.8.24
+    versionCode: 172
+    commit: c40198ba05c101f528b4f905660c3e1b75969c88
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/android {/a lint {abortOnError false}' build.gradle
+
 MaintainerNotes: NonFreeNet for OWM; also uses Mozilla location service (libre or
   not?)
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 5.8.23
-CurrentVersionCode: 171
+CurrentVersion: 5.8.24
+CurrentVersionCode: 172

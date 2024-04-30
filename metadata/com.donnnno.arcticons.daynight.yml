@@ -46,10 +46,9 @@ Builds:
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
       'assets/*.xml'
 
-  - versionName: 8.6.7
-    versionCode: 128
-    disable: not reproducible
-    commit: 305e7a89a210da069ab25aed3ca2cc235ed3b70e
+  - versionName: 8.7.1-hotfix
+    versionCode: 130
+    commit: b61f6cb819c7ba57c7ca46bc0c7199240dbb30ee
     subdir: app
     sudo:
       - apt-get update
@@ -58,14 +57,36 @@ Builds:
     gradle:
       - dayNight
     srclibs:
-      - reproducible-apk-tools@v0.2.3
+      - reproducible-apk-tools@2134d90b7afcc1e65bb860b3a50e38d559a450a2
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-      'assets/*.xml'
+      'assets/*.xml' '!assets/drawable.xml'
+
+  - versionName: 9.0.0
+    versionCode: 131
+    commit: 12aad418f25c81302ed981cfbce499dc46f9d452
+    subdir: app
+    gradle:
+      - dayNight
+    srclibs:
+      - reproducible-apk-tools@2134d90b7afcc1e65bb860b3a50e38d559a450a2
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/*.xml' '!assets/drawable.xml'
+
+  - versionName: 9.2.4
+    versionCode: 132
+    commit: 2c3051df31f11195f65f07d9121f999690475132
+    subdir: app
+    gradle:
+      - dayNight
+    srclibs:
+      - reproducible-apk-tools@2134d90b7afcc1e65bb860b3a50e38d559a450a2
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/*.xml' '!assets/drawable.xml'
 
 AllowedAPKSigningKeys: 299bb9312e39130d0d33ed42bf98567f726ab11a04dc950c5b6c162e28c869c5
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckName: com.donnnno.arcticons
-CurrentVersion: 8.6.7
-CurrentVersionCode: 128
+CurrentVersion: 9.2.4
+CurrentVersionCode: 132

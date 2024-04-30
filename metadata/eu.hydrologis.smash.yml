@@ -17,10 +17,9 @@ Repo: https://github.com/geopaparazzi/smash.git
 Binaries: https://github.com/geopaparazzi/smash/releases/download/version_%v%2B%c_fdroid/smash_%v+%c_fdroid.apk
 
 Builds:
-  - versionName: 1.7.6
-    versionCode: 68
-    disable: https://github.com/geopaparazzi/smash/issues/251#issuecomment-1855365533
-    commit: 84d508ab0c47d56ccd2c13d4e0537ccbd2b42835
+  - versionName: 1.8.1
+    versionCode: 70
+    commit: f366b6d43b1b580ed849d3c365ccbe295436563e
     submodules: true
     sudo:
       - mkdir -p /home/hydrologis/
@@ -54,7 +53,6 @@ Builds:
       - popd
       - mv $repo eu.hydrologis.smash
     scanignore:
-      - .flutter/packages/flutter_tools/gradle/flutter.gradle
       - .flutter/bin/cache
     scandelete:
       - .flutter
@@ -69,9 +67,9 @@ Builds:
       - popd
       - mv $repo eu.hydrologis.smash
 
-  - versionName: 1.8.1
-    versionCode: 70
-    commit: f366b6d43b1b580ed849d3c365ccbe295436563e
+  - versionName: 1.9.0
+    versionCode: 71
+    commit: 5b7f9937064e9b26c860ede2c16cb532f90cb6a5
     submodules: true
     sudo:
       - mkdir -p /home/hydrologis/
@@ -124,5 +122,5 @@ AllowedAPKSigningKeys: 81c62401816220961839db486631058102e7bd3362d757443ab2477d5
 AutoUpdateMode: Version
 UpdateCheckMode: Tags version_[\d.]+\+\d+_fdroid
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.8.1
-CurrentVersionCode: 70
+CurrentVersion: 1.9.0
+CurrentVersionCode: 71

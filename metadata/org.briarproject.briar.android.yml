@@ -13,13 +13,13 @@ Bitcoin: 1NZCKkUCtJV2U2Y9hDb9uq8S7ksFCFGR6K
 
 AutoName: Briar
 Description: |-
-  Briar is a messaging app designed for activists, journalists, and anyone else
-  who needs a safe, easy and robust way to communicate. Unlike traditional
-  messaging tools such as email, Twitter or Telegram, Briar doesn't rely on a
-  central server - messages are synchronized directly between the users' devices.
-  If the Internet's down, Briar can sync via Bluetooth or Wi-Fi, keeping the
-  information flowing in a crisis. If the Internet's up, Briar can sync via the
-  Tor network, protecting users and their relationships from surveillance.
+  Briar is a messaging app designed for activists, journalists, and anyone else who needs a safe, easy and robust way to communicate.
+
+  Unlike traditional messaging apps, Briar doesn't rely on a central server - messages are synchronized directly between the users' devices.
+
+  If the Internet's down, Briar can sync via Bluetooth or Wi-Fi, keeping the information flowing in a crisis. If the Internet's up, Briar can sync via the Tor network, protecting users and their relationships from surveillance.
+
+  You can link Briar with a device running Briar Mailbox (even on Android: https://f-droid.org/packages/org.briarproject.mailbox/) to receive encrypted messages from your contacts while Briar is offline.
 
 RepoType: git
 Repo: https://code.briarproject.org/briar/briar.git
@@ -76,50 +76,6 @@ Builds:
       - bramble-java
       - briar-headless
 
-  - versionName: 1.1.7
-    versionCode: 10107
-    disable: verification fails
-    commit: release-1.1.7
-    subdir: briar-android
-    gradle:
-      - official
-    rm:
-      - bramble-java
-      - briar-headless
-
-  - versionName: 1.1.8
-    versionCode: 10108
-    disable: verification fails
-    commit: release-1.1.8
-    subdir: briar-android
-    gradle:
-      - official
-    rm:
-      - bramble-java
-      - briar-headless
-
-  - versionName: 1.1.9
-    versionCode: 10109
-    disable: verification fails
-    commit: release-1.1.9
-    subdir: briar-android
-    gradle:
-      - official
-    rm:
-      - bramble-java
-      - briar-headless
-
-  - versionName: 1.2.4
-    versionCode: 10204
-    disable: verification fails
-    commit: release-1.2.4
-    subdir: briar-android
-    gradle:
-      - official
-    rm:
-      - bramble-java
-      - briar-headless
-
   - versionName: 1.2.5
     versionCode: 10205
     commit: release-1.2.5
@@ -139,19 +95,6 @@ Builds:
     rm:
       - bramble-java
       - briar-headless
-
-  - versionName: 1.2.9
-    versionCode: 10209
-    disable: verification fails
-    commit: release-1.2.9
-    subdir: briar-android
-    gradle:
-      - official
-    rm:
-      - bramble-java
-      - briar-headless
-      - libs/gradle-witness.jar
-    prebuild: sed -i -e '/witness/d' ../*/build.gradle
 
   - versionName: 1.2.10
     versionCode: 10210
@@ -670,10 +613,45 @@ Builds:
       - sed -i -e "/buildToolsVersion/apackagingOptions { doNotStrip '**/*.so' }"
         build.gradle ../bramble-android/build.gradle
 
+  - versionName: 1.5.9
+    versionCode: 10509
+    commit: f16875c6025701498ef8a1a988be8dd86dba7c38
+    subdir: briar-android
+    gradle:
+      - official
+    rm:
+      - bramble-java
+      - briar-headless
+      - libs/gradle-witness.jar
+    prebuild:
+      - sed -i -e '/witness/d' ../*/build.gradle
+      - sed -i -e "/buildToolsVersion/apackagingOptions { doNotStrip '**/*.so' }"
+        build.gradle ../bramble-android/build.gradle
+
+  - versionName: 1.5.10
+    versionCode: 10510
+    commit: fe6ce2fe6728ba7506ed535ad1b74109f2c57ae8
+    subdir: briar-android
+    sudo:
+      - echo "deb https://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y -t bullseye openjdk-11-jdk-headless
+      - update-java-alternatives --set java-1.11.0-openjdk-amd64
+    gradle:
+      - official
+    rm:
+      - bramble-java
+      - briar-headless
+      - libs/gradle-witness.jar
+    prebuild:
+      - sed -i -e '/witness/d' ../*/build.gradle
+      - sed -i -e "/buildToolsVersion/apackagingOptions { doNotStrip '**/*.so' }"
+        build.gradle ../bramble-android/build.gradle
+
 AllowedAPKSigningKeys: 501ddf14a6ecf904fb20285c56a565cb987a867f91572ee33c2d43771cca4e37
 
 ArchivePolicy: 3
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^release-
-CurrentVersion: 1.5.8
-CurrentVersionCode: 10508
+CurrentVersion: 1.5.10
+CurrentVersionCode: 10510

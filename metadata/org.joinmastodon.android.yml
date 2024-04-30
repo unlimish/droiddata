@@ -18,54 +18,6 @@ RepoType: git
 Repo: https://github.com/mastodon/mastodon-android.git
 
 Builds:
-  - versionName: 1.1.3
-    versionCode: 39
-    disable: switch to F-Droid signature
-    commit: v1.1.3
-    subdir: mastodon
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-alternatives --auto java
-    gradle:
-      - yes
-
-  - versionName: 1.1.4
-    versionCode: 45
-    disable: not reproducible due to png optimization
-    commit: e10faeefc4201861e44b10fe8e071597d11ddc6a
-    subdir: mastodon
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-alternatives --auto java
-    output: build/outputs/apk/githubRelease/*.apk
-    build: gradle assembleGithubRelease
-
-  - versionName: 1.2.0
-    versionCode: 50
-    disable: in-app updater
-    commit: dd582c4bee273234044d7aafd60bdaecb616c4ef
-    subdir: mastodon
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-alternatives --auto java
-    output: build/outputs/apk/githubRelease/*.apk
-    build: gradle assembleGithubRelease
-
-  - versionName: 1.2.1
-    versionCode: 52
-    disable: in-app updater
-    commit: d93d66f702caa7c205f34cc996a42cf56ad4215e
-    subdir: mastodon
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-alternatives --auto java
-    output: build/outputs/apk/githubRelease/*.apk
-    build: gradle assembleGithubRelease
-
   - versionName: 1.2.2
     versionCode: 53
     commit: 0a17ceb9840ea74db80c7f9907bdf36deac3586b
@@ -231,7 +183,47 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.3.0
+    versionCode: 84
+    commit: 8dffbff97c2dd5fd9110733bc1b09437ca5151af
+    subdir: mastodon
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.4.0
+    versionCode: 86
+    commit: 0dc23789f576251b65ad73bc929d94f86fc00316
+    subdir: mastodon
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.4.1
+    versionCode: 89
+    commit: 7b25628f7ae6d32afd616a1a65a17006392d1c3e
+    subdir: mastodon
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.5.0
+    versionCode: 93
+    commit: 69b7484a4a112d20421ac7d0c343e296d3075443
+    subdir: mastodon
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.2.4
-CurrentVersionCode: 80
+CurrentVersion: 2.5.0
+CurrentVersionCode: 93

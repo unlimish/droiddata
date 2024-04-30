@@ -786,7 +786,51 @@ Builds:
       - yes
     prebuild: sed -i -e '/jvmargs/s/# //' ../gradle.properties
 
+  - versionName: 4.4.9g
+    versionCode: 1319
+    commit: 98ed9007cee330078bdda40e1fb093fbca602c87
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jvmargs/s/# //' ../gradle.properties
+
+  - versionName: 4.5.0
+    versionCode: 1320
+    commit: 51553dde601905e32d0aecaba7b001277602f400
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jvmargs/s/# //' ../gradle.properties
+
+  - versionName: 4.5.0a
+    versionCode: 1321
+    commit: 8302f1a875d0e8b08e3e446e51300b707121e75b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
+  - versionName: 4.5.1b
+    versionCode: 1324
+    commit: 2f91d9e6594d4605053688ad609f25bccd727a4b
+    subdir: app
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
+  - versionName: 4.5.1c
+    versionCode: 1325
+    commit: 620798320695cfd1943ae270e21d3fe3c65814c2
+    subdir: app
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 4.4.9f
-CurrentVersionCode: 1318
+CurrentVersion: 4.5.1c
+CurrentVersionCode: 1325

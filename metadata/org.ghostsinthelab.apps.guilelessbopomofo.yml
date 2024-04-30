@@ -8,7 +8,6 @@ AuthorWebSite: https://ghostsinthelab.org/
 SourceCode: https://github.com/hiroshiyui/GuilelessBopomofo
 IssueTracker: https://github.com/hiroshiyui/GuilelessBopomofo/issues
 Changelog: https://github.com/hiroshiyui/GuilelessBopomofo/releases
-Donate: https://paypal.me/hiroshiyui
 
 AutoName: Guileless Bopomofo
 
@@ -951,7 +950,46 @@ Builds:
       - yes
     ndk: 23.2.8568313
 
+  - versionName: 1.9.46
+    versionCode: 116
+    commit: b7fe449768cf74be6993148c6e74626e47711d91
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y -t bullseye-backports cmake
+      - apt-get install -y automake g++ libsqlite3-dev libtool make ninja-build
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    ndk: 23.2.8568313
+
+  - versionName: 1.9.47
+    versionCode: 117
+    commit: c5121241fbeafd69dc53e2444e491af137855589
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y automake g++ libsqlite3-dev libtool make ninja-build cmake
+    gradle:
+      - yes
+    ndk: 23.2.8568313
+
+  - versionName: 1.9.48
+    versionCode: 118
+    commit: 2118a55d2caab3b53b1e3d7f826effd568e41906
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y automake g++ libsqlite3-dev libtool make ninja-build cmake
+    gradle:
+      - yes
+    ndk: 23.2.8568313
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.9.45
-CurrentVersionCode: 115
+CurrentVersion: 1.9.48
+CurrentVersionCode: 118

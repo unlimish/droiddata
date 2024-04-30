@@ -220,19 +220,6 @@ Builds:
       - production
     prebuild: sed -i -e '/pkg.jetbrains/d' ../settings.gradle.kts
 
-  - versionName: 1.4.18
-    versionCode: 1418
-    disable: https://github.com/yogeshpaliyal/KeyPass/discussions/576#discussioncomment-6573327
-    commit: ab9030fbc5e2ce14bcf443c94ff6b6dbf106fb12
-    subdir: app
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-java-alternatives -a
-    gradle:
-      - production
-    prebuild: sed -i -e '/pkg.jetbrains/d' ../settings.gradle.kts
-
   - versionName: 1.4.19
     versionCode: 1419
     commit: 83ab5d0255105d7f45035ba4084544da0823df24
@@ -293,8 +280,32 @@ Builds:
       - yes
     prebuild: sed -i -e '/pkg.jetbrains/d' ../settings.gradle.kts
 
+  - versionName: 1.4.25
+    versionCode: 1425
+    commit: 1ce1b4f8c82990affe1f128ad5d36940c5950b36
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/pkg.jetbrains/d' ../settings.gradle.kts
+
+  - versionName: 1.4.26
+    versionCode: 1426
+    commit: 54882c5455cd5c36b88808595c830ebd7f3732c9
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/pkg.jetbrains/d' ../settings.gradle.kts
+
+  - versionName: 1.4.27
+    versionCode: 1427
+    commit: c139cad899e4c513f1965626bdd3da66edc5f13f
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -e '/pkg.jetbrains/d' ../settings.gradle.kts
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags v.*[0-9]$
 UpdateCheckData: app/build.gradle.kts|versionCode =\s(\d+)|.|versionName = "(\d.+)+"
-CurrentVersion: 1.4.23
-CurrentVersionCode: 1423
+CurrentVersion: 1.4.27
+CurrentVersionCode: 1427

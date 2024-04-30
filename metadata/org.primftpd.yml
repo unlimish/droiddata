@@ -117,14 +117,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: '4.8'
-    versionCode: 22
-    disable: gradle issue
-    commit: prim-ftpd-4.8
-    subdir: primitiveFTPd
-    gradle:
-      - yes
-
   - versionName: 4.8.2
     versionCode: 23
     commit: prim-ftpd-4.8.2
@@ -142,22 +134,6 @@ Builds:
   - versionName: '4.10'
     versionCode: 25
     commit: prim-ftpd-4.10
-    subdir: primitiveFTPd
-    gradle:
-      - yes
-
-  - versionName: '5.0'
-    versionCode: 26
-    disable: prebuilt JARs
-    commit: prim-ftpd-5.0
-    subdir: primitiveFTPd
-    gradle:
-      - yes
-
-  - versionName: '5.2'
-    versionCode: 28
-    disable: prebuilt JARs
-    commit: prim-ftpd-5.2
     subdir: primitiveFTPd
     gradle:
       - yes
@@ -389,7 +365,20 @@ Builds:
       - yes
     prebuild: sed -i -e '/publishing {/,/^}/d' build.gradle
 
+  - versionName: '7.1'
+    versionCode: 64
+    commit: 9cb2af62d8b37beae145a949fd17f39b0d6050b4
+    subdir: primitiveFTPd
+    sudo:
+      - echo "deb https://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y -t bullseye openjdk-11-jdk-headless
+      - update-java-alternatives --set java-1.11.0-openjdk-amd64
+    gradle:
+      - yes
+    prebuild: sed -i -e '/publishing {/,/^}/d' build.gradle
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^prim-ftpd-
-CurrentVersion: '7.0'
-CurrentVersionCode: 63
+CurrentVersion: '7.1'
+CurrentVersionCode: 64

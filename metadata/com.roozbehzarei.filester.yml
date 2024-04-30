@@ -53,7 +53,27 @@ Builds:
       - yes
     prebuild: sed -i -e '/gms/d' -e '/firebase/d' {..,.}/build.gradle.kts
 
+  - versionName: 2.3.1
+    versionCode: 7
+    commit: 50bce97b72b6ec9462561d9e9a15c5752f964e79
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' {..,.}/build.gradle.kts
+
+  - versionName: 2.3.2
+    versionCode: 8
+    commit: b1a8d5dad614631afbd862afd9e9b989c2fe0c58
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' {..,.}/build.gradle.kts
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.2.0
-CurrentVersionCode: 5
+CurrentVersion: 2.3.2
+CurrentVersionCode: 8

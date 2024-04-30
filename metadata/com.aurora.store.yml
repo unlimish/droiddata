@@ -263,18 +263,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 4.2.4
-    versionCode: 46
-    disable: https://gitlab.com/AuroraOSS/AuroraStore/-/issues/940
-    commit: 2b0653ef0b8f2f164f354a463f3c0ca7b3041982
-    subdir: app
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-java-alternatives -a
-    gradle:
-      - yes
-
   - versionName: 4.2.5
     versionCode: 47
     commit: 4ff2e0d65e7e4793cea9a466b85d63f34aa2f08c
@@ -352,11 +340,47 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 4.4.1
+    versionCode: 55
+    commit: 2c7ea9ca5359fa38912e91b9c2c1790b2308b869
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 4.4.2
+    versionCode: 56
+    commit: 2ba8692467f4b1ccc255383243cb8179280ec65a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 4.4.3
+    versionCode: 57
+    commit: eecd026114c84675f2cc0cac90e719d1851ac5f6
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.4.4
+    versionCode: 58
+    commit: 34b94ef23665825162b3da2675cb9d74a5a613e8
+    subdir: app
+    gradle:
+      - yes
+
 MaintainerNotes: |
   Manually updated temporarily. Want to build all versions, but only
   mark them as current after some testing.
 
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 4.3.5
-CurrentVersionCode: 53
+CurrentVersion: 4.4.2
+CurrentVersionCode: 56

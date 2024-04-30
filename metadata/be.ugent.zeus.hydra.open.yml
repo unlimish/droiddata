@@ -16,7 +16,7 @@ Changelog: https://github.com/ZeusWPI/hydra-android/releases
 AutoName: Hydra
 
 RepoType: git
-Repo: https://github.com/ZeusWPI/hydra-android
+Repo: https://github.com/ZeusWPI/hydra-android.git
 
 Builds:
   - versionName: 3.3.1-open
@@ -101,7 +101,46 @@ Builds:
     prebuild: sed -i -e '/firebaseCrashlytics/,+2d' -e '/gms/d' -e '/firebase/d' -e
       '/Disable Google/,+5d' {.,..}/build.gradle
 
+  - versionName: 3.7.1-open
+    versionCode: 37100
+    commit: ac0e06d061bb42b70fc4423eaf778fd1ae04ab5a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - open
+    prebuild: sed -i -e '/firebaseCrashlytics/,+2d' -e '/gms/d' -e '/firebase/d' -e
+      '/Disable Google/,+5d' {.,..}/build.gradle
+
+  - versionName: 3.7.2-open
+    versionCode: 37200
+    commit: 7f55d0e24ce2686aab9fe60c6c10f31145e9f889
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - open
+    prebuild: sed -i -e '/firebaseCrashlytics/,+2d' -e '/gms/d' -e '/firebase/d' -e
+      '/Disable Google/,+5d' {.,..}/build.gradle
+
+  - versionName: 3.7.3-open
+    versionCode: 37300
+    commit: 8be38497e94adc402f7ae6988adc5cc4846e202b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - open
+    prebuild: sed -i -e '/firebaseCrashlytics/,+2d' -e '/gms/d' -e '/firebase/d' -e
+      '/Disable Google/,+5d' {.,..}/build.gradle
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.6.2-open
-CurrentVersionCode: 36200
+CurrentVersion: 3.7.3-open
+CurrentVersionCode: 37300

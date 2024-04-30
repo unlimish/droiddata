@@ -350,7 +350,37 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 3.4.2.8
+    versionCode: 58
+    commit: c48d2f63b7aa6d6219bf0a2ad6771cfba9d1f2f0
+    subdir: android/API33
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 3.4.2.9
+    versionCode: 59
+    commit: 66c961705d9036e8a7c448c76ee2d91717a3d471
+    subdir: android/API33
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 3.4.2.10
+    versionCode: 60
+    commit: 1180b701add1d23adb46c8044ab0f484386a33c8
+    subdir: android/API33
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.4.2.7
-CurrentVersionCode: 57
+UpdateCheckData: android/API33/main/AndroidManifest.xml|versionCode="(\d+)"|.|versionName="(.+)"
+CurrentVersion: 3.4.2.10
+CurrentVersionCode: 60

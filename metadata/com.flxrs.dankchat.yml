@@ -1450,7 +1450,31 @@ Builds:
       - yes
     ndk: r21e
 
+  - versionName: 3.9.10
+    versionCode: 30910
+    commit: d642a55c2b3b479bdcd8812aaa9574a56854361b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    ndk: r21e
+
+  - versionName: 3.9.12
+    versionCode: 30912
+    commit: 9b03e5ebd04bf3cf1bd835d6b142662e58636375
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    ndk: r21e
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v
-CurrentVersion: 3.9.9
-CurrentVersionCode: 30909
+CurrentVersion: 3.9.12
+CurrentVersionCode: 30912

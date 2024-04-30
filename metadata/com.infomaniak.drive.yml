@@ -746,23 +746,6 @@ Builds:
       - sed -i -e '/geniusscansdk/d' build.gradle
     ndk: r25b
 
-  - versionName: 4.2.23
-    versionCode: 40202301
-    disable: https://github.com/Infomaniak/android-kDrive/issues/1023
-    commit: dd9a6d9df95dc39b870b264fea645e1d2e831b91
-    subdir: app
-    submodules: true
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-java-alternatives -a
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '/amazonaws/d' ../build.gradle
-      - sed -i -e '/geniusscansdk/d' build.gradle
-    ndk: r25b
-
   - versionName: 4.2.24
     versionCode: 40202401
     commit: a8c472bcd49cf9086fee1c0caac29adefe9de60c
@@ -971,7 +954,83 @@ Builds:
       - sed -i -e '/geniusscansdk/d' build.gradle
     ndk: r25b
 
+  - versionName: 4.4.3
+    versionCode: 40400301
+    commit: 4c3e35c0d725a3d6bba5e6639a3cb6d27c0949e7
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/amazonaws/d' ../build.gradle
+      - sed -i -e '/geniusscansdk/d' build.gradle
+    ndk: r25b
+
+  - versionName: 4.4.4
+    versionCode: 40400401
+    commit: 2f509881d22d674a65f548de3fa8c09e7d37b336
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/amazonaws/d' ../build.gradle
+      - sed -i -e '/geniusscansdk/d' build.gradle
+    ndk: r25b
+
+  - versionName: 4.4.5
+    versionCode: 40400501
+    commit: 761adbd371b015fcaadfdc638788605a991d7410
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/amazonaws/d' ../build.gradle
+      - sed -i -e '/geniusscansdk/d' build.gradle
+    ndk: r25b
+
+  - versionName: 4.4.6
+    versionCode: 40400601
+    commit: 15a2161b7719db7525eb819aefc136f89737d106
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/amazonaws/d' ../build.gradle
+      - sed -i -e '/geniusscansdk/d' build.gradle
+    ndk: r25b
+
+  - versionName: 4.4.7
+    versionCode: 40400701
+    commit: c122ae4ee84a18ca8f79a407c3a5e2ef56c03d71
+    subdir: app
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild:
+      - sed -i -e '/amazonaws/d' ../build.gradle
+      - sed -i -e '/geniusscansdk/d' build.gradle
+    ndk: r25b
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 4.4.2
-CurrentVersionCode: 40400201
+CurrentVersion: 4.4.7
+CurrentVersionCode: 40400701

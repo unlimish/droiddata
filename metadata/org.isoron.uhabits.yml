@@ -27,7 +27,7 @@ Description: |-
   <a href="https://github.com/iSoron/uhabits/blob/HEAD/README.md#screenshots">Screenshots</a>
 
 RepoType: git
-Repo: https://github.com/iSoron/uhabits/
+Repo: https://github.com/iSoron/uhabits.git
 
 Builds:
   - versionName: 1.2.0
@@ -362,7 +362,18 @@ Builds:
     rm:
       - .secret
 
+  - versionName: 2.2.0
+    versionCode: 20200
+    commit: d10538e72064c196a9ec5da26c76fc6a0fe0cd80
+    subdir: uhabits-android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.1.3
-CurrentVersionCode: 20103
+CurrentVersion: 2.2.0
+CurrentVersionCode: 20200

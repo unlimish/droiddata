@@ -798,7 +798,43 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 11.3.1
+    versionCode: 110301
+    commit: ca536f8ec74a1cacea2c0252ae26ba0334c1335c
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 11.4.0
+    versionCode: 110400
+    commit: 7bafd06ddd0801676dac44eefad97423f67bb0fb
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 11.6.0
+    versionCode: 110600
+    commit: d250db7801350e456be6be80c7c8a23c2731bb7b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 11.6.1
+    versionCode: 110601
+    commit: cc23b19ed292bc2ef4fb03edbd1ef1aaf7c80823
+    subdir: app
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 11.2.0
-CurrentVersionCode: 110200
+CurrentVersion: 11.6.1
+CurrentVersionCode: 110601

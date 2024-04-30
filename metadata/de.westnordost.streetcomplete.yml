@@ -1,5 +1,7 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Tethered to commercial Jawg.io for map tiles, FOSS OpenStreetMap.org and
+      Westnordost.de to get quests, upload data, etc.
 Categories:
   - Navigation
 License: GPL-3.0-only
@@ -1219,7 +1221,79 @@ Builds:
       - yes
     prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d' build.gradle.kts
 
+  - versionName: '56.1'
+    versionCode: 5602
+    commit: 5c37312949d46131c9f9edb00fa553b702959381
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d' build.gradle.kts
+
+  - versionName: 57.0-beta1
+    versionCode: 5700
+    commit: d0db3f4968afe113079752aa6e194f1853a46e9c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d' build.gradle.kts
+
+  - versionName: '57.0'
+    versionCode: 5702
+    commit: 72b958bb1b69f9af58e381da777eb56c32f8513f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d' build.gradle.kts
+
+  - versionName: '57.1'
+    versionCode: 5703
+    commit: 38203c669a5448414f9965b95dcd8d6defee2e35
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d' build.gradle.kts
+
+  - versionName: '57.2'
+    versionCode: 5704
+    commit: 372723228972ff038311abf209ff20180f3d7122
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d' build.gradle.kts
+
+  - versionName: '57.3'
+    versionCode: 5705
+    commit: 3a7dc5b6c90597555ecd34cc1ecf6351e60fbe9f
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d' build.gradle.kts
+
+  - versionName: '57.4'
+    versionCode: 5706
+    commit: c7c07d0dc0d114af890ad5284ef3c7cc923ac4e4
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystorePropertiesFile.*{/,/}/d' build.gradle.kts
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[\d.]+$
-CurrentVersion: '56.0'
-CurrentVersionCode: 5601
+CurrentVersion: '57.4'
+CurrentVersionCode: 5706

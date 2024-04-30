@@ -88,7 +88,33 @@ Builds:
     scanignore:
       - idTech4Amm/src/main/assets/source
 
+  - versionName: 1.1.0harmattan38natasha
+    versionCode: 11038
+    commit: c6097e2073e9ad1039ac47d4707329bd54d7304a
+    subdir: idTech4Amm
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential libtinfo5
+    gradle:
+      - yes
+    scanignore:
+      - idTech4Amm/src/main/assets/source
+
+  - versionName: 1.1.0harmattan39natasha
+    versionCode: 11039
+    commit: c8196c18f46448d339d928d484179c390554df1e
+    subdir: idTech4Amm
+    sudo:
+      - apt-get update
+      - apt-get install -y g++ libc-dev make libtinfo5
+    gradle:
+      - yes
+    scanignore:
+      - idTech4Amm/src/main/assets/source
+    scandelete:
+      - Q3E/src/main/jni
+
 AutoUpdateMode: Version +natasha %v
 UpdateCheckMode: Tags .*-free
-CurrentVersion: 1.1.0harmattan37
-CurrentVersionCode: 11037
+CurrentVersion: 1.1.0harmattan39
+CurrentVersionCode: 11039

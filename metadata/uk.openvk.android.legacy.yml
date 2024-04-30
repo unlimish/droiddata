@@ -301,22 +301,6 @@ Builds:
     prebuild: sed -i -e "/android {/alintOptions { disable 'MissingTranslation' }"
       build.gradle
 
-  - versionName: 1.0.169-beta
-    versionCode: 169
-    disable: https://github.com/openvk/mobile-android-legacy/issues/58#issuecomment-1406589319
-    commit: 72667eebb735d11c0f4e05ff0713006bc21c1a73
-    subdir: app
-    sudo:
-      - echo "deb http://deb.debian.org/debian stretch main" > /etc/apt/sources.list.d/stretch.list
-      - apt-get update
-      - apt-get remove openjdk-11-jdk-headless openjdk-11-jre-headless
-      - apt-get install -y -t stretch openjdk-8-jdk-headless
-      - chmod -R 777 /opt/android-sdk
-    gradle:
-      - betaConfig
-    prebuild: sed -i -e "/android {/alintOptions { disable 'MissingTranslation' }"
-      build.gradle
-
   - versionName: 1.0.170-beta
     versionCode: 170
     commit: 195fbbf6959c88f1c65a7f8d5c72764e834f157a
@@ -900,7 +884,67 @@ Builds:
     prebuild: sed -i -e "/android {/alintOptions { disable 'MissingTranslation' }"
       build.gradle
 
+  - versionName: 1.2.236-f
+    versionCode: 236
+    commit: 092052b1551619672a51f116b16c85eac68b6143
+    subdir: app
+    sudo:
+      - echo "deb http://deb.debian.org/debian sid main" > /etc/apt/sources.list.d/stretch.list
+      - apt-get update
+      - apt-get remove openjdk-11-jdk-headless openjdk-11-jre-headless
+      - apt-get install -y -t sid openjdk-8-jdk-headless
+      - chmod -R 777 /opt/android-sdk
+    gradle:
+      - fdroidConfig
+    prebuild: sed -i -e "/android {/alintOptions { disable 'MissingTranslation' }"
+      build.gradle
+
+  - versionName: 1.2.237-f
+    versionCode: 237
+    commit: 4e6335da215eb6905b7ac6d427023f07184f6986
+    subdir: app
+    sudo:
+      - echo "deb http://deb.debian.org/debian sid main" > /etc/apt/sources.list.d/sid.list
+      - apt-get update
+      - apt-get install -y -t sid openjdk-8-jdk-headless
+      - update-java-alternatives --set java-1.8.0-openjdk-amd64
+      - chmod -R 777 /opt/android-sdk
+    gradle:
+      - fdroidConfig
+    prebuild: sed -i -e "/android {/alintOptions { disable 'MissingTranslation' }"
+      build.gradle
+
+  - versionName: 1.2.239-f
+    versionCode: 239
+    commit: 86e09c752eeaba57f3bc09d63270f6a5384e74a1
+    subdir: app
+    sudo:
+      - echo "deb http://deb.debian.org/debian sid main" > /etc/apt/sources.list.d/sid.list
+      - apt-get update
+      - apt-get install -y -t sid openjdk-8-jdk-headless
+      - update-java-alternatives --set java-1.8.0-openjdk-amd64
+      - chmod -R 777 /opt/android-sdk
+    gradle:
+      - fdroidConfig
+    prebuild: sed -i -e "/android {/alintOptions { disable 'MissingTranslation' }"
+      build.gradle
+
+  - versionName: 1.2.240-f
+    versionCode: 240
+    commit: 56a4211ff8b7a43736abca9fbae6d6f2cc3198fc
+    subdir: app
+    sudo:
+      - echo "deb http://deb.debian.org/debian sid main" > /etc/apt/sources.list.d/sid.list
+      - apt-get update
+      - apt-get install -y -t sid openjdk-8-jdk-headless
+      - update-java-alternatives --set java-1.8.0-openjdk-amd64
+      - chmod -R 777 /opt/android-sdk
+    gradle:
+      - fdroidConfig
+    prebuild: sed -i -e "/android {/alintOptions { disable 'MissingTranslation' }"
+      build.gradle
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.2.234-f
-CurrentVersionCode: 234
+CurrentVersion: 1.2.240-f
+CurrentVersionCode: 240

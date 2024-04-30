@@ -134,24 +134,6 @@ Builds:
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
       'META-INF/services/*'
 
-  - versionName: 0.7.2.2(lts)
-    versionCode: 622
-    disable: wrong versionName
-    commit: 024d51e8b34cea6d68753eb3e0d896656bcc74ec
-    subdir: app
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-java-alternatives -a
-    gradle:
-      - stable
-    srclibs:
-      - reproducible-apk-tools@v0.2.3
-    scandelete:
-      - tools/release-tool/build
-    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines "$$OUT$$"
-      'META-INF/services/*'
-
   - versionName: 0.7.2.3
     versionCode: 623
     commit: 67e915f53097b48bbcdd374e6af6a07a33afe6ef
@@ -373,9 +355,108 @@ Builds:
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines "$$OUT$$"
       'META-INF/services/*'
 
+  - versionName: 1.4.4
+    versionCode: 1044
+    commit: fed2dee21d07a2a65d48959249b44abecf671768
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - stable
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    scandelete:
+      - tools/release-tool/build
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines "$$OUT$$"
+      'META-INF/services/*'
+
+  - versionName: 1.5.0
+    versionCode: 1050
+    commit: a3ae0db9dc053c2f0b48bdc57bb7b09b9a391574
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - stable
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    scandelete:
+      - tools/release-tool/build
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines "$$OUT$$"
+      'META-INF/services/*'
+
+  - versionName: 1.5.1
+    versionCode: 1051
+    commit: 980d8b5c5054cadf889c954ef9aff1c21efcdce6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - stable
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    scandelete:
+      - tools/release-tool/build
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines "$$OUT$$"
+      'META-INF/services/*'
+
+  - versionName: 1.5.2
+    versionCode: 1052
+    commit: d6f721af75b773b3c85f28703666cade18a3d5bb
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - stable
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines "$$OUT$$"
+      'META-INF/services/*'
+
+  - versionName: 1.6.0
+    versionCode: 1060
+    commit: 86916ee0b9f8df660b6b9792d273923588014126
+    subdir: app
+    gradle:
+      - stable
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines "$$OUT$$"
+      'META-INF/services/*'
+
+  - versionName: 1.6.1
+    versionCode: 1061
+    commit: f5697850d98bb66a2005ed30b243103dca446e2a
+    subdir: app
+    gradle:
+      - stable
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines "$$OUT$$"
+      'META-INF/services/*'
+
+  - versionName: 1.6.2
+    versionCode: 1062
+    commit: be7844c9854908da5cae636d12fa0b328ce4e6de
+    subdir: app
+    gradle:
+      - stable
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines "$$OUT$$"
+      'META-INF/services/*'
+
 AllowedAPKSigningKeys: 01654eb9348b2c802fcbf21282de0cdca2a226337b9a2fa201e3ac376b0ce76c
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v(.*)$
-CurrentVersion: 1.4.3
-CurrentVersionCode: 1043
+CurrentVersion: 1.6.2
+CurrentVersionCode: 1062

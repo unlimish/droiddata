@@ -1,0 +1,88 @@
+Categories:
+  - System
+License: Apache-2.0
+AuthorName: Avinaba Dalal
+AuthorEmail: d97.avinaba@gmail.com
+SourceCode: https://github.com/corphish/TextTools
+IssueTracker: https://github.com/corphish/TextTools/issues
+
+AutoName: Text Tools
+
+RepoType: git
+Repo: https://github.com/corphish/TextTools
+Binaries: https://github.com/corphish/TextTools/releases/download/v%v/app-release.apk
+
+Builds:
+  - versionName: 1.0.3
+    versionCode: 4
+    commit: 69a4857294172181000cf7df3690af53849b8862
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.0.4
+    versionCode: 5
+    commit: 9ba62ebd02c27c9ebd38e16815df4af7f442057d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.0.5
+    versionCode: 6
+    commit: 67d8a0ff1d3471626497158c3d0f88f7d30aa473
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.0.6
+    versionCode: 7
+    commit: 37f4481d3d47811bcbbe2719f7a0335b2949fef4
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.4
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.0.7.1
+    versionCode: 9
+    commit: b4509539eb556adf0a65ab530f7e9c55a6b4d48b
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.4
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.1.0
+    versionCode: 10
+    disable: https://github.com/corphish/TextTools/issues/2
+    commit: 1ed1806ebe53cd6a7a7994b4e4b34c1bdedf002b
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.4
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+AllowedAPKSigningKeys: c38c54ba54fa6718a56a8ee319cf8291329860ba092290743b7defd813fa9de7
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.1.0
+CurrentVersionCode: 10

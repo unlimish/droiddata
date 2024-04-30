@@ -24,19 +24,6 @@ Builds:
       - yes
     prebuild: sed -i -e '/keystoreProperties/d' build.gradle.kts
 
-  - versionName: 1.0.0
-    versionCode: 14
-    disable: https://github.com/MateusRodCosta/Share2Storage/issues/13
-    commit: 8bb0ad754291f360e5a0e632da37eb79e5504fd2
-    subdir: app
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-java-alternatives -a
-    gradle:
-      - yes
-    prebuild: sed -i -e '/keystoreProperties/d' build.gradle.kts
-
   - versionName: 1.0.1
     versionCode: 15
     commit: ea37a62b961821d15ef535d4c89c75c210781da4
@@ -49,9 +36,38 @@ Builds:
       - yes
     prebuild: sed -i -e '/keystoreProperties/d' build.gradle.kts
 
+  - versionName: 1.1.0
+    versionCode: 16
+    commit: 836c945fb8a9211eb8d536e97fe6150021ee727f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle.kts
+
+  - versionName: 1.2.0
+    versionCode: 17
+    disable: https://github.com/MateusRodCosta/Share2Storage/issues/13#issuecomment-2029763945
+    commit: cfd30cfbdaad8f376c5bf4a98cb2cd0bc5e801d9
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle.kts
+
+  - versionName: 1.2.1
+    versionCode: 18
+    commit: 8d89b684290e2110c80bea8391eb1e7d99893692
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystoreProperties/d' build.gradle.kts
+
 AllowedAPKSigningKeys: 2a0b90541cf2e483b72fe1f401acdf202feefad90b335a31d6dbac3ba0e06087
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.1
-CurrentVersionCode: 15
+CurrentVersion: 1.2.1
+CurrentVersionCode: 18

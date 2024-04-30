@@ -321,26 +321,6 @@ Builds:
       - app/src/main/jni
     ndk: r24
 
-  - versionName: 3.2.12
-    versionCode: 20230501
-    disable: https://github.com/osfans/trime/issues/1006
-    commit: 31fa50fdfc5d71af84fb99f6ddcf1b5fb5fae919
-    subdir: app
-    submodules: true
-    sudo:
-      - apt-get update
-      - apt-get -y install automake g++ libtool make openjdk-17-jdk-headless
-      - update-java-alternatives -a
-    gradle:
-      - yes
-    prebuild:
-      - sdkmanager 'cmake;3.22.1'
-      - sed -i -e '/isEnable = true/d' -e 's/exec("git config user.name")/"F-Droid"/'
-        -e 's/exec("git symbolic-ref --short HEAD")/""/' build.gradle.kts
-    scandelete:
-      - app/src/main/jni
-    ndk: r24
-
   - versionName: 3.2.13
     versionCode: 20230701
     commit: c1cf0a7307a240de0186e3e85dc71be26c22c4cd
@@ -419,15 +399,12 @@ Builds:
 
   - versionName: 3.2.17
     versionCode: 20240301
-    disable: nightly
-    commit: af709fea6d9c37ee4936606c0222d9afc946093a
+    commit: 98e201b9a95db15dc4eb6683e09475c3e5d0b0d3
     subdir: app
     submodules: true
     sudo:
       - apt-get update
-      - apt-get -y install automake g++ libtool make
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-java-alternatives -a
+      - apt-get -y install automake g++ libtool make python-is-python3
     gradle:
       - yes
     prebuild:
@@ -439,6 +416,6 @@ Builds:
     ndk: 25.2.9519653
 
 AutoUpdateMode: Version
-UpdateCheckMode: Tags ^v
-CurrentVersion: 3.2.16
-CurrentVersionCode: 20240101
+UpdateCheckMode: Tags ^v[\d.]+$
+CurrentVersion: 3.2.17
+CurrentVersionCode: 20240301

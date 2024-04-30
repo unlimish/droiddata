@@ -525,20 +525,6 @@ Builds:
     scandelete:
       - gradlePlugins
 
-  - versionName: 7.8.5
-    versionCode: 785
-    disable: disable gradle issues
-    commit: c2681c5cc91aae34218e8c08a74b0829916a7987
-    subdir: PersianCalendar
-    submodules: true
-    gradle:
-      - minApi17
-    prebuild: sed -i -e 's/8.0-rc-1/7.6/' ../gradle/wrapper/gradle-wrapper.properties
-    scanignore:
-      - PersianCalendar/src/main/res/raw/worldmap.gz
-    scandelete:
-      - gradlePlugins
-
   - versionName: 7.9.0
     versionCode: 790
     commit: 4dbf8bed8bcdc4481b7a8fe4758ebcdc1831fc1d
@@ -699,7 +685,55 @@ Builds:
     scandelete:
       - gradlePlugins
 
+  - versionName: 9.1.0
+    versionCode: 910
+    commit: 82b537833b8793026d80599e37a479a7da85d9d5
+    subdir: PersianCalendar
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    scandelete:
+      - gradlePlugins
+
+  - versionName: 9.1.1
+    versionCode: 911
+    commit: 76449c02c42d6cc1929de9341ef578ce525b221d
+    subdir: PersianCalendar
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    scandelete:
+      - gradlePlugins
+
+  - versionName: 9.1.2
+    versionCode: 912
+    commit: 9592412119cac8cc5340e899b443170eea5f1932
+    subdir: PersianCalendar
+    submodules: true
+    gradle:
+      - yes
+    scandelete:
+      - gradlePlugins
+
+  - versionName: 9.1.5
+    versionCode: 915
+    commit: 0b6251e2e844ad30eca13bf24fe82fc7b09de7c0
+    subdir: PersianCalendar
+    submodules: true
+    gradle:
+      - yes
+    scandelete:
+      - gradlePlugins
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9.v]*$
-CurrentVersion: 9.0.0
-CurrentVersionCode: 900
+CurrentVersion: 9.1.5
+CurrentVersionCode: 915

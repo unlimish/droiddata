@@ -2,7 +2,7 @@ Categories:
   - Sports & Health
 License: Apache-2.0
 AuthorName: Open Food Facts
-AuthorEmail: contact@openfoodfacts.org
+AuthorEmail: mobile@openfoodfacts.org
 AuthorWebSite: https://world.openfoodfacts.org/
 SourceCode: https://github.com/openfoodfacts/smooth-app
 IssueTracker: https://github.com/openfoodfacts/smooth-app/issues
@@ -12,9 +12,8 @@ Donate: https://donate.openfoodfacts.org
 
 AutoName: Open Food Facts
 Description: |-
-  Scan food products or their barcode to obtain data on ingredients, additives,
-  allergens, nutrition facts…
-  The app allows to view the 1.500.000 products already contained in the free and open database Open Food Facts.
+  Scan food products or their barcode to obtain data on ingredients, additives, allergens, nutrition facts…
+  The app allows to view the 3.000.000 products already contained in the free and open database Open Food Facts.
   More importantly, it also lets you easily be part of the solution:
   * contribute pictures and data for missing products
   * team up with the Open Food Facts Artificial Intelligence by answering its blue questions
@@ -566,10 +565,9 @@ Builds:
       - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/flutter build apk -t lib/entrypoints/android/main_fdroid.dart
 
-  - versionName: 4.13.0
-    versionCode: 1258
-    disable: https://github.com/openfoodfacts/smooth-app/issues/4900
-    commit: v4.13.0
+  - versionName: 4.14.0
+    versionCode: 1280
+    commit: v4.14.0
     subdir: packages/smooth_app
     output: build/app/outputs/apk/release/app-release-unsigned.apk
     srclibs:
@@ -584,6 +582,7 @@ Builds:
       - popd
       - sed -i -e '/ml_kit/d' -e '/apple_/d' -e '/google_play/d' -e 's/version:.*/version:\
         $$VERSION$$+$$VERCODE$$/' pubspec.yaml
+      - sed -i -e 's|app_flutter/smoothie.db|smoothie.db|' android/app/src/main/res/xml/backup_scheme.xml
       - pushd android
       - grep -rli 'org.openfoodfacts.scanner' * | xargs -i@ sed -i 's/org.openfoodfacts.scanner/openfoodfacts.github.scrachx.openfood/g'
         @
@@ -600,5 +599,5 @@ Builds:
 AutoUpdateMode: Version v%v
 UpdateCheckMode: HTTP
 UpdateCheckData: https://github.com/openfoodfacts/smooth-app/releases/latest/download/version-code.txt|(\d+)|https://github.com/openfoodfacts/smooth-app/releases/latest|releases/tag/v([\d.]+)
-CurrentVersion: 4.13.0
-CurrentVersionCode: 1258
+CurrentVersion: 4.14.0
+CurrentVersionCode: 1280

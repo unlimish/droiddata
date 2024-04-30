@@ -124,17 +124,6 @@ Builds:
       - cp local.properties gradle.properties
       - sed -i -e 's/gradle-4.4/gradle-4.3.1/' ../gradle/wrapper/gradle-wrapper.properties
 
-  - versionName: 1.34.0
-    versionCode: 45
-    disable: binaries under buildSrc directory
-    commit: v.1.34.0
-    subdir: app
-    gradle:
-      - ccc34c3
-    prebuild:
-      - cp local.properties gradle.properties
-      - sed -i -e 's/gradle-4.4/gradle-4.3.1/' ../gradle/wrapper/gradle-wrapper.properties
-
   - versionName: 1.34.1
     versionCode: 46
     commit: v.1.34.1
@@ -168,17 +157,6 @@ Builds:
   - versionName: 1.37.0
     versionCode: 49
     commit: v.1.37.0
-    subdir: app
-    gradle:
-      - ccc34c3
-    prebuild: cp local.properties gradle.properties
-    scandelete:
-      - buildSrc
-
-  - versionName: 1.38.0
-    versionCode: 50
-    disable: wrong flavour, should have been ccc35c3
-    commit: v.1.38.0
     subdir: app
     gradle:
       - ccc34c3
@@ -460,10 +438,26 @@ Builds:
       - ccc37c3
     prebuild: cp local.properties gradle.properties
 
+  - versionName: 1.63.1
+    versionCode: 99
+    commit: v.1.63.1
+    subdir: app
+    gradle:
+      - ccc37c3
+    prebuild: cp local.properties gradle.properties
+
+  - versionName: 1.63.2
+    versionCode: 100
+    commit: v.1.63.2
+    subdir: app
+    gradle:
+      - ccc37c3
+    prebuild: cp local.properties gradle.properties
+
 MaintainerNotes: Disable auto update in favor of manual update.
 
 ArchivePolicy: 1
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 1.63.0
-CurrentVersionCode: 98
+CurrentVersion: 1.63.2
+CurrentVersionCode: 100

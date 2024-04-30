@@ -394,7 +394,44 @@ Builds:
     preassemble:
       - bundleData
 
+  - versionName: 0.7.0
+    versionCode: 47
+    commit: 4446851c95645ab6935fd04441c2b2f5f4044feb
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+      - selfSigned
+    prebuild: sed -i -e '/signingConfig /d' build.gradle.kts
+    preassemble:
+      - bundleData
+
+  - versionName: 0.7.1
+    versionCode: 48
+    commit: a76927bfe30e1cac18a2d687a3db5eda981032d0
+    subdir: app
+    gradle:
+      - fdroid
+      - selfSigned
+    prebuild: sed -i -e '/signingConfig /d' build.gradle.kts
+    preassemble:
+      - bundleData
+
+  - versionName: 0.7.2
+    versionCode: 49
+    commit: c43711560ceaf2e0b25cd0b3dbb3535c8513bedb
+    subdir: app
+    gradle:
+      - fdroid
+      - selfSigned
+    prebuild: sed -i -e '/signingConfig /d' build.gradle.kts
+    preassemble:
+      - bundleData
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 0.6.6
-CurrentVersionCode: 46
+CurrentVersion: 0.7.2
+CurrentVersionCode: 49

@@ -1,0 +1,71 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: Connects to traewelling.de for push, GitHub for Emoji fonts and line colors
+      and OpenStreetMap and OpenRailwayMap for maps
+    de-DE: Verbindungen zu traewelling.de für Push Nachrichten, GitHub für Emoji Schriftarten
+      und Linien Farben und OpenStreetMap & OpenRailwayMap für Karten
+Categories:
+  - Navigation
+License: AGPL-3.0-only
+AuthorName: Jonas Heubuch
+AuthorEmail: app@traewelldroid.de
+AuthorWebSite: https://heubi.bayern/
+WebSite: https://traewelldroid.de/
+SourceCode: https://github.com/Traewelldroid/traewelldroid
+IssueTracker: https://github.com/Traewelldroid/traewelldroid/issues
+Translation: https://translate.codeberg.org/engage/traewelldroid/
+Changelog: https://github.com/Traewelldroid/traewelldroid/releases
+
+AutoName: Träwelldroid
+
+RepoType: git
+Repo: https://github.com/Traewelldroid/traewelldroid
+Binaries: https://github.com/Traewelldroid/traewelldroid/releases/download/v%v/app-foss-release.apk
+
+Builds:
+  - versionName: 2.7.0
+    versionCode: 141
+    commit: 5d36d7d46f639e7032778cf32f48704fb155e40c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+
+  - versionName: 2.7.1
+    versionCode: 142
+    commit: 43d4156a102fd5328b9914fe5e3939e6913bc259
+    subdir: app
+    gradle:
+      - foss
+
+  - versionName: 2.7.2
+    versionCode: 144
+    commit: a469cf305dff78b868c452fe77cc71aaed17aeff
+    subdir: app
+    gradle:
+      - foss
+
+  - versionName: 2.7.3
+    versionCode: 145
+    commit: 726bccdab1a3b0a71c4e9bf940a903f3cd88cbb6
+    subdir: app
+    gradle:
+      - foss
+
+  - versionName: 2.7.4
+    versionCode: 146
+    commit: b69fd07a0a23a465a0c0ff9636e5774e1f36b7f9
+    subdir: app
+    gradle:
+      - foss
+
+AllowedAPKSigningKeys: 989fb4f387a7ea95f56405841bbae8af0c14ddff0462a1c919d9119944b20efc
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: app/build.gradle|code = (\d+)|.|name = "(\d+.\d+.\d+)"
+CurrentVersion: 2.7.4
+CurrentVersionCode: 146

@@ -400,29 +400,6 @@ Builds:
       - fat
     ndk: r14b
 
-  - versionName: 4.2.1a
-    versionCode: 10445
-    disable: too many bugs
-    commit: v4.2.1a
-    subdir: TMessagesProj
-    submodules: true
-    gradle:
-      - fat
-    rm:
-      - TMessagesProj/jni/libwebp/swig/libwebp.jar
-      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
-    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
-      > API_KEYS
-    build:
-      - export NDK=$$NDK$$
-      - pushd jni
-      - ./build_ffmpeg_android.sh
-      - popd
-    ndk: r15c
-    antifeatures:
-      KnownVuln:
-        en-US: Vulnerability in showing WebP images (CVE-2023-4863)
-
   - versionName: 4.2.1b
     versionCode: 10455
     commit: v4.2.1b
@@ -566,37 +543,6 @@ Builds:
   - versionName: 4.9.1
     versionCode: 13580
     commit: v4.9.1
-    subdir: TMessagesProj
-    submodules: true
-    sudo:
-      - apt-get update
-      - apt-get install -y ninja-build golang-go
-    gradle:
-      - afat
-    rm:
-      - TMessagesProj/jni/libwebp/swig/libwebp.jar
-      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
-    prebuild: echo -e 'APP_ID = 12834\nAPP_HASH = c84d9229db1d6be95c067b02b126352c'
-      > API_KEYS
-    scandelete:
-      - TMessagesProj/jni
-    build:
-      - export NDK=$$NDK$$
-      - export NINJA_PATH=/usr/bin/ninja
-      - pushd jni
-      - ./build_ffmpeg_clang.sh
-      - ./patch_boringssl.sh
-      - ./build_boringssl.sh
-      - popd
-    ndk: r16b
-    antifeatures:
-      KnownVuln:
-        en-US: Vulnerability in showing WebP images (CVE-2023-4863)
-
-  - versionName: 4.9.1a
-    versionCode: 13590
-    disable: completely broken for some people, see https://github.com/Telegram-FOSS-Team/Telegram-FOSS/issues/288
-    commit: v4.9.1a
     subdir: TMessagesProj
     submodules: true
     sudo:
@@ -3395,39 +3341,6 @@ Builds:
       KnownVuln:
         en-US: Vulnerability in showing WebP images (CVE-2023-4863)
 
-  - versionName: 10.0.9
-    versionCode: 38730
-    disable: wrong api key, broken login
-    commit: v10.0.9
-    subdir: TMessagesProj_App
-    submodules: true
-    sudo:
-      - apt-get update
-      - apt-get install -y ninja-build golang-go yasm cmake libuv1 make
-    gradle:
-      - afat
-    rm:
-      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
-    prebuild:
-      - echo -e 'APP_ID = 105811\nAPP_HASH = 3e7a52498eec003c5896a330e5d29397' > API_KEYS
-      - sed -i -e 's/abiVersionCode = 9/abiVersionCode = 10/' build.gradle
-      - cd ../TMessagesProj/jni/libwebp
-      - git fetch
-      - git checkout 20ceff7eb3ccb679bd299f3d481309e10cbf2616
-    scandelete:
-      - TMessagesProj/jni
-    build:
-      - export NDK=$$NDK$$
-      - export NINJA_PATH=/usr/bin/ninja
-      - pushd ../TMessagesProj/jni
-      - ./build_libvpx_clang.sh
-      - ./build_ffmpeg_clang.sh
-      - ./patch_ffmpeg.sh
-      - ./patch_boringssl.sh
-      - ./build_boringssl.sh
-      - popd
-    ndk: r21e
-
   - versionName: 10.1.1
     versionCode: 39269
     commit: v10.1.1
@@ -3540,11 +3453,69 @@ Builds:
       - popd
     ndk: r21e
 
+  - versionName: 10.9.1
+    versionCode: 44649
+    commit: v10.9.1
+    subdir: TMessagesProj_App
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build golang-go yasm cmake libuv1 make
+    gradle:
+      - afat
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 105810\nAPP_HASH = 3e7a52498eec003c5896a330e5d29397'
+      > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ../TMessagesProj/jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: r21e
+
+  - versionName: 10.10.1
+    versionCode: 45839
+    commit: v10.10.1
+    subdir: TMessagesProj_App
+    submodules: true
+    sudo:
+      - echo "deb https://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y cmake golang-go libuv1 make ninja-build yasm
+      - apt-get install -y -t bullseye openjdk-11-jdk-headless
+      - update-java-alternatives --set java-1.11.0-openjdk-amd64
+    gradle:
+      - afat
+    rm:
+      - TMessagesProj/jni/ffmpeg/tests/ref/fate/sub-microdvd-remux
+    prebuild: echo -e 'APP_ID = 105810\nAPP_HASH = 3e7a52498eec003c5896a330e5d29397'
+      > API_KEYS
+    scandelete:
+      - TMessagesProj/jni
+    build:
+      - export NDK=$$NDK$$
+      - export NINJA_PATH=/usr/bin/ninja
+      - pushd ../TMessagesProj/jni
+      - ./build_libvpx_clang.sh
+      - ./build_ffmpeg_clang.sh
+      - ./patch_ffmpeg.sh
+      - ./patch_boringssl.sh
+      - ./build_boringssl.sh
+      - popd
+    ndk: 21.4.7075529
+
 MaintainerNotes: Update check mode not working because of version code calculations
   for different flavours.
 
-ArchivePolicy: 3
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 10.6.1
-CurrentVersionCode: 42759
+CurrentVersion: 10.10.1
+CurrentVersionCode: 45839

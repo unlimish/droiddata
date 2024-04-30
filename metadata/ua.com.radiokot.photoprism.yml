@@ -1,7 +1,7 @@
 Categories:
   - Graphics
   - Multimedia
-License: Apache-2.0
+License: GPL-3.0-only
 AuthorEmail: oleg@radiokot.com.ua
 AuthorWebSite: https://radiokot.com.ua/
 SourceCode: https://github.com/Radiokot/photoprism-android-client
@@ -54,38 +54,6 @@ Builds:
     versionCode: 9
     commit: c5e3d1d9c3d68c663e7b1a573ebf6d2d91875eef
     subdir: app
-    gradle:
-      - yes
-    srclibs:
-      - reproducible-apk-tools@v0.2.3
-    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-      'assets/app.properties'
-
-  - versionName: 1.5.2
-    versionCode: 11
-    disable: fails to rb
-    commit: 81489d5abf6f66549c224abd8fc3193d1daee6fb
-    subdir: app
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-java-alternatives -a
-    gradle:
-      - yes
-    srclibs:
-      - reproducible-apk-tools@v0.2.3
-    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-      'assets/app.properties'
-
-  - versionName: 1.6.0
-    versionCode: 12
-    disable: fails to rb
-    commit: 5caacc5ccb5c12948600dd7c9b83ebd54a69a914
-    subdir: app
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-java-alternatives -a
     gradle:
       - yes
     srclibs:
@@ -453,9 +421,65 @@ Builds:
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
       'assets/app.properties'
 
+  - versionName: 1.24.0
+    versionCode: 37
+    commit: 76eef10de2a2c4bf0e920548cdc4257e579b57b7
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.24.1
+    versionCode: 38
+    commit: 46518c6e299c73c87f59a3c200f3ef23494afe8d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.25.0
+    versionCode: 39
+    commit: f9ca7aadc33016780a43f9f0ba5f54901cf5640b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
+  - versionName: 1.26.0
+    versionCode: 40
+    commit: b969703d85b83a29985ea77485bbde97ff477d87
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'assets/app.properties'
+
 AllowedAPKSigningKeys: e7da1b20559ba52c615cfddeb770e59db792718637678ae635e357a472455d0a
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.23.0
-CurrentVersionCode: 36
+CurrentVersion: 1.26.0
+CurrentVersionCode: 40

@@ -1,3 +1,6 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: Searches chords with startpage.com
 Categories:
   - Multimedia
   - Science & Education
@@ -51,18 +54,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 2.1.4
-    versionCode: 6
-    disable: https://github.com/AndInTheClouds/chordreader2/issues/26
-    commit: 33491a7387c0767e54db7eb96d79cea50bff7ac6
-    subdir: app
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-java-alternatives -a
-    gradle:
-      - yes
-
   - versionName: 2.1.5
     versionCode: 7
     commit: e77b39b98efbb0a59815f5c60187e5a4df073dbc
@@ -85,7 +76,18 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.2.0
+    versionCode: 9
+    commit: e37a66c940fd36857f3bca50dcb841db4bc2a950
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.1.6
-CurrentVersionCode: 8
+CurrentVersion: 2.2.0
+CurrentVersionCode: 9

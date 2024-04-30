@@ -158,10 +158,9 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 1.4.01
-    versionCode: 45
-    disable: https://github.com/w2sv/WiFi-Widget/issues/44#issuecomment-1852065068
-    commit: 56e8676b066d28101e3a3c6d5f2f57039f922366
+  - versionName: 1.4.03
+    versionCode: 47
+    commit: 70e08abac7dda496a3771e9b29887a18df77f13a
     subdir: app
     sudo:
       - apt-get update
@@ -172,10 +171,76 @@ Builds:
     scandelete:
       - plugins
 
+  - versionName: 1.4.04
+    versionCode: 48
+    commit: 4715038b499fe16f1e7f25d91b755739bb1b1681
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - plugins
+
+  - versionName: 1.4.05
+    versionCode: 49
+    commit: 89ace6473ce7442802541a29b387e67abf076597
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - plugins
+
+  - versionName: 1.4.11
+    versionCode: 52
+    commit: 806112628d0bc5f8e77d26d98ef0eb0c208febf8
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - plugins
+
+  - versionName: 1.4.12
+    versionCode: 53
+    commit: 2ac9460829a9a842d4f84856b78aa3130470549b
+    subdir: app
+    gradle:
+      - yes
+    scandelete:
+      - plugins
+
+  - versionName: 1.4.13
+    versionCode: 54
+    commit: c91372ee1f98f6dccc3d9d51552b8b1b1ffa2475
+    subdir: app
+    gradle:
+      - yes
+    scandelete:
+      - plugins
+
+  - versionName: 1.4.14
+    versionCode: 55
+    commit: cd78d31b01c4defd5dc5b7f813798ded54562287
+    subdir: app
+    gradle:
+      - yes
+    scandelete:
+      - plugins
+
 AllowedAPKSigningKeys: e22bed7909bce21fa5bc900a8c056eaa0773761f70774d1d808bbbafb3aa1958
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: gradle.properties|versionCode=(\d+)|.|version=([\d.]+)
-CurrentVersion: 1.4.01
-CurrentVersionCode: 45
+CurrentVersion: 1.4.14
+CurrentVersionCode: 55

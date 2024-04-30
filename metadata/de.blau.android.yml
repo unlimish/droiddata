@@ -1590,10 +1590,58 @@ Builds:
     scandelete:
       - src/androidTest/resources
 
+  - versionName: 19.3.4.0
+    versionCode: 2705
+    commit: 6f7e40fad1d2b3d2a49776c62715c47f86ae56f9
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - current
+    scanignore:
+      - build.gradle
+    scandelete:
+      - src/androidTest/resources
+
+  - versionName: 19.3.5.0
+    versionCode: 2706
+    commit: d97feaaa43e9ef89d93b41e30ab71b21929a5f90
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - current
+    scanignore:
+      - build.gradle
+    scandelete:
+      - src/androidTest/resources
+
+  - versionName: 20.0.0.0
+    versionCode: 2801
+    commit: b7482754be0c2d21d18ab4f35a2f86cb9e230762
+    gradle:
+      - current
+    scanignore:
+      - build.gradle
+    scandelete:
+      - src/androidTest/resources
+
+  - versionName: 20.0.1.0
+    versionCode: 2802
+    commit: 03917858fe5a656d58913a08c45fc01add777707
+    gradle:
+      - current
+    scanignore:
+      - build.gradle
+    scandelete:
+      - src/androidTest/resources
+
 MaintainerNotes: synonyms.so is a translation file for Somali.
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9]+\.[0-9]+\.[0-9]+\.0$
 UpdateCheckData: src/main/AndroidManifest.xml|android:versionCode="(\d+)"||
-CurrentVersion: 19.3.3.0
-CurrentVersionCode: 2704
+CurrentVersion: 20.0.1.0
+CurrentVersionCode: 2802

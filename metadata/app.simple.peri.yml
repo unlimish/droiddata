@@ -11,7 +11,7 @@ Donate: https://github.com/sponsors/Hamza417
 AutoName: Peristyle
 
 RepoType: git
-Repo: https://github.com/Hamza417/Peristyle
+Repo: https://github.com/Hamza417/Peristyle.git
 Binaries: https://github.com/Hamza417/Peristyle/releases/download/v%v/app-prod-release.apk
 
 Builds:
@@ -45,9 +45,206 @@ Builds:
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
       'META-INF/services/*'
 
+  - versionName: 1.29_beta
+    versionCode: 129
+    commit: fc464fdcd510bad9f5799d42f14039d447919a46
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.30_beta
+    versionCode: 130
+    commit: 622306e9bdb84f59fdffb4611c602b48aa1c2a0c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.31_beta
+    versionCode: 131
+    commit: feae6d948f6bfd37aabe79d9dd0e4c4bb67b75d9
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.32_beta
+    versionCode: 132
+    commit: 3e5c109323a66584c773d52769a6a8a1de4ecbfe
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.33_beta
+    versionCode: 133
+    commit: 17666f1d357e261f16e80a8d81d6b95724fe34ea
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.34_beta
+    versionCode: 134
+    commit: 86ddeb1bd6d9db270885a615dbe418cfbc28ef83
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.35_beta
+    versionCode: 135
+    commit: 4d2e6f6b7b298a12458619570f12e0a02dbf0759
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.36_beta
+    versionCode: 136
+    commit: 92b438bac5a55dcacf066d9ee2f3da42948fe6ca
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.37_beta
+    versionCode: 137
+    commit: 6130420885447a25137a462c28a46a41f82c691c
+    subdir: app
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.38_beta
+    versionCode: 138
+    commit: 4c01ed59f812db8134a304f906902679918fe245
+    subdir: app
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.4
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.39_beta
+    versionCode: 139
+    commit: b764c22508e980edeea598800a69178121f37109
+    subdir: app
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.4
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.40_beta
+    versionCode: 140
+    commit: 406114eb0de0fcc80c1e5c9df86ae44a8eea2eb3
+    subdir: app
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.4
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.41_beta
+    versionCode: 141
+    commit: 919ca72e4700910c4b4b08699ff430bc699978ad
+    subdir: app
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.4
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.42_beta
+    versionCode: 142
+    commit: 9dae9a9e56f4569e02bdb55c0916a240a57a6ecc
+    subdir: app
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.4
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
+  - versionName: 1.43_beta
+    versionCode: 143
+    commit: a4b38717026c22596dcc2fef1d1151582f4e1c95
+    subdir: app
+    gradle:
+      - prod
+    srclibs:
+      - reproducible-apk-tools@v0.2.4
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+
 AllowedAPKSigningKeys: 4a3f711142250805c7bb5c0a5a3287631bdb948816e6f4afc9524d0eb46b6b1b
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.28_beta
-CurrentVersionCode: 128
+CurrentVersion: 1.43_beta
+CurrentVersionCode: 143

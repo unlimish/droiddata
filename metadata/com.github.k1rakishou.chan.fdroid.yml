@@ -551,7 +551,18 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: v1.3.33
+    versionCode: 10333
+    commit: 11f9cde1de7d10d7dd62f5a469dba81805c10ee7
+    subdir: Kuroba/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags v\d+?\.\d{1,2}\.\d{1,2}-release$
-CurrentVersion: v1.3.31
-CurrentVersionCode: 10331
+CurrentVersion: v1.3.33
+CurrentVersionCode: 10333
