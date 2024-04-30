@@ -36,11 +36,6 @@ Builds:
     subdir: deploy
     submodules: true
     
-  - versionName: 4.4.0.0
-    versionCode: 44000
-    commit: 4.4.0.0
-    subdir: deploy
-    submodules: true
     prebuild:
       # Install Prerequisites for Qt
       - sudo apt-get update && sudo apt-get upgrade -y
@@ -80,6 +75,8 @@ Builds:
       - export QT_HOST_PATH=~/qt-everywhere-src-6.6.2/build-host
       - export CMAKE_PREFIX_PATH=~/qt-everywhere-src-6.6.2/build-host/qtbase/lib/cmake
       - ../configure -prefix $INSTALL_PATH -qt-host-path $QT_HOST_PATH -android-sdk $SDK_PATH -android-ndk $NDK_PATH
+      - cmake --build . --parallel
+      - cmake --install .
 
     gradle:
      - yes
