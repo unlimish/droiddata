@@ -54,7 +54,7 @@ Builds:
     commit: 3fbdbfcab811ccaec9524971897cb06f6c6f3829
     sudo:
       - apt-get update
-      - apt-get install -y make
+      - apt-get install -y make libclang-dev llvm
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@3.19.3
@@ -62,6 +62,12 @@ Builds:
     rm:
       - ios
       - test
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+    scandelete:
+      - .pub-cache
     build:
       - pushd rust
       - $$rustup$$/rustup-init.sh -y --default-toolchain 1.76.0 -t aarch64-linux-android
@@ -71,9 +77,8 @@ Builds:
       - export FLUTTER_RUST_BRIDGE_VERSION=$(sed -n -e '/flutter_rust_bridge/,/version/s/.*version:\s"\(.*\)"/\1/p'
         pubspec.lock)
       - cargo install flutter_rust_bridge_codegen --version $FLUTTER_RUST_BRIDGE_VERSION
+      - export PUB_CACHE=$(pwd)/.pub-cache
       - PATH=$$flutter$$/bin/:$PATH flutter_rust_bridge_codegen generate
-      - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk --release --target-platform android-arm64
     ndk: 26.1.10909125
 
