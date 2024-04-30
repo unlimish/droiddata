@@ -71,7 +71,7 @@ Builds:
       - export FLUTTER_RUST_BRIDGE_VERSION=$(sed -n -e '/flutter_rust_bridge/,/version/s/.*version:\s"\(.*\)"/\1/p'
         pubspec.lock)
       - cargo install flutter_rust_bridge_codegen --version $FLUTTER_RUST_BRIDGE_VERSION
-      - flutter_rust_bridge_codegen generate
+      - PATH=$$flutter$$/bin/:$PATH flutter_rust_bridge_codegen generate
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
       - $$flutter$$/bin/flutter build apk --release --target-platform android-arm64
