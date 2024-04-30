@@ -1,7 +1,7 @@
 AntiFeatures:
   NonFreeNet:
     en-US: Users need to use their own self-hosted VPS or they can purchase any VPS from any provider.
-Categories: 
+Categories:
   - Connectivity
   - Internet
   - Security
@@ -36,10 +36,15 @@ Builds:
     subdir: deploy
     submodules: true
     
+  - versionName: 4.4.0.0
+    versionCode: 44000
+    commit: 4.4.0.0
+    subdir: deploy
+    submodules: true
     prebuild:
       # Install Prerequisites for Qt
       - sudo apt-get update && sudo apt-get upgrade -y
-      - sudo apt install wget
+      - sudo apt-get install wget
         # Install jdk 17
       - sudo apt-get install openjdk-17-jdk
         # Install CMake 3.26.0
@@ -79,7 +84,7 @@ Builds:
     gradle:
      - yes
     target: "android-34"
-    ndk: r26b
+    ndk: 26.1.10909125
 
   - versionName: 4.4.0.0
     versionCode: 44000
@@ -89,7 +94,7 @@ Builds:
     prebuild:
       # Install Prerequisites for Qt
       - sudo apt-get update && sudo apt-get upgrade -y
-      - sudo apt install wget
+      - sudo apt-get install wget
         # Install jdk 17
       - sudo apt-get install openjdk-17-jdk
         # Install CMake 3.26.0
