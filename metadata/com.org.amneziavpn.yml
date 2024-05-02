@@ -58,6 +58,10 @@ Builds:
         $SDK_PATH -android-ndk $NDK_PATH
       - cmake --build . --parallel
       - cmake --install .
+      - cd ~/f-droid-data/metadata/build/org.amnezia.vpn/deploy
+      - chmod +x build_android.sh
+      - mkdir build
+      - ./build_android.sh --debug --apk all --build-platform env.ANDROID_BUILD_PLATFORM --move ./deploy/build
     target: android-34
     ndk: 26.1.10909125
 
@@ -94,6 +98,10 @@ Builds:
         $SDK_PATH -android-ndk $NDK_PATH
       - cmake --build . --parallel
       - cmake --install .
+      - cd ~/f-droid-data/metadata/build/org.amnezia.vpn/deploy
+      - chmod +x build_android.sh
+      - mkdir build
+      - ./build_android.sh --debug --apk all --build-platform env.ANDROID_BUILD_PLATFORM --move ./deploy/build
     target: android-34
     ndk: 26.1.10909125
 
