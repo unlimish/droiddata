@@ -70,7 +70,7 @@ Builds:
     scandelete:
       - .pub-cache
     build:
-      - echo -e 'const sentryDsn = '';\nconst version = 'debugbuild';' > lib/sentry_dsn.dart
+      - echo -e "const sentryDsn = '';\nconst version = 'debugbuild';" > lib/sentry_dsn.dart
       - pushd rust
       - $$rustup$$/rustup-init.sh -y --default-toolchain 1.76.0 -t aarch64-linux-android
       - source $HOME/.cargo/env
