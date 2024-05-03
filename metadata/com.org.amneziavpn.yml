@@ -15,11 +15,6 @@ Donate: https://amnezia.org/en/about
 Bitcoin: bc1qn9rhsffuxwnhcuuu4qzrwp4upkrq94xnh8r26u
 
 AutoName: AmneziaVPN
-Description: |-
-    Get your own self-hosted VPN!
-    AmneziaVPN is a multi-protocol, open-source VPN client that offers the option to set up your own server. Free open-source software to create a personal VPN on your server. Helps to access blocked content without revealing privacy even to VPN providers.
-    Specify IP address, credentials for your server and Amnezia will configure it to connect via VPN automatically.
-    We are not a VPN service, you don't have to connect to our servers and pay us anything. You free to use your own self-hosted VPS or you could purchase any VPS from any provider. To connect, use your own or purchase any VPS from any provider.
 
 RepoType: git
 Repo: https://github.com/amnezia-vpn/amnezia-client.git
@@ -30,39 +25,69 @@ Builds:
     commit: 4.3.0.0
     subdir: deploy
     submodules: true
-    gradle:
-      - yes
-    prebuild:
-      - export gradlefile=build/org.amnezia.vpn/client/android/
+    sudo:
       - sudo apt-get update
-      - sudo apt-get upgrade -y
       - sudo apt-get install wget
       - sudo apt-get install openjdk-17-jdk
-      - cd ~/
-      - sudo apt-get remove cmake
-      - wget https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-linux-x86_64.tar.gz
       - sudo apt-get install ninja-build
       - sudo apt-get install build-essential libgl1-mesa-dev
-      - wget https://qtproject.mirror.liquidtelecom.com/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz
       - sudo apt-get install libstdc++6 libncurses5
-      - export CMAKE_PATH=~/cmake-3.26.0-linux-x86_64/bin
-      - export PATH=$PATH:$CMAKE_PATH
-      - export CMAKE_PATH=~/cmake-3.26.0-linux-x86_64/bin
-      - export PATH=$PATH:$CMAKE_PATH
-      - export INSTALL_PATH=~/
-      - export SDK_PATH=$$SDK$$
-      - export NDK_PATH=$$NDK$$/26.1.10909125
-      - export QT_HOST_PATH=~/qt-everywhere-src-6.6.2/build-host
-      - export CMAKE_PREFIX_PATH=~/qt-everywhere-src-6.6.2
-      - ../configure -prefix $INSTALL_PATH -qt-host-path $QT_HOST_PATH -android-sdk
-        $SDK_PATH -android-ndk $NDK_PATH
+      - sudo apt-get install -y -t bookworm-backports cmake
+    gradle:
+      - yes
+    srclibs:
+      - Qt5@v6.6.2
+    prebuild:
+      - sdkmanager 'platforms;android-34' 'build-tools;34.0.0'
+      - cd $$Qt5$$
+      - ./init-repository -f --module-subset=qtbase,qtdeclarative,qtimageformats,qtmultimedia,qtshadertools,qtsvg,qttools,qttranslations
+      - cd ~/
+    target: android-34
+    build:
+      - export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+      - export ANDROID_SDK_ROOT=$$SDK$$ ANDROID_NDK_ROOT=$$NDK$$
+      - export ANDROID_API_VERSION=android-31
+      - export PATH=${JAVA_HOME}/bin:${PATH}
+      - export BUILD_DIR=$(readlink -f ${PWD})/android-build
+      - export QT_HOST_BUILD=$(readlink -f ${PWD}/../srclib)/build-host-qt
+      - export QT_HOST_PATH=$(readlink -f ${PWD}/../srclib)/qt/v6.6.2/gcc_64
+      - export QT_BUILD=$(readlink -f ${PWD}/../srclib)/build-qt
+      - export QTPREFIX=$(readlink -f ${PWD}/../srclib)/qt/v6.6.2/android_armv7
+      - rm -rf $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
+      - mkdir -p $BUILD_DIR $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
+      - pushd ${BUILD_DIR}
+      - COMPILER=cross-android ../build.sh libs
+      - popd
+      - pushd ${QT_HOST_BUILD}
+      - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PATH -release
+        -submodules qtbase,qttools -nomake tests -nomake examples -no-sql-mysql -no-dbus
+        -no-openssl -no-glib -no-icu -no-cups -no-fontconfig -no-gtk -no-egl -skip
+        qt3d,qtlanguageserver,qtactiveqt,qtquick3dphysics,qtserialport,qtquicktimeline
+        -skip qtspeech,qtwebchannel -no-opengl -no-feature-debug -no-feature-itemmodeltester
+        -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
       - cmake --build . --parallel
       - cmake --install .
+      - popd
+      - pushd ${QT_BUILD}
+      - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license
+        -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
+        -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
+        $$SDK$$ -android-ndk $$NDK$$ -android-arch armeabi-v7a -android-ndk-platform
+        android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics
+        -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PATH
+        -openssl-runtime -- -D OPENSSL_ROOT_DIR=$BUILD_DIR/buildroot/usr/local -D
+        CMAKE_INSTALL_MESSAGE=NEVER
+      - cmake --build . --parallel
+      - cmake --install .
+      - popd
+      - pushd ${BUILD_DIR}
+      - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PATH/bin ../build.sh package
+      - popd
       - cd ~/f-droid-data/metadata/build/org.amnezia.vpn/deploy
       - chmod +x build_android.sh
       - mkdir build
-      - ./build_android.sh --debug --apk all --build-platform env.ANDROID_BUILD_PLATFORM --move ./deploy/build
-    target: android-34
+      - ./build_android.sh --debug --apk all --build-platform $env.ANDROID_BUILD_PLATFORM
+        --move ./deploy/build
     ndk: 26.1.10909125
 
   - versionName: 4.4.0.0
@@ -70,39 +95,69 @@ Builds:
     commit: 4.4.0.0
     subdir: deploy
     submodules: true
-    gradle:
-      - yes
-    prebuild:
-      - export gradlefile=build/org.amnezia.vpn/client/android/
+    sudo:
       - sudo apt-get update
-      - sudo apt-get upgrade -y
       - sudo apt-get install wget
       - sudo apt-get install openjdk-17-jdk
-      - cd ~/
-      - sudo apt-get remove cmake
-      - wget https://github.com/Kitware/CMake/releases/download/v3.26.0/cmake-3.26.0-linux-x86_64.tar.gz
       - sudo apt-get install ninja-build
       - sudo apt-get install build-essential libgl1-mesa-dev
-      - wget https://qtproject.mirror.liquidtelecom.com/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz
       - sudo apt-get install libstdc++6 libncurses5
-      - export CMAKE_PATH=~/cmake-3.26.0-linux-x86_64/bin
-      - export PATH=$PATH:$CMAKE_PATH
-      - export CMAKE_PATH=~/cmake-3.26.0-linux-x86_64/bin
-      - export PATH=$PATH:$CMAKE_PATH
-      - export INSTALL_PATH=~/
-      - export SDK_PATH=$$SDK$$
-      - export NDK_PATH=$$NDK$$/26.1.10909125
-      - export QT_HOST_PATH=~/qt-everywhere-src-6.6.2/build-host
-      - export CMAKE_PREFIX_PATH=~/qt-everywhere-src-6.6.2
-      - ../configure -prefix $INSTALL_PATH -qt-host-path $QT_HOST_PATH -android-sdk
-        $SDK_PATH -android-ndk $NDK_PATH
+      - sudo apt-get install -y -t bookworm-backports cmake
+    gradle:
+      - yes
+    srclibs:
+      - Qt5@v6.6.2
+    prebuild:
+      - sdkmanager 'platforms;android-34' 'build-tools;34.0.0'
+      - cd $$Qt5$$
+      - ./init-repository -f --module-subset=qtbase,qtdeclarative,qtimageformats,qtmultimedia,qtshadertools,qtsvg,qttools,qttranslations
+      - cd ~/
+    target: android-34
+    build:
+      - export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+      - export ANDROID_SDK_ROOT=$$SDK$$ ANDROID_NDK_ROOT=$$NDK$$
+      - export ANDROID_API_VERSION=android-31
+      - export PATH=${JAVA_HOME}/bin:${PATH}
+      - export BUILD_DIR=$(readlink -f ${PWD})/android-build
+      - export QT_HOST_BUILD=$(readlink -f ${PWD}/../srclib)/build-host-qt
+      - export QT_HOST_PATH=$(readlink -f ${PWD}/../srclib)/qt/v6.6.2/gcc_64
+      - export QT_BUILD=$(readlink -f ${PWD}/../srclib)/build-qt
+      - export QTPREFIX=$(readlink -f ${PWD}/../srclib)/qt/v6.6.2/android_armv7
+      - rm -rf $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
+      - mkdir -p $BUILD_DIR $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
+      - pushd ${BUILD_DIR}
+      - COMPILER=cross-android ../build.sh libs
+      - popd
+      - pushd ${QT_HOST_BUILD}
+      - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PATH -release
+        -submodules qtbase,qttools -nomake tests -nomake examples -no-sql-mysql -no-dbus
+        -no-openssl -no-glib -no-icu -no-cups -no-fontconfig -no-gtk -no-egl -skip
+        qt3d,qtlanguageserver,qtactiveqt,qtquick3dphysics,qtserialport,qtquicktimeline
+        -skip qtspeech,qtwebchannel -no-opengl -no-feature-debug -no-feature-itemmodeltester
+        -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
       - cmake --build . --parallel
       - cmake --install .
+      - popd
+      - pushd ${QT_BUILD}
+      - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license
+        -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
+        -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
+        $$SDK$$ -android-ndk $$NDK$$ -android-arch armeabi-v7a -android-ndk-platform
+        android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics
+        -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PATH
+        -openssl-runtime -- -D OPENSSL_ROOT_DIR=$BUILD_DIR/buildroot/usr/local -D
+        CMAKE_INSTALL_MESSAGE=NEVER
+      - cmake --build . --parallel
+      - cmake --install .
+      - popd
+      - pushd ${BUILD_DIR}
+      - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PATH/bin ../build.sh package
+      - popd
       - cd ~/f-droid-data/metadata/build/org.amnezia.vpn/deploy
       - chmod +x build_android.sh
       - mkdir build
-      - ./build_android.sh --debug --apk all --build-platform env.ANDROID_BUILD_PLATFORM --move ./deploy/build
-    target: android-34
+      - ./build_android.sh --debug --apk all --build-platform $env.ANDROID_BUILD_PLATFORM
+        --move ./deploy/build
     ndk: 26.1.10909125
 
 AutoUpdateMode: Version
