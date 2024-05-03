@@ -54,6 +54,8 @@ Builds:
     sudo:
       - apt-get update
       - apt-get install -y make libclang-dev llvm
+    patch:
+      - remove_aws_analytics.patch
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@3.19.3
