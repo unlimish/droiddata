@@ -26,13 +26,9 @@ Builds:
     subdir: deploy
     submodules: true
     sudo:
-      - sudo apt-get update
-      - sudo apt-get install wget
-      - sudo apt-get install openjdk-17-jdk
-      - sudo apt-get install ninja-build
-      - sudo apt-get install build-essential libgl1-mesa-dev
-      - sudo apt-get install libstdc++6 libncurses5
-      - sudo apt-get install -y -t bookworm-backports cmake
+      - apt-get update
+      - apt-get install ninja-build build-essential libgl1-mesa-dev libstdc++6 libncurses5
+      - apt-get install -y -t bookworm-backports cmake
     gradle:
       - yes
     srclibs:
@@ -41,7 +37,6 @@ Builds:
       - sdkmanager 'platforms;android-34' 'build-tools;34.0.0'
       - cd $$Qt5$$
       - ./init-repository -f --module-subset=qtbase,qtdeclarative,qtimageformats,qtmultimedia,qtshadertools,qtsvg,qttools,qttranslations
-      - cd ~/
     target: android-34
     build:
       - export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
@@ -49,10 +44,10 @@ Builds:
       - export ANDROID_API_VERSION=android-31
       - export PATH=${JAVA_HOME}/bin:${PATH}
       - export BUILD_DIR=$(readlink -f ${PWD})/android-build
-      - export QT_HOST_BUILD=$(readlink -f ${PWD}/../srclib)/build-host-qt
-      - export QT_HOST_PATH=$(readlink -f ${PWD}/../srclib)/qt/v6.6.2/gcc_64
-      - export QT_BUILD=$(readlink -f ${PWD}/../srclib)/build-qt
-      - export QTPREFIX=$(readlink -f ${PWD}/../srclib)/qt/v6.6.2/android_armv7
+      - export QT_HOST_BUILD=$$qt$$/build-host-qt
+      - export QT_HOST_PATH=$$qt$$/v6.6.2/gcc_64
+      - export QT_BUILD=$$qt$$/build-qt
+      - export QTPREFIX=$$qt$$/v6.6.2/android_armv7
       - rm -rf $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - mkdir -p $BUILD_DIR $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - pushd ${BUILD_DIR}
@@ -83,11 +78,10 @@ Builds:
       - pushd ${BUILD_DIR}
       - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PATH/bin ../build.sh package
       - popd
-      - cd ~/f-droid-data/metadata/build/org.amnezia.vpn/deploy
       - chmod +x build_android.sh
       - mkdir build
       - ./build_android.sh --debug --apk all --build-platform $env.ANDROID_BUILD_PLATFORM
-        --move ./deploy/build
+        --move ./build
     ndk: 26.1.10909125
 
   - versionName: 4.4.0.0
