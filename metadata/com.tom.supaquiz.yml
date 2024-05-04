@@ -1,0 +1,55 @@
+Categories:
+  - Internet
+  - Reading
+License: MIT
+AuthorName: Tom Vogel
+AuthorEmail: tom.vogel.dev@gmail.com
+SourceCode: https://github.com/zTomz/supaquiz
+IssueTracker: https://github.com/zTomz/supaquiz/issues
+Translation: https://hosted.weblate.org/projects/supaquiz/
+Changelog: https://github.com/zTomz/supaquiz/blob/main/CHANGELOG.md
+
+AutoName: supaquiz
+
+RepoType: git
+Repo: https://github.com/zTomz/supaquiz.git
+
+Builds:
+  - versionName: 1.1.0
+    versionCode: 1
+    commit: v1.1.0
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@3.19.6
+      - transistor-background-fetch@0dd1457588ba031f11e9452f125144aac8a9b75f
+    rm:
+      - .github
+      - appimage
+      - ios
+      - linux
+      - macos
+      - test
+      - test_driver
+      - tools
+      - web
+      - windows
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - sed -i -e '/maven {/,/^        }/cmavenLocal()' android/build.gradle $PUB_CACHE/hosted/pub.dev/background_fetch-*/android/build.gradle
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - pushd $$transistor-background-fetch$$/android/tsbackgroundfetch/
+      - gradle assembleRelease
+      - gradle publishToMavenLocal
+      - popd
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.1.0
+CurrentVersionCode: 1
