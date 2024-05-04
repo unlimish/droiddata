@@ -29,7 +29,7 @@ Builds:
       - apt-get update
       - apt-get install ninja-build build-essential libgl1-mesa-dev libstdc++6 libncurses5
       - apt-get install -y -t bookworm-backports cmake
-    output: ~/f-droid-data/metadata/build/org.amnezia.vpn/deploy/build
+    output: deploy/build
     srclibs:
       - Qt5@v6.6.2
     prebuild:
@@ -37,6 +37,11 @@ Builds:
       - cd $$Qt5$$
       - ./init-repository -f --module-subset=qtbase,qtdeclarative,qtimageformats,qtmultimedia,qtshadertools,qtsvg,qttools,qttranslations
     target: android-34
+    scanignore:
+      - client/3rd-prebuilt/3rd-prebuilt/openssl/android
+      - client/3rd-prebuilt/3rd-prebuilt/wireguard/android
+      - client/3rd-prebuilt/3rd-prebuilt/libssh/android
+      - client/3rd-prebuilt/3rd-prebuilt/openvpn/android
     build:
       - export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
       - export ANDROID_SDK_ROOT=$$SDK$$ ANDROID_NDK_ROOT=$$NDK$$
@@ -77,6 +82,7 @@ Builds:
       - pushd ${BUILD_DIR}
       - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PATH/bin ../build.sh package
       - popd
+      - cd deploy
       - chmod +x build_android.sh
       - mkdir build
       - ./build_android.sh --debug --apk all --build-platform $env.ANDROID_BUILD_PLATFORM
@@ -92,7 +98,7 @@ Builds:
       - apt-get update
       - apt-get install ninja-build build-essential libgl1-mesa-dev libstdc++6 libncurses5
       - apt-get install -y -t bookworm-backports cmake
-    output: ~/f-droid-data/metadata/build/org.amnezia.vpn/deploy/build
+    output: deploy/build
     srclibs:
       - Qt5@v6.6.2
     prebuild:
@@ -100,6 +106,11 @@ Builds:
       - cd $$Qt5$$
       - ./init-repository -f --module-subset=qtbase,qtdeclarative,qtimageformats,qtmultimedia,qtshadertools,qtsvg,qttools,qttranslations
     target: android-34
+    scanignore:
+      - client/3rd-prebuilt/3rd-prebuilt/openssl/android
+      - client/3rd-prebuilt/3rd-prebuilt/wireguard/android
+      - client/3rd-prebuilt/3rd-prebuilt/libssh/android
+      - client/3rd-prebuilt/3rd-prebuilt/openvpn/android
     build:
       - export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
       - export ANDROID_SDK_ROOT=$$SDK$$ ANDROID_NDK_ROOT=$$NDK$$
@@ -140,7 +151,7 @@ Builds:
       - pushd ${BUILD_DIR}
       - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PATH/bin ../build.sh package
       - popd
-      - cd ~/f-droid-data/metadata/build/org.amnezia.vpn/deploy
+      - cd deploy
       - chmod +x build_android.sh
       - mkdir build
       - ./build_android.sh --debug --apk all --build-platform $env.ANDROID_BUILD_PLATFORM
