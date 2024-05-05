@@ -32,16 +32,13 @@ Builds:
     output: deploy/build
     srclibs:
       - Qt5@v6.6.2
+    rm:
+      - client/3rd-prebuilt/*
     prebuild:
       - sdkmanager 'platforms;android-34' 'build-tools;34.0.0'
       - cd $$Qt5$$
       - ./init-repository -f --module-subset=qtbase,qtdeclarative,qtimageformats,qtmultimedia,qtshadertools,qtsvg,qttools,qttranslations
     target: android-34
-    rm:
-      - client/3rd-prebuilt/3rd-prebuilt/openssl/android/*
-      - client/3rd-prebuilt/3rd-prebuilt/wireguard/android/*
-      - client/3rd-prebuilt/3rd-prebuilt/libssh/android/*
-      - client/3rd-prebuilt/3rd-prebuilt/openvpn/android/*
     build:
       - export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
       - export ANDROID_SDK_ROOT=$$SDK$$ ANDROID_NDK_ROOT=$$NDK$$
@@ -101,16 +98,13 @@ Builds:
     output: deploy/build
     srclibs:
       - Qt5@v6.6.2
+    rm:
+      - client/3rd-prebuilt/*
     prebuild:
       - sdkmanager 'platforms;android-34' 'build-tools;34.0.0'
       - cd $$Qt5$$
       - ./init-repository -f --module-subset=qtbase,qtdeclarative,qtimageformats,qtmultimedia,qtshadertools,qtsvg,qttools,qttranslations
     target: android-34
-    rm:
-      - client/3rd-prebuilt/3rd-prebuilt/openssl/android/*
-      - client/3rd-prebuilt/3rd-prebuilt/wireguard/android/*
-      - client/3rd-prebuilt/3rd-prebuilt/libssh/android/*
-      - client/3rd-prebuilt/3rd-prebuilt/openvpn/android/*
     build:
       - export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
       - export ANDROID_SDK_ROOT=$$SDK$$ ANDROID_NDK_ROOT=$$NDK$$
