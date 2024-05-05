@@ -53,7 +53,7 @@ Builds:
       - rm -rf $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - mkdir -p $BUILD_DIR $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - pushd ${BUILD_DIR}
-      - COMPILER=cross-android ../build.sh libs
+      - COMPILER=cross-android deploy/build_android.sh libs
       - popd
       - pushd ${QT_HOST_BUILD}
       - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PATH -release
@@ -120,7 +120,7 @@ Builds:
       - rm -rf $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - mkdir -p $BUILD_DIR $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - pushd ${BUILD_DIR}
-      - COMPILER=cross-android ../build.sh libs
+      - COMPILER=cross-android deploy/build_android.sh libs
       - popd
       - pushd ${QT_HOST_BUILD}
       - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PATH -release
