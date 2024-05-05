@@ -50,31 +50,40 @@ Builds:
 
   - versionName: 3.2.3
     versionCode: 26
-    disable: https://github.com/AlienKevin/wordshk_app/issues/2
-    commit: 3fbdbfcab811ccaec9524971897cb06f6c6f3829
+    commit: e51e931102f198ee149a16e358b3da947e8c2555
     sudo:
       - apt-get update
-      - apt-get install -y make
+      - apt-get install -y make libclang-dev llvm
+    patch:
+      - remove_google_mlkit.patch
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
-      - flutter@3.19.3
-      - rustup@1.26.0
+      - flutter@3.19.6
+      - rustup@1.27.0
     rm:
       - ios
       - test
-    build:
-      - pushd rust
-      - $$rustup$$/rustup-init.sh -y --default-toolchain 1.76.0 -t aarch64-linux-android
-      - source $HOME/.cargo/env
-      - cargo install cargo-ndk --version 3.4.0
-      - rustup target add aarch64-linux-android
-      - cargo ndk -o ../android/app/src/main/jniLibs --target aarch64-linux-android
-        build --release
-      - popd
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter packages pub get
+    scanignore:
+      - assets/dict.db.gz
+    scandelete:
+      - .pub-cache
+    build:
+      - pushd rust
+      - $$rustup$$/rustup-init.sh -y --default-toolchain 1.78.0 -t aarch64-linux-android
+      - source $HOME/.cargo/env
+      - rustup target add aarch64-linux-android
+      - popd
+      - export FLUTTER_RUST_BRIDGE_VERSION=$(sed -n -e '/flutter_rust_bridge/,/version/s/.*version:\s"\(.*\)"/\1/p'
+        pubspec.lock)
+      - cargo install flutter_rust_bridge_codegen --version $FLUTTER_RUST_BRIDGE_VERSION
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - PATH=$$flutter$$/bin/:$PATH flutter_rust_bridge_codegen generate
       - $$flutter$$/bin/flutter build apk --release --target-platform android-arm64
-    ndk: r26b
+    ndk: 26.1.10909125
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
