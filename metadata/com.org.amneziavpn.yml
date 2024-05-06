@@ -46,7 +46,7 @@ Builds:
     build:
       - export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
       - export ANDROID_SDK_ROOT=$$SDK$$ ANDROID_NDK_ROOT=$$NDK$$
-      - export ANDROID_API_VERSION=android-31
+      - export ANDROID_API_VERSION=android-34
       - export PATH=${JAVA_HOME}/bin:${PATH}
       - export BUILD_DIR=$(readlink -f ${PWD})/android-build
       - export QT_HOST_BUILD=$$qt$$/build-host-qt
@@ -56,7 +56,7 @@ Builds:
       - rm -rf $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - mkdir -p $BUILD_DIR $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - pushd ${BUILD_DIR}
-      - COMPILER=cross-android ../build.sh libs
+      - COMPILER=cross-android ../deploy/build_android.sh libs
       - popd
       - pushd ${QT_HOST_BUILD}
       - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PATH -release
@@ -69,18 +69,20 @@ Builds:
       - cmake --install .
       - popd
       - pushd ${QT_BUILD}
-      - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license -silent -prefix
-        $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql -no-dbus -no-use-gold-linker
-        -sysconfdir /etc/xdg -opengl es2 -android-sdk $$SDK$$ -android-ndk $$NDK$$
-        -android-arch armeabi-v7a -android-ndk-platform android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver
-        -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel
-        -qt-host-path $QT_HOST_PATH -openssl-runtime -- -D OPENSSL_ROOT_DIR=$BUILD_DIR/buildroot/usr/local
-        -D CMAKE_INSTALL_MESSAGE=NEVER
+      - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license
+        -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
+        -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
+        $$SDK$$ -android-ndk $$NDK$$ -android-arch armeabi-v7a -android-ndk-platform
+        android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics
+        -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PATH
+        -openssl-runtime -- -D OPENSSL_ROOT_DIR=$BUILD_DIR/buildroot/usr/local -D
+        CMAKE_INSTALL_MESSAGE=NEVER
       - cmake --build . --parallel
       - cmake --install .
       - popd
       - pushd ${BUILD_DIR}
-      - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PATH/bin ../build.sh package
+      - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PATH/bin ../deploy/build_android.sh
+        package
       - popd
       - cd deploy
       - chmod +x build_android.sh
@@ -115,7 +117,7 @@ Builds:
     build:
       - export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
       - export ANDROID_SDK_ROOT=$$SDK$$ ANDROID_NDK_ROOT=$$NDK$$
-      - export ANDROID_API_VERSION=android-31
+      - export ANDROID_API_VERSION=android-34
       - export PATH=${JAVA_HOME}/bin:${PATH}
       - export BUILD_DIR=$(readlink -f ${PWD})/android-build
       - export QT_HOST_BUILD=$$qt$$/build-host-qt
@@ -125,7 +127,7 @@ Builds:
       - rm -rf $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - mkdir -p $BUILD_DIR $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - pushd ${BUILD_DIR}
-      - COMPILER=cross-android ../build.sh libs
+      - COMPILER=cross-android ../deploy/build_android.sh libs
       - popd
       - pushd ${QT_HOST_BUILD}
       - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PATH -release
@@ -138,18 +140,20 @@ Builds:
       - cmake --install .
       - popd
       - pushd ${QT_BUILD}
-      - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license -silent -prefix
-        $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql -no-dbus -no-use-gold-linker
-        -sysconfdir /etc/xdg -opengl es2 -android-sdk $$SDK$$ -android-ndk $$NDK$$
-        -android-arch armeabi-v7a -android-ndk-platform android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver
-        -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel
-        -qt-host-path $QT_HOST_PATH -openssl-runtime -- -D OPENSSL_ROOT_DIR=$BUILD_DIR/buildroot/usr/local
-        -D CMAKE_INSTALL_MESSAGE=NEVER
+      - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license
+        -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
+        -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
+        $$SDK$$ -android-ndk $$NDK$$ -android-arch armeabi-v7a -android-ndk-platform
+        android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics
+        -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PATH
+        -openssl-runtime -- -D OPENSSL_ROOT_DIR=$BUILD_DIR/buildroot/usr/local -D
+        CMAKE_INSTALL_MESSAGE=NEVER
       - cmake --build . --parallel
       - cmake --install .
       - popd
       - pushd ${BUILD_DIR}
-      - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PATH/bin ../build.sh package
+      - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PATH/bin ../deploy/build_android.sh
+        package
       - popd
       - cd deploy
       - chmod +x build_android.sh
