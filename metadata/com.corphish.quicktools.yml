@@ -68,13 +68,12 @@ Builds:
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
       'META-INF/services/*'
 
-  - versionName: 1.1.0
-    versionCode: 10
-    disable: https://github.com/corphish/TextTools/issues/2
-    commit: 1ed1806ebe53cd6a7a7994b4e4b34c1bdedf002b
+  - versionName: 1.1.0.1
+    versionCode: 11
+    commit: cca5fbc7681a59570ac904f49b9f9c36150f634f
     subdir: app
     gradle:
-      - yes
+      - multipleOptions
     srclibs:
       - reproducible-apk-tools@v0.2.4
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
@@ -84,5 +83,5 @@ AllowedAPKSigningKeys: c38c54ba54fa6718a56a8ee319cf8291329860ba092290743b7defd81
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.1.0
-CurrentVersionCode: 10
+CurrentVersion: 1.1.0.1
+CurrentVersionCode: 11
