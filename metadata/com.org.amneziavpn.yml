@@ -28,8 +28,10 @@ Builds:
     sudo:
       - apt-get update
       - apt-get install ninja-build libgl1-mesa-dev libstdc++6 libncurses5
-      - apt-get install -y 7zip build-essential make bookworm-backports cmake python-is-python3
+      - apt-get install -y 7zip build-essential make python-is-python3
       - apt-get remove openjdk-11-jdk-headless openjdk-11-jre-headless
+      - apt-get install openjdk-17-jdk-headless openjdk-17-jre-headless
+      - apt-get install -y -t bookworm-backports cmake
     output: deploy/build
     srclibs:
       - Qt5@v6.6.2
@@ -67,14 +69,13 @@ Builds:
       - cmake --install .
       - popd
       - pushd ${QT_BUILD}
-      - $$Qt5$$/configure --disable-rpath -opensource -confirm-license
-        -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
-        -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
-        $$SDK$$ -android-ndk $$NDK$$ -android-arch armeabi-v7a -android-ndk-platform
-        android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics
-        -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PATH
-        -openssl-runtime -- -D OPENSSL_ROOT_DIR=$BUILD_DIR/buildroot/usr/local -D
-        CMAKE_INSTALL_MESSAGE=NEVER
+      - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license -silent -prefix
+        $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql -no-dbus -no-use-gold-linker
+        -sysconfdir /etc/xdg -opengl es2 -android-sdk $$SDK$$ -android-ndk $$NDK$$
+        -android-arch armeabi-v7a -android-ndk-platform android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver
+        -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel
+        -qt-host-path $QT_HOST_PATH -openssl-runtime -- -D OPENSSL_ROOT_DIR=$BUILD_DIR/buildroot/usr/local
+        -D CMAKE_INSTALL_MESSAGE=NEVER
       - cmake --build . --parallel
       - cmake --install .
       - popd
@@ -96,8 +97,10 @@ Builds:
     sudo:
       - apt-get update
       - apt-get install ninja-build libgl1-mesa-dev libstdc++6 libncurses5
-      - apt-get install -y 7zip build-essential make bookworm-backports cmake python-is-python3
+      - apt-get install -y 7zip build-essential make python-is-python3
       - apt-get remove openjdk-11-jdk-headless openjdk-11-jre-headless
+      - apt-get install openjdk-17-jdk-headless openjdk-17-jre-headless
+      - apt-get install -y -t bookworm-backports cmake
     output: deploy/build
     srclibs:
       - Qt5@v6.6.2
@@ -135,14 +138,13 @@ Builds:
       - cmake --install .
       - popd
       - pushd ${QT_BUILD}
-      - $$Qt5$$/configure --disable-rpath -opensource -confirm-license
-        -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
-        -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
-        $$SDK$$ -android-ndk $$NDK$$ -android-arch armeabi-v7a -android-ndk-platform
-        android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics
-        -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PATH
-        -openssl-runtime -- -D OPENSSL_ROOT_DIR=$BUILD_DIR/buildroot/usr/local -D
-        CMAKE_INSTALL_MESSAGE=NEVER
+      - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license -silent -prefix
+        $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql -no-dbus -no-use-gold-linker
+        -sysconfdir /etc/xdg -opengl es2 -android-sdk $$SDK$$ -android-ndk $$NDK$$
+        -android-arch armeabi-v7a -android-ndk-platform android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver
+        -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel
+        -qt-host-path $QT_HOST_PATH -openssl-runtime -- -D OPENSSL_ROOT_DIR=$BUILD_DIR/buildroot/usr/local
+        -D CMAKE_INSTALL_MESSAGE=NEVER
       - cmake --build . --parallel
       - cmake --install .
       - popd
