@@ -1,12 +1,13 @@
 Categories:
-  - Internet
   - Connectivity
+  - Internet
 License: GPL-3.0-only
 AuthorName: Dominik
 AuthorWebSite: https://domi04151309.github.io/
 WebSite: https://domi04151309.github.io/Android/HomeApp
 SourceCode: https://github.com/Domi04151309/HomeApp
 IssueTracker: https://github.com/Domi04151309/HomeApp/issues
+Changelog: https://github.com/Domi04151309/HomeApp/releases
 
 AutoName: Home
 
@@ -42,7 +43,51 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: 1.7.3
+    versionCode: 173
+    commit: 2ee2d1ad775cc62c0d00d437e83575656186c6e5
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.8.0
+    versionCode: 180
+    commit: 37c3e8706b7dac06e56e0376483296ea36ea5059
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.9.0
+    versionCode: 190
+    commit: 9aa51db0547a32a95d83a6371299c6d9b37aefe5
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.10.0
+    versionCode: 1100
+    commit: c0512a87de281f2872fedc5b5b1213e6b0efda66
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.7.2
-CurrentVersionCode: 172
+CurrentVersion: 1.10.0
+CurrentVersionCode: 1100

@@ -9,13 +9,13 @@ IssueTracker: https://github.com/mafik/echo/issues
 
 AutoName: Echo
 Description: |-
-    Continuously record audio for retrieval at a later time. Unless saved,
-    recordings are deleted on a rolling basis.
+  Continuously record audio for retrieval at a later time. Unless saved,
+  recordings are deleted on a rolling basis.
 
-    * record harassment and bullying (even when you didn’t anticipated them)
-    * save important pieces of information (phone numbers / passwords / instructions)
-    * record cute/funny moments
-    * prove that someone said (or didn’t say) something
+  * record harassment and bullying (even when you didn't anticipated them)
+  * save important pieces of information (phone numbers / passwords / instructions)
+  * record cute/funny moments
+  * prove that someone said (or didn't say) something
 
 RepoType: git
 Repo: https://github.com/mafik/echo
@@ -39,8 +39,7 @@ Builds:
 
   - versionName: 1.3.39
     versionCode: 14
-    disable: doesnt build
-    commit: 18074b5b96907d486fe32af52472fff35ecde937
+    commit: 79d591c086452a37494a6fd8976218a3773bdc05
     subdir: SaidIt
     gradle:
       - yes
@@ -48,9 +47,12 @@ Builds:
       - jcaki@fc513da4f326ddfee45a2318b326c61ffa10838a
     rm:
       - SaidIt/libs/*
+      - legacy/1.0/libs/*
     prebuild:
       - sed -i -e 's/class/public class/g' $$jcaki$$/src/org/jcaki/Doubles.java
       - cp -fR $$jcaki$$/src/org src/main/java/
+      - $$SDK$$/tools/bin/sdkmanager 'platforms;android-21' 'build-tools;21.0.2' >
+        /dev/null
 
 AutoUpdateMode: None
 UpdateCheckMode: RepoManifest

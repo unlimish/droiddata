@@ -3,36 +3,20 @@ Categories:
 License: GPL-3.0-only
 AuthorName: Daniel Gultsch
 WebSite: https://conversations.im/
-SourceCode: https://github.com/iNPUTmice/Conversations
-IssueTracker: https://github.com/iNPUTmice/Conversations/issues
-Translation: https://www.transifex.com/siacs/conversations/
-Changelog: https://github.com/iNPUTmice/Conversations/blob/HEAD/CHANGELOG.md
+SourceCode: https://codeberg.org/iNPUTmice/Conversations
+IssueTracker: https://codeberg.org/iNPUTmice/Conversations/issues
+Translation: https://translate.codeberg.org/projects/conversations/
+Changelog: https://codeberg.org/iNPUTmice/Conversations/src/branch/master/CHANGELOG.md
 Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CW3SYT3KG5PDL
-LiberapayID: '34225'
+Liberapay: iNPUTmice
 Bitcoin: 3KAD8vew6tPZDjiUJNnZ3YUoUxrCEVNwFL
 
 AutoName: Conversations
 
 RepoType: git
-Repo: https://github.com/iNPUTmice/Conversations.git
+Repo: https://codeberg.org/iNPUTmice/Conversations.git
 
 Builds:
-  - versionName: 0.1.3
-    versionCode: 9
-    disable: prebuild jars
-    commit: 0.1.3
-    submodules: true
-    srclibs:
-      - Otr4j-jitsi@33d95bb3710986d048fb4cbe42dc991f9ddd9de2
-      - BouncyCastle@r1rv50
-    rm:
-      - libs/android-support-v4.jar
-    extlibs:
-      - android/android-support-v4.jar
-    scanignore:
-      - libs/otr4j-0.10.jar
-      - libs/bcprov-jdk15on-150.jar
-
   - versionName: 0.2.1
     versionCode: 12
     commit: 0.2.1
@@ -145,8 +129,8 @@ Builds:
       - popd
       - cp $$BouncyCastle$$/build/artifacts/jdk1.5/jars/bcprov-jdk15on-150.jar libs/
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ package
+      - mvn clean
+      - mvn package
       - popd
       - cp $$Otr4j-jitsi$$/target/otr4j-0.10.jar libs/
     scanignore:
@@ -169,8 +153,8 @@ Builds:
       - popd
       - cp $$BouncyCastle$$/build/artifacts/jdk1.5/jars/bcprov-jdk15on-150.jar libs/
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ package
+      - mvn clean
+      - mvn package
       - popd
       - cp $$Otr4j-jitsi$$/target/otr4j-0.10.jar libs/
     scanignore:
@@ -193,8 +177,8 @@ Builds:
       - popd
       - cp $$BouncyCastle$$/build/artifacts/jdk1.5/jars/bcprov-jdk15on-150.jar libs/
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ package
+      - mvn clean
+      - mvn package
       - popd
       - cp $$Otr4j-jitsi$$/target/otr4j-0.10.jar libs/
     scanignore:
@@ -217,8 +201,8 @@ Builds:
       - popd
       - cp $$BouncyCastle$$/build/artifacts/jdk1.5/jars/bcprov-jdk15on-150.jar libs/
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ package
+      - mvn clean
+      - mvn package
       - popd
       - cp $$Otr4j-jitsi$$/target/otr4j-0.10.jar libs/
     scanignore:
@@ -241,8 +225,8 @@ Builds:
       - popd
       - cp $$BouncyCastle$$/build/artifacts/jdk1.5/jars/bcprov-jdk15on-150.jar libs/
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ package
+      - mvn clean
+      - mvn package
       - popd
       - cp $$Otr4j-jitsi$$/target/otr4j-0.10.jar libs/
     scanignore:
@@ -265,8 +249,8 @@ Builds:
       - popd
       - cp $$BouncyCastle$$/build/artifacts/jdk1.5/jars/bcprov-jdk15on-150.jar libs/
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ package
+      - mvn clean
+      - mvn package
       - popd
       - cp $$Otr4j-jitsi$$/target/otr4j-0.10.jar libs/
     scanignore:
@@ -289,8 +273,8 @@ Builds:
       - popd
       - cp $$BouncyCastle$$/build/artifacts/jdk1.5/jars/bcprov-jdk15on-150.jar libs/
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ package
+      - mvn clean
+      - mvn package
       - popd
       - cp $$Otr4j-jitsi$$/target/otr4j-0.10.jar libs/
     scanignore:
@@ -313,8 +297,8 @@ Builds:
       - popd
       - cp $$BouncyCastle$$/build/artifacts/jdk1.5/jars/bcprov-jdk15on-150.jar libs/
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ package
+      - mvn clean
+      - mvn package
       - popd
       - cp $$Otr4j-jitsi$$/target/otr4j-0.10.jar libs/
     scanignore:
@@ -337,8 +321,8 @@ Builds:
       - popd
       - cp $$BouncyCastle$$/build/artifacts/jdk1.5/jars/bcprov-jdk15on-150.jar libs/
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ package
+      - mvn clean
+      - mvn package
       - popd
       - cp $$Otr4j-jitsi$$/target/otr4j-0.10.jar libs/
     scanignore:
@@ -361,8 +345,8 @@ Builds:
       - popd
       - cp $$BouncyCastle$$/build/artifacts/jdk1.5/jars/bcprov-jdk15on-150.jar libs/
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ package
+      - mvn clean
+      - mvn package
       - popd
       - cp $$Otr4j-jitsi$$/target/otr4j-0.10.jar libs/
     scanignore:
@@ -385,8 +369,8 @@ Builds:
       - popd
       - cp $$BouncyCastle$$/build/artifacts/jdk1.5/jars/bcprov-jdk15on-150.jar libs/
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ package
+      - mvn clean
+      - mvn package
       - popd
       - cp $$Otr4j-jitsi$$/target/otr4j-0.10.jar libs/
     scanignore:
@@ -402,8 +386,8 @@ Builds:
       - Otr4j-jitsi@6d879761605dba48c80c0d3f44a6555b522d0c2e
     prebuild:
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ install
+      - mvn clean
+      - mvn install
       - popd
       - sed -i -e '/mavenCentral/amavenLocal()\n' -e '/maven {/d' -e '/jitsi.github.com/,+1d'
         -e '/buildTypes {/i/*' -e '/subprojects/i*/' build.gradle
@@ -417,8 +401,8 @@ Builds:
       - Otr4j-jitsi@6d879761605dba48c80c0d3f44a6555b522d0c2e
     prebuild:
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ install
+      - mvn clean
+      - mvn install
       - popd
       - sed -i -e '/mavenCentral/amavenLocal()\n' -e '/maven {/d' -e '/jitsi.github.com/,+1d'
         -e '/buildTypes {/i/*' -e '/subprojects/i*/' build.gradle
@@ -432,8 +416,8 @@ Builds:
       - Otr4j-jitsi@6d879761605dba48c80c0d3f44a6555b522d0c2e
     prebuild:
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ install
+      - mvn clean
+      - mvn install
       - popd
       - sed -i -e '/mavenCentral/amavenLocal()\n' -e '/maven {/d' -e '/jitsi.github.com/,+1d'
         -e '/buildTypes {/i/*' -e '/subprojects/i*/' build.gradle
@@ -447,8 +431,8 @@ Builds:
       - Otr4j-jitsi@6d879761605dba48c80c0d3f44a6555b522d0c2e
     prebuild:
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ install
+      - mvn clean
+      - mvn install
       - popd
       - sed -i -e '/mavenCentral/amavenLocal()\n' -e '/maven {/d' -e '/jitsi.github.com/,+1d'
         -e '/buildTypes {/i/*' -e '/subprojects/i*/' build.gradle
@@ -462,8 +446,8 @@ Builds:
       - Otr4j-jitsi@6d879761605dba48c80c0d3f44a6555b522d0c2e
     prebuild:
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ install
+      - mvn clean
+      - mvn install
       - popd
       - sed -i -e '/mavenCentral/amavenLocal()\n' -e '/maven {/d' -e '/jitsi.github.com/,+1d'
         -e '/buildTypes {/i/*' -e '/subprojects/i*/' build.gradle
@@ -477,8 +461,8 @@ Builds:
       - Otr4j-jitsi@6d879761605dba48c80c0d3f44a6555b522d0c2e
     prebuild:
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ install
+      - mvn clean
+      - mvn install
       - popd
       - sed -i -e '/mavenCentral/amavenLocal()\n' -e '/maven {/d' -e '/jitsi.github.com/,+1d'
         -e '/buildTypes {/i/*' -e '/subprojects/i*/' build.gradle
@@ -492,8 +476,8 @@ Builds:
       - Otr4j-jitsi@6d879761605dba48c80c0d3f44a6555b522d0c2e
     prebuild:
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ install
+      - mvn clean
+      - mvn install
       - popd
       - sed -i -e '/mavenCentral/amavenLocal()\n' -e '/maven {/d' -e '/jitsi.github.com/,+1d'
         -e '/buildTypes {/i/*' -e '/subprojects/i*/' build.gradle
@@ -507,8 +491,8 @@ Builds:
       - Otr4j-jitsi@6d879761605dba48c80c0d3f44a6555b522d0c2e
     prebuild:
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ install
+      - mvn clean
+      - mvn install
       - popd
       - sed -i -e '/mavenCentral/amavenLocal()\n' -e '/maven {/d' -e '/jitsi.github.com/,+1d'
         -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' build.gradle
@@ -522,8 +506,8 @@ Builds:
       - Otr4j-jitsi@8bc49a960b995ab79583df592abe7a5066599491
     prebuild:
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ install
+      - mvn clean
+      - mvn install
       - popd
       - sed -i -e '/mavenCentral/amavenLocal()\n' -e '/maven {/d' -e '/jitsi.github.com/,+1d'
         -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' build.gradle
@@ -537,8 +521,8 @@ Builds:
       - Otr4j-jitsi@8bc49a960b995ab79583df592abe7a5066599491
     prebuild:
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ install
+      - mvn clean
+      - mvn install
       - popd
       - sed -i -e '/mavenCentral/amavenLocal()\n' -e '/maven {/d' -e '/jitsi.github.com/,+1d'
         -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' build.gradle
@@ -552,8 +536,8 @@ Builds:
       - Otr4j-jitsi@8bc49a960b995ab79583df592abe7a5066599491
     prebuild:
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ install
+      - mvn clean
+      - mvn install
       - popd
       - sed -i -e '/mavenCentral/amavenLocal()\n' -e '/maven {/d' -e '/jitsi.github.com/,+1d'
         -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' build.gradle
@@ -567,8 +551,8 @@ Builds:
       - Otr4j-jitsi@8bc49a960b995ab79583df592abe7a5066599491
     prebuild:
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ install
+      - mvn clean
+      - mvn install
       - popd
       - sed -i -e '/mavenCentral/amavenLocal()\n' -e '/maven {/d' -e '/jitsi.github.com/,+1d'
         -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' build.gradle
@@ -582,8 +566,8 @@ Builds:
       - Otr4j-jitsi@8bc49a960b995ab79583df592abe7a5066599491
     prebuild:
       - pushd $$Otr4j-jitsi$$
-      - $$MVN3$$ clean
-      - $$MVN3$$ install
+      - mvn clean
+      - mvn install
       - popd
       - sed -i -e '/mavenCentral/amavenLocal()\n' -e '/maven {/d' -e '/jitsi.github.com/,+1d'
         -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' build.gradle
@@ -748,7 +732,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.8.1
     versionCode: 112
@@ -756,7 +740,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.8.2
     versionCode: 113
@@ -764,7 +748,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.8.3
     versionCode: 114
@@ -772,7 +756,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.8.4
     versionCode: 115
@@ -780,7 +764,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.9.0
     versionCode: 119
@@ -788,7 +772,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.9.1
     versionCode: 120
@@ -796,7 +780,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.9.2
     versionCode: 121
@@ -804,7 +788,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.9.3
     versionCode: 122
@@ -812,7 +796,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.9.4
     versionCode: 123
@@ -820,7 +804,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/applicationVariants/i/*' -e '/lintOptions {/i*/' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.10.0
     versionCode: 127
@@ -1024,7 +1008,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.14.1
     versionCode: 172
@@ -1032,7 +1016,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.14.2
     versionCode: 173
@@ -1040,7 +1024,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.14.3
     versionCode: 174
@@ -1048,7 +1032,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.14.4
     versionCode: 175
@@ -1056,7 +1040,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.14.5
     versionCode: 176
@@ -1064,7 +1048,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.14.6
     versionCode: 179
@@ -1072,7 +1056,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.14.7
     versionCode: 180
@@ -1080,7 +1064,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.14.8
     versionCode: 181
@@ -1088,7 +1072,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.14.9
     versionCode: 182
@@ -1096,7 +1080,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.15.0
     versionCode: 186
@@ -1104,7 +1088,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.15.1
     versionCode: 187
@@ -1112,7 +1096,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.15.2
     versionCode: 188
@@ -1120,7 +1104,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.15.3
     versionCode: 189
@@ -1128,7 +1112,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.15.4
     versionCode: 192
@@ -1136,7 +1120,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.15.5
     versionCode: 193
@@ -1144,7 +1128,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.16.0
     versionCode: 196
@@ -1152,7 +1136,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.16.1
     versionCode: 197
@@ -1160,7 +1144,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.16.2
     versionCode: 199
@@ -1168,7 +1152,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.17.0
     versionCode: 202
@@ -1176,7 +1160,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.17.1
     versionCode: 205
@@ -1184,7 +1168,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.18.0
     versionCode: 208
@@ -1192,7 +1176,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.18.2
     versionCode: 211
@@ -1200,7 +1184,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.18.3
     versionCode: 212
@@ -1208,7 +1192,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.18.4
     versionCode: 214
@@ -1216,7 +1200,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.18.5
     versionCode: 217
@@ -1224,7 +1208,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.19.0
     versionCode: 222
@@ -1232,7 +1216,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.19.3
     versionCode: 225
@@ -1240,7 +1224,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.19.4
     versionCode: 227
@@ -1248,7 +1232,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.19.5
     versionCode: 228
@@ -1256,7 +1240,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.20.0
     versionCode: 233
@@ -1264,7 +1248,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.20.1
     versionCode: 234
@@ -1272,7 +1256,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.21.0
     versionCode: 236
@@ -1280,7 +1264,7 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' build.gradle
+      {/,+2d' build.gradle
 
   - versionName: 1.22.0
     versionCode: 239
@@ -1288,8 +1272,8 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' -e "s/mavenCentral()/mavenCentral()\n maven { url 'https:\/\/maven.google.com'
-        }/" build.gradle
+      {/,+2d' -e "s/mavenCentral()/mavenCentral()\n maven { url 'https:\/\/maven.google.com'
+      }/" build.gradle
 
   - versionName: 1.22.1
     versionCode: 240
@@ -1308,8 +1292,8 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' -e "s/mavenCentral()/mavenCentral()\n maven { url 'https:\/\/maven.google.com'
-        }/" build.gradle
+      {/,+2d' -e "s/mavenCentral()/mavenCentral()\n maven { url 'https:\/\/maven.google.com'
+      }/" build.gradle
 
   - versionName: 1.23.1
     versionCode: 245
@@ -1317,8 +1301,8 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' -e '/maven
-        {/,+2d' -e "s/mavenCentral()/mavenCentral()\n maven { url 'https:\/\/maven.google.com'
-        }/" build.gradle
+      {/,+2d' -e "s/mavenCentral()/mavenCentral()\n maven { url 'https:\/\/maven.google.com'
+      }/" build.gradle
 
   - versionName: 1.23.2
     versionCode: 246
@@ -1365,22 +1349,6 @@ Builds:
   - versionName: 1.23.8
     versionCode: 255
     commit: 1.23.8
-    gradle:
-      - free
-    prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' build.gradle
-
-  - versionName: 2.0.0-beta
-    versionCode: 256
-    disable: Stable was released
-    commit: 216cf1805f5ebf7413f7239a34c1ecc914291a0d
-    gradle:
-      - free
-    prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' build.gradle
-
-  - versionName: 2.0.0-beta.2
-    versionCode: 257
-    disable: Stable was released
-    commit: fdac851d46d8db72eb844c7e2de3a574689a43fe
     gradle:
       - free
     prebuild: sed -i -e '/playstoreCompile/d' -e '/play-services-gcm/d' build.gradle
@@ -1538,7 +1506,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.3.7+fcr
     versionCode: 303
@@ -1546,7 +1514,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.3.8+fcr
     versionCode: 305
@@ -1554,7 +1522,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.3.9+fcr
     versionCode: 307
@@ -1562,7 +1530,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.3.10+fcr
     versionCode: 309
@@ -1570,7 +1538,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.3.11+fcr
     versionCode: 314
@@ -1592,31 +1560,13 @@ Builds:
         \ \ \ \ \ \ \ abortOnError\ false' build.gradle
       - sed -i -e 's/4.10.3/4.10.2/' gradle/wrapper/gradle-wrapper.properties
 
-  - versionName: 2.4.0-beta+fcr
-    versionCode: 318
-    disable: beta
-    commit: 4c8b1eb4bc1c82b0f777726cbe57f176c67b4cb3
-    gradle:
-      - conversationsFreeCompat
-    prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
-
-  - versionName: 2.4.0-beta.2+fcr
-    versionCode: 319
-    disable: beta
-    commit: bd5b8aff784a750bdddd1e20379804e9ec0bd855
-    gradle:
-      - conversationsFreeCompat
-    prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
-
   - versionName: 2.4.0+fcr
     versionCode: 320
     commit: 2.4.0
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.4.1+fcr
     versionCode: 321
@@ -1624,7 +1574,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.4.2+fcr
     versionCode: 322
@@ -1632,7 +1582,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.4.3+fcr
     versionCode: 323
@@ -1640,7 +1590,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.5.0+fcr
     versionCode: 326
@@ -1648,7 +1598,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.5.1+fcr
     versionCode: 327
@@ -1656,7 +1606,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.5.2+fcr
     versionCode: 329
@@ -1664,7 +1614,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.5.3+fcr
     versionCode: 330
@@ -1672,7 +1622,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.5.4+fcr
     versionCode: 333
@@ -1680,7 +1630,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.5.5+fcr
     versionCode: 334
@@ -1688,7 +1638,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.5.6+fcr
     versionCode: 336
@@ -1696,7 +1646,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.5.7+fcr
     versionCode: 337
@@ -1704,7 +1654,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.5.8+fcr
     versionCode: 338
@@ -1712,16 +1662,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
-
-  - versionName: 2.5.9+fcr
-    versionCode: 339
-    disable: issues on Xiaomi 8 and Android <5
-    commit: 2.5.9
-    gradle:
-      - conversationsFreeCompat
-    prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.5.11+fcr
     versionCode: 341
@@ -1729,7 +1670,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.5.12+fcr
     versionCode: 346
@@ -1737,7 +1678,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.6.0+fcr
     versionCode: 349
@@ -1745,7 +1686,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.6.1+fcr
     versionCode: 351
@@ -1753,7 +1694,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.6.2+fcr
     versionCode: 353
@@ -1761,7 +1702,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.6.3+fcr
     versionCode: 360
@@ -1769,7 +1710,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.6.4+fcr
     versionCode: 362
@@ -1777,7 +1718,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.7.0+fcr
     versionCode: 364
@@ -1785,7 +1726,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.7.1+fcr
     versionCode: 367
@@ -1793,7 +1734,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.8.1+fcr
     versionCode: 381
@@ -1801,8 +1742,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/aabortOnError\
-        false' -e '/libwebrtc/d' -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.+'"
-        -e '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      false' -e '/libwebrtc/d' -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.+'"
+      -e '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
 
   - versionName: 2.8.2+fcr
     versionCode: 382
@@ -1810,8 +1751,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/aabortOnError\
-        false' -e '/libwebrtc/d' -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.+'"
-        -e '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      false' -e '/libwebrtc/d' -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.+'"
+      -e '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
 
   - versionName: 2.8.3+fcr
     versionCode: 383
@@ -1819,8 +1760,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/aabortOnError\
-        false' -e '/libwebrtc/d' -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.+'"
-        -e '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      false' -e '/libwebrtc/d' -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.+'"
+      -e '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
 
   - versionName: 2.8.4+fcr
     versionCode: 387
@@ -1828,8 +1769,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21b
 
   - versionName: 2.8.5+fcr
@@ -1838,8 +1779,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21b
 
   - versionName: 2.8.6+fcr
@@ -1848,8 +1789,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21b
 
   - versionName: 2.8.7+fcr
@@ -1858,8 +1799,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21d
 
   - versionName: 2.8.8+fcr
@@ -1868,8 +1809,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21d
 
   - versionName: 2.8.9+fcr
@@ -1878,8 +1819,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21d
 
   - versionName: 2.8.10+fcr
@@ -1888,8 +1829,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21d
 
   - versionName: 2.9.0+fcr
@@ -1898,8 +1839,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21d
 
   - versionName: 2.9.1+fcr
@@ -1908,8 +1849,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21d
 
   - versionName: 2.9.2+fcr
@@ -1918,8 +1859,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21d
 
   - versionName: 2.9.3+fcr
@@ -1928,8 +1869,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.30039'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21d
 
   - versionName: 2.9.4+fcr
@@ -1938,8 +1879,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21d
 
   - versionName: 2.9.5+fcr
@@ -1948,8 +1889,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21d
 
   - versionName: 2.9.6+fcr
@@ -1958,8 +1899,8 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/ExtraTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
-        '/splits/,+5d' -e '/Variants.all/,+10d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
     ndk: r21d
 
   - versionName: 2.9.7+fcr
@@ -1968,15 +1909,1190 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
-        -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e
-        '/splits/,+5d' -e '/Variants.all/,+8d' build.gradle
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+8d' build.gradle
     ndk: r21d
 
-MaintainerNotes: |-
-    For 2.8.0 we replace the webrtc.aar with the latest M79 from maven, but
-    that won't be updated anymore so we'll need to start building locally in the future.
+  - versionName: 2.9.8+fcr
+    versionCode: 42006
+    commit: 2.9.8
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
 
-AutoUpdateMode: Version ++fcr %v
-UpdateCheckMode: Tags
-CurrentVersion: 2.9.7
-CurrentVersionCode: 42000
+  - versionName: 2.9.9+fcr
+    versionCode: 42010
+    commit: 2.9.9
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.10+fcr
+    versionCode: 42012
+    commit: 2.9.10
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.11+fcr
+    versionCode: 42013
+    commit: 2.9.11
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.12+fcr
+    versionCode: 42014
+    commit: 2.9.12
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.9.13+fcr
+    versionCode: 42015
+    commit: 2.9.13
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.0+fcr
+    versionCode: 42018
+    commit: 3f315751a12fb8178d44733289e77197c7a0f296
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.1+fcr
+    versionCode: 42022
+    commit: cc489ef7bfdba59417e0098779d37c7a7a1bcce4
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+8d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.2+fcr
+    versionCode: 42023
+    commit: a8ff88398df1697751d50daa3c4f068508389528
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.2.1+fcr
+    versionCode: 42024
+    commit: fe98cf2c9b28f3a7f59aa4425b9d02c772694aec
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/libwebrtc/d'
+      -e "/phonenumber/aimplementation 'org.webrtc:google-webrtc:1.0.32006'" -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.9+free
+    versionCode: 42037
+    commit: aea1e80900c5ac70ebe01fb736ed3a43df63d1dd
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFree
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.10.10+free
+    versionCode: 42038
+    commit: 1aaff18bb5ece9ef51a374523957a76be85be26a
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFree
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
+    ndk: r21e
+
+  - versionName: 2.11.0+free
+    versionCode: 42041
+    commit: f8517612524426821357ea71d34a9e04ec654a70
+    gradle:
+      - conversationsFree
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
+
+  - versionName: 2.11.1+free
+    versionCode: 42042
+    commit: cd8548b0c8d8ea87c78f9aa5698a1be898eb35bc
+    gradle:
+      - conversationsFree
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e '/splits/,+5d'
+      -e '/Variants.all/,+10d' build.gradle
+
+  - versionName: 2.11.2+free
+    versionCode: 4204301
+    commit: d21362288ee0820839667bcd79acd9cbd7941f1f
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.11.2+free
+    versionCode: 4204302
+    commit: d21362288ee0820839667bcd79acd9cbd7941f1f
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.11.2+free
+    versionCode: 4204303
+    commit: d21362288ee0820839667bcd79acd9cbd7941f1f
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.11.2+free
+    versionCode: 4204304
+    commit: d21362288ee0820839667bcd79acd9cbd7941f1f
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.11.3+free
+    versionCode: 4204401
+    commit: 33850ae60318791abe2d2c636cc0087398d985b9
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.11.3+free
+    versionCode: 4204402
+    commit: 33850ae60318791abe2d2c636cc0087398d985b9
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.11.3+free
+    versionCode: 4204403
+    commit: 33850ae60318791abe2d2c636cc0087398d985b9
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.11.3+free
+    versionCode: 4204404
+    commit: 33850ae60318791abe2d2c636cc0087398d985b9
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.0+free
+    versionCode: 4204601
+    commit: 0923440936155b771050ef97ead94a8dd48769f6
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.0+free
+    versionCode: 4204602
+    commit: 0923440936155b771050ef97ead94a8dd48769f6
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.0+free
+    versionCode: 4204603
+    commit: 0923440936155b771050ef97ead94a8dd48769f6
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.0+free
+    versionCode: 4204604
+    commit: 0923440936155b771050ef97ead94a8dd48769f6
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.1+free
+    versionCode: 4204701
+    commit: e91b6ce37744bf508a1e0fe37cee88cdea339566
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.1+free
+    versionCode: 4204702
+    commit: e91b6ce37744bf508a1e0fe37cee88cdea339566
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.1+free
+    versionCode: 4204703
+    commit: e91b6ce37744bf508a1e0fe37cee88cdea339566
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.1+free
+    versionCode: 4204704
+    commit: e91b6ce37744bf508a1e0fe37cee88cdea339566
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.2+free
+    versionCode: 4205001
+    commit: e6dc16da0c156e8e591a3e54cd13336f65f9aa18
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.2+free
+    versionCode: 4205002
+    commit: e6dc16da0c156e8e591a3e54cd13336f65f9aa18
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.2+free
+    versionCode: 4205003
+    commit: e6dc16da0c156e8e591a3e54cd13336f65f9aa18
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.2+free
+    versionCode: 4205004
+    commit: e6dc16da0c156e8e591a3e54cd13336f65f9aa18
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.4+free
+    versionCode: 4205601
+    commit: 291091dbe4350bbe4eb597523a7132bc940af56a
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.4+free
+    versionCode: 4205602
+    commit: 291091dbe4350bbe4eb597523a7132bc940af56a
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.4+free
+    versionCode: 4205603
+    commit: 291091dbe4350bbe4eb597523a7132bc940af56a
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.4+free
+    versionCode: 4205604
+    commit: 291091dbe4350bbe4eb597523a7132bc940af56a
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.6+free
+    versionCode: 4206001
+    commit: d1ba36cfdfe2f1532e370c246aa5d866e67e1aa4
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.6+free
+    versionCode: 4206002
+    commit: d1ba36cfdfe2f1532e370c246aa5d866e67e1aa4
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.6+free
+    versionCode: 4206003
+    commit: d1ba36cfdfe2f1532e370c246aa5d866e67e1aa4
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.6+free
+    versionCode: 4206004
+    commit: d1ba36cfdfe2f1532e370c246aa5d866e67e1aa4
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.8+free
+    versionCode: 4206201
+    commit: 0677ddc59b5894b4a6e25901a2f2dbe28ca2a948
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.8+free
+    versionCode: 4206202
+    commit: 0677ddc59b5894b4a6e25901a2f2dbe28ca2a948
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.8+free
+    versionCode: 4206203
+    commit: 0677ddc59b5894b4a6e25901a2f2dbe28ca2a948
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.8+free
+    versionCode: 4206204
+    commit: 0677ddc59b5894b4a6e25901a2f2dbe28ca2a948
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.9+free
+    versionCode: 4206501
+    commit: 6323b14bc0782a8c710f27c4bba24d883b9f09d7
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.9+free
+    versionCode: 4206502
+    commit: 6323b14bc0782a8c710f27c4bba24d883b9f09d7
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.9+free
+    versionCode: 4206503
+    commit: 6323b14bc0782a8c710f27c4bba24d883b9f09d7
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.9+free
+    versionCode: 4206504
+    commit: 6323b14bc0782a8c710f27c4bba24d883b9f09d7
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.11+free
+    versionCode: 4207201
+    commit: d235633cc7cc40c4cb6bed9541bbc95174bff500
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.11+free
+    versionCode: 4207202
+    commit: d235633cc7cc40c4cb6bed9541bbc95174bff500
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.11+free
+    versionCode: 4207203
+    commit: d235633cc7cc40c4cb6bed9541bbc95174bff500
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.11+free
+    versionCode: 4207204
+    commit: d235633cc7cc40c4cb6bed9541bbc95174bff500
+    gradle:
+      - conversationsFree
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.12+free
+    versionCode: 4207701
+    commit: 15042872872217537dabd5883447b0bf02ea6cc1
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.12+free
+    versionCode: 4207702
+    commit: 15042872872217537dabd5883447b0bf02ea6cc1
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.12+free
+    versionCode: 4207703
+    commit: 15042872872217537dabd5883447b0bf02ea6cc1
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.12.12+free
+    versionCode: 4207704
+    commit: 15042872872217537dabd5883447b0bf02ea6cc1
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.0+free
+    versionCode: 4208101
+    commit: 35c03c34b7262e3b3ff01659db4b343c65a815f7
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.0+free
+    versionCode: 4208102
+    commit: 35c03c34b7262e3b3ff01659db4b343c65a815f7
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.0+free
+    versionCode: 4208103
+    commit: 35c03c34b7262e3b3ff01659db4b343c65a815f7
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.0+free
+    versionCode: 4208104
+    commit: 35c03c34b7262e3b3ff01659db4b343c65a815f7
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.1+free
+    versionCode: 4208801
+    commit: a63b419e58bac7c7b4c1ae1c71215af477a71a37
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.1+free
+    versionCode: 4208802
+    commit: a63b419e58bac7c7b4c1ae1c71215af477a71a37
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.1+free
+    versionCode: 4208803
+    commit: a63b419e58bac7c7b4c1ae1c71215af477a71a37
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.1+free
+    versionCode: 4208804
+    commit: a63b419e58bac7c7b4c1ae1c71215af477a71a37
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.2+free
+    versionCode: 4209001
+    commit: 5cad2dccb219e151120b1760c83784348bdd072d
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.2+free
+    versionCode: 4209002
+    commit: 5cad2dccb219e151120b1760c83784348bdd072d
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.2+free
+    versionCode: 4209003
+    commit: 5cad2dccb219e151120b1760c83784348bdd072d
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.2+free
+    versionCode: 4209004
+    commit: 5cad2dccb219e151120b1760c83784348bdd072d
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.3+free
+    versionCode: 4209201
+    commit: 956107511c1389dd6e2836409bc00390c343c730
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.3+free
+    versionCode: 4209202
+    commit: 956107511c1389dd6e2836409bc00390c343c730
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.3+free
+    versionCode: 4209203
+    commit: 956107511c1389dd6e2836409bc00390c343c730
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.3+free
+    versionCode: 4209204
+    commit: 956107511c1389dd6e2836409bc00390c343c730
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.4+free
+    versionCode: 4209401
+    commit: aefcce430d6540d51343abe8fde138a51bf5a6a3
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.4+free
+    versionCode: 4209402
+    commit: aefcce430d6540d51343abe8fde138a51bf5a6a3
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.4+free
+    versionCode: 4209403
+    commit: aefcce430d6540d51343abe8fde138a51bf5a6a3
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.4+free
+    versionCode: 4209404
+    commit: aefcce430d6540d51343abe8fde138a51bf5a6a3
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.5+free
+    versionCode: 4209901
+    commit: 2fa541f2dc5ef6cfb14b4ed6be361e18805b15b2
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.5+free
+    versionCode: 4209902
+    commit: 2fa541f2dc5ef6cfb14b4ed6be361e18805b15b2
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.5+free
+    versionCode: 4209903
+    commit: 2fa541f2dc5ef6cfb14b4ed6be361e18805b15b2
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.13.5+free
+    versionCode: 4209904
+    commit: 2fa541f2dc5ef6cfb14b4ed6be361e18805b15b2
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.14.0+free
+    versionCode: 4210101
+    commit: c0a43c1f99f3db73b8c4457d3f5fed69d2c30ff4
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.14.0+free
+    versionCode: 4210102
+    commit: c0a43c1f99f3db73b8c4457d3f5fed69d2c30ff4
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.14.0+free
+    versionCode: 4210103
+    commit: c0a43c1f99f3db73b8c4457d3f5fed69d2c30ff4
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.14.0+free
+    versionCode: 4210104
+    commit: c0a43c1f99f3db73b8c4457d3f5fed69d2c30ff4
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.14.1+free
+    versionCode: 4210401
+    commit: 429b190b8e7fb09fd9a24c7deb86779df96bb0bb
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.14.1+free
+    versionCode: 4210402
+    commit: 429b190b8e7fb09fd9a24c7deb86779df96bb0bb
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.14.1+free
+    versionCode: 4210403
+    commit: 429b190b8e7fb09fd9a24c7deb86779df96bb0bb
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.14.1+free
+    versionCode: 4210404
+    commit: 429b190b8e7fb09fd9a24c7deb86779df96bb0bb
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.14.2+free
+    versionCode: 4210501
+    commit: 4968bde77468b609298cd179341c36cda12c0130
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.14.2+free
+    versionCode: 4210502
+    commit: 4968bde77468b609298cd179341c36cda12c0130
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.14.2+free
+    versionCode: 4210503
+    commit: 4968bde77468b609298cd179341c36cda12c0130
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.14.2+free
+    versionCode: 4210504
+    commit: 4968bde77468b609298cd179341c36cda12c0130
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.0+free
+    versionCode: 4210701
+    commit: 6c564d8483a5e86dc0b6649fdeb6b205ea413ee8
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.0+free
+    versionCode: 4210702
+    commit: 6c564d8483a5e86dc0b6649fdeb6b205ea413ee8
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.0+free
+    versionCode: 4210703
+    commit: 6c564d8483a5e86dc0b6649fdeb6b205ea413ee8
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.0+free
+    versionCode: 4210704
+    commit: 6c564d8483a5e86dc0b6649fdeb6b205ea413ee8
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.1+free
+    versionCode: 4210801
+    commit: cf5c038611f51f4dc1c6a3fac15e33d3d5bcea9f
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.1+free
+    versionCode: 4210802
+    commit: cf5c038611f51f4dc1c6a3fac15e33d3d5bcea9f
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.1+free
+    versionCode: 4210803
+    commit: cf5c038611f51f4dc1c6a3fac15e33d3d5bcea9f
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.1+free
+    versionCode: 4210804
+    commit: cf5c038611f51f4dc1c6a3fac15e33d3d5bcea9f
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.2+free
+    versionCode: 4210901
+    commit: 67c900b344c77d75d1a50b7ec57e0712fb0eb202
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.2+free
+    versionCode: 4210902
+    commit: 67c900b344c77d75d1a50b7ec57e0712fb0eb202
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.2+free
+    versionCode: 4210903
+    commit: 67c900b344c77d75d1a50b7ec57e0712fb0eb202
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.2+free
+    versionCode: 4210904
+    commit: 67c900b344c77d75d1a50b7ec57e0712fb0eb202
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.3+free
+    versionCode: 4211001
+    commit: 23e88e6e42ed40ece0dbbd0075430924ac533394
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-armeabi-v7a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.3+free
+    versionCode: 4211002
+    commit: 23e88e6e42ed40ece0dbbd0075430924ac533394
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.3+free
+    versionCode: 4211003
+    commit: 23e88e6e42ed40ece0dbbd0075430924ac533394
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-x86_64-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+  - versionName: 2.15.3+free
+    versionCode: 4211004
+    commit: 23e88e6e42ed40ece0dbbd0075430924ac533394
+    gradle:
+      - conversations
+      - free
+    output: build/outputs/apk/conversationsFree/release/Conversations-*-conversations-free-arm64-v8a-release-unsigned.apk
+    prebuild: sed -i -e '/MissingTranslation/aabortOnError\ false' -e 's/Apk true/Apk
+      false/' build.gradle
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^[0-9.]+$
+VercodeOperation:
+  - 100 * %c + 1
+  - 100 * %c + 2
+  - 100 * %c + 3
+  - 100 * %c + 4
+CurrentVersion: 2.15.3+free
+CurrentVersionCode: 4211004

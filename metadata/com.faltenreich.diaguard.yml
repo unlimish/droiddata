@@ -51,7 +51,107 @@ Builds:
     gradle:
       - store
 
-AutoUpdateMode: Version version/%v
+  - versionName: 3.7.1
+    versionCode: 48
+    commit: version/3.7.1
+    subdir: app
+    gradle:
+      - store
+
+  - versionName: 3.8.1
+    versionCode: 50
+    commit: version/3.8.1
+    subdir: app
+    gradle:
+      - store
+
+  - versionName: 3.8.2
+    versionCode: 51
+    commit: version/3.8.2
+    subdir: app
+    gradle:
+      - store
+
+  - versionName: 3.8.3
+    versionCode: 52
+    commit: version/3.8.3
+    subdir: app
+    gradle:
+      - store
+
+  - versionName: 3.8.4
+    versionCode: 53
+    commit: version/3.8.4
+    subdir: app
+    gradle:
+      - store
+
+  - versionName: 3.8.5
+    versionCode: 54
+    commit: 120688ab3e3cda34fbbb76f1f0f1f63016e5f3d0
+    subdir: app
+    gradle:
+      - store
+
+  - versionName: 3.9.0
+    versionCode: 55
+    commit: 387d7522ed0b7720396b9a3ae9788cd3c4ae4bbb
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - store
+
+  - versionName: 3.10.0
+    versionCode: 56
+    commit: 96c24c9f1b47c2deabdcaa4d704cbd8b2eb594ca
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - store
+
+  - versionName: 3.11.0
+    versionCode: 57
+    commit: ffd4129ba886e045736914d2c93c04e239dd3b1b
+    subdir: app
+    gradle:
+      - store
+
+  - versionName: 3.11.1
+    versionCode: 58
+    commit: d4967edeeddbddc1a3a55e5ca2de56530d52a4e5
+    subdir: app
+    gradle:
+      - store
+
+  - versionName: 3.12.1
+    versionCode: 60
+    commit: 7ed6540465ee218f966d9bd58d8897d445e7905c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - store
+
+  - versionName: 3.12.2
+    versionCode: 61
+    commit: 60e486023c877ff87d90def5ddf2828818fd1cdb
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - store
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.7.0
-CurrentVersionCode: 47
+CurrentVersion: 3.12.2
+CurrentVersionCode: 61

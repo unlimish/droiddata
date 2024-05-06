@@ -1,54 +1,62 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: Tethered to the schedule site.
 Categories:
   - Time
 License: Apache-2.0
+AuthorName: Tobias Preuss
+AuthorEmail: tobias.preuss+datenspuren@googlemail.com
 SourceCode: https://github.com/johnjohndoe/CampFahrplan
 IssueTracker: https://github.com/EventFahrplan/EventFahrplan/issues
+Translation: https://crowdin.com/project/eventfahrplan
 Liberapay: EventFahrplan
 
-AutoName: Datenspuren 2020 Fahrplan
+AutoName: Datenspuren 2023 Fahrplan
 Description: |
-    Programm zur Datenspuren Konferenz
+  Programm zur Datenspuren Konferenz
 
-    [https://www.datenspuren.de]
+  https://www.datenspuren.de
 
-    '''Funktionen'''
-    * Tagesüberblick über alle Programmpunkte
-    * Beschreibung von Veranstaltungen lesen
-    * Veranstaltungen in persönlicher Favoritenliste verwalten
-    * Favoritenliste exportieren
-    * Alarm für Veranstaltungen setzen
-    * Veranstaltungen in Kalender eintragen
-    * Link zu Veranstaltungen mit anderen teilen
-    * Programmänderungen einsehen
-    * Veranstaltungen bewerten
-    * Integration mit dem Engelsystem-Projekt [https://engelsystem.de] - Online-Tool für Helfer- und Schichtplanung auf großen Events
-    * Integration mit Chaosflix [https://github.com/NiciDieNase/chaosflix] - Android App für [https://media.ccc.de], teile Fahrplan-Favoriten mit Chaosflix und importiere sie als Bookmarks
+  <b>Funktionen</b>
+  * Tagesüberblick über alle Programmpunkte
+  * Beschreibung von Veranstaltungen lesen
+  * Veranstaltungen in persönlicher Favoritenliste verwalten
+  * Favoritenliste exportieren
+  * Alarm für Veranstaltungen setzen
+  * Veranstaltungen in Kalender eintragen
+  * Link zu Veranstaltungen mit anderen teilen
+  * Programmänderungen einsehen
+  * Veranstaltungen bewerten
+  * Integration mit dem Zengelsystem-Projekt https://engelsystem.de - Online-Tool für Helfer- und Schichtplanung auf großen Events
+  * Integration mit Chaosflix https://github.com/NiciDieNase/chaosflix - Android App für https://media.ccc.de, teile Fahrplan-Favoriten mit Chaosflix und importiere sie als Bookmarks
 
-    🔤 '''Unterstützte Sprachen'''
-    (Programmtexte ausgenommen)
-    * Deutsch
-    * Englisch
-    * Französisch
-    * Italienisch
-    * Niederländisch
-    * Portugiesisch
-    * Russisch
-    * Spanisch
+  🔤 <b>Unterstützte Sprachen</b>
+  (Programmtexte ausgenommen)
+  * Deutsch
+  * Englisch
+  * Französisch
+  * Italienisch
+  * Japanisch
+  * Niederländisch
+  * Polnisch
+  * Portugiesisch
+  * Russisch
+  * Spanisch
+  * Schwedisch
 
-    💡 Inhaltliche Fragen zum Programm kann nur das Datenspuren-Team
-    beantworten. Diese App stellt lediglich die Programmpunkte zur Verfügung.
+  💡 Inhaltliche Fragen zum Programm kann nur das Datenspuren-Team
+  beantworten. Diese App stellt lediglich die Programmpunkte zur Verfügung.
 
-    💣 Fehlerberichte sind herzlich willkommen, aber achte darauf, dass
-    du erklärst, wie man den Fehler reproduzieren kann. Der Issue-Tracker
-    findet sich hier:
-    [https://github.com/EventFahrplan/EventFahrplan/issues]
+  💣 Fehlerberichte sind herzlich willkommen, aber achte darauf, dass
+  du erklärst, wie man den Fehler reproduzieren kann. Der Issue-Tracker
+  findet sich hier: https://github.com/EventFahrplan/EventFahrplan/issues
 
-    🏆 Die App basiert auf der <b>EventFahrplan-App</b>
-    [https://play.google.com/store/apps/details?id=info.metadude.android.congress.schedule]
-    für den Kongress des Chaos Computer Clubs. Der Quellcode der Anwendung ist auf GitHub
-    [https://github.com/johnjohndoe/CampFahrplan/tree/datenspuren-2020] zu finden.
+  🏆 Die App basiert auf der <b>EventFahrplan-App</b>
+  https://f-droid.org/packages/info.metadude.android.congress.schedule/
+  für den Kongress des Chaos Computer Clubs. Der Quellcode der Anwendung ist auf GitHub
+  https://github.com/johnjohndoe/CampFahrplan/tree/datenspuren-2023 zu finden.
 
-    🎨 Datenspuren-Design von nek0
+  🎨 Datenspuren-Design von nek0
 
 RepoType: git
 Repo: https://github.com/johnjohndoe/CampFahrplan.git
@@ -75,7 +83,45 @@ Builds:
       - cp local.properties gradle.properties
       - sed -i -e 's/6.6.1/6.5/' ../gradle/wrapper/gradle-wrapper.properties
 
+  - versionName: 1.52.0-Datenspuren-Edition
+    versionCode: 84
+    commit: v.1.52.0-Datenspuren-Edition
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - datenspuren2021
+    prebuild: cp local.properties gradle.properties
+
+  - versionName: 1.55.0-Datenspuren-Edition
+    versionCode: 89
+    commit: v.1.55.0-Datenspuren-Edition
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - datenspuren2022
+    prebuild: cp local.properties gradle.properties
+
+  - versionName: 1.61.0-Datenspuren-Edition
+    versionCode: 96
+    commit: v.1.61.0-Datenspuren-Edition
+    subdir: app
+    gradle:
+      - datenspuren2023
+    prebuild: cp local.properties gradle.properties
+
+MaintainerNotes: |
+  The branch for the Datenspuren conference 2023 is maintained
+  in a separate fork of the main repository on purpose in order
+  to keep the latter well organized and less complex.
+
+ArchivePolicy: 1
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 1.46.0-Datenspuren-Edition
-CurrentVersionCode: 75
+CurrentVersion: 1.61.0-Datenspuren-Edition
+CurrentVersionCode: 96

@@ -10,22 +10,22 @@ Changelog: https://github.com/JamesFrost/SimpleDo/releases
 
 AutoName: SimpleDo
 Description: |-
-    Simple todo list manager with emphasis on minimalism.
+  Simple todo list manager with emphasis on minimalism.
 
-    '''Features:'''
+  <b>Features:</b>
 
-    * Reminders
-    * Set due dates fot tasks
-    * Group tasks
-    * Work
-    * School
-    * Personal
-    * Set priorities
-    * Low
-    * Medium
-    * High
-    * Filter tasks
-    * Add tasks to phones calendar
+  * Reminders
+  * Set due dates fot tasks
+  * Group tasks
+  * Work
+  * School
+  * Personal
+  * Set priorities
+  * Low
+  * Medium
+  * High
+  * Filter tasks
+  * Add tasks to phones calendar
 
 RepoType: git
 Repo: https://github.com/JamesFrost/SimpleDo
@@ -42,7 +42,7 @@ Builds:
       - android/android-support-v4.jar
     prebuild:
       - pushd $$JodaTime$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - mkdir -p libs
       - cp $$JodaTime$$/target/*.jar libs/
@@ -58,7 +58,7 @@ Builds:
       - android/android-support-v4.jar
     prebuild:
       - pushd $$JodaTime$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - mkdir -p libs
       - cp $$JodaTime$$/target/*.jar libs/

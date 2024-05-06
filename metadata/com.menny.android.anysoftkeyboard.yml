@@ -20,19 +20,7 @@ Builds:
     srclibs:
       - AnySoftKeyboard-API@78768bc479
     prebuild: sed -i 's@\(android.library.reference.1=\).*@\1$$AnySoftKeyboard-API$$@'
-        project.properties
-    buildjni:
-      - yes
-    ndk: r12b
-
-  - versionName: 20120814-eye-candy
-    versionCode: 76
-    disable: doesn't build
-    commit: unknown - see disabled
-    srclibs:
-      - AnySoftKeyboard-API@78768bc479
-    prebuild: sed -i 's@\(android.library.reference.1=\).*@\1$$AnySoftKeyboard-API$$@'
-        project.properties
+      project.properties
     buildjni:
       - yes
     ndk: r12b
@@ -115,11 +103,6 @@ Builds:
       - yes
     ndk: r12b
 
-  - versionName: '20130807'
-    versionCode: 107
-    disable: not published
-    commit: unknown - see disabled
-
   - versionName: '20130919'
     versionCode: 111
     commit: 2a68963f
@@ -135,31 +118,6 @@ Builds:
       - yes
     ndk: r12b
 
-  - versionName: '20131101'
-    versionCode: 114
-    disable: no longer uses ant, prebuilts
-    commit: 82538d456f8
-    srclibs:
-      - AnySoftKeyboard-API@08b452ff4
-      - AnySoftKeyboardTools@73e9a09496
-    prebuild:
-      - sed -i 's@\(.1=\).*@\1$$AnySoftKeyboard-API$$@' project.properties
-      - sed -i 's@..\/AnySoftKeyboardTools@$$AnySoftKeyboardTools$$@g' build.xml
-      - rm -rf libs/armeabi*/ libs/x86/ libs/mips/ ant/ keyboard_keystore StoreStuff/
-        res/raw/words_1.dict
-    buildjni:
-      - yes
-    ndk: r12b
-
-  - versionName: 1.2.20140705
-    versionCode: 140
-    disable: build words dict from source, no idea what version name/code it is
-    commit: 1.5-r4.1
-    gradle:
-      - yes
-    rm:
-      - res/raw/words_1.dict
-
   - versionName: 1.8.84
     versionCode: 1409
     commit: 1.8-r1
@@ -171,35 +129,9 @@ Builds:
     preassemble:
       - makeEnglishDictionary
 
-  - versionName: 1.8.133
-    versionCode: 1458
-    disable: broken subdir
-    commit: 1.8-r3
-    subdir: app
-    init: sed -i -e '/fabric/d' -e '/canaryCompile/,+2d' ../build.gradle build.gradle
-    gradle:
-      - yes
-    rm:
-      - app/src/main/res/raw/words_1.dict
-    preassemble:
-      - :makeEnglishDictionary
-
   - versionName: 1.8.146
     versionCode: 1471
     commit: 1.8-r4
-    subdir: app
-    init: sed -i -e '/fabric/d' -e '/canaryCompile/,+2d' ../build.gradle build.gradle
-    gradle:
-      - yes
-    rm:
-      - app/src/main/res/raw/words_1.dict
-    preassemble:
-      - :makeEnglishDictionary
-
-  - versionName: 1.8.190
-    versionCode: 1515
-    disable: weird version/vc-issue
-    commit: 1.8-r5.1
     subdir: app
     init: sed -i -e '/fabric/d' -e '/canaryCompile/,+2d' ../build.gradle build.gradle
     gradle:
@@ -394,7 +326,7 @@ Builds:
     rm:
       - app/src/main/res/raw/words_*.dict
     prebuild: sed -i -e '/versionCode/d' -e '/versionName/aversionCode $$VERCODE$$'
-        -e '/crashlytics/,$d' build.gradle
+      -e '/crashlytics/,$d' build.gradle
     scandelete:
       - buildSrc
       - app/src/debug
@@ -413,7 +345,7 @@ Builds:
     rm:
       - app/src/main/res/raw/words_*.dict
     prebuild: sed -i -e '/versionCode/d' -e '/versionName/aversionCode $$VERCODE$$'
-        -e '/crashlytics/,$d' build.gradle
+      -e '/crashlytics/,$d' build.gradle
     scandelete:
       - buildSrc
       - app/src/debug
@@ -431,7 +363,7 @@ Builds:
     rm:
       - app/src/main/res/raw/words_*.dict
     prebuild: sed -i -e '/versionCode/d' -e '/versionName/aversionCode $$VERCODE$$'
-        build.gradle
+      build.gradle
     scandelete:
       - buildSrc
       - app/src/debug
@@ -447,7 +379,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/versionCode/d' -e '/versionName/aversionCode $$VERCODE$$'
-        build.gradle
+      build.gradle
     scandelete:
       - buildSrc
     ndk: r14b
@@ -460,7 +392,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/versionCode/d' -e '/versionName/aversionCode $$VERCODE$$'
-        build.gradle
+      build.gradle
     scandelete:
       - buildSrc
     ndk: r14b
@@ -473,7 +405,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/versionCode/d' -e '/versionName/aversionCode $$VERCODE$$'
-        build.gradle
+      build.gradle
     scandelete:
       - buildSrc
     ndk: r14b
@@ -486,20 +418,60 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/versionCode/d' -e '/versionName/aversionCode $$VERCODE$$'
-        build.gradle
+      build.gradle
     scanignore:
       - buildSrc
     ndk: r14b
     gradleprops:
       - forceVersionBuildCount=4709
 
-MaintainerNotes: |-
-    * Prior to 1.9.2629, generates english dictionary binary (src/main/res/raw/words_*.dict) from source files (under `english_dictionary` folder. Mostly AOSP word-list)
+  - versionName: 1.10.1786
+    versionCode: 6956
+    commit: 1.10-r4
+    subdir: ime/app
+    sudo:
+      - apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e "/EnvKey/ a //gradleVersion = '6.8.3'" ../build.gradle
+      - sed -i -e '/Data\.versionCode/ c versionCode $$VERCODE$$' -e '/Data\.versionName/
+        c versionName "$$VERSION$$"' ../../gradle/versioning_apk.gradle
+    scanignore:
+      - addons/languages/*/pack/dictionary/*.gz
+    ndk: r14b
 
-    Summary and Description have been moved to the new localizable text files:
-    https://f-droid.org/docs/All_About_Descriptions_Graphics_and_Screenshots
+  - versionName: 1.11.7137
+    versionCode: 7137
+    commit: 2f7fd6e13e9375047768320c4bf2509cb0736e15
+    subdir: ime/app
+    sudo:
+      - apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: ../../outputs/apks/release/ime-app-*.apk
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'build-tools;31.0.0'
+        'build-tools;30.0.3' 'platforms;android-31' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/31.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/31.0.0/dx
+    scanignore:
+      - addons/languages/*/pack/dictionary/*.gz
+    ndk: r23
+    gradleprops:
+      - forceVersionBuildCount=7792
+
+MaintainerNotes: |-
+  * Prior to 1.9.2629, generates english dictionary binary (src/main/res/raw/words_*.dict) from source files (under `english_dictionary` folder. Mostly AOSP word-list)
+
+  Summary and Description have been moved to the new localizable text files:
+  https://f-droid.org/docs/All_About_Descriptions_Graphics_and_Screenshots
 
 AutoUpdateMode: None
-UpdateCheckMode: RepoManifest
-CurrentVersion: 1.10.1109
-CurrentVersionCode: 6279
+UpdateCheckMode: None
+CurrentVersion: 1.11.7137
+CurrentVersionCode: 7137

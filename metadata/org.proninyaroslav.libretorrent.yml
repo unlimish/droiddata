@@ -6,9 +6,9 @@ AuthorEmail: proninyaroslav@gmail.com
 AuthorWebSite: https://proninyaroslav.ru/
 SourceCode: https://gitlab.com/proninyaroslav/libretorrent
 IssueTracker: https://gitlab.com/proninyaroslav/libretorrent/issues
-Changelog: https://gitlab.com/proninyaroslav/libretorrent/blob/HEAD/NEWS
+Changelog: https://gitlab.com/proninyaroslav/libretorrent/blob/HEAD/NEWS.md
 Donate: https://gitlab.com/proninyaroslav/libretorrent#donation
-LiberapayID: '1591834'
+Liberapay: proninyaroslav
 Bitcoin: 1Af9DgxtWvVp6bFiYQw2MeWtRzTXshRYpB
 
 AutoName: LibreTorrent
@@ -130,7 +130,75 @@ Builds:
       - yes
     output: build/outputs/apk/release/app-universal-release-unsigned.apk
 
-AutoUpdateMode: Version %v
+  - versionName: '3.1'
+    versionCode: 20
+    commit: 9a872c17d35511e9ea6eb34967b9446feb76575d
+    subdir: app
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-universal-release-unsigned.apk
+
+  - versionName: 3.1.1
+    versionCode: 21
+    commit: 2f8a6359b11fdee56f9d64a4607de9f964c72f97
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-universal-release-unsigned.apk
+
+  - versionName: '3.2'
+    versionCode: 22
+    commit: ce3b225584149ad6bc9a0a33ff859da547629dd0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-universal-release-unsigned.apk
+
+  - versionName: '3.3'
+    versionCode: 24
+    commit: a8a795cdcb0e4c2b10ae7f4739d77d32799bfbf0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - main
+    prebuild: sed -i -e '/enable true/d' build.gradle
+
+  - versionName: '3.4'
+    versionCode: 25
+    commit: b0f908e4e970f8e96a4c57ffe51006c244c0d6ee
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - main
+    prebuild: sed -i -e '/enable true/d' build.gradle
+
+  - versionName: 3.5-beta01
+    versionCode: 26
+    commit: f02e0847c8bbb183a3b8f7136ef7140bfa752760
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - main
+    prebuild: sed -i -e '/enable true/d' build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.0.1
-CurrentVersionCode: 19
+CurrentVersion: 3.5-beta01
+CurrentVersionCode: 26

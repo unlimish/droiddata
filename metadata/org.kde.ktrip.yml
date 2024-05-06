@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Depends on different public transport data providers.
 Categories:
   - Internet
   - Navigation
@@ -9,7 +10,7 @@ SourceCode: https://invent.kde.org/kde/ktrip/
 IssueTracker: https://invent.kde.org/kde/ktrip/issues
 
 RepoType: git
-Repo: https://invent.kde.org/kde/ktrip/
+Repo: https://invent.kde.org/kde/ktrip.git
 
 Builds:
   - versionName: 0.0.1
@@ -17,7 +18,7 @@ Builds:
     commit: v0.99.1
     timeout: 12000
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y g++ qttools5-dev-tools -t stretch-backports cmake
     output: ktrip_build_apk-release-unsigned.apk
     build:

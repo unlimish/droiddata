@@ -1,0 +1,156 @@
+Categories:
+  - Reading
+  - Science & Education
+License: Apache-2.0
+AuthorName: Simon Schubert
+AuthorEmail: simon@librem.one
+AuthorWebSite: https://schubert-simon.de/
+WebSite: https://linuxcommandlibrary.com/
+SourceCode: https://github.com/SimonSchubert/LinuxCommandLibrary
+IssueTracker: https://github.com/SimonSchubert/LinuxCommandLibrary/issues
+Changelog: https://github.com/SimonSchubert/LinuxCommandLibrary/releases
+Donate: https://github.com/sponsors/SimonSchubert
+
+AutoName: Linux Command Library
+
+RepoType: git
+Repo: https://github.com/SimonSchubert/LinuxCommandLibrary
+
+Builds:
+  - versionName: 3.0.3
+    versionCode: 73
+    commit: 9e58d86528d0b84f96c912824a157a52ab8ead10
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jetbrains.space/d' ../build.gradle.kts
+
+  - versionName: 3.0.4
+    versionCode: 74
+    commit: ee4516a983370bcb1c68ca6572b55fbb149cb735
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jetbrains.space/d' ../build.gradle.kts
+
+  - versionName: 3.0.5
+    versionCode: 75
+    commit: be82d0cf3310e59159938539f15be47272da436c
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jetbrains.space/d' ../build.gradle.kts
+
+  - versionName: 3.0.6
+    versionCode: 76
+    commit: 7d0a98eea8bcb89a78c2a05395aedc6805071b08
+    subdir: android
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jetbrains.space/d' ../build.gradle.kts
+
+  - versionName: 3.0.7
+    versionCode: 77
+    commit: a0a876fd3d0e0152b1a55377b242b9e103fcdcae
+    subdir: android
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jetbrains.space/d' ../build.gradle.kts
+
+  - versionName: 3.0.8
+    versionCode: 78
+    commit: 1dac1f0670508b5017ee5beb02a95e6d6c57504a
+    subdir: android
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jetbrains.space/d' ../build.gradle.kts
+
+  - versionName: 3.1.0
+    versionCode: 79
+    commit: 17bb1e24a6aed9c1b34e508b10f3a04c75555298
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jetbrains.space/d' ../build.gradle.kts
+
+  - versionName: 3.1.2
+    versionCode: 81
+    commit: 8d86809ef2ad5cbf3d49d6f32991d589f7383b93
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jetbrains.space/d' ../build.gradle.kts
+
+  - versionName: 3.2.0
+    versionCode: 82
+    commit: e7ae2c7ac0c1894f8b92d4b8753ba58aef542791
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jetbrains.space/d' ../build.gradle.kts
+
+  - versionName: 3.2.1
+    versionCode: 83
+    commit: 80820fd3166051ce99039e2de54f1f32df3f168a
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jetbrains.space/d' ../build.gradle.kts
+
+  - versionName: 3.2.2
+    versionCode: 84
+    commit: e38198305776e8366048fd1d264018dd7093f549
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jetbrains.space/d' ../build.gradle.kts
+
+  - versionName: 3.2.3
+    versionCode: 85
+    commit: d4912e708ea92fc70689cb393fcc79148dd4b459
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jetbrains.space/d' ../build.gradle.kts
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: android/build.gradle.kts|versionCode\s=\s(\d+)|build.gradle.kts|version\s=\s"([\d.]+)"
+CurrentVersion: 3.2.3
+CurrentVersionCode: 85

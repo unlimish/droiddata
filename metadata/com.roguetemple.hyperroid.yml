@@ -8,15 +8,15 @@ Donate: https://www.roguetemple.com/z/donate.php?id=HyperRogue
 
 AutoName: HyperRogue
 Description: |-
-    You are a lone outsider in a strange, non-Euclidean world. As a Rogue, your goal
-    is to collect as many treasures as possible. However, collecting treasures
-    attracts dangerous monsters (on the other hand, killing the monsters allows more
-    treasures to be generated).
+  You are a lone outsider in a strange, non-Euclidean world. As a Rogue, your goal
+  is to collect as many treasures as possible. However, collecting treasures
+  attracts dangerous monsters (on the other hand, killing the monsters allows more
+  treasures to be generated).
 
-    You can kill most monsters by moving into them. Similarly, if the monster was
-    next to you at the end of your turn, it would kill you. The game protects you
-    from getting yourself killed accidentally by ignoring moves which lead to
-    instant death (similar to the check rule from Chess).
+  You can kill most monsters by moving into them. Similarly, if the monster was
+  next to you at the end of your turn, it would kill you. The game protects you
+  from getting yourself killed accidentally by ignoring moves which lead to
+  instant death (similar to the check rule from Chess).
 
 RepoType: git
 Repo: https://github.com/zenorogue/hyperrogue.git
@@ -74,24 +74,9 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
-        'arm64-v8a'/" build.gradle
+      'arm64-v8a'/" build.gradle
     scandelete:
       - hyper.exe
-    build:
-      - pushd ..
-      - bash copy.sh
-      - popd
-    ndk: r17b
-
-  - versionName: 10.4t
-    versionCode: 10420
-    disable: "error: use of undeclared identifier 'hashval'"
-    commit: 10.4t
-    subdir: hyperroid/app
-    gradle:
-      - yes
-    prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
-        'arm64-v8a'/" build.gradle
     build:
       - pushd ..
       - bash copy.sh
@@ -103,37 +88,101 @@ Builds:
     commit: v10.5e
     subdir: hyperroid/app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y g++
     gradle:
       - yes
     prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
-        'arm64-v8a'/" build.gradle
+      'arm64-v8a'/" build.gradle
     build:
       - pushd ..
       - bash copy.sh
       - popd
     ndk: r17b
 
-  - versionName: 11.3i
-    versionCode: 11309
-    disable: missing R.raw.palace, R.raw.caribbean, R.raw.ocean, R.raw.ivory
-    commit: v11.3l
+  - versionName: 12.0b
+    versionCode: 12020
+    commit: 2ef9268c012f4d5c2d3df07c7e474c6cf6e8fb14
     subdir: hyperroid/app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y g++
     gradle:
       - yes
     prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
-        'arm64-v8a'/" build.gradle
+      'arm64-v8a'/" build.gradle
     build:
       - pushd ..
       - bash copy.sh
       - popd
     ndk: r17c
 
-AutoUpdateMode: Version v%v
+  - versionName: 12.0c
+    versionCode: 12030
+    commit: 7fff0405a7806b5709fd311f15ef0b3d9a392450
+    subdir: hyperroid/app
+    sudo:
+      - apt-get update
+      - apt-get install -y g++
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
+      'arm64-v8a'/" build.gradle
+    build:
+      - pushd ..
+      - bash copy.sh
+      - popd
+    ndk: r17c
+
+  - versionName: 12.0d
+    versionCode: 12040
+    commit: 64f4f93966d581178709b0e9bfd8d077bbfdd61e
+    subdir: hyperroid/app
+    sudo:
+      - apt-get update
+      - apt-get install -y g++
+    gradle:
+      - yes
+    prebuild: sed -i -e "s/abiFilters .*/abiFilters 'x86', 'x86_64', 'armeabi-v7a',
+      'arm64-v8a'/" build.gradle
+    build:
+      - pushd ..
+      - bash copy.sh
+      - popd
+    ndk: r17c
+
+  - versionName: 12.0u
+    versionCode: 12070
+    commit: 0bcf2ca0abdc8693fd69e38435ec15121fb59353
+    subdir: hyperroid/app
+    sudo:
+      - apt-get update
+      - apt-get install -y g++ libsdl1.2-dev libsdl-ttf2.0-dev libsdl-gfx1.2-dev libsdl-mixer1.2-dev
+        libglew-dev libpng-dev
+    gradle:
+      - yes
+    build:
+      - cd ..
+      - bash copy.sh
+    ndk: r21e
+
+  - versionName: 13.0a
+    versionCode: 13001
+    disable: https://github.com/zenorogue/hyperrogue/issues/286
+    commit: 51f59cc2facc800cbae75fa9c1027025b4db2eb4
+    subdir: hyperroid/app
+    sudo:
+      - apt-get update
+      - apt-get install -y g++ libsdl1.2-dev libsdl-ttf2.0-dev libsdl-gfx1.2-dev libsdl-mixer1.2-dev
+        libglew-dev libpng-dev
+    gradle:
+      - yes
+    build:
+      - cd ..
+      - bash copy.sh
+    ndk: r21e
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 11.3i
-CurrentVersionCode: 11309
+CurrentVersion: 13.0a
+CurrentVersionCode: 13001

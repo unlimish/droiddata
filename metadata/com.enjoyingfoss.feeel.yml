@@ -1,14 +1,14 @@
 Categories:
   - Sports & Health
-License: GPL-3.0-only
+License: AGPL-3.0-or-later
 AuthorName: Enjoying FOSS
 AuthorEmail: contact.mirek@protonmail.com
 WebSite: https://gitlab.com/enjoyingfoss/feeel/wikis
 SourceCode: https://gitlab.com/enjoyingfoss/feeel
 IssueTracker: https://gitlab.com/enjoyingfoss/feeel/issues
-Translation: https://www.transifex.com/feeel/feeel/
+Translation: https://hosted.weblate.org/projects/feeel/
 Changelog: https://gitlab.com/enjoyingfoss/feeel/tags
-LiberapayID: '30709'
+Liberapay: Feeel
 
 AutoName: Feeel
 
@@ -77,7 +77,7 @@ Builds:
     srclibs:
       - flutter@1.25.0-8.1.pre
     prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
-        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+      { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --no-sound-null-safety
@@ -89,13 +89,86 @@ Builds:
     srclibs:
       - flutter@1.25.0-8.1.pre
     prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
-        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+      { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --no-sound-null-safety
 
-AutoUpdateMode: Version %v
-UpdateCheckMode: HTTP
-UpdateCheckData: https://gitlab.com/enjoyingfoss/feeel/-/raw/master/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 2.0.1
-CurrentVersionCode: 12
+  - versionName: 2.0.2
+    versionCode: 13
+    commit: 2.0.2
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@2.0.3
+    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
+      { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk --no-sound-null-safety
+
+  - versionName: 2.1.5
+    versionCode: 4014
+    commit: 2.1.5
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.0
+    prebuild: sed -i -e '/splits/,/^}/d' android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.2.0
+    versionCode: 4015
+    commit: 9477ef774eb1ced0cc11fe85ef1323a3a2ff2c88
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.0
+    prebuild: sed -i -e '/splits/,/^}/d' android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.3.0
+    versionCode: 4016
+    commit: e1030ba87fe09f7e9d99fa703bc6f2ba710d2646
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.3
+    prebuild: sed -i -e '/splits/,/^}/d' android/app/build.gradle
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.4.0
+    versionCode: 4240
+    commit: 9571f3ed3cfed5762c2b1b34121e7d69c94ec60c
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.3.7
+    rm:
+      - ios
+      - linux
+      - macos
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.4.1
+    versionCode: 4241
+    commit: 2e6b2c37bba4a533c5a9b6d0aad99df935ac1420
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.3.7
+    rm:
+      - ios
+      - linux
+      - macos
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 2.4.1
+CurrentVersionCode: 4241

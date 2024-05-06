@@ -6,21 +6,12 @@ AuthorWebSite: https://billthefarmer.github.io/
 WebSite: https://github.com/billthefarmer/accordion/wiki
 SourceCode: https://github.com/billthefarmer/accordion
 IssueTracker: https://github.com/billthefarmer/accordion/issues
+Changelog: https://github.com/billthefarmer/accordion/releases
 
 AutoName: Accordion
-Description: |-
-    Emulates a three row diatonic or continental chromatic accordion. There is a
-    choice of midi instruments and keys, including C System and B System.
-
-    * Keys: F/Bb/Eb, G/C/F, A/D/G, C#/D/G, B/C/C#, C System, B System
-    * Instruments: Standard midi set, defaults to accordion
-    * Choice of one standard 31 button Hohner layout and two 25 button layouts
-    * Choice of fascia images
-
-    Uses undocumented built in Sonivox midi synthesizer for midi audio output.
 
 RepoType: git
-Repo: https://github.com/billthefarmer/accordion
+Repo: https://github.com/billthefarmer/accordion.git
 
 Builds:
   - versionName: '1.01'
@@ -177,7 +168,53 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: '1.18'
+    versionCode: 118
+    commit: 27186e36addf822d84c42ab30136dc5886525859
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.19'
+    versionCode: 119
+    commit: 50f042f3b76c667a8e9618860d0187cf6df1b475
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.20'
+    versionCode: 120
+    commit: 0466f62609e10d6cd72de2e569171914b8b8a7cc
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.21'
+    versionCode: 121
+    commit: ef62a5aa132ecc82e1d295dd29a061e968fd7ed2
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.22'
+    versionCode: 122
+    commit: 6451a217fa7edb9f1b5fcc26b3ae4e58f5a7770a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.17'
-CurrentVersionCode: 117
+CurrentVersion: '1.22'
+CurrentVersionCode: 122

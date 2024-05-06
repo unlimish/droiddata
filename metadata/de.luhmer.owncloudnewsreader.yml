@@ -7,23 +7,6 @@ Translation: https://www.transifex.com/nextcloud/nextcloud/
 Changelog: https://github.com/nextcloud/news-android/blob/HEAD/CHANGELOG.md
 
 AutoName: News
-Description: |-
-    The <a href="https://github.com/nextcloud/news-android">Nextcloud News Reader App</a> makes
-    it possible to synchronize feeds between Android and the Nextcloud/ownCloud News
-    App and let’s you read RSS feeds on the go.
-
-    '''Features:'''
-
-    * Offline reading
-    * Cache images offline
-    * Background synchronization
-    * Customizable Listview
-    * Mark as read while scrolling
-    * Dark/Light Theme
-    * Customizable font
-    * Widget
-    * Pull-To-Refresh
-    * and many more!
 
 RepoType: git
 Repo: https://github.com/nextcloud/news-android.git
@@ -84,18 +67,6 @@ Builds:
       - sed -i 's@\(android.library.reference.2=\).*@\1$$PullToRefresh$$@' project.properties
       - cp libs/android-support-v4.jar $$ActionBarSherlock$$/libs/
 
-  - versionName: 0.4.10
-    versionCode: 33
-    disable: missing libs 0.4.10
-    commit: unknown - see disabled
-    srclibs:
-      - ActionBarSherlock@4.4.0
-      - PullToRefresh@319024754481f23e
-    prebuild:
-      - echo "android.library.reference.1=$$ActionBarSherlock$$" >> project.properties
-      - echo "android.library.reference.2=$$PullToRefresh$$" >> project.properties
-      - cp libs/android-support-v4.jar $$ActionBarSherlock$$/libs/
-
   - versionName: 0.5.2
     versionCode: 37
     commit: 0.5.2
@@ -124,11 +95,11 @@ Builds:
     versionCode: 39
     commit: v0.5.4
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:PullToRefresh@319024754481f23e
-      - 3:AppRater@v1.0.8
-      - 4:ChangeLog@v1.3.0
-      - 5:MessageBar@8c0068385a
+      - ActionBarSherlock@4.4.0
+      - PullToRefresh@319024754481f23e
+      - AppRater@v1.0.8
+      - ChangeLog@v1.3.0
+      - MessageBar@8c0068385a
     prebuild:
       - (cd $$ChangeLog$$
       - echo -e 'android.library=true\ntarget=android-18' > project.properties
@@ -138,11 +109,6 @@ Builds:
       - mv old/main/AndroidManifest.xml .
       - $$SDK$$/tools/android update project -p .)
       - cp libs/android-support-v4.jar $$ActionBarSherlock$$/libs/
-
-  - versionName: 0.5.5
-    versionCode: 40
-    disable: beta
-    commit: v0.5.5
 
   - versionName: 0.5.8
     versionCode: 43
@@ -170,34 +136,6 @@ Builds:
       - yes
     rm:
       - News-Android-App/src/main/libs/gson-*-*.jar
-
-  - versionName: 0.6.9.5
-    versionCode: 59
-    disable: beta
-
-  - versionName: 0.7.1
-    versionCode: 65
-    disable: broken on bs
-    commit: 926a5dc5d42eb97b2dbe857750c57070662fd3ab
-    subdir: News-Android-App
-    submodules: true
-    gradle:
-      - yes
-    rm:
-      - News-Android-App/src/main/libs/*jar
-    prebuild:
-      - sed -i -e '/src\/main\/libs/d' -e '$d' build.gradle
-      - echo -e "    compile 'org.jsoup:jsoup:1.7.2'\n    compile 'com.google.code.gson:gson:2.2.4'\n}"
-        >> build.gradle
-      - sed -i -e '/MIN_SDK/d' ../gradle.properties
-      - echo -e "\nANDROID_BUILD_MIN_SDK_VERSION=11\nMIN_SDK=11" >> ../gradle.properties
-      - cat ../gradle.properties
-    build:
-      - pushd ../ShowcaseView/library
-      - gradle assembleRelease
-      - mv build/outputs/aar/library-50101.aar build/outputs/aar/library.aar
-      - popd
-      - gradle build
 
   - versionName: 0.7.4
     versionCode: 68
@@ -243,8 +181,8 @@ Builds:
     subdir: News-Android-App
     submodules: true
     init: sed -i -e '/ANDROID_BUILD_TOOLS_VERSION/d' -e '/ANDROID_BUILD_SDK_VERSION/abuildToolsVersion
-        "21"' build.gradle ../ownCloud-Account-Importer/build.gradle ../MessageBar/build.gradle
-        ../Changeloglib/ChangeLogLibrary/build.gradle
+      "21"' build.gradle ../ownCloud-Account-Importer/build.gradle ../MessageBar/build.gradle
+      ../Changeloglib/ChangeLogLibrary/build.gradle
     gradle:
       - yes
     rm:
@@ -264,8 +202,8 @@ Builds:
     subdir: News-Android-App
     submodules: true
     init: sed -i -e '/ANDROID_BUILD_TOOLS_VERSION/d' -e '/ANDROID_BUILD_SDK_VERSION/abuildToolsVersion
-        "21"' build.gradle ../ownCloud-Account-Importer/build.gradle ../MessageBar/build.gradle
-        ../Changeloglib/ChangeLogLibrary/build.gradle
+      "21"' build.gradle ../ownCloud-Account-Importer/build.gradle ../MessageBar/build.gradle
+      ../Changeloglib/ChangeLogLibrary/build.gradle
     gradle:
       - yes
     rm:
@@ -413,25 +351,6 @@ Builds:
       - sed -i -e '/MIN_SDK/d' ../gradle.properties
       - echo -e "\nANDROID_BUILD_MIN_SDK_VERSION=11\nMIN_SDK=11" >> ../gradle.properties
 
-  - versionName: 0.9.4
-    versionCode: 87
-    disable: crashes (fixed in 0.9.5)
-    commit: b9c885eb20732331f7c5081004f39a26f9fd6db5
-    subdir: News-Android-App
-    submodules: true
-    init:
-      - sed -i -e '/ANDROID_BUILD_TOOLS_VERSION/d' -e '/ANDROID_BUILD_SDK_VERSION/abuildToolsVersion
-        "21"' build.gradle ../ownCloud-Account-Importer/build.gradle ../Changeloglib/ChangeLogLibrary/build.gradle
-      - sed -i 's;BUILD_TOOLS_VERSION;"21";' ../ShowcaseView/library/build.gradle
-      - sed -i 's/runProguard false/minifyEnabled false/g' ../ownCloud-Account-Importer/build.gradle
-    gradle:
-      - yes
-    prebuild:
-      - sed -i -e "/freemarker/acompile 'org.jsoup:jsoup:1.7.2'\ncompile 'com.google.code.gson:gson:2.2.4'"
-        build.gradle
-      - sed -i -e '/MIN_SDK/d' ../gradle.properties
-      - echo -e "\nANDROID_BUILD_MIN_SDK_VERSION=11\nMIN_SDK=11" >> ../gradle.properties
-
   - versionName: 0.9.5.2
     versionCode: 90
     commit: v.0.9.5.2
@@ -446,7 +365,7 @@ Builds:
     subdir: News-Android-App
     submodules: true
     init: sed -i -e '/ANDROID_BUILD_TOOLS_VERSION/d' -e '/ANDROID_BUILD_SDK_VERSION/abuildToolsVersion
-        "24"' build.gradle ../ownCloud-Account-Importer/build.gradle ../Changeloglib/ChangeLogLibrary/build.gradle
+      "24"' build.gradle ../ownCloud-Account-Importer/build.gradle ../Changeloglib/ChangeLogLibrary/build.gradle
     gradle:
       - yes
 
@@ -456,7 +375,7 @@ Builds:
     subdir: News-Android-App
     submodules: true
     init: sed -i -e '/ANDROID_BUILD_TOOLS_VERSION/d' -e '/ANDROID_BUILD_SDK_VERSION/abuildToolsVersion
-        "24"' build.gradle ../ownCloud-Account-Importer/build.gradle ../Changeloglib/ChangeLogLibrary/build.gradle
+      "24"' build.gradle ../ownCloud-Account-Importer/build.gradle ../Changeloglib/ChangeLogLibrary/build.gradle
     gradle:
       - yes
 
@@ -466,7 +385,7 @@ Builds:
     subdir: News-Android-App
     submodules: true
     init: sed -i -e '/ANDROID_BUILD_TOOLS_VERSION/d' -e '/ANDROID_BUILD_SDK_VERSION/abuildToolsVersion
-        "24"' build.gradle ../ownCloud-Account-Importer/build.gradle ../Changeloglib/ChangeLogLibrary/build.gradle
+      "24"' build.gradle ../ownCloud-Account-Importer/build.gradle ../Changeloglib/ChangeLogLibrary/build.gradle
     gradle:
       - yes
 
@@ -481,15 +400,6 @@ Builds:
   - versionName: 0.9.7.3
     versionCode: 100
     commit: v.0.9.7.3
-    subdir: News-Android-App
-    submodules: true
-    gradle:
-      - yes
-
-  - versionName: 0.9.7.5
-    versionCode: 102
-    disable: untrusted maven repo
-    commit: v.0.9.7.5
     subdir: News-Android-App
     submodules: true
     gradle:
@@ -518,7 +428,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -546,7 +456,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -574,7 +484,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -602,7 +512,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -630,7 +540,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -658,7 +568,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -686,7 +596,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -714,7 +624,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -742,7 +652,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -770,7 +680,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -798,36 +708,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
-      - popd
-      - mkdir libs
-      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
-
-  - versionName: 0.9.9.4
-    versionCode: 116
-    disable: youtube jar, see https://github.com/owncloud/News-Android-App/issues/551
-    commit: v.0.9.9.4
-    subdir: News-Android-App
-    submodules: true
-    init:
-      - sed -i -e '/com.nbsp:library/d' build.gradle
-      - sed -i -e '/com.gu:option/d' build.gradle
-      - sed -i -e '/maven { url/d' build.gradle
-      - sed -i "/repositories {/a flatDir { dirs 'libs' }" build.gradle
-      - sed -i "/dependencies {/a compile project(':MaterialFilePicker:library')"
-        build.gradle
-      - sed -i "$ ainclude ':MaterialFilePicker:library'" ../settings.gradle
-    gradle:
-      - yes
-    srclibs:
-      - MaterialFilePicker@6817d91
-      - JavaOptionClass@e933c3a
-    prebuild:
-      - rm -rf $$MaterialFilePicker$$/app
-      - cp -r $$MaterialFilePicker$$ ../
-      - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
-      - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -855,7 +736,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -883,7 +764,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -912,7 +793,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -943,7 +824,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -972,7 +853,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1001,38 +882,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
-      - popd
-      - mkdir libs
-      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
-
-  - versionName: 0.9.9.15
-    versionCode: 129
-    disable: 'error: YoutubePlaybackService is not abstract and does not override
-        abstract method playbackSpeedChanged(float) in PlaybackService'
-    commit: v.0.9.9.15
-    subdir: News-Android-App
-    submodules: true
-    init:
-      - sed -i -e '/com.nbsp:library/d' build.gradle
-      - sed -i -e '/com.gu:option/d' build.gradle
-      - sed -i -e '/maven { url/d' build.gradle
-      - sed -i -e '/signingConfigs {/,+3d' build.gradle
-      - sed -i "/repositories {/a flatDir { dirs 'libs' }" build.gradle
-      - sed -i "/dependencies {/a compile project(':MaterialFilePicker:library')"
-        build.gradle
-      - sed -i "$ ainclude ':MaterialFilePicker:library'" ../settings.gradle
-    gradle:
-      - oss
-    srclibs:
-      - MaterialFilePicker@13920fc
-      - JavaOptionClass@e933c3a
-    prebuild:
-      - rm -rf $$MaterialFilePicker$$/app
-      - cp -r $$MaterialFilePicker$$ ../
-      - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
-      - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1061,37 +911,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
-      - popd
-      - mkdir libs
-      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
-
-  - versionName: 0.9.9.18
-    versionCode: 133
-    disable: No url found for submodule path 'ownCloud-Account-Importer' in .gitmodules
-    commit: v.0.9.9.18
-    subdir: News-Android-App
-    submodules: true
-    init:
-      - sed -i -e '/com.nbsp:library/d' build.gradle
-      - sed -i -e '/com.gu:option/d' build.gradle
-      - sed -i -e '/maven { url/d' build.gradle
-      - sed -i -e '/signingConfigs {/,+3d' build.gradle
-      - sed -i "/repositories {/a flatDir { dirs 'libs' }" build.gradle
-      - sed -i "/dependencies {/a compile project(':MaterialFilePicker:library')"
-        build.gradle
-      - sed -i "$ ainclude ':MaterialFilePicker:library'" ../settings.gradle
-    gradle:
-      - oss
-    srclibs:
-      - MaterialFilePicker@13920fc
-      - JavaOptionClass@e933c3a
-    prebuild:
-      - rm -rf $$MaterialFilePicker$$/app
-      - cp -r $$MaterialFilePicker$$ ../
-      - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
-      - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1120,7 +940,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1149,7 +969,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1177,7 +997,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1205,7 +1025,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1233,7 +1053,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1261,65 +1081,7 @@ Builds:
       - cp -r $$MaterialFilePicker$$ ../
       - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
-      - popd
-      - mkdir libs
-      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
-
-  - versionName: 0.9.9.26
-    versionCode: 142
-    disable: Could not find com.github.nextcloud:Android-SingleSignOn:fix-account-not-found-SNAPSHOT
-    commit: v.0.9.9.26
-    subdir: News-Android-App
-    init:
-      - sed -i -e '/com.nbsp:library/d' build.gradle
-      - sed -i -e '/com.gu:option/d' build.gradle
-      - sed -i -e '/guardian.github.com/d; /dl.bintray.com/d' build.gradle
-      - sed -i -e '/signingConfigs {/,+3d' build.gradle
-      - sed -i "/repositories {/a\    flatDir { dirs 'libs' }" build.gradle
-      - sed -i "/dependencies {/a\    compile project(':MaterialFilePicker:library')"
-        build.gradle
-      - sed -i "$ ainclude ':MaterialFilePicker:library'" ../settings.gradle
-    gradle:
-      - oss
-    srclibs:
-      - MaterialFilePicker@13920fc
-      - JavaOptionClass@e933c3a
-    prebuild:
-      - rm -rf $$MaterialFilePicker$$/app
-      - cp -r $$MaterialFilePicker$$ ../
-      - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
-      - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
-      - popd
-      - mkdir libs
-      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
-
-  - versionName: 0.9.9.31
-    versionCode: 150
-    disable: fails to build
-    commit: v.0.9.9.31
-    subdir: News-Android-App
-    init:
-      - sed -i -e '/com.nbsp:library/d' build.gradle
-      - sed -i -e '/com.gu:option/d' build.gradle
-      - sed -i -e '/guardian.github.com/d; /dl.bintray.com/d' build.gradle
-      - sed -i -e '/signingConfigs {/,+3d' build.gradle
-      - sed -i "/repositories {/a\    flatDir { dirs 'libs' }" build.gradle
-      - sed -i "/dependencies {/a\    compile project(':MaterialFilePicker:library')"
-        build.gradle
-      - sed -i "$ ainclude ':MaterialFilePicker:library'" ../settings.gradle
-    gradle:
-      - oss
-    srclibs:
-      - MaterialFilePicker@13920fc
-      - JavaOptionClass@e933c3a
-    prebuild:
-      - rm -rf $$MaterialFilePicker$$/app
-      - cp -r $$MaterialFilePicker$$ ../
-      - sed -i -e '/apply from/d' ../MaterialFilePicker/library/build.gradle
-      - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1348,7 +1110,7 @@ Builds:
       - gradle assembleRelease
       - popd
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1378,7 +1140,7 @@ Builds:
       - gradle assembleRelease
       - popd
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1408,7 +1170,7 @@ Builds:
       - gradle assembleRelease
       - popd
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1441,7 +1203,7 @@ Builds:
       - gradle assembleRelease
       - popd
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1474,7 +1236,7 @@ Builds:
       - gradle assembleRelease
       - popd
       - pushd $$JavaOptionClass$$
-      - $$MVN3$$ package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
       - popd
       - mkdir libs
       - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
@@ -1483,11 +1245,527 @@ Builds:
       - News-Android-App/libs/MaterialFilePicker-1.8.aar
       - News-Android-App/libs/option-1.3.jar
 
-MaintainerNotes: |-
-    MaterialShowcaseView/build.gradle misses the google() repo but it's specified at top level.
-    So deleting this file prevents it from overriding the top level one.
+  - versionName: 0.9.9.60
+    versionCode: 163
+    commit: v.0.9.9.60
+    subdir: News-Android-App
+    init:
+      - sed -i -e '/com.nbsp:library/d' build.gradle
+      - sed -i -e '/com.gu:option/d' build.gradle
+      - sed -i -e '/guardian.github.com/d; /dl.bintray.com/d' build.gradle
+      - sed -i -e '/signingConfigs {/,+3d' build.gradle
+      - sed -i "/repositories {/a\    flatDir { dirs 'libs' }" build.gradle
+      - sed -i "/dependencies {/a\    implementation(name:'MaterialFilePicker-1.8',
+        ext:'aar')" build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - MaterialFilePicker@7f3679f
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - rm -rf $$MaterialFilePicker$$/app
+      - pushd $$MaterialFilePicker$$/library
+      - sed -i -e '/apply from/d' build.gradle
+      - gradle assembleRelease
+      - popd
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+      - mv $$MaterialFilePicker$$/library/build/outputs/aar/library-release.aar libs/MaterialFilePicker-1.8.aar
+    scanignore:
+      - News-Android-App/libs/MaterialFilePicker-1.8.aar
+      - News-Android-App/libs/option-1.3.jar
 
-AutoUpdateMode: Version v.%v
+  - versionName: 0.9.9.61
+    versionCode: 164
+    commit: v.0.9.9.61
+    subdir: News-Android-App
+    init:
+      - sed -i -e '/com.nbsp:library/d' build.gradle
+      - sed -i -e '/com.gu:option/d' build.gradle
+      - sed -i -e '/guardian.github.com/d; /dl.bintray.com/d' build.gradle
+      - sed -i -e '/signingConfigs {/,+3d' build.gradle
+      - sed -i "/repositories {/a\    flatDir { dirs 'libs' }" build.gradle
+      - sed -i "/dependencies {/a\    implementation(name:'MaterialFilePicker-1.8',
+        ext:'aar')" build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - MaterialFilePicker@7f3679f
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - rm -rf $$MaterialFilePicker$$/app
+      - pushd $$MaterialFilePicker$$/library
+      - sed -i -e '/apply from/d' build.gradle
+      - gradle assembleRelease
+      - popd
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+      - mv $$MaterialFilePicker$$/library/build/outputs/aar/library-release.aar libs/MaterialFilePicker-1.8.aar
+    scanignore:
+      - News-Android-App/libs/MaterialFilePicker-1.8.aar
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.62
+    versionCode: 165
+    commit: c2d97f496d6fcdfec13d56620c8e27d7aed5417f
+    subdir: News-Android-App
+    init:
+      - sed -i -e '/com.nbsp:library/d' build.gradle
+      - sed -i -e '/com.gu:option/d' build.gradle
+      - sed -i -e '/guardian.github.com/d; /dl.bintray.com/d' build.gradle
+      - sed -i -e '/signingConfigs {/,+3d' build.gradle
+      - sed -i "/repositories {/a\    flatDir { dirs 'libs' }" build.gradle
+      - sed -i "/dependencies {/a\    implementation(name:'MaterialFilePicker-1.8',
+        ext:'aar')" build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - MaterialFilePicker@7f3679f
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - rm -rf $$MaterialFilePicker$$/app
+      - pushd $$MaterialFilePicker$$/library
+      - sed -i -e '/apply from/d' build.gradle
+      - gradle assembleRelease
+      - popd
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+      - mv $$MaterialFilePicker$$/library/build/outputs/aar/library-release.aar libs/MaterialFilePicker-1.8.aar
+    scanignore:
+      - News-Android-App/libs/MaterialFilePicker-1.8.aar
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.63
+    versionCode: 166
+    commit: f922eccbb66539c481b8c2f6ca6ca796c6e41470
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.64
+    versionCode: 167
+    commit: 2547e36a8d7146a7a987eafe2ade6446c425a99a
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.65
+    versionCode: 168
+    commit: f7831fa5d869b47b5148c726feb3164f022faa2c
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.66
+    versionCode: 169
+    commit: f8270fb3132d8848a0ea1d4a7203f25af82bc1c0
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.67
+    versionCode: 170
+    commit: 9700aaca3a1ee4600abc1da6828729284fc08cd4
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.68
+    versionCode: 171
+    commit: 3bc696a2aa164f647a7a543164076f1b9f1d76ca
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.69
+    versionCode: 172
+    commit: 0f2f138e43115cd9f74b731d41581639f0cebdd2
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.71
+    versionCode: 174
+    commit: 6cafa462a5bc314cdf373b4c796b99d437e72c3f
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.72
+    versionCode: 175
+    commit: 082072ff7c99a609d76df37d943d546142bfc82f
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.73
+    versionCode: 176
+    commit: 45e1d7cab5dd5829a4d96d974d4c369d5292ee75
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.74
+    versionCode: 177
+    commit: 0f17eb3be21930b576619a567c042b408ea5da19
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.76
+    versionCode: 179
+    commit: f4897312a2bf87d7136f2d33ba8d5ca454153eca
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a
+    prebuild:
+      - sed -i -e "/repositories {/a flatDir { dirs 'libs' }" -e '/guardian.github.io/d'
+        build.gradle
+      - pushd $$JavaOptionClass$$
+      - mvn package -Dmaven.compiler.source=1.6 -Dmaven.compiler.target=1.6 -DskipTests
+      - popd
+      - mkdir libs
+      - mv $$JavaOptionClass$$/target/option-1.3-SNAPSHOT.jar libs/option-1.3.jar
+    scanignore:
+      - News-Android-App/libs/option-1.3.jar
+
+  - versionName: 0.9.9.77
+    versionCode: 180
+    commit: bd3f8871d46adf2f41e4bc99a3d66aa1e7ddbbe8
+    subdir: News-Android-App
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a31d68b38130e8dc9cb007c7d975195148
+    prebuild:
+      - sed -i -e '/guardian.github.io/d' -e '/dirchooser/a exclude group:"com.gu",
+        module:"option"' build.gradle
+      - cp -a $$JavaOptionClass$$/src/ src/
+
+  - versionName: 0.9.9.78
+    versionCode: 181
+    commit: 76e2f08448342b9e68b440810975d103917c2def
+    subdir: News-Android-App
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a31d68b38130e8dc9cb007c7d975195148
+    prebuild:
+      - sed -i -e '/guardian.github.io/d' -e '/dirchooser/a exclude group:"com.gu",
+        module:"option"' build.gradle
+      - cp -a $$JavaOptionClass$$/src/ src/
+
+  - versionName: 0.9.9.79
+    versionCode: 183
+    commit: 9084ac889f9465293f31cebff2d85d608d079b22
+    subdir: News-Android-App
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a31d68b38130e8dc9cb007c7d975195148
+    prebuild:
+      - sed -i -e '/guardian.github.io/d' -e '/dirchooser/a exclude group:"com.gu",
+        module:"option"' build.gradle
+      - cp -a $$JavaOptionClass$$/src/ src/
+
+  - versionName: 0.9.9.81
+    versionCode: 185
+    commit: 67e39539ff8f91a72e2a05a4494676248033cb36
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a31d68b38130e8dc9cb007c7d975195148
+    prebuild:
+      - sed -i -e '/guardian.github.io/d' -e '/dirchooser/a exclude group:"com.gu",
+        module:"option"' build.gradle
+      - cp -a $$JavaOptionClass$$/src/ src/
+      - sed -i -e '/com.gu.option/s/#-keep class/-dontwarn/g' proguard-rules.pro
+
+  - versionName: 0.9.9.82
+    versionCode: 186
+    commit: 0e8e3c150bce16f56f0246b44bed21ab1ceaa252
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a31d68b38130e8dc9cb007c7d975195148
+    prebuild:
+      - sed -i -e '/guardian.github.io/d' -e '/dirchooser/a exclude group:"com.gu",
+        module:"option"' build.gradle
+      - cp -a $$JavaOptionClass$$/src/ src/
+      - sed -i -e '/com.gu.option/s/#-keep class/-dontwarn/g' proguard-rules.pro
+
+  - versionName: 0.9.9.83
+    versionCode: 187
+    commit: b23cf2a9eb7fbefeba0891e3b85f2257a26da4b6
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a31d68b38130e8dc9cb007c7d975195148
+    prebuild:
+      - sed -i -e '/guardian.github.io/d' -e '/dirchooser/a exclude group:"com.gu",
+        module:"option"' build.gradle
+      - cp -a $$JavaOptionClass$$/src/ src/
+      - sed -i -e '/com.gu.option/s/#-keep class/-dontwarn/g' proguard-rules.pro
+
+  - versionName: 0.9.9.84
+    versionCode: 188
+    commit: 1c05c70e772c5f4485a940b5b925db6d6ccebbeb
+    subdir: News-Android-App
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a31d68b38130e8dc9cb007c7d975195148
+    prebuild:
+      - sed -i -e '/guardian.github.io/d' -e '/dirchooser/a exclude group:"com.gu",
+        module:"option"' build.gradle
+      - cp -a $$JavaOptionClass$$/src/ src/
+      - sed -i -e '/com.gu.option/s/#-keep class/-dontwarn/g' proguard-rules.pro
+
+  - versionName: 0.9.9.90
+    versionCode: 191
+    commit: d7780d8b1ae3290efe331da80c7d89d2e91d94af
+    subdir: News-Android-App
+    init: sed -i -e '/signingConfigs {/d' build.gradle
+    gradle:
+      - oss
+    srclibs:
+      - JavaOptionClass@e933c3a31d68b38130e8dc9cb007c7d975195148
+    prebuild:
+      - sed -i -e '/guardian.github.io/d' -e '/dirchooser/a exclude group:"com.gu",
+        module:"option"' build.gradle
+      - cp -a $$JavaOptionClass$$/src/ src/
+      - sed -i -e '/com.gu.option/s/#-keep class/-dontwarn/g' proguard-rules.pro
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 0.9.9.50
-CurrentVersionCode: 158
+CurrentVersion: 0.9.9.90
+CurrentVersionCode: 191

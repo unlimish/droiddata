@@ -2,17 +2,16 @@ Categories:
   - Writing
 License: GPL-3.0-only
 SourceCode: https://github.com/caarmen/poet-assistant
-IssueTracker: https://github.com/caarmen/poet-assistant/issues
 Changelog: https://github.com/caarmen/poet-assistant/blob/HEAD/CHANGELOG.md
 
 AutoName: Poet Assistant
 Description: |-
-    A set of tools to help with writing poems:
+  A set of tools to help with writing poems:
 
-    * a rhyming dictionary, using the Carnegie Mellon University pronunciation dictionary.
-    * a thesaurus, using the WordNet thesaurus.
-    * a dictionary, using the WordNet dictionary.
-    * a screen where you can enter your poem text, and have it read aloud back to you by the device's text-to-speech engine.
+  * a rhyming dictionary, using the Carnegie Mellon University pronunciation dictionary.
+  * a thesaurus, using the WordNet thesaurus.
+  * a dictionary, using the WordNet dictionary.
+  * a screen where you can enter your poem text, and have it read aloud back to you by the device's text-to-speech engine.
 
 RepoType: git
 Repo: https://github.com/caarmen/poet-assistant.git
@@ -305,38 +304,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 1.12.0
-    versionCode: 11200
-    disable: dao session issue
-    commit: release-1.12.0
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 1.13.0
-    versionCode: 11300
-    disable: dao session issue
-    commit: release-1.13.0
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 1.13.1
-    versionCode: 11301
-    disable: dao session issue
-    commit: release-1.13.1
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 1.13.2
-    versionCode: 11302
-    disable: dao session issue
-    commit: release-1.13.2
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 1.14.0
     versionCode: 11400
     commit: release-1.14.0
@@ -568,7 +535,25 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version release-%v
+  - versionName: 1.30.5
+    versionCode: 113005
+    commit: bf75b4f4877c3172731cf152b67b3d9c25edc0f4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.30.6
+    versionCode: 113006
+    commit: c0b2649aa0f13d7848a76fa5c2cb0d0006387315
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^release-
-CurrentVersion: 1.30.3
-CurrentVersionCode: 113003
+CurrentVersion: 1.30.6
+CurrentVersionCode: 113006

@@ -70,14 +70,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: '0.4'
-    versionCode: 9
-    disable: lintVitalRelease fails
-    commit: '0.4'
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 0.4.1
     versionCode: 10
     commit: 0.4.1
@@ -155,7 +147,54 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: 0.7.3
+    versionCode: 21
+    commit: 0.7.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.7.4
+    versionCode: 22
+    commit: 193eb2d7c627e87760a5f822b9e0841b6c5b1fbf
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.8.0
+    versionCode: 23
+    commit: edcc2f5318c5ada970bf2b25461dd422cd0df8a6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.8.1
+    versionCode: 24
+    commit: b7edce9f6c6bb2721f5c6b5fa6e5206f3ade6968
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.8.2
+    versionCode: 25
+    commit: f73d304ca23c459f6cae35f390e531f4fd52304a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 0.7.2
-CurrentVersionCode: 20
+CurrentVersion: 0.8.2
+CurrentVersionCode: 25

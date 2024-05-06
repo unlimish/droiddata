@@ -9,8 +9,8 @@ IssueTracker: https://github.com/sensebox/blockly-app/issues
 
 AutoName: Blockly for senseBox
 Description: Blockly for senseBox is a visual programming editor for the senseBox:edu
-    on mobile. It is based on Google's Blockly and Carlos Pereira Atencio's Ardublockly.
-    Compiled code is uploaded directly onto the MCU via WiFi.
+  on mobile. It is based on Google's Blockly and Carlos Pereira Atencio's Ardublockly.
+  Compiled code is uploaded directly onto the MCU via WiFi.
 
 RepoType: git
 Repo: https://github.com/sensebox/blockly-app
@@ -21,7 +21,7 @@ Builds:
     commit: v1.1.2
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y -t stretch-backports npm
     output: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
     build:
@@ -37,8 +37,7 @@ Builds:
 MaintainerNotes: This is an Ionic 3 / Cordova app, built from source.
 
 AutoUpdateMode: None
-UpdateCheckMode: HTTP
-UpdateCheckIgnore: alpha
-UpdateCheckData: https://raw.githubusercontent.com/sensebox/blockly-app/master/config.xml|android-versionCode=\"([^\"]+)\"|https://raw.githubusercontent.com/sensebox/blockly-app/master/config.xml|version=\"([^\"]+)\"
+UpdateCheckMode: Tags
+UpdateCheckData: config.xml|android-versionCode=\"(\d+)\"|.|version=\"([^\"]+)\"
 CurrentVersion: 1.1.4
 CurrentVersionCode: 10104

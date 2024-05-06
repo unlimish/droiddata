@@ -11,19 +11,6 @@ RepoType: git
 Repo: https://github.com/domoritz/open-mensa-android.git
 
 Builds:
-  - versionName: '0.4'
-    versionCode: 4
-    disable: Build fails
-    commit: 39179db03aed6ed61e51256247ec4b71bfefa6a2
-    srclibs:
-      - ActionBarSherlock@4.2.0
-      - Google-Gson@gson-2.2.2
-    extlibs:
-      - android/android-support-v4.jar
-      - osmdroid/osmdroid-android-3.0.8.jar
-      - sl4j/slf4j-android-1.6.1-RC1.jar
-    prebuild: mv $$Google-Gson$$/src/main/java/com src
-
   - versionName: '0.6'
     versionCode: 6
     commit: 309182553aa05e
@@ -138,7 +125,40 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: 1.0.6
+    versionCode: 28
+    commit: 5e758907b2d7ef448246d2140f84450d245a2796
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.0.7
+    versionCode: 29
+    commit: f8448e2f9af425630efde130e676265fdf2e100d
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xms2048m -Xmx2048m -XX:MaxPermSize=2048m"
+      >> gradle.properties
+
+  - versionName: 1.1.0
+    versionCode: 30
+    commit: 22ad46170b0f10f877a781dd3a393a5d8386599f
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xms2048m -Xmx2048m -XX:MaxPermSize=2048m"
+      >> gradle.properties
+
+  - versionName: 1.1.1
+    versionCode: 31
+    commit: a411afa093c1942b24ccae8191a019cc4c4b9440
+    gradle:
+      - yes
+    prebuild: echo -e "\norg.gradle.jvmargs=-Xms2048m -Xmx2048m" >> gradle.properties
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.5
-CurrentVersionCode: 27
+CurrentVersion: 1.1.1
+CurrentVersionCode: 31

@@ -6,20 +6,20 @@ AuthorEmail: support@apps4av.org
 WebSite: https://apps4av.com/
 SourceCode: https://github.com/apps4av/avare
 IssueTracker: https://github.com/apps4av/avare/issues
-Donate: http://mamba.dreamhosters.com/donate.html
+Donate: https://mamba.dreamhosters.com/donate.html
 
 AutoName: Avare
 Description: |-
-    Avare (pronounced "AvAir") is a free moving aviation map. Basic features include
-    online or offline A/FD info, approach plates and GPS moving map on all FAA VFR
-    sectionals, WACs and TACs, plus IFR low charts and airport diagrams. Avare also
-    enables manual browsing of all charts and all other materials even without cell
-    service or GPS. Current FAA weather METARs, TAFs and TFRs are provided too.
+  Avare (pronounced "AvAir") is a free moving aviation map. Basic features include
+  online or offline A/FD info, approach plates and GPS moving map on all FAA VFR
+  sectionals, WACs and TACs, plus IFR low charts and airport diagrams. Avare also
+  enables manual browsing of all charts and all other materials even without cell
+  service or GPS. Current FAA weather METARs, TAFs and TFRs are provided too.
 
-    Notice: This is not an FAA certified GPS.
+  Notice: This is not an FAA certified GPS.
 
 RepoType: git
-Repo: https://github.com/apps4av/avare
+Repo: https://github.com/ninelima/avare
 
 Builds:
   - versionName: 5.7.1
@@ -183,23 +183,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 7.2.2
-    versionCode: 252
-    disable: play-services
-    commit: '?'
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 7.5.5
-    versionCode: 285
-    disable: play-services
-    commit: 81aa0b92011fa423e42c875db82d1721400b4da7
-    subdir: app
-    gradle:
-      - yes
-    prebuild: sed -i -e '/play-services/d' build.gradle
-
   - versionName: 9.0.2
     versionCode: 345
     commit: 55d71b2758e350437777f627d224c4820402b657
@@ -221,21 +204,46 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 10.0.6
+    versionCode: 356
+    commit: 5159519f14fe0b6ccd0cd8ce217f021e4a61cf36
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 10.0.7
+    versionCode: 357
+    commit: 6c8992f62f008820c8362163df5cd05e2a98514f
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 10.1.6
+    versionCode: 366
+    commit: FOSS_10.1.6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 MaintainerNotes: |-
-    Licensing info via https://github.com/apps4av/avare/issues/88:
-    All files have Apache style licenses on them. If any is missing a license
-    we will add when we find.
+  Licensing info via https://github.com/apps4av/avare/issues/88:
+  All files have Apache style licenses on them. If any is missing a license
+  we will add when we find.
 
-    License changed and now is FreeBSD/BSD-2clause as of:
-    https://github.com/apps4av/avare/commit/6f1d9829dd955658559020448a314bb60aa90361#diff-9879d6db96fd29134fc802214163b95a
+  License changed and now is FreeBSD/BSD-2clause as of:
+  https://github.com/apps4av/avare/commit/6f1d9829dd955658559020448a314bb60aa90361#diff-9879d6db96fd29134fc802214163b95a
 
-    7.0.x+ are using play-services, see https://github.com/apps4av/avare/issues/154.
+  7.0.x+ are using play-services, see https://github.com/apps4av/avare/issues/154.
 
-    9.0.5 no longer appear to use play-services.
+  9.0.5 no longer appear to use play-services.
 
-    .
+  .
 
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 10.0.3
-CurrentVersionCode: 353
+CurrentVersion: 10.1.6
+CurrentVersionCode: 366

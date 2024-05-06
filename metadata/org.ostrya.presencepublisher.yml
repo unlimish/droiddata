@@ -123,14 +123,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 2.2.1
-    versionCode: 31
-    disable: fails to build
-    commit: v2.2.1
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 2.2.3
     versionCode: 33
     commit: v2.2.3
@@ -171,7 +163,119 @@ Builds:
       - yes
     prebuild: sed -i -e '/signingConfig/d' build.gradle.kts
 
-AutoUpdateMode: Version v%v
+  - versionName: 2.2.9
+    versionCode: 40
+    commit: v2.2.9
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/signingConfig/d' build.gradle.kts
+
+  - versionName: 2.3.1
+    versionCode: 42
+    commit: 557b80eca7523dafa82b85bbd3bc4a82146562c2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/signingConfig/d' build.gradle.kts
+
+  - versionName: 2.3.2
+    versionCode: 43
+    commit: 6d058922545e3292174472c11659063bae2c3ab6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/signingConfig/d' build.gradle.kts
+
+  - versionName: 2.4.0-alpha
+    versionCode: 44
+    commit: cf5630708c779a0180dc505f1a5ca6e4e037a215
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/signingConfig/d' build.gradle.kts
+
+  - versionName: 2.4.1
+    versionCode: 46
+    commit: a9f0bf843aa1cc7967cb894fa444badc8e302f0a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/signingConfig/d' build.gradle.kts
+
+  - versionName: 2.4.2
+    versionCode: 47
+    commit: 01e4b19396cc6b0a4dcc1a2721f8fb6e444a788f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/signingConfig/d' build.gradle.kts
+
+  - versionName: 2.5.0
+    versionCode: 48
+    commit: 175819ca51ca464dfd451c06aa290cfc495a106f
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/signingConfig/d' build.gradle.kts
+
+  - versionName: 2.5.1
+    versionCode: 49
+    commit: 1f17e3507f6501713bb5d7b60141b08e2352d7dc
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/signingConfig/d' build.gradle.kts
+
+  - versionName: 2.5.2
+    versionCode: 50
+    commit: f92de60172f7b6d194e996a7b827efc342f2e4d1
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/signingConfig/d' build.gradle.kts
+
+  - versionName: 2.5.3
+    versionCode: 51
+    commit: 24d783759960caf7bc27c08d80285999761a2b18
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/signingConfig/d' build.gradle.kts
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.2.8
-CurrentVersionCode: 38
+CurrentVersion: 2.5.3
+CurrentVersionCode: 51

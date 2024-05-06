@@ -6,9 +6,8 @@ AuthorWebSite: https://www.schuermann.eu/android/
 WebSite: https://www.openkeychain.org/
 SourceCode: https://github.com/open-keychain/open-keychain
 IssueTracker: https://github.com/open-keychain/open-keychain/issues
+Translation: https://www.transifex.com/projects/p/open-keychain/
 Changelog: https://github.com/open-keychain/open-keychain/blob/HEAD/OpenKeychain/src/main/res/raw/help_changelog.md
-Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=android%40schuermann.eu&lc=US&item_name=OpenKeychain+Donation&no_note=0&no_shipping=1&currency_code=EUR
-Bitcoin: 1LY6Hs6SurATjfxnihzLMDUMUuMxvQ4aEi
 
 AutoName: OpenKeychain
 
@@ -339,18 +338,6 @@ Builds:
   - versionName: 3.9.5
     versionCode: 39510
     commit: v3.9.5
-    subdir: OpenKeychain
-    submodules: true
-    gradle:
-      - fdroid
-    scanignore:
-      - extern/bouncycastle/core/src/test
-      - OpenKeychain/src/test/resources/OpenPGP-Haskell/tests
-
-  - versionName: '4.0'
-    versionCode: 40000
-    disable: MaxHeap4G
-    commit: v4.0
     subdir: OpenKeychain
     submodules: true
     gradle:
@@ -726,12 +713,163 @@ Builds:
       - extern/bouncycastle/pg/src/test
       - OpenKeychain/src/test/resources/OpenPGP-Haskell/tests
 
-MaintainerNotes: |-
-    Summary and Description are maintained by upstream using fastlane in
-    the source repo:
-    https://f-droid.org/docs/All_About_Descriptions_Graphics_and_Screenshots
+  - versionName: '5.7'
+    versionCode: 57000
+    commit: v5.7
+    subdir: OpenKeychain
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: echo -e '\norg.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    scandelete:
+      - extern/bouncycastle/libs
+      - extern/bouncycastle/test
+      - extern/bouncycastle/core/src/test
+      - extern/bouncycastle/pg/src/test
+      - OpenKeychain/src/test/resources/OpenPGP-Haskell/tests
 
-AutoUpdateMode: Version v%v
+  - versionName: 5.7.1
+    versionCode: 57100
+    commit: v5.7.1
+    subdir: OpenKeychain
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: echo -e '\norg.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    scandelete:
+      - extern/bouncycastle/libs
+      - extern/bouncycastle/test
+      - extern/bouncycastle/core/src/test
+      - extern/bouncycastle/pg/src/test
+      - OpenKeychain/src/test/resources/OpenPGP-Haskell/tests
+
+  - versionName: 5.7.2
+    versionCode: 57200
+    commit: v5.7.2
+    subdir: OpenKeychain
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: echo -e '\norg.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    scandelete:
+      - extern/bouncycastle/libs
+      - extern/bouncycastle/test
+      - extern/bouncycastle/core/src/test
+      - extern/bouncycastle/pg/src/test
+      - OpenKeychain/src/test/resources/OpenPGP-Haskell/tests
+
+  - versionName: 5.7.3
+    versionCode: 57300
+    commit: v5.7.3
+    subdir: OpenKeychain
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: echo -e '\norg.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    scandelete:
+      - extern/bouncycastle/libs
+      - extern/bouncycastle/test
+      - extern/bouncycastle/core/src/test
+      - extern/bouncycastle/pg/src/test
+      - OpenKeychain/src/test/resources/OpenPGP-Haskell/tests
+
+  - versionName: 5.7.4
+    versionCode: 57400
+    commit: v5.7.4
+    subdir: OpenKeychain
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: echo -e '\norg.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    scandelete:
+      - extern/bouncycastle/libs
+      - extern/bouncycastle/test
+      - extern/bouncycastle/core/src/test
+      - extern/bouncycastle/pg/src/test
+      - OpenKeychain/src/test/resources/OpenPGP-Haskell/tests
+
+  - versionName: 5.7.5
+    versionCode: 57500
+    commit: v5.7.5
+    subdir: OpenKeychain
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: echo -e '\norg.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    scandelete:
+      - extern/bouncycastle/libs
+      - extern/bouncycastle/test
+      - extern/bouncycastle/core/src/test
+      - extern/bouncycastle/pg/src/test
+      - OpenKeychain/src/test/resources/OpenPGP-Haskell/tests
+
+  - versionName: 5.8.0
+    versionCode: 58900
+    commit: 0135d44fc6cf837c7cabd1f1f1361cccaff3bac4
+    subdir: OpenKeychain
+    submodules: true
+    gradle:
+      - fdroid
+    prebuild: echo -e '\norg.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    scandelete:
+      - extern/bouncycastle/libs
+      - extern/bouncycastle/test
+      - extern/bouncycastle/core/src/test
+      - extern/bouncycastle/pg/src/test
+      - OpenKeychain/src/test/resources/OpenPGP-Haskell/tests
+
+  - versionName: 5.8.2
+    versionCode: 58902
+    commit: 8d69181b65c2d5364f40845466a9e5305ca8c91b
+    subdir: OpenKeychain
+    submodules: true
+    gradle:
+      - yes
+    prebuild: echo -e '\norg.gradle.jvmargs=-Xmx1g' >> ../gradle.properties
+    scandelete:
+      - extern/bouncycastle/libs
+      - extern/bouncycastle/test
+      - extern/bouncycastle/core/src/test
+      - extern/bouncycastle/pg/src/test
+      - OpenKeychain/src/test/resources/OpenPGP-Haskell/tests
+
+  - versionName: 6.0.2
+    versionCode: 60200
+    commit: c9e86b00ed23a4e8125aa30b88fb2c4220d96378
+    subdir: OpenKeychain
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    scandelete:
+      - extern/bouncycastle/libs
+      - extern/bouncycastle/test
+      - extern/bouncycastle/config/checkstyle/lib
+      - extern/bouncycastle/pg/src/test
+      - OpenKeychain/src/test/resources/OpenPGP-Haskell/tests
+
+  - versionName: 6.0.4
+    versionCode: 60400
+    commit: f0f35c6a669da885061f8e2834426823d4d171af
+    subdir: OpenKeychain
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    scandelete:
+      - extern/bouncycastle/libs
+      - extern/bouncycastle/test
+      - extern/bouncycastle/config/checkstyle/lib
+      - extern/bouncycastle/pg/src/test
+      - OpenKeychain/src/test/resources/OpenPGP-Haskell/tests
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]+$
-CurrentVersion: 5.6.2
-CurrentVersionCode: 56200
+CurrentVersion: 6.0.4
+CurrentVersionCode: 60400

@@ -5,21 +5,21 @@ WebSite: https://github.com/ramack/ActivityDiary/wiki
 SourceCode: https://github.com/ramack/ActivityDiary
 IssueTracker: https://github.com/ramack/ActivityDiary/issues
 Translation: https://crowdin.com/project/activitydiary
-LiberapayID: '32386'
+Liberapay: ActivityDiary
 
 AutoName: Activity Diary
 Description: |-
-    Activity Diary allows to record a diary for your activities. You can attach
-    notes and pictures to the activies and by that record details like the kind of
-    vegetables you seeded while gardening. The diary view provides an overview of
-    what you did and when.
+  Activity Diary allows to record a diary for your activities. You can attach
+  notes and pictures to the activies and by that record details like the kind of
+  vegetables you seeded while gardening. The diary view provides an overview of
+  what you did and when.
 
-    The functions to categorize activites and get a reminder for recurrent actions
-    are planned.
+  The functions to categorize activites and get a reminder for recurrent actions
+  are planned.
 
-    This App is still under development but already usable. Please contribute to the
-    <a href="https://github.com/ramack/ActivityDiary">github project</a> and submit bug reports,
-    feature requests and pull requests!
+  This App is still under development but already usable. Please contribute to the
+  <a href="https://github.com/ramack/ActivityDiary">github project</a> and submit bug reports,
+  feature requests and pull requests!
 
 RepoType: git
 Repo: https://github.com/ramack/ActivityDiary
@@ -95,8 +95,18 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-UpdateCheckIgnore: (alpha|beta|rc|RC|dev)
-CurrentVersion: 1.4.0
-CurrentVersionCode: 134
+  - versionName: 1.4.2
+    versionCode: 136
+    commit: 0b6a7c9de506be72070a120dc82d5c4562920e8d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v[0-9.]*$
+CurrentVersion: 1.4.2
+CurrentVersionCode: 136

@@ -1,27 +1,16 @@
 Categories:
-  - Writing
   - Time
+  - Writing
 License: Apache-2.0
 AuthorName: SECUSO - Security Usability Society
 AuthorEmail: contact@secuso.org
-AuthorWebSite: https://secuso.aifb.kit.edu/english/
-WebSite: https://secuso.org/pfa
+AuthorWebSite: https://secuso.aifb.kit.edu/english/105.php
+WebSite: https://secuso.aifb.kit.edu/english/To-Do-List.php
 SourceCode: https://github.com/SecUSo/privacy-friendly-todo-list
 IssueTracker: https://github.com/SecUSo/privacy-friendly-todo-list/issues
 Changelog: https://github.com/SecUSo/privacy-friendly-todo-list/blob/HEAD/CHANGELOG.md
 
 AutoName: To-Do List
-Description: |-
-    Create and manage tasks and To-Do lists. Each task can be subdivided into
-    subtasks. It is possible to assign deadlines and a reminder service to get
-    informed when a deadline is approaching. Colours indicate if a tasks is due. A
-    calendar view gives a quick overview about monthly tasks. A search function
-    enables the user to look for To-Do lists, To-Do tasks and subtasks.
-
-    The app belongs to the group of Privacy Friendly Apps developed at the
-    <a href="https://secuso.org/">SECUSO research group</a> of Technische Universitaet
-    Darmstadt. It does not require any permission and relinquishes advertisement and
-    tracking mechanisms.
 
 RepoType: git
 Repo: https://github.com/SecUSo/privacy-friendly-todo-list
@@ -69,7 +58,27 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 2.4.0
+    versionCode: 7
+    commit: cd26ec626c5a8d83fb12c9c6d313e925e9c49221
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.4.2
+    versionCode: 9
+    commit: 0fcfc2d75edd5fb8bb113ed73ce1edc196f7d41e
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '2.3'
-CurrentVersionCode: 6
+CurrentVersion: 2.4.2
+CurrentVersionCode: 9

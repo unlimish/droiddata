@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Depends on the Instagram website, which is proprietary.
 Categories:
   - Internet
   - Multimedia
@@ -91,7 +92,54 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags ^v
-CurrentVersion: 19.0.5
-CurrentVersionCode: 57
+  - versionName: 19.1.0
+    versionCode: 60
+    commit: v19.1.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 19.2.0-fdroid
+    versionCode: 61
+    commit: v19.2.0
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 19.2.1-fdroid
+    versionCode: 62
+    commit: v19.2.1
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 19.2.2-fdroid
+    versionCode: 63
+    commit: v19.2.2
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 19.2.3-fdroid
+    versionCode: 64
+    commit: 405b1e038dbb7caaa38f537c66028132a5ccdf3d
+    subdir: app
+    gradle:
+      - fdroid
+
+  - versionName: 19.2.4-fdroid
+    versionCode: 65
+    commit: effb276aa8b262e3c76a6cb51d3aa83f55a04724
+    subdir: app
+    gradle:
+      - fdroid
+
+MaintainerNotes: upstream repo was removed due to a Cease-and-Desist from Facebook,
+  see e.g. https://blog.avalos.me/2021/08/14/barinsta/
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 19.2.4-fdroid
+CurrentVersionCode: 65
+
+NoSourceSince: 19.2.4-fdroid

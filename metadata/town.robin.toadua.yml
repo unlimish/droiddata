@@ -1,0 +1,64 @@
+Categories:
+  - Internet
+  - Reading
+License: MIT
+AuthorName: Robin
+AuthorEmail: robin@robin.town
+AuthorWebSite: https://robin.town/
+SourceCode: https://github.com/toaq/toadua-android
+IssueTracker: https://github.com/toaq/toadua-android/issues
+
+AutoName: Toadua
+
+RepoType: git
+Repo: https://github.com/toaq/toadua-android.git
+
+Builds:
+  - versionName: 1.1.0
+    versionCode: 5
+    commit: v1.1.0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.0.0
+    versionCode: 6
+    commit: v2.0.0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.1.0
+    versionCode: 7
+    commit: v2.1.0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.2.0
+    versionCode: 8
+    commit: b469900edd315e4c1db5faeda6fc537af679d31d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 2.2.0
+CurrentVersionCode: 8

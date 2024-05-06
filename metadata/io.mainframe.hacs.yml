@@ -12,11 +12,11 @@ Changelog: https://github.com/ktt-ol/hacs/blob/HEAD/CHANGELOG.md
 
 AutoName: HACS
 Description: An app for our "keyholder" to view and manage the door states of the
-    hackspace. It uses an mqtt service to get the current status and sends door commands
-    per ssh.
+  hackspace. It uses an mqtt service to get the current status and sends door commands
+  per ssh.
 
 RepoType: git
-Repo: https://github.com/ktt-ol/hacs
+Repo: https://github.com/ktt-ol/hacs.git
 
 Builds:
   - versionName: 2.6.5
@@ -68,7 +68,123 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: 2.8.6
+    versionCode: 48
+    commit: d9df872e9fa42022a6c65c2913b7cee93ee3c6a6
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.9.0
+    versionCode: 52
+    commit: 52b2966cdf6ea24efa40667ad21eb8b350e85fce
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.9.1
+    versionCode: 53
+    commit: 3b25598664f181856bb3964f934651c21862dcb4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.9.2
+    versionCode: 54
+    commit: 66bbe803a8e642cc2bed78bb9177f49474cc9e1a
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.9.3
+    versionCode: 55
+    commit: a6634ad6aa11f49b854a69c49791e0ff3414a44e
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.9.4
+    versionCode: 56
+    commit: 22a4252f3e66945da310d1ae0ac4567fd9def98a
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.9.5
+    versionCode: 57
+    commit: 047907e19e407b13108975d65963f00f3202bff4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.9.7
+    versionCode: 59
+    commit: c7424dc6b5afc29b503bbf12f6e5b79fcd46212e
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.9.8
+    versionCode: 60
+    commit: 5f79e7b4156ce25dea308d657f78b393927d0d05
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.9.9
+    versionCode: 61
+    commit: 1c83a8c0d6d1c001bac035f320367a0ad80d6dc4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.10.0
+    versionCode: 62
+    commit: e68d5f5cd43e414fc183ed18feccff4981b049a7
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.10.1
+    versionCode: 63
+    commit: 19b68c92e690474b3e6b126cb01bdc876f1a85eb
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.10.2
+    versionCode: 64
+    commit: 1e4ef8f4fe84b94df8528298ea50655c11d17f45
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.11.0
+    versionCode: 65
+    commit: 4a5862d8bf4f6a8162f58acf7e1fba0debc37314
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.12.0
+    versionCode: 66
+    commit: 97ae06641e87d804baf3bc368dd618aca0fa9f00
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.13.2
+    versionCode: 69
+    commit: 44e6686cfc5b7c8b6a6a7f96ebbb484e442d9dd9
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.8.5
-CurrentVersionCode: 47
+CurrentVersion: 2.13.2
+CurrentVersionCode: 69

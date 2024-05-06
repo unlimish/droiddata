@@ -8,24 +8,24 @@ Translation: https://www.transifex.com/projects/p/dolphin-emu/
 
 AutoName: Dolphin Emulator
 Description: |-
-    Dolphin is a Gamecube, Wii and Triforce (the arcade machine based on the
-    Gamecube) emulator which supports many extra features and abilities not present
-    on the original consoles. Gamecube and Wii compatibility is good - one can
-    expect "mainstream" titles to run; lesser known titles can be hit or miss.
-    Triforce compatibility is currently limited to a couple of games - others
-    require more of the Triforce-specific peripheral devices to be emulated.
+  Dolphin is a Gamecube, Wii and Triforce (the arcade machine based on the
+  Gamecube) emulator which supports many extra features and abilities not present
+  on the original consoles. Gamecube and Wii compatibility is good - one can
+  expect "mainstream" titles to run; lesser known titles can be hit or miss.
+  Triforce compatibility is currently limited to a couple of games - others
+  require more of the Triforce-specific peripheral devices to be emulated.
 
-    <a href="https://wiki.dolphin-emu.org">Compatibility Wiki</a>
+  <a href="https://wiki.dolphin-emu.org">Compatibility Wiki</a>
 
-    <a href="https://forums.dolphin-emu.org/Thread-android-usage-guide">Usage guide</a>
+  <a href="https://forums.dolphin-emu.org/Thread-android-usage-guide">Usage guide</a>
 
-    <a href="https://forums.dolphin-emu.org/Thread-opengl-es-3-guide">OpenGL ES 3 guide</a>
+  <a href="https://forums.dolphin-emu.org/Thread-opengl-es-3-guide">OpenGL ES 3 guide</a>
 
-    Status: ALPHA. Note that newer versions require ARM64, which only some of the
-    newest devices have.
+  Status: ALPHA. Note that newer versions require ARM64, which only some of the
+  newest devices have.
 
 RepoType: git
-Repo: https://github.com/dolphin-emu/dolphin
+Repo: https://github.com/dolphin-emu/dolphin.git
 
 Builds:
   - versionName: '0.11'
@@ -102,7 +102,307 @@ Builds:
       - docs
     ndk: r21d
 
+  - versionName: 5.0-15445
+    versionCode: 17823
+    commit: db02b50d2ecdfbbc21e19aadc57253c353069f77
+    subdir: Source/Android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - yes
+    scanignore:
+      - Data/Sys/codehandler.bin
+      - Data/Sys/GC/dsp_rom.bin
+      - Data/Sys/GC/font_western.bin
+      - Data/Sys/GC/dsp_coef.bin
+      - Data/Sys/GC/font_japanese.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fl.bin
+      - Data/Sys/Wii/shared2/wc24/misc.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24dl.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fls.bin
+    scandelete:
+      - Installer
+      - Externals
+      - docs
+    ndk: r23
+
+  - versionName: 5.0-15993
+    versionCode: 18001
+    commit: 5e595616379a694789fe749e40a27ef069f0090e
+    subdir: Source/Android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager
+      'cmake;3.18.1'
+    scanignore:
+      - Data/Sys/codehandler.bin
+      - Data/Sys/GC/dsp_rom.bin
+      - Data/Sys/GC/font_western.bin
+      - Data/Sys/GC/dsp_coef.bin
+      - Data/Sys/GC/font_japanese.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fl.bin
+      - Data/Sys/Wii/shared2/wc24/misc.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24dl.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fls.bin
+    scandelete:
+      - Installer
+      - Externals
+      - docs
+    ndk: r23
+
+  - versionName: 5.0-16793
+    versionCode: 18283
+    commit: 3cd82b619388d0877436390093a6edc2319a6904
+    subdir: Source/Android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y lib32stdc++6
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.18.1'
+    scanignore:
+      - Data/Sys/codehandler.bin
+      - Data/Sys/GC/dsp_rom.bin
+      - Data/Sys/GC/font_western.bin
+      - Data/Sys/GC/dsp_coef.bin
+      - Data/Sys/GC/font_japanese.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fl.bin
+      - Data/Sys/Wii/shared2/wc24/misc.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24dl.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fls.bin
+    scandelete:
+      - Installer
+      - Externals
+      - docs
+    ndk: r23b
+
+  - versionName: 5.0-17269
+    versionCode: 18442
+    commit: 48c9c224cf9f82f0f9f2690b7cc6283d7448480c
+    subdir: Source/Android/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y lib32stdc++6
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.18.1' 'ndk;21.3.6528147'
+    scanignore:
+      - Data/Sys/codehandler.bin
+      - Data/Sys/GC/dsp_rom.bin
+      - Data/Sys/GC/font_western.bin
+      - Data/Sys/GC/dsp_coef.bin
+      - Data/Sys/GC/font_japanese.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fl.bin
+      - Data/Sys/Wii/shared2/wc24/misc.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24dl.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fls.bin
+    scandelete:
+      - Externals
+      - Installer
+      - docs
+    ndk: r25
+
+  - versionName: 5.0-17995
+    versionCode: 18704
+    commit: 8bad821019721b9b72701b495da95656ace5fea5
+    subdir: Source/Android/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y lib32stdc++6
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.18.1' 'ndk;21.3.6528147'
+    scanignore:
+      - Data/Sys/codehandler.bin
+      - Data/Sys/GC/dsp_rom.bin
+      - Data/Sys/GC/font_western.bin
+      - Data/Sys/GC/dsp_coef.bin
+      - Data/Sys/GC/font_japanese.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fl.bin
+      - Data/Sys/Wii/shared2/wc24/misc.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24dl.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fls.bin
+    scandelete:
+      - Externals
+      - docs
+    ndk: r25
+
+  - versionName: 5.0-18498
+    versionCode: 18882
+    commit: 46b99671d9158e0ca840c1d8ef249db0f321ced7
+    subdir: Source/Android/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y lib32stdc++6
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.18.1' 'ndk;21.3.6528147'
+    scanignore:
+      - Data/Sys/codehandler.bin
+      - Data/Sys/GC/dsp_rom.bin
+      - Data/Sys/GC/font_western.bin
+      - Data/Sys/GC/dsp_coef.bin
+      - Data/Sys/GC/font_japanese.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fl.bin
+      - Data/Sys/Wii/shared2/wc24/misc.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24dl.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fls.bin
+    scandelete:
+      - Externals
+      - docs
+    ndk: r25b
+
+  - versionName: 5.0-19368
+    versionCode: 19127
+    commit: dadbeb4bae7e7fa23af2b46e0add4143094dc107
+    subdir: Source/Android/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y lib32stdc++6
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.18.1' 'ndk;21.3.6528147'
+    scanignore:
+      - Data/Sys/codehandler.bin
+      - Data/Sys/GC/dsp_rom.bin
+      - Data/Sys/GC/font_western.bin
+      - Data/Sys/GC/dsp_coef.bin
+      - Data/Sys/GC/font_japanese.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fl.bin
+      - Data/Sys/Wii/shared2/wc24/misc.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24dl.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fls.bin
+    scandelete:
+      - Externals
+      - docs
+    ndk: r25c
+
+  - versionName: 5.0-19870
+    versionCode: 19323
+    commit: 032c77b462a220016f23c5079e71bb23e0ad2adf
+    subdir: Source/Android/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y lib32stdc++6
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.18.1' 'ndk;21.3.6528147'
+    scanignore:
+      - Data/Sys/codehandler.bin
+      - Data/Sys/GC/dsp_rom.bin
+      - Data/Sys/GC/font_western.bin
+      - Data/Sys/GC/dsp_coef.bin
+      - Data/Sys/GC/font_japanese.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fl.bin
+      - Data/Sys/Wii/shared2/wc24/misc.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24dl.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fls.bin
+    scandelete:
+      - Externals
+      - docs
+    ndk: r25c
+
+  - versionName: 5.0-20347
+    versionCode: 19501
+    commit: dc0814ae4622313d513468bdc377ee9c031de199
+    subdir: Source/Android/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y lib32stdc++6
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.22.1' 'ndk;21.3.6528147'
+    scanignore:
+      - Data/Sys/codehandler.bin
+      - Data/Sys/GC/dsp_rom.bin
+      - Data/Sys/GC/font_western.bin
+      - Data/Sys/GC/dsp_coef.bin
+      - Data/Sys/GC/font_japanese.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fl.bin
+      - Data/Sys/Wii/shared2/wc24/misc.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24dl.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fls.bin
+    scandelete:
+      - Externals
+      - docs
+    ndk: 25.2.9519653
+
+  - versionName: 5.0-21088
+    versionCode: 19767
+    commit: 9240f579eab18a2f67eef23846a6b508393d0e6c
+    subdir: Source/Android/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y lib32stdc++6
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.22.1' 'ndk;21.3.6528147'
+    scanignore:
+      - Data/Sys/codehandler.bin
+      - Data/Sys/GC/dsp_rom.bin
+      - Data/Sys/GC/font_western.bin
+      - Data/Sys/GC/dsp_coef.bin
+      - Data/Sys/GC/font_japanese.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fl.bin
+      - Data/Sys/Wii/shared2/wc24/misc.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24dl.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fls.bin
+    scandelete:
+      - Externals
+      - docs
+    ndk: 26.1.10909125
+
+  - versionName: 5.0-21264
+    versionCode: 19840
+    commit: 1efda863e47b690f460f069502a4391b3c7d87c4
+    subdir: Source/Android/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y lib32stdc++6
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.22.1' 'ndk;21.3.6528147'
+    scanignore:
+      - Data/Sys/codehandler.bin
+      - Data/Sys/GC/dsp_rom.bin
+      - Data/Sys/GC/font_western.bin
+      - Data/Sys/GC/dsp_coef.bin
+      - Data/Sys/GC/font_japanese.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fl.bin
+      - Data/Sys/Wii/shared2/wc24/misc.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24dl.bin
+      - Data/Sys/Wii/shared2/wc24/nwc24fls.bin
+    scandelete:
+      - Externals
+      - docs
+    ndk: 26.1.10909125
+
+MaintainerNotes: |-
+  See if there's a new "Beta versions" release on https://dolphin-emu.org/download/
+  Click latest one, see the `commit` needed and extract `aapt2 dump badging fileapk|grep versionCode` from APK
+  Follow that commit and see "ndkVersion", in Source/Android/app/build.gradle for `ndk:` and one in Externals/fmt/support/build.gradle for `prebuild:`
+
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 5.0-13178
-CurrentVersionCode: 17057
+CurrentVersion: 5.0-21264
+CurrentVersionCode: 19840

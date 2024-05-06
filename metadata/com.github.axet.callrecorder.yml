@@ -8,14 +8,14 @@ Translation: https://gitlab.com/axet/android-call-recorder/blob/HEAD/docs/HOWTO-
 
 AutoName: Call Recorder
 Description: |-
-    MOST PHONES DOES NOT SUPPORT CALL RECORDING. Blame Google or your phone
-    manufacturer not me!
+  MOST PHONES DOES NOT SUPPORT CALL RECORDING. Blame Google or your phone
+  manufacturer not me!
 
-    If it fails with high quality sound recording (voice line) this app will switch
-    back to the MIC recording, no ads, open-source, GPLv3.
+  If it fails with high quality sound recording (voice line) this app will switch
+  back to the MIC recording, no ads, open-source, GPLv3.
 
-    Google knows about issue but do nothing, can read more
-    <a href="https://code.google.com/p/android/issues/detail?id=206613#c13">here</a>
+  Google knows about issue but do nothing, can read more
+  <a href="https://code.google.com/p/android/issues/detail?id=206613#c13">here</a>
 
 RepoType: git
 Repo: https://gitlab.com/axet/android-call-recorder.git
@@ -119,14 +119,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 1.3.22
-    versionCode: 91
-    disable: failing
-    commit: callrecorder-1.3.22
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 1.3.23
     versionCode: 92
     commit: callrecorder-1.3.23
@@ -217,15 +209,6 @@ Builds:
   - versionName: 1.4.10
     versionCode: 113
     commit: callrecorder-1.4.10
-    subdir: app
-    gradle:
-      - yes
-    prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
-
-  - versionName: 1.4.11
-    versionCode: 114
-    disable: old and failing
-    commit: callrecorder-1.4.11
     subdir: app
     gradle:
       - yes
@@ -639,7 +622,87 @@ Builds:
       - yes
     prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
 
-AutoUpdateMode: Version callrecorder-%v
+  - versionName: 1.7.14
+    versionCode: 220
+    commit: callrecorder-1.7.14
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+
+  - versionName: 1.8.0
+    versionCode: 221
+    commit: 336f7a23b577bb000e2bfab8187788b4b66efbdb
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+    ndk: r21
+
+  - versionName: 1.8.2
+    versionCode: 223
+    commit: c93fff22ebd17080f4638588358cedbb7e8343d5
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+    ndk: r21
+
+  - versionName: 1.8.3
+    versionCode: 224
+    commit: ee914de7e7b5dd4766d5d59c41516f13dd20a398
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+    ndk: r21
+
+  - versionName: 1.8.4
+    versionCode: 225
+    commit: 4708089747e41e32b534c39f3f734cfc1fb0d69b
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+    ndk: r21
+
+  - versionName: 1.8.5
+    versionCode: 226
+    commit: 82ddde0bbf2bab73be37b1dfab191164c3cb44cb
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+    ndk: r21
+
+  - versionName: 1.8.6
+    versionCode: 227
+    commit: b2d30200a348ad27cd3d89ea92da56e43ff549de
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+    ndk: r21
+
+  - versionName: 1.8.8
+    versionCode: 229
+    commit: 47d9420a18721ab06cc05717f8d82f16146316bb
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+    ndk: r21
+
+  - versionName: 1.8.9
+    versionCode: 230
+    commit: c0bfb132853e4c03297664fbab745fc6a8e5ddee
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+    ndk: r21
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.7.13
-CurrentVersionCode: 219
+CurrentVersion: 1.8.9
+CurrentVersionCode: 230

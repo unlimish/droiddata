@@ -1,29 +1,12 @@
 Categories:
-  - Multimedia
   - Connectivity
+  - Multimedia
 License: GPL-3.0-or-later
 SourceCode: https://github.com/mkulesh/onpc
 IssueTracker: https://github.com/mkulesh/onpc/issues
 Changelog: https://github.com/mkulesh/onpc/releases
 
-AutoName: Enhanced Controller for Onkyo and Pioneer
-Description: |-
-    This app allows remote control of an Onkyo Network Player or a Network A/V
-    Receiver via the "Integra Serial Communication  Protocol". Its two most
-    popular features are music playback and sound profile management.
-
-    Other benefits include:
-
-    * Maximum privacy: No ads, no trackers, no telemetry, no special permissions
-    * One-click access to music playback actions
-    * Full music playback control (play, stop, pause, track up/down, time seek, repeat and random modes)
-    * The modern material design supports different color themes and works on smartphones and/or tablets in portrait and  landscape mode
-    * Tuneln Radio and Deezer streaming
-    * Multi-zone support
-    * Control of devices attached via RI
-    * Play queue support (add, remove, clear, change playback order)
-    * Display device details and control device settings such as dimmer level, digital filter, auto power
-    * Allows control of receivers over an OpenVPN connection (even over a cellular connection)
+AutoName: Enhanced Music Controller Lite
 
 RepoType: git
 Repo: https://github.com/mkulesh/onpc
@@ -211,7 +194,92 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: '1.24'
+    versionCode: 37
+    commit: 3f7ac9348dc3818585389311eb13a2d5dd8c46cf
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.25'
+    versionCode: 38
+    commit: a68fa2209cbf695b86e2a20159c7998599e8d3ba
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.26'
+    versionCode: 39
+    commit: 3a9a6f1be21720bfa3403eddee1d58d1d714d832
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.27'
+    versionCode: 40
+    commit: 6d1053f466e071a7802cc20d87103df49397873a
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64 $$SDK$$/tools/bin/sdkmanager 'build-tools;32.0.0'
+        'build-tools;30.0.3' > /dev/null
+      - cp $$SDK$$/build-tools/30.0.3/lib/dx.jar $$SDK$$/build-tools/32.0.0/lib/dx.jar
+      - cp $$SDK$$/build-tools/30.0.3/dx $$SDK$$/build-tools/32.0.0/dx
+
+  - versionName: '1.29'
+    versionCode: 42
+    commit: 579fdfda77bf97553561e0f35de56649139cf5db
+    subdir: app
+    sudo:
+      - sdkmanager 'build-tools;33.0.2' 'build-tools;30.0.3'
+      - cp /opt/android-sdk/build-tools/30.0.3/lib/dx.jar /opt/android-sdk/build-tools/33.0.2/lib/dx.jar
+      - cp /opt/android-sdk/build-tools/30.0.3/dx /opt/android-sdk/build-tools/33.0.2/dx
+    gradle:
+      - yes
+    rm:
+      - doc
+
+  - versionName: '1.30'
+    versionCode: 43
+    commit: ff460defb1cc35aea4ef0a0ca347caca6585b7a8
+    subdir: app
+    sudo:
+      - sdkmanager 'build-tools;33.0.2' 'build-tools;30.0.3'
+      - cp /opt/android-sdk/build-tools/30.0.3/lib/dx.jar /opt/android-sdk/build-tools/33.0.2/lib/dx.jar
+      - cp /opt/android-sdk/build-tools/30.0.3/dx /opt/android-sdk/build-tools/33.0.2/dx
+    gradle:
+      - yes
+    rm:
+      - doc
+
+  - versionName: '1.31'
+    versionCode: 44
+    commit: e9e7da2cb7c88f0fef4057a1485d5a8a0be18ac2
+    subdir: app
+    sudo:
+      - sdkmanager 'build-tools;33.0.2' 'build-tools;30.0.3'
+      - cp /opt/android-sdk/build-tools/30.0.3/lib/dx.jar /opt/android-sdk/build-tools/33.0.2/lib/dx.jar
+      - cp /opt/android-sdk/build-tools/30.0.3/dx /opt/android-sdk/build-tools/33.0.2/dx
+    gradle:
+      - yes
+    rm:
+      - doc
+
+  - versionName: '1.32'
+    versionCode: 45
+    commit: 9ef0fd2cb700c995b8e319b6d55e2b4953795f71
+    subdir: app
+    sudo:
+      - sdkmanager 'build-tools;33.0.2' 'build-tools;30.0.3'
+      - cp /opt/android-sdk/build-tools/30.0.3/lib/dx.jar /opt/android-sdk/build-tools/33.0.2/lib/dx.jar
+      - cp /opt/android-sdk/build-tools/30.0.3/dx /opt/android-sdk/build-tools/33.0.2/dx
+    gradle:
+      - yes
+    rm:
+      - doc
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.23'
-CurrentVersionCode: 36
+CurrentVersion: '1.32'
+CurrentVersionCode: 45

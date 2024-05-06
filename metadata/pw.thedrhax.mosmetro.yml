@@ -12,10 +12,10 @@ Changelog: https://github.com/mosmetro-android/mosmetro-android/blob/HEAD/CHANGE
 
 AutoName: Moscow Wi-Fi autologin
 Description: |-
-    Allows you to connect to Wi-Fi in the Moscow metro, Aeroexpress, MCC and other
-    ground transportation (buses, trolleybuses, trams) in fully automatic mode. No
-    action is required from you: immediately after installation, the application is
-    ready to work.
+  Allows you to connect to Wi-Fi in the Moscow metro, Aeroexpress, MCC and other
+  ground transportation (buses, trolleybuses, trams) in fully automatic mode. No
+  action is required from you: immediately after installation, the application is
+  ready to work.
 
 RepoType: git
 Repo: https://github.com/mosmetro-android/mosmetro-android
@@ -141,7 +141,59 @@ Builds:
       - sed -i -e '/greensopinion.gradle/,+25d' build.gradle
       - sed -i -e '/pref_updater_enabled_summary/{n;s/true/false/}' src/main/res/xml/preferences.xml
 
-AutoUpdateMode: Version %c
+  - versionName: '2.2'
+    versionCode: 74
+    commit: '74'
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - app/libs/gradle-android-eclipse-1.1.1.jar
+    prebuild:
+      - sed -i -e 's|google()|maven {url "https://maven.google.com"}|' ../build.gradle
+      - sed -i -e '/greensopinion.gradle/,+25d' build.gradle
+      - sed -i -e '/pref_updater_enabled_summary/{n;s/true/false/}' src/main/res/xml/preferences.xml
+
+  - versionName: '2.3'
+    versionCode: 75
+    commit: '75'
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - app/libs/gradle-android-eclipse-1.1.1.jar
+    prebuild:
+      - sed -i -e 's|google()|maven {url "https://maven.google.com"}|' ../build.gradle
+      - sed -i -e '/greensopinion.gradle/,+25d' build.gradle
+      - sed -i -e '/pref_updater_enabled_summary/{n;s/true/false/}' src/main/res/xml/preferences.xml
+
+  - versionName: 2.3.1
+    versionCode: 76
+    commit: '76'
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - app/libs/gradle-android-eclipse-1.1.1.jar
+    prebuild:
+      - sed -i -e 's|google()|maven {url "https://maven.google.com"}|' ../build.gradle
+      - sed -i -e '/greensopinion.gradle/,+25d' build.gradle
+      - sed -i -e '/pref_updater_enabled_summary/{n;s/true/false/}' src/main/res/xml/preferences.xml
+
+  - versionName: 2.3.2
+    versionCode: 77
+    commit: '77'
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - app/libs/gradle-android-eclipse-1.1.1.jar
+    prebuild:
+      - sed -i -e 's|google()|maven {url "https://maven.google.com"}|' ../build.gradle
+      - sed -i -e '/greensopinion.gradle/,+25d' build.gradle
+      - sed -i -e '/pref_updater_enabled_summary/{n;s/true/false/}' src/main/res/xml/preferences.xml
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '2.1'
-CurrentVersionCode: 73
+CurrentVersion: 2.3.2
+CurrentVersionCode: 77

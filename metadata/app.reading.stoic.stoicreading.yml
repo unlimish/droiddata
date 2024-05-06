@@ -8,9 +8,10 @@ Changelog: https://github.com/zikalify/StoicReading/releases
 
 AutoName: Stoic Reading
 Description: |-
-    This app contains texts from Stoics including those of Emperor Marcus Aurelius,
-    the freed slave Epictetus, and Seneca. It contains other, less well known, Stoic
-    texts too.
+  <b>Note:</b> This app is renamed, please use https://f-droid.org/en/packages/app.reading.stoic.stoicreading2 instead.
+  This app contains texts from Stoics including those of Emperor Marcus Aurelius,
+  the freed slave Epictetus, and Seneca. It contains other, less well known, Stoic
+  texts too.
 
 RepoType: git
 Repo: https://github.com/zikalify/StoicReading
@@ -282,7 +283,18 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
-UpdateCheckMode: Tags ^[0-9.]+$
-CurrentVersion: 1.8.0
-CurrentVersionCode: 69
+  - versionName: 1.8.1
+    versionCode: 70
+    commit: 8cebc2f69358568ec362a9226740647fe06eaae3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 1.8.1
+CurrentVersionCode: 70

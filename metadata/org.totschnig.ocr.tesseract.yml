@@ -34,7 +34,25 @@ Builds:
     gradle:
       - tesseract
 
-AutoUpdateMode: Version r%c
+  - versionName: '2.2'
+    versionCode: 6
+    commit: r6
+    subdir: app
+    gradle:
+      - tesseract
+
+  - versionName: '2.3'
+    versionCode: 7
+    commit: 9eac4aaa13d4925b8ad63956833734adba67f174
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - tesseract
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '2.1'
-CurrentVersionCode: 4
+CurrentVersion: '2.3'
+CurrentVersionCode: 7

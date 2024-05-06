@@ -28,38 +28,38 @@ Builds:
     commit: '2220400644'
     subdir: android
     prebuild: sed -i '477s/shopperMarketListener/null/g;s/R.string.msg_install_google_shopper/"Google
-        Shopper is non-free software"/g' src/com/google/zxing/client/android/result/ResultHandler.java
-    build: $$MVN3$$ package -f ../core/pom.xml
+      Shopper is non-free software"/g' src/com/google/zxing/client/android/result/ResultHandler.java
+    build: mvn package -f ../core/pom.xml
 
   - versionName: '4.5'
     versionCode: 93
     commit: 0d6eabd6fc
     subdir: android
-    build: $$MVN3$$ package -f ../core/pom.xml
+    build: mvn package -f ../core/pom.xml
 
   - versionName: 4.5.1
     versionCode: 94
     commit: a9fe6ccde1
     subdir: android
-    build: $$MVN3$$ package -f ../core/pom.xml
+    build: mvn package -f ../core/pom.xml
 
   - versionName: 4.5.2
     versionCode: 95
     commit: 3de3374dd2
     subdir: android
-    build: $$MVN3$$ package -f ../core/pom.xml
+    build: mvn package -f ../core/pom.xml
 
   - versionName: 4.6.1
     versionCode: 96
     commit: BS-4.6.1
     subdir: android
-    build: $$MVN3$$ package -f ../core/pom.xml
+    build: mvn package -f ../core/pom.xml
 
   - versionName: 4.6.2
     versionCode: 97
     commit: BS-4.6.2
     subdir: android
-    build: $$MVN3$$ package -f ../core/pom.xml
+    build: mvn package -f ../core/pom.xml
 
   - versionName: 4.6.3
     versionCode: 98
@@ -67,7 +67,7 @@ Builds:
     subdir: android
     prebuild: echo -e "java.source=7\njava.target=7" >> local.properties
     target: android-19
-    build: $$MVN3$$ package -f ../core/pom.xml
+    build: mvn package -f ../core/pom.xml
 
   - versionName: 4.6.4
     versionCode: 99
@@ -75,7 +75,7 @@ Builds:
     subdir: android
     prebuild: echo -e "java.source=7\njava.target=7" >> local.properties
     target: android-19
-    build: $$MVN3$$ package -f ../core/pom.xml
+    build: mvn package -f ../core/pom.xml
 
   - versionName: 4.7.0
     versionCode: 100
@@ -85,7 +85,7 @@ Builds:
       - echo -e "java.source=7\njava.target=7" >> local.properties
       - echo 'source.dir=src;../android-core/src' >> project.properties
     target: android-19
-    build: $$MVN3$$ package -f ../core/pom.xml
+    build: mvn package -f ../core/pom.xml
 
   - versionName: 4.7.3
     versionCode: 103
@@ -97,64 +97,21 @@ Builds:
     target: android-19
     scanignore:
       - core/src/test
-    build: $$MVN3$$ package -f ../core/pom.xml
-
-  - versionName: 4.7.4
-    versionCode: 104
-    disable: fails
-    commit: BS-4.7.4
-    subdir: android
-    prebuild:
-      - echo -e "java.source=7\njava.target=7" >> local.properties
-      - echo 'source.dir=src;../android-core/src' >> project.properties
-    target: android-19
-    scanignore:
-      - core/src/test
-    build: $$MVN3$$ package -f ../core/pom.xml
-
-  - versionName: 4.7.5
-    versionCode: 105
-    disable: requires recent maven, seemingly no way around it
-    commit: BS-4.7.5
-    subdir: android
-    maven: 'yes'
-    scanignore:
-      - core/src/test
-    build:
-      - $$MVN3$$ install -f ../core/pom.xml -Dmaven.test.skip=true
-      - $$MVN3$$ install -f ../android-core/pom.xml -Dmaven.test.skip=true
-
-  - versionName: 4.7.6
-    versionCode: 106
-    disable: older failing build
-    commit: BS-4.7.6
-    subdir: android
-    sudo:
-      - apt-get update || apt-get update
-      - apt-get -y install -t jessie-backports maven
-    maven: 'yes'
-    output: target/android-4.7.6-aligned.apk
-    prebuild: sed -i "58iandroid:debuggable=\"false\"" AndroidManifest.xml
-    scanignore:
-      - core/src/test
-    build:
-      - $$MVN3$$ install -f ../core/pom.xml -Dmaven.test.skip=true
-      - $$MVN3$$ install -f ../android-core/pom.xml -Dmaven.test.skip=true
-      - $$MVN3$$ install -f ../pom.xml -Dmaven.test.skip=true
+    build: mvn package -f ../core/pom.xml
 
   - versionName: 4.7.7
     versionCode: 107
     commit: BS-4.7.7
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get -y install -t jessie-backports maven
     output: android/target/android-$$VERSION$$-aligned.apk
     rm:
       - core/src/test
     prebuild: sed -i '/<application /a\               android:debuggable="false"'
-        android/AndroidManifest.xml
+      android/AndroidManifest.xml
     build:
-      - $$MVN3$$ -Dmaven.jar.sign.skip=true -Dmaven.test.skip=true -Dandroid.sign.debug=false
+      - mvn -Dmaven.jar.sign.skip=true -Dmaven.test.skip=true -Dandroid.sign.debug=false
         -Dandroid.release=true package
       - zip -d android/target/android-$$VERSION$$-aligned.apk 'META-INF/*'
 
@@ -162,23 +119,23 @@ Builds:
     versionCode: 108
     commit: BS-4.7.8
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get -y install -t jessie-backports maven
     output: android/target/android-$$VERSION$$-aligned.apk
     rm:
       - core/src/test
     prebuild: sed -i '/<application /a\               android:debuggable="false"'
-        android/AndroidManifest.xml
+      android/AndroidManifest.xml
     build:
-      - $$MVN3$$ -Dmaven.jar.sign.skip=true -Dmaven.test.skip=true -Dandroid.sign.debug=false
+      - mvn -Dmaven.jar.sign.skip=true -Dmaven.test.skip=true -Dandroid.sign.debug=false
         -Dandroid.release=true package
       - zip -d android/target/android-$$VERSION$$-aligned.apk 'META-INF/*'
 
 MaintainerNotes: |-
-    Enable AUM again once they switch to a sane build system, possibly gradle.
+  Enable AUM again once they switch to a sane build system, possibly gradle.
 
-    Summary and Description have been moved to the new localizable text files:
-    https://f-droid.org/docs/All_About_Descriptions_Graphics_and_Screenshots
+  Summary and Description have been moved to the new localizable text files:
+  https://f-droid.org/docs/All_About_Descriptions_Graphics_and_Screenshots
 
 AutoUpdateMode: None
 UpdateCheckMode: Tags

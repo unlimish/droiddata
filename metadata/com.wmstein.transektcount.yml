@@ -1,18 +1,12 @@
 Categories:
   - Science & Education
 License: Apache-2.0
+AuthorName: Wilhelm Stein
 SourceCode: https://github.com/wistein/TransektCount
 IssueTracker: https://github.com/wistein/TransektCount/issues
+Changelog: https://github.com/wistein/TransektCount/blob/HEAD/docs/History.md
 
 AutoName: TransektCount
-Description: |-
-    TransektCount is an application that supports transect counters in nature
-    preserving projects according to the Butterfly Monitoring Scheme methodology. It
-    allows a species-specific counting per transect section.
-
-    The integrated database is organized according to a single transect inspection.
-    That means, a new (prepared and importable) basic database instance will be used
-    per inspection.
 
 RepoType: git
 Repo: https://github.com/wistein/TransektCount.git
@@ -64,7 +58,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.14.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 2.0.1
     versionCode: 201
@@ -126,19 +120,6 @@ Builds:
       - echo -e 'distributionUrl=https://services.gradle.org/distributions/gradle-3.3-bin.zip'
         > gradle/wrapper/gradle-wrapper.properties
 
-  - versionName: 2.1.2
-    versionCode: 212
-    disable: Could not find com.android.tools.build:gradle:3.0.1
-    commit: 2.1.2
-    subdir: transektcount
-    gradle:
-      - yes
-    prebuild:
-      - cd ..
-      - mkdir -p gradle/wrapper
-      - echo -e 'distributionUrl=https://services.gradle.org/distributions/gradle-3.3-bin.zip'
-        > gradle/wrapper/gradle-wrapper.properties
-
   - versionName: 2.1.4
     versionCode: 214
     commit: 2.1.4
@@ -156,14 +137,6 @@ Builds:
   - versionName: 2.1.6
     versionCode: 216
     commit: 2.1.6
-    subdir: transektcount
-    gradle:
-      - yes
-
-  - versionName: 2.1.8
-    versionCode: 218
-    disable: Tag was removed
-    commit: 2.1.8
     subdir: transektcount
     gradle:
       - yes
@@ -191,15 +164,6 @@ Builds:
 
   - versionName: 3.0.4
     versionCode: 304
-    commit: 3.0.4
-    subdir: transektcount
-    gradle:
-      - yes
-
-  - versionName: 3.0.4
-    versionCode: 305
-    disable: "Unexpected version/version code in output; APK: '3.0.4' / '304',  Expected:\
-        \ '3.0.4' / '305'"
     commit: 3.0.4
     subdir: transektcount
     gradle:
@@ -296,7 +260,134 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: 3.2.7
+    versionCode: 327
+    commit: a5b0dddc84eabebb20d11b55613bee8908416aa2
+    subdir: transektcount
+    gradle:
+      - yes
+
+  - versionName: 3.2.8
+    versionCode: 328
+    commit: 4fee6987aeffb724aeddfa0d9fc296cd1c32866c
+    subdir: transektcount
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.3.0
+    versionCode: 330
+    commit: 7a7f8c2fa64c017f3d5569f148a860536a893d11
+    subdir: transektcount
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.3.1
+    versionCode: 331
+    commit: da9937d60c48134903959acf8d59a08709c5d6e6
+    subdir: transektcount
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.3.3
+    versionCode: 333
+    commit: db5c1b80131ceec26948d1f85c5de43e6c3378d4
+    subdir: transektcount
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.3.5
+    versionCode: 335
+    commit: 9dc49cd64922fd0fd8a66146c27f672fbf7338ac
+    subdir: transektcount
+    gradle:
+      - yes
+
+  - versionName: 3.3.6
+    versionCode: 336
+    commit: 85beecb7495993dcc70c6b6c521ddce1d97d7176
+    subdir: transektcount
+    gradle:
+      - yes
+
+  - versionName: 3.3.8
+    versionCode: 338
+    commit: a28cf4875310eb958613ada33ef4078d32dd51b8
+    subdir: transektcount
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 3.4.0
+    versionCode: 340
+    commit: fccd56ed5c5fd2686cface8278e933aa9224a700
+    subdir: transektcount
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 3.4.2
+    versionCode: 342
+    commit: 39741c87e7988940ccb1c66b3a40343307da9946
+    subdir: transektcount
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 4.0.1
+    versionCode: 401
+    commit: 8101934d7ea2b55c15a5fc7913aac99526939707
+    subdir: transektcount
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 4.0.2
+    versionCode: 402
+    commit: e3ec97f8a42391885b684bcd83b6a4b9e6657295
+    subdir: transektcount
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 4.0.3
+    versionCode: 403
+    commit: 98247ec88090e1fcefba1052aea99773a2db7ce6
+    subdir: transektcount
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.2.6
-CurrentVersionCode: 326
+CurrentVersion: 4.0.3
+CurrentVersionCode: 403

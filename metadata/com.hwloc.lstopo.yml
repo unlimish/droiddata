@@ -1,0 +1,110 @@
+Categories:
+  - System
+License: BSD-3-Clause
+AuthorName: Inria
+AuthorEmail: hwloc-android@inria.fr
+AuthorWebSite: https://www.inria.fr
+WebSite: https://www.open-mpi.org/projects/hwloc
+SourceCode: https://github.com/open-mpi/hwloc
+IssueTracker: https://github.com/open-mpi/hwloc/issues
+
+AutoName: hwloc lstopo
+
+RepoType: git
+Repo: https://github.com/open-mpi/hwloc
+
+Builds:
+  - versionName: 2.7.0-1-1.5.1
+    versionCode: 265
+    commit: android-2.7.0-1-1.5.1
+    subdir: contrib/android/AndroidApp/lstopo
+    sudo:
+      - apt-get update
+      - apt-get install -y --no-install-recommends cmake make ninja-build gcc g++
+    gradle:
+      - yes
+    prebuild: sed -i -e '/^        splits {/,/^        }/d' -e '/applicationVariants/,/^}/d'
+      build.gradle
+    scandelete:
+      - utils/hwloc/test-hwloc-compress-dir.*.tar.gz
+    ndk: r20
+
+  - versionName: 2.8.0-1-1.5.1
+    versionCode: 266
+    commit: eafaf1579e13900837703d01464ae55f04822555
+    subdir: contrib/android/AndroidApp/lstopo
+    sudo:
+      - apt-get update
+      - apt-get install -y --no-install-recommends cmake make ninja-build gcc g++
+    gradle:
+      - yes
+    prebuild: sed -i -e '/^        splits {/,/^        }/d' -e '/applicationVariants/,/^}/d'
+      build.gradle
+    scandelete:
+      - utils/hwloc/test-hwloc-compress-dir.*.tar.gz
+    ndk: r20
+
+  - versionName: 2.9.0-1-1.5.2
+    versionCode: 269
+    commit: 6571c696e8f25a56e8bbe8078e73fb709c9ec164
+    subdir: contrib/android/AndroidApp/lstopo
+    sudo:
+      - apt-get update
+      - apt-get install -y --no-install-recommends cmake make ninja-build gcc g++
+    gradle:
+      - yes
+    prebuild: sed -i -e '/^        splits {/,/^        }/d' -e '/applicationVariants/,/^}/d'
+      build.gradle
+    scandelete:
+      - utils/hwloc/test-hwloc-compress-dir.*.tar.gz
+    ndk: r20
+
+  - versionName: 2.9.2-1-1.5.2
+    versionCode: 270
+    commit: 50cfb864f97e319dc7250dc8a9c98b950301167b
+    subdir: contrib/android/AndroidApp/lstopo
+    sudo:
+      - apt-get update
+      - apt-get install -y --no-install-recommends cmake make ninja-build gcc g++
+    gradle:
+      - yes
+    prebuild: sed -i -e '/^        splits {/,/^        }/d' -e '/applicationVariants/,/^}/d'
+      build.gradle
+    scandelete:
+      - utils/hwloc/test-hwloc-compress-dir.*.tar.gz
+    ndk: r20
+
+  - versionName: 2.9.3a1-1-1.5.3
+    versionCode: 271
+    commit: a6419874159ad16c20cbe237a005b40dd3f45409
+    subdir: contrib/android/AndroidApp/lstopo
+    sudo:
+      - apt-get update
+      - apt-get install -y --no-install-recommends cmake make ninja-build gcc g++
+    gradle:
+      - yes
+    prebuild: sed -i -e '/^        splits {/,/^        }/d' -e '/applicationVariants/,/^}/d'
+      build.gradle
+    scandelete:
+      - utils/hwloc/test-hwloc-compress-dir.*.tar.gz
+    ndk: r20
+
+  - versionName: 2.10.0-1-1.5.3
+    versionCode: 272
+    commit: f3e592bf9107ae96c8ff27f5dd5078e5fed71070
+    subdir: contrib/android/AndroidApp/lstopo
+    sudo:
+      - apt-get update
+      - apt-get install -y --no-install-recommends cmake make ninja-build gcc g++
+    gradle:
+      - yes
+    prebuild: sed -i -e '/^        splits {/,/^        }/d' -e '/applicationVariants/,/^}/d'
+      build.gradle
+    scandelete:
+      - utils/hwloc/test-hwloc-compress-dir.*.tar.gz
+    ndk: r20
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 2.10.0-1-1.5.3
+CurrentVersionCode: 272

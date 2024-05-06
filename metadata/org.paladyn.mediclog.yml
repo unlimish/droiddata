@@ -9,8 +9,8 @@ IssueTracker: https://github.com/JohnLines/mediclog/issues
 
 AutoName: MedicLog
 Description: |-
-    MedicLog logs key medical information - blood pressure, temperature and weight,
-    with an emphasis on simplicity and privacy.
+  MedicLog logs key medical information - blood pressure, temperature and weight,
+  with an emphasis on simplicity and privacy.
 
 RepoType: git
 Repo: https://github.com/JohnLines/mediclog
@@ -31,13 +31,6 @@ Builds:
   - versionName: 0.2.1
     versionCode: 4
     commit: v0.2.1
-    gradle:
-      - yes
-
-  - versionName: 0.2.2
-    versionCode: 5
-    disable: "mediclog_layout.xml: Error: Unsupported type 'TextView'"
-    commit: v0.2.2
     gradle:
       - yes
 
@@ -87,7 +80,68 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 0.2.9
+    versionCode: 13
+    commit: 77b0d9323bcf12445e3a351c1c96ff9937acc855
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.2.10
+    versionCode: 14
+    commit: a00c9161f6884d6b6b3df9c6bb2405de626d9e23
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.2.12
+    versionCode: 16
+    commit: 427d13dc481865479e3179b9ae23a6df6d8a2732
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.2.13
+    versionCode: 17
+    commit: 8128329e3c8f766d05b6ea6a4fb4e13fe680fda5
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.2.14
+    versionCode: 18
+    commit: 4bc96460dadd2b06febccc8f27be7fb2b95093dd
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.2.15
+    versionCode: 19
+    commit: f5124cb95182fcae6e2a254dad27086456b292f7
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.2.16
+    versionCode: 20
+    commit: 9541b6b819a2fcededa1c954fa806a5b53b1b837
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]*$
-CurrentVersion: 0.2.8
-CurrentVersionCode: 12
+CurrentVersion: 0.2.16
+CurrentVersionCode: 20

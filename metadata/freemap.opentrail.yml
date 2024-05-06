@@ -1,5 +1,3 @@
-AntiFeatures:
-  - NonFreeNet
 Categories:
   - Navigation
 License: GPL-2.0-only
@@ -12,21 +10,21 @@ Changelog: https://gitlab.com/nickw1/opentrail/tags
 
 AutoName: OpenTrail
 Description: |-
-    OpenStreetMap-based Android app for UK walkers and other countryside users,
-    highlighting rights of way and showing contours from OS OpenData. Allows
-    both online and offline use. In addition to navigation, walkers may share
-    and download footpath issues (blockages, directions etc) and walking
-    routes.
+  OpenStreetMap-based Android app for UK walkers and other countryside users,
+  highlighting rights of way and showing contours from OS OpenData. Allows
+  both online and offline use. In addition to navigation, walkers may share
+  and download footpath issues (blockages, directions etc) and walking
+  routes.
 
-    Antifeatures:
-    * NonFreeNet: The map data is OpenStreetMap-derived but it is downloaded
-    from the Freemap server. OpenTrail does not currently send any personal
-    information (such as your Google login) to the Freemap server. All data sent
-    is completely anonymous. Location tracking (GPS) is used to find your
-    location and to download nearby points of interest from the server. Server
-    requests (to find all points of interest close to a given GPS location) are
-    logged using standard server (Apache) logging; however they are not
-    associated with a username or name.
+  Antifeatures:
+  * NonFreeNet: The map data is OpenStreetMap-derived but it is downloaded
+  from the Freemap server. OpenTrail does not currently send any personal
+  information (such as your Google login) to the Freemap server. All data sent
+  is completely anonymous. Location tracking (GPS) is used to find your
+  location and to download nearby points of interest from the server. Server
+  requests (to find all points of interest close to a given GPS location) are
+  logged using standard server (Apache) logging; however they are not
+  associated with a username or name.
 
 RepoType: git
 Repo: https://gitlab.com/nickw1/opentrail.git
@@ -45,47 +43,29 @@ Builds:
       - JCoord@328e75a8d44d9f6a13205994d3b9d3fd50f68867
       - javaproj@b2167fa5aa64dce82867f7d96ac1462a4212c9df
     prebuild: echo -e "\nproject(':andromaps').projectDir = new File('./app/$$andromaps$$/app/')"
-        >> ../settings.gradle
+      >> ../settings.gradle
     build:
       - pushd $$freemaplib$$
-      - $$MVN3$$ install
+      - mvn install
       - popd
       - pushd $$JCoord$$
-      - $$MVN3$$ install -DskipTests
+      - mvn install -DskipTests
       - popd
       - pushd $$javaproj$$
-      - $$MVN3$$ install -DskipTests
+      - mvn install -DskipTests
       - popd
       - pushd $$freemaplibProj$$
-      - $$MVN3$$ install
+      - mvn install
 
-  - versionName: 0.5.3
-    versionCode: 9
-    disable: fails to build, missing srclib deps
-    commit: 0.5.3
+  - versionName: 0.6.0
+    versionCode: 11
+    commit: 497d9d177e7a2fc11d26cde57a9af233cdd2ffc5
     subdir: app
     gradle:
       - yes
-    srclibs:
-      - andromaps@ec817a0b869ad41d0dc661bcca0b8595dc719003
-      - freemaplib@d409e3db4b84509108e4e406f8b4e721d9223d1b
-      - freemaplibProj@a15388343b5cd0498efe70586c2c863a4870959f
-      - JCoord@aa4c5aa25fee1179c57817bbb2c7f61aa1c5328d
-      - javaproj@fecb0f3a6b52a4eb4e44889f10c07183cc592a3d
-    build:
-      - pushd $$freemaplib$$
-      - $$MVN3$$ install
-      - popd
-      - pushd $$JCoord$$
-      - $$MVN3$$ install -DskipTests
-      - popd
-      - pushd $$javaproj$$
-      - $$MVN3$$ install -DskipTests
-      - popd
-      - pushd $$freemaplibProj$$
-      - $$MVN3$$ install
+    ndk: r21
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '0.4'
-CurrentVersionCode: 4
+CurrentVersion: 0.6.0
+CurrentVersionCode: 11

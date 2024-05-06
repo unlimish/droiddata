@@ -18,7 +18,7 @@ Builds:
     srclibs:
       - flutter@1.22.5
     prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
-        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+      { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --no-tree-shake-icons
@@ -30,7 +30,7 @@ Builds:
     srclibs:
       - flutter@1.22.5
     prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
-        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+      { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --no-tree-shake-icons
@@ -42,7 +42,7 @@ Builds:
     srclibs:
       - flutter@1.22.5
     prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
-        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+      { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --no-tree-shake-icons
@@ -54,13 +54,24 @@ Builds:
     srclibs:
       - flutter@1.22.5
     prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
-        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+      { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk --no-tree-shake-icons
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: HTTP
-UpdateCheckData: https://raw.githubusercontent.com/git-touch/git-touch/main/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.12.3
-CurrentVersionCode: 24
+  - versionName: 1.13.0
+    versionCode: 26
+    disable: https://github.com/git-touch/git-touch/issues/239
+    commit: v1.13.0
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.2.2
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk --no-tree-shake-icons
+
+AutoUpdateMode: None
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.13.0
+CurrentVersionCode: 26

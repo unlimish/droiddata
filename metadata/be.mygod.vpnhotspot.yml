@@ -11,20 +11,23 @@ FlattrID: e0ggg2
 
 AutoName: VPN Hotspot
 Description: |-
-    This app is useful for:
+  <b>Note:</b> This app won't be updated. Please use
+  https://f-droid.org/packages/be.mygod.vpnhotspot.foss instead.
 
-    * Connecting things that don’t support VPN like Chromecasts behind corporate firewalls;
-    * Set up gapps behind corporate firewalls;
-    * Connect to your mobile hotspot but you’re not bothered to set up VPN on your device.
+  This app is useful for:
 
-    Requires root to set up networking.
+  * Connecting things that don't support VPN like Chromecasts behind corporate firewalls;
+  * Set up gapps behind corporate firewalls;
+  * Connect to your mobile hotspot but you're not bothered to set up VPN on your device.
 
-    This app is designed to do only minimal changes to your system, so there’s
-    almost no chance you will brick your device and/or break your Internet using
-    this app under normal conditions. However there’s also absolutely no guarantee
-    it won’t.
+  Requires root to set up networking.
 
-RequiresRoot: 'yes'
+  This app is designed to do only minimal changes to your system, so there's
+  almost no chance you will brick your device and/or break your Internet using
+  this app under normal conditions. However there's also absolutely no guarantee
+  it won't.
+
+RequiresRoot: true
 
 RepoType: git
 Repo: https://github.com/Mygod/VPNHotspot
@@ -117,14 +120,6 @@ Builds:
   - versionName: 1.3.2
     versionCode: 23
     commit: 1.3.2
-    subdir: mobile
-    gradle:
-      - yes
-
-  - versionName: 1.3.3
-    versionCode: 24
-    disable: crashlytics
-    commit: 1.3.3
     subdir: mobile
     gradle:
       - yes
@@ -228,165 +223,10 @@ Builds:
       - freedom
     prebuild: sed -i -e '14,16d' -e '/google-services/d' -e '/io.fabric./d' ../build.gradle
 
-  - versionName: 2.3.0
-    versionCode: 119
-    commit: 2.3.0
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-      - sed -i -e 's/5.2-/5.1-/' ../gradle/wrapper/gradle-wrapper.properties
-
-  - versionName: 2.4.0
-    versionCode: 200
-    commit: v2.4.0
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-      - sed -i -e 's/5.2-/5.1-/' ../gradle/wrapper/gradle-wrapper.properties
-
-  - versionName: 2.4.3
-    versionCode: 203
-    commit: v2.4.3
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-      - sed -i -e 's/5.2-/5.1-/' ../gradle/wrapper/gradle-wrapper.properties
-
-  - versionName: 2.4.4
-    versionCode: 204
-    commit: v2.4.4
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-      - sed -i -e 's/5.2-/5.1-/' ../gradle/wrapper/gradle-wrapper.properties
-
-  - versionName: 2.4.5
-    versionCode: 205
-    disable: 'Unresolved reference: crashlytics'
-    commit: v2.4.5
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.5.1
-    versionCode: 208
-    commit: v2.5.1
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.5.2
-    versionCode: 209
-    commit: v2.5.2
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.5.3
-    versionCode: 210
-    commit: v2.5.3
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.5.4
-    versionCode: 211
-    commit: v2.5.4
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.5.5
-    versionCode: 212
-    commit: v2.5.5
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.6.2
-    versionCode: 215
-    commit: v2.6.2
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.6.3
-    versionCode: 216
-    disable: unknown maven repo 'https://kotlin.bintray.com/kotlinx'
-    commit: v2.6.3
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.6.4
-    versionCode: 217
-    commit: v2.6.4
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.6.5
-    versionCode: 218
-    commit: v2.6.5
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
-  - versionName: 2.7.1
-    versionCode: 220
-    commit: v2.7.1
-    subdir: mobile
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '10,12d' -e '/google-services/d' -e '/io.fabric/d' ../build.gradle
-      - sed -i -e '6,9d' build.gradle
-
+ArchivePolicy: 0
 AutoUpdateMode: None
-UpdateCheckMode: Tags
-CurrentVersion: 2.11.3
-CurrentVersionCode: 256
+UpdateCheckMode: None
+CurrentVersion: 2.2.3
+CurrentVersionCode: 118
 
-NoSourceSince: 2.7.1
+NoSourceSince: 2.2.3

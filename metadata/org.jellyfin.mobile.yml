@@ -7,14 +7,14 @@ AuthorWebSite: https://jellyfin.org/
 WebSite: https://jellyfin.org/
 SourceCode: https://github.com/jellyfin/jellyfin-android
 IssueTracker: https://github.com/jellyfin/jellyfin-android/issues
-Translation: https://translate.jellyfin.org/projects/jellyfin/jellyfin-android/
+Translation: https://translate.jellyfin.org/engage/jellyfin-android/
 Changelog: https://github.com/jellyfin/jellyfin-android/releases
 OpenCollective: jellyfin
 
 AutoName: Jellyfin
 
 RepoType: git
-Repo: https://github.com/jellyfin/jellyfin-android
+Repo: https://github.com/jellyfin/jellyfin-android.git
 Binaries: https://repo.jellyfin.org/releases/client/android/versions/v%v/jellyfin-android-v%v-libre-release.apk
 
 Builds:
@@ -27,8 +27,182 @@ Builds:
     output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
     build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
 
+  - versionName: 2.3.0-beta.1
+    versionCode: 2030001
+    commit: v2.3.0-beta.1
+    subdir: app
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.3.0-beta.6
+    versionCode: 2030006
+    commit: v2.3.0-beta.6
+    subdir: app
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.3.0
+    versionCode: 2030099
+    commit: v2.3.0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.3.1
+    versionCode: 2030199
+    commit: v2.3.1
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.3.2
+    versionCode: 2030299
+    commit: v2.3.2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.3.3
+    versionCode: 2030399
+    commit: v2.3.3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.4.0
+    versionCode: 2040099
+    commit: v2.4.0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.4.1
+    versionCode: 2040199
+    commit: v2.4.1
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.4.2
+    versionCode: 2040299
+    commit: v2.4.2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.4.4
+    versionCode: 2040499
+    commit: v2.4.4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.5.1
+    versionCode: 2050199
+    commit: v2.5.1
+    subdir: app
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.5.2
+    versionCode: 2050299
+    commit: v2.5.2
+    subdir: app
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.5.3
+    versionCode: 2050399
+    commit: v2.5.3
+    subdir: app
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.6.0
+    versionCode: 2060099
+    commit: v2.6.0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+  - versionName: 2.6.1
+    versionCode: 2060199
+    commit: v2.6.1
+    subdir: app
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/jellyfin-android-*-libre-release-unsigned.apk
+    build: echo 'jellyfin.version=$$VERSION$$' >> ../gradle.properties
+
+AllowedAPKSigningKeys: d881796ed2a67ff6ef9f676828723c6b1fa18e09388962cba4abc4a594a69131
+
 AutoUpdateMode: Version v%v
 UpdateCheckMode: HTTP
+UpdateCheckIgnore: (beta|rc)
 UpdateCheckData: https://repo.jellyfin.org/releases/client/android/version.txt|^v.*?=(\d+)|.|^v(.*?)=\d+
-CurrentVersion: 2.2.3
-CurrentVersionCode: 2020399
+CurrentVersion: 2.6.1
+CurrentVersionCode: 2060199

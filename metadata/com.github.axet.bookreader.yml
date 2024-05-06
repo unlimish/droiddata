@@ -7,11 +7,11 @@ Translation: https://gitlab.com/axet/android-book-reader/blob/HEAD/docs/HOWTO-Tr
 
 AutoName: Book Reader
 Description: |-
-    Book reader with a simple UI. Based on https://f-droid.org/packages/org.geometerplus.zlibrary.ui.android.
+  Book reader with a simple UI. Based on https://f-droid.org/packages/org.geometerplus.zlibrary.ui.android.
 
-    Supported formats: fb2, html, txt, epub, mobi, rtf, doc, pdf, djvu.
+  Supported formats: fb2, html, txt, epub, mobi, rtf, doc, pdf, djvu.
 
-    All the best in this world is free!
+  All the best in this world is free!
 
 RepoType: git
 Repo: https://gitlab.com/axet/android-book-reader.git
@@ -792,7 +792,91 @@ Builds:
       - sed -i -e '/credentials {/,/}/d; /maven {/,/}/d' ../android-bookreader-library/build.gradle
       - echo 'android {lintOptions {checkReleaseBuilds false}}' >> build.gradle
 
-AutoUpdateMode: Version bookreader-%v
+  - versionName: 1.14.1
+    versionCode: 410
+    commit: d57b86cc4932121ab128727a5939c1d7d7a968fd
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+      - sed -i -e '/credentials {/,/}/d; /maven {/,/}/d' ../android-bookreader-library/build.gradle
+      - echo 'android {lintOptions {checkReleaseBuilds false}}' >> build.gradle
+    ndk: r16b
+
+  - versionName: 1.14.2
+    versionCode: 411
+    commit: e84e8580c098e5c716e8670aff145ae3929f01e3
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+      - sed -i -e '/credentials {/,/}/d; /maven {/,/}/d' ../android-bookreader-library/build.gradle
+      - echo 'android {lintOptions {checkReleaseBuilds false}}' >> build.gradle
+    ndk: r16b
+
+  - versionName: 1.14.3
+    versionCode: 412
+    commit: b7c4a5cfc4334cac390cee39c215848a20c003e3
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+      - sed -i -e '/credentials {/,/}/d; /maven {/,/}/d' ../android-bookreader-library/build.gradle
+      - echo 'android {lintOptions {checkReleaseBuilds false}}' >> build.gradle
+    ndk: r16b
+
+  - versionName: 1.15.0
+    versionCode: 413
+    commit: 4a6fbcb645ad75f014928c7c6169ab709f62f03a
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+      - sed -i -e '/credentials {/,/}/d; /maven {/,/}/d' ../android-bookreader-library/build.gradle
+      - echo 'android {lintOptions {checkReleaseBuilds false}}' >> build.gradle
+    ndk: r16b
+
+  - versionName: 1.15.1
+    versionCode: 414
+    commit: e357fde7240907c4aa6bce3efddbcdf4863c56e0
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+      - sed -i -e '/credentials {/,/}/d; /maven {/,/}/d' ../android-bookreader-library/build.gradle
+      - echo 'android {lintOptions {checkReleaseBuilds false}}' >> build.gradle
+    ndk: r16b
+
+  - versionName: 1.15.2
+    versionCode: 415
+    commit: bb6a59db056a7761d5ba2ccfcef8d8d9045e7704
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+      - sed -i -e '/credentials {/,/}/d; /maven {/,/}/d' ../android-bookreader-library/build.gradle
+      - echo 'android {lintOptions {checkReleaseBuilds false}}' >> build.gradle
+    ndk: r16b
+
+  - versionName: 1.15.3
+    versionCode: 416
+    commit: 864d6fa2a567464a374ebb3a7f7d1a64aff1b2a0
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/variant.outputs.each/,/}$/d; /enable true/d' build.gradle
+      - sed -i -e '/credentials {/,/}/d; /maven {/,/}/d' ../android-bookreader-library/build.gradle
+      - echo 'android {lintOptions {checkReleaseBuilds false}}' >> build.gradle
+    ndk: r16b
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.13.29
-CurrentVersionCode: 408
+CurrentVersion: 1.15.3
+CurrentVersionCode: 416

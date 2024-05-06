@@ -8,10 +8,10 @@ IssueTracker: https://github.com/Xlythe/android_packages_apps_Calculator/issues
 Name: Calculator (old)
 AutoName: Calculator
 Description: |-
-    This app has been deprecated in favor of https://f-droid.org/packages/com.xlythe.calculator.material.
+  This app has been deprecated in favor of https://f-droid.org/packages/com.xlythe.calculator.material.
 
-    A simple calculator that tries to make graphing and matrix math as simple as
-    adding or multiplying two numbers. Slide left and right to access more panels.
+  A simple calculator that tries to make graphing and matrix math as simple as
+  adding or multiplying two numbers. Slide left and right to access more panels.
 
 RepoType: git
 Repo: https://github.com/Xlythe/android_packages_apps_Calculator.git
@@ -31,11 +31,6 @@ Builds:
       - rm -rf tests libs/slider.jar
       - echo "android.library.reference.1=$$Slider$$" >> project.properties
     target: android-16
-
-  - versionName: '2.2'
-    versionCode: 26
-    disable: no source
-    commit: unknown - see disabled
 
   - versionName: 2.2.2
     versionCode: 28
@@ -114,10 +109,10 @@ Builds:
       - Calculator/libs/*jar
     prebuild:
       - pushd $$EJML$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - pushd $$Google-Gson$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - pushd $$Slider$$
       - android update project -p ./
@@ -154,46 +149,10 @@ Builds:
     prebuild:
       - sed -i -e '/wearApp/d' build.gradle
       - pushd $$EJML$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - pushd $$Google-Gson$$
-      - $$MVN3$$ package
-      - popd
-      - pushd $$ArityXlythe$$
-      - rm -fR bin/*
-      - find -name "*.java" > sources.txt
-      - javac -d bin @sources.txt
-      - cd bin
-      - jar cf arity.jar org
-      - popd
-      - cp $$EJML$$/target/ejml-0.25.jar $$ArityXlythe$$/bin/arity.jar ../MathLibrary/libs/
-      - cp $$Google-Gson$$/target/gson-2.2.4.jar libs/
-
-  - versionName: 5.1.1
-    versionCode: 88
-    disable: gson tests fail
-    commit: a172a4e277f39a6805c682a2543344f67258716c
-    subdir: mobile
-    gradle:
-      - yes
-    srclibs:
-      - EJML@v0.25
-      - Google-Gson@gson-2.2.4
-      - ArityXlythe@459535ba5005c6f3a03101b15354e44df161a637
-    rm:
-      - mobile/libs/*jar
-      - MathLibrary/libs/*.jar
-      - legacy-mobile
-      - wear
-      - glass
-      - GDK-ProgressBar
-    prebuild:
-      - sed -i -e '/wearApp/d' build.gradle
-      - pushd $$EJML$$
-      - $$MVN3$$ package
-      - popd
-      - pushd $$Google-Gson$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - pushd $$ArityXlythe$$
       - rm -fR bin/*
@@ -222,29 +181,30 @@ Builds:
     prebuild:
       - sed -i -e '/wearApp/d' build.gradle
       - pushd $$Google-Gson$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$Google-Gson$$/target/gson-2.2.4.jar libs/
       - sed -i -e '/applicationId/s/com.xlythe.calculator.material/com.android2.calculator3/g'
         build.gradle
 
 MaintainerNotes: |-
-    The JAR files slider.jar, gson-2.2.4.jar and ejml-0.21.jar have been replaced
-    by a version build from upstream sources. As arity-2.1.6.jar is no longer
-    available from upstream, it has been replaced by a repo-copy of the author
-    of this app.
+  The JAR files slider.jar, gson-2.2.4.jar and ejml-0.21.jar have been replaced
+  by a version build from upstream sources. As arity-2.1.6.jar is no longer
+  available from upstream, it has been replaced by a repo-copy of the author
+  of this app.
 
-    Google's Glass Development Kit is currently not available under a free license,
-    so $$SDK$$/add-ons/addon-google_gdk-google-19/libs/gdk.jar cannot be used. It
-    hhas been removed and the code has been patched to not use it.
+  Google's Glass Development Kit is currently not available under a free license,
+  so $$SDK$$/add-ons/addon-google_gdk-google-19/libs/gdk.jar cannot be used. It
+  hhas been removed and the code has been patched to not use it.
 
-    Google's wearable-preview-support.jar is currently not available under a free
-    license. It seems like it's not used in this version, so it has been removed.
+  Google's wearable-preview-support.jar is currently not available under a free
+  license. It seems like it's not used in this version, so it has been removed.
 
-    Package id is now com.xlythe.calculator.material.
+  Package id is now com.xlythe.calculator.material.
 
+ArchivePolicy: 0
 AutoUpdateMode: None
-UpdateCheckMode: RepoManifest
+UpdateCheckMode: None
 UpdateCheckName: com.xlythe.calculator.material
 CurrentVersion: '5.4'
 CurrentVersionCode: 93

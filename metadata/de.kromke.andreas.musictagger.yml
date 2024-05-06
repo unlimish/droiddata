@@ -2,18 +2,12 @@ Categories:
   - Multimedia
 License: GPL-3.0-only
 AuthorName: Andreas Kromke
+AuthorEmail: Andreas.Krom.ke+Support@gmail.com
 SourceCode: https://gitlab.com/AndreasK/classical-music-tagger
 IssueTracker: https://gitlab.com/AndreasK/classical-music-tagger/issues
-Changelog: https://gitlab.com/AndreasK/classical-music-tagger/blob/HEAD/app/src/main/assets/version-history.txt
+Changelog: https://gitlab.com/AndreasK/classical-music-tagger/-/releases
 
 AutoName: Classical Music Tagger
-Description: |-
-    While most Android applications not even know about composers, this one
-    additionally handles works, movements, conductors etc.
-
-    This application is designed as auxiliary tool for the Unpopular Music Player
-    and the Opus 1 Music Player, but alternatively also runs in a standalone mode
-    showing a file browser.
 
 RepoType: git
 Repo: https://gitlab.com/AndreasK/classical-music-tagger.git
@@ -103,7 +97,98 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: '1.6'
+    versionCode: 22
+    commit: v1.6
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.7'
+    versionCode: 23
+    commit: acea59c0f8663a2b73758627e6e3659170e83396
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.8'
+    versionCode: 24
+    commit: 8bc499c793ab3ce9562fbc821e393cdc61d31fb8
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.8.1
+    versionCode: 25
+    commit: 18fd1a6dc991ecfbda1b590727d5afeb1f63b72d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.9'
+    versionCode: 26
+    commit: a215aa443f73d7d167a497910f4f70c28427b3d8
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.9.2
+    versionCode: 28
+    commit: 7c56f49627f8a2bdd61eeac71c38cee65986075d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.9.3
+    versionCode: 29
+    commit: da8538a8d943741381ef1a4b954dfc0c6335f47c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.9.4
+    versionCode: 30
+    commit: 08c90182f915f66a6da76bc83b2b4a65350e9c23
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.9.5
+    versionCode: 31
+    commit: a8aaf269920ca7e33fb65e8078576dc327a8a127
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v
-CurrentVersion: '1.5'
-CurrentVersionCode: 21
+CurrentVersion: 1.9.5
+CurrentVersionCode: 31

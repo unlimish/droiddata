@@ -1,6 +1,6 @@
 Categories:
   - Multimedia
-License: MIT
+License: GPL-3.0-only
 AuthorEmail: info@antennapod.org
 WebSite: https://antennapod.org
 SourceCode: https://github.com/AntennaPod/AntennaPod
@@ -185,16 +185,7 @@ Builds:
     commit: 0.9.7
     submodules: true
     init: mvn clean install -f submodules/dslv/pom.xml
-    maven: 'yes'
-    prebuild: cp src/de/danoeh/antennapod/util/flattr/FlattrConfig.java.example src/de/danoeh/antennapod/util/flattr/FlattrConfig.java
-
-  - versionName: 0.9.7.1
-    versionCode: 28
-    disable: bad bug (at 0.9.7.1)
-    commit: 0.9.7.1
-    submodules: true
-    init: mvn clean install -f submodules/dslv/pom.xml
-    maven: 'yes'
+    maven: yes
     prebuild: cp src/de/danoeh/antennapod/util/flattr/FlattrConfig.java.example src/de/danoeh/antennapod/util/flattr/FlattrConfig.java
 
   - versionName: 0.9.7.2
@@ -202,7 +193,7 @@ Builds:
     commit: 0.9.7.2
     submodules: true
     init: mvn clean install -f submodules/dslv/pom.xml
-    maven: 'yes'
+    maven: yes
     prebuild: cp src/de/danoeh/antennapod/util/flattr/FlattrConfig.java.example src/de/danoeh/antennapod/util/flattr/FlattrConfig.java
 
   - versionName: 0.9.7.3
@@ -210,7 +201,7 @@ Builds:
     commit: 0.9.7.3
     submodules: true
     init: mvn clean install -f submodules/dslv/pom.xml
-    maven: 'yes'
+    maven: yes
     prebuild: cp src/de/danoeh/antennapod/util/flattr/FlattrConfig.java.example src/de/danoeh/antennapod/util/flattr/FlattrConfig.java
 
   - versionName: 0.9.7.4
@@ -218,41 +209,14 @@ Builds:
     commit: 0.9.7.4
     submodules: true
     init: mvn clean install -f submodules/dslv/pom.xml
-    maven: 'yes'
+    maven: yes
     prebuild:
       - cp src/de/danoeh/antennapod/util/flattr/FlattrConfig.java.example src/de/danoeh/antennapod/util/flattr/FlattrConfig.java
       - sed -i '97s/true/false/g' pom.xml
 
-  - versionName: 0.9.7.5
-    versionCode: 32
-    disable: broken 0.9.7.5
-    commit: unknown - see disabled
-    submodules: true
-    gradle:
-      - yes
-    prebuild: cp src/de/danoeh/antennapod/util/flattr/FlattrConfig.java.example src/de/danoeh/antennapod/util/flattr/FlattrConfig.java
-
   - versionName: 0.9.8.0
     versionCode: 33
     commit: 0.9.8.0
-    submodules: true
-    gradle:
-      - yes
-    prebuild: cp src/de/danoeh/antennapod/util/flattr/FlattrConfig.java.example src/de/danoeh/antennapod/util/flattr/FlattrConfig.java
-
-  - versionName: 0.9.8.1
-    versionCode: 34
-    disable: lint errors
-    commit: 0.9.8.1
-    submodules: true
-    gradle:
-      - yes
-    prebuild: cp src/de/danoeh/antennapod/util/flattr/FlattrConfig.java.example src/de/danoeh/antennapod/util/flattr/FlattrConfig.java
-
-  - versionName: 0.9.8.2
-    versionCode: 35
-    disable: lint errors
-    commit: 0.9.8.2
     submodules: true
     gradle:
       - yes
@@ -304,29 +268,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 0.9.9.5
-    versionCode: 42
-    disable: gradle plugin
-    commit: 0.9.9.5
-    subdir: app
-    submodules: true
-    gradle:
-      - yes
-    prebuild:
-      - sed -i -e 's/v4:21.0.2/v4:21.0.+/g' -e 's/v7:21.0.2/v7:21.0.+/g' build.gradle
-        ../build.gradle ../core/build.gradle
-      - sed -i -e 's/build:gradle:0.12.+/build:gradle:0.14.+/g' -e 's/android-library/com.android.library/g'
-        dslv/library/build.gradle
-
-  - versionName: 0.9.9.6
-    versionCode: 43
-    disable: gradle 2.2.1 fails when run in subdir
-    commit: 0.9.9.6
-    subdir: app
-    submodules: true
-    gradle:
-      - yes
-
   - versionName: '1.0'
     versionCode: 44
     commit: '1.0'
@@ -370,14 +311,6 @@ Builds:
   - versionName: 1.3.1
     versionCode: 1030100
     commit: 1.3.1
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 1.3.2
-    versionCode: 1030204
-    disable: requires java1.8
-    commit: 1.3.2
     subdir: app
     gradle:
       - yes
@@ -435,24 +368,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 1.5.1.0
-    versionCode: 1050100
-    disable: https://github.com/AntennaPod/AntennaPod/issues/1734
-    commit: 1.5.1.0
-    subdir: app
-    init: echo 'android { lintOptions { checkReleaseBuilds false } }' >>build.gradle
-    gradle:
-      - yes
-
-  - versionName: 1.5.1.1
-    versionCode: 1050101
-    disable: https://github.com/AntennaPod/AntennaPod/issues/1734
-    commit: 1.5.1.1
-    subdir: app
-    init: echo 'android { lintOptions { checkReleaseBuilds false } }' >>build.gradle
-    gradle:
-      - yes
-
   - versionName: 1.5.1.2
     versionCode: 1050102
     commit: 1.5.1.2
@@ -476,24 +391,6 @@ Builds:
     init: echo 'android { lintOptions { checkReleaseBuilds false } }' >>build.gradle
     gradle:
       - yes
-
-  - versionName: 1.6.0.7
-    versionCode: 1060007
-    disable: play-services
-    commit: 1.6.0.7
-    subdir: app
-    init: echo 'android { lintOptions { checkReleaseBuilds false } }' >>build.gradle
-    gradle:
-      - yes
-
-  - versionName: 1.6.0.9
-    versionCode: 1060009
-    disable: compile error https://github.com/AntennaPod/AntennaPod/issues/1959
-    commit: 1.6.0.9
-    subdir: app
-    init: sed -i '/playCompile/d' ../core/build.gradle
-    gradle:
-      - free
 
   - versionName: 1.6.1.0
     versionCode: 1060101
@@ -614,6 +511,8 @@ Builds:
       - free
     gradleprops:
       - freeBuild
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 1.8.0
     versionCode: 1080095
@@ -624,6 +523,8 @@ Builds:
       - free
     gradleprops:
       - freeBuild
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 1.8.1
     versionCode: 1080195
@@ -634,6 +535,8 @@ Builds:
       - free
     gradleprops:
       - freeBuild
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 1.8.2
     versionCode: 1080200
@@ -644,6 +547,8 @@ Builds:
       - free
     gradleprops:
       - freeBuild
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 1.8.3
     versionCode: 1080300
@@ -654,6 +559,8 @@ Builds:
       - free
     gradleprops:
       - freeBuild
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 2.0.1
     versionCode: 2000195
@@ -664,6 +571,8 @@ Builds:
       - free
     gradleprops:
       - freeBuild
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 2.0.2
     versionCode: 2000295
@@ -674,6 +583,8 @@ Builds:
       - free
     gradleprops:
       - freeBuild
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 2.0.3
     versionCode: 2000395
@@ -684,6 +595,8 @@ Builds:
       - free
     gradleprops:
       - freeBuild
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 2.1.1
     versionCode: 2010195
@@ -694,6 +607,8 @@ Builds:
       - free
     gradleprops:
       - freeBuild
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 2.1.2
     versionCode: 2010295
@@ -704,6 +619,8 @@ Builds:
       - free
     gradleprops:
       - freeBuild
+    antifeatures:
+      - NonFreeNet
 
   - versionName: 2.1.4
     versionCode: 2010495
@@ -712,12 +629,240 @@ Builds:
     gradle:
       - free
     prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.2.0
+    versionCode: 2020095
+    commit: 2.2.0
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.2.1
+    versionCode: 2020195
+    commit: 2.2.1
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.3.0
+    versionCode: 2030095
+    commit: e83f746b3657109947978476bf50afa3544946db
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.3.1
+    versionCode: 2030195
+    commit: 8b183915bee1419a0577196b19414529fca75432
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.3.2
+    versionCode: 2030295
+    commit: 7b87b9cd03c4596adbdf383ac540e83d7f4650c1
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.4.0
+    versionCode: 2040095
+    commit: f4d3ebb22de54985466c5776e22ca4da8b3c7acc
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.4.1
+    versionCode: 2040195
+    commit: 19dfa08905e33943995edb1703b8ddc3bb9fc0ea
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.4.2
+    versionCode: 2040295
+    commit: 83f564ffcae24fe2ee56303b6b09e963948d18bf
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.5.0
+    versionCode: 2050095
+    commit: 6a366f0ad190a620eca555f5b9e4396810730349
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.5.1
+    versionCode: 2050195
+    commit: 832b51de7def1f63780c285991733522e6fbd333
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.5.2
+    versionCode: 2050296
+    commit: 1bc02fd84870a98534509878cf87f12c484800b7
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.6.1
+    versionCode: 2060195
+    commit: 50eee88484a94eabdd1978961b5c604ea3b818d8
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.6.2
+    versionCode: 2060295
+    commit: 9e87cf6115cdda78794e7958190a165c4542ae01
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 2.7.1
+    versionCode: 2070195
+    commit: d5f0ef244863923b7b77141012fcd2b5e61ee05a
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+    antifeatures:
+      - NonFreeNet
+
+  - versionName: 3.0.2
+    versionCode: 3000295
+    commit: b063f0508f6e6439509f22769374c57f77cb499f
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 3.1.0
+    versionCode: 3010095
+    commit: 087770026f63f83f2edd9aa236a37322ef3c94a4
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 3.1.1
+    versionCode: 3010195
+    commit: 8073de55af3c7cb749b6be2b80768bc07807e16c
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 3.1.2
+    versionCode: 3010295
+    commit: 8d4270ab87d82dadccab177f6710637b28750c7a
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 3.2.0
+    versionCode: 3020095
+    commit: 58081fe5bf7d9ad28f089cf10b2c17bfcfc8bbc7
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
+
+  - versionName: 3.3.2
+    versionCode: 3030295
+    commit: 701b1ce33999616ec3c032b00e1cc2dc3e3e801b
+    subdir: app
+    gradle:
+      - free
+    prebuild: sed -i -r -e '/play(Api|Implementation)/d' build.gradle ../core/build.gradle
+    ndk: r20
 
 MaintainerNotes: |-
-    Summary and Description have been moved to the new localizable text files:
-    https://f-droid.org/docs/All_About_Descriptions_Graphics_and_Screenshots
+  Summary and Description have been moved to the new localizable text files:
+  https://f-droid.org/docs/All_About_Descriptions_Graphics_and_Screenshots
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags .*[0-9]$
-CurrentVersion: 2.1.4
-CurrentVersionCode: 2010495
+CurrentVersion: 3.3.2
+CurrentVersionCode: 3030295

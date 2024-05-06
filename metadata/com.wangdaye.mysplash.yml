@@ -1,25 +1,30 @@
 AntiFeatures:
   - NonFreeNet
+  - UpstreamNonFree
 Categories:
   - Multimedia
 License: LGPL-3.0-only
+AuthorEmail: wangdayeeeeee@gmail.com
 SourceCode: https://github.com/WangDaYeeeeee/Mysplash
 IssueTracker: https://github.com/WangDaYeeeeee/Mysplash/issues
 Changelog: https://github.com/WangDaYeeeeee/Mysplash/releases
 
 AutoName: Mysplash
 Description: |-
-    A lightweight client for <a href="https://unsplash.com/">Unsplash</a> with following
-    features:
+  An <a href="https://unsplash.com/">Unsplash</a> client
 
-    * 100000+ photos
-    * material design
-    * select photos as tags
-    * share photos and set as wallpaper
-    * download raw photos.
+  <b>Introduction</b>
 
-    By using this app you agree to the <a href="https://unsplash.com/license">Unsplash photos
-    license</a>.
+  * A light Unsplash android client.
+  * Powered by Unsplash.com
+  * 100000+ photos.
+  * Material design.
+  * Support select photos as tags.
+  * Support share photos and set as wallpaper.
+  * Support download raw photo.
+
+  By using this app you agree to the <a href="https://unsplash.com/license">Unsplash photos
+  license</a>.
 
 RepoType: git
 Repo: https://github.com/WangDaYeeeeee/Mysplash
@@ -74,22 +79,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 2.9.4
-    versionCode: 294
-    disable: tag has been deleted
-    commit: 2.9.4
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 3.0.1
-    versionCode: 301
-    disable: doesnt build
-    commit: 3.0.1
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 3.0.5
     versionCode: 305
     commit: 3.0.5
@@ -100,22 +89,6 @@ Builds:
   - versionName: 3.0.6
     versionCode: 306
     commit: 3.0.6
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 3.0.7
-    versionCode: 307
-    disable: tag has been deleted
-    commit: 3.0.7
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 3.1.0
-    versionCode: 310
-    disable: tag has been deleted
-    commit: 3.1.0
     subdir: app
     gradle:
       - yes
@@ -211,14 +184,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 3.2.5
-    versionCode: 325
-    disable: can't find gradle plugin
-    commit: 3.2.5
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 3.2.7
     versionCode: 327
     commit: 3.2.7
@@ -310,94 +275,7 @@ Builds:
       - app/src/main/res/resource/values-ru/strings.xml
     prebuild: git checkout a307d32e325b8f33022f28975fac9253d1de705d -- ../gradle.properties
 
-  - versionName: 3.5.0
-    versionCode: 350
-    disable: 'MoreHolder.java:110: error: incompatible types: ViewPager2 cannot be
-        converted to ViewPager'
-    commit: 3.5.0
-    subdir: app
-    patch:
-      - 3.4.5-de_locale.patch
-      - 3.4.5-ru_locale.patch
-    gradle:
-      - yes
-    rm:
-      - app/src/main/res/resource/values-ru/arrays.xml
-      - app/src/main/res/resource/values-ru/strings.xml
-    prebuild: git checkout a307d32e325b8f33022f28975fac9253d1de705d -- ../gradle.properties
-
-  - versionName: 3.6.9
-    versionCode: 369
-    disable: includes proprietary com.tencent.bugly:crashreport
-    commit: 3.6.9
-    subdir: app
-    patch:
-      - 3.6.9-de_locale.patch
-      - 3.6.9-ru_locale.patch
-    gradle:
-      - yes
-    rm:
-      - app/src/main/res/resource/values-ru/arrays.xml
-      - app/src/main/res/resource/values-ru/strings.xml
-    prebuild:
-      - git checkout a307d32e325b8f33022f28975fac9253d1de705d -- ../gradle.properties
-      - echo android.useAndroidX=true >> ../gradle.properties
-      - echo android.enableJetifier=true >> ../gradle.properties
-
-  - versionName: 3.7.1
-    versionCode: 371
-    disable: includes proprietary com.tencent.bugly:crashreport
-    commit: 3.7.1
-    subdir: app
-    patch:
-      - 3.6.9-ru_locale.patch
-    gradle:
-      - yes
-    rm:
-      - app/src/main/res/resource/values-ru/arrays.xml
-      - app/src/main/res/resource/values-ru/strings.xml
-    prebuild:
-      - git checkout a307d32e325b8f33022f28975fac9253d1de705d -- ../gradle.properties
-      - echo android.useAndroidX=true >> ../gradle.properties
-      - echo android.enableJetifier=true >> ../gradle.properties
-
-  - versionName: 3.7.8
-    versionCode: 378
-    disable: includes proprietary com.tencent.bugly:crashreport
-    commit: 3.7.8
-    subdir: app
-    patch:
-      - 3.6.9-ru_locale.patch
-    gradle:
-      - yes
-    rm:
-      - app/src/main/res/resource/values-ru/arrays.xml
-      - app/src/main/res/resource/values-ru/strings.xml
-    prebuild:
-      - git checkout a307d32e325b8f33022f28975fac9253d1de705d -- ../gradle.properties
-      - echo android.useAndroidX=true >> ../gradle.properties
-      - echo android.enableJetifier=true >> ../gradle.properties
-
-  - versionName: 3.8.1
-    versionCode: 381
-    disable: includes proprietary com.tencent.bugly:crashreport
-    commit: 3.8.1
-    subdir: app
-    patch:
-      - 3.6.9-ru_locale.patch
-    gradle:
-      - yes
-    rm:
-      - app/src/main/res/resource/values-ru/arrays.xml
-      - app/src/main/res/resource/values-ru/strings.xml
-    prebuild:
-      - git checkout a307d32e325b8f33022f28975fac9253d1de705d -- ../gradle.properties
-      - echo android.useAndroidX=true >> ../gradle.properties
-      - echo android.enableJetifier=true >> ../gradle.properties
-
 AutoUpdateMode: None
-UpdateCheckMode: Tags
-CurrentVersion: 3.8.7
-CurrentVersionCode: 387
-
-NoSourceSince: 3.6.6
+UpdateCheckMode: None
+CurrentVersion: 3.4.8
+CurrentVersionCode: 348

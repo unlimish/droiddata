@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: The game itself is neither free-as-in-freedom nor open-source.
 Categories:
   - Games
 License: ISC
@@ -8,47 +9,23 @@ IssueTracker: https://github.com/iitc-project/ingress-intel-total-conversion/iss
 
 AutoName: IITC Mobile
 Description: |-
-    Ingress map browser with IITC embedded. Ingress Intel Total Conversion (IITC) is
-    a browser addon for the Ingress augmented reality game. IITC Mobile brings this
-    browser addon to the mobile world.
+  Ingress map browser with IITC embedded. Ingress Intel Total Conversion (IITC) is
+  a browser addon for the Ingress augmented reality game. IITC Mobile brings this
+  browser addon to the mobile world.
 
-    Anti-feature: Network Services. The game itself is neither free-as-in-freedom
-    nor open-source.
+  Anti-feature: Network Services. The game itself is neither free-as-in-freedom
+  nor open-source.
 
 RepoType: git
 Repo: https://github.com/iitc-project/ingress-intel-total-conversion.git
 
 Builds:
-  - versionName: 0.3.2
-    versionCode: 13
-    disable: non-functional 18f9ef0c2e4af
-    commit: unknown - see disabled
-    subdir: mobile
-    prebuild:
-      - cd ..
-      - echo "buildSettings={'fdroid':{'Mobile':'copyonly'}}" > localbuildsettings.py
-    build:
-      - cd ..
-      - ./build.py fdroid
-
   - versionName: 0.3.2.1
     versionCode: 14
     commit: 18f9ef0c2e4af
     subdir: mobile
     forceversion: true
     forcevercode: true
-    prebuild:
-      - cd ..
-      - echo "buildSettings={'fdroid':{'buildMobile':'copyonly'}}" > localbuildsettings.py
-    build:
-      - cd ..
-      - ./build.py fdroid
-
-  - versionName: 0.3.6
-    versionCode: 18
-    disable: not CV (at 9edcdaac)
-    commit: 9edcdaac
-    subdir: mobile
     prebuild:
       - cd ..
       - echo "buildSettings={'fdroid':{'buildMobile':'copyonly'}}" > localbuildsettings.py

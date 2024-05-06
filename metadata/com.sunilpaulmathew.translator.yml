@@ -51,7 +51,57 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: v0.12
+    versionCode: 12
+    commit: v0.12
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: v0.13
+    versionCode: 13
+    commit: v0.13
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: v0.15
+    versionCode: 15
+    commit: v0.15
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: v0.16
+    versionCode: 16
+    commit: da50a7ca744fcb26a567bfecb0469f9f13e8e0b5
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: v0.17
+    versionCode: 17
+    commit: ab2d4b555ee21a133d6316306aa4e9395a760909
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: v0.18
+    versionCode: 18
+    commit: 929cbd80b68a5e8be70b0995fb98da4f0046f538
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: v0.11
-CurrentVersionCode: 11
+CurrentVersion: v0.18
+CurrentVersionCode: 18

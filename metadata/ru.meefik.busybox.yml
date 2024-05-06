@@ -1,6 +1,6 @@
 Categories:
   - System
-License: GPL-3.0-or-later
+License: GPL-2.0-only
 AuthorName: Anton Skshidlevsky
 AuthorWebSite: https://meefik.github.io/
 SourceCode: https://github.com/meefik/busybox
@@ -10,42 +10,20 @@ Donate: https://meefik.github.io/donate/
 
 AutoName: BusyBox
 Description: |-
-    Install a recent and un-crippled version of BusyBox.
+  Install a recent and un-crippled version of BusyBox.
 
-    BusyBox combines tiny versions of many common UNIX utilities into a single small
-    executable. It provides replacements for most of the utilities you usually find
-    in GNU fileutils, shellutils, etc. The utilities in BusyBox generally have fewer
-    options than their full-featured GNU cousins; however, the options that are
-    included provide the expected functionality and behave very much like their GNU
-    counterparts. BusyBox provides a fairly complete environment for any small or
-    embedded system.
+  BusyBox combines tiny versions of many common UNIX utilities into a single small
+  executable. It provides replacements for most of the utilities you usually find
+  in GNU fileutils, shellutils, etc. The utilities in BusyBox generally have fewer
+  options than their full-featured GNU cousins; however, the options that are
+  included provide the expected functionality and behave very much like their GNU
+  counterparts. BusyBox provides a fairly complete environment for any small or
+  embedded system.
 
 RepoType: git
 Repo: https://github.com/meefik/busybox
 
 Builds:
-  - versionName: 1.24.1
-    versionCode: 18
-    disable: fails on a 32-bit NDK
-    commit: 610d680fd603dc7b0a5c3a2d30f6d48e89811c0c
-    subdir: app
-    gradle:
-      - yes
-    scandelete:
-      - app/src/main/assets
-    build:
-      - cd ../contrib
-      - export ANDROID_NDK_ROOT=$$NDK$$
-      - ./bb-build.sh arm pie
-      - ./bb-build.sh arm
-      - cp -fR compiled/arm ../app/src/main/assets/
-      - ./bb-build.sh intel pie
-      - ./bb-build.sh intel
-      - cp -fR compiled/intel ../app/src/main/assets/
-      - ./bb-build.sh mips pie
-      - ./bb-build.sh mips
-      - cp -fR compiled/mips ../app/src/main/assets/
-
   - versionName: 1.24.1
     versionCode: 23
     commit: a0daeb3b5055f4786c54ce2beef3093440d7a82f
@@ -245,7 +223,7 @@ Builds:
     commit: 65c122d9cf4deff906d4548fc52db1557fe8eaa3
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y --no-install-recommends g++
     gradle:
       - yes
@@ -255,14 +233,51 @@ Builds:
       - app/src/main/assets/x86/bin
       - app/src/main/assets/x86_64/bin
     prebuild: sed -i -e '/android-ndk-r15c/d' -e 's!${BUILD_DIR}/${NDK}!$$NDK$$!'
-        -e '/dl.google.com/d' ../contrib/build.sh
+      -e '/dl.google.com/d' ../contrib/build.sh
     build:
       - pushd ..
       - gradle assets
       - popd
     ndk: r15c
 
-AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: 1.31.1
-CurrentVersionCode: 42
+  - versionName: 1.34.1
+    versionCode: 51
+    commit: 4ac309d98962fa36d749ad63ad42fedb9da749ba
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y --no-install-recommends g++ openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/src/main/_libs/arm*/*
+      - app/src/main/_libs/x8*/*
+      - app/src/main/jniLibs/arm*/*
+      - app/src/main/jniLibs/x8*/*
+    prebuild: sed -i -e '/android-ndk-r15c/d' -e 's!${BUILD_DIR}/${NDK}!$$NDK$$!'
+      -e '/dl.google.com/d' ../contrib/build.sh
+    build:
+      - pushd ../contrib
+      - ./build.sh all
+      - popd
+      - cp -r ../contrib/build/dist/* src/main/_libs/
+      - cp -r ../contrib/build/dist/* src/main/jniLibs/
+      - pushd src/main/jniLibs/armeabi-v7a
+      - ln -s busybox libbusybox.so ; ln -s ssl_helper libssl_helper.so
+      - popd
+      - pushd src/main/jniLibs/arm64-v8a
+      - ln -s busybox libbusybox.so ; ln -s ssl_helper libssl_helper.so
+      - popd
+      - pushd src/main/jniLibs/x86
+      - ln -s busybox libbusybox.so ; ln -s ssl_helper libssl_helper.so
+      - popd
+      - pushd src/main/jniLibs/x86_64
+      - ln -s busybox libbusybox.so ; ln -s ssl_helper libssl_helper.so
+      - popd
+    ndk: r15c
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 1.34.1
+CurrentVersionCode: 51

@@ -6,19 +6,19 @@ AuthorEmail: audiobook@posteo.de
 SourceCode: https://github.com/PaulWoitaschek/Voice
 IssueTracker: https://github.com/PaulWoitaschek/Voice/issues
 Translation: https://www.transifex.com/PaulWoitaschek/voice/
-Changelog: https://github.com/PaulWoitaschek/Voice/blob/HEAD/CHANGELOG.md
+Changelog: https://github.com/PaulWoitaschek/Voice/releases
 
 AutoName: Voice
 Description: |-
-    Audiobook player with the following basic features:
+  Audiobook player with the following basic features:
 
-    * Remembers last position
-    * Easy, intuitive interface
-    * Sleep-timer
-    * Easily jump to a position
+  * Remembers last position
+  * Easy, intuitive interface
+  * Sleep-timer
+  * Easily jump to a position
 
 RepoType: git
-Repo: https://github.com/PaulWoitaschek/Voice
+Repo: https://github.com/PaulWoitaschek/Voice.git
 
 Builds:
   - versionName: 1.2.1
@@ -101,22 +101,6 @@ Builds:
   - versionName: 1.4.6.1
     versionCode: 24
     commit: v1.4.6.1
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 1.5.0
-    versionCode: 25
-    disable: binaries, missing jni source
-    commit: v1.5.0
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 1.5.2
-    versionCode: 27
-    disable: binaries, missing jni source
-    commit: v1.5.2
     subdir: audiobook
     gradle:
       - yes
@@ -298,7 +282,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.0.1
     versionCode: 73
@@ -308,7 +292,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.1
     versionCode: 74
@@ -318,7 +302,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.2
     versionCode: 76
@@ -328,7 +312,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.3
     versionCode: 83
@@ -338,7 +322,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.3.2
     versionCode: 85
@@ -348,7 +332,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.4
     versionCode: 86
@@ -358,7 +342,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.4.1
     versionCode: 87
@@ -368,7 +352,7 @@ Builds:
       - yes
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/i/*' -e '/dependencies {/i*/\n\n}\n'
-        build.gradle
+      build.gradle
 
   - versionName: 2.4.2.2
     versionCode: 89
@@ -436,32 +420,6 @@ Builds:
     forceversion: true
     prebuild: sed -i -e '/applicationVariants.all/,+8d' build.gradle
 
-  - versionName: 2.5.0.9
-    versionCode: 100
-    disable: java7 issue
-    commit: v2.5.0.9
-    subdir: audiobook
-    gradle:
-      - yes
-    forceversion: true
-    prebuild: sed -i -e '/applicationVariants.all/,+8d' build.gradle
-
-  - versionName: 2.5.0.10
-    versionCode: 102
-    disable: java issue
-    commit: v2.5.0.10
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 2.5.1
-    versionCode: 104
-    disable: proguard issue
-    commit: v2.5.1
-    subdir: audiobook
-    gradle:
-      - yes
-
   - versionName: 2.6.0.1
     versionCode: 108
     commit: v2.6.0.1
@@ -500,14 +458,6 @@ Builds:
     gradle:
       - regularMinSdk
 
-  - versionName: '2.7'
-    versionCode: 121
-    disable: third party maven repo
-    commit: v2.7
-    subdir: audiobook
-    gradle:
-      - regularMinSdk
-
   - versionName: 2.7.1
     versionCode: 122
     commit: v2.7.1
@@ -522,177 +472,9 @@ Builds:
     gradle:
       - regularMinSdk
 
-  - versionName: 2.7.2.2
-    versionCode: 125
-    disable: third party maven repo
-    commit: v2.7.2.2
-    subdir: audiobook
-    gradle:
-      - regularMinSdk
-
   - versionName: 2.7.2.3
     versionCode: 126
     commit: v2.7.2.3
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: '16.08'
-    versionCode: 127
-    disable: pre-release sdk and buildtools
-    commit: v16.08
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 2.8.0
-    versionCode: 128
-    disable: pre-release env
-    commit: v2.8.0
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 2.8.0.1
-    versionCode: 129
-    disable: pre-release env
-    commit: v2.8.0.1
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 2.8.0.3
-    versionCode: 131
-    disable: pre-release ConstraintLayout
-    commit: v2.8.0.3
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 2.8.0.4.2
-    versionCode: 134
-    disable: pre-release ConstraintLayout
-    commit: v2.8.0.4.2
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 2.8.0.4.3
-    versionCode: 135
-    disable: pre-release ConstraintLayout
-    commit: v2.8.0.4.3
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: v2.9
-    versionCode: 138
-    disable: pre-release ConstraintLayout
-    commit: v2.9
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: v2.9.0.1
-    versionCode: 139
-    disable: pre-release ConstraintLayout
-    commit: v2.9.0.1
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: v2.9.0.2
-    versionCode: 140
-    disable: pre-release ConstraintLayout
-    commit: v2.9.0.2
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 2.9.1.4
-    versionCode: 145
-    disable: pre-release ConstraintLayout
-    commit: v2.9.1.4
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 2.9.2
-    versionCode: 146
-    disable: pre-release ConstraintLayout
-    commit: v2.9.2
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 2.9.3.1
-    versionCode: 148
-    disable: pre-release ConstraintLayout
-    commit: v2.9.3.1
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 2.9.3.3
-    versionCode: 150
-    disable: pre-release ConstraintLayout
-    commit: v2.9.3.3
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 2.9.3.5
-    versionCode: 152
-    disable: pre-release ConstraintLayout
-    commit: v2.9.3.5
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 2.9.3.6
-    versionCode: 153
-    disable: pre-release ConstraintLayout
-    commit: v2.9.3.6
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 2.9.3.7
-    versionCode: 154
-    disable: pre-release ConstraintLayout
-    commit: v2.9.3.7
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 3.0.7
-    versionCode: 162
-    disable: pre-release ConstraintLayout
-    commit: v3.0.7
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 3.0.8
-    versionCode: 163
-    disable: pre-release ConstraintLayout
-    commit: v3.0.8
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 3.0.11
-    versionCode: 166
-    disable: crashlytics
-    commit: v3.0.11
-    subdir: audiobook
-    gradle:
-      - yes
-
-  - versionName: 3.0.12
-    versionCode: 167
-    disable: crashlytics
-    commit: v3.0.12
     subdir: audiobook
     gradle:
       - yes
@@ -729,15 +511,6 @@ Builds:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' ../build.gradle build.gradle
 
-  - versionName: 3.3.3
-    versionCode: 188
-    disable: prepareOpus FAILED
-    commit: 3.3.3
-    subdir: audiobook
-    gradle:
-      - opensource
-    prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' ../build.gradle build.gradle
-
   - versionName: 3.3.3.3
     versionCode: 191
     commit: 3.3.3.3
@@ -745,7 +518,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.3.4
     versionCode: 192
@@ -754,7 +527,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.3.5
     versionCode: 193
@@ -763,7 +536,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.3.6
     versionCode: 194
@@ -772,7 +545,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.3.6.2
     versionCode: 196
@@ -781,7 +554,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.4
     versionCode: 197
@@ -790,7 +563,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.5
     versionCode: 198
@@ -799,7 +572,7 @@ Builds:
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' -e '/maven.google.com/d'
-        ../build.gradle build.gradle
+      ../build.gradle build.gradle
 
   - versionName: 3.3.6.2
     versionCode: 201
@@ -829,15 +602,6 @@ Builds:
     versionCode: 204
     commit: v3.4.0
     subdir: audiobook
-    gradle:
-      - opensource
-    prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' ../build.gradle build.gradle
-
-  - versionName: 3.4.1
-    versionCode: 205
-    disable: Older failing build
-    commit: v3.4.1
-    subdir: app
     gradle:
       - opensource
     prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' ../build.gradle build.gradle
@@ -877,15 +641,6 @@ Builds:
   - versionName: 3.6.1
     versionCode: 212
     commit: v3.6.1
-    subdir: app
-    gradle:
-      - opensource
-    prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' ../build.gradle build.gradle
-
-  - versionName: 3.6.2
-    versionCode: 213
-    disable: 'ProGuard fails: there were 13 unresolved references to classes or interfaces'
-    commit: v3.6.2
     subdir: app
     gradle:
       - opensource
@@ -932,8 +687,527 @@ Builds:
     scandelete:
       - buildSrc
 
-AutoUpdateMode: Version %v
-UpdateCheckMode: HTTP
-UpdateCheckData: https://github.com/PaulWoitaschek/Voice/raw/master/buildSrc/src/main/kotlin/deps/Deps.kt|versionCode\s*=\s*([0-9]+)|.|versionName\s*=\s*"(.+)"
-CurrentVersion: 5.0.2
-CurrentVersionCode: 3060342
+  - versionName: 6.0.3
+    versionCode: 3060380
+    commit: 37dfa6193084c57d40f4329a55b93ebee91f909d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/val enableCrashlytics/,+13d' -e '/libs.plugins.crashlytics/,+2d'
+        -e '/if (enableCrashlytics/,+4d' -e '/getByName("release") {/,+7d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 6.0.7
+    versionCode: 3060384
+    commit: e566d7eeb14cf49ca264a800734f0ce3c61a9b72
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 6.0.9
+    versionCode: 3060390
+    commit: 05445082a5e1906c6ca0ebebe5c71afdca30a1ba
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 6.0.10
+    versionCode: 3060391
+    commit: 3d917905ee9a543ca8a3a4cfdb4fd70fe20e840d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 6.1.0
+    versionCode: 3060395
+    commit: 5b710539cb31d44f3022cc9e0c08ca74bff05c0b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 6.1.1
+    versionCode: 3060396
+    commit: 8247ef656b8124bf57dca69f7b9580a6fe136114
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 6.1.2
+    versionCode: 3060397
+    commit: e9d455bd6e26213e2038584c77e2245473482d7d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 6.2.1
+    versionCode: 3602010
+    commit: 515c72ff1ff7eb35f0b66f4af091711e6c8cbd5a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 6.3.0
+    versionCode: 3603000
+    commit: 8af71e40bebac569329aaffc04ba323b1a5dda59
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 6.4.1
+    versionCode: 3603002
+    commit: 73215595f52566d47e2cff5559410ddb5f841cb2
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 6.5.0
+    versionCode: 3603003
+    commit: f634114368d8bff3852d6685056e66e5bf3ebca8
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 7.0.0
+    versionCode: 3603004
+    commit: 96b42123e7347918509ebab91fe575c2f8edc144
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 7.0.1
+    versionCode: 3603006
+    commit: b74094d30d26f5970270e5106d55c3a42bf57cd3
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 7.0.3
+    versionCode: 3603008
+    commit: bca13d9dd0d2c4a112fc9a0ba5b13f61cc1cca23
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 7.0.5
+    versionCode: 3603010
+    commit: 0bbcbecd7c22d0f921806ee50f268af4de9aa6de
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 7.0.6
+    versionCode: 3603011
+    commit: c7e437c1c7b835a093f9532d52f23a17032c5976
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 7.0.7
+    versionCode: 3603012
+    commit: a9c8f7732410693c34efd048c38a8ff1474a9ac3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 7.0.9
+    versionCode: 3603014
+    commit: 73491a8e83a0a1dd3e6ccd692c766cb4f5d9ae70
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 7.0.12
+    versionCode: 3603017
+    commit: b6e490aa26b8481681934c0920340cdc0d016590
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 7.0.14
+    versionCode: 3603019
+    commit: 4d7a0ffb3ea5895623317def0acbacda03cc558f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 7.1.1
+    versionCode: 3603022
+    commit: c593f7a90c87a2e90ed8490c775fd05d0d896ce0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 7.1.2
+    versionCode: 3603023
+    commit: b1f8f802b36ebfb568245b9cc8ca1dfef6995c42
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 7.2.0
+    versionCode: 3603025
+    commit: d5f4a35f4dcc1fa04c7acfb769d3ea45996d2bb6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 8.0.0
+    versionCode: 3603026
+    commit: 62e156d5132f53cc409572ae203561b9973d3468
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 8.1.2
+    versionCode: 3603029
+    commit: 9705cd2ce0c9072c49e891678804dafbefe2fc47
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 8.1.3
+    versionCode: 3603030
+    commit: eea9cc8415521640b9d065c3a611052ae1730d76
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e '/if (enableCrashlytics)
+        {/,/}/d' build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 8.2.0
+    versionCode: 3603031
+    commit: 7a8a185725f69b69cdd3bcd491654ef5638f8bdb
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e 's/(this as ApplicationAndroidResources).//'
+        build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 8.2.2
+    versionCode: 3603033
+    commit: 2df36bf39987735f652f39a1b6672534c7a05b1a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e 's/(this as ApplicationAndroidResources).//'
+        build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+  - versionName: 8.2.3
+    versionCode: 3603034
+    commit: f6d4017c122943e8976c6cfd72c63797c100455b
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/crashlytics/d' -e '/googleServices/d' -e 's/(this as ApplicationAndroidResources).//'
+        build.gradle.kts
+      - sed -i -e '/crashlytics/d' ../logging/crashlytics/build.gradle.kts
+      - echo -e "\norg.gradle.jvmargs=-XX:MaxHeapSize=2048m" >> ../gradle.properties
+      - echo -e "\norg.gradle.unsafe.configuration-cache=false" >> ../gradle.properties
+    scandelete:
+      - plugins/build
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^[0-9.]+$
+UpdateCheckData: gradle/libs.versions.toml|versionCode\s*=\s*"([0-9]+)"|.|versionName\s*=\s*"(.+)"
+CurrentVersion: 8.2.3
+CurrentVersionCode: 3603034

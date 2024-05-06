@@ -1,15 +1,15 @@
 AntiFeatures:
   - Tracking
 Categories:
-  - Internet
   - Connectivity
+  - Internet
 License: GPL-3.0-only
 WebSite: https://eventyay.com/
 SourceCode: https://github.com/fossasia/open-event-organizer-android
 IssueTracker: https://github.com/fossasia/open-event-organizer-android/issues
 Changelog: https://github.com/fossasia/open-event-organizer-android/releases
 
-AutoName: ${appName}
+AutoName: Open Event Organizer
 
 RepoType: git
 Repo: https://github.com/fossasia/open-event-organizer-android
@@ -58,31 +58,9 @@ Builds:
       - fdroid
     prebuild: sed -i -e '/LOCAL_KEY/d' build.gradle
 
-  - versionName: 1.5.0
-    versionCode: 15
-    commit: v1.5.0
-    subdir: app
-    gradle:
-      - fdroid
-    prebuild: sed -i -e '/LOCAL_KEY/d' build.gradle
+MaintainerNotes: NonFreeNet => TetheredNet?
 
-  - versionName: 1.6.0
-    versionCode: 16
-    commit: v1.6.0
-    subdir: app
-    gradle:
-      - fdroid
-    prebuild: sed -i -e '/LOCAL_KEY/d' build.gradle
-
-  - versionName: 1.7.0
-    versionCode: 17
-    commit: v1.7.0
-    subdir: app
-    gradle:
-      - fdroid
-    prebuild: sed -i -e '/LOCAL_KEY/d' build.gradle
-
-AutoUpdateMode: Version v%v
+AutoUpdateMode: None
 UpdateCheckMode: Tags
 CurrentVersion: 1.7.0
 CurrentVersionCode: 17

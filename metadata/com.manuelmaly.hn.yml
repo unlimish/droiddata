@@ -10,16 +10,16 @@ IssueTracker: https://github.com/manmal/hn-android/issues
 
 AutoName: HN
 Description: |-
-    Hacker News client with a focus on reliability and usability.
+  Hacker News client with a focus on reliability and usability.
 
-    * View articles in ViewText, Google, or your system browser (you can set each as default)
-    * Upvote stories (long-press on story)
-    * Collapse and expand comments by tapping on them
-    * Choose from 3 text sizes
-    * Switch between stories and comments with one tap
-    * View "more" stories than only the HN frontpage
+  * View articles in ViewText, Google, or your system browser (you can set each as default)
+  * Upvote stories (long-press on story)
+  * Collapse and expand comments by tapping on them
+  * Choose from 3 text sizes
+  * Switch between stories and comments with one tap
+  * View "more" stories than only the HN frontpage
 
-    A proprietary analytics library was removed before building.
+  A proprietary analytics library was removed before building.
 
 RepoType: git
 Repo: https://github.com/manmal/hn-android.git
@@ -53,7 +53,7 @@ Builds:
     versionCode: 15
     commit: ac1ea46fee0f9e0
     srclibs:
-      - 1:NoAnalytics@d38ae535b543b
+      - NoAnalytics@d38ae535b543b
     rm:
       - libs/libGoogleAnalytics.jar
     prebuild:
@@ -64,7 +64,7 @@ Builds:
     versionCode: 16
     commit: build-16
     srclibs:
-      - 1:NoAnalytics@d38ae535b543b
+      - NoAnalytics@d38ae535b543b
     rm:
       - libs/libGoogleAnalytics.jar
     prebuild:
@@ -116,21 +116,6 @@ Builds:
   - versionName: 1.9.10
     versionCode: 20
     commit: adbfd9bd43b70f36febbbc145aa2568d73021461
-    subdir: hn-android
-    gradle:
-      - yes
-    srclibs:
-      - NoAnalytics@af5e6573bf5e221c66a0ee3ea45337fa05e812d9
-    rm:
-      - hn-android/libs/*
-    prebuild:
-      - sed -i -e '/fileTree/acompile "org.jsoup:jsoup:1.8.1"' build.gradle
-      - cp -fR $$NoAnalytics$$/src/com src/
-
-  - versionName: 1.9.11
-    versionCode: 21
-    disable: crashlytics
-    commit: 1476f4680f1f273a25afc46cbc9028f3d058d287
     subdir: hn-android
     gradle:
       - yes
@@ -198,9 +183,19 @@ Builds:
       - sed -i -e '/fileTree/acompile "org.jsoup:jsoup:1.8.1"' build.gradle
       - cp -fR $$NoAnalytics$$/src/com src/main/java/
 
+  - versionName: 1.9.16
+    versionCode: 26
+    commit: 122016a694e4ec81ccd1f0987ed20944b8164e40
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - app/libs/*
+    prebuild: sed -i -e '/fileTree/aimplementation "org.jsoup:jsoup:1.8.1"' build.gradle
+
 MaintainerNotes: uses "srclib NoAnalytics" from Marvin, which [is a GA stub](https://github.com/mar-v-in/NoAnalytics)
 
 AutoUpdateMode: None
 UpdateCheckMode: RepoManifest
-CurrentVersion: 1.9.15
-CurrentVersionCode: 25
+CurrentVersion: 1.9.16
+CurrentVersionCode: 26

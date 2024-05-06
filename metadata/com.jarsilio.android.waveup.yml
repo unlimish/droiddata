@@ -50,14 +50,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: '0.96'
-    versionCode: 6
-    disable: old failing build
-    commit: v0.96
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 0.96-1
     versionCode: 7
     commit: v0.96-1
@@ -124,14 +116,6 @@ Builds:
   - versionName: '1.1'
     versionCode: 17
     commit: v1.1
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: '1.2'
-    versionCode: 18
-    disable: translations
-    commit: v1.2
     subdir: app
     gradle:
       - yes
@@ -757,7 +741,83 @@ Builds:
     gradle:
       - standard
 
-AutoUpdateMode: Version v%v
+  - versionName: 3.2.10
+    versionCode: 114
+    commit: v3.2.10
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.2.11
+    versionCode: 115
+    commit: 7fe831a3027a161934d4a1aa517ca58ef95fa903
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 3.2.13
+    versionCode: 117
+    commit: 12246877e31bafbbb62e6fbf4ddaaf984725e0cb
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 3.2.14
+    versionCode: 118
+    commit: 17ae8d2db471d8c887082a014c45ca3da65364ff
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 3.2.15
+    versionCode: 119
+    commit: 310ae4f1fef5bfcaa6278b5201deaf1e308b4a3e
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.2.16
+    versionCode: 120
+    commit: 660aefefe1e6534ec91cbd1070cddcc30b26b6ff
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - standard
+
+  - versionName: 3.2.17
+    versionCode: 121
+    commit: 13a3441da4bb758bca2b72743dbc366dd707cf15
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - standard
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]+$
-CurrentVersion: 3.2.9
-CurrentVersionCode: 113
+CurrentVersion: 3.2.17
+CurrentVersionCode: 121

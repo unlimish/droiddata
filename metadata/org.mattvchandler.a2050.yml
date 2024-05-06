@@ -8,7 +8,7 @@ Changelog: https://github.com/mattvchandler/2050/releases
 AutoName: '2050'
 
 RepoType: git
-Repo: https://github.com/mattvchandler/2050
+Repo: https://github.com/mattvchandler/2050.git
 
 Builds:
   - versionName: 1.0.5
@@ -33,18 +33,37 @@ Builds:
       - libraries/json/test
     ndk: r19c
 
-  - versionName: 1.0.8
-    versionCode: 190010008
-    commit: v1.0.8
+  - versionName: 1.0.9
+    versionCode: 190010009
+    commit: a99ce72e216e52d54b73e50ddeb84c06dd3b76ea
     subdir: app
     submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
     rm:
       - libraries/json/test
-    ndk: r21d
+    ndk: r23b
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.0.10
+    versionCode: 190010010
+    commit: 6fb496638aba5a8648000d5249a29a22643cd6b4
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - libraries/json/test
+    ndk: r24
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.8
-CurrentVersionCode: 190010008
+CurrentVersion: 1.0.10
+CurrentVersionCode: 190010010

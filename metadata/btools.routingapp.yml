@@ -1,6 +1,6 @@
 Categories:
   - Navigation
-License: GPL-3.0-only
+License: MIT
 AuthorName: Dr. Arndt Brenschede
 AuthorEmail: Arndt.Brenschede@web.de
 WebSite: https://brouter.de/brouter
@@ -10,10 +10,10 @@ Changelog: http://brouter.de/brouter/revisions.html
 
 AutoName: BRouter
 Description: |-
-    Sophisticated routing engine for offline cycling directions. Works as a
-    selectable navigation service within a mapping application like
-    https://f-droid.org/packages/net.osmand.plus. Check out the <a href="http://brouter.de/brouter/">website</a> for a
-    full description of features.
+  Sophisticated routing engine for offline cycling directions. Works as a
+  selectable navigation service within a mapping application like
+  https://f-droid.org/packages/net.osmand.plus. Check out the <a href="http://brouter.de/brouter/">website</a> for a
+  full description of features.
 
 RepoType: git
 Repo: https://github.com/abrensch/brouter.git
@@ -58,36 +58,6 @@ Builds:
   - versionName: '1.4'
     versionCode: 11
     commit: 0d70493919817652a8ea36b72bc755e3917dca42
-    subdir: brouter-routing-app
-    maven: yes@..
-    prebuild:
-      - sed -i -e '79,81d' pom.xml
-      - sed -i -e '44,70d' pom.xml
-
-  - versionName: 1.4.1
-    versionCode: 12
-    disable: java build error
-    commit: 8609c1f47bdbdf9202bf6ff1c84e7a9a8756bcf6
-    subdir: brouter-routing-app
-    maven: yes@..
-    prebuild:
-      - sed -i -e '79,81d' pom.xml
-      - sed -i -e '44,70d' pom.xml
-
-  - versionName: 1.4.3
-    versionCode: 14
-    disable: android api issues
-    commit: 42e9ddbdd1cb05c1d31a9cd770a42183903525c6
-    subdir: brouter-routing-app
-    maven: yes@..
-    prebuild:
-      - sed -i -e '79,81d' pom.xml
-      - sed -i -e '44,70d' pom.xml
-
-  - versionName: 1.4.6
-    versionCode: 17
-    disable: android api issues
-    commit: cf5e56054b04b921e9b37aeba1176c781737be3b
     subdir: brouter-routing-app
     maven: yes@..
     prebuild:
@@ -152,11 +122,89 @@ Builds:
       - sed -i -e '79,81d' pom.xml
       - sed -i -e '44,70d' pom.xml
 
-MaintainerNotes: |-
-    We need to upgrade the android maven plugin for the build to work: https://github.com/abrensch/brouter/issues/178
-    The other sed's remove signing stuff.
+  - versionName: 1.6.2
+    versionCode: 42
+    commit: 12116b846787dd9fb030257fe6de90b39c0e6f71
+    subdir: brouter-routing-app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - api19
+    scanignore:
+      - brouter-routing-app/src/main/assets/*.zip
 
-AutoUpdateMode: None
-UpdateCheckMode: RepoManifest
-CurrentVersion: 1.6.1
-CurrentVersionCode: 41
+  - versionName: 1.6.3
+    versionCode: 43
+    commit: a85c742d7a7243ce7ca1daa237a141094927715a
+    subdir: brouter-routing-app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - api30
+    prebuild: sed -i -e '/publishing {/,/^    }/d' ../build.gradle
+    scanignore:
+      - brouter-routing-app/src/main/assets/*.zip
+
+  - versionName: 1.7.0
+    versionCode: 47
+    commit: 340227016ab0d08afa6ec301a9a7d7f9607946de
+    subdir: brouter-routing-app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/publishing {/,/^    }/d' ../build.gradle
+    scanignore:
+      - brouter-routing-app/src/main/assets/*.zip
+
+  - versionName: 1.7.1
+    versionCode: 48
+    commit: 2762744a8461b9d79c561986bfd4097b6afc903b
+    subdir: brouter-routing-app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/publishing {/,/^    }/d' ../build.gradle
+    scanignore:
+      - brouter-routing-app/src/main/assets/*.zip
+
+  - versionName: 1.7.2
+    versionCode: 49
+    commit: cabdea1e947ecfb4015cfcdecc26aab261b3855c
+    subdir: brouter-routing-app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/publishing {/,/^    }/d' ../build.gradle
+    scanignore:
+      - brouter-routing-app/src/main/assets/*.zip
+
+  - versionName: 1.7.3
+    versionCode: 50
+    commit: fba51cc7b9e27fbf2aeaca10445f9e44550bfca0
+    subdir: brouter-routing-app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/publishing {/,/^    }/d' ../build.gradle
+    scanignore:
+      - brouter-routing-app/src/main/assets/*.zip
+
+  - versionName: 1.7.4
+    versionCode: 51
+    commit: f3af9d6f4bf12ec70be3ea7da4b601174c286c8e
+    subdir: brouter-routing-app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/publishing {/,/^    }/d' ../build.gradle
+    scanignore:
+      - brouter-routing-app/src/main/assets/*.zip
+
+MaintainerNotes: |-
+  We need to upgrade the android maven plugin for the build to work: https://github.com/abrensch/brouter/issues/178
+  The other sed's remove signing stuff.
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: brouter-routing-app/build.gradle|versionCode\s(\d+)|build.gradle|project.version\s+"([\d.]+)"
+CurrentVersion: 1.7.4
+CurrentVersionCode: 51

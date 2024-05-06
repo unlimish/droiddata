@@ -10,7 +10,7 @@ Donate: https://www.paypal.me/proggenbuck
 
 AutoName: BatteryCalibrate
 
-RequiresRoot: 'True'
+RequiresRoot: true
 
 RepoType: git
 Repo: https://github.com/phrogg/BatteryCalibrator/
@@ -30,7 +30,16 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%c
+  - versionName: Andro10
+    versionCode: 13
+    commit: 309032f1ad4f75439c905a1befb5b2b60e6a207a
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/batterycalibrator/luigithehunter.batterycalibrate/' build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: Reverser
-CurrentVersionCode: 10
+UpdateCheckName: eu.roggstar.batterycalibrator
+CurrentVersion: Andro10
+CurrentVersionCode: 13

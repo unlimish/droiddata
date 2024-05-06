@@ -152,7 +152,259 @@ Builds:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter build apk
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.10.0
+    versionCode: 20210317
+    commit: v1.10.0
+    output: build/app/outputs/apk/release/app-release.apk
+    srclibs:
+      - flutter@v1.16.3
+    prebuild:
+      - echo 'android.applicationVariants.all { variant -> variant.outputs.all { output
+        -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+      - $$flutter$$/bin/flutter pub get
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.11.0
+    versionCode: 20210923
+    commit: a6c38a534db3eabfeb068e06ca050be8f277fce2
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios
+      - macos
+      - test
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.12.0
+    versionCode: 20211005
+    commit: 8c7d3556b16d9375e376ce1db24eb520c2666a4c
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios
+      - macos
+      - test
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.13.0
+    versionCode: 20211010
+    commit: d6ca49d0b1df723d6e3f39c5090db44b76137beb
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios
+      - macos
+      - test
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.14.0
+    versionCode: 20211021
+    commit: e0e8927620eb498a3e8963514a767dc7316a4a5b
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios
+      - macos
+      - test
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.15.0
+    versionCode: 20211118
+    commit: 0f34326a22b415a887b8dcd874c2fb629ea21bab
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.1
+    rm:
+      - ios
+      - macos
+      - test
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.18.0
+    versionCode: 20220116
+    commit: b5da8fb56c618485b6b48f7875d942b94348f590
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.8.1
+    rm:
+      - apk
+      - ios
+      - linux
+      - macos
+      - snap
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.19.0
+    versionCode: 20220526
+    commit: f5d34f062e023a4526dc7bf8640e901f46f74ca1
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - rm -fr /opt/android-sdk/ndk/*
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - apk
+      - ios
+      - linux
+      - macos
+      - snap
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+  - versionName: 1.20.0
+    versionCode: 20220830
+    commit: d0a1391d0b0aed914545fa256c98472e25152e5d
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - rm -fr /opt/android-sdk/ndk/*
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - apk
+      - ios
+      - linux
+      - macos
+      - snap
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+  - versionName: 1.21.0
+    versionCode: 20220919
+    commit: 4fd5ef452dcbe09de699ae34163ce88cffe264f5
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - rm -fr /opt/android-sdk/ndk/*
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - apk
+      - ios
+      - linux
+      - macos
+      - snap
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+  - versionName: 1.22.0
+    versionCode: 20221022
+    commit: e94bacfed0e97b49a90cb1901fc4fbab335fe360
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+      - rm -fr /opt/android-sdk/ndk/*
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - apk
+      - ios
+      - linux
+      - macos
+      - snap
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+  - versionName: 1.23.0
+    versionCode: 20230320
+    commit: deb2fa102dec5cf14b8a943c80c353dccf9764aa
+    sudo:
+      - apt-get update
+      - rm -fr /opt/android-sdk/ndk/*
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - apk
+      - ios
+      - linux
+      - macos
+      - snap
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+  - versionName: 1.24.0
+    versionCode: 20230530
+    commit: 9da214ccb13ea3ef032e053af204077198395af4
+    sudo:
+      - apt-get update
+      - rm -fr /opt/android-sdk/ndk/*
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - apk
+      - ios
+      - linux
+      - macos
+      - snap
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+  - versionName: 1.25.0
+    versionCode: 20230823
+    commit: 3d039b443f45e338c3b7d36f1aba1e6818c2aa7e
+    sudo:
+      - apt-get update
+      - rm -fr /opt/android-sdk/ndk/*
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - apk
+      - ios
+      - linux
+      - macos
+      - snap
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.9.0
-CurrentVersionCode: 20201217
+CurrentVersion: 1.25.0
+CurrentVersionCode: 20230823

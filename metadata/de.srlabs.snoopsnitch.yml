@@ -1,54 +1,42 @@
+AntiFeatures:
+  - NonFreeNet
+  - Tracking
 Categories:
   - Security
 License: GPL-3.0-only
 WebSite: https://opensource.srlabs.de/projects/snoopsnitch
-SourceCode: https://opensource.srlabs.de/projects/snoopsnitch/repository/revisions/master/show
+SourceCode: https://github.com/srlabs/snoopsnitch
+IssueTracker: https://github.com/srlabs/snoopsnitch/issues
 Translation: https://opensource.srlabs.de/projects/snoopsnitch/wiki/FAQ#Can-you-translate-SnoopSnitch-in-my-language
 Changelog: https://opensource.srlabs.de/projects/snoopsnitch#Version-history
 
 AutoName: SnoopSnitch
 Description: |-
-    Collects and analyzes mobile radio data to make you aware of your mobile network
-    security and to warn you about threats like fake base stations (IMSI catchers),
-    user tracking and over-the-air updates. With SnoopSnitch you can use the data
-    collected in the GSM Security Map at [http://gsmmap.org] and contribute your own
-    data to GSM Map.
+  Collects and analyzes mobile radio data to make you aware of your mobile network
+  security and to warn you about threats like fake base stations (IMSI catchers),
+  user tracking and over-the-air updates. With SnoopSnitch you can use the data
+  collected in the GSM Security Map at <a href="https://gsmmap.org">https://gsmmap.org</a> and contribute your own
+  data to GSM Map.
 
-    Requirements:
+  Requirements:
 
-    * Qualcomm-based Android phone (see <a href="https://opensource.srlabs.de/projects/snoopsnitch/wiki/DeviceList">device list</a>)
-    * Stock Android ROM, version 4.1 or later
-    * Note: Custom Android ROMs like CyanogenMod may or may not work, depending on the availability of a Qualcomm DIAG kernel driver (DIAG_CHAR).
-    * Root privileges on phone
+  * Qualcomm-based Android phone (see <a href="https://opensource.srlabs.de/projects/snoopsnitch/wiki/DeviceList">device list</a>)
+  * Stock Android ROM, version 4.1 or later
+  * Note: Custom Android ROMs like CyanogenMod may or may not work, depending on the availability of a Qualcomm DIAG kernel driver (DIAG_CHAR).
+  * Root privileges on phone
 
-    Incompatible Devices:
+  Incompatible Devices:
 
-    * Samsung Galaxy S2 & S3
-    * Nexus 5 with stock Android
-    * Huawei Ascend Y300
+  * Samsung Galaxy S2 & S3
+  * Nexus 5 with stock Android
+  * Huawei Ascend Y300
 
-RequiresRoot: 'yes'
+RequiresRoot: true
 
 RepoType: git
-Repo: https://opensource.srlabs.de/git/snoopsnitch.git
+Repo: https://github.com/srlabs/snoopsnitch.git
 
 Builds:
-  - versionName: 0.9.0
-    versionCode: 5
-    disable: failing build because of bug in compile.sh for prebuilt (see later version)
-    commit: 68f5e1e6966a39d98c6df69a793bea39ac689b7f
-    subdir: SnoopSnitch
-    prebuild: rm -rf ../contrib/prebuilt/*
-    target: android-19
-    build:
-      - export PATH=$$NDK$$/toolchains/arm-linux-androideabi-4.8/prebuilt/linux-x86/bin:$PATH
-      - export NDK_DIR=$$NDK$$
-      - cd ../contrib
-      - bash compile.sh -t android -g -u
-    buildjni:
-      - yes
-    ndk: r12b
-
   - versionName: 0.9.1
     versionCode: 6
     commit: daab25824023387bae0d387780eebe8ae4c5d6d6
@@ -274,7 +262,7 @@ Builds:
     subdir: SnoopSnitch/app
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y texinfo
     gradle:
       - nobuildcheck
@@ -303,7 +291,7 @@ Builds:
     subdir: SnoopSnitch/app
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y texinfo
     gradle:
       - nobuildcheck
@@ -334,7 +322,7 @@ Builds:
     subdir: SnoopSnitch/app
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y texinfo
     gradle:
       - nobuildcheck
@@ -358,7 +346,37 @@ Builds:
       - bash copy.sh
     ndk: r20b
 
-AutoUpdateMode: None
+  - versionName: 2.0.12-nbc
+    versionCode: 50
+    commit: SnoopSnitch-2.0.12
+    timeout: 10800
+    subdir: SnoopSnitch/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y texinfo
+    gradle:
+      - nobuildcheck
+    rm:
+      - SnoopSnitch/app/src/main/jniLibs/*/*.so
+      - contrib/prebuilt/*/*.so
+    scandelete:
+      - SnoopSnitch/patchanalysis
+      - contrib
+    build:
+      - export NDK_DIR=$$NDK$$
+      - cd ../../contrib
+      - bash compile.sh -a -g -u
+      - cd ../SnoopSnitch/patchanalysis/contrib
+      - bash compile.sh -a
+      - bash copy.sh
+      - cp builds/32/*.so ../../../contrib/prebuilt/32
+      - cp builds/64/*.so ../../../contrib/prebuilt/64
+      - cd ../..
+      - bash copy.sh
+    ndk: r20b
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.0.11
-CurrentVersionCode: 40
+CurrentVersion: 2.0.12-nbc
+CurrentVersionCode: 50

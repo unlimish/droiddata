@@ -3,17 +3,21 @@
 import os
 import subprocess
 import sys
+
 import yaml
 from colorama import Fore, Style
 
 changed = set(os.getenv('CHANGED').split(' '))
 changed.discard('')
 
+target_ref = os.getenv('TARGET_REF')
+source_ref = os.getenv('SOURCE_REF')
+
 for appid in sorted(changed):
-    metadata_file = 'metadata/%s.yml' % appid
+    metadata_file = 'metadata/{appid}.yml'.format(**locals())
     diff = subprocess.check_output(
         (
-            'git diff --no-color --diff-filter=d FETCH_HEAD...HEAD -- ' + metadata_file
+            'git diff --no-color --diff-filter=d {target_ref}...{source_ref} -- {metadata_file}' .format(**locals())
         ).split(' ')
     )
 
@@ -46,6 +50,10 @@ for appid in sorted(changed):
             previous_builds[build['versionCode']] = build
 
         for build in current['Builds']:
+            # skip disabled builds
+            if build.get('disable'):
+                continue
+
             vc = build['versionCode']
             if vc not in previous_builds:
                 to_build.append(vc)
@@ -65,7 +73,22 @@ for appid in sorted(changed):
         with open(metadata_file) as fp:
             data = yaml.safe_load(fp)
         for build in data['Builds']:
+            # skip disabled builds
+            if build.get('disable'):
+                continue
+
             to_build.append(build['versionCode'])
+
+    signatures_dir = 'metadata/%s/signatures/' % appid
+    diff = subprocess.check_output(
+        (
+            'git diff --name-only --no-color --diff-filter=d {target_ref}...{source_ref} -- {signatures_dir}'.format(**locals())
+        ).split(' ')
+    )
+    for f in diff.split():
+        vc = int(os.path.basename(os.path.dirname(f)))
+        if vc not in to_build:
+            to_build.append(vc)
 
     for vc in to_build:
         print('%s:%d' % (appid, vc), end=' ')

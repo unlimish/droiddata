@@ -211,39 +211,6 @@ Builds:
       - logo
       - tools
 
-  - versionName: 2.2.0
-    versionCode: 40
-    disable: google() repo missing
-    commit: v2.2.0
-    subdir: Mifare Classic Tool/app
-    gradle:
-      - yes
-    rm:
-      - logo
-      - tools
-
-  - versionName: 2.2.1
-    versionCode: 41
-    disable: google() repo missing
-    commit: v2.2.1
-    subdir: Mifare Classic Tool/app
-    gradle:
-      - yes
-    rm:
-      - logo
-      - tools
-
-  - versionName: 2.2.2
-    versionCode: 42
-    disable: google() repo missing
-    commit: v2.2.2
-    subdir: Mifare Classic Tool/app
-    gradle:
-      - yes
-    rm:
-      - logo
-      - tools
-
   - versionName: 2.2.3
     versionCode: 43
     commit: v2.2.3
@@ -401,7 +368,98 @@ Builds:
     rm:
       - tools
 
-AutoUpdateMode: Version v%v
+  - versionName: 4.0.3
+    versionCode: 61
+    commit: 4b5b020f740e1d3c9f81ab5a27d8687ea9106c83
+    subdir: Mifare Classic Tool/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - tools
+
+  - versionName: 4.0.4
+    versionCode: 62
+    commit: 788ca8c373ded16a2d9954286cbc1ffa1dbb8319
+    subdir: Mifare Classic Tool/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - tools
+
+  - versionName: 4.0.5
+    versionCode: 63
+    commit: 2f61bb7e0ee52ce6bc61fcaafbdb61565fc7c82b
+    subdir: Mifare Classic Tool/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - tools
+
+  - versionName: 4.1.0
+    versionCode: 64
+    commit: 745d1a4cd20dd261b2aa4c9fc9ad865fa1c94ea0
+    subdir: Mifare Classic Tool/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - tools
+
+  - versionName: 4.2.0
+    versionCode: 65
+    commit: aaddd859102ba1eb229d22549d215b1ccd91cba2
+    subdir: Mifare Classic Tool/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - tools
+
+  - versionName: 4.2.1
+    versionCode: 66
+    commit: 9336861081d73922f65b0f4859fb2b04e7b2f289
+    subdir: Mifare Classic Tool/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - tools
+
+  - versionName: 4.2.2
+    versionCode: 67
+    commit: 353f789b6bb183f280e820f4703e2738aa7918e6
+    subdir: Mifare Classic Tool/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - tools
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 4.0.2
-CurrentVersionCode: 60
+CurrentVersion: 4.2.2
+CurrentVersionCode: 67

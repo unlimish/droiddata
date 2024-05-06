@@ -3,41 +3,13 @@ Categories:
 License: GPL-3.0-only
 AuthorName: SECUSO - Security Usability Society
 AuthorEmail: contact@secuso.org
-AuthorWebSite: https://secuso.aifb.kit.edu/english/
-WebSite: https://secuso.org/pfa
+AuthorWebSite: https://secuso.aifb.kit.edu/english/105.php
+WebSite: https://secuso.aifb.kit.edu/english/Sudoku.php
 SourceCode: https://github.com/SecUSo/privacy-friendly-sudoku
 IssueTracker: https://github.com/SecUSo/privacy-friendly-sudoku/issues
 Changelog: https://github.com/SecUSo/privacy-friendly-sudoku/blob/HEAD/CHANGELOG.md
 
 AutoName: Sudoku
-Description: |-
-    Play the Sudoku logic puzzle. The app belongs to the group of Privacy Friendly
-    Apps developed at the <a href="https://secuso.org/">SECUSO research group</a> of Technische
-    Universitaet Darmstadt. It does not require any permission and relinquishes
-    advertisement and tracking mechanisms.
-
-    Privacy Friendly Sudoku has three different game modes:
-
-    * a 6x6 game field with 2x3 subsections
-    * a 9x9 game field with 3x3 subsections
-    * a 12x12 game field with 3x4 subsections
-
-    For each game mode there are three different difficulty levels, that are not
-    measured by the number of preset values but rather by the solving strategies
-    needed to solve the game. The generator always tries to provide a game that has
-    the minimum amount of preset values, that are needed to solve the game.
-
-    A level generator checks for the above mentioned strategies. If the generator
-    has to take a guess, the level is automatically classified as hard. A human
-    player has many more strategies available, with which these puzzles are solvable
-    as well.
-
-    A maximum of ten games can be saved and continued at any time.
-
-    A list with the best times is available, that saves the best times for each game
-    mode and difficulty. Furthermore there is a help function, that will reveal the
-    selected field. If this help function is used the current game will not be
-    included in the highscore list.
 
 RepoType: git
 Repo: https://github.com/SecUSo/privacy-friendly-sudoku
@@ -67,14 +39,6 @@ Builds:
   - versionName: 2.1.1
     versionCode: 5
     commit: v2.1.1
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 2.1.2
-    versionCode: 6
-    disable: google() missing
-    commit: v2.1.2
     subdir: app
     gradle:
       - yes
@@ -114,7 +78,30 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 3.0.3
+    versionCode: 12
+    commit: v3.0.3
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '3.1'
+    versionCode: 13
+    commit: f876af0aae27299e6945d0c9c4136d498eebefeb
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 3.1.1
+    versionCode: 14
+    commit: 579b5364f1c1a977f45424ca1892e924fe74b7a4
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.0.2
-CurrentVersionCode: 11
+CurrentVersion: 3.1.1
+CurrentVersionCode: 14

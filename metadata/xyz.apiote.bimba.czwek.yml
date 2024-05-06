@@ -1,0 +1,63 @@
+Categories:
+  - Navigation
+License: GPL-3.0-or-later
+AuthorName: apiote
+AuthorEmail: bimba@apiote.xyz
+AuthorWebSite: https://apiote.xyz
+WebSite: https://bimba.apiote.xyz
+SourceCode: https://git.apiote.xyz/Bimba.git
+Changelog: https://git.apiote.xyz/Bimba.git/tree/master/CHANGELOG.adoc
+
+AutoName: Bimba
+
+RepoType: git
+Repo: https://git.apiote.xyz/git/Bimba.git
+Binaries: https://apiote.xyz/p/bimba/a/Bimba-v%v.apk
+
+Builds:
+  - versionName: 3.0.1
+    versionCode: 21
+    commit: v3.0.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.1.0
+    versionCode: 22
+    commit: c6594b28ee7bff7c8c338de68a7fa9fa6209f63f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 3.1.1
+    versionCode: 23
+    commit: b70fbb75415d17f73c9d8011f7122da0f00882d5
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 3.2.0
+    versionCode: 24
+    commit: 5cf3845ac76de37bd5d838ec81e17b206ec23e58
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AllowedAPKSigningKeys: 2786eb169ee9ae8d170f09266e068febc2a0a5a2438ac0d5ef6eafba45cabde1
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 3.2.0
+CurrentVersionCode: 24

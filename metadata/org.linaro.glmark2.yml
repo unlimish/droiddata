@@ -17,13 +17,13 @@ Builds:
     subdir: android
     output: glmark2.apk
     prebuild: sed -i -e 's#android-16/android.jar#android-26/android.jar#' -e '/jarsigner/d'
-        build.sh
+      build.sh
     build:
       - export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
       - ./build.sh
     ndk: r18b
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: '2020.04'
 CurrentVersionCode: 1

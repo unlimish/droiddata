@@ -1,0 +1,160 @@
+Categories:
+  - Multimedia
+  - Writing
+License: GPL-3.0-only
+WebSite: https://helio.fm
+SourceCode: https://github.com/helio-fm/helio-sequencer
+IssueTracker: https://github.com/helio-fm/helio-sequencer/issues
+Translation: https://helio.fm/translations
+Changelog: https://github.com/helio-fm/helio-sequencer/blob/develop/CHANGELOG.md
+Donate: https://github.com/helio-fm/helio-sequencer#support-the-project
+OpenCollective: helio-workstation
+
+AutoName: Helio
+Description: |-
+  Most of the DAW interfaces often seem overcomplicated,
+  and they only tend to get more and more bloated over time.
+  Many of them are commercial, proprietary-licensed and almost none
+  of them support all major operating systems at the same time.
+
+  Helio is an attempt to rethink a music sequencer to create a
+  tool that feels right.
+
+  It aims to be a modern music creation software,
+  featuring linear-based/pattern-based sequencer with clean UI,
+  integrated version control for synchronizing project between
+  devices, microtonal temperaments support, small portable builds
+  and more; mainly targeted at hobbyist composers, game developers
+  and indie artists.
+
+RepoType: git
+Repo: https://github.com/helio-fm/helio-workstation.git
+
+Builds:
+  - versionName: '3.4'
+    versionCode: 34
+    commit: '3.4'
+    subdir: Projects/Android/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/release_/release/app-release_-release-unsigned.apk
+    prebuild: sed -i 's/21\.3\.6528147/22.0.7026061/g' build.gradle
+    scandelete:
+      - .
+    ndk: r22
+    antifeatures:
+      NonFreeNet:
+        en-US: App connects to api.helio.fm
+
+  - versionName: '3.5'
+    versionCode: 35
+    commit: '3.5'
+    subdir: Projects/Android/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/release_/release/app-release_-release-unsigned.apk
+    prebuild: sed -i 's/21\.3\.6528147/22.1.7171670/g' build.gradle
+    scandelete:
+      - .
+    ndk: r22b
+    antifeatures:
+      NonFreeNet:
+        en-US: App connects to api.helio.fm
+
+  - versionName: '3.6'
+    versionCode: 36
+    commit: '3.6'
+    subdir: Projects/Android/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/release_/release/app-release_-release-unsigned.apk
+    prebuild: sed -i 's/21\.3\.6528147/22.1.7171670/g' build.gradle
+    scandelete:
+      - .
+    ndk: r22b
+
+  - versionName: '3.7'
+    versionCode: 37
+    commit: 1cc2fbe9d19fac452c7e0bf78505e92ed7d7331d
+    subdir: Projects/Android/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/release_/release/app-release_-release-unsigned.apk
+    prebuild: sed -i 's/21\.3\.6528147/22.1.7171670/g' build.gradle
+    scandelete:
+      - .
+    ndk: r22b
+
+  - versionName: '3.8'
+    versionCode: 38
+    commit: 531c1f70dfb37f307a8bdd89b54aa2d4d9d945f0
+    subdir: Projects/Android/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/release_/release/app-release_-release-unsigned.apk
+    prebuild: sed -i 's/21\.3\.6528147/22.1.7171670/g' build.gradle
+    scandelete:
+      - .
+    ndk: r22b
+
+  - versionName: '3.9'
+    versionCode: 39
+    commit: a7d717f20144ffbfb938f20b227634edf9666279
+    subdir: Projects/Android/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/release_/release/app-release_-release-unsigned.apk
+    prebuild: sed -i 's/21\.3\.6528147/22.1.7171670/g' build.gradle
+    scandelete:
+      - .
+    ndk: r22b
+
+  - versionName: '3.10'
+    versionCode: 310
+    commit: fefc3fd2ed8312fd8529e8f56e5df9572e14a400
+    subdir: Projects/Android/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/release_/release/app-release_-release-unsigned.apk
+    prebuild: sed -i 's/21\.3\.6528147/22.1.7171670/g' build.gradle
+    scandelete:
+      - .
+    ndk: r22b
+
+  - versionName: '3.11'
+    versionCode: 311
+    commit: 7ad23042cbdd9247519f612ec333bd9f4d9c927c
+    subdir: Projects/Android/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/release_/release/app-release_-release-unsigned.apk
+    prebuild: sed -i 's/21\.3\.6528147/22.1.7171670/g' build.gradle
+    scandelete:
+      - .
+    ndk: r22b
+
+  - versionName: '3.12'
+    versionCode: 312
+    commit: 61f7db380f083b424418d65f4e26addc1370ddea
+    subdir: Projects/Android/app
+    submodules: true
+    gradle:
+      - yes
+    output: build/outputs/apk/release_/release/app-release_-release-unsigned.apk
+    prebuild: sed -i 's/21\.3\.6528147/22.1.7171670/g' build.gradle
+    scandelete:
+      - .
+    ndk: r22b
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '3.12'
+CurrentVersionCode: 312

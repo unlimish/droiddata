@@ -3,18 +3,17 @@ Categories:
 License: GPL-3.0-only
 AuthorName: bitfire web engineering
 WebSite: https://www.davx5.com/
-SourceCode: https://www.davx5.com/source
-IssueTracker: https://www.davx5.com/forums
+SourceCode: https://github.com/bitfireAT/davx5-ose/
 Translation: https://www.transifex.com/bitfireAT/davx5/
-Changelog: https://forums.bitfire.at/category/4/davx?tag=announcement
+Changelog: https://github.com/bitfireAT/davx5-ose/discussions/categories/announcements
 Donate: https://www.davx5.com/donate
-LiberapayID: '14101'
+Liberapay: DAVx5
 Bitcoin: bc1q0hvy0mknt9vce2f9hh829h72n3sht9llaltumk
 
 AutoName: DAVx⁵
 
 RepoType: git
-Repo: https://gitlab.com/bitfireAT/davx5-ose.git
+Repo: https://github.com/bitfireAT/davx5-ose.git
 
 Builds:
   - versionName: 0.3.2-alpha
@@ -173,24 +172,6 @@ Builds:
     versionCode: 47
     commit: v0.6.8
 
-  - versionName: 0.6.9.2
-    versionCode: 50
-    disable: builds locally
-    commit: v0.6.9.2
-    subdir: app
-    gradle:
-      - yes
-    srclibs:
-      - ApacheHttpClientAndroid@1648631
-    rm:
-      - app/lib/*
-    prebuild:
-      - pushd $$ApacheHttpClientAndroid$$
-      - gradle build
-      - popd
-      - cp $$ApacheHttpClientAndroid$$/build/libs/httpclient-android-4.3.5.1-SNAPSHOT.jar
-        lib/httpclient-android-4.3.5.davdroid1.jar
-
   - versionName: 0.6.10
     versionCode: 51
     commit: v0.6.10
@@ -310,36 +291,9 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 0.9.0.2
-    versionCode: 80
-    disable: build hands due to using a git@ (for a submodule?)
-    commit: v0.9.0.2
-    subdir: app
-    submodules: true
-    gradle:
-      - yes
-
-  - versionName: 0.9.0.3
-    versionCode: 81
-    disable: build hands due to using a git@ (for a submodule?)
-    commit: v0.9.0.3
-    subdir: app
-    submodules: true
-    gradle:
-      - yes
-
   - versionName: 0.9.0.4
     versionCode: 82
     commit: v0.9.0.4-1
-    subdir: app
-    submodules: true
-    gradle:
-      - yes
-
-  - versionName: 0.9.1-beta1
-    versionCode: 83
-    disable: beta
-    commit: v0.9.1-beta1
     subdir: app
     submodules: true
     gradle:
@@ -753,15 +707,6 @@ Builds:
     gradle:
       - standard
 
-  - versionName: 1.6.2-ose
-    versionCode: 152
-    disable: freezes when trying to sync on Android 4.0.4
-    commit: v1.6.2-ose
-    subdir: app
-    submodules: true
-    gradle:
-      - standard
-
   - versionName: 1.6.3-ose
     versionCode: 155
     commit: v1.6.3-ose
@@ -845,16 +790,6 @@ Builds:
   - versionName: 1.9-ose
     versionCode: 182
     commit: v1.9-ose
-    subdir: app
-    submodules: true
-    gradle:
-      - standard
-    prebuild: sed -i -e 's/gradle-4.0.1/gradle-4.0/' ../gradle/wrapper/gradle-wrapper.properties
-
-  - versionName: 1.9.1-ose
-    versionCode: 184
-    disable: see fdroid/fdroiddata#969
-    commit: v1.9.1-ose
     subdir: app
     submodules: true
     gradle:
@@ -1290,15 +1225,6 @@ Builds:
     gradle:
       - standard
 
-  - versionName: 3.1-beta3-ose
-    versionCode: 301000002
-    disable: replaced by newer beta
-    commit: v3.1-beta3-ose
-    subdir: app
-    submodules: true
-    gradle:
-      - standard
-
   - versionName: 3.1-beta5-ose
     versionCode: 301000004
     commit: v3.1-beta5-ose
@@ -1451,7 +1377,504 @@ Builds:
     gradle:
       - standard
 
-AutoUpdateMode: Version v%v
+  - versionName: 3.3.10-ose
+    versionCode: 303100003
+    commit: v3.3.10-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 3.3.11-ose
+    versionCode: 303110004
+    commit: v3.3.11-ose
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e 's/com.google.android:flexbox/com.github.google:flexbox-layout/'
+        build.gradle
+      - sed -i -e '/flexbox-layout/d' ../build.gradle
+
+  - versionName: 3.3.12-ose
+    versionCode: 303120005
+    commit: 189d7a31d82cf171373aab1b92fb8036e07d1e64
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+    prebuild:
+      - sed -i -e 's/com.google.android:flexbox/com.github.google:flexbox-layout/'
+        build.gradle
+      - sed -i -e '/flexbox-layout/d' ../build.gradle
+
+  - versionName: 3.4-ose
+    versionCode: 304000003
+    commit: d8a70ca30cc337ce2c03d7140c23d002eb1a875d
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 3.4.0.1-ose
+    versionCode: 304000100
+    commit: 425a88f6f7ec6f0fe668d18563b6992f73afe126
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.0-beta1-ose
+    versionCode: 400000001
+    commit: 231e54db4ff0691d51e66ae87f14a3fcac85abcb
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.0-ose
+    versionCode: 400000005
+    commit: 265d75b2902dd6d5d7dfd5f9066a1fda849df0d6
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.1-ose
+    versionCode: 401000005
+    commit: 32d215b3a40004eba77159a6c378b0cfa7e1e9e7
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.1.1-ose
+    versionCode: 401010002
+    commit: 19be3c34bd44985d2bb4d5af327399af7da79a31
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.2-ose
+    versionCode: 402000005
+    commit: f24c59128306867d230df9e39881fdbb8583719a
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.2.0.1-ose
+    versionCode: 402000007
+    commit: 2c785684a21004c0ee173f0d5640320bf3b9b591
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.2.0.2-ose
+    versionCode: 402000008
+    commit: 5ee6e57b03c0dd700af5405c9d1890ef1e3c3d13
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.2.0.3-ose
+    versionCode: 402000009
+    commit: 08dfa3f048bda504ac810619344e5e47eca9af98
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.2.1-ose
+    versionCode: 402010004
+    commit: d3c10c36b04841bb57d4589aac70dfa19a33f1d7
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.2.2-ose
+    versionCode: 402020000
+    commit: 5daae1b74d1bcf8441d8213106fb2eb0e45808a7
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.2.3.1-ose
+    versionCode: 402030101
+    commit: aeb4541eb928bcce9711b78d1af67a9544604d41
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.2.3.2-ose
+    versionCode: 402030200
+    commit: 03deb4191a78ca0865f8bba6f224a71c0242bf1b
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 4.2.3.3-ose
+    versionCode: 402030300
+    commit: 97eb45ec126055663d45048e88c63f2d945292a1
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - ose
+
+  - versionName: 4.2.3.4-ose
+    versionCode: 402030402
+    commit: e2c2e566b929d045179cd511bc44fde997453d9e
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - ose
+
+  - versionName: 4.2.4-ose
+    versionCode: 402040002
+    commit: d32b21a465a64be2c72a071345e7ec4e3e04319d
+    subdir: app
+    submodules: true
+    gradle:
+      - ose
+
+  - versionName: 4.2.5-ose
+    versionCode: 402050001
+    commit: ba46c4793a067e69900b58bdeade964ce49cd067
+    subdir: app
+    submodules: true
+    gradle:
+      - ose
+
+  - versionName: 4.2.6-ose
+    versionCode: 402060000
+    commit: 18a3c0e2fdc2e26069b3747b09a75c52a1de7eb7
+    subdir: app
+    submodules: true
+    gradle:
+      - ose
+
+  - versionName: 4.3-ose
+    versionCode: 403000005
+    commit: 4dd79606f2f7cd5978401a3c76045c01925054a3
+    subdir: app
+    submodules: true
+    gradle:
+      - ose
+
+  - versionName: 4.3.1-ose
+    versionCode: 403010002
+    commit: 50dbd66d3a2c9a344d2801866f44991f46e5ab54
+    subdir: app
+    submodules: true
+    gradle:
+      - ose
+
+  - versionName: 4.3.2-ose
+    versionCode: 403020001
+    commit: 299fb27af4933e84879557b06af4cff87cd3720f
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+
+  - versionName: 4.3.3-ose
+    versionCode: 403030006
+    commit: 3b2246e74bca9e24db7bbeff455d74608fa1de56
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+
+  - versionName: 4.3.4-ose
+    versionCode: 403040000
+    commit: ff4af11bcf2c2edc35bba3cb4b9e0f38f9c71947
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+
+  - versionName: 4.3.4.1-ose
+    versionCode: 403040101
+    commit: 1b521e3c17aa2813c721de10d2c277c1d55221c7
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.5-ose
+    versionCode: 403050002
+    commit: 400d46fce2657db2d503aaba5435ead098b5620e
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.5.1-ose
+    versionCode: 403050100
+    commit: b7e00fac40cb1030c27f76f684867dbd1ee664b8
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.5.2-ose
+    versionCode: 403050200
+    commit: fcb9d7f560cd219c6aa1998adef681727057a083
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.6.1-ose
+    versionCode: 403060100
+    commit: 0c991288d5bfe6f2dce63ac9d21ab9d7fcd5ca34
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.7-ose
+    versionCode: 403070001
+    commit: 4faecc653f3b505ca6edab63f04a151f5c37e7d6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.8-ose
+    versionCode: 403080000
+    commit: 088136ded7c174585226dd418fe3294d7d064aba
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.9-ose
+    versionCode: 403090002
+    commit: 1a36ee2d60d59362f5f9da72342dae7d0bc715cb
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.10-ose
+    versionCode: 403100003
+    commit: a792d4db98904b6597c3d652b862699fa39033c7
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.11-ose
+    versionCode: 403110004
+    commit: fca6b5b89029f6d90d5c7de568edece9a3ecff2e
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.12-ose
+    versionCode: 403120001
+    commit: 895f0a1541cfdbd9093f8829f80f485ff8417149
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.12.1-ose
+    versionCode: 403120101
+    commit: e5c73bead53a27bb23c08e7fc33939c5051ee289
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.13-ose
+    versionCode: 403130003
+    commit: ba084255c0281a2e7d94308f8ad2f1e6ccb71052
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.13.1-ose
+    versionCode: 403130100
+    commit: 5a5023bf542755a746b546e46c5aef2894475fb7
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.14-ose
+    versionCode: 403140002
+    commit: 6f08901f04b347294e0699ab8a4694785ab34d6b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.15-ose
+    versionCode: 403150004
+    commit: fea33ab60a06eb09dbba48d07743be3cdad08cff
+    subdir: app
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+  - versionName: 4.3.16.1-ose
+    versionCode: 403160100
+    commit: a1d85c4c9b571352ab6d9601807fd6ca68df860a
+    subdir: app
+    gradle:
+      - ose
+    prebuild: sed -i -e 's/configuration-cache=.*/configuration-cache=false/' ../gradle.properties
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]+-ose[0-9]*$
-CurrentVersion: 3.3.9-ose
-CurrentVersionCode: 303090004
+CurrentVersion: 4.3.16.1-ose
+CurrentVersionCode: 403160100

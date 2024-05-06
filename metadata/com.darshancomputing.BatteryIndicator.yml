@@ -10,9 +10,9 @@ Donate: https://github.com/darshan-/Battery-Indicator-Support/blob/HEAD/PackageD
 
 AutoName: BatteryBot
 Description: |-
-    Shows your battery charge level (percent) as an icon in your status bar, with
-    temperature, health, voltage, and time since plugged / unplugged in the
-    notification area. It also has user-configurable alarms, logs, and widgets.
+  Shows your battery charge level (percent) as an icon in your status bar, with
+  temperature, health, voltage, and time since plugged / unplugged in the
+  notification area. It also has user-configurable alarms, logs, and widgets.
 
 RepoType: git
 Repo: https://github.com/darshan-/Battery-Indicator-Free
@@ -51,7 +51,29 @@ Builds:
       - yes
     prebuild: sed -i -e '/secureProperties/d' build.gradle
 
+  - versionName: 11.0.4
+    versionCode: 26014
+    commit: e816c2e8ba1a13242d2ca145fea3ee0db73f22dd
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/secureProperties/d' build.gradle
+      - echo -e "android.useAndroidX=true\nandroid.enableJetifier=true" > gradle.properties
+
+  - versionName: 12.0.0
+    versionCode: 26016
+    commit: aa9de3206311346577d3e076dd73c9605b4ead29
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/secureProperties/d' build.gradle
+      - echo -e "android.useAndroidX=true\nandroid.enableJetifier=true" > gradle.properties
+
 AutoUpdateMode: None
 UpdateCheckMode: RepoManifest
-CurrentVersion: 11.0.4
-CurrentVersionCode: 26014
+CurrentVersion: 12.0.0
+CurrentVersionCode: 26016

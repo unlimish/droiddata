@@ -1,28 +1,16 @@
 Categories:
   - Internet
 License: GPL-3.0-or-later
-SourceCode: https://github.com/scoute-dich/browser
-IssueTracker: https://github.com/scoute-dich/browser/issues
-Changelog: https://github.com/scoute-dich/browser/blob/HEAD/CHANGELOG.md
+AuthorName: Gaukler Faun
+SourceCode: https://codeberg.org/Gaukler_Faun/FOSS_Browser
+IssueTracker: https://codeberg.org/Gaukler_Faun/FOSS_Browser/issues
+Translation: https://crowdin.com/project/foss-browser
+Changelog: https://codeberg.org/Gaukler_Faun/FOSS_Browser/src/branch/master/CHANGELOG.md
 
 AutoName: FOSS Browser
-Description: |-
-    Simple browser based on Android's WebView. The base is
-    <a href="https://github.com/mthli/Ninja">Ninja</a>. The intention is to provide a simple and
-    light wight but powerful browser with a nice looking user interface.
-
-    '''Some nice extra features:'''
-
-    * full oreo support
-    * search on site
-    * open links in background
-    * Websearch (from marked text context menu)
-    * screenshots of the whole website
-    * build in file browser (open, share, delete files)
-    * open links in other apps (for example YouTube)
 
 RepoType: git
-Repo: https://github.com/scoute-dich/browser
+Repo: https://codeberg.org/Gaukler_Faun/FOSS_Browser.git
 
 Builds:
   - versionName: '1.4'
@@ -63,14 +51,6 @@ Builds:
   - versionName: 1.8.1
     versionCode: 12
     commit: v1.8.1
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: '1.9'
-    versionCode: 13
-    disable: old failing build (scanner error)
-    commit: v1.9
     subdir: app
     gradle:
       - yes
@@ -117,14 +97,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: '2.9'
-    versionCode: 28
-    disable: lint issues
-    commit: v2.9
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: '3.0'
     versionCode: 29
     commit: v3.0
@@ -132,7 +104,7 @@ Builds:
     gradle:
       - yes
     prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
+      'ExtraTranslation' } }" >> build.gradle
 
   - versionName: '3.1'
     versionCode: 30
@@ -141,7 +113,7 @@ Builds:
     gradle:
       - yes
     prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
+      'ExtraTranslation' } }" >> build.gradle
 
   - versionName: '3.2'
     versionCode: 31
@@ -150,7 +122,7 @@ Builds:
     gradle:
       - yes
     prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
+      'ExtraTranslation' } }" >> build.gradle
 
   - versionName: '3.4'
     versionCode: 35
@@ -159,7 +131,7 @@ Builds:
     gradle:
       - yes
     prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
+      'ExtraTranslation' } }" >> build.gradle
 
   - versionName: '3.5'
     versionCode: 36
@@ -168,7 +140,7 @@ Builds:
     gradle:
       - yes
     prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
+      'ExtraTranslation' } }" >> build.gradle
 
   - versionName: '3.6'
     versionCode: 41
@@ -177,7 +149,7 @@ Builds:
     gradle:
       - yes
     prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
+      'ExtraTranslation' } }" >> build.gradle
 
   - versionName: '3.7'
     versionCode: 42
@@ -186,7 +158,7 @@ Builds:
     gradle:
       - yes
     prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
+      'ExtraTranslation' } }" >> build.gradle
 
   - versionName: 3.8.1
     versionCode: 45
@@ -195,7 +167,7 @@ Builds:
     gradle:
       - yes
     prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
+      'ExtraTranslation' } }" >> build.gradle
 
   - versionName: '4.0'
     versionCode: 50
@@ -204,7 +176,7 @@ Builds:
     gradle:
       - yes
     prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
+      'ExtraTranslation' } }" >> build.gradle
 
   - versionName: '4.1'
     versionCode: 55
@@ -213,7 +185,7 @@ Builds:
     gradle:
       - yes
     prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
+      'ExtraTranslation' } }" >> build.gradle
 
   - versionName: '4.3'
     versionCode: 58
@@ -222,7 +194,7 @@ Builds:
     gradle:
       - yes
     prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
+      'ExtraTranslation' } }" >> build.gradle
 
   - versionName: '4.4'
     versionCode: 59
@@ -231,37 +203,7 @@ Builds:
     gradle:
       - yes
     prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
-
-  - versionName: 4.5.1
-    versionCode: 61
-    disable: missing some resource files
-    commit: v4.5.1
-    subdir: app
-    gradle:
-      - yes
-    prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
-
-  - versionName: '5.0'
-    versionCode: 65
-    disable: unknown maven repo
-    commit: v5.0
-    subdir: app
-    gradle:
-      - yes
-    prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
-
-  - versionName: 5.0.1
-    versionCode: 67
-    disable: can't find gradle plugin
-    commit: v5.0.1
-    subdir: app
-    gradle:
-      - yes
-    prebuild: echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable
-        'ExtraTranslation' } }" >> build.gradle
+      'ExtraTranslation' } }" >> build.gradle
 
   - versionName: '5.1'
     versionCode: 68
@@ -538,7 +480,397 @@ Builds:
         } }" >> build.gradle
       - sed -i -e '/jitpack.de/d' ../build.gradle
 
-AutoUpdateMode: Version v%v
+  - versionName: '7.3'
+    versionCode: 106
+    commit: v7.3
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: 7.4.1
+    versionCode: 108
+    commit: v7.4.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: 7.4.3
+    versionCode: 110
+    commit: v7.4.3
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: 7.4.4
+    versionCode: 111
+    commit: v7.4.4
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '7.5'
+    versionCode: 112
+    commit: a0ef0709966dbf46af783283ffb13a50cbe1e6c9
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '8.0'
+    versionCode: 113
+    commit: cfee0d835e191d411b2a4b3594ff9516407457ce
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: 8.1.1
+    versionCode: 115
+    commit: 96aba074b5b6200e3ad151e501512f0ccfd45e9b
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: 8.1.2
+    versionCode: 116
+    commit: 6fd8890a758ef6ad0d9c7445b6bf056c5b6da61f
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '8.2'
+    versionCode: 117
+    commit: 4059e8e018f96ba4fccbb64d7703af74705d1e69
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '8.3'
+    versionCode: 118
+    commit: 87754752c8d205e5629ab6c6909156fd2cdf0cde
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '8.4'
+    versionCode: 119
+    commit: f3f469dcf30d5fd617f66e43512ff8211ed103ae
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: 8.4.1
+    versionCode: 120
+    commit: e004021186cd2901d7fa6934bba67567ecba2cb8
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '8.5'
+    versionCode: 121
+    commit: b86b4bea5c7ac63e696c1531b1f7e9559a16bc70
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: 8.5.2
+    versionCode: 123
+    commit: c602551c80923c67487abe2e8740a54f629a80cd
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
+        } }" >> build.gradle
+      - sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '8.6'
+    versionCode: 125
+    commit: 6c6113c71c87381f841dd49dfbb0eee77ac49037
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '8.7'
+    versionCode: 126
+    commit: 082380bf85fb66329fbea834d7a8f84f1cd9f833
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '8.8'
+    versionCode: 127
+    commit: 16fff48874e9505ff868697a00b8680e0c5adf0b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: 8.9.1
+    versionCode: 129
+    commit: eb46ee7b888256dfb02006839131e3939161db39
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '9.0'
+    versionCode: 130
+    commit: baf09d3b1b46d3dd9f2d3ec02223bd4c31e8e92c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '9.1'
+    versionCode: 131
+    commit: 9bc0e7b806315404e83d50de410d3468fb964d75
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '9.2'
+    versionCode: 132
+    commit: 9485013f39f80357340f4ad4f38ee8175fb26273
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '9.3'
+    versionCode: 133
+    commit: e9cb79905e96402db652921574440fa43b5151cd
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: 9.3.1
+    versionCode: 134
+    commit: 644657e8c4d77f3b67f0c9fa3573c889e7559a01
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '9.4'
+    versionCode: 135
+    commit: d4478a4efd31429dd69921dbde293fa31658f3ac
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '9.5'
+    versionCode: 136
+    commit: 02e052d57619188f8f1a04a1ae9adf37f33b13e1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '9.6'
+    versionCode: 137
+    commit: 499427e56fa375f8f19e950fcd397e96a9aa7723
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '9.10'
+    versionCode: 138
+    commit: 291cc6991b926b4b65d87324a92c469481a6230b
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '9.11'
+    versionCode: 139
+    commit: 8e017469fafde649326f39538b1d02420d09eb7c
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '10.1'
+    versionCode: 141
+    commit: 825638589d7b1e301b6e7696a2624d6c0c1b2281
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '11'
+    versionCode: 142
+    commit: f006fda7f974cac4b9790287c3ad8c1604f71421
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '12'
+    versionCode: 143
+    commit: 0c1b7a10b1d05e4b8cc2e384677a47d67a9b78ff
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '13'
+    versionCode: 144
+    commit: cf3fee07c76068449e42138b2a57788d8c671f2d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '14'
+    versionCode: 145
+    commit: 3687ef78b0cddc4bc87a8730bad7a9ba87d67490
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+  - versionName: '15'
+    versionCode: 146
+    commit: 8bd912a52c38a3cfedaa810110c41cd25f2ccae3
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jitpack.de/d' ../build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '7.2'
-CurrentVersionCode: 105
+CurrentVersion: '15'
+CurrentVersionCode: 146

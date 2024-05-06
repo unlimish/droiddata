@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Connects to *.music.126.net servers.
 Categories:
   - Multimedia
 License: MIT
@@ -19,7 +20,7 @@ Builds:
     commit: v0.8.1
     subdir: android/app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y --no-install-recommends -t stretch-backports npm
       - npm -g install yarn
     gradle:
@@ -42,7 +43,7 @@ Builds:
     scandelete:
       - node_modules
 
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: 0.8.1
 CurrentVersionCode: 1

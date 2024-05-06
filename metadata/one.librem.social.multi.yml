@@ -6,7 +6,7 @@ AuthorEmail: feedback@puri.sm
 WebSite: https://librem.one
 SourceCode: https://source.puri.sm/liberty/social/multi
 IssueTracker: https://source.puri.sm/liberty/social/multi/issues
-Changelog: https://source.puri.sm/liberty/social/multi/blob/master/CHANGELOG.md
+Changelog: https://source.puri.sm/liberty/social/multi/blob/HEAD/CHANGELOG.md
 
 AutoName: Librem Social (Beta)
 
@@ -26,7 +26,11 @@ Builds:
         -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     build: $$flutter$$/bin/flutter build apk --suppress-analytics
 
-AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: 0.0.10
-CurrentVersionCode: 1000
+MaintainerNotes: unmaintained early beta, archiving it.
+
+ArchivePolicy: 0
+AutoUpdateMode: None
+UpdateCheckMode: None
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 0.0.13
+CurrentVersionCode: 1300

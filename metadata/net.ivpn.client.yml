@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Depends on the IVPN VPN service.
 Categories:
   - Security
 License: GPL-3.0-only
@@ -11,101 +12,192 @@ Changelog: https://github.com/ivpn/android-app/releases
 AutoName: IVPN
 
 RepoType: git
-Repo: https://github.com/ivpn/android-app
+Repo: https://github.com/ivpn/android-app.git
 
 Builds:
-  - versionName: '1.65'
-    versionCode: 75
-    commit: v1.65
-    subdir: app
-    init:
-      - git submodule init
-      - git submodule update
-      - rm -rf src/main/cpp/mbedtls/tests
-      - rm -rf src/main/cpp/openvpn3/test
+  - versionName: 2.6.0
+    versionCode: 100
+    commit: v2.6.0
+    subdir: fdroid
+    submodules: true
     gradle:
-      - fdroidProduction
-    ndk: r21
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    ndk: r21e
 
-  - versionName: '1.66'
-    versionCode: 78
-    commit: v1.66
-    subdir: app
-    init:
-      - git submodule init
-      - git submodule update
-      - rm -rf src/main/cpp/mbedtls/tests
-      - rm -rf src/main/cpp/openvpn3/test
+  - versionName: 2.8.2
+    versionCode: 113
+    commit: 1ba554b87c16e3f0a87375a8a363113056b540eb
+    subdir: fdroid
+    submodules: true
     gradle:
-      - fdroidProduction
-    ndk: r21
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    ndk: r21e
 
-  - versionName: '1.67'
-    versionCode: 79
-    commit: v1.67
-    subdir: app
-    init:
-      - git submodule init
-      - git submodule update
-      - rm -rf src/main/cpp/mbedtls/tests
-      - rm -rf src/main/cpp/openvpn3/test
+  - versionName: 2.8.3
+    versionCode: 114
+    commit: b93846b877b3c11ce262f92b41073a0810e9ca36
+    subdir: fdroid
+    submodules: true
     gradle:
-      - fdroidProduction
-    ndk: r21
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    ndk: r21e
 
-  - versionName: '1.68'
-    versionCode: 82
-    commit: v1.68
-    subdir: app
-    init:
-      - git submodule init
-      - git submodule update
-      - rm -rf src/main/cpp/mbedtls/tests
-      - rm -rf src/main/cpp/openvpn3/test
+  - versionName: 2.8.5
+    versionCode: 116
+    commit: 3b16690094c649206063288f50ac76d65cae44b6
+    subdir: fdroid
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y make swig
     gradle:
-      - fdroidProduction
-    ndk: r21d
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    prebuild: sdkmanager 'cmake;3.22.1'
+    ndk: r21e
 
-  - versionName: '2.0'
-    versionCode: 87
-    commit: v2.0
-    subdir: app
-    init:
-      - git submodule init
-      - git submodule update
-      - rm -rf src/main/cpp/mbedtls/tests
-      - rm -rf src/main/cpp/openvpn3/test
+  - versionName: 2.8.6
+    versionCode: 117
+    commit: 61b1e41c4621d56975e06d0333a9c294a7bf1b2c
+    subdir: fdroid
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y make swig
     gradle:
-      - fdroidProduction
-    ndk: r21d
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    prebuild: sdkmanager 'cmake;3.22.1'
+    ndk: r21e
 
-  - versionName: 2.1.0
-    versionCode: 90
-    commit: v2.1.0
-    subdir: app
-    init:
-      - git submodule init
-      - git submodule update
-      - rm -rf src/main/cpp/mbedtls/tests
-      - rm -rf src/main/cpp/openvpn3/test
+  - versionName: 2.9.0
+    versionCode: 118
+    commit: d1acc4306a7872bade9656183d3f9720b43be755
+    subdir: fdroid
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y make swig
     gradle:
-      - fdroidProduction
-    ndk: r21d
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    prebuild: sdkmanager 'cmake;3.22.1'
+    ndk: r21e
 
-  - versionName: 2.2.0
-    versionCode: 92
-    commit: v2.2.0
-    subdir: app
-    init:
-      - git submodule init
-      - git submodule update
-      - rm -rf src/main/cpp/mbedtls/tests
-      - rm -rf src/main/cpp/openvpn3/test
+  - versionName: 2.10.3
+    versionCode: 126
+    commit: 5c622c75389f097ea9f7dffe6b523b9fc74db077
+    subdir: fdroid
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake gcc g++ make swig
     gradle:
-      - fdroidProduction
-    ndk: r21d
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    prebuild: sdkmanager 'cmake;3.22.1'
+    ndk: r25b
 
-AutoUpdateMode: Version v%v
+  - versionName: 2.10.4
+    versionCode: 127
+    commit: 03c653e634ce536c8d675b1d4f577da98e395659
+    subdir: fdroid
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake gcc g++ make swig
+    gradle:
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    prebuild: sdkmanager 'cmake;3.22.1'
+    ndk: r25b
+
+  - versionName: 2.10.6
+    versionCode: 129
+    commit: 1ffa005ea19c3097cbffb09f871aa1705f5d77bb
+    subdir: fdroid
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake gcc g++ make swig
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    prebuild: sdkmanager 'cmake;3.22.1'
+    ndk: r25b
+
+  - versionName: 2.10.7
+    versionCode: 130
+    commit: 0d11161cd4bb1599c401ecdfb7b4a56c927bd031
+    subdir: fdroid
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake gcc g++ make swig
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - production
+    rm:
+      - site
+      - store
+      - core/src/main/cpp/mbedtls/tests
+      - core/src/main/cpp/mbedtls/crypto/tests
+      - core/src/main/cpp/openvpn3/test
+    prebuild: sdkmanager 'cmake;3.22.1'
+    ndk: r25b
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.2.0
-CurrentVersionCode: 92
+CurrentVersion: 2.10.7
+CurrentVersionCode: 130

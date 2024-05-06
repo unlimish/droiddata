@@ -1,0 +1,98 @@
+Categories:
+  - System
+License: GPL-3.0-or-later
+AuthorName: Gary Wang
+AuthorWebSite: https://www.blumia.net
+SourceCode: https://github.com/BLumia/pineapple-lock-screen
+IssueTracker: https://github.com/BLumia/pineapple-lock-screen/issues
+
+AutoName: Pineapple Lock Screen
+
+RepoType: git
+Repo: https://github.com/BLumia/pineapple-lock-screen.git
+
+Builds:
+  - versionName: 1.1.0-oss
+    versionCode: 3
+    commit: a5b7caa61a1708ccfbdbbcb7c65cbd906a5a8c21
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - oss
+
+  - versionName: 1.1.1-oss
+    versionCode: 4
+    commit: b8877990d0acc2e44c15167374c9ea9e38f0ca90
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - oss
+
+  - versionName: 1.2.0-oss
+    versionCode: 5
+    commit: 5ed650798cca7cc79bc8ccb628ed2d3c03377288
+    subdir: app
+    submodules: true
+    gradle:
+      - oss
+
+  - versionName: 1.2.1-oss
+    versionCode: 6
+    commit: 8e6719f39074b51a24f0d4f5d2741dcad38feccf
+    subdir: app
+    submodules: true
+    gradle:
+      - oss
+
+  - versionName: 1.2.2-oss
+    versionCode: 7
+    commit: 1da1f9746e13abddcf60ed65003c3857fcc4080c
+    subdir: app
+    submodules: true
+    gradle:
+      - oss
+
+  - versionName: 1.2.3-oss
+    versionCode: 8
+    commit: 92f70b9ff8f5ce67dce9db8fcc1412fd282bd06c
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - oss
+
+  - versionName: 1.3.0-oss
+    versionCode: 9
+    commit: 4fb2977664500b4e7970af18f4919118ea891aa3
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - oss
+
+  - versionName: 1.3.1-oss
+    versionCode: 11
+    commit: c9e0278257550ef653c570f06471f461c3379187
+    subdir: app
+    submodules: true
+    gradle:
+      - oss
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.3.1-oss
+CurrentVersionCode: 11

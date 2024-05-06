@@ -1,8 +1,9 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Twitch itself is not libre.
 Categories:
-  - Multimedia
   - Internet
+  - Multimedia
 License: GPL-3.0-only
 SourceCode: https://github.com/twireapp/Twire
 IssueTracker: https://github.com/twireapp/Twire/issues
@@ -11,11 +12,11 @@ Changelog: https://github.com/twireapp/Twire/releases
 
 AutoName: Twire
 Description: |-
-    Twire is an open source, ad free Twitch browser and stream player for Android.
-    You can select multiple themes and also login with your twitch account.
-    You can also follow and unfollow streamers through the app.
+  Twire is an open source, ad free Twitch browser and stream player for Android.
+  You can select multiple themes and also login with your twitch account.
+  You can also follow and unfollow streamers through the app.
 
-    Please note that the chat is only available if you login to your account.
+  Please note that the chat is only available if you login to your account.
 
 RepoType: git
 Repo: https://github.com/twireapp/Twire.git
@@ -154,7 +155,105 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 2.10.0
+    versionCode: 524
+    commit: f17e954b227b3f66c8f4747bb4e7fa9d5b68267a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.10.1
+    versionCode: 525
+    commit: 8043c8b5eacb75e4107644eae9c4bf05424108d1
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.10.2
+    versionCode: 526
+    commit: db59e1f60fa68e73794d602dac458e8c17c0b110
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.10.3
+    versionCode: 527
+    commit: dd882e0f0ed9a2f58ceca29db075953e0c376bb4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.10.4
+    versionCode: 528
+    commit: 039449aa13357e52bc73b8405510c19f47c36a7e
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.10.5
+    versionCode: 529
+    commit: 86caaed5fe6bef6bb8e06dadd1ac8a05d7daf365
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.10.6
+    versionCode: 530
+    commit: 1a51815be9fdc12c7c4a2332d304fec8127b5b5b
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.10.7
+    versionCode: 531
+    commit: 2782274b6fcd6ae7b9a94b0edc2c824d33840dba
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.10.8
+    versionCode: 532
+    commit: bd9adfa0e5baa33a7301f66f3169ebe49d9f7ad1
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.10.9
+    versionCode: 533
+    commit: bf9b31412697eeebdd7db0d4ba973d22967d84e2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.9.3
-CurrentVersionCode: 523
+CurrentVersion: 2.10.9
+CurrentVersionCode: 533

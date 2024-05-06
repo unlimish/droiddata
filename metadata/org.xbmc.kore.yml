@@ -13,7 +13,7 @@ Donate: https://kodi.tv/contribute/donate
 AutoName: Kore
 
 RepoType: git
-Repo: https://github.com/xbmc/Kore
+Repo: https://github.com/xbmc/Kore.git
 
 Builds:
   - versionName: 1.2.1
@@ -156,7 +156,29 @@ Builds:
     rm:
       - art/launcher/sam/concepts/Kore_App_Icons.zip
 
-AutoUpdateMode: None
-UpdateCheckMode: Tags
-CurrentVersion: v2.5.1
-CurrentVersionCode: 27
+  - versionName: v2.5.3
+    versionCode: 29
+    commit: v2.5.3
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - art/launcher/sam/concepts/Kore_App_Icons.zip
+
+  - versionName: v3.1.0
+    versionCode: 33
+    commit: 5f711140d7e9593f4b8048f0c613288b54e17302
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/implementation('\''androidx\.core:core-google-shortcuts:1\.1\.0'\'')
+      {/,/}/d' build.gradle
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v[\d.]+$
+CurrentVersion: v3.1.0
+CurrentVersionCode: 33

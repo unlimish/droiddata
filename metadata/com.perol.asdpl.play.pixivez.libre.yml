@@ -1,8 +1,9 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Depends on Pixiv, which is proprietary.
 Categories:
-  - Internet
   - Graphics
+  - Internet
   - Multimedia
 License: MIT
 AuthorName: Ultranity
@@ -35,7 +36,63 @@ Builds:
       - libre
     output: build/outputs/apk/libre/release/app-libre-universal-release-unsigned.apk
 
-AutoUpdateMode: Version %v
+  - versionName: 1.8.0
+    versionCode: 111
+    commit: 79131f0493c90fa8694ec0ffd20c207646a830c0
+    subdir: app
+    gradle:
+      - libre
+    output: build/outputs/apk/libre/release/app-libre-universal-release-unsigned.apk
+
+  - versionName: 1.8.3
+    versionCode: 114
+    commit: 98de52e0c1a556e8d5c6b657070ac6bdebdb177d
+    subdir: app
+    gradle:
+      - libre
+    prebuild:
+      - sed -i -e '/maven.aliyun.com/d' ../build.gradle
+      - sed -i -e '/enable true/d' build.gradle
+
+  - versionName: 1.8.5
+    versionCode: 115
+    commit: d9906b7d3e7fd183d53cb4d2e0387601e37194fc
+    subdir: app
+    gradle:
+      - libre
+    prebuild:
+      - sed -i -e '/maven.aliyun.com/d' ../build.gradle
+      - sed -i -e '/enable true/d' build.gradle
+
+  - versionName: 1.8.8
+    versionCode: 118
+    commit: 626986fa3c62ff01dc660a1afa993b25c01c24b8
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - libre
+    prebuild: sed -i -e '/isEnable = true/d' -e '/keystore/d' build.gradle.kts
+
+  - versionName: 2.0.0
+    versionCode: 200
+    disable: unknown maven repo
+    commit: d5caf81746e4f16a1af64d45490a358fd19aec1a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - libre
+    prebuild:
+      - sed -i -e '/isEnable = true/d' -e '/keystore/d' build.gradle.kts
+      - sed -i -e '/repo.repsy.io/d' ../build.gradle.kts
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.7.7R
-CurrentVersionCode: 110
+UpdateCheckName: com.perol.asdpl.play.pixivez
+CurrentVersion: 2.0.0
+CurrentVersionCode: 200

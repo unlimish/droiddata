@@ -9,32 +9,16 @@ Bitcoin: 1BXS5qPhJzhr5iK5nmNDSmoLDfB6VmN5hv
 
 AutoName: Termux:Float
 Description: |-
-    This plugin for https://f-droid.org/packages/com.termux provides a floating terminal window which is
-    shown above other apps.
+  This plugin for https://f-droid.org/packages/com.termux provides a floating terminal window which is
+  shown above other apps.
 
-    Long-press on the floating window to move or resize it and tap on the
-    notification to temporarily hide it.
+  Long-press on the floating window to move or resize it and tap on the
+  notification to temporarily hide it.
 
 RepoType: git
 Repo: https://github.com/termux/termux-float
 
 Builds:
-  - versionName: '0.8'
-    versionCode: 8
-    disable: fdroid/fdroidserver#288
-    commit: v0.8
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: '0.9'
-    versionCode: 9
-    disable: fdroid/fdroidserver#288
-    commit: v0.9
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: '0.10'
     versionCode: 10
     commit: v0.10
@@ -63,7 +47,14 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 0.15.0
+    versionCode: 15
+    commit: ef5ba3881d9f4c160539b102caaa849e70391e29
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '0.14'
-CurrentVersionCode: 14
+CurrentVersion: 0.15.0
+CurrentVersionCode: 15

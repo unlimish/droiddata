@@ -1,3 +1,6 @@
+AntiFeatures:
+  KnownVuln:
+    en-US: Uses com.itextpdf:itextg:5.5.10 which has known security issues.
 Categories:
   - Phone & SMS
 License: GPL-3.0-only
@@ -111,7 +114,28 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: 3.6.0
+    versionCode: 27
+    commit: 3.6.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.7.0
+    versionCode: 28
+    commit: 3.7.0
+    subdir: app
+    gradle:
+      - yes
+
+MaintainerNotes: |-
+  KnownVuln: com.itextpdf:itextg:5.5.10 noted at below link
+  https://github.com/AdrienPoupa/AttestationDeplacement/blob/$TAG/app/build.gradle
+  https://github.com/AdrienPoupa/AttestationDeplacement/issues/131
+  https://gitlab.com/fdroid/fdroiddata/-/merge_requests/11496
+  Repository archived
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.5.1
-CurrentVersionCode: 26
+CurrentVersion: 3.7.0
+CurrentVersionCode: 28

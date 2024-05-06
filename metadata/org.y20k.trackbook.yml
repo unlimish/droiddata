@@ -2,20 +2,20 @@ Categories:
   - Navigation
 License: MIT
 AuthorName: y20k
-WebSite: http://www.y20k.org/trackbook/
-SourceCode: https://github.com/y20k/trackbook
-IssueTracker: https://github.com/y20k/trackbook/issues
+WebSite: https://codeberg.org/y20k/trackbook
+SourceCode: https://codeberg.org/y20k/trackbook
+IssueTracker: https://codeberg.org/y20k/trackbook/issues
 Translation: https://hosted.weblate.org/projects/trackbook/strings/
-Changelog: https://github.com/y20k/trackbook/releases
+Changelog: https://codeberg.org/y20k/trackbook/releases
 
 AutoName: Trackbook
 Description: |-
-    Trackbook is a bare bones app for recording your movements. Trackbook is great
-    for hiking, vacation or workout. Once started it traces your movements on a map.
-    The map data is provided by OpenStreetMap (OSM).
+  Trackbook is a bare bones app for recording your movements. Trackbook is great
+  for hiking, vacation or workout. Once started it traces your movements on a map.
+  The map data is provided by OpenStreetMap (OSM).
 
 RepoType: git
-Repo: https://github.com/y20k/trackbook.git
+Repo: https://codeberg.org/y20k/trackbook.git
 
 Builds:
   - versionName: 0.9.1 (The Great Gig in the Sky)
@@ -112,22 +112,6 @@ Builds:
   - versionName: 1.0.8
     versionCode: 15
     commit: v1.0.8
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 1.1.0
-    versionCode: 16
-    disable: missing google() repo
-    commit: v1.1.0
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 1.1.2
-    versionCode: 18
-    disable: missing google() repo
-    commit: v1.1.2
     subdir: app
     gradle:
       - yes
@@ -314,7 +298,51 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 2.1.0
+    versionCode: 48
+    commit: 04f82f42bf921d59a8e9b06badc93d6d9391ebe6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.1.1
+    versionCode: 49
+    commit: 6798e6707d33ee5e93c7062e6b1c6c157c48627b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.1.2
+    versionCode: 50
+    commit: 467918c171c20d1318cc4a2564e497947fd52978
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.2.0
+    versionCode: 51
+    commit: 9658aa47dd63a35776de3c2cda24d04a4cec3f9f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.0.10
-CurrentVersionCode: 47
+CurrentVersion: 2.2.0
+CurrentVersionCode: 51

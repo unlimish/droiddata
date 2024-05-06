@@ -7,8 +7,8 @@ Changelog: https://github.com/dnet/adsdroid/releases
 
 AutoName: ADSdroid
 Description: |-
-    Unofficial Android app for alldatasheet.com, allowing fast access to thousands
-    of PDFs for specifications about electronic items
+  Unofficial Android app for alldatasheet.com, allowing fast access to thousands
+  of PDFs for specifications about electronic items
 
 RepoType: git
 Repo: https://github.com/dnet/adsdroid.git
@@ -76,7 +76,7 @@ Builds:
     prebuild:
       - mkdir libs
       - pushd $$JSoup$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$JSoup$$/target/*jar libs/
 
@@ -88,7 +88,7 @@ Builds:
     target: android-9
     build:
       - mkdir libs
-      - $$MVN3$$ package -f $$JSoup$$/pom.xml
+      - mvn package -f $$JSoup$$/pom.xml
       - cp $$JSoup$$/target/jsoup-*.jar libs/
 
   - versionName: 1.7.1
@@ -99,7 +99,7 @@ Builds:
     target: android-21
     build:
       - mkdir libs
-      - $$MVN3$$ package -f $$JSoup$$/pom.xml
+      - mvn package -f $$JSoup$$/pom.xml
       - cp $$JSoup$$/target/jsoup-*.jar libs/
 
   - versionName: 1.7.2
@@ -110,10 +110,10 @@ Builds:
     target: android-21
     build:
       - mkdir libs
-      - $$MVN3$$ package -f $$JSoup$$/pom.xml
+      - mvn package -f $$JSoup$$/pom.xml
       - cp $$JSoup$$/target/jsoup-*.jar libs/
 
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: 1.7.2
 CurrentVersionCode: 11

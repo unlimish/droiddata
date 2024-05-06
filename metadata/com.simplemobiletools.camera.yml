@@ -1,6 +1,6 @@
 Categories:
   - Multimedia
-License: Apache-2.0
+License: GPL-3.0-only
 AuthorName: Tibor Kaputa
 AuthorEmail: hello@simplemobiletools.com
 WebSite: https://simplemobiletools.com
@@ -14,7 +14,7 @@ Litecoin: LYACbHTKaM9ZubKQGxJ4NRyVy1gHUuztRP
 AutoName: Camera
 
 RepoType: git
-Repo: https://github.com/SimpleMobileTools/Simple-Camera
+Repo: https://github.com/SimpleMobileTools/Simple-Camera.git
 
 Builds:
   - versionName: '1.12'
@@ -304,14 +304,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 5.0.0
-    versionCode: 64
-    disable: ProGuard fails
-    commit: 5.0.0
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 5.0.1
     versionCode: 65
     commit: 5.0.1
@@ -400,7 +392,107 @@ Builds:
       - yes
     prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
 
-AutoUpdateMode: Version %v
+  - versionName: 5.3.1
+    versionCode: 77
+    commit: 5.3.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.4.0
+    versionCode: 78
+    commit: 71c65fc9c286ab0d543d07bd48e082f0aa7058b7
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.4.1
+    versionCode: 79
+    commit: 674f259d5b877a4e539e509ff5e4d24dc3cda47d
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.4.2
+    versionCode: 80
+    commit: c7d88f3a33d7ba038fa888c3e42302c22f4fef91
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.4.3
+    versionCode: 81
+    commit: ef3729345eb6414269e446708a2113708f5681ef
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.5.0
+    versionCode: 82
+    commit: 79c1a176801c3ca9f237ed490a35889ab4020173
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.6.0
+    versionCode: 83
+    commit: 6a80289c3701bc705f439aa97c3d621f2601ab10
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.6.1
+    versionCode: 84
+    commit: 37d7b5e46deee0f840ad07d6e279d7bcc4838732
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.6.2
+    versionCode: 85
+    commit: 0381619ed3179eff6522aca58098e6fb46745617
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.6.3
+    versionCode: 86
+    commit: 294012cb49749a4e6e339699debe199e6b6790e9
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.7.0
+    versionCode: 87
+    commit: 0dc52efb3ef3868d20660eb20d5fdbe0f386cb57
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/keystore.*{/,/}/d; /keystore/d' build.gradle
+
+  - versionName: 5.7.2
+    versionCode: 89
+    commit: 959b2802a38dae7704b36c9873ec5bd3fb436aeb
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+
+AutoUpdateMode: None
 UpdateCheckMode: Tags
-CurrentVersion: 5.3.0
-CurrentVersionCode: 76
+UpdateCheckData: gradle/libs.versions.toml|app-version-versionCode\s=\s"(\d+)"|.|app-version-versionName\s=\s"(.*)"
+CurrentVersion: 5.7.2
+CurrentVersionCode: 89

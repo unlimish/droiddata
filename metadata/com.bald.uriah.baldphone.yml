@@ -1,3 +1,7 @@
+AntiFeatures:
+  Tracking:
+    en-US: Baldphone uses ACRA with handleSilentException, i.e. sending crash-reports
+      without asking for consent. Opt-Out is possible, though.
 Categories:
   - System
 License: Apache-2.0
@@ -161,7 +165,11 @@ Builds:
     gradle:
       - fDroid
 
-AutoUpdateMode: Version %c
+MaintainerNotes: Baldphone uses ACRA with handleSilentException(), i.e. sending crash-reports
+  without asking for consent. Opt-out is possible, but by default this is turned on,
+  see https://github.com/UriahShaulMandel/BaldPhone/issues/935
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: 13.0.0
 CurrentVersionCode: 102

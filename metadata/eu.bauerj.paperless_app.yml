@@ -20,22 +20,7 @@ Builds:
     srclibs:
       - flutter@1.17.3
     prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
-        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
-    build:
-      - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter pub get
-      - $$flutter$$/bin/flutter pub run build_runner build
-      - $$flutter$$/bin/flutter build apk
-
-  - versionName: 0.0.8
-    versionCode: 8
-    disable: Unexpected version/version code in output
-    commit: 0.0.8
-    output: build/app/outputs/apk/release/app-release.apk
-    srclibs:
-      - flutter@1.22.5
-    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
-        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+      { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
@@ -49,7 +34,7 @@ Builds:
     srclibs:
       - flutter@1.22.5
     prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
-        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+      { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
@@ -63,7 +48,7 @@ Builds:
     srclibs:
       - flutter@1.25.0-8.1.pre
     prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
-        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+      { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
@@ -72,25 +57,81 @@ Builds:
 
   - versionName: 0.0.11
     versionCode: 11
-    disable: no tag
     commit: 0.0.11
-    output: build/app/outputs/apk/release/app-release.apk
+    output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
-      - flutter@1.25.0-8.1.pre
-    prebuild: echo 'android.applicationVariants.all { variant -> variant.outputs.all
-        { output -> outputFileName = "app-${output.baseName}.apk" } }' >> android/app/build.gradle
+      - flutter@2.0.0
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
       - $$flutter$$/bin/flutter pub run build_runner build
       - $$flutter$$/bin/flutter build apk
+    ndk: r21
 
-MaintainerNotes: |-
-    Builds will fail when the srclib ref of flutter and the version with which
-    upstream has been built with differ to mouch.
+  - versionName: 0.1.0
+    versionCode: 12
+    commit: fe719240a97e67621e406d64923e2ca8c9679330
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.8.1
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run build_runner build
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
 
-AutoUpdateMode: Version %v
-UpdateCheckMode: HTTP
-UpdateCheckData: https://github.com/bauerj/paperless_app/raw/master/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 0.0.11
-CurrentVersionCode: 11
+  - versionName: 0.1.1
+    versionCode: 13
+    commit: fa1acc3ff57be28545cc4961f166b87034161a02
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.8.1
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run build_runner build
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+  - versionName: 0.1.2
+    versionCode: 14
+    commit: c764afdec1e20079e4df07c55a407124f9d1ad2d
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.2
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter pub run build_runner build
+      - $$flutter$$/bin/flutter pub run download_translations.dart
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+  - versionName: 0.1.4
+    versionCode: 16
+    disable: prebuilt opencv
+    commit: bf6c7ff36f8725fc270ff5e5962afc906b95268f
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.3.9
+    rm:
+      - ios
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter pub run build_runner build
+      - $$flutter$$/bin/flutter pub run download_translations.dart
+      - $$flutter$$/bin/flutter build apk
+    ndk: r21
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 0.1.4
+CurrentVersionCode: 16

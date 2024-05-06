@@ -9,30 +9,9 @@ IssueTracker: https://github.com/renyuneyun/Easer/issues
 Translation: https://hosted.weblate.org/projects/easer/
 Changelog: https://github.com/renyuneyun/Easer/blob/HEAD/CHANGELOG.md
 Donate: https://renyuneyun.github.io/Easer/en/DONATE
-LiberapayID: '27842'
+Liberapay: renyuneyun
 
 AutoName: Easer
-Description: |-
-    Make your smart phone smarter: tell it what to do under what situation.
-
-    Easer is an event-driven Android automation app. It knows various events, and
-    you, the user, could tell it what to do on what event (and even combine multiple
-    events!). Routine actions no longer need to be taken manually.
-
-    This app was inspired by CyanogenMod’s 'profile' mechanism and IFTTT. The
-    original intuition was to automatically change the profile on certain time or
-    specific WiFi connections, and it was expanded for more general use then (so
-    Easer runs on any Android devices).
-
-    Reminder: Easer is still under development. It may contain bugs and the UI
-    definitely needs to be improved. For more details or expansion of Easer, read
-    <a href="https://renyuneyun.github.io/Easer/en/README">README</a>,
-    <a href="https://renyuneyun.github.io/Easer/en/HOWTO">HOWTO</a> (creating more events /
-    operations), <a href="https://renyuneyun.github.io/Easer/en/TODO">TODO</a> (or
-    <a href="https://renyuneyun.github.io/Easer/zh/README">README</a>,
-    <a href="https://renyuneyun.github.io/Easer/zh/HOWTO">HOWTO</a>,
-    <a href="https://renyuneyun.github.io/Easer/zh/TODO">TODO</a> if you can read Chinese)
-    document in the repo.
 
 RepoType: git
 Repo: https://github.com/renyuneyun/Easer.git
@@ -297,15 +276,6 @@ Builds:
   - versionName: 0.5.2
     versionCode: 51
     commit: v0.5.2
-    subdir: app
-    gradle:
-      - yes
-    prebuild: $ANDROID_HOME/tools/bin/sdkmanager 'platforms;android-27'
-
-  - versionName: 0.5.3
-    versionCode: 52
-    disable: Bugs may damage Easer's data; use v0.5.3.1 instead
-    commit: v0.5.3
     subdir: app
     gradle:
       - yes
@@ -818,8 +788,28 @@ Builds:
     gradle:
       - stable
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-UpdateCheckIgnore: beta
-CurrentVersion: 0.8.1
-CurrentVersionCode: 124
+  - versionName: 0.8.2
+    versionCode: 125
+    commit: b026c4162d185a425f551774f2118304f9c8457d
+    subdir: app
+    gradle:
+      - stable
+
+  - versionName: 0.8.2.1
+    versionCode: 126
+    commit: 6c989201d4e5bb40c7896dbc52e964c0e44d8c97
+    subdir: app
+    gradle:
+      - stable
+
+  - versionName: 0.8.2.3
+    versionCode: 128
+    commit: 09e7d4e82eee6b6286793e16b9163f055a1f041c
+    subdir: app
+    gradle:
+      - stable
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v[0-9.]*$
+CurrentVersion: 0.8.2.3
+CurrentVersionCode: 128

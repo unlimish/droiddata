@@ -5,18 +5,8 @@ WebSite: https://gitlab.com/fengshaun/syncopoli
 SourceCode: https://gitlab.com/fengshaun/syncopoli
 IssueTracker: https://gitlab.com/fengshaun/syncopoli/issues
 Changelog: https://gitlab.com/fengshaun/syncopoli/blob/HEAD/CHANGELOG
-Bitcoin: 1DT8ijBkGUAvW9VZqfCQBJFS62vvw5E7QK
 
 AutoName: Syncopoli
-Description: |-
-    An rsync client that allows you to backup files/directories on your phone to
-    your remote server.
-
-    Features:
-
-    * Phone to remote server backup
-    * Remote server to phone replication
-    * Supports transport through both Rsync and SSH protocols
 
 RepoType: git
 Repo: https://gitlab.com/fengshaun/syncopoli.git
@@ -130,30 +120,6 @@ Builds:
       - no
     ndk: r15c
 
-  - versionName: v0.4.5
-    versionCode: 13
-    disable: wrong gradle version, can't find google()
-    commit: v0.4.5
-    subdir: app
-    submodules: true
-    gradle:
-      - yes
-    buildjni:
-      - no
-    ndk: r15c
-
-  - versionName: v0.4.5.2
-    versionCode: 15
-    disable: Could not find com.android.tools.build:gradle:3.0.1
-    commit: v0.4.5.2
-    subdir: app
-    submodules: true
-    gradle:
-      - yes
-    buildjni:
-      - no
-    ndk: r15c
-
   - versionName: v0.4.5.4
     versionCode: 17
     commit: v0.4.5.4
@@ -242,7 +208,27 @@ Builds:
       - no
     ndk: r15c
 
-AutoUpdateMode: Version %v
+  - versionName: v0.7.1
+    versionCode: 25
+    commit: fb33344a7d81345f6814998828f4a0a0e68c004c
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: sed -i -e '/android {/a lintOptions {abortOnError false}' build.gradle
+    ndk: r25
+
+  - versionName: v0.7.2
+    versionCode: 26
+    commit: 2f514376b32cdc080af952dd2daa12cfa5c96cc4
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: sed -i -e '/android {/a lintOptions {abortOnError false}' build.gradle
+    ndk: r25
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: v0.6
-CurrentVersionCode: 24
+CurrentVersion: v0.7.2
+CurrentVersionCode: 26

@@ -2,22 +2,14 @@ Categories:
   - Multimedia
   - Theming
 License: GPL-3.0-only
+AuthorName: Maximilian Salomon
+AuthorEmail: msal.coding@gmail.com
 SourceCode: https://github.com/sal0max/muzei-nationalgeographic
 IssueTracker: https://github.com/sal0max/muzei-nationalgeographic/issues
+Changelog: https://github.com/sal0max/muzei-nationalgeographic/releases
+Donate: https://www.paypal.com/donate/?hosted_button_id=2JCY7E99V9DGC
 
 AutoName: National Geographic for Muzei
-Description: |-
-    The National Geographic photo of the day for https://f-droid.org/packages/net.nurik.roman.muzei.
-
-    '''Features:'''
-
-    * Toggle between having always the newest photo of the day and showing random wallpapers.
-    * Set your custom refresh interval.
-    * To reduce mobile data usage you can chose to only update on Wi-Fi.
-    * Read the entire photo description of the current photo within the app.
-    * Share your current photo with the world.
-
-    Note: You must have https://f-droid.org/packages/net.nurik.roman.muzei installed to use this plugin.
 
 RepoType: git
 Repo: https://github.com/sal0max/muzei-nationalgeographic.git
@@ -58,9 +50,65 @@ Builds:
     gradle:
       - yes
 
-MaintainerNotes: Cannot use AUM/UCM because version code and version name are dynamic.
+  - versionName: 2.3.0
+    versionCode: 20300
+    commit: 2.3.0
+    subdir: muzei-nationalgeographic
+    gradle:
+      - yes
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: 2 (2.1.1)
-CurrentVersionCode: 20101
+  - versionName: 2.4.0
+    versionCode: 20400
+    commit: 2.4.0
+    subdir: muzei-nationalgeographic
+    gradle:
+      - yes
+
+  - versionName: 2.4.2
+    versionCode: 20402
+    commit: 95f87df1c2aee6e8016fa89cd1a676a39de1a8fc
+    subdir: muzei-nationalgeographic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.4.3
+    versionCode: 20403
+    commit: 10419ea2b958a07de77563b6a4cf1ef9737a1dd8
+    subdir: muzei-nationalgeographic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.4.4
+    versionCode: 20404
+    commit: 766f80dab379efc8f07ba6d3f7ee9885457d2779
+    subdir: muzei-nationalgeographic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.4.5
+    versionCode: 20405
+    commit: 3e0d5d00de46d21a5f07f584ded4297bc54f1577
+    subdir: muzei-nationalgeographic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags \d+\.\d+\.\d+
+CurrentVersion: 2.4.5
+CurrentVersionCode: 20405

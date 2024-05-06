@@ -1,25 +1,26 @@
 AntiFeatures:
-  - UpstreamNonFree
   - Tracking
+  - UpstreamNonFree
 Categories:
   - Multimedia
 License: MIT
-WebSite: http://jadn.com/carcast
+WebSite: https://jadn.com/carcast/
 SourceCode: https://github.com/bherrmann7/Car-Cast
 IssueTracker: https://github.com/bherrmann7/Car-Cast/issues
+Donate: https://jadn.com/carcast/
 
 AutoName: Car Cast
 Description: |-
-    Car Cast is a simple audio podcast downloader and player. Optimized for use in a
-    daily commute; it features big buttons, large text and remembers the last played
-    location.
-
-    # Subscribe to podcasts by searching or adding feed urls (opml in next version)
-    # Download 1,2,3 etc. most recent podcasts for each feed
-    # Playback in car/gym (no network needed)
-
-    Admob was removed before building. Anti-feature: Tracking. Usage data is sent by
-    default though it can be disabled in settings.
+  Car Cast is a simple audio podcast downloader and player. Optimized for use in a
+  daily commute; it features big buttons, large text and remembers the last played
+  location.
+  <ol>
+  <li>Subscribe to podcasts by searching or adding feed urls (opml in next version)</li>
+  <li>Download 1,2,3 etc. most recent podcasts for each feed</li>
+  <li>Playback in car/gym (no network needed)</li>
+  </ol>
+  Admob was removed before building. Anti-feature: Tracking. Usage data is sent by
+  default though it can be disabled in settings.
 
 RepoType: git
 Repo: https://github.com/bherrmann7/Car-Cast.git
@@ -34,12 +35,6 @@ Builds:
     rm:
       - cc/libs/admob-sdk-android.jar
     target: android-8
-
-  - versionName: 1.0.131
-    versionCode: 131
-    disable: Contains proprietary binaries - needs patching or disabling
-    commit: unknown - see disabled
-    subdir: cc
 
   - versionName: 1.0.143
     versionCode: 143
@@ -65,10 +60,6 @@ Builds:
       - .
       - ../PrestoClient
 
-  - versionName: 1.0.155
-    versionCode: 155
-    disable: no clear commit for this version
-
   - versionName: 1.0.173
     versionCode: 173
     commit: 5ad3c7b79b801045debe619e5a00c5d2da659fcc
@@ -85,7 +76,10 @@ Builds:
 
 MaintainerNotes: Looking at the jars, we should not include this app.
 
+ArchivePolicy: 0
 AutoUpdateMode: None
-UpdateCheckMode: RepoManifest
-CurrentVersion: 1.0.178
-CurrentVersionCode: 178
+UpdateCheckMode: None
+CurrentVersion: 1.0.173
+CurrentVersionCode: 173
+
+NoSourceSince: 1.0.173

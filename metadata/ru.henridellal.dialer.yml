@@ -5,15 +5,9 @@ WebSite: https://github.com/HenriDellal/emerald-dialer
 SourceCode: https://github.com/HenriDellal/emerald-dialer
 IssueTracker: https://github.com/HenriDellal/emerald-dialer/issues
 Changelog: https://github.com/HenriDellal/emerald-dialer/releases
+Donate: https://github.com/HenriDellal/emerald-dialer/blob/HEAD/DONATE.md
 
 AutoName: Emerald Dialer
-Description: |-
-    Emerald Dialer is a lightweight dialer app.
-
-    Features:
-    * T9 contacts search;
-    * Speed dial;
-    * Themes: light and dark.
 
 RepoType: git
 Repo: https://github.com/HenriDellal/emerald-dialer.git
@@ -54,7 +48,84 @@ Builds:
     commit: v1.0.8
     target: android-26
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.0.10
+    versionCode: 12
+    commit: 5b723b78497a205f0bc557068e86f2ce86af2e3a
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.11
+    versionCode: 13
+    commit: ab52400f59d5ca732988e5b737024d70f421ea3f
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.13
+    versionCode: 14
+    commit: e9dd6e6a414dfacc5bad566dcc0d5297c5cd1e68
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.14
+    versionCode: 15
+    commit: 0320e1dec2c776077b9154640968dcb1f9c3edfe
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 1.0.15
+    versionCode: 16
+    commit: bdbe737d2f2f544b8b044f8796e3c3ba77b7de17
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'build-tools;34.0.0' 'build-tools;30.0.3'
+      - cp /opt/android-sdk/build-tools/30.0.3/lib/dx.jar /opt/android-sdk/build-tools/34.0.0/lib/dx.jar
+      - cp /opt/android-sdk/build-tools/30.0.3/dx /opt/android-sdk/build-tools/34.0.0/dx
+
+  - versionName: 1.0.16
+    versionCode: 17
+    commit: 81af06277725077a41890b15cc48b453e4f481a6
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'build-tools;34.0.0' 'build-tools;30.0.3'
+      - cp /opt/android-sdk/build-tools/30.0.3/lib/dx.jar /opt/android-sdk/build-tools/34.0.0/lib/dx.jar
+      - cp /opt/android-sdk/build-tools/30.0.3/dx /opt/android-sdk/build-tools/34.0.0/dx
+
+  - versionName: 1.0.17
+    versionCode: 18
+    commit: ecc60b8a19bfe5f72c1ae1f2219d1e8721a432a8
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'build-tools;34.0.0' 'build-tools;30.0.3'
+      - cp /opt/android-sdk/build-tools/30.0.3/lib/dx.jar /opt/android-sdk/build-tools/34.0.0/lib/dx.jar
+      - cp /opt/android-sdk/build-tools/30.0.3/dx /opt/android-sdk/build-tools/34.0.0/dx
+
+  - versionName: 1.0.18
+    versionCode: 19
+    commit: 56fc0406cb29d6dbc63fd1524d9b7921b2be68a1
+    subdir: app
+    sudo:
+      - echo "deb https://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y -t bullseye openjdk-11-jdk-headless
+      - update-java-alternatives --set java-1.11.0-openjdk-amd64
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'build-tools;34.0.0' 'build-tools;30.0.3'
+      - cp /opt/android-sdk/build-tools/30.0.3/lib/dx.jar /opt/android-sdk/build-tools/34.0.0/lib/dx.jar
+      - cp /opt/android-sdk/build-tools/30.0.3/dx /opt/android-sdk/build-tools/34.0.0/dx
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.0.8
-CurrentVersionCode: 10
+CurrentVersion: 1.0.18
+CurrentVersionCode: 19

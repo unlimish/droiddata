@@ -7,23 +7,15 @@ Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=mikereidis
 
 AutoName: SpiritF
 Description: |-
-    When your devices supports FM radio, you can plug in your headphones to use them
-    as an antenna and tune in to your favorite radio station with this app.
+  When your devices supports FM radio, you can plug in your headphones to use them
+  as an antenna and tune in to your favorite radio station with this app.
 
-RequiresRoot: 'yes'
+RequiresRoot: true
 
 RepoType: git
 Repo: https://github.com/mikereidis/spirit2_free
 
 Builds:
-  - versionName: 2014_11_28_free
-    versionCode: 75
-    disable: missing includes
-    commit: 61b58abbf9a95fcfec4bae2ab5bfd19a37a62eac
-    buildjni:
-      - yes
-    ndk: r12b
-
   - versionName: 2015_01_12_beta
     versionCode: 78
     commit: bac8c63cc40218da8283aabcb69db77cc6e79a68
@@ -123,8 +115,8 @@ Builds:
       - mv libs/armeabi/s2d libs/armeabi/libs2d.so
 
 MaintainerNotes: |-
-    * See build_spirit2_free script for build instructions.
-    * VC75: See https://github.com/mikereidis/spirit2_free/issues/1 for missing includes.
+  * See build_spirit2_free script for build instructions.
+  * VC75: See https://github.com/mikereidis/spirit2_free/issues/1 for missing includes.
 
 AutoUpdateMode: None
 UpdateCheckMode: RepoManifest

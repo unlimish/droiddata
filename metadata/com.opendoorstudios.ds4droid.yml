@@ -6,15 +6,14 @@ License: GPL-3.0-or-later
 WebSite: http://nds4droid.com
 SourceCode: https://github.com/jquesnelle/nds4droid
 IssueTracker: https://github.com/jquesnelle/nds4droid/issues
-Donate: http://jeffq.com/blog/nds4droid
 
 AutoName: nds4droid
 Description: |-
-    nds4droid is a Nintendo DS emulator, based on DeSmuME. It is currently in its
-    infancy but does support most of the features one would expect in an emulator.
-    Runs on x86 natively.
+  nds4droid is a Nintendo DS emulator, based on DeSmuME. It is currently in its
+  infancy but does support most of the features one would expect in an emulator.
+  Runs on x86 natively.
 
-    Unlike official version this build does not support RAR archives.
+  Unlike official version this build does not support RAR archives.
 
 RepoType: git
 Repo: https://github.com/jquesnelle/nds4droid
@@ -272,59 +271,16 @@ Builds:
       - yes
     ndk: r12b
 
-  - versionName: '47'
-    versionCode: 471
-    disable: ndk-build issue
-    commit: release47
-    subdir: app
-    gradle:
-      - yes
-    forcevercode: true
-    rm:
-      - app/libs/ouya-sdk.jar
-    prebuild:
-      - echo 'APP_ABI=x86' >> src/main/jni/Application.mk
-      - sed -i 's/IS_OUYA =.*/IS_OUYA = false;/' src/main/java/com/opendoorstudios/ds4droid/MainActivity.java
-      - sed -i -e '/ouya/d' build.gradle
-    scanignore:
-      - app/src/main/jni/android-ndk-profiler
-    scandelete:
-      - app/src/main/jni/desmume
-    buildjni:
-      - yes
-    ndk: r10e
-
-  - versionName: '47'
-    versionCode: 473
-    disable: ndk-build issue
-    commit: release47
-    subdir: app
-    gradle:
-      - yes
-    forcevercode: true
-    rm:
-      - app/libs/ouya-sdk.jar
-    prebuild:
-      - echo 'APP_ABI=armeabi-v7a' >> src/main/jni/Application.mk
-      - sed -i 's/IS_OUYA =.*/IS_OUYA = false;/' src/main/java/com/opendoorstudios/ds4droid/MainActivity.java
-      - sed -i -e '/ouya/d' build.gradle
-    scanignore:
-      - app/src/main/jni/android-ndk-profiler
-    scandelete:
-      - app/src/main/jni/desmume
-    buildjni:
-      - yes
-    ndk: r10e
-
 MaintainerNotes: |-
-    +0: - (upstream)
-    +1: x86
-    +2: arm
-    +3: armv7 (CV)
+  +0: - (upstream)
+  +1: x86
+  +2: arm
+  +3: armv7 (CV)
 
-ArchivePolicy: 6 versions
+ArchivePolicy: 6
 AutoUpdateMode: None
-UpdateCheckMode: Tags
-VercodeOperation: '%c*10 + 3'
-CurrentVersion: '47'
-CurrentVersionCode: 473
+UpdateCheckMode: None
+VercodeOperation:
+  - '%c*10 + 3'
+CurrentVersion: '46'
+CurrentVersionCode: 463

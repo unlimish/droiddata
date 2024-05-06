@@ -6,23 +6,25 @@ SourceCode: https://github.com/minetest/minetest
 IssueTracker: http://www.minetest.net/development/#reporting-issues
 Translation: https://hosted.weblate.org/projects/minetest/
 Changelog: https://dev.minetest.net/Changelog
-Donate: http://www.minetest.net/development/#donate
+Donate: https://www.minetest.net/development/#donate
+Liberapay: celeron55
 
 Name: Minetest
+AutoName: Minetest
 Description: |-
-    Minetest is a near infinite world block sandbox game and a game engine, inspired
-    by InfiniMiner, Minecraft and the like.
+  Minetest is a near infinite world block sandbox game and a game engine, inspired
+  by InfiniMiner, Minecraft and the like.
 
-    Features:
+  Features:
 
-    * Explore, dig and build in a voxel world, and craft stuff from raw materials to help you along the way.
-    * Play with your friends on public servers or self hosted servers
-    * Easy plugin based Modding API used to add blocks, tools and features to the game.
-    * Voxel based lighting with gameplay consequences (light caves and buildings with torches)
-    * Almost infinite world and several beautiful map generators.
-    * Runs natively on Windows, Linux, OS X, FreeBSD and Android
-    * Supports multiple languages, translated by the community.
-    * A constant development to add new functionalities for end-users
+  * Explore, dig and build in a voxel world, and craft stuff from raw materials to help you along the way.
+  * Play with your friends on public servers or self hosted servers
+  * Easy plugin based Modding API used to add blocks, tools and features to the game.
+  * Voxel based lighting with gameplay consequences (light caves and buildings with torches)
+  * Almost infinite world and several beautiful map generators.
+  * Runs natively on Windows, Linux, OS X, FreeBSD and Android
+  * Supports multiple languages, translated by the community.
+  * A constant development to add new functionalities for end-users
 
 RepoType: git
 Repo: https://github.com/minetest/minetest.git
@@ -105,7 +107,7 @@ Builds:
     commit: 86e29ae5860f197b87d85e755475a445cb65b04c
     subdir: build/android
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y wget dos2unix
     output: build/outputs/apk/Minetest-release-unsigned.apk
     srclibs:
@@ -183,7 +185,118 @@ Builds:
       - make release
     ndk: r16b
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: 5.2.0.26
-CurrentVersionCode: 26
+  - versionName: 5.6.0
+    versionCode: 40
+    commit: 5.6.0
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y gettext wget gcc-multilib openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    patch:
+      - 5.6.0.patch
+    gradle:
+      - yes
+    srclibs:
+      - MinetestGame@5.6.0
+      - minetest_android_deps@de332f3c11a5ee7b731fd606b9a3c577b13093c7
+    prebuild:
+      - sed -i -e 's/enable true/enable false/' build.gradle ../native/build.gradle
+      - sed -i -e '/preBuild.dependsOn getDeps/d' ../native/build.gradle
+      - cp -R $$MinetestGame$$ ../../games/minetest_game
+    build:
+      - pushd $$minetest_android_deps$$
+      - ./build.sh --all armeabi-v7a
+      - ./build.sh --all arm64-v8a
+      - ./build.sh --all x86
+      - ./build.sh --all x86_64
+      - popd
+      - mv $$minetest_android_deps$$/deps ../native
+    ndk: r23c
+
+  - versionName: 5.6.1
+    versionCode: 42
+    commit: 5.6.1
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y gettext wget gcc-multilib openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    srclibs:
+      - MinetestGame@5.6.1
+      - minetest_android_deps@c0b96d6e03801706b802de4f21f9ebd4f941961b
+    prebuild:
+      - sed -i -e 's/enable true/enable false/' build.gradle ../native/build.gradle
+      - sed -i -e '/preBuild.dependsOn getDeps/d' ../native/build.gradle
+      - cp -R $$MinetestGame$$ ../../games/minetest_game
+      - sed -i -e '/versionPatch/s/0/1/' ../build.gradle
+    build:
+      - pushd $$minetest_android_deps$$
+      - ./build.sh --all armeabi-v7a
+      - ./build.sh --all arm64-v8a
+      - ./build.sh --all x86
+      - ./build.sh --all x86_64
+      - popd
+      - mv $$minetest_android_deps$$/deps ../native
+    ndk: r23c
+
+  - versionName: 5.7.0
+    versionCode: 44
+    commit: 5.7.0
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake gcc-multilib gettext make wget xz-utils
+    gradle:
+      - yes
+    srclibs:
+      - MinetestGame@5.7.0
+      - minetest_android_deps@48ef4978ec967018991ef01fbdfc9c418fc67368
+    prebuild:
+      - sed -i -e 's/enable true/enable false/' build.gradle ../native/build.gradle
+      - sed -i -e '/preBuild.dependsOn getDeps/d' ../native/build.gradle
+      - cp -R $$MinetestGame$$ ../../games/minetest_game
+    build:
+      - pushd $$minetest_android_deps$$
+      - ./build.sh --all armeabi-v7a
+      - ./build.sh --all arm64-v8a
+      - ./build.sh --all x86
+      - ./build.sh --all x86_64
+      - popd
+      - mv $$minetest_android_deps$$/deps ../native
+    ndk: r25c
+
+  - versionName: 5.8.0
+    versionCode: 46
+    commit: 49ce5a2de633d751080a0c97b802ae48190bf911
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake gcc-multilib gettext make wget xz-utils
+    gradle:
+      - yes
+    srclibs:
+      - minetest_android_deps@48ef4978ec967018991ef01fbdfc9c418fc67368
+    prebuild: sed -i -e 's/enable true/enable false/' -e '/preBuild.dependsOn getDeps/d'
+      build.gradle ../native/build.gradle
+    build:
+      - export ndkversion=$(grep "ndk_version = " ../build.gradle | cut -d "'" -f
+        2)
+      - sdkmanager "ndk;$ndkversion"
+      - export ANDROID_NDK=$$SDK$$/ndk/$ndkversion
+      - pushd $$minetest_android_deps$$
+      - git checkout -f $$VERSION$$
+      - ./build.sh --all armeabi-v7a
+      - ./build.sh --all arm64-v8a
+      - ./build.sh --all x86
+      - ./build.sh --all x86_64
+      - popd
+      - mv $$minetest_android_deps$$/deps ../native
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: android/build.gradle|"versionCode", (\d+)||(.*)
+CurrentVersion: 5.8.0
+CurrentVersionCode: 46

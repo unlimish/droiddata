@@ -1,6 +1,6 @@
 Categories:
-  - Reading
   - Internet
+  - Reading
 License: GPL-3.0-or-later
 WebSite: http://forum.xda-developers.com/member.php?u=4884893
 SourceCode: https://github.com/enricocid/iven-feed-reader
@@ -9,73 +9,46 @@ IssueTracker: https://github.com/enricocid/iven-feed-reader/issues
 AutoName: Iven News Reader
 Summary: Feed reader for Lffl
 Description: |-
-    '''Note:''' The developer marked this app as "deprecated" on 2017-11-12.
+  <b>Note:</b> The developer marked this app as "deprecated" on 2017-11-12.
 
-    Light and modern Android feed reader that will allow you to read feeds in RSS
-    format. Features:
+  Light and modern Android feed reader that will allow you to read feeds in RSS
+  format. Features:
 
-    * Notifications
-    * Custom feeds
-    * Simple but modern UI
-    * Themes
-    * Immersive mode
-    * In-app webview
-    * Various customizations
+  * Notifications
+  * Custom feeds
+  * Simple but modern UI
+  * Themes
+  * Immersive mode
+  * In-app webview
+  * Various customizations
 
-    It is highly recommended to use the feedburner service to burn feeds, and enable
-    "Convert format burner" service inside Optimize tab and select "Convert feed
-    format to: RSS 2.0" to ensure the best compatibility.
+  It is highly recommended to use the feedburner service to burn feeds, and enable
+  "Convert format burner" service inside Optimize tab and select "Convert feed
+  format to: RSS 2.0" to ensure the best compatibility.
 
 RepoType: git
 Repo: https://github.com/enricocid/iven-feed-reader
 
 Builds:
-  - versionName: '1.0'
-    versionCode: 1
-    disable: crashes
-    commit: '1.9'
-    srclibs:
-      - Crouton@1.8.1
-      - 2:FadingActionBar@parent-3.0.0
-      - 3:LazyList@be926df2ec5ff81693251629748ed38655075393
-      - JSoup@jsoup-1.8.1.a
-    extlibs:
-      - android/android-support-v4r11.jar
-    prebuild:
-      - sed -i -e '/Crouton/d' project.properties
-      - $$MVN3$$ install:install-file -DgroupId=com.google.android -DartifactId=support-v4
-        -Dversion=r11 -Dpackaging=jar -Dfile=libs/android-support-v4r11.jar
-      - pushd $$Crouton$$
-      - $$MVN3$$ package
-      - popd
-      - pushd $$JSoup$$
-      - $$MVN3$$ package
-      - popd
-      - pushd $$FadingActionBar$$
-      - ant release
-      - popd
-      - cp $$JSoup$$/target/jsoup-1.8.1.jar $$Crouton$$/target/*.jar $$FadingActionBar$$/bin/classes.jar
-        libs/
-
   - versionName: '2.0'
     versionCode: 10
     commit: '2.0'
     srclibs:
       - Crouton@1.8.1
-      - 1:FadingActionBar@1c148b91867259ea43e6343d8afb69d106168b46
-      - 2:LazyList@be926df2ec5ff81693251629748ed38655075393
+      - FadingActionBar@1c148b91867259ea43e6343d8afb69d106168b46
+      - LazyList@be926df2ec5ff81693251629748ed38655075393
       - JSoup@jsoup-1.8.1.a
     extlibs:
       - android/android-support-v4r11.jar
     prebuild:
       - sed -i -e '/Crouton/d' project.properties
-      - $$MVN3$$ install:install-file -DgroupId=com.google.android -DartifactId=support-v4
+      - mvn install:install-file -DgroupId=com.google.android -DartifactId=support-v4
         -Dversion=r11 -Dpackaging=jar -Dfile=libs/android-support-v4r11.jar
       - pushd $$Crouton$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - pushd $$JSoup$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$JSoup$$/target/jsoup-1.8.1.jar $$Crouton$$/target/crouton-1.8.1.jar libs/
       - pushd $$FadingActionBar$$
@@ -94,20 +67,20 @@ Builds:
     commit: 2.0.1
     srclibs:
       - Crouton@1.8.1
-      - 1:FadingActionBar@1c148b91867259ea43e6343d8afb69d106168b46
-      - 2:LazyList@be926df2ec5ff81693251629748ed38655075393
+      - FadingActionBar@1c148b91867259ea43e6343d8afb69d106168b46
+      - LazyList@be926df2ec5ff81693251629748ed38655075393
       - JSoup@jsoup-1.8.1.a
     extlibs:
       - android/android-support-v4r11.jar
     prebuild:
       - sed -i -e '/Crouton/d' project.properties
-      - $$MVN3$$ install:install-file -DgroupId=com.google.android -DartifactId=support-v4
+      - mvn install:install-file -DgroupId=com.google.android -DartifactId=support-v4
         -Dversion=r11 -Dpackaging=jar -Dfile=libs/android-support-v4r11.jar
       - pushd $$Crouton$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - pushd $$JSoup$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$JSoup$$/target/jsoup-1.8.1.jar $$Crouton$$/target/crouton-1.8.1.jar libs/
       - pushd $$FadingActionBar$$
@@ -126,20 +99,20 @@ Builds:
     commit: 2.0.2
     srclibs:
       - Crouton@1.8.1
-      - 1:FadingActionBar@1c148b91867259ea43e6343d8afb69d106168b46
-      - 2:LazyList@be926df2ec5ff81693251629748ed38655075393
+      - FadingActionBar@1c148b91867259ea43e6343d8afb69d106168b46
+      - LazyList@be926df2ec5ff81693251629748ed38655075393
       - JSoup@jsoup-1.8.1.a
     extlibs:
       - android/android-support-v4r11.jar
     prebuild:
       - sed -i -e '/Crouton/d' project.properties
-      - $$MVN3$$ install:install-file -DgroupId=com.google.android -DartifactId=support-v4
+      - mvn install:install-file -DgroupId=com.google.android -DartifactId=support-v4
         -Dversion=r11 -Dpackaging=jar -Dfile=libs/android-support-v4r11.jar
       - pushd $$Crouton$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - pushd $$JSoup$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$JSoup$$/target/jsoup-1.8.1.jar $$Crouton$$/target/crouton-1.8.1.jar libs/
       - pushd $$FadingActionBar$$
@@ -158,20 +131,20 @@ Builds:
     commit: 2.0.3
     srclibs:
       - Crouton@1.8.1
-      - 1:FadingActionBar@1c148b91867259ea43e6343d8afb69d106168b46
-      - 2:LazyList@be926df2ec5ff81693251629748ed38655075393
+      - FadingActionBar@1c148b91867259ea43e6343d8afb69d106168b46
+      - LazyList@be926df2ec5ff81693251629748ed38655075393
       - JSoup@jsoup-1.8.1.a
     extlibs:
       - android/android-support-v4r11.jar
     prebuild:
       - sed -i -e '/Crouton/d' project.properties
-      - $$MVN3$$ install:install-file -DgroupId=com.google.android -DartifactId=support-v4
+      - mvn install:install-file -DgroupId=com.google.android -DartifactId=support-v4
         -Dversion=r11 -Dpackaging=jar -Dfile=libs/android-support-v4r11.jar
       - pushd $$Crouton$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - pushd $$JSoup$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$JSoup$$/target/jsoup-1.8.1.jar $$Crouton$$/target/crouton-1.8.1.jar libs/
       - pushd $$FadingActionBar$$
@@ -183,42 +156,6 @@ Builds:
       - android update lib-project -t android-21 -p ./
       - echo "android.library=true" >> project.properties
       - popd
-      - sed -i -e '/reference\.3/d' project.properties
-
-  - versionName: '2.1'
-    versionCode: 14
-    disable: needs materialishprogress
-    commit: '2.1'
-    srclibs:
-      - Crouton@1.8.1
-      - 1:FadingActionBar@1c148b91867259ea43e6343d8afb69d106168b46
-      - 2:LazyList@be926df2ec5ff81693251629748ed38655075393
-      - JSoup@jsoup-1.8.1.a
-      - materialishprogress@f879632bed075a228eb6bc528dc537af6638905f
-    extlibs:
-      - android/android-support-v4r11.jar
-    prebuild:
-      - sed -i -e '/Crouton/d' project.properties
-      - $$MVN3$$ install:install-file -DgroupId=com.google.android -DartifactId=support-v4
-        -Dversion=r11 -Dpackaging=jar -Dfile=libs/android-support-v4r11.jar
-      - pushd $$Crouton$$
-      - $$MVN3$$ package
-      - popd
-      - pushd $$JSoup$$
-      - $$MVN3$$ package
-      - popd
-      - cp $$JSoup$$/target/jsoup-1.8.1.jar $$Crouton$$/target/crouton-1.8.1.jar libs/
-      - pushd $$FadingActionBar$$
-      - android update lib-project -t android-21 -p ./
-      - sed -i -e 's/name="library"/name="FadingActionBar"/g' build.xml
-      - echo "android.library=true" >> project.properties
-      - popd
-      - pushd $$LazyList$$
-      - android update lib-project -t android-21 -p ./
-      - echo "android.library=true" >> project.properties
-      - popd
-      - cp -fR $$materialishprogress$$/library/src/main/java/com src/
-      - cp -fR $$materialishprogress$$/library/src/main/res/values/attrs.xml res/values/
       - sed -i -e '/reference\.3/d' project.properties
 
   - versionName: 6.0.1
@@ -348,12 +285,12 @@ Builds:
       - yes
 
 MaintainerNotes: |-
-    After 7.3.6 the upstream began to reuse version numbers starting with 2.0.1.
-    When a new versions name coincides with an old one, they tag a new release as
-    release_%v instead of %v.
+  After 7.3.6 the upstream began to reuse version numbers starting with 2.0.1.
+  When a new versions name coincides with an old one, they tag a new release as
+  release_%v instead of %v.
 
-ArchivePolicy: 0 versions
-AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
+ArchivePolicy: 0
+AutoUpdateMode: None
+UpdateCheckMode: None
 CurrentVersion: '3.2'
 CurrentVersionCode: 66

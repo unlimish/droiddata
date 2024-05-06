@@ -1,0 +1,128 @@
+Categories:
+  - Science & Education
+License: GPL-3.0-or-later
+AuthorName: Yaroslav Shuliak
+AuthorEmail: shuliak.yaroslav@gmail.com
+SourceCode: https://github.com/syt0r/Kanji-Dojo
+IssueTracker: https://github.com/syt0r/Kanji-Dojo/issues
+Donate: https://ko-fi.com/syt0r
+
+AutoName: Kanji Dojo
+
+RepoType: git
+Repo: https://github.com/syt0r/Kanji-Dojo
+Binaries: https://github.com/syt0r/Kanji-Dojo/releases/download/v%v/app-fdroid-release.apk
+
+Builds:
+  - versionName: '1.1'
+    versionCode: 11
+    commit: v1.1
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' {..,.}/build.gradle
+
+  - versionName: '1.2'
+    versionCode: 12
+    commit: 80b14e73293cd538d55881c3d3d111c5de616b81
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' {..,.}/build.gradle
+
+  - versionName: '1.5'
+    versionCode: 15
+    commit: bd8b63e5e1360d8a8877cc63f851c49fb1aacb9d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' build.gradle.kts ../settings.gradle.kts
+
+  - versionName: '1.6'
+    versionCode: 16
+    commit: e6d63af50fcd75aad1c5de06e108496c129f63c6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' build.gradle.kts ../settings.gradle.kts
+
+  - versionName: '1.7'
+    versionCode: 17
+    commit: fa38c190b80a31dfa355404352a2dd80ab10b684
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' build.gradle.kts ../settings.gradle.kts
+
+  - versionName: '1.9'
+    versionCode: 19
+    commit: aea64e53a7cace2ee2bf3f55d21c5985c8d9f679
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' build.gradle.kts ../settings.gradle.kts
+
+  - versionName: 2.0.0
+    versionCode: 2000
+    commit: 32ffc9b3708e5e778514b05c1a1996cb71284f42
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' build.gradle.kts ../settings.gradle.kts
+
+  - versionName: 2.0.2
+    versionCode: 2020
+    commit: e5d14f7ae84d12020c872e7d14bb8566aa14e641
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' build.gradle.kts ../settings.gradle.kts
+
+  - versionName: 2.0.3
+    versionCode: 2030
+    commit: 5a0bee8d6fab986f0cd1489a642c5d48a1e2c663
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' build.gradle.kts ../settings.gradle.kts
+
+  - versionName: 2.0.4
+    versionCode: 2040
+    commit: 45a93c9041f995e5666a17e4dcd4c3657fe53489
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' build.gradle.kts ../settings.gradle.kts
+
+AllowedAPKSigningKeys: 5ad10466f09ea3c4f7c5004268cd54da7af37c094e2d94cd91dd8894d99fb0dd
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: buildSrc/src/main/kotlin/AppVersion.kt|versionCode = (\d+)|.|versionName
+  = "(.*)"
+CurrentVersion: 2.0.4
+CurrentVersionCode: 2040

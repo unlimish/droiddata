@@ -1,14 +1,14 @@
 Categories:
   - Multimedia
 License: Unlicense
-SourceCode: https://github.com/dmitriy-ilchenko/QrAndBarcodeScanner
-IssueTracker: https://github.com/dmitriy-ilchenko/QrAndBarcodeScanner/issues
-Changelog: https://github.com/dmitriy-ilchenko/QrAndBarcodeScanner/blob/HEAD/CHANGELOG.md
+SourceCode: https://github.com/wewewe718/QrAndBarcodeScanner
+IssueTracker: https://github.com/wewewe718/QrAndBarcodeScanner/issues
+Changelog: https://github.com/wewewe718/QrAndBarcodeScanner/blob/HEAD/CHANGELOG.md
 
 AutoName: QR & Barcode Scanner
 
 RepoType: git
-Repo: https://github.com/dmitriy-ilchenko/QrAndBarcodeScanner
+Repo: https://github.com/wewewe718/QrAndBarcodeScanner
 
 Builds:
   - versionName: '1.2'
@@ -39,14 +39,6 @@ Builds:
     gradle:
       - fDroid
 
-  - versionName: '1.6'
-    versionCode: 8
-    disable: fails to build, see upstream issue 49
-    commit: v1.6
-    subdir: app
-    gradle:
-      - fDroid
-
   - versionName: '1.7'
     versionCode: 9
     commit: v1.7
@@ -61,7 +53,43 @@ Builds:
     gradle:
       - fDroid
 
-AutoUpdateMode: Version v%v
+  - versionName: '1.9'
+    versionCode: 11
+    commit: 79e8926ae55a63771c6147b06932c780b4ae63df
+    subdir: app
+    gradle:
+      - fDroid
+    ndk: r21
+
+  - versionName: '1.10'
+    versionCode: 12
+    commit: da922e7b96906ec55a7437733378e850ca9262f7
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fDroid
+    prebuild: sed -i -e '/io.sentry.android.gradle/d' -e '/^sentry {/,/^}/d' build.gradle
+    ndk: r21
+    antifeatures:
+      - NonFreeNet
+      - Tracking
+
+  - versionName: '1.10'
+    versionCode: 13
+    commit: da922e7b96906ec55a7437733378e850ca9262f7
+    subdir: app
+    gradle:
+      - fDroid
+    prebuild:
+      - sed -i -e '/^sentry {/,/^}/d' -e '/sentry/d' build.gradle
+      - sed -i -e '/versionCode/s/12/13/' build.gradle
+      - sed -i -e '/Sentry/d' src/main/java/com/example/barcodescanner/usecase/Logger.kt
+    ndk: r21
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.8'
-CurrentVersionCode: 10
+CurrentVersion: '1.10'
+CurrentVersionCode: 13

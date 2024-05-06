@@ -1,12 +1,15 @@
 Categories:
   - Theming
 License: GPL-3.0-only
-WebSite: http://kisslauncher.com
+AuthorName: Matthieu Bacconnier
+AuthorWebSite: https://neamar.fr/
+WebSite: https://kisslauncher.com
 SourceCode: https://github.com/Neamar/KISS
 IssueTracker: https://github.com/Neamar/KISS/issues
 Translation: https://hosted.weblate.org/projects/kiss/
 Changelog: https://github.com/Neamar/KISS/releases
 Donate: https://help.kisslauncher.com/donate/
+Liberapay: KISS
 
 AutoName: KISS launcher
 
@@ -266,15 +269,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 2.31.0
-    versionCode: 97
-    disable: 'translation error: com.android.dx.cf.code.SimException: local variable
-        type mismatch'
-    commit: v2.31.0
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 2.31.2
     versionCode: 99
     commit: v2.31.2
@@ -499,15 +493,6 @@ Builds:
       - yes
     prebuild: sed -i -e '/jcenter()/a\        google()' ../build.gradle
 
-  - versionName: 3.7.10
-    versionCode: 150
-    disable: lintVitalRelease fails
-    commit: v3.7.10
-    subdir: app
-    gradle:
-      - yes
-    prebuild: sed -i -e '/jcenter()/a\        google()' ../build.gradle
-
   - versionName: 3.7.11
     versionCode: 151
     commit: v3.7.11
@@ -713,7 +698,150 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 3.16.1
+    versionCode: 187
+    commit: v3.16.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.16.3
+    versionCode: 189
+    commit: c58e4a9bac02235c44a25618e7ab9b3e2db22a6f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.16.4
+    versionCode: 190
+    commit: 6abf4ebc5f0149884de69b118852b0bdc06f3bbe
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.16.5
+    versionCode: 191
+    commit: 8b8d8c2674daac681f65189a39fbe42e0652ba5a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.16.7
+    versionCode: 193
+    commit: 73006a214bec1a0df9a7e43b2df87dfc604e6a92
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.16.8
+    versionCode: 194
+    commit: af873b4c2eba5b321fc70323e39910d9f29da424
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.16.10
+    versionCode: 196
+    commit: 66c17ef925908f3002e46a7eef8486f5c850582c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.17.0
+    versionCode: 197
+    commit: 64e85649ed593f1cafaa90e126dc907163066095
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.17.1
+    versionCode: 198
+    commit: 31437e76642089c458e5474e99a47b9ec8be91af
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.17.2
+    versionCode: 199
+    commit: 1fe0da197157b02f4c9b763b46ed46ab73b66b70
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.17.3
+    versionCode: 200
+    commit: 6f86d7f67aa35a103bdbb2352106c0f956f51b9a
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.17.6
+    versionCode: 203
+    commit: 9eb5ee5254d4e4c374e2958524f4d548ba0b7246
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.19.0
+    versionCode: 205
+    commit: e3b5068e092fafc7c600c47d7097ad865110f007
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.20.0
+    versionCode: 206
+    commit: bf65d8ab455ae2dcbc4fa06f65d405eea60c02fb
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.20.1
+    versionCode: 207
+    commit: eb651bf9cc65c77b2297d5821779c766bf23a723
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.21.0
+    versionCode: 208
+    commit: bc7c8fdefc65f3257528394faa85ccf311086836
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.21.1
+    versionCode: 209
+    commit: 27110f8b321575ad446e66f2ce48eb9e8aca13b3
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9\.]+$
-CurrentVersion: 3.16.0
-CurrentVersionCode: 186
+CurrentVersion: 3.21.1
+CurrentVersionCode: 209

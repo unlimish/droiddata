@@ -1,35 +1,38 @@
 Categories:
   - System
 License: Apache-2.0
+AuthorName: Anton Tananaev
+AuthorEmail: anton.tananaev@gmail.com
+AuthorWebSite: https://www.traccar.org
 SourceCode: https://github.com/tananaev/rootless-logcat
 IssueTracker: https://github.com/tananaev/rootless-logcat/issues
 
 AutoName: Logcat
 Description: |-
-    Read Android logs without root access. The app uses remote debugging to connect
-    to phone local ADB daemon. Configuring remote debugging on a phone can be
-    challenging and requires some technical expertise. It has to be done once and
-    after each device reboot.
+  Read Android logs without root access. The app uses remote debugging to connect
+  to phone local ADB daemon. Configuring remote debugging on a phone can be
+  challenging and requires some technical expertise. It has to be done once and
+  after each device reboot.
 
-    Enable USB debugging first on your device. Navigate to Settings > About Phone
-    and tap Build number seven times. Go back, access the Developer options menu and
-    check USB debugging option.
+  Enable USB debugging first on your device. Navigate to Settings > About Phone
+  and tap Build number seven times. Go back, access the Developer options menu and
+  check USB debugging option.
 
-    Next step is to enable remote debugging. You need to have Android SDK installed
-    on your computer. Connect your phone via USB cable and run following adb
-    command:
+  Next step is to enable remote debugging. You need to have Android SDK installed
+  on your computer. Connect your phone via USB cable and run following adb
+  command:
 
-    adb tcpip 5555
+  adb tcpip 5555
 
-    Disconnect USB cable before trying to use the app. Some phones have problems
-    handling network ADB connection when they are connected via USB as well.
+  Disconnect USB cable before trying to use the app. Some phones have problems
+  handling network ADB connection when they are connected via USB as well.
 
-    Sometimes establishing connection to ADB hangs and requires killing and
-    restarting the app. It seems to be a problem with ADB daemon itself and not the
-    app issue.
+  Sometimes establishing connection to ADB hangs and requires killing and
+  restarting the app. It seems to be a problem with ADB daemon itself and not the
+  app issue.
 
 RepoType: git
-Repo: https://github.com/tananaev/rootless-logcat
+Repo: https://github.com/tananaev/rootless-logcat.git
 
 Builds:
   - versionName: '1.4'
@@ -60,14 +63,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: '1.8'
-    versionCode: 9
-    disable: can't find gradle plugin
-    commit: v1.8
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: '1.9'
     versionCode: 10
     commit: v1.9
@@ -89,7 +84,38 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: '1.12'
+    versionCode: 13
+    commit: a2bdbe7e418ca4c9303ce6dedb33c9e0498c1d7a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '2.0'
+    versionCode: 14
+    commit: d3cb194e9a0852f011a304a60399baa5640f5610
+    subdir: app
+    gradle:
+      - regular
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' {..,.}/build.gradle
+
+  - versionName: '2.1'
+    versionCode: 15
+    commit: c2eabb49790d29e1f8b2ec858bd05bb2abbed320
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - regular
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' {..,.}/build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.11'
-CurrentVersionCode: 12
+CurrentVersion: '2.1'
+CurrentVersionCode: 15

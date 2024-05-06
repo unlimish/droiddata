@@ -7,35 +7,34 @@ SourceCode: https://github.com/farmerbb/Notepad
 IssueTracker: https://github.com/farmerbb/Notepad/issues
 Changelog: https://github.com/farmerbb/Notepad/releases
 
-Name: Notepad
-AutoName: ${appName}
+AutoName: Notepad
 Description: |-
-    A simple, bare-bones, no-frills note taking app.
+  A simple, bare-bones, no-frills note taking app.
 
-    '''Features:'''
+  <b>Features:</b>
 
-    * Quickly create and save plain-text notes
-    * Optionally create rich-text notes using Markdown or HTML (Android 5.0+)
-    * Beautiful, easy-to-use UI with Material Design elements
-    * Dual-pane view for tablets
-    * Share notes to and receive text from other apps
-    * Auto-saves drafts
-    * View Mode for notes with clickable links
-    * Sort notes by date or by name
-    * Keyboard shortcuts for common actions (see below)
-    * Integration with Google Now "note to self"
-    * Import and export notes to external storage (Android 4.4+)
-    * Zero permissions and absolutely zero ads
-    * Open-source
+  * Quickly create and save plain-text notes
+  * Optionally create rich-text notes using Markdown or HTML (Android 5.0+)
+  * Beautiful, easy-to-use UI with Material Design elements
+  * Dual-pane view for tablets
+  * Share notes to and receive text from other apps
+  * Auto-saves drafts
+  * View Mode for notes with clickable links
+  * Sort notes by date or by name
+  * Keyboard shortcuts for common actions (see below)
+  * Integration with Google Now "note to self"
+  * Import and export notes to external storage (Android 4.4+)
+  * Zero permissions and absolutely zero ads
+  * Open-source
 
-    '''Keyboard shortcuts:'''
+  <b>Keyboard shortcuts:</b>
 
-    * Search+M: launch Notepad from any application
-    * Ctrl+N: New Note
-    * Ctrl+E: Edit Note
-    * Ctrl+S: Save
-    * Ctrl+D: Delete
-    * Ctrl+H: Share
+  * Search+M: launch Notepad from any application
+  * Ctrl+N: New Note
+  * Ctrl+E: Edit Note
+  * Ctrl+S: Save
+  * Ctrl+D: Delete
+  * Ctrl+H: Share
 
 RepoType: git
 Repo: https://github.com/farmerbb/Notepad.git
@@ -111,7 +110,20 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %c
+  - versionName: 3.0.4
+    versionCode: 119
+    commit: c3c14b4dcb2ea9a8c8cee80fb6f4ef37245b3a6c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.3.7
-CurrentVersionCode: 112
+UpdateCheckData: gradle/libs.versions.toml|notepad-versionCode = "(\d+)"|.|notepad-versionName
+  = "([\d.]+)"
+CurrentVersion: 3.0.4
+CurrentVersionCode: 119

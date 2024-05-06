@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Depends on a non-libre source for its data.
 Categories:
   - Phone & SMS
 License: AGPL-3.0-only
@@ -9,7 +10,7 @@ WebSite: https://gitlab.com/xynngh/YetAnotherCallBlocker
 SourceCode: https://gitlab.com/xynngh/YetAnotherCallBlocker/tree/HEAD
 IssueTracker: https://gitlab.com/xynngh/YetAnotherCallBlocker/issues
 Translation: https://hosted.weblate.org/engage/yet-another-call-blocker/
-Changelog: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/master/CHANGELOG.md#changelog
+Changelog: https://gitlab.com/xynngh/YetAnotherCallBlocker/-/blob/HEAD/CHANGELOG.md#changelog
 
 AutoName: Yet Another Call Blocker
 
@@ -185,7 +186,39 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 0.5.14
+    versionCode: 5140
+    commit: v0.5.14
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.5.15
+    versionCode: 5150
+    commit: v0.5.15
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.5.16
+    versionCode: 5160
+    commit: 2aa8d218f611e94d661c218d686a47db65412d6a
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.5.17
+    versionCode: 5170
+    commit: 4a1981879bd63f35b5357df83addba71ef21be4c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags .*[0-9]$
-CurrentVersion: 0.5.13
-CurrentVersionCode: 5130
+CurrentVersion: 0.5.17
+CurrentVersionCode: 5170

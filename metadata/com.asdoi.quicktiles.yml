@@ -8,6 +8,7 @@ AuthorEmail: asdoi@t-online.de
 SourceCode: https://gitlab.com/asdoi/quick-tiles
 IssueTracker: https://gitlab.com/asdoi/quick-tiles/issues
 Changelog: https://gitlab.com/asdoi/quick-tiles/-/releases
+Donate: https://www.buymeacoffee.com/asdoi
 
 AutoName: QuickTiles
 
@@ -29,7 +30,18 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: '1.4'
+    versionCode: 14
+    commit: 3298fa7a58787d8fec4fea1cbba8aaf072fad447
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.3'
-CurrentVersionCode: 13
+CurrentVersion: '1.4'
+CurrentVersionCode: 14

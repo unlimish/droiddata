@@ -6,16 +6,18 @@ AuthorEmail: f-droid@roman.zone
 AuthorWebSite: https://roman.zone/
 SourceCode: https://github.com/gentlecat/counter/
 IssueTracker: https://github.com/gentlecat/counter/issues
-Translation: https://crowdin.net/project/counter
+Translation: https://crowdin.com/project/simple-counter
 Changelog: https://github.com/gentlecat/counter/blob/HEAD/CHANGELOG.md
 
 AutoName: Counter
 Description: |-
-    Tally counter that makes counting easier. You can have multiple counters with
-    their own names and values. Values can be changed using volume buttons.
+  <b>App is in maintenance mode. Do not expect new functionality. You are free to make pull requests with new features or bug fixes.</b>
+
+  Tally counter that makes counting easier. You can have multiple counters with
+  their own names and values. Values can be changed using volume buttons.
 
 RepoType: git
-Repo: https://github.com/gentlecat/counter/
+Repo: https://github.com/gentlecat/counter.git
 
 Builds:
   - versionName: '13'
@@ -67,7 +69,84 @@ Builds:
       - yes
     prebuild: sed -i -e 's/mavenCentral()/jcenter()/' build.gradle
 
-AutoUpdateMode: Version v%c
+  - versionName: '23'
+    versionCode: 23
+    commit: 7ffff27ef4c5337839133b8dec92fc9e7aee15e6
+    subdir: app/
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/mavenCentral()/jcenter()/' build.gradle
+
+  - versionName: '24'
+    versionCode: 24
+    commit: bc404789e4cb03e750b5c9e5a1d95a92557ef77a
+    subdir: app/
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/mavenCentral()/jcenter()/' build.gradle
+
+  - versionName: '25'
+    versionCode: 25
+    commit: 21f4e801d98078e2b210a9bc7715063088093c0e
+    subdir: app/
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/mavenCentral()/jcenter()/' build.gradle
+
+  - versionName: '26'
+    versionCode: 26
+    commit: ce6ef2f06479e91b00dbd0fa0705eceaa80d1d09
+    subdir: app/
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/mavenCentral()/jcenter()/' build.gradle
+
+  - versionName: '27'
+    versionCode: 27
+    commit: 1fdf93630c37e870c9d836648b3a0d0da079b70e
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/mavenCentral()/jcenter()/' build.gradle
+
+  - versionName: '28'
+    versionCode: 28
+    commit: 4230ffc03d67e23a3eecb4ae20610942311d6657
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/mavenCentral()/jcenter()/' build.gradle
+
+  - versionName: '29'
+    versionCode: 29
+    commit: 04f35eaeb3c618f9d9a906bc0d3092af7f31cec1
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/mavenCentral()/jcenter()/' build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '20'
-CurrentVersionCode: 20
+UpdateCheckData: build.gradle|appVersion = (\d+)||v(\d+)
+CurrentVersion: '29'
+CurrentVersionCode: 29

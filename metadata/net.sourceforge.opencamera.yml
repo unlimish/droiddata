@@ -3,31 +3,30 @@ Categories:
 License: GPL-3.0-or-later
 AuthorName: Mark Harman
 AuthorEmail: mark.harman.apps@gmail.com
-WebSite: http://opencamera.org.uk/
+WebSite: https://opencamera.org.uk/
 SourceCode: https://sourceforge.net/p/opencamera/code
 IssueTracker: https://sourceforge.net/p/opencamera/tickets
-Changelog: http://opencamera.org.uk/history.html
-Donate: http://opencamera.org.uk/info.html#supportme
-Bitcoin: 1LKCFto9SQGqtcvqZxHkqDPqNjSnfMmsow
+Changelog: https://opencamera.org.uk/history.html
+Donate: https://opencamera.org.uk/info.html#supportme
 
 AutoName: Open Camera
 Description: |-
-    A feature rich camera application, including:
+  A feature rich camera application, including:
 
-    * auto-stabilise option
-    * multitouch zoom
-    * flash/torch
-    * choice of focus modes
-    * face detection
-    * front/back camera support
-    * change recording resolution
-    * video/audio recording
-    * timer
-    * burst mode
-    * silenceable shutter
-    * configurable gui
-    * geotagging
-    * external microphone support
+  * auto-stabilise option
+  * multitouch zoom
+  * flash/torch
+  * choice of focus modes
+  * face detection
+  * front/back camera support
+  * change recording resolution
+  * video/audio recording
+  * timer
+  * burst mode
+  * silenceable shutter
+  * configurable gui
+  * geotagging
+  * external microphone support
 
 RepoType: git
 Repo: https://git.code.sf.net/p/opencamera/code
@@ -311,7 +310,62 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.49.1
+    versionCode: 82
+    commit: 62fb7a274d8dd072a1db00bde55bbacde91d036b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.49.2
+    versionCode: 83
+    commit: 1b9ad7887bbcd1817e610fa37d377d44e46f6bc3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.50.1
+    versionCode: 85
+    commit: 2b47d95685664dc574ffb554eee32cb0426325e3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.51.1
+    versionCode: 87
+    commit: 31a38fc8062f46c69e6599f12ee65517e8ee6520
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install libncurses5
+    gradle:
+      - yes
+
+  - versionName: '1.52'
+    versionCode: 88
+    commit: 542a575b4d3a1072d7810fc95abee49ab4bf6a99
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install libncurses5
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.48.3
-CurrentVersionCode: 80
+CurrentVersion: '1.52'
+CurrentVersionCode: 88

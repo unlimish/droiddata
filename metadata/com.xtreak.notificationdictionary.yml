@@ -1,0 +1,52 @@
+Categories:
+  - Reading
+  - Science & Education
+License: MIT
+AuthorName: Karthikeyan Singaravelan
+AuthorEmail: tir.karthi@gmail.com
+AuthorWebSite: https://tirkarthi.github.io
+SourceCode: https://github.com/tirkarthi/NotificationDictionary
+IssueTracker: https://github.com/tirkarthi/NotificationDictionary/issues
+
+AutoName: Notification Dictionary
+
+RepoType: git
+Repo: https://github.com/tirkarthi/NotificationDictionary
+
+Builds:
+  - versionName: 0.0.16
+    versionCode: 16
+    commit: v0.0.16
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.0.18
+    versionCode: 18
+    commit: b1513571434f147a5b5a23ab7c1be9c7eb94b97d
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.0.22
+    versionCode: 22
+    commit: ad584f15c316caa890f19324fc268552468b64a1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.0.23
+    versionCode: 23
+    commit: d8ac11d193b48c8ef5949436572c4d26fb056302
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 0.0.23
+CurrentVersionCode: 23

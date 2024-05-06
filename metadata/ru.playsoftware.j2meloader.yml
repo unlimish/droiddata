@@ -10,10 +10,6 @@ Translation: https://crowdin.com/project/j2me-loader
 Donate: https://www.paypal.me/nikita36078
 
 AutoName: J2ME Loader
-Description: |-
-    J2ME Loader is a J2ME emulator for Android. It supports most 2D games and also
-    3D with some limitations. Emulator has a virtual keyboard, individual settings
-    for each application, scaling support. This project is a fork of J2meLoader.
 
 RepoType: git
 Repo: https://github.com/nikita36078/J2ME-Loader.git
@@ -355,10 +351,127 @@ Builds:
       - app/src/main/java/javax/microedition/shell/AppClassLoader.java
     ndk: r21d
 
-MaintainerNotes: 'The class loader is needed for the main function of the app: load
-    JARs.'
+  - versionName: 1.7.0
+    versionCode: 89
+    commit: 1.7.0
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    scanignore:
+      - app/src/main/java/javax/microedition/shell/AppClassLoader.java
+    ndk: r21e
 
-AutoUpdateMode: Version %v
+  - versionName: 1.7.2
+    versionCode: 91
+    commit: e2d805447741a3c4f3479abc1153a123ad81a03e
+    subdir: app
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/java/javax/microedition/shell/AppClassLoader.java
+    ndk: r22b
+
+  - versionName: 1.7.3
+    versionCode: 92
+    commit: d72ed5e251220878d351372fc434c743a1cbf86c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/java/javax/microedition/shell/AppClassLoader.java
+    ndk: r22b
+
+  - versionName: 1.7.4
+    versionCode: 93
+    commit: 4f4fd7e90e6d68f48ad288af67cd70208a3b8f39
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/java/javax/microedition/shell/AppClassLoader.java
+    ndk: r22b
+
+  - versionName: 1.7.5
+    versionCode: 94
+    commit: 1aed1f45fa79929c0d1c4ea919fc0492aa8c9c14
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/java/javax/microedition/shell/AppClassLoader.java
+    ndk: r22b
+
+  - versionName: 1.7.6
+    versionCode: 95
+    commit: b76aaaec142173e3b509c737aecb1b1386f0de41
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/java/javax/microedition/shell/AppClassLoader.java
+    ndk: r22b
+
+  - versionName: 1.7.7
+    versionCode: 96
+    commit: d64d50ef695301746d6b972b0d455c89e8f9f43e
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/java/javax/microedition/shell/AppClassLoader.java
+    ndk: r22b
+
+  - versionName: 1.7.8
+    versionCode: 97
+    commit: cea6588b9f54893131f3246ba9d396e4c5596f54
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y make file
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/java/javax/microedition/shell/AppClassLoader.java
+    ndk: r22b
+
+  - versionName: 1.7.9
+    versionCode: 98
+    commit: 0d4e76ea86af854acab39f37e87764e5be9ebf6c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y make file
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/java/javax/microedition/shell/AppClassLoader.java
+    ndk: r22b
+
+MaintainerNotes: 'The class loader is needed for the main function of the app: load
+  JARs.'
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.6.9
-CurrentVersionCode: 88
+CurrentVersion: 1.7.9
+CurrentVersionCode: 98

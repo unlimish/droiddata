@@ -12,7 +12,7 @@ SourceCode: https://github.com/niccokunzmann/mundraub-android
 IssueTracker: https://github.com/niccokunzmann/mundraub-android/issues
 Translation: https://www.transifex.com/mundraub-android/mundraub-android-app/
 Changelog: https://niccokunzmann.github.io/mundraub-android/docs/changelog/index.html
-LiberapayID: '1596018'
+Liberapay: Fruit-Radar-Development
 
 AutoName: Fruit Radar
 
@@ -128,14 +128,6 @@ Builds:
   - versionName: '1.71'
     versionCode: 72
     commit: v1.71
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: '1.79'
-    versionCode: 80
-    disable: 'app/src/main/res/values-fr_FR: Error: Invalid resource directory name'
-    commit: v1.79
     subdir: app
     gradle:
       - yes
@@ -434,15 +426,18 @@ Builds:
     gradle:
       - yes
 
-  - versionName: v1.234
-    versionCode: 235
-    disable: JARs in app/libs
-    commit: v1.234
+  - versionName: v1.236
+    versionCode: 237
+    commit: v1.236
     subdir: app
     gradle:
       - yes
+    rm:
+      - app/libs
+    prebuild: sed -i -e "s|files('libs/commons-lang3-3.7.jar')|'org.apache.commons:commons-lang3:3.7'|"
+      build.gradle
 
-AutoUpdateMode: None
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: v1.236
 CurrentVersionCode: 237

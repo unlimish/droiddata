@@ -39,7 +39,39 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.6.6
+    versionCode: 48
+    commit: v1.6.6
+    subdir: MediaPhone
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 1.6.8
+    versionCode: 50
+    commit: 02a702cdf95ebc1ea65773b5bc67334fbebd8f0e
+    subdir: MediaPhone
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.6.9
+    versionCode: 51
+    commit: 9319074efaec839a1f1af480a3b5d3b2dcb15d97
+    subdir: MediaPhone
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.6.5
-CurrentVersionCode: 47
+CurrentVersion: 1.6.9
+CurrentVersionCode: 51

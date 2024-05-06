@@ -1,3 +1,7 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: Some data sources for public transport are not libre.
+    de: Einige Datenquellen für den ÖPNV sind nicht libre.
 Categories:
   - Navigation
 License: GPL-3.0-only
@@ -7,6 +11,8 @@ SourceCode: https://gitlab.com/oeffi/oeffi
 Changelog: https://gitlab.com/oeffi/oeffi/raw/HEAD/oeffi/CHANGES
 Donate: https://oeffi.schildbach.de/donate.html
 Bitcoin: bc1qxm9r8n3pe47r30e04gs2xsalxef55zrfvelvln
+
+AutoName: Öffi
 
 RepoType: git
 Repo: https://gitlab.com/oeffi/oeffi.git
@@ -21,7 +27,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.0.2-aosp
     versionCode: 612
@@ -31,7 +37,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.0.3-aosp
     versionCode: 613
@@ -41,7 +47,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.1.4-aosp
     versionCode: 618
@@ -51,7 +57,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.3.4-aosp
     versionCode: 626
@@ -61,7 +67,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.3.6-aosp
     versionCode: 628
@@ -71,7 +77,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.4.2-aosp
     versionCode: 634
@@ -81,7 +87,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.4.5-aosp
     versionCode: 637
@@ -91,7 +97,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.4.7-aosp
     versionCode: 639
@@ -101,7 +107,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.4.11-aosp
     versionCode: 643
@@ -111,7 +117,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.5.1-aosp
     versionCode: 645
@@ -121,7 +127,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.5.3-aosp
     versionCode: 647
@@ -131,7 +137,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.5.5-aosp
     versionCode: 649
@@ -141,7 +147,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.5.6-aosp
     versionCode: 650
@@ -151,7 +157,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.5.9-aosp
     versionCode: 653
@@ -161,7 +167,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
 
   - versionName: 10.6-aosp
     versionCode: 654
@@ -435,5 +441,440 @@ Builds:
       - aosp
     prebuild: gradle :wrapper --gradle-version=4.4.1
 
-AutoUpdateMode: None
-UpdateCheckMode: None
+  - versionName: 12.0.16-aosp
+    versionCode: 120016
+    commit: v12.0.16
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+    init:
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+    prebuild: gradle :wrapper --gradle-version=4.4.1
+
+  - versionName: 12.0.19-aosp
+    versionCode: 120019
+    commit: v12.0.19
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+    init:
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+    prebuild: gradle :wrapper --gradle-version=4.4.1
+
+  - versionName: 12.0.20-aosp
+    versionCode: 120020
+    commit: v12.0.20
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+    init:
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+    prebuild: gradle :wrapper --gradle-version=4.4.1
+
+  - versionName: 12.0.23-aosp
+    versionCode: 120023
+    commit: v12.0.23
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y gradle/bullseye
+      - update-alternatives --auto java
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.0.25-aosp
+    versionCode: 120025
+    commit: v12.0.25
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y gradle/bullseye
+      - update-alternatives --auto java
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1-aosp
+    versionCode: 120100
+    commit: v12.1
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y gradle/bullseye
+      - update-alternatives --auto java
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1.3-aosp
+    versionCode: 120103
+    commit: v12.1.3
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y gradle/bullseye
+      - update-alternatives --auto java
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1.4-aosp
+    versionCode: 120104
+    commit: v12.1.4
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1.6-aosp
+    versionCode: 120106
+    commit: v12.1.6
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1.8-aosp
+    versionCode: 120108
+    commit: v12.1.8
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1.10-aosp
+    versionCode: 120110
+    commit: v12.1.10
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1.12-aosp
+    versionCode: 120112
+    commit: 18415177bd9b3b2e535f590489b6f689429c7e8a
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1.13-aosp
+    versionCode: 120113
+    commit: 7c09e85f76685176e721388832ce4cf483491a62
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1.14-aosp
+    versionCode: 120114
+    commit: 81a89ec9394108b91cdcb8ae65ac143ce1d621aa
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1.15-aosp
+    versionCode: 120115
+    commit: ab93873c0e412c8874c7ee96a82db397b166a429
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1.16-aosp
+    versionCode: 120116
+    commit: 2843f84b45e2faf5bc32f4dd9f7218a66dd787cd
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1.18-aosp
+    versionCode: 120118
+    commit: 4c8d26dee7024f2e6bbcd69c4ab3c8faf3ace393
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1.19-aosp
+    versionCode: 120119
+    commit: 1a7e46a3af0d80940ab680f9b1eaa8498e6b801d
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - echo "deb https://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+      - apt-get install -y -t bullseye openjdk-11-jdk-headless
+      - update-java-alternatives --set java-1.11.0-openjdk-amd64
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+  - versionName: 12.1.20-aosp
+    versionCode: 120120
+    commit: f7f93c1a889b8804200eaa5cc63ddc8883912a2f
+    subdir: oeffi
+    submodules: true
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - echo "deb https://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+      - apt-get install -y -t bullseye openjdk-11-jdk-headless
+      - update-java-alternatives --set java-1.11.0-openjdk-amd64
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.oeffi de.schildbach.oeffi_underlying
+      - mkdir de.schildbach.oeffi
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.oeffi_underlying
+        de.schildbach.oeffi
+      - cd de.schildbach.oeffi/oeffi
+    gradle:
+      - aosp
+
+AllowedAPKSigningKeys: ba61b88f0f4364006fa6db84b2b92fa61912a02771659b207c41272104c2e5c4
+
+AutoUpdateMode: Version +-aosp %v
+UpdateCheckMode: Tags ^v[0-9]+(\.[0-9]+)*$
+CurrentVersion: 12.1.20
+CurrentVersionCode: 120120

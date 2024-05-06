@@ -7,12 +7,12 @@ Donate: https://www.patreon.com/cthulhoo
 
 AutoName: Tiny Tiny RSS
 Description: |-
-    This is a fork of the original Tiny Tiny RSS app for android. Due to
-    incompatibility with fdroid this fork was produced. However only a few changes
-    where made to allow this app to be distributed on fdroid.
+  This is a fork of the original Tiny Tiny RSS app for android. Due to
+  incompatibility with fdroid this fork was produced. However only a few changes
+  where made to allow this app to be distributed on fdroid.
 
-    Since this version does not need to be bough I highly recommend to donate to the
-    original developer.
+  Since this version does not need to be bough I highly recommend to donate to the
+  original developer.
 
 RepoType: git
 Repo: https://gitlab.com/derSchabi/tttrsss.git
@@ -53,14 +53,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: '1.259'
-    versionCode: 493
-    disable: unknown maven repos
-    commit: v1.259
-    subdir: org.fox.ttrss
-    gradle:
-      - yes
-
   - versionName: '1.277'
     versionCode: 511
     commit: v1.277
@@ -93,7 +85,31 @@ Builds:
       - yes
     prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
 
-AutoUpdateMode: Version v%v
+  - versionName: '1.298'
+    versionCode: 532
+    commit: v1.298
+    subdir: org.fox.ttrss
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
+
+  - versionName: '1.300'
+    versionCode: 534
+    commit: e74a4543979371307574e6e4fb7cc1b5b266de48
+    subdir: org.fox.ttrss
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
+
+  - versionName: '1.301'
+    versionCode: 535
+    commit: e3db24fb63a9a431b67638d7c601ec4b280d33c1
+    subdir: org.fox.ttrss
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/\r//' ../gradle/wrapper/gradle-wrapper.properties
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.296'
-CurrentVersionCode: 530
+CurrentVersion: '1.301'
+CurrentVersionCode: 535

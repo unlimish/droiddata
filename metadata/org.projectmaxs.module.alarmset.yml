@@ -1,18 +1,16 @@
 Categories:
   - System
 License: GPL-3.0-or-later
-WebSite: http://projectmaxs.org
-SourceCode: http://projectmaxs.org/source
-IssueTracker: http://projectmaxs.org/issues
-Donate: http://projectmaxs.org/donate
+WebSite: http://projectmaxs.org/homepage
+SourceCode: https://bitbucket.org/projectmaxs/maxs
 Bitcoin: bc1qu482c0tngkcvx3q7mrm8zmuldrh2f2lrh26ym0
 
 AutoName: MAXS Module AlarmSet
 Description: |-
-    This is a Module for MAXS, which does not install any launcher. You need "MAXS
-    Main" and a configured MAXS Transport to make use of it.
+  This is a Module for MAXS, which does not install any launcher. You need "MAXS
+  Main" and a configured MAXS Transport to make use of it.
 
-    The AlarmSet module can be used to set arlarms, and to set and start timers.
+  The AlarmSet module can be used to set arlarms, and to set and start timers.
 
 RepoType: srclib
 Repo: ProjectMAXS
@@ -186,23 +184,7 @@ Builds:
     subdir: module-alarmset
     submodules: true
     sudo:
-      - apt-get update || apt-get update
-      - apt-get install -y python-gnupg libxml2-utils
-    init:
-      - cd ..
-      - make module-alarmset/Makefile
-    prebuild:
-      - make prebuild
-      - rm -rf ../module-shell/libraryProjects/root-commands/ExampleApp
-
-  - versionName: 0.5.4
-    versionCode: 2000501489
-    disable: doesn't build
-    commit: 0.5.4
-    subdir: module-alarmset
-    submodules: true
-    sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y python-gnupg libxml2-utils
     init:
       - cd ..
@@ -217,7 +199,7 @@ Builds:
     subdir: module-alarmset
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y python-gnupg libxml2-utils
     init:
       - cd ..
@@ -232,7 +214,7 @@ Builds:
     subdir: module-alarmset
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y imagemagick libxml2-utils
     init: make -C .. module-alarmset/Makefile
     gradle:
@@ -247,7 +229,7 @@ Builds:
     subdir: module-alarmset
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y imagemagick libxml2-utils
     init: make -C .. module-alarmset/Makefile
     gradle:
@@ -262,7 +244,7 @@ Builds:
     subdir: module-alarmset
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y imagemagick libxml2-utils
     init: make -C .. module-alarmset/Makefile
     gradle:
@@ -277,7 +259,7 @@ Builds:
     subdir: module-alarmset
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y imagemagick libxml2-utils
     init: make -C .. module-alarmset/Makefile
     gradle:
@@ -292,7 +274,7 @@ Builds:
     subdir: module-alarmset
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y imagemagick libxml2-utils
     init: make -C .. module-alarmset/Makefile
     gradle:
@@ -301,7 +283,105 @@ Builds:
       - module-shell/libraryProjects/root-commands/ExampleApp
     prebuild: make prebuild
 
-AutoUpdateMode: Version %v
+  - versionName: 0.5.13
+    versionCode: 2000503857
+    commit: 0.5.13
+    subdir: module-alarmset
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y imagemagick libxml2-utils
+    init: make -C .. module-alarmset/Makefile
+    gradle:
+      - yes
+    rm:
+      - module-shell/libraryProjects/root-commands/ExampleApp
+    prebuild: make prebuild
+
+  - versionName: 0.5.14
+    versionCode: 2000503969
+    commit: 0.5.14
+    subdir: module-alarmset
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y imagemagick libxml2-utils
+    init: make -C .. module-alarmset/Makefile
+    gradle:
+      - yes
+    rm:
+      - module-shell/libraryProjects/root-commands/ExampleApp
+    prebuild: make prebuild
+
+  - versionName: 0.5.15
+    versionCode: 2000504565
+    commit: 300de281722bf025b2bc2c954e5b644964ae70ba
+    subdir: module-alarmset
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y imagemagick libxml2-utils
+    init: make -C .. module-alarmset/Makefile
+    gradle:
+      - yes
+    rm:
+      - module-shell/libraryProjects/root-commands/ExampleApp
+    prebuild: make prebuild
+
+  - versionName: 0.5.16
+    versionCode: 2000504621
+    commit: dff9af166cb33741f0dbcd2255227246041186c3
+    subdir: module-alarmset
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y imagemagick libxml2-utils
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: make -C .. module-alarmset/Makefile
+    gradle:
+      - yes
+    rm:
+      - module-shell/libraryProjects/root-commands/ExampleApp
+    prebuild: make prebuild
+
+  - versionName: 0.5.17
+    versionCode: 2000504755
+    commit: d227f7f4fb67cdd4337fc26737bea33bcbc39967
+    subdir: module-alarmset
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y imagemagick libxml2-utils
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: make -C .. module-alarmset/Makefile
+    gradle:
+      - yes
+    rm:
+      - module-shell/libraryProjects/root-commands/ExampleApp
+    prebuild: make prebuild
+
+  - versionName: 0.5.18
+    versionCode: 2000504877
+    commit: 56bc75c5fbca40a5f957fa6a8721e534938151a8
+    subdir: module-alarmset
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y imagemagick libxml2-utils
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    init: make -C .. module-alarmset/Makefile
+    gradle:
+      - yes
+    rm:
+      - module-shell/libraryProjects/root-commands/ExampleApp
+    prebuild:
+      - sed -i -e '/maven()/,+2d' ../transport-xmpp/build.gradle
+      - make prebuild
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags .*[0-9]$
-CurrentVersion: 0.5.12
-CurrentVersionCode: 2000503575
+CurrentVersion: 0.5.18
+CurrentVersionCode: 2000504877

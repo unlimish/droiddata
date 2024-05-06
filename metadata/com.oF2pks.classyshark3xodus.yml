@@ -1,29 +1,12 @@
 Categories:
-  - System
   - Security
+  - System
 License: Apache-2.0
 WebSite: https://forum.xda-developers.com/android/software-hacking/dexdump-xodus-trackers-apk-static-t3833391
 SourceCode: https://bitbucket.org/oF2pks/fdroid-classyshark3xodus/src
+IssueTracker: https://github.com/google/android-classyshark/issues
 
 AutoName: ClassyShark3xodus
-Description: |-
-    Checks apps for code signatures of known trackers (provided by Exodus).
-    Also can list all classes for launchable (via the app drawer) packages.
-
-    Can be used against any APK:
-    * installed: via an app manager,
-    * downloaded: via any file manager (long press and open with ClassyShark3xodus),
-    * launchable installed: via the first screen list (long press to list all classes, including obfuscated ones).
-    Note: doesn't work on odexed/system packages (it's a work-in-progress).
-
-    Finally, the app doesn't sync or connect to the Internet and thus cannot
-    sneak on end users.
-
-    The app is updated when Exodus updates their list of trackers:
-    https://reports.exodus-privacy.eu.org/api/trackers
-
-    ClassyShark3xodus is based on Google's ClassyShark:
-    https://github.com/google/android-classyshark
 
 RepoType: git
 Repo: https://bitbucket.org/oF2pks/fdroid-classyshark3xodus.git
@@ -179,16 +162,6 @@ Builds:
       - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/activities/ClassesListActivity.java
       - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/dex/DexLoaderBuilder.java
 
-  - versionName: 2.0-24
-    versionCode: 24
-    commit: v2.0-24
-    subdir: ClassySharkAndroid/app
-    gradle:
-      - yes
-    scanignore:
-      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/activities/ClassesListActivity.java
-      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/dex/DexLoaderBuilder.java
-
   - versionName: 2.0-25
     versionCode: 25
     commit: v2.0-25
@@ -199,7 +172,86 @@ Builds:
       - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/activities/ClassesListActivity.java
       - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/dex/DexLoaderBuilder.java
 
-AutoUpdateMode: Version v%v
+  - versionName: 2.0-26
+    versionCode: 26
+    commit: v2.0-26
+    subdir: ClassySharkAndroid/app
+    gradle:
+      - yes
+    scanignore:
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/activities/ClassesListActivity.java
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/dex/DexLoaderBuilder.java
+
+  - versionName: 2.0-27
+    versionCode: 27
+    commit: v2.0-27
+    subdir: ClassySharkAndroid/app
+    gradle:
+      - yes
+    scanignore:
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/activities/ClassesListActivity.java
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/dex/DexLoaderBuilder.java
+
+  - versionName: 2.0-28
+    versionCode: 28
+    commit: aae86c3a72b1995b19c6d142e1471a70ccbd865d
+    subdir: ClassySharkAndroid/app
+    gradle:
+      - yes
+    scanignore:
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/activities/ClassesListActivity.java
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/dex/DexLoaderBuilder.java
+
+  - versionName: 2.0-29
+    versionCode: 29
+    commit: 5b87c13ae549c3ab03c38784414f67d3cd85cbad
+    subdir: ClassySharkAndroid/app
+    gradle:
+      - yes
+    scanignore:
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/activities/ClassesListActivity.java
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/dex/DexLoaderBuilder.java
+
+  - versionName: 2.0-30
+    versionCode: 30
+    commit: 901192f7c2a281d430dd4de50982e9d8c5e1dd21
+    subdir: ClassySharkAndroid/app
+    gradle:
+      - yes
+    scanignore:
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/activities/ClassesListActivity.java
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/dex/DexLoaderBuilder.java
+
+  - versionName: 2.0-32
+    versionCode: 32
+    commit: 95c0e6f1f834c26ec1b7fcfa82dfb1de33b523d4
+    subdir: ClassySharkAndroid/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/activities/ClassesListActivity.java
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/dex/DexLoaderBuilder.java
+
+  - versionName: 2.0-34
+    versionCode: 34
+    commit: 6fa79d5c77198f6c7ba815eafd79d679bdd91b65
+    subdir: ClassySharkAndroid/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/android {/a lintOptions {checkReleaseBuilds false}' build.gradle
+    scanignore:
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/activities/ClassesListActivity.java
+      - ClassySharkAndroid/app/src/main/java/com/google/classysharkandroid/dex/DexLoaderBuilder.java
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.0-25
-CurrentVersionCode: 25
+CurrentVersion: 2.0-34
+CurrentVersionCode: 34

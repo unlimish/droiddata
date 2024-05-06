@@ -1,0 +1,246 @@
+Categories:
+  - Games
+License: GPL-3.0-only
+WebSite: https://github.com/thewierdnut/endless-mobile
+SourceCode: https://github.com/thewierdnut/endless-mobile
+IssueTracker: https://github.com/thewierdnut/endless-mobile/issues
+
+AutoName: Endless Sky
+
+RepoType: git
+Repo: https://github.com/thewierdnut/endless-mobile.git
+
+Builds:
+  - versionName: 0.9.14-23
+    versionCode: 23
+    commit: 1f387f6d802ddeb9dc6d4129cac1b370b95cc2da
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential
+      - apt-get install -y -t stretch-backports-sloppy libarchive13
+      - apt-get install -y -t stretch-backports cmake
+    gradle:
+      - yes
+    prebuild:
+      - chmod 755 ./download_build_dependencies.sh
+      - ./download_build_dependencies.sh
+      - rm dependencies/openal-soft.tar.bz2
+    scandelete:
+      - android/app/
+    ndk: r19c
+
+  - versionName: 0.9.14-26
+    versionCode: 26
+    commit: 41c6bedf9eec7cf8118b5aaf182037b3acd0a6c3
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.9.16.1-28
+    versionCode: 28
+    commit: 2227307a2fe3a8185f876c0064cafef00f9c2fa1
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.9.16.1-30
+    versionCode: 30
+    commit: 0a8800d6e1c9cdf5eb0e8b598dc6331a1602ad75
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.10.0-31
+    versionCode: 31
+    commit: f5c4c18dd66d09e0e173526356d2a5ddde635d96
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.10.0-32
+    versionCode: 32
+    commit: f763d2238d79829628f336a784866cb383332bc5
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.10.0-33
+    versionCode: 33
+    commit: dc184d8a58aa5e5c9ace171245dc6dbd769f1a23
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.10.1-34
+    versionCode: 34
+    commit: 757a4788011a91402adb16135e4b5a672972793d
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.10.1-35
+    versionCode: 35
+    commit: d7705510f2b02cf186cce98c8062bd482b2e79ab
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.10.2-36
+    versionCode: 36
+    commit: 6f200c447b9c665225bb903800c40c7c25294f4e
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.10.2-37
+    versionCode: 37
+    commit: 19f6e7cb3eb31afb8227c0788987c75554a006ed
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.10.3-38
+    versionCode: 38
+    commit: 1b05880a5d7564a7a714041f28330a4959abe103
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.10.4-39
+    versionCode: 39
+    commit: 74bdd4e089e9c0b6c8beb33ad4dcfe2fb36d1a85
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.10.5-40
+    versionCode: 40
+    commit: fcd285a0529677f3c2bcaa479cb67f4e9858b266
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.10.5-41
+    versionCode: 41
+    commit: 325bfc8f7d2dadbe1b7db60f166210d3a9ee72cd
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+  - versionName: 0.10.6-42
+    versionCode: 42
+    commit: 7ce63c0e8bdf83f07b4f3888534a86e921c4a77f
+    subdir: android/app
+    sudo:
+      - apt-get update
+      - apt-get install -y cmake bzip2
+    gradle:
+      - yes
+    prebuild: sh ./download_build_dependencies.sh
+    scandelete:
+      - android/app
+    ndk: r19c
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 0.10.6-42
+CurrentVersionCode: 42

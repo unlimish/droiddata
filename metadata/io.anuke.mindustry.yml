@@ -178,41 +178,342 @@ Builds:
     scandelete:
       - android/libs
 
-  - versionName: 6-fdroid-107
-    versionCode: 107
-    disable: unstable
-    commit: v107
+  - versionName: 7-fdroid-139
+    versionCode: 1050
+    commit: 5e6d40d6cc4b844788171c27d847f044398400ba
     subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - yes
     prebuild:
-      - echo "androidBuildCode=$$VERCODE$$" > ../core/assets/version.properties
-      - echo "build=$$VERCODE$$" >> ../core/assets/version.properties
-      - echo "modifier=beta" >> ../core/assets/version.properties
-      - echo "type=fdroid" >> ../core/assets/version.properties
-      - echo "buildversion=$$VERCODE$$" >> gradle.properties
-      - echo "versionType=fdroid" >> gradle.properties
-      - grep archash ../gradle.properties >> gradle.properties
+      - sdkmanager 'platforms;android-30'
+      - echo -e 'androidBuildCode=$$VERCODE$$\nbuild=$$VERCODE$$\nmodifier=beta\ntype=fdroid'
+        > ../core/assets/version.properties
+      - echo 'buildversion=$$VERSION$$' | sed 's/=.*fdroid-/=/' >> ../gradle.properties
+      - sed -i -e '/publishing{/,/^    }/d' ../build.gradle
     scanignore:
       - android/src/mindustry/android/AndroidLauncher.java
       - android/src/mindustry/android/AndroidRhinoContext.java
     scandelete:
       - android/libs
+    build:
+      - cd ..
+      - gradle pack
+    gradleprops:
+      - versionType=fdroid
+
+  - versionName: 7-fdroid-140
+    versionCode: 1051
+    commit: 4aae1d7c9ec9336d32201f4b856177f30ff7916c
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'platforms;android-30'
+      - echo -e 'androidBuildCode=$$VERCODE$$\nbuild=$$VERCODE$$\nmodifier=beta\ntype=fdroid'
+        > ../core/assets/version.properties
+      - echo 'buildversion=$$VERSION$$' | sed 's/=.*fdroid-/=/' >> ../gradle.properties
+      - sed -i -e '/publishing{/,/^    }/d' ../build.gradle
+    scanignore:
+      - android/src/mindustry/android/AndroidLauncher.java
+      - android/src/mindustry/android/AndroidRhinoContext.java
+    scandelete:
+      - android/libs
+    build:
+      - cd ..
+      - gradle pack
+    gradleprops:
+      - versionType=fdroid
+
+  - versionName: 7-fdroid-140.1
+    versionCode: 1052
+    commit: 4a6791ab4372f93b082725feeec53a814b7e1c5e
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'platforms;android-30'
+      - echo -e 'androidBuildCode=$$VERCODE$$\nbuild=$$VERCODE$$\nmodifier=beta\ntype=fdroid'
+        > ../core/assets/version.properties
+      - echo 'buildversion=$$VERSION$$' | sed 's/=.*fdroid-/=/' >> ../gradle.properties
+      - sed -i -e '/publishing{/,/^    }/d' ../build.gradle
+    scanignore:
+      - android/src/mindustry/android/AndroidLauncher.java
+      - android/src/mindustry/android/AndroidRhinoContext.java
+    scandelete:
+      - android/libs
+    build:
+      - cd ..
+      - gradle pack
+    gradleprops:
+      - versionType=fdroid
+
+  - versionName: 7-fdroid-140.2
+    versionCode: 1053
+    commit: e5e41b497dc8b47f2ab0f54a4cd437302f57ba15
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'platforms;android-30'
+      - echo -e 'androidBuildCode=$$VERCODE$$\nbuild=$$VERCODE$$\nmodifier=beta\ntype=fdroid'
+        > ../core/assets/version.properties
+      - echo 'buildversion=$$VERSION$$' | sed 's/=.*fdroid-/=/' >> ../gradle.properties
+      - sed -i -e '/publishing{/,/^    }/d' ../build.gradle
+    scanignore:
+      - android/src/mindustry/android/AndroidLauncher.java
+      - android/src/mindustry/android/AndroidRhinoContext.java
+    scandelete:
+      - android/libs
+    build:
+      - cd ..
+      - gradle pack
+    gradleprops:
+      - versionType=fdroid
+
+  - versionName: 7-fdroid-140.4
+    versionCode: 1055
+    commit: 4f912f25ee795c44475ecdf42f17fda8132f47fa
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'platforms;android-30'
+      - echo -e 'androidBuildCode=$$VERCODE$$\nbuild=$$VERCODE$$\nmodifier=beta\ntype=fdroid'
+        > ../core/assets/version.properties
+      - echo 'buildversion=$$VERSION$$' | sed 's/=.*fdroid-/=/' >> ../gradle.properties
+      - sed -i -e '/publishing{/,/^    }/d' ../build.gradle
+    scanignore:
+      - android/src/mindustry/android/AndroidLauncher.java
+      - android/src/mindustry/android/AndroidRhinoContext.java
+    scandelete:
+      - android/libs
+    build:
+      - cd ..
+      - gradle pack
+    gradleprops:
+      - versionType=fdroid
+
+  - versionName: 7-fdroid-141.1
+    versionCode: 1057
+    commit: 00d6b0d4836d0e31672b0961131e8e93eaa18c5e
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'platforms;android-30'
+      - echo -e 'androidBuildCode=$$VERCODE$$\nbuild=$$VERCODE$$\nmodifier=beta\ntype=fdroid'
+        > ../core/assets/version.properties
+      - echo 'buildversion=$$VERSION$$' | sed 's/=.*fdroid-/=/' >> ../gradle.properties
+      - sed -i -e '/publishing{/,/^    }/d' ../build.gradle
+    scanignore:
+      - android/src/mindustry/android/AndroidLauncher.java
+      - android/src/mindustry/android/AndroidRhinoContext.java
+    scandelete:
+      - android/libs
+    build:
+      - cd ..
+      - gradle pack
+    gradleprops:
+      - versionType=fdroid
+
+  - versionName: 7-fdroid-142
+    versionCode: 1060
+    commit: 4410f31888e313b8710ee2d9fbb3817790ef056c
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'platforms;android-30'
+      - echo -e 'androidBuildCode=$$VERCODE$$\nbuild=$$VERCODE$$\nmodifier=beta\ntype=fdroid'
+        > ../core/assets/version.properties
+      - echo 'buildversion=$$VERSION$$' | sed 's/=.*fdroid-/=/' >> ../gradle.properties
+      - sed -i -e '/publishing{/,/^    }/d' ../build.gradle
+    scanignore:
+      - android/src/mindustry/android/AndroidLauncher.java
+      - android/src/mindustry/android/AndroidRhinoContext.java
+    scandelete:
+      - android/libs
+    build:
+      - cd ..
+      - gradle pack
+    gradleprops:
+      - versionType=fdroid
+
+  - versionName: 7-fdroid-143.1
+    versionCode: 1062
+    commit: 34b22f292cf39d31c33b2bb58a0facd1a54b77b8
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'platforms;android-30'
+      - echo -e 'androidBuildCode=$$VERCODE$$\nbuild=$$VERCODE$$\nmodifier=beta\ntype=fdroid'
+        > ../core/assets/version.properties
+      - echo 'buildversion=$$VERSION$$' | sed 's/=.*fdroid-/=/' >> ../gradle.properties
+      - sed -i -e '/publishing{/,/^    }/d' ../build.gradle
+    scanignore:
+      - android/src/mindustry/android/AndroidLauncher.java
+      - android/src/mindustry/android/AndroidRhinoContext.java
+    scandelete:
+      - android/libs
+    build:
+      - cd ..
+      - gradle pack
+    gradleprops:
+      - versionType=fdroid
+
+  - versionName: 7-fdroid-144.3
+    versionCode: 1066
+    commit: 3813d66f30f49a92d0b1781756a07128e7dffde0
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'platforms;android-30'
+      - echo -e 'androidBuildCode=$$VERCODE$$\nbuild=$$VERCODE$$\nmodifier=beta\ntype=fdroid'
+        > ../core/assets/version.properties
+      - echo 'buildversion=$$VERSION$$' | sed 's/=.*fdroid-/=/' >> ../gradle.properties
+      - sed -i -e '/publishing{/,/^    }/d' ../build.gradle
+    scanignore:
+      - android/src/mindustry/android/AndroidLauncher.java
+      - android/src/mindustry/android/AndroidRhinoContext.java
+    scandelete:
+      - android/libs
+    build:
+      - cd ..
+      - gradle pack
+    gradleprops:
+      - versionType=fdroid
+
+  - versionName: 7-fdroid-145
+    versionCode: 1067
+    commit: 70516752fc094fb363459c163d2e03f4be3193f4
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'platforms;android-30'
+      - echo -e 'androidBuildCode=$$VERCODE$$\nbuild=$$VERCODE$$\nmodifier=beta\ntype=fdroid'
+        > ../core/assets/version.properties
+      - echo 'buildversion=$$VERSION$$' | sed 's/=.*fdroid-/=/' >> ../gradle.properties
+      - sed -i -e '/publishing{/,/^    }/d' ../build.gradle
+    scanignore:
+      - android/src/mindustry/android/AndroidLauncher.java
+      - android/src/mindustry/android/AndroidRhinoContext.java
+    scandelete:
+      - android/libs
+    build:
+      - cd ..
+      - gradle pack
+    gradleprops:
+      - versionType=fdroid
+
+  - versionName: 7-fdroid-145.1
+    versionCode: 1068
+    commit: c7181999b246d586ea40def9cb5ffb3c8167896c
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'platforms;android-30'
+      - echo -e 'androidBuildCode=$$VERCODE$$\nbuild=$$VERCODE$$\nmodifier=beta\ntype=fdroid'
+        > ../core/assets/version.properties
+      - echo 'buildversion=$$VERSION$$' | sed 's/=.*fdroid-/=/' >> ../gradle.properties
+      - sed -i -e '/publishing{/,/^    }/d' ../build.gradle
+    scanignore:
+      - android/src/mindustry/android/AndroidLauncher.java
+      - android/src/mindustry/android/AndroidRhinoContext.java
+    scandelete:
+      - android/libs
+    build:
+      - cd ..
+      - gradle pack
+    gradleprops:
+      - versionType=fdroid
+
+  - versionName: 7-fdroid-146
+    versionCode: 1070
+    commit: 26b66f9bdbd3a77b32f10f3cb350a9a737d5f012
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sdkmanager 'platforms;android-30'
+      - echo -e 'androidBuildCode=$$VERCODE$$\nbuild=$$VERCODE$$\nmodifier=beta\ntype=fdroid'
+        > ../core/assets/version.properties
+      - echo 'buildversion=$$VERSION$$' | sed 's/=.*fdroid-/=/' >> ../gradle.properties
+      - sed -i -e '/publishing{/,/^    }/d' ../build.gradle
+    scanignore:
+      - android/src/mindustry/android/AndroidLauncher.java
+      - android/src/mindustry/android/AndroidRhinoContext.java
+    scandelete:
+      - android/libs
+    build:
+      - cd ..
+      - gradle pack
+    gradleprops:
+      - versionType=fdroid
 
 MaintainerNotes: |-
-    v108 and later require Java 14 which is a bit too new for Debian 9.
+  libgdx.so and libgdx-freetype.so binaries are extracted from
+  com.badlogicgames.gdx:gdx-platform JARs that come from Maven Central.
 
-    libgdx.so and libgdx-freetype.so binaries are extracted from
-    com.badlogicgames.gdx:gdx-platform JARs that come from Maven Central.
+  The folder "assets/saves" contains savegames not executables.
 
-    The folder "assets/saves" contains savegames not executables.
-
-    android/src/mindustry/android/{AndroidLauncher,AndroidRhinoContext}.java uses DexClassLoader 
-    together with Mozilla's Rhino to provide JavaScript automation to user mods
-    (https://mindustrygame.github.io/wiki/modding/) 
+  android/src/mindustry/android/{AndroidLauncher,AndroidRhinoContext}.java uses DexClassLoader
+  together with Mozilla's Rhino to provide JavaScript automation to user mods
+  (https://mindustrygame.github.io/wiki/modding/)
 
 AutoUpdateMode: None
 UpdateCheckMode: HTTP
-UpdateCheckData: https://raw.githubusercontent.com/Anuken/MindustryBuilds/master/version_fdroid.txt|versionCode=(.*)|.|versionName=(.*)
-CurrentVersion: 6-fdroid-125
-CurrentVersionCode: 125
+UpdateCheckData: https://raw.githubusercontent.com/Anuken/MindustryBuilds/master/version_fdroid.txt|versionCode=(\d+)|.|versionName=(.*)
+CurrentVersion: 7-fdroid-146
+CurrentVersionCode: 1070

@@ -2,12 +2,12 @@ Categories:
   - System
 License: GPL-3.0-or-later
 AuthorName: Marcus Hoffmann
-AuthorEmail: bubu@bubu1.eu
+AuthorEmail: fdroidclassic@bubu1.eu
 SourceCode: https://git.bubu1.eu/Bubu/fdroidclassic
 IssueTracker: https://git.bubu1.eu/Bubu/fdroidclassic/issues
-Translation: https://weblate.bubu1.eu/projects/f-droid-classic/
+Translation: https://translate.codeberg.org/projects/f-droid-classic/
 Changelog: https://git.bubu1.eu/Bubu/fdroidclassic/-/blob/main/CHANGELOG.md
-LiberapayID: '27855'
+Liberapay: Bubu
 
 RepoType: git
 Repo: https://git.bubu1.eu/Bubu/fdroidclassic.git
@@ -28,5 +28,20 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.2'
+    versionCode: 1110
+    commit: v1.2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AllowedAPKSigningKeys: 610e3f6f1f17111d753cad7051de06b4e4f24ae7910556248ab5181f814d283f
+
 AutoUpdateMode: None
 UpdateCheckMode: None
+CurrentVersion: '1.2'
+CurrentVersionCode: 1110

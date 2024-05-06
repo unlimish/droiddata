@@ -8,11 +8,11 @@ Changelog: https://github.com/dzmanto/foehnix/releases
 
 AutoName: Föhnix
 Description: |-
-    * Assessment of Foehn conditions for pilots.
-    * Intended for paraglider and for hangglider pilots.
-    * Displays pressure differences + relevant wind gusts.
-    * Updates every 15 minutes or on request.
-    * Share functionality via text message, emails.
+  * Assessment of Foehn conditions for pilots.
+  * Intended for paraglider and for hangglider pilots.
+  * Displays pressure differences + relevant wind gusts.
+  * Updates every 15 minutes or on request.
+  * Share functionality via text message, emails.
 
 RepoType: git
 Repo: https://github.com/dzmanto/foehnix.git
@@ -21,14 +21,6 @@ Builds:
   - versionName: '2.2'
     versionCode: 22
     commit: '2.3'
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: '2.2'
-    versionCode: 23
-    disable: this version is actually older than 22
-    commit: '2.2'
     subdir: app
     gradle:
       - yes
@@ -77,7 +69,29 @@ Builds:
     rm:
       - app/src/main/java/foehnix/widget/DSPTask.java.gz
 
-AutoUpdateMode: Version %v
+  - versionName: '3.4'
+    versionCode: 34
+    commit: 6097d789a21ebabcbc376cf80bb32744e4942a9e
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '3.5'
+    versionCode: 35
+    commit: 6a112dc1a19ef23456adc7a1a720518a80b2d639
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '3.8'
+    versionCode: 38
+    commit: f7c8b4681a8efc4350707a73d78c67cfbdadd64c
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/gradle:4.1.1/gradle:4.2.0/' ../build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '3.2'
-CurrentVersionCode: 32
+CurrentVersion: '3.8'
+CurrentVersionCode: 38

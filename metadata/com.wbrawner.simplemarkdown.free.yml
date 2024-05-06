@@ -1,0 +1,39 @@
+Categories:
+  - Writing
+License: Apache-2.0
+AuthorName: William Brawner
+AuthorEmail: me@wbrawner.com
+AuthorWebSite: https://wbrawner.com
+SourceCode: https://github.com/wbrawner/SimpleMarkdown
+IssueTracker: https://github.com/wbrawner/SimpleMarkdown/issues
+
+AutoName: Simple Markdown
+
+RepoType: git
+Repo: https://github.com/wbrawner/SimpleMarkdown.git
+
+Builds:
+  - versionName: 0.8.12-free
+    versionCode: 34
+    commit: 0.8.12
+    subdir: app
+    gradle:
+      - free
+
+  - versionName: 0.8.15-free-free
+    versionCode: 39
+    disable: fails to build
+    commit: c5355d15656ff8fe99386ce178d192b96b588325
+    subdir: app
+    gradle:
+      - free
+    prebuild:
+      - sed -i -e 's/8.0-rc-1/8.0/' ../gradle/wrapper/gradle-wrapper.properties
+      - sed -i -e '/gms/d' -e '/firebase/d' -e 's/= URI/= uri/' -e 's/s01.//' ../build.gradle.kts
+      - sed -i -e '/productFlavors.forEach/,+14d' build.gradle.kts
+
+AutoUpdateMode: Version +-free %v
+UpdateCheckMode: Tags
+UpdateCheckName: com.wbrawner.simplemarkdown
+CurrentVersion: 0.8.15-free
+CurrentVersionCode: 39

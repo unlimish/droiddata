@@ -1,8 +1,9 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Streamed content is obtained from YouTube.
 Categories:
-  - Multimedia
   - Internet
+  - Multimedia
 License: GPL-3.0-or-later
 AuthorName: Team NewPipe
 AuthorEmail: tnp@schabi.org
@@ -12,7 +13,7 @@ IssueTracker: https://github.com/TeamNewPipe/NewPipe-legacy/issues
 Translation: https://hosted.weblate.org/projects/newpipe/
 Changelog: https://github.com/TeamNewPipe/NewPipe-legacy/releases
 Donate: https://newpipe.net/donate
-LiberapayID: '34969'
+Liberapay: TeamNewPipe
 Bitcoin: 16A9J59ahMRqkLSZjhYj33n9j3fMztFxnh
 
 AutoName: NewPipe Legacy
@@ -40,15 +41,6 @@ Builds:
   - versionName: 0.16.2
     versionCode: 20
     commit: v0.16.2
-    subdir: app
-    submodules: true
-    gradle:
-      - yes
-
-  - versionName: 0.17.1
-    versionCode: 30
-    disable: 'PlaylistFragment.java:44: error: cannot find symbol'
-    commit: v0.17.1
     subdir: app
     submodules: true
     gradle:
@@ -86,24 +78,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 0.19.4
-    versionCode: 70
-    disable: DOS endlines in gradle.properties
-    commit: v0.19.4
-    subdir: app
-    submodules: true
-    gradle:
-      - yes
-
-  - versionName: 0.19.5
-    versionCode: 80
-    disable: DOS endlines in gradle.properties
-    commit: v0.19.5
-    subdir: app
-    submodules: true
-    gradle:
-      - yes
-
   - versionName: 0.19.8
     versionCode: 90
     commit: v0.19.8
@@ -135,7 +109,7 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags .*[0-9]$
 CurrentVersion: 0.20.8
 CurrentVersionCode: 120

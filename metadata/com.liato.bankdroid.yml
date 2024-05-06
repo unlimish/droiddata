@@ -8,8 +8,8 @@ Changelog: https://github.com/liato/android-bankdroid/raw/HEAD/CHANGELOG
 
 AutoName: Bankdroid
 Description: |-
-    Checks your account balance at any of the major Swedish banks and can display
-    notifications on changes. Includes a widget.
+  Checks your account balance at any of the major Swedish banks and can display
+  notifications on changes. Includes a widget.
 
 RepoType: git
 Repo: https://github.com/liato/android-bankdroid.git
@@ -32,11 +32,6 @@ Builds:
       - commons-io/commons-io-2.0.1.jar
       - guava-r08/guava-r08.jar
     prebuild: sed -i "s@parent=\"android:WindowTitleBackground\"@@" res/values/styles.xml
-
-  - versionName: 1.7.3
-    versionCode: 115
-    disable: a08cab7e66c70e7b0f5c but wrong version code in repo
-    commit: unknown - see disabled
 
   - versionName: 1.8.0
     versionCode: 120
@@ -88,11 +83,6 @@ Builds:
     versionCode: 140
     commit: 6dd58b516
 
-  - versionName: 1.9.2
-    versionCode: 142
-    disable: no source
-    commit: unknown - see disabled
-
   - versionName: 1.9.5.1
     versionCode: 148
     commit: 1f52896b4
@@ -113,10 +103,6 @@ Builds:
     versionCode: 161
     commit: v1.9.6.1
 
-  - versionName: 1.9.6.2-RC1
-    versionCode: 162
-    disable: not building RCs of this
-
   - versionName: 1.9.6.2
     versionCode: 166
     commit: 53344629d
@@ -127,14 +113,6 @@ Builds:
       - jackson/jackson-core-2.1.0.jar
       - jackson/jackson-databind-2.1.0.jar
       - guava-r08/guava-r08.jar
-
-  - versionName: 1.9.6.3-RC2
-    versionCode: 168
-    disable: not building RCs of this
-
-  - versionName: 1.9.6.4-RC3
-    versionCode: 172
-    disable: not building RCs of this
 
   - versionName: 1.9.6.4
     versionCode: 173
@@ -432,11 +410,14 @@ Builds:
       - sed -i -e '/wrapper/,+3d' ../build.gradle
 
 MaintainerNotes: |-
-    * Includes crashlytics now. See https://github.com/liato/android-bankdroid/issues/450
-    * Another upstream issue on this is https://github.com/liato/android-bankdroid/issues/631
-    * app seems abandoned meanwhile (no activity since 2017)
+  * Includes crashlytics now. See https://github.com/liato/android-bankdroid/issues/450
+  * Another upstream issue on this is https://github.com/liato/android-bankdroid/issues/631
+  * app seems abandoned meanwhile (no activity since 2017)
 
+ArchivePolicy: 0
 AutoUpdateMode: None
-UpdateCheckMode: Tags
-CurrentVersion: 1.9.10.8
-CurrentVersionCode: 224
+UpdateCheckMode: None
+CurrentVersion: 1.9.10.6
+CurrentVersionCode: 222
+
+NoSourceSince: 1.9.10.6

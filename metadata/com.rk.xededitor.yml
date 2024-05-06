@@ -1,0 +1,64 @@
+Categories:
+  - Writing
+License: MIT
+SourceCode: https://github.com/RohitKushvaha01/Xed-Editor
+IssueTracker: https://github.com/RohitKushvaha01/Xed-Editor/issues
+Changelog: https://github.com/RohitKushvaha01/Xed-Editor/releases
+
+AutoName: Xed Editor
+
+RepoType: git
+Repo: https://github.com/RohitKushvaha01/Xed-Editor.git
+Binaries: https://github.com/RohitKushvaha01/Xed-Editor/releases/download/v%v/xed-editor-v%v.apk
+
+Builds:
+  - versionName: 1.0.9
+    versionCode: 9
+    commit: 4f0717722197d00eae8f2714b80cb43dce1d2a6f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/assets/files.zip
+
+  - versionName: 1.1.0
+    versionCode: 10
+    commit: 0ff0bf03f87460160df42d86da20b30205b6c254
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/assets/files.zip
+
+  - versionName: 1.1.1
+    versionCode: 11
+    commit: b77146f8b12a7cc9978c734143a45d6371ec654d
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/assets/files.zip
+
+  - versionName: 1.1.4
+    versionCode: 14
+    commit: 7c9190c6ac129abba0679b04a823da6d00e45019
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/assets/files.zip
+
+AllowedAPKSigningKeys: 8ad6b593b0772c96f9d05e923b610f16aed2792c664f0cd91f0dfd627098346f
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.1.4
+CurrentVersionCode: 14

@@ -8,9 +8,9 @@ IssueTracker: https://github.com/scoutant/rpn/issues
 
 AutoName: RPN
 Description: |-
-    Very handy calculator, in Reverse Polish Notation style. Written in Kotlin.
+  Very handy calculator, in Reverse Polish Notation style. Written in Kotlin.
 
-    For every day use. Large digits with only the most used operators.
+  For every day use. Large digits with only the most used operators.
 
 RepoType: git
 Repo: https://github.com/scoutant/rpn
@@ -32,7 +32,18 @@ Builds:
       - yes
     output: build/outputs/apk/release/rpn-*-release-unsigned.apk
 
-AutoUpdateMode: Version %v
+  - versionName: '1.3'
+    versionCode: 4
+    commit: 4ae52914c5b8510580ce173b0ebcc4b95207b153
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.2'
-CurrentVersionCode: 3
+CurrentVersion: '1.3'
+CurrentVersionCode: 4

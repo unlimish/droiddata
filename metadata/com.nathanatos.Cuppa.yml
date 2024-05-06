@@ -1,0 +1,354 @@
+Categories:
+  - Time
+License: BSD-3-Clause
+AuthorName: Nathan Cosgray
+AuthorWebSite: https://www.nathanatos.com/
+SourceCode: https://github.com/ncosgray/cuppa_mobile
+IssueTracker: https://github.com/ncosgray/cuppa_mobile/issues
+Translation: https://hosted.weblate.org/projects/cuppa/
+Changelog: https://github.com/ncosgray/cuppa_mobile/releases
+
+AutoName: Cuppa
+
+RepoType: git
+Repo: https://github.com/ncosgray/cuppa_mobile.git
+
+Builds:
+  - versionName: 1.5.5
+    versionCode: 22
+    commit: 63fa25373ef8911f3e6c24126e822a0972237257
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@2.10.3
+    rm:
+      - ios
+    build:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.6.0
+    versionCode: 24
+    commit: 1165eb7210623b5081423c566ea09f6bd4b00236
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+    build:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.6.5
+    versionCode: 25
+    commit: 7ef52393578d4d4bda4650f9e10f91d6e3befd93
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.0.2
+    rm:
+      - ios
+    build:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.6.6
+    versionCode: 27
+    commit: a108d45a40a66edecefdaacc7a95e6b0f6d761cb
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.3.1
+    rm:
+      - ios
+    build:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.7.1
+    versionCode: 29
+    commit: 9cfe213fd6f973d5793a8ea837587d957fd0793b
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.3.4
+    rm:
+      - ios
+    build:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.7.2
+    versionCode: 30
+    commit: 27401010cfe9cde3bde6655b275a4d1ef300b4d4
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.3.4
+    rm:
+      - ios
+    build:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.7.3
+    versionCode: 31
+    commit: 20b5521401c38bca415da8000984687a77d46aef
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.3.4
+    rm:
+      - ios
+    build:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.7.4
+    versionCode: 32
+    commit: 2e79cc1654e76ebc9a820dfe5d66d9f73e0ec50d
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.7.0
+    rm:
+      - ios
+    build:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.8.0
+    versionCode: 33
+    commit: b69a5b5fcbea0b0e51685592d707c9885dadcd69
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.7.0
+    rm:
+      - ios
+    build:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.8.2
+    versionCode: 34
+    commit: b5563810af7f19d02e8a2242f25061c477fed842
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.7.0
+    rm:
+      - ios
+    build:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.9.0
+    versionCode: 35
+    commit: 0db4de9903317e715010d08c7aceeee377998355
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.7.0
+    rm:
+      - ios
+    build:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.0.0
+    versionCode: 36
+    commit: da896590dd44db7d71d6a27c029e5a98b2ea160c
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.10.1
+    rm:
+      - ios
+    prebuild:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.1.0
+    versionCode: 37
+    commit: fb8065f32702cfc0fcb8f236a68fd9de8237af2f
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.10.6
+    rm:
+      - ios
+    prebuild:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.2.0
+    versionCode: 38
+    commit: 835b0dc6df37f43563206410ebb4625199461480
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.13.6
+    rm:
+      - ios
+    prebuild:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.3.0
+    versionCode: 39
+    commit: 9247e9373569711ebea5b2a6ac5458dcf5e58b1f
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.13.9
+    rm:
+      - ios
+    prebuild:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.4.0
+    versionCode: 40
+    commit: 0a316e405f11bd9974df392005efd665ee950609
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.16.2
+    rm:
+      - ios
+    prebuild:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.5.0
+    versionCode: 43
+    commit: ab0e56fd3205b2c91ac64cc1c6ed75c832c33d1b
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.16.7
+    rm:
+      - ios
+    prebuild:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.6.0
+    versionCode: 44
+    commit: 9fe578144652be46f19ee6ef0487427235ebf7f2
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.19.2
+    rm:
+      - ios
+    prebuild:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.7.0
+    versionCode: 45
+    commit: d19ada6c0120e7f58a9aaa636244d9c9a3c3de90
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.19.2
+    rm:
+      - ios
+    prebuild:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 2.7.1
+    versionCode: 46
+    commit: f194294fc3a672000a6aa93db563c71e32aee9e3
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.19.2
+    rm:
+      - ios
+    prebuild:
+      - sed -i '/keystoreProperties.load(new FileInputStream(keystorePropertiesFile))/d'
+        android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 2.7.1
+CurrentVersionCode: 46

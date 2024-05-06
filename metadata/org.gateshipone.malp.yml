@@ -1,6 +1,6 @@
 Categories:
-  - Multimedia
   - Connectivity
+  - Multimedia
 License: GPL-3.0-or-later
 WebSite: https://gitlab.com/gateship-one/malp/wikis/home
 SourceCode: https://gitlab.com/gateship-one/malp
@@ -200,7 +200,94 @@ Builds:
     rm:
       - image_sources
 
-AutoUpdateMode: Version release-%c
+  - versionName: 1.2.8
+    versionCode: 35
+    commit: bc661be126a975eefa053d99d06528d9634ef5c2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - image_sources
+
+  - versionName: 1.2.9
+    versionCode: 36
+    commit: 93814904691a5f372bc6dff8330ba5dbb021a73f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - image_sources
+
+  - versionName: 1.2.10
+    versionCode: 37
+    commit: e210f5d12835d6bebec16ee40533769fbb2a71f4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - image_sources
+
+  - versionName: 1.2.11
+    versionCode: 38
+    commit: da8b68f23ae66f41abf12a5c96d66a927ed54665
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - image_sources
+
+  - versionName: 1.2.12
+    versionCode: 39
+    commit: dd35e75524fbc90e661d6203eb8d6454c87bd105
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - image_sources
+
+  - versionName: 1.3.0
+    versionCode: 40
+    commit: 1bc1af105c87a731a39d90931dcf06966e5e4b3e
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - image_sources
+
+  - versionName: 1.3.1
+    versionCode: 41
+    commit: 3b6424e746ef9a23bb4cb74a00125365bbc12401
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - image_sources
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.2.7
-CurrentVersionCode: 34
+CurrentVersion: 1.3.1
+CurrentVersionCode: 41

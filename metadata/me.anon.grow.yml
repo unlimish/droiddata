@@ -6,9 +6,9 @@ IssueTracker: https://github.com/7LPdWcaW/GrowTracker-Android/issues
 Changelog: https://github.com/7LPdWcaW/GrowTracker-Android/releases
 
 Description: This app helps record data about growing plants in order to monitor the
-    growing conditions to help make the plants grow better, and identify potential
-    issues during the grow process. It requires no permissions except for external
-    storage (for caching plant data and images) in order for users to maintain anonymity.
+  growing conditions to help make the plants grow better, and identify potential issues
+  during the grow process. It requires no permissions except for external storage
+  (for caching plant data and images) in order for users to maintain anonymity.
 
 RepoType: git
 Repo: https://github.com/7LPdWcaW/GrowTracker-Android
@@ -56,7 +56,36 @@ Builds:
     gradle:
       - production
 
-AutoUpdateMode: Version v%v
+  - versionName: 2.6.2
+    versionCode: 2620
+    commit: alpha
+    subdir: app
+    gradle:
+      - production
+
+  - versionName: 2.6.3
+    versionCode: 2630
+    commit: c9b7a84ebbffb2d120a3a9290b94edc502635cd2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - production
+
+  - versionName: 2.6.4
+    versionCode: 2631
+    commit: 748388bb9a4087778c76ee01b7b852be2b17e018
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - production
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.6.1
-CurrentVersionCode: 1370
+CurrentVersion: 2.6.4
+CurrentVersionCode: 2631

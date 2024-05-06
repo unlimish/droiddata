@@ -10,12 +10,12 @@ Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZBV
 
 AutoName: FTP Server
 Description: |-
-    This app can serve files over the internet but the most likely usage is to
-    access files from another computer without needing a cable.
+  This app can serve files over the internet but the most likely usage is to
+  access files from another computer without needing a cable.
 
-    The name Demo in the launcher just means that it corresponds to the free version
-    on Google. The app is fully featured so instead of buying the "Full" version as
-    a way of contributing you can donate via the Paypal link.
+  The name Demo in the launcher just means that it corresponds to the free version
+  on Google. The app is fully featured so instead of buying the "Full" version as
+  a way of contributing you can donate via the Paypal link.
 
 RepoType: git
 Repo: https://github.com/ppareit/swiftp.git
@@ -107,16 +107,6 @@ Builds:
     subdir: free
     prebuild: mkdir src
 
-  - versionName: 2.11.3
-    versionCode: 21103
-    disable: wait for upstream
-    commit: v2.11.3
-    subdir: app
-    gradle:
-      - yes
-    prebuild: sed -i -e '/applicationId/s/be.ppareit.swiftp/be.ppareit.swiftp_free/g'
-        -e '/shrinkResources/d' -e '/minifyEnabled/d'  -e '/proguardFiles/d'  build.gradle
-
   - versionName: 2.12.0
     versionCode: 21200
     commit: v2.12
@@ -124,17 +114,7 @@ Builds:
     gradle:
       - fdroid_free
     prebuild: sed -i -e '/shrinkResources/d' -e '/minifyEnabled/d' -e '/proguardFiles/d'
-        build.gradle
-
-  - versionName: 2.13.0
-    versionCode: 21300
-    disable: twofortyfouram's sdk needs to be replaced
-    commit: v2.13
-    subdir: app
-    gradle:
-      - fdroid_free
-    prebuild: sed -i -e '/shrinkResources/d' -e '/minifyEnabled/d' -e '/proguardFiles/d'
-        -e '/twofortyfouram/d' build.gradle
+      build.gradle
 
   - versionName: 2.13.1
     versionCode: 21301
@@ -143,7 +123,7 @@ Builds:
     gradle:
       - fdroid_free
     prebuild: sed -i -e '/dl.bintray.com/d' -e '/shrinkResources/d' -e '/minifyEnabled/d'
-        -e '/proguardFiles/d' build.gradle
+      -e '/proguardFiles/d' build.gradle
 
   - versionName: 2.14.1
     versionCode: 21401
@@ -152,17 +132,7 @@ Builds:
     gradle:
       - fdroid_free
     prebuild: sed -i -e '/dl.bintray.com/d' -e '/shrinkResources/d' -e '/minifyEnabled/d'
-        -e '/proguardFiles/d' build.gradle
-
-  - versionName: 2.14.2
-    versionCode: 21402
-    disable: 'lint issue: WifiManagerLeak'
-    commit: v2.14.2
-    subdir: app
-    gradle:
-      - fdroid_free
-    prebuild: sed -i -e '/dl.bintray.com/d' -e '/shrinkResources/d' -e '/minifyEnabled/d'
-        -e '/proguardFiles/d' build.gradle
+      -e '/proguardFiles/d' build.gradle
 
   - versionName: 2.15.0
     versionCode: 21500
@@ -171,7 +141,7 @@ Builds:
     gradle:
       - fdroid_free
     prebuild: sed -i -e '/dl.bintray.com/d' -e '/shrinkResources/d' -e '/minifyEnabled/d'
-        -e '/proguardFiles/d' build.gradle
+      -e '/proguardFiles/d' build.gradle
 
   - versionName: 2.16.00
     versionCode: 21600
@@ -180,7 +150,7 @@ Builds:
     gradle:
       - fdroid_free
     prebuild: sed -i -e '/dl.bintray.com/d' -e '/shrinkResources/d' -e '/minifyEnabled/d'
-        -e '/proguardFiles/d' build.gradle
+      -e '/proguardFiles/d' build.gradle
 
   - versionName: 2.17.00
     versionCode: 21700
@@ -189,7 +159,7 @@ Builds:
     gradle:
       - fdroid_free
     prebuild: sed -i -e '/dl.bintray.com/d' -e '/shrinkResources/d' -e '/minifyEnabled/d'
-        -e '/proguardFiles/d' build.gradle
+      -e '/proguardFiles/d' build.gradle
 
   - versionName: 2.17.1
     versionCode: 21701
@@ -198,7 +168,7 @@ Builds:
     gradle:
       - fdroid_free
     prebuild: sed -i -e '/dl.bintray.com/d' -e '/shrinkResources/d' -e '/minifyEnabled/d'
-        -e '/proguardFiles/d' build.gradle
+      -e '/proguardFiles/d' build.gradle
 
   - versionName: '2.18'
     versionCode: 21800
@@ -207,7 +177,7 @@ Builds:
     gradle:
       - fdroid_free
     prebuild: sed -i -e '/dl.bintray.com/d' -e '/shrinkResources/d' -e '/minifyEnabled/d'
-        -e '/proguardFiles/d' build.gradle
+      -e '/proguardFiles/d' build.gradle
 
   - versionName: '2.19'
     versionCode: 21900
@@ -216,7 +186,7 @@ Builds:
     gradle:
       - fdroid_free
     prebuild: sed -i -e '/dl.bintray.com/d' -e '/shrinkResources/d' -e '/minifyEnabled/d'
-        -e '/proguardFiles/d' build.gradle
+      -e '/proguardFiles/d' build.gradle
 
   - versionName: '3.0'
     versionCode: 30000
@@ -225,7 +195,7 @@ Builds:
     gradle:
       - fdroid_free
     prebuild: sed -i -e '/dl.bintray.com/d' -e '/shrinkResources/d' -e '/minifyEnabled/d'
-        -e '/proguardFiles/d' build.gradle
+      -e '/proguardFiles/d' build.gradle
 
   - versionName: 3.0.1
     versionCode: 30001
@@ -234,7 +204,7 @@ Builds:
     gradle:
       - fdroid_free
     prebuild: sed -i -e '/dl.bintray.com/d' -e '/shrinkResources/d' -e '/minifyEnabled/d'
-        -e '/proguardFiles/d' build.gradle
+      -e '/proguardFiles/d' build.gradle
 
   - versionName: '3.1'
     versionCode: 30100
@@ -243,11 +213,11 @@ Builds:
     gradle:
       - fdroid_free
     prebuild: sed -i -e '/dl.bintray.com/d' -e '/shrinkResources/d' -e '/minifyEnabled/d'
-        -e '/proguardFiles/d' build.gradle
+      -e '/proguardFiles/d' build.gradle
 
 MaintainerNotes: Remove shrink/minify stuff since the proguard config is missing.
 
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckName: be.ppareit.swiftp
 CurrentVersion: '3.1'

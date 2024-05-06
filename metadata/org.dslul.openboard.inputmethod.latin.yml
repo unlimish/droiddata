@@ -4,6 +4,8 @@ Categories:
 License: GPL-3.0-only
 SourceCode: https://github.com/dslul/openboard
 IssueTracker: https://github.com/dslul/openboard/issues
+Translation: https://hosted.weblate.org/engage/openboard/
+Changelog: https://github.com/dslul/openboard/releases/
 
 AutoName: OpenBoard
 
@@ -49,7 +51,64 @@ Builds:
       - dictionaries/*_wordlist.combined.gz
     ndk: r21d
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.4.3
+    versionCode: 15
+    commit: v1.4.3
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    scanignore:
+      - dictionaries/*_emoji.combined.gz
+      - dictionaries/*_wordlist.combined.gz
+    ndk: r21e
+
+  - versionName: 1.4.4
+    versionCode: 17
+    commit: 3dd1548c9f55d63094202ddb96b75118526623bd
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - dictionaries/*_emoji.combined.gz
+      - dictionaries/*_wordlist.combined.gz
+    ndk: r21d
+
+  - versionName: 1.4.4
+    versionCode: 18
+    commit: 7af4ff5a26e63472da6d14d2325895223c048eb4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - dictionaries/*_emoji.combined.gz
+      - dictionaries/*_wordlist.combined.gz
+    ndk: r21d
+
+  - versionName: 1.4.5
+    versionCode: 19
+    commit: 6c7582aae8577f2953a597a547924bbea3d832f4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - dictionaries/*_emoji.combined.gz
+      - dictionaries/*_wordlist.combined.gz
+    ndk: r21d
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.4.2
-CurrentVersionCode: 14
+CurrentVersion: 1.4.5
+CurrentVersionCode: 19

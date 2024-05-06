@@ -3,13 +3,14 @@ Categories:
 License: GPL-3.0-only
 AuthorName: sds100
 AuthorEmail: developer.sds100@gmail.com
-SourceCode: https://github.com/sds100/KeyMapperKeyboard
-Changelog: https://github.com/sds100/KeyMapperKeyboard/releases
+SourceCode: https://github.com/keymapperorg/KeyMapperKeyboard
+IssueTracker: https://github.com/keymapperorg/KeyMapperKeyboard/issues
+Changelog: https://github.com/keymapperorg/KeyMapperKeyboard/releases
 
 AutoName: Key Mapper GUI Keyboard
 
 RepoType: git
-Repo: https://github.com/sds100/KeyMapperKeyboard
+Repo: https://github.com/keymapperorg/KeyMapperKeyboard
 
 Builds:
   - versionName: 1.4.2
@@ -23,7 +24,22 @@ Builds:
       - dictionaries/*_wordlist.combined.gz
     ndk: r21d
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.4.4
+    versionCode: 18
+    commit: cbf3e54d5e35f5768df2675a4cf9d5ce65fd3390
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - dictionaries/*_emoji.combined.gz
+      - dictionaries/*_wordlist.combined.gz
+    ndk: r21e
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.4.2
-CurrentVersionCode: 13
+CurrentVersion: 1.4.4
+CurrentVersionCode: 18

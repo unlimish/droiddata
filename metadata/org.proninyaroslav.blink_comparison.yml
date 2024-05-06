@@ -1,0 +1,82 @@
+Categories:
+  - Multimedia
+  - Security
+License: GPL-3.0-or-later
+AuthorName: Yaroslav Pronin
+AuthorEmail: proninyaroslav@gmail.com
+AuthorWebSite: https://proninyaroslav.ru/
+SourceCode: https://github.com/proninyaroslav/blink-comparison
+IssueTracker: https://github.com/proninyaroslav/blink-comparison/issues
+Translation: https://github.com/proninyaroslav/blink-comparison/blob/HEAD/CONTRIBUTING.md
+Changelog: https://github.com/proninyaroslav/blink-comparison/blob/HEAD/NEWS.md
+Donate: https://github.com/proninyaroslav/blink-comparison#-donation
+Liberapay: proninyaroslav
+Bitcoin: 1Af9DgxtWvVp6bFiYQw2MeWtRzTXshRYpB
+
+AutoName: Blink Comparison
+
+RepoType: git
+Repo: https://github.com/proninyaroslav/blink-comparison.git
+
+Builds:
+  - versionName: 1.0.1
+    versionCode: 2
+    commit: 1.0.1
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.8.1
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.0.2
+    versionCode: 3
+    commit: 8848e596b3101ba4067fed3429e31610a5d5d80f
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.8.1
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.1.0
+    versionCode: 4
+    commit: e7bbb4a076b78614ade8791e84936a80e96f43af
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.1
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.1.1
+    versionCode: 5
+    commit: f5841c3c59f3f8b828fd7713959ee92387d05e73
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.10.1
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.*\+(\d+)|.|version:\s([\d.]+)\+
+CurrentVersion: 1.1.1
+CurrentVersionCode: 5

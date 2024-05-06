@@ -6,22 +6,22 @@ IssueTracker: https://github.com/rmanor/currentwidget/issues
 Donate: https://github.com/rmanor/currentwidget
 
 Description: |-
-    Displays how much electric current the device is using from the battery or
-    receiving from the charger. It can also notify you when the device is using too
-    much battery. Add widget to home screen after installation; open settings &
-    graph via launcher icon. Touch the displayed value to switch views.
+  Displays how much electric current the device is using from the battery or
+  receiving from the charger. It can also notify you when the device is using too
+  much battery. Add widget to home screen after installation; open settings &
+  graph via launcher icon. Touch the displayed value to switch views.
 
-    '''NOTE:''' The electric current reading doesn't work on all devices. The reason
-    is that the manufacturers (mostly Motorola and Samsung) don't support this in
-    the battery driver or in the hardware.
+  <b>NOTE:</b> The electric current reading doesn't work on all devices. The reason
+  is that the manufacturers (mostly Motorola and Samsung) don't support this in
+  the battery driver or in the hardware.
 
-    * Two widget designs (as two widgets in the widgets list) — Classic and Text.
-    * Notification — get real time alerts on high current values
-    * Transparent style with customization options
-    * Voltage & Battery level (%) display
-    * Log battery values (see this <a href="http://nkhosla.com/battery">script</a> for analysis)
-    * Set an arithmetic operation on the current value to adjust for different devices
-    * Plot current graph
+  * Two widget designs (as two widgets in the widgets list) — Classic and Text.
+  * Notification — get real time alerts on high current values
+  * Transparent style with customization options
+  * Voltage & Battery level (%) display
+  * Log battery values (see this <a href="http://nkhosla.com/battery">script</a> for analysis)
+  * Set an arithmetic operation on the current value to adjust for different devices
+  * Plot current graph
 
 RepoType: git
 Repo: https://github.com/rmanor/currentwidget
@@ -81,11 +81,6 @@ Builds:
       - ../CurrentWidgetLibrary
     target: android-17
 
-  - versionName: 0.39a
-    versionCode: 39
-    disable: Proprietary dependencies just so you can 'rate' the widget!?
-    commit: '290'
-
   - versionName: 0.4a
     versionCode: 46
     commit: '310'
@@ -114,7 +109,7 @@ Builds:
     target: android-19
     build:
       - pushd $$AChartEngine$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$AChartEngine$$/target/achartengine-1.1.0.jar ../CurrentWidgetLibrary/libs
 

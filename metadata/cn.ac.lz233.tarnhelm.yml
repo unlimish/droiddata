@@ -1,0 +1,146 @@
+Categories:
+  - System
+License: GPL-3.0-only
+AuthorName: lz差不多是条咸鱼了
+AuthorEmail: ohayou@lz233.ac.cn
+AuthorWebSite: https://lz233.ac.cn
+WebSite: https://tarnhelm.project.ac.cn
+SourceCode: https://github.com/lz233/Tarnhelm
+IssueTracker: https://github.com/lz233/Tarnhelm/issues
+Changelog: https://github.com/lz233/Tarnhelm/releases
+
+AutoName: Tarnhelm
+
+RepoType: git
+Repo: https://github.com/lz233/Tarnhelm.git
+
+Builds:
+  - versionName: '1.3'
+    versionCode: 20220829
+    commit: b76bd19c642589ec1b59ff6f1799524740b9dfe9
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.3.2
+    versionCode: 20220929
+    commit: ad58a2cafad8a4cf88a1233e34f133ecc30bf58a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.4.0
+    versionCode: 20221218
+    commit: 4dbb05941c5b89d802982af49dc008f652d461ec
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.4.1
+    versionCode: 20221227
+    commit: 1d37f5c8ce8ca95ed15206bc4167b138f069b57f
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.4.2
+    versionCode: 20230114
+    commit: 0834d964a3970ab9bc06bfb9f7f64fbf24cc9bff
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.5.0
+    versionCode: 20230425
+    commit: 195e26b38407522ade61c3f07df960f71a0a907f
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.5.2
+    versionCode: 20230528
+    commit: 5ccf6e37b809a97ff984f74e8b345328dbfff88b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.5.4
+    versionCode: 20230925
+    commit: 40a765b39cc6fdd02ee57db796907db17aac6d26
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.5.5
+    versionCode: 20231015
+    commit: 304fd6673d72ff05609abe31523c9bcff295e049
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.6.0
+    versionCode: 20231120
+    commit: a5bbc9e0e4c030364d0494cf65ea7759a8ac36aa
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.6.0
+    versionCode: 20240111
+    commit: 71382a1cfe0719220117da44c41d213ecae83ea8
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+  - versionName: 1.6.2
+    versionCode: 20240424
+    commit: a399ff51eb65da0240c5011a2656082e37db798d
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild: sed -i -e '/versionCode/s/date.*/$$VERCODE$$/' build.gradle
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: '||app/build.gradle|versionName\s"([\d.]+)"'
+CurrentVersion: 1.6.2
+CurrentVersionCode: 20240424

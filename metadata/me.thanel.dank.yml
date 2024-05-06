@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Depends on Reddit.
 Categories:
   - Internet
 License: Apache-2.0
@@ -36,9 +37,23 @@ Builds:
     subdir: app
     gradle:
       - yes
-    ndk: r21d
+    prebuild: sed -i 's/21.3.6528147/21.4.7075529/' build.gradle
+    ndk: r21e
 
-AutoUpdateMode: Version %v
+  - versionName: 0.12.3
+    versionCode: 24
+    commit: 2037409f07749b95e5da26ad4d2f2350b553ac55
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i 's/21.3.6528147/21.4.7075529/' build.gradle
+    ndk: r21e
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 0.12.2
-CurrentVersionCode: 23
+CurrentVersion: 0.12.3
+CurrentVersionCode: 24

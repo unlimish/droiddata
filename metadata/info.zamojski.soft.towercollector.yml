@@ -2,48 +2,16 @@ Categories:
   - Navigation
 License: MPL-2.0
 AuthorName: Adam Zamojski
-WebSite: https://zamojski.info/Features,Tower-Collector.html
+WebSite: https://towercollector.zamojski.feedback/
 SourceCode: https://github.com/zamojski/TowerCollector
 IssueTracker: https://github.com/zamojski/TowerCollector/issues
 Translation: https://zamojski.oneskyapp.com/collaboration/
 Changelog: https://github.com/zamojski/TowerCollector/releases
 
 AutoName: Tower Collector
-Description: |-
-    Tower Collector gives you opportunity to contribute in OpenCellID.org and
-    Mozilla Location Services projects by uploading GPS locations of
-    GSM/UMTS/LTE/CDMA cell towers from your area. The measurements help map
-    the extent of mobile phone network coverage. You can use the app to collect
-    data for personal purposes and export them to CSV or GPX files.
-    Some features:
-    * specially optimized GPS parameters to reduce battery drain
-    * upload to OpenCellID.org and Mozilla Location Services (MLS) projects
-    * export to SD card as CSV or GPX
-    * ad-free, forever!
-
-    The OpenCellID.org project goal is to create a worldwide open source
-    database of mobile cell locations. Tower Collector gives you opportunity to
-    contribute in OpenCellID project by uploading cell towers locations from
-    your area. Collected data can be used to quickly locate devices without
-    enabling GPS.
-
-    Mozilla Location Services (MLS) is an open source project, aiming to create
-    a worldwide database of wireless network infrastructure identifiers (cell
-    towers, WiFi access points, Bluetooth beacons) correlated with GPS
-    locations. Aggregated cell location set is available under the public
-    domain "Creative Commons (CC-0)" license.
-
-    Please help me translate it to other languages, visit
-    <a href="http://i18n.zamojski.info/">i18n.zamojski.info</a>
-
-    This application does not collect, store or send any information which can
-    be used to directly identify user, device which is being used or any other
-    personal information.
-
-    BUG REPORTS AND FEATURE REQUEST VIA EMAIL OR GITHUB ISSUES PLEASE.
 
 RepoType: git
-Repo: https://github.com/zamojski/TowerCollector
+Repo: https://github.com/zamojski/TowerCollector.git
 
 Builds:
   - versionName: 1.19.0-fdroid
@@ -291,7 +259,181 @@ Builds:
     gradle:
       - productionFdroid
 
-AutoUpdateMode: Version %v
+  - versionName: 2.8.0
+    versionCode: 2080081
+    commit: 2.8.0
+    subdir: app
+    gradle:
+      - productionFdroid
+
+  - versionName: 2.8.1
+    versionCode: 2080182
+    commit: 2.8.1
+    subdir: app
+    gradle:
+      - productionFdroid
+
+  - versionName: 2.8.2
+    versionCode: 2080284
+    commit: 2.8.2
+    subdir: app
+    gradle:
+      - productionFdroid
+
+  - versionName: 2.8.3
+    versionCode: 2080385
+    commit: 2.8.3
+    subdir: app
+    gradle:
+      - productionFdroid
+
+  - versionName: 2.9.0
+    versionCode: 2090086
+    commit: ef01483c4181f18e5fa613863311771ace10a5ea
+    subdir: app
+    gradle:
+      - productionFdroid
+
+  - versionName: 2.9.1
+    versionCode: 2090187
+    commit: 77ff94a279c1594f285497476284f700a00fd93f
+    subdir: app
+    gradle:
+      - productionFdroid
+
+  - versionName: 2.9.2
+    versionCode: 2090288
+    commit: 9081c31c1a2c2ff0bdc85126fe5a5e8699e29808
+    subdir: app
+    gradle:
+      - productionFdroid
+
+  - versionName: 2.9.2
+    versionCode: 2090389
+    commit: 3b372b3c06bd5d209418ac2fbb22e93752d22d0f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - productionFdroid
+
+  - versionName: 2.10.0
+    versionCode: 2100093
+    commit: bf4b11edae99f6374ef724d82358c2a18dc98772
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - productionFdroid
+
+  - versionName: 2.11.0
+    versionCode: 2110094
+    commit: bab8c8b1cf08e6634e8dd770469a019198425600
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - productionFdroid
+
+  - versionName: 2.12.0
+    versionCode: 2120097
+    commit: 25216cbeffcb7e8df7d236735171e7a6f18a4d0e
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - productionFdroid
+
+  - versionName: 2.13.0
+    versionCode: 2130098
+    commit: 06ea8f6061fd7b038f6a52935dd49fed2ca95401
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - productionFdroid
+    prebuild: sed -i -e '/signingConfigs/d' build.gradle
+
+  - versionName: 2.14.0
+    versionCode: 2140099
+    commit: 0336845cd1626aa9489930ac89a0ce1b1ff3f208
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - productionFdroid
+    prebuild: sed -i -e '/signingConfigs/d' build.gradle
+
+  - versionName: 2.14.1
+    versionCode: 2140100
+    commit: 9805da334968cd7491fc4ffbf841e0a385f75027
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - productionFdroid
+    prebuild: sed -i -e '/signingConfigs/d' build.gradle
+
+  - versionName: 2.14.2
+    versionCode: 2140201
+    commit: 88ea91da29ad5df179d8532efb611057d5195844
+    subdir: app
+    gradle:
+      - productionFdroid
+    prebuild: sed -i -e '/signingConfigs/d' build.gradle
+
+  - versionName: 2.14.3
+    versionCode: 2140302
+    commit: 7315e1f3c04e80867712467e052f08c6e29b4c01
+    subdir: app
+    gradle:
+      - productionFdroid
+    prebuild: sed -i -e '/signingConfigs/d' build.gradle
+
+  - versionName: 2.14.4
+    versionCode: 2140403
+    commit: 348031ab611f8f7665b5d2c5d33420179ab59208
+    subdir: app
+    gradle:
+      - productionFdroid
+    prebuild: sed -i -e '/signingConfigs/d' build.gradle
+
+  - versionName: 2.14.5
+    versionCode: 2140505
+    commit: 76f3ee937e7c8f996a0ffb9fc70e9e6b95601b76
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - productionFdroid
+    prebuild: sed -i -e '/signingConfigs/d' build.gradle
+
+  - versionName: 2.14.6
+    versionCode: 2140610
+    commit: d00fd21102f247fc8255ca0572f5c9ce0cf14389
+    subdir: app
+    gradle:
+      - production
+      - fdroid
+    prebuild: sed -i -e '/signingConfigs/d' build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.7.4
-CurrentVersionCode: 2070476
+CurrentVersion: 2.14.6
+CurrentVersionCode: 2140610

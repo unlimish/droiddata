@@ -26,14 +26,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 0.9.21
-    versionCode: 4
-    disable: lintVitalRelease fails
-    commit: 0.9.21
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 0.9.22
     versionCode: 5
     commit: 0.9.22
@@ -71,7 +63,20 @@ Builds:
     rm:
       - app/src/test
 
-AutoUpdateMode: Version %v
+  - versionName: 0.9.27
+    versionCode: 10
+    commit: 0c5756752e45562fc880fd096a8c67a703f83382
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - app/src/test
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 0.9.26
-CurrentVersionCode: 9
+CurrentVersion: 0.9.27
+CurrentVersionCode: 10

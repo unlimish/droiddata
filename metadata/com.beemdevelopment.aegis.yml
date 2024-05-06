@@ -3,6 +3,7 @@ Categories:
 License: GPL-3.0-only
 AuthorName: Beem Development
 AuthorEmail: beemdevelopment@gmail.com
+WebSite: https://getaegis.app
 SourceCode: https://github.com/beemdevelopment/Aegis
 IssueTracker: https://github.com/beemdevelopment/Aegis/issues
 Translation: https://crowdin.com/project/aegis-authenticator
@@ -12,7 +13,7 @@ Donate: https://www.buymeacoffee.com/beemdevelopment
 AutoName: Aegis
 
 RepoType: git
-Repo: https://github.com/beemdevelopment/Aegis
+Repo: https://github.com/beemdevelopment/Aegis.git
 
 Builds:
   - versionName: '0.2'
@@ -169,7 +170,95 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: '2.0'
+    versionCode: 48
+    commit: v2.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.1
+    versionCode: 49
+    commit: eb22101b0227fb8033a32c4567adc86ecbcb36fc
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.2
+    versionCode: 50
+    commit: 80960e23fc9351fc2d775801158157c969fd947a
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.0.3
+    versionCode: 51
+    commit: 32ee0915a74ac5dc43cebee333c6d614a050f7e4
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1-beta2
+    versionCode: 53
+    commit: b2a98d979975e0746350a2b42bc153cb9219402d
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '2.1'
+    versionCode: 55
+    commit: 506d9efab39f6a5218c789efd29ddba6d18ee920
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.1
+    versionCode: 56
+    commit: 780a215a6bdaa8997146ab44ff2868c7466b1d7e
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.2
+    versionCode: 57
+    commit: cad2ecfe1b6db90c6e46bab15f47c69df3c22f4f
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.3
+    versionCode: 58
+    commit: f0f9653acee3233b8422f6d0f345b3adb396268d
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.2.2
+    versionCode: 62
+    commit: dd9c307deacfe75c968ecb14221cb72fcf121b63
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '3.0'
+    versionCode: 64
+    commit: f9f37d30b2f38440e8b9968bf1623522824241bc
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.0.1
+    versionCode: 65
+    commit: f44fe389d7916042788ccf4b64d72a936a4961a8
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^((?!alpha|beta).)*$
-CurrentVersion: 1.4.2
-CurrentVersionCode: 45
+CurrentVersion: 3.0.1
+CurrentVersionCode: 65

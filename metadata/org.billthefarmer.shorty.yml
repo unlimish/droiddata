@@ -8,14 +8,6 @@ IssueTracker: https://github.com/billthefarmer/shorty/issues
 Changelog: https://github.com/billthefarmer/shorty/releases
 
 AutoName: Shorty
-Description: |-
-    Create shortcuts for Intent Radio.
-
-    * Create shortcuts from the app or the android launcher.
-    * Defaults to BBC Radio 4 if no data is entered.
-    * Lookup stations from a list.
-    * Values and list saved between uses.
-    * Save and restore the list from the device file system.
 
 RepoType: git
 Repo: https://github.com/billthefarmer/shorty
@@ -99,7 +91,27 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: '1.15'
+    versionCode: 115
+    commit: b270524f3133b0583b639b812825b9b178eec4a2
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.16'
+    versionCode: 116
+    commit: 7f2cda728a1aae9f81da71a30a2f83491fb07bc1
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.14'
-CurrentVersionCode: 114
+CurrentVersion: '1.16'
+CurrentVersionCode: 116

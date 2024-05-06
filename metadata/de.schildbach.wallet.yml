@@ -4,36 +4,36 @@ License: GPL-3.0-only
 WebSite: https://wallet.schildbach.de
 SourceCode: https://github.com/bitcoin-wallet/bitcoin-wallet
 IssueTracker: https://github.com/bitcoin-wallet/bitcoin-wallet/issues
-Translation: https://www.transifex.com/projects/p/bitcoin-wallet/
+Translation: https://explore.transifex.com/bitcoin-wallet/bitcoin-wallet/
 Changelog: https://raw.githubusercontent.com/bitcoin-wallet/bitcoin-wallet/HEAD/wallet/CHANGES
 Bitcoin: bc1qedxd9jssgw2fferdmjyyh6fm8jax75q7drfnd4
 
 AutoName: Bitcoin Wallet
 Description: |-
-    Have your Bitcoins always with you, in your pocket! You pay by quickly scanning
-    a QR code. As a merchant, you receive payments reliably and instantly. Bitcoin
-    Wallet is the first mobile Bitcoin app, and arguably also the most secure!
+  Have your Bitcoins always with you, in your pocket! You pay by quickly scanning
+  a QR code. As a merchant, you receive payments reliably and instantly. Bitcoin
+  Wallet is the first mobile Bitcoin app, and arguably also the most secure!
 
-    * No registration, web service or cloud needed! This wallet is de-centralized and peer to peer.
-    * Display of Bitcoin amount in BTC, mBTC and µBTC.
-    * Conversion to and from national currencies.
-    * Sending and receiving of Bitcoin via NFC, QR codes or Bitcoin URLs.
-    * Address book for regularly used Bitcoin addresses.
-    * When you're offline, you can still pay via Bluetooth.
-    * System notification for received coins.
-    * Sweeping of paper wallets (e.g. those used for cold storage).
-    * App widget for Bitcoin balance.
+  * No registration, web service or cloud needed! This wallet is de-centralized and peer to peer.
+  * Display of Bitcoin amount in BTC, mBTC and µBTC.
+  * Conversion to and from national currencies.
+  * Sending and receiving of Bitcoin via NFC, QR codes or Bitcoin URLs.
+  * Address book for regularly used Bitcoin addresses.
+  * When you're offline, you can still pay via Bluetooth.
+  * System notification for received coins.
+  * Sweeping of paper wallets (e.g. those used for cold storage).
+  * App widget for Bitcoin balance.
 
-    See the
-    <a href="https://raw.githubusercontent.com/bitcoin-wallet/bitcoin-wallet/master/wallet/README.md">README</a> for more details. Use this at your own risk and be wary that if you
-    don't make a backup of the private keys you will no longer be able to access the
-    Bitcoins contained in the wallet, should the data of the app be lost.
+  See the
+  <a href="https://raw.githubusercontent.com/bitcoin-wallet/bitcoin-wallet/master/wallet/README.md">README</a> for more details. Use this at your own risk and be wary that if you
+  don't make a backup of the private keys you will no longer be able to access the
+  Bitcoins contained in the wallet, should the data of the app be lost.
 
-    There's a separate version of this application that uses a test version of the
-    Bitcoin network: https://f-droid.org/packages/de.schildbach.wallet_test.
+  There's a separate version of this application that uses a test version of the
+  Bitcoin network: https://f-droid.org/packages/de.schildbach.wallet_test.
 
-    All translations are managed via the
-    <a href="https://www.transifex.com/bitcoin-wallet/bitcoin-wallet/">Transifex project</a>.
+  All translations are managed via the
+  <a href="https://www.transifex.com/bitcoin-wallet/bitcoin-wallet/">Transifex project</a>.
 
 RepoType: git
 Repo: https://github.com/bitcoin-wallet/bitcoin-wallet.git
@@ -46,7 +46,7 @@ Builds:
     init:
       - sed -i 's/_test//' AndroidManifest.xml
       - find src -name *.java -exec sed -i 's/_test\.R/.R/' {} \;
-    maven: 'yes'
+    maven: yes
     srclibs:
       - BitcoinJWallet-schildbach@31953d239555
     prebuild:
@@ -79,7 +79,7 @@ Builds:
     commit: 742241f59df1
     patch:
       - pom.patch
-    maven: 'yes'
+    maven: yes
     srclibs:
       - BitcoinJWallet-schildbach@1649520e3183
     prebuild:
@@ -92,7 +92,7 @@ Builds:
     commit: 3efa5beb206e
     patch:
       - pom.patch
-    maven: 'yes'
+    maven: yes
     srclibs:
       - BitcoinJWallet-schildbach@7cb7bfc11c11
     prebuild:
@@ -102,19 +102,19 @@ Builds:
   - versionName: '3.14'
     versionCode: 134
     commit: 5ede628245a8
-    maven: 'yes'
+    maven: yes
     srclibs:
       - BitcoinJWallet-schildbach@67b187c4c4c4
     prebuild:
       - sed -i '30,33d' pom.xml
       - cp -r $$BitcoinJWallet-schildbach$$/ .
       - rm -rf market/
-    build: $$MVN3$$ clean install -f BitcoinJWallet/pom.xml
+    build: mvn clean install -f BitcoinJWallet/pom.xml
 
   - versionName: '3.15'
     versionCode: 136
     commit: dd70948b66aa
-    maven: 'yes'
+    maven: yes
     srclibs:
       - BitcoinJWallet@777e6781d
     prebuild:
@@ -122,19 +122,19 @@ Builds:
       - sed -i 's/0.11-SNAPSHOT/0.10/g' wallet/pom.xml
       - cp -r $$BitcoinJWallet$$/ .
       - rm -rf market/
-    build: $$MVN3$$ clean install -DskipTests -f BitcoinJWallet/pom.xml
+    build: mvn clean install -DskipTests -f BitcoinJWallet/pom.xml
 
   - versionName: '3.19'
     versionCode: 140
     commit: 885f13e01a86
-    maven: 'yes'
+    maven: yes
     srclibs:
       - BitcoinJWallet-schildbach@1134572f61
     prebuild:
       - sed -i '30,33d' pom.xml
       - cp -r $$BitcoinJWallet-schildbach$$/ .
       - rm -rf market/
-    build: $$MVN3$$ clean install -DskipTests -f BitcoinJWallet/pom.xml
+    build: mvn clean install -DskipTests -f BitcoinJWallet/pom.xml
 
   - versionName: '3.22'
     versionCode: 143
@@ -147,7 +147,7 @@ Builds:
       - cp -r $$BitcoinJWallet-schildbach$$/ .
       - rm -rf ../market/
       - sed -i '/sample-integration-android/d' ../pom.xml
-    build: $$MVN3$$ clean install -DskipTests -f BitcoinJWallet/pom.xml
+    build: mvn clean install -DskipTests -f BitcoinJWallet/pom.xml
 
   - versionName: '3.27'
     versionCode: 148
@@ -159,7 +159,7 @@ Builds:
     rm:
       - market/
     prebuild: cp -r $$BitcoinJWallet$$/ BitcoinJWallet
-    build: $$MVN3$$ clean install -f BitcoinJWallet/pom.xml
+    build: mvn clean install -f BitcoinJWallet/pom.xml
 
   - versionName: '3.28'
     versionCode: 149
@@ -171,7 +171,7 @@ Builds:
     rm:
       - market/
     prebuild: cp -r $$BitcoinJWallet$$/ BitcoinJWallet
-    build: $$MVN3$$ clean install -f BitcoinJWallet/pom.xml
+    build: mvn clean install -f BitcoinJWallet/pom.xml
 
   - versionName: '3.39'
     versionCode: 160
@@ -181,7 +181,7 @@ Builds:
     srclibs:
       - BitcoinJWallet-schildbach@v0.11.1
     prebuild: cp -r $$BitcoinJWallet-schildbach$$/ BitcoinJWallet
-    build: $$MVN3$$ clean install -DskipTests -f BitcoinJWallet/pom.xml
+    build: mvn clean install -DskipTests -f BitcoinJWallet/pom.xml
 
   - versionName: '3.46'
     versionCode: 167
@@ -190,7 +190,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet-schildbach@v0.11.2
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet-schildbach$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet-schildbach$$/pom.xml
 
   - versionName: '3.52'
     versionCode: 173
@@ -199,7 +199,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.11.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '3.59'
     versionCode: 180
@@ -208,7 +208,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.11.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.0'
     versionCode: 190
@@ -217,7 +217,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.11.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.01'
     versionCode: 191
@@ -226,7 +226,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.02'
     versionCode: 192
@@ -235,7 +235,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.03'
     versionCode: 193
@@ -244,7 +244,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.04'
     versionCode: 194
@@ -253,7 +253,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.05'
     versionCode: 195
@@ -262,7 +262,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.09'
     versionCode: 199
@@ -271,7 +271,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.1
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.10'
     versionCode: 200
@@ -280,7 +280,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.1
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.12'
     versionCode: 202
@@ -289,7 +289,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.2
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.13'
     versionCode: 203
@@ -298,7 +298,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.2
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.14'
     versionCode: 204
@@ -307,7 +307,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.2
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.15'
     versionCode: 205
@@ -316,7 +316,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.2
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.16'
     versionCode: 206
@@ -325,7 +325,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.2
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.17'
     versionCode: 207
@@ -334,7 +334,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.2
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.18'
     versionCode: 208
@@ -343,7 +343,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.2
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.19'
     versionCode: 209
@@ -352,7 +352,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.2
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.21'
     versionCode: 211
@@ -361,7 +361,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.2
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.22'
     versionCode: 212
@@ -370,7 +370,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.23'
     versionCode: 213
@@ -379,7 +379,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.24'
     versionCode: 214
@@ -388,7 +388,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.25'
     versionCode: 215
@@ -397,7 +397,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.27'
     versionCode: 217
@@ -406,7 +406,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.28'
     versionCode: 218
@@ -415,7 +415,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.29'
     versionCode: 219
@@ -424,7 +424,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.30'
     versionCode: 220
@@ -433,7 +433,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.31'
     versionCode: 221
@@ -442,7 +442,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.32'
     versionCode: 222
@@ -451,7 +451,7 @@ Builds:
     maven: yes@..
     srclibs:
       - BitcoinJWallet@v0.12.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.33'
     versionCode: 223
@@ -461,7 +461,7 @@ Builds:
       - yes
     srclibs:
       - BitcoinJWallet@v0.12.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.34'
     versionCode: 224
@@ -471,7 +471,7 @@ Builds:
       - yes
     srclibs:
       - BitcoinJWallet@v0.12.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.35'
     versionCode: 225
@@ -481,18 +481,7 @@ Builds:
       - yes
     srclibs:
       - BitcoinJWallet@v0.12.3
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
-
-  - versionName: '4.36'
-    versionCode: 226
-    disable: bitcoinj issue
-    commit: 7a55f9fa36e411a9ba7dd959712831d739826f83
-    subdir: wallet
-    gradle:
-      - yes
-    srclibs:
-      - BitcoinJWallet@v0.13.1
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.37'
     versionCode: 227
@@ -503,8 +492,8 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.1
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.38'
     versionCode: 228
@@ -515,8 +504,8 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.1
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.39'
     versionCode: 229
@@ -527,8 +516,8 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.2
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.40'
     versionCode: 230
@@ -539,8 +528,8 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.2
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.41'
     versionCode: 231
@@ -551,10 +540,10 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.2
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.42'
     versionCode: 232
@@ -565,12 +554,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.3
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.44'
     versionCode: 234
@@ -581,12 +570,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.3
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.45'
     versionCode: 235
@@ -597,12 +586,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.4
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.46'
     versionCode: 236
@@ -613,12 +602,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.4
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.47'
     versionCode: 237
@@ -629,12 +618,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.5
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.48'
     versionCode: 238
@@ -645,12 +634,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.5
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.49'
     versionCode: 239
@@ -661,12 +650,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.6
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.50'
     versionCode: 240
@@ -677,12 +666,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.6
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.51'
     versionCode: 241
@@ -693,29 +682,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.13.6
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
-
-  - versionName: '4.52'
-    versionCode: 242
-    disable: orchid depends on pre-release bitcoinj
-    commit: 67a44150b6796875e4d4a68a30872a60c7c1a8db
-    subdir: wallet
-    gradle:
-      - yes
-    srclibs:
-      - BitcoinJWallet@v0.14
-    prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
-    scanignore:
-      - wallet/assets/ssl-keystore
-    scandelete:
-      - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.53'
     versionCode: 243
@@ -726,12 +698,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.14.1
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.54'
     versionCode: 244
@@ -742,12 +714,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.14.2
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.55'
     versionCode: 245
@@ -758,12 +730,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.14.2
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.57'
     versionCode: 247
@@ -774,12 +746,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.14.3
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.58'
     versionCode: 248
@@ -790,12 +762,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.14.3
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.59'
     versionCode: 249
@@ -806,12 +778,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.14.3
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.61'
     versionCode: 251
@@ -822,29 +794,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.14.3
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
-
-  - versionName: '4.63'
-    versionCode: 253
-    disable: upstream force-pushed before we could build
-    commit: 49ee3d404dcb3528824aaef1051f48fc360edc10
-    subdir: wallet
-    gradle:
-      - yes
-    srclibs:
-      - BitcoinJWallet@v0.14.3
-    prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
-    scanignore:
-      - wallet/assets/ssl-keystore
-    scandelete:
-      - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.64'
     versionCode: 254
@@ -855,12 +810,12 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.14.3
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scanignore:
       - wallet/assets/ssl-keystore
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.65'
     versionCode: 255
@@ -871,10 +826,10 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.14.3
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.66'
     versionCode: 256
@@ -885,10 +840,10 @@ Builds:
     srclibs:
       - BitcoinJWallet@v0.14.3
     prebuild: sed -i -e '/<module>examples/d' -e '/<module>tools/d' -e '/<module>wallettemplate/d'
-        $$BitcoinJWallet$$/pom.xml
+      $$BitcoinJWallet$$/pom.xml
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.67'
     versionCode: 257
@@ -904,7 +859,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.68'
     versionCode: 258
@@ -920,7 +875,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.69'
     versionCode: 259
@@ -936,7 +891,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.71'
     versionCode: 261
@@ -952,7 +907,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '4.72'
     versionCode: 262
@@ -968,7 +923,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '5.0'
     versionCode: 280
@@ -984,7 +939,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '5.01'
     versionCode: 281
@@ -1000,7 +955,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '5.02'
     versionCode: 282
@@ -1016,7 +971,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '5.03'
     versionCode: 283
@@ -1032,7 +987,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '5.04'
     versionCode: 284
@@ -1048,7 +1003,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '5.06'
     versionCode: 286
@@ -1064,7 +1019,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '5.07'
     versionCode: 287
@@ -1080,7 +1035,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '5.08'
     versionCode: 288
@@ -1096,7 +1051,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '5.10'
     versionCode: 290
@@ -1112,7 +1067,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '5.11'
     versionCode: 291
@@ -1128,7 +1083,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '5.12'
     versionCode: 292
@@ -1144,7 +1099,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '5.13'
     versionCode: 293
@@ -1160,7 +1115,7 @@ Builds:
       - "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-    build: $$MVN3$$ clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
+    build: mvn clean install -DskipTests -f $$BitcoinJWallet$$/pom.xml
 
   - versionName: '5.14'
     versionCode: 294
@@ -1169,7 +1124,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1180,7 +1135,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1191,7 +1146,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1202,19 +1157,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
-    scanignore:
-      - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
-
-  - versionName: '5.20'
-    versionCode: 300
-    disable: build fails
-    commit: d9dca34833ba3ceb56b222347550aad083032ceb
-    subdir: wallet
-    gradle:
-      - yes
-    prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1251,7 +1194,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1262,7 +1205,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1273,7 +1216,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1284,7 +1227,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1295,7 +1238,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1306,7 +1249,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1317,7 +1260,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1328,7 +1271,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1339,7 +1282,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1350,7 +1293,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1361,7 +1304,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1372,7 +1315,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scanignore:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1383,7 +1326,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
     ndk: r17b
@@ -1395,7 +1338,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
     ndk: r17b
@@ -1407,7 +1350,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
     ndk: r17b
@@ -1419,7 +1362,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
     ndk: r17b
@@ -1431,7 +1374,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
     ndk: r17b
@@ -1443,7 +1386,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
     ndk: r17b
@@ -1455,7 +1398,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
     ndk: r17b
@@ -1467,7 +1410,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
     ndk: r17b
@@ -1479,7 +1422,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
     ndk: r17b
@@ -1491,7 +1434,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"3.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
     ndk: r17b
@@ -1503,7 +1446,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
     ndk: r17c
@@ -1515,7 +1458,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
     ndk: r17c
@@ -1527,7 +1470,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1538,7 +1481,7 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
@@ -1549,13 +1492,13 @@ Builds:
     gradle:
       - yes
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
-  - versionName: '7.27'
-    versionCode: 427
-    commit: v7.27
+  - versionName: '7.69'
+    versionCode: 469
+    commit: v7.69
     subdir: wallet
     init:
       - cd ../..
@@ -1567,13 +1510,13 @@ Builds:
     gradle:
       - prod
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
 
-  - versionName: '7.34'
-    versionCode: 434
-    commit: v7.34
+  - versionName: '8.15'
+    versionCode: 815
+    commit: v8.15
     subdir: wallet
     init:
       - cd ../..
@@ -1585,9 +1528,412 @@ Builds:
     gradle:
       - prod
     prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
-        \ ../build.gradle"
+      \ ../build.gradle"
     scandelete:
       - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
+
+  - versionName: '8.16'
+    versionCode: 816
+    commit: v8.16
+    subdir: wallet
+    init:
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+    prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
+      \ ../build.gradle"
+    scandelete:
+      - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
+
+  - versionName: '8.17'
+    versionCode: 817
+    commit: v8.17
+    subdir: wallet
+    init:
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+    prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
+      \ ../build.gradle"
+    scandelete:
+      - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
+
+  - versionName: '8.18'
+    versionCode: 818
+    commit: v8.18
+    subdir: wallet
+    init:
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+    prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
+      \ ../build.gradle"
+    scandelete:
+      - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
+
+  - versionName: '8.19'
+    versionCode: 819
+    commit: v8.19
+    subdir: wallet
+    init:
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+    prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
+      \ ../build.gradle"
+    scandelete:
+      - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
+
+  - versionName: '9.02'
+    versionCode: 902
+    commit: v9.02
+    subdir: wallet
+    init:
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+    prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
+      \ ../build.gradle"
+    scandelete:
+      - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
+
+  - versionName: '9.03'
+    versionCode: 903
+    commit: v9.03
+    subdir: wallet
+    init:
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+    prebuild: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"4.4.1\" }' >>\
+      \ ../build.gradle"
+    scandelete:
+      - wallet/test/de/schildbach/wallet/util/backup-protobuf-testnet
+
+  - versionName: '9.06'
+    versionCode: 906
+    commit: v9.06
+    subdir: wallet
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y gradle/bullseye
+      - update-alternatives --auto java
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+
+  - versionName: '9.13'
+    versionCode: 913
+    commit: v9.13
+    subdir: wallet
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y gradle/bullseye
+      - update-alternatives --auto java
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+
+  - versionName: '9.16'
+    versionCode: 916
+    commit: v9.16
+    subdir: wallet
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y gradle/bullseye
+      - update-alternatives --auto java
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+
+  - versionName: '9.19'
+    versionCode: 919
+    commit: v9.19
+    subdir: wallet
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+
+  - versionName: '9.22'
+    versionCode: 922
+    commit: v9.22
+    subdir: wallet
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+
+  - versionName: '9.24'
+    versionCode: 924
+    commit: v9.24
+    subdir: wallet
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+
+  - versionName: '9.25'
+    versionCode: 925
+    commit: v9.25
+    subdir: wallet
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+
+  - versionName: '9.26'
+    versionCode: 926
+    commit: v9.26
+    subdir: wallet
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+
+  - versionName: '10.0'
+    versionCode: 100000
+    commit: v10.0
+    subdir: wallet
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+
+  - versionName: '10.01'
+    versionCode: 100100
+    commit: v10.01
+    subdir: wallet
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+
+  - versionName: '10.06'
+    versionCode: 100600
+    commit: v10.06
+    subdir: wallet
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+
+  - versionName: '10.11'
+    versionCode: 101100
+    commit: v10.11
+    subdir: wallet
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+
+  - versionName: '10.14'
+    versionCode: 101400
+    commit: v10.14
+    subdir: wallet
+    sudo:
+      - ln -fs /usr/share/zoneinfo/CET /etc/localtime
+      - dpkg-reconfigure -f noninteractive tzdata
+      - echo "deb https://deb.debian.org/debian bullseye main" > /etc/apt/sources.list.d/bullseye.list
+      - apt-get update
+      - apt-get install -y gradle disorderfs
+      - apt-get install -y -t bullseye openjdk-11-jdk-headless
+      - update-java-alternatives --set java-1.11.0-openjdk-amd64
+    init:
+      - rm /home/vagrant/fdroidserver/gradlew-fdroid
+      - ln -s /usr/bin/gradle /home/vagrant/fdroidserver/gradlew-fdroid
+      - cd ../..
+      - mv de.schildbach.wallet de.schildbach.wallet_underlying
+      - mkdir de.schildbach.wallet
+      - disorderfs --sort-dirents=yes --reverse-dirents=no de.schildbach.wallet_underlying
+        de.schildbach.wallet
+      - cd de.schildbach.wallet/wallet
+    gradle:
+      - prod
+
+MaintainerNotes: |-
+  When adding new versions, the build recipe must follow the reference build at
+  https://github.com/bitcoin-wallet/bitcoin-wallet/blob/main/build.Containerfile
+  as closely as possible. Otherwise, reproducibility will likely break at some point.
 
 AutoUpdateMode: None
 UpdateCheckMode: None
+CurrentVersion: '10.14'
+CurrentVersionCode: 101400

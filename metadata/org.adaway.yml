@@ -1,6 +1,6 @@
 Categories:
-  - System
   - Security
+  - System
 License: GPL-3.0-only
 WebSite: https://adaway.org/
 SourceCode: https://github.com/AdAway/AdAway
@@ -12,7 +12,7 @@ FlattrID: '369138'
 
 AutoName: AdAway
 
-RequiresRoot: 'yes'
+RequiresRoot: true
 
 RepoType: git
 Repo: https://github.com/AdAway/AdAway.git
@@ -75,11 +75,6 @@ Builds:
     buildjni:
       - yes
     ndk: r12b
-
-  - versionName: '1.23'
-    versionCode: 24
-    disable: no source in repo
-    commit: unknown - see disabled
 
   - versionName: '1.24'
     versionCode: 25
@@ -417,15 +412,6 @@ Builds:
     preassemble:
       - renameExecutables
 
-  - versionName: 4.1.0
-    versionCode: 40100
-    disable: missing native libraries
-    commit: v4.1.0
-    subdir: app
-    gradle:
-      - yes
-    ndk: r18b
-
   - versionName: 4.2.2
     versionCode: 40202
     commit: v4.2.2
@@ -445,15 +431,6 @@ Builds:
   - versionName: 4.2.4
     versionCode: 40204
     commit: v4.2.4
-    subdir: app
-    gradle:
-      - yes
-    ndk: r18b
-
-  - versionName: 4.2.5
-    versionCode: 40205
-    disable: uses com.android.tools.build:gradle:3.5.0-beta03
-    commit: v4.2.5
     subdir: app
     gradle:
       - yes
@@ -578,10 +555,172 @@ Builds:
       - Resources/symlink_hosts_to_data.zip
     ndk: r22
 
-MaintainerNotes: '* uses Sentry.io (foss, Apache-2.0) in opt-in mode, so no Tracking
-    AntiFeature required for that. See https://gitlab.com/fdroid/fdroiddata/-/issues/2289#note_503409470'
+  - versionName: 5.5.0
+    versionCode: 50500
+    commit: v5.5.0
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22
 
-AutoUpdateMode: Version v%v
+  - versionName: 5.5.1
+    versionCode: 50501
+    commit: v5.5.1
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.6.0
+    versionCode: 50600
+    commit: v5.6.0
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.7.0
+    versionCode: 50700
+    commit: a2ae9b99320b0f472ade91502b884636561c1972
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.8.0
+    versionCode: 50800
+    commit: 81a65f82bbddf06eff914ea4d0643f187dd5a5c9
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.9.0
+    versionCode: 50900
+    commit: bf267c3d13a7bfcea3cb51f87e0f2e35ebc7bc98
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.10.0
+    versionCode: 51000
+    commit: 17967c4875d31f86e069742141107f86e627e94a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.11.0
+    versionCode: 51100
+    commit: 9fef2b19dc9a99a41ef6be087793bae093cfb840
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.12.0
+    versionCode: 51200
+    commit: 348d062d135e0a8f916e9204053997b220c5e611
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r22b
+
+  - versionName: 5.12.1
+    versionCode: 51201
+    commit: 055253dcf344084640cbb6bbf557dbd90dafc660
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r24
+
+  - versionName: 6.0.3
+    versionCode: 60003
+    commit: 00122cad0c04d3e863e04efec6227fb426bb2cbe
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r24
+
+  - versionName: 6.1.0
+    versionCode: 60100
+    commit: 8f0cb144ab553fbd3a5ea8439a22dbfa04acf8c1
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r25c
+
+  - versionName: 6.1.1
+    versionCode: 60101
+    commit: 8c248ac04e4b58608f3ad81b29fb37bc89396f48
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    scanignore:
+      - Resources/symlink_hosts_to_data.zip
+    ndk: r25c
+
+MaintainerNotes: '* uses Sentry.io (foss, Apache-2.0) in opt-in mode, so no Tracking
+  AntiFeature required for that. See https://gitlab.com/fdroid/fdroiddata/-/issues/2289#note_503409470'
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags .*[0-9]$
-CurrentVersion: 5.4.0
-CurrentVersionCode: 50400
+CurrentVersion: 6.1.1
+CurrentVersionCode: 60101

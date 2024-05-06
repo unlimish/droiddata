@@ -10,15 +10,15 @@ IssueTracker: https://github.com/hrydgard/ppsspp/issues
 
 AutoName: PPSSPP
 Description: |-
-    PPSSPP is a PSP emulator for Android and other platforms. It is being developed
-    at a rapid speed and compatibility is increasing quickly, but there are many
-    games it doesn’t run yet and it doesn’t run fast on Android yet.
+  PPSSPP is a PSP emulator for Android and other platforms. It is being developed
+  at a rapid speed and compatibility is increasing quickly, but there are many
+  games it doesn't run yet and it doesn't run fast on Android yet.
 
-    No games are included with this download, you will have to dump your own PSP
-    games and turn them into .ISO or .CSO files, or simply play free homebrew games,
-    which are available online.
+  No games are included with this download, you will have to dump your own PSP
+  games and turn them into .ISO or .CSO files, or simply play free homebrew games,
+  which are available online.
 
-    * PSP is a trademark of Sony, Inc.
+  * PSP is a trademark of Sony, Inc.
 
 RepoType: git
 Repo: https://github.com/hrydgard/ppsspp.git
@@ -177,7 +177,7 @@ Builds:
     subdir: android
     submodules: true
     srclibs:
-      - 2:NoAnalytics@d38ae535b5
+      - NoAnalytics@d38ae535b5
     forceversion: true
     forcevercode: true
     rm:
@@ -204,7 +204,7 @@ Builds:
     subdir: android
     submodules: true
     srclibs:
-      - 2:NoAnalytics@d38ae535b5
+      - NoAnalytics@d38ae535b5
     forceversion: true
     forcevercode: true
     rm:
@@ -232,7 +232,7 @@ Builds:
     subdir: android
     submodules: true
     srclibs:
-      - 2:NoAnalytics@d38ae535b5
+      - NoAnalytics@d38ae535b5
     forcevercode: true
     rm:
       - dx9sdk
@@ -259,7 +259,7 @@ Builds:
     subdir: android
     submodules: true
     srclibs:
-      - 2:NoAnalytics@d38ae535b5
+      - NoAnalytics@d38ae535b5
     forcevercode: true
     rm:
       - dx9sdk
@@ -285,7 +285,7 @@ Builds:
     subdir: android
     submodules: true
     srclibs:
-      - 2:NoAnalytics@d38ae535b5
+      - NoAnalytics@d38ae535b5
     forcevercode: true
     rm:
       - dx9sdk
@@ -311,7 +311,7 @@ Builds:
     subdir: android
     submodules: true
     srclibs:
-      - 2:NoAnalytics@d38ae535b5
+      - NoAnalytics@d38ae535b5
     forcevercode: true
     rm:
       - dx9sdk
@@ -338,7 +338,7 @@ Builds:
     subdir: android
     submodules: true
     srclibs:
-      - 2:NoAnalytics@d38ae535b5
+      - NoAnalytics@d38ae535b5
     forcevercode: true
     rm:
       - dx9sdk
@@ -364,7 +364,7 @@ Builds:
     subdir: android
     submodules: true
     srclibs:
-      - 2:NoAnalytics@d38ae535b5
+      - NoAnalytics@d38ae535b5
     forcevercode: true
     rm:
       - dx9sdk
@@ -391,7 +391,7 @@ Builds:
     subdir: android
     submodules: true
     srclibs:
-      - 2:NoAnalytics@d38ae535b5
+      - NoAnalytics@d38ae535b5
     forcevercode: true
     rm:
       - dx9sdk
@@ -417,7 +417,7 @@ Builds:
     subdir: android
     submodules: true
     srclibs:
-      - 2:NoAnalytics@d38ae535b5
+      - NoAnalytics@d38ae535b5
     forcevercode: true
     rm:
       - dx9sdk
@@ -439,39 +439,12 @@ Builds:
       - ./ab.sh
 
   - versionName: 1.0.1.0
-    versionCode: 10101
-    disable: ndk r10e build fails
-    commit: v1.0.1
-    subdir: android
-    submodules: true
-    srclibs:
-      - 2:NoAnalytics@d38ae535b5
-    forcevercode: true
-    rm:
-      - dx9sdk
-      - pspautotests
-      - android/custom_rules.xml
-    prebuild:
-      - echo 'APP_ABI=x86' >> jni/Application.mk
-      - rm libs/libGoogleAnalytics*
-    scanignore:
-      - android/android-ndk-profiler
-    scandelete:
-      - ffmpeg
-    build:
-      - cd ../ffmpeg
-      - sed -i -e 's@^NDK.*@NDK=$$NDK$$@' -e 's/windows.*/linux-x86*/' ax86-build.sh
-      - ./ax86-build.sh
-      - cd ../android
-      - ./ab.sh
-
-  - versionName: 1.0.1.0
     versionCode: 10103
     commit: v1.0.1
     subdir: android
     submodules: true
     srclibs:
-      - 2:NoAnalytics@d38ae535b5
+      - NoAnalytics@d38ae535b5
     forcevercode: true
     rm:
       - dx9sdk
@@ -519,7 +492,7 @@ Builds:
   - versionName: 1.2.1.0
     versionCode: 12100
     disable: "weird \"android-arm64-build.sh: build_arm64: not found\" that I (mvdan)\
-        \ can't reproduce on my laptop"
+      \ can't reproduce on my laptop"
     commit: v1.2.1
     subdir: android
     submodules: true
@@ -544,6 +517,7 @@ Builds:
 
 AutoUpdateMode: None
 UpdateCheckMode: Tags
-VercodeOperation: '%c*10'
-CurrentVersion: 1.11.3.0
-CurrentVersionCode: 1110300000
+VercodeOperation:
+  - '%c*10'
+CurrentVersion: 1.14.4.0
+CurrentVersionCode: 1140400000

@@ -10,12 +10,12 @@ IssueTracker: https://github.com/walleth/walleth/issues
 Name: WallETH
 AutoName: WallΞTH
 Description: |-
-    Ethereum wallet Networks: main, ropsten, rinkeby, kovan
+  Ethereum wallet Networks: main, ropsten, rinkeby, kovan
 
-    Features: Tokens(ERC-20), ERC-67 / ERC-681 URLs, ERC-55 Checksums, TREZOR
-    Support (via USB-OTG - model 1 and model T), watch only accounts, offline
-    signing, JSON UTC key import/export, display value in fiat like EUR, NZD, USD,
-    .. or MakerDAO DAI, display function  …
+  Features: Tokens(ERC-20), ERC-67 / ERC-681 URLs, ERC-55 Checksums, TREZOR
+  Support (via USB-OTG - model 1 and model T), watch only accounts, offline
+  signing, JSON UTC key import/export, display value in fiat like EUR, NZD, USD,
+  .. or MakerDAO DAI, display function  …
 
 RepoType: git
 Repo: https://github.com/walleth/walleth
@@ -499,12 +499,94 @@ Builds:
       - online
     prebuild: sed -i -e '/kotlin.bintray.com/d' ../build.gradle
 
-MaintainerNotes: |-
-    We remove https://kotlin.bintray.com/kotlinx Maven repo from build.gradle
-    because it isn't whitelisted while all needed artifacts are available via
-    JCenter.
+  - versionName: 0.50.0
+    versionCode: 500
+    commit: 0.50.0
+    subdir: app
+    gradle:
+      - noGeth
+      - forFDroid
+      - online
+    prebuild: sed -i -e '/kotlin.bintray.com/d' ../build.gradle
 
-AutoUpdateMode: Version %v
+  - versionName: 0.50.1
+    versionCode: 501
+    commit: 0.50.1
+    subdir: app
+    gradle:
+      - noGeth
+      - forFDroid
+      - online
+    prebuild: sed -i -e '/kotlin.bintray.com/d' ../build.gradle
+
+  - versionName: 0.50.2
+    versionCode: 502
+    commit: 0.50.2
+    subdir: app
+    gradle:
+      - noGeth
+      - forFDroid
+      - online
+    prebuild: sed -i -e '/kotlin.bintray.com/d' ../build.gradle
+
+  - versionName: 0.51.0
+    versionCode: 510
+    commit: 1997f39bb668cf12219372911bdecd99ca08bda0
+    subdir: app
+    gradle:
+      - noGeth
+      - forFDroid
+      - online
+    prebuild: sed -i -e '/kotlin.bintray.com/d' ../build.gradle
+
+  - versionName: 0.51.1
+    versionCode: 511
+    commit: 8282f06dd82899dcca6eec519bfcadd9675c7d1c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - noGeth
+      - forFDroid
+      - online
+    prebuild: sed -i -e '/kotlin.bintray.com/d' ../build.gradle
+
+  - versionName: 0.51.2
+    versionCode: 512
+    commit: 2125daee71fbcab7cabcc654ac1845fa3f0af114
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - noGeth
+      - forFDroid
+      - online
+    prebuild: sed -i -e '/kotlin.bintray.com/d' ../build.gradle
+
+  - versionName: 0.51.4
+    versionCode: 514
+    commit: 9f228546dc8a443f1df0b9530abbd5d08bd9dbcf
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - noGeth
+      - forFDroid
+      - online
+    prebuild: sed -i -e '/kotlin.bintray.com/d' ../build.gradle
+
+MaintainerNotes: |-
+  We remove https://kotlin.bintray.com/kotlinx Maven repo from build.gradle
+  because it isn't whitelisted while all needed artifacts are available via
+  JCenter.
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags .*[0-9]$
-CurrentVersion: 0.49.2
-CurrentVersionCode: 492
+CurrentVersion: 0.51.4
+CurrentVersionCode: 514

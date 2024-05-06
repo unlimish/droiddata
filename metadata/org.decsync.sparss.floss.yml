@@ -1,24 +1,20 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: Depends on Feedly for feed search.
 Categories:
-  - Reading
   - Internet
+  - Reading
 License: GPL-3.0-only
 AuthorName: Aldo Gunsing
 AuthorEmail: dev@aldogunsing.nl
 SourceCode: https://github.com/39aldo39/spaRSS-DecSync
 IssueTracker: https://github.com/39aldo39/spaRSS-DecSync/issues
 Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4V96AFD3S4TPJ
-Bitcoin: 1JWYoV2MZyu8LYYHCur9jUJgGqE98m566z
 
 AutoName: spaRSS DecSync
-Description: |-
-    spaRSS DecSync is a fork of https://f-droid.org/packages/net.etuldan.sparss.floss which adds
-    synchronization using <a href="https://github.com/39aldo39/DecSync">DecSync</a>. To
-    start synchronizing, all you have to do is synchronize the directory
-    "DecSync" located in the primary external storage, using for example
-    https://f-droid.org/packages/com.nutomic.syncthingandroid.
 
 RepoType: git
-Repo: https://github.com/39aldo39/spaRSS-DecSync
+Repo: https://github.com/39aldo39/spaRSS-DecSync.git
 
 Builds:
   - versionName: 1.12.0
@@ -155,7 +151,42 @@ Builds:
     gradle:
       - floss
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.16.0-1
+    versionCode: 97
+    commit: 0e6bd16cfa0fc2020fef58cede355b1e138cecf5
+    subdir: mobile
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - floss
+
+  - versionName: 1.16.1
+    versionCode: 98
+    commit: c02cc67ed55a1f3e18e9a2ec0bb3813b410a4cfb
+    subdir: mobile
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - floss
+
+  - versionName: 1.17.0
+    versionCode: 99
+    commit: 18f76887f1957b398bf1fb787636d41c1ca96aff
+    subdir: mobile
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - floss
+
+MaintainerNotes: AF see https://gitlab.com/fdroid/fdroiddata/-/issues/2967
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.15.2
-CurrentVersionCode: 96
+CurrentVersion: 1.17.0
+CurrentVersionCode: 99

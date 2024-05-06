@@ -2,8 +2,9 @@ Categories:
   - Multimedia
 License: Apache-2.0
 AuthorName: Dane Finlay
-AuthorEmail: Danesprite@posteo.net
-WebSite: https://danefinlay.com/timers-tts-util
+AuthorEmail: dane@danefinlay.net
+AuthorWebSite: https://danefinlay.com
+WebSite: https://danefinlay.com/tts-util-app.html
 SourceCode: https://github.com/Danesprite/tts-util-app
 IssueTracker: https://github.com/Danesprite/tts-util-app/issues
 Changelog: https://github.com/Danesprite/tts-util-app/releases
@@ -42,7 +43,47 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 3.0.0
+    versionCode: 5
+    commit: 4d881bb5983ee2f2c81ed2a03daf74412461d829
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 4.0.0
+    versionCode: 6
+    commit: b52bca492bd571dd945dad10ab8357e20ad39839
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.0.1
+    versionCode: 7
+    commit: 11047cde47e26e00e307bc6bfaa4ab420d9a363f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 4.0.2
+    versionCode: 8
+    commit: e36edf2a28344f6b88ab0421aa3ff2ea05319644
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.0.2
-CurrentVersionCode: 4
+CurrentVersion: 4.0.2
+CurrentVersionCode: 8

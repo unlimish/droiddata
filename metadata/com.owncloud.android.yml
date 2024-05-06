@@ -8,13 +8,6 @@ Changelog: https://github.com/owncloud/android/blob/HEAD/CHANGELOG.md
 Donate: https://www.bountysource.com/teams/owncloud
 
 AutoName: ownCloud
-Description: |-
-    ownCloud is a free software package you can install on a server to manage files,
-    contacts, calendars, music, pictures and much more. This is the official Android
-    app which enables you to browse all of your ownCloud synced files, create and
-    edit new files, share these files and folders with co-workers, and keep the
-    contents of those folders in sync across all of your devices. Simply copy a file
-    into a directory on your server and ownCloud does the rest.
 
 RepoType: git
 Repo: https://github.com/owncloud/android.git
@@ -57,14 +50,14 @@ Builds:
     commit: oc-android-1-3-14
     submodules: true
     prebuild: $$SDK$$/tools/android update project -p actionbarsherlock/library -s
-        -t 13
+      -t 13
 
   - versionName: 1.3.17
     versionCode: 103017
     commit: oc-android-1-3-17
     submodules: true
     prebuild: $$SDK$$/tools/android update project -p actionbarsherlock/library -s
-        -t 13
+      -t 13
 
   - versionName: 1.3.18
     versionCode: 103018
@@ -161,12 +154,6 @@ Builds:
     commit: oc-android-1.5.2
     submodules: true
 
-  - versionName: 1.5.3
-    versionCode: 105003
-    disable: uses git@github in .gitmodules
-    commit: oc-android-1.5.3
-    submodules: true
-
   - versionName: 1.5.4
     versionCode: 105004
     commit: oc-android-1.5.4
@@ -219,8 +206,8 @@ Builds:
     commit: oc-android-1.7.0
     submodules: true
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 3:TouchImageView@v1.2.0
+      - ActionBarSherlock@4.4.0
+      - TouchImageView@v1.2.0
       - DiskLruCache@disklrucache-2.0.2
     rm:
       - libs
@@ -239,8 +226,8 @@ Builds:
     commit: oc-android-1.7.1_oem
     submodules: true
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 3:TouchImageView@v1.2.0
+      - ActionBarSherlock@4.4.0
+      - TouchImageView@v1.2.0
       - DiskLruCache@disklrucache-2.0.2
     rm:
       - libs
@@ -259,8 +246,8 @@ Builds:
     commit: oc-android-1.7.2
     submodules: true
     srclibs:
-      - 2:Support/v7/appcompat@android-4.4.4_r2.0.1
-      - 3:TouchImageView@v1.2.0
+      - appcompat@android-4.4.4_r2.0.1
+      - TouchImageView@v1.2.0
       - DiskLruCache@disklrucache-2.0.2
     rm:
       - libs
@@ -721,7 +708,294 @@ Builds:
     rm:
       - user_manual
 
-AutoUpdateMode: Version oc-android-%v
-UpdateCheckMode: Tags ^oc-android-[0-9.]*$
-CurrentVersion: '2.16'
-CurrentVersionCode: 21600000
+  - versionName: '2.17'
+    versionCode: 21700000
+    commit: oc-android-2.17
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - user_manual
+
+  - versionName: '2.18'
+    versionCode: 21800000
+    commit: oc-android-2.18
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - user_manual
+
+  - versionName: 2.18.1
+    versionCode: 21800100
+    commit: 1ac962cf4bdea4b7f09ed9772377242fc81dcb71
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - user_manual
+
+  - versionName: 2.18.2
+    versionCode: 21800200
+    commit: cd5fa44a2c14c14ca3f0b938f7beb29a4581b7c0
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - user_manual
+
+  - versionName: 2.18.3
+    versionCode: 21800300
+    commit: e2085ad29fe13ba55a2e93c9a4ae3b2ccc67fa9b
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - user_manual
+
+  - versionName: 2.19-beta.1
+    versionCode: 21800301
+    commit: oc-android-2.19-beta.1
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - user_manual
+
+  - versionName: '2.19'
+    versionCode: 21900000
+    commit: 26b246abdd92fc1cf92ce9f84fe3fc7496e4d701
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - yes
+    rm:
+      - user_manual
+
+  - versionName: '2.20'
+    versionCode: 22000000
+    commit: 6939fdd69ddfe8572fc773aec8320c9b29ecc37d
+    subdir: owncloudApp
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - user_manual
+
+  - versionName: 2.21-beta.1
+    versionCode: 22000010
+    commit: oc-android-2.21-beta.1
+    subdir: owncloudApp
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: '2.21'
+    versionCode: 22100000
+    commit: dc83db373bdbc44b847940a3053e98cdaa50b87a
+    subdir: owncloudApp
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 2.21.1
+    versionCode: 22100100
+    commit: 53e4dee38022a851aa5d8950cfc6bd8848574e15
+    subdir: owncloudApp
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 2.21.2
+    versionCode: 22100200
+    commit: 08b9fc3890320dafff0a39af5926499978c5ac0f
+    subdir: owncloudApp
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: '3.0'
+    versionCode: 30000000
+    commit: 494b2f7f524ba8c57e7623907d3be8b896a12213
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 3.0.1
+    versionCode: 30000001
+    commit: 5e553f07832a7fe8fb4fb1f56c3c02d7a3c76499
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 3.0.2
+    versionCode: 30000200
+    commit: 61113a8f8eb8333d194c1ec9633d1845ff135c7f
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 3.0.3
+    versionCode: 30000300
+    commit: 550e4ba9578d1159624d449a16b1c1851a1dbd33
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 3.0.4
+    versionCode: 30000400
+    commit: 218bd6fcdcdc7176de2a24dec1d4b084c38093e9
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 4.0-beta.1
+    versionCode: 30000401
+    commit: 8229c83afb6b1082b03d053dc71fd0e07ac50a88
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 4.0-beta.2
+    versionCode: 30000402
+    commit: 4bba80b22284866dbffb4c3b4a54785b96b6e34e
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 4.0-beta.3
+    versionCode: 30000403
+    commit: da5b5dc71384b1eaf5b71fe0fe22c78c370fb53f
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 4.0-beta.4
+    versionCode: 30000404
+    commit: d87986df0aa8f6d2676e0f216d5c17e419d468ad
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: '4.0'
+    versionCode: 40000000
+    commit: 2d8ded6053d0e7e49d35414dc901f272c1a984f6
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 4.1.0
+    versionCode: 41000000
+    commit: 71a07623792d8201878f71a406554ed154b57de5
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 4.1.1
+    versionCode: 41000100
+    commit: cde9bb8415aa4fc3ea7d960fcce42925a011eccd
+    subdir: owncloudApp
+    submodules: true
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 4.2-beta.1
+    versionCode: 41000101
+    commit: 3cce58dff8c46ab1b5826f7550816f7dbd4ffec8
+    subdir: owncloudApp
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 4.2.0
+    versionCode: 42000000
+    commit: 25de31ec867771fe77f585943379934163c7de77
+    subdir: owncloudApp
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+  - versionName: 4.2.1
+    versionCode: 42000200
+    commit: a41d1f9175dfa9cd423e88cee33e7619c9a34058
+    subdir: owncloudApp
+    gradle:
+      - original
+    rm:
+      - user_manual
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v[0-9.]*[0-9](-beta.[0-9])?$
+CurrentVersion: 4.2.1
+CurrentVersionCode: 42000200

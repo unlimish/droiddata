@@ -9,10 +9,10 @@ Changelog: https://github.com/mvbasov/lWS.QR/releases
 
 AutoName: lWS QR
 Description: |-
-    This app is designed as a QR Code plugin for https://f-droid.org/packages/net.basov.lws.fdroid. It can
-    also be used standalone as a small and simple QR code generator. lWS QR can be
-    easily integrated with your application. See <a href="https://github.com/mvbasov/lWS.QR
-    the">source code</a> for details.
+  This app is designed as a QR Code plugin for https://f-droid.org/packages/net.basov.lws.fdroid. It can
+  also be used standalone as a small and simple QR code generator. lWS QR can be
+  easily integrated with your application. See <a href="https://github.com/mvbasov/lWS.QR
+  the">source code</a> for details.
 
 RepoType: git
 Repo: https://github.com/mvbasov/lWS.QR.git
@@ -54,13 +54,13 @@ Builds:
     subdir: app
     submodules: true
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y node-uglify
     gradle:
       - fdroid
     prebuild: sed -i -e '/versionNameSuffix/d' build.gradle
 
-AutoUpdateMode: Version v%vf
+AutoUpdateMode: Version
 UpdateCheckMode: Tags v\d+\.00(\.\d+)?f
 UpdateCheckName: net.basov.lws.qr
 CurrentVersion: 04.00.00

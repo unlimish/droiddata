@@ -6,14 +6,14 @@ IssueTracker: https://github.com/quaddy-services/DynamicNightLight/issues
 
 AutoName: Dynamic Night Light
 Description: |-
-    Adjustable brightness clock display with illuminated bars. Numbers move around
-    to prevent a screen burn-in. Smoth animations. Clock shows in each direction.
-    Maximal display brightness is 50% (can be changed via options - open via long
-    touch).
+  Adjustable brightness clock display with illuminated bars. Numbers move around
+  to prevent a screen burn-in. Smoth animations. Clock shows in each direction.
+  Maximal display brightness is 50% (can be changed via options - open via long
+  touch).
 
-    Connect to power supply to keep display on the whole night. Without power
-    connected the display timouts after default time (can be set via option to keep
-    phone display on even when on battery).
+  Connect to power supply to keep display on the whole night. Without power
+  connected the display timouts after default time (can be set via option to keep
+  phone display on even when on battery).
 
 RepoType: git
 Repo: https://github.com/quaddy-services/DynamicNightLight
@@ -64,10 +64,14 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.0.2110
+    versionCode: 2110
+    commit: f74b163720338f4519e0c7e5ab80c6faf952e555
+    subdir: app
+    gradle:
+      - yes
+
 AutoUpdateMode: None
-UpdateCheckMode: HTTP
-VercodeOperation: '%c + 2 '
-UpdateCheckData: https://raw.githubusercontent.com/quaddy-services/DynamicNightLight/HEAD/app/version.properties|VERSION_CODE=(.*)|https://raw.githubusercontent.com/quaddy-services/DynamicNightLight/master/app/build.gradle|versionName
-    "(.*)"
-CurrentVersion: 2.0.
+UpdateCheckMode: None
+CurrentVersion: 2.0.2110
 CurrentVersionCode: 2110

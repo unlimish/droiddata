@@ -10,14 +10,6 @@ Changelog: https://github.com/adolfintel/OpenPods/releases
 Donate: https://paypal.me/sineisochronic
 
 AutoName: OpenPods
-Description: |-
-    OpenPods lets you monitor the battery status of your AirPods on
-    Android devices.
-
-    Features:
-
-    * Shows a notification with AirPods status when they are connected
-    * Respects your privacy
 
 RepoType: git
 Repo: https://github.com/adolfintel/OpenPods.git
@@ -114,7 +106,68 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: 1.5.1
+    versionCode: 16
+    commit: 1.5.1
+    subdir: OpenPods/app
+    gradle:
+      - yes
+
+  - versionName: '1.6'
+    versionCode: 17
+    commit: '1.6'
+    subdir: OpenPods/app
+    gradle:
+      - yes
+
+  - versionName: '1.7'
+    versionCode: 18
+    commit: 4081e8a2e1315b8f607ca0483fda157459566fd6
+    subdir: OpenPods/app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.8'
+    versionCode: 20
+    commit: feb2eac28707fbcac0c9ff93d77dee7c10854e04
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.9'
+    versionCode: 21
+    commit: ee7e75b5e83f74996440cc491cbcb880da2e7dbe
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.9.1
+    versionCode: 22
+    commit: 888c6e7d0d72fb93de852c8f3d2d6818b3c4bf41
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.10'
+    versionCode: 23
+    commit: 6a00d8ce240dc38291e57423f502b1155bf7648e
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.5'
-CurrentVersionCode: 15
+CurrentVersion: '1.10'
+CurrentVersionCode: 23

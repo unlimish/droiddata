@@ -5,6 +5,8 @@ License: Apache-2.0
 AuthorName: Shubham
 SourceCode: https://github.com/SubhamTyagi/android-ocr
 IssueTracker: https://github.com/SubhamTyagi/android-ocr/issues
+Translation: https://hosted.weblate.org/projects/android-ocr/
+Changelog: https://github.com/SubhamTyagi/android-ocr/releases
 
 AutoName: OCR
 
@@ -36,7 +38,39 @@ Builds:
       - yes
     prebuild: sed -i -e '/splits/,+7d' build.gradle
 
-AutoUpdateMode: Version v%v
+  - versionName: '2.1'
+    versionCode: 8
+    commit: v2.1
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+7d' build.gradle
+
+  - versionName: '3.0'
+    versionCode: 9
+    commit: 7d8b86c1e31159f47c70bc525f0c8ef74be76854
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+7d' build.gradle
+
+  - versionName: '3.2'
+    versionCode: 11
+    commit: f0606fc3527774c37dfe3f43358695320d3fb08b
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+7d' build.gradle
+
+  - versionName: '4.0'
+    versionCode: 12
+    commit: 4a7b06a1c6981dde23ddf94710363f369df7ab86
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/splits/,+7d' build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '2.0'
-CurrentVersionCode: 7
+CurrentVersion: '4.0'
+CurrentVersionCode: 12

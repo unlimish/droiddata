@@ -8,11 +8,9 @@ WebSite: https://bailu.ch/aat
 SourceCode: https://github.com/bailuk/AAT
 IssueTracker: https://github.com/bailuk/AAT/issues
 Changelog: https://github.com/bailuk/AAT/releases
-Donate: https://bailu.ch/aat/donate.html
-Bitcoin: 3GK4KLiqKqGg5UQxdkkGXhhDZkdFFicy5T
 
 RepoType: git
-Repo: https://github.com/bailuk/AAT
+Repo: https://github.com/bailuk/AAT.git
 
 Builds:
   - versionName: v0.5-alpha
@@ -162,14 +160,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: v1.16
-    versionCode: 28
-    disable: lintVitalRelease fails
-    commit: v1.16
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: v1.16.1
     versionCode: 29
     commit: v1.16.1
@@ -199,7 +189,66 @@ Builds:
       - yes
     ndk: r21d
 
-AutoUpdateMode: Version %v
+  - versionName: v1.20
+    versionCode: 33
+    commit: v1.20
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: v1.21
+    versionCode: 34
+    commit: 2ad8f087e9b7212d10866f1ccab5caa73c126190
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+    ndk: r21e
+
+  - versionName: v1.22
+    versionCode: 35
+    commit: 507d6cbb21053d3d7972eded01230af8925ac8c1
+    subdir: aat-android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    ndk: r21d
+
+  - versionName: v1.23
+    versionCode: 36
+    commit: 21a75429f96b52863a5748cb99c4962c82be6720
+    subdir: aat-android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    ndk: r21d
+
+  - versionName: v1.24
+    versionCode: 37
+    commit: c327c1bc53811f24dd3e83a14accbf679d0e8884
+    subdir: aat-android
+    gradle:
+      - yes
+    ndk: r21d
+
+  - versionName: v1.25
+    versionCode: 38
+    commit: 642e91dcaf6014295088773c3b9b7f8a9ea1a6e4
+    subdir: aat-android
+    gradle:
+      - yes
+    prebuild: sed -i -e '/maven-local/d' ../{settings,build}.gradle.kts
+    ndk: r21d
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: v1.19
-CurrentVersionCode: 32
+CurrentVersion: v1.25
+CurrentVersionCode: 38

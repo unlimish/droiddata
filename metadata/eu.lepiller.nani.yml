@@ -1,6 +1,6 @@
 Categories:
-  - Science & Education
   - Reading
+  - Science & Education
   - Writing
 License: GPL-3.0-or-later
 AuthorName: Julien Lepiller
@@ -71,7 +71,65 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: 0.3.2.1
+    versionCode: 11
+    commit: bbe381c65fb503f40f54a7d7bf9bb3bedc14d428
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.4.0
+    versionCode: 12
+    commit: c8e576ebf8be9de57a816a2350abe7bf4f7cc730
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 0.4.1
+    versionCode: 13
+    commit: 026b275d54d927e1c7efcd625bb9859ed286c169
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.5.0
+    versionCode: 14
+    commit: 06d63306f1cd45a5330796ba51e51d5c1c46dc26
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.5.1
+    versionCode: 15
+    commit: 08fd6b5a7c457f79e81db5867f52d11468aafdf2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.5.2
+    versionCode: 16
+    commit: 639bb354d301aa6a6835831e86eba8362e53395c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 0.3.1.1
-CurrentVersionCode: 9
+CurrentVersion: 0.5.2
+CurrentVersionCode: 16

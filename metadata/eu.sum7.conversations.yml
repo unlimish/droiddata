@@ -5,7 +5,7 @@ AuthorName: genofire
 SourceCode: https://dev.sum7.eu/sum7/Conversations
 IssueTracker: https://dev.sum7.eu/sum7/Conversations/issues
 Translation: https://www.transifex.com/projects/p/conversations/
-Changelog: https://dev.sum7.eu/sum7/Conversations/blob/HEAD/CHANGELOG.md
+Changelog: https://dev.sum7.eu/sum7/Conversations/src/branch/develop/metadata/en-US/changelogs
 
 AutoName: Conv6ations for Sum7
 
@@ -19,7 +19,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' build.gradle
 
   - versionName: 2.5.1
     versionCode: 327
@@ -27,7 +27,7 @@ Builds:
     gradle:
       - conversationsFreeCompat
     prebuild: sed -i -e 's/targetSdkVersion 28/targetSdkVersion 25/' -e '/ExtraTranslation/a\
-        \ \ \ \ \ \ \ abortOnError\ false' -e '/versionNameSuffix/d' build.gradle
+      \ \ \ \ \ \ \ abortOnError\ false' -e '/versionNameSuffix/d' build.gradle
 
   - versionName: 2.5.2
     versionCode: 329
@@ -505,11 +505,124 @@ Builds:
         s/eu.siacs./eu.sum7./" "{}" \;
     ndk: r21d
 
-MaintainerNotes: |-
-    We rename package on fork to work more smoothly (sharing button) - https://github.com/kriztan/Pix-Art-Messenger/issues/160,
-    but without in git repository to make it easier for update to upstream (see .gitlab-ci.yml).
+  - versionName: 2.9.8
+    versionCode: 42006
+    commit: 2.9.8-sum7
+    gradle:
+      - conversationsFreeCompat
+    prebuild:
+      - find -type d -name "siacs" -print0 | xargs --null -I{} bash -c 'x="{}"; mv
+        "$x" "${x/siacs/sum7}" '
+      - find -type f -name "*.java" -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+      - find -type f -name "*.xml"  -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+    ndk: r21e
 
-AutoUpdateMode: Version %v-sum7
-UpdateCheckMode: Tags ^[0-9.]+
-CurrentVersion: 2.9.7
-CurrentVersionCode: 42000
+  - versionName: 2.9.9
+    versionCode: 42010
+    commit: 2.9.9-sum7
+    gradle:
+      - conversationsFreeCompat
+    prebuild:
+      - find -type d -name "siacs" -print0 | xargs --null -I{} bash -c 'x="{}"; mv
+        "$x" "${x/siacs/sum7}" '
+      - find -type f -name "*.java" -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+      - find -type f -name "*.xml"  -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+    ndk: r21e
+
+  - versionName: 2.9.11
+    versionCode: 42013
+    commit: 2.9.11-sum7
+    gradle:
+      - conversationsFreeCompat
+    prebuild:
+      - find -type d -name "siacs" -print0 | xargs --null -I{} bash -c 'x="{}"; mv
+        "$x" "${x/siacs/sum7}" '
+      - find -type f -name "*.java" -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+      - find -type f -name "*.xml"  -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+    ndk: r21e
+
+  - versionName: 2.9.13
+    versionCode: 42015
+    commit: 2.9.13-sum7
+    gradle:
+      - conversationsFreeCompat
+    prebuild:
+      - find -type d -name "siacs" -print0 | xargs --null -I{} bash -c 'x="{}"; mv
+        "$x" "${x/siacs/sum7}" '
+      - find -type f -name "*.java" -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+      - find -type f -name "*.xml"  -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+    ndk: r21e
+
+  - versionName: 2.10.0
+    versionCode: 42018
+    commit: eba5dd865486accc6598056e789d88c98398d56e
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild:
+      - find -type d -name "siacs" -print0 | xargs --null -I{} bash -c 'x="{}"; mv
+        "$x" "${x/siacs/sum7}" '
+      - find -type f -name "*.java" -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+      - find -type f -name "*.xml"  -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+    ndk: r21e
+
+  - versionName: 2.10.1
+    versionCode: 42022
+    commit: a124b3df9ac702fcf7eb3fcc75bf99c3d2cb7ff7
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild:
+      - find -type d -name "siacs" -print0 | xargs --null -I{} bash -c 'x="{}"; mv
+        "$x" "${x/siacs/sum7}" '
+      - find -type f -name "*.java" -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+      - find -type f -name "*.xml"  -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+    ndk: r21e
+
+  - versionName: 2.10.2
+    versionCode: 4202300
+    commit: fa1363cea039f588de133ca84c618fd57cf4a4cf
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - conversationsFreeCompat
+    prebuild:
+      - find -type d -name "siacs" -print0 | xargs --null -I{} bash -c 'x="{}"; mv
+        "$x" "${x/siacs/sum7}" '
+      - find -type f -name "*.java" -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+      - find -type f -name "*.xml"  -exec sed -i "/eu.siacs.conversations.axolotl/!
+        s/eu.siacs./eu.sum7./" "{}" \;
+    ndk: r21e
+
+MaintainerNotes: |-
+  We rename package on fork to work more smoothly (sharing button) - https://github.com/kriztan/Pix-Art-Messenger/issues/160,
+  but without in git repository to make it easier for update to upstream (see .gitlab-ci.yml).
+
+ArchivePolicy: 0
+AutoUpdateMode: None
+UpdateCheckMode: None
+VercodeOperation:
+  - 100*%c
+CurrentVersion: 2.10.2
+CurrentVersionCode: 420230100

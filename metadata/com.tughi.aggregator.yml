@@ -1,0 +1,52 @@
+Categories:
+  - Reading
+License: GPL-3.0-only
+AuthorName: Ștefan Șelariu
+WebSite: https://tughi.github.io/aggregator-android/
+SourceCode: https://github.com/tughi/aggregator-android
+IssueTracker: https://github.com/tughi/aggregator-android/issues
+
+AutoName: Aggregator
+
+RepoType: git
+Repo: https://github.com/tughi/aggregator-android.git
+
+Builds:
+  - versionName: Preview:031
+    versionCode: 299031
+    commit: preview-031
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless tree
+      - update-alternatives --auto java
+    gradle:
+      - fdroid
+
+  - versionName: Preview:032
+    versionCode: 299032
+    commit: f7bb83e317f268bef08db966fce807612a8813ef
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y tree
+    gradle:
+      - fdroid
+
+  - versionName: Preview:033
+    versionCode: 299033
+    commit: b6fd87ec75f14735e49939ac80f40d2fa467f9b2
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y tree
+    gradle:
+      - fdroid
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: Preview:033
+CurrentVersionCode: 299033

@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: OpenWeatherMap service itself is not open source
 Categories:
   - Time
 License: Apache-2.0
@@ -11,11 +12,11 @@ Changelog: https://github.com/Kestutis-Z/World-Weather/releases
 
 AutoName: World Weather
 Description: |-
-    Displays current weather and forecasts from OpenWeatherMap. Two kinds of
-    forecast are available: 14-day daily weather and 5-day three-hourly weather. You
-    can select any of the 200,000 cities supported by OpenWeatherMap.
+  Displays current weather and forecasts from OpenWeatherMap. Two kinds of
+  forecast are available: 14-day daily weather and 5-day three-hourly weather. You
+  can select any of the 200,000 cities supported by OpenWeatherMap.
 
-    ''NonFreeNet:'' OpenWeatherMap service is not open.
+  <i>NonFreeNet:</i> OpenWeatherMap service is not open.
 
 RepoType: git
 Repo: https://github.com/Kestutis-Z/World-Weather
@@ -84,15 +85,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: '1.2'
-    versionCode: 25
-    disable: https://github.com/Kestutis-Z/World-Weather/issues/30
-    commit: f39d35e2a1998fd73b18a44a610f4a9a0e4400af
-    subdir: WorldWeather/app
-    submodules: true
-    gradle:
-      - yes
-
   - versionName: 1.2.1
     versionCode: 26
     commit: v1.2.1
@@ -111,13 +103,20 @@ Builds:
 
   - versionName: 1.2.5
     versionCode: 30
-    disable: Could not find com.android.tools.build:gradle:3.0.1
-    commit: v1.2.5
+    commit: b0245b9d99a0a516e5d3ff01e40e4b4f3bf1d7a6
+    subdir: WorldWeather/app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/jcenter/a google()' ../build.gradle
+
+  - versionName: 1.2.6
+    versionCode: 31
+    commit: 870d5a178d6aaa7b8cb93d3feacac537251d41c4
     subdir: WorldWeather/app
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.2.5
-CurrentVersionCode: 30
+CurrentVersion: 1.2.6
+CurrentVersionCode: 31

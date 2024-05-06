@@ -10,25 +10,25 @@ Bitcoin: 1BXS5qPhJzhr5iK5nmNDSmoLDfB6VmN5hv
 
 AutoName: Termux
 Description: |-
-    Termux combines powerful terminal emulation with an extensive Linux package
-    collection.
+  Termux combines powerful terminal emulation with an extensive Linux package
+  collection.
 
-    * Enjoy the bash and zsh shells.
-    * Edit files with nano and vim.
-    * Access servers over ssh.
-    * Compile code with gcc and clang.
-    * Use the python console as a pocket calculator.
-    * Check out projects with git and subversion.
-    * Run text-based games with frotz.
+  * Enjoy the bash and zsh shells.
+  * Edit files with nano and vim.
+  * Access servers over ssh.
+  * Compile code with gcc and clang.
+  * Use the python console as a pocket calculator.
+  * Check out projects with git and subversion.
+  * Run text-based games with frotz.
 
-    At first start a small base system is downloaded - desired packages can then be
-    installed using the apt package manager known from the Debian and Ubuntu Linux
-    distributions. Access the built-in help by long-pressing anywhere on the
-    terminal and selecting the Help menu option to learn more.
+  At first start a small base system is downloaded - desired packages can then be
+  installed using the apt package manager known from the Debian and Ubuntu Linux
+  distributions. Access the built-in help by long-pressing anywhere on the
+  terminal and selecting the Help menu option to learn more.
 
-    Read help online: [https://wiki.termux.com/]
+  Read help online: <a href="https://wiki.termux.com/">https://wiki.termux.com/</a>
 
-    Reddit Community: [https://termux.com/community]
+  Reddit Community: <a href="https://termux.com/community">https://termux.com/community</a>
 
 RepoType: git
 Repo: https://github.com/termux/termux-app
@@ -332,14 +332,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: '0.49'
-    versionCode: 49
-    disable: fdroid/fdroidserver#288
-    commit: v0.49
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: '0.50'
     versionCode: 50
     commit: v0.50
@@ -637,15 +629,6 @@ Builds:
       - yes
     ndk: r21d
 
-  - versionName: '0.105'
-    versionCode: 105
-    disable: crash on start upstream issue 1896
-    commit: v0.105
-    subdir: app
-    gradle:
-      - yes
-    ndk: r22
-
   - versionName: '0.106'
     versionCode: 106
     commit: v0.106
@@ -674,7 +657,103 @@ Builds:
       - sed -i -e '/publishing {/,/^}/d' ../terminal-{emulator,view}/build.gradle
     ndk: r22
 
-AutoUpdateMode: Version v%v
+  - versionName: '0.111'
+    versionCode: 111
+    commit: v0.111
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/splits\ {/,+8d' build.gradle
+      - sed -i -e '/publishing {/,/^}/d' ../terminal-{emulator,view}/build.gradle
+      - sed -i -e '/publishing {/,/^}/d' ../termux-shared/build.gradle
+      - sed -i -e 's/22.0.7026061/22.1.7171670/' ../gradle.properties
+    ndk: r22b
+
+  - versionName: '0.112'
+    versionCode: 112
+    commit: v0.112
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/splits\ {/,+8d' build.gradle
+      - sed -i -e '/publishing {/,/^}/d' ../terminal-{emulator,view}/build.gradle
+      - sed -i -e '/publishing {/,/^}/d' ../termux-shared/build.gradle
+      - sed -i -e 's/22.0.7026061/22.1.7171670/' ../gradle.properties
+    ndk: r22b
+
+  - versionName: '0.113'
+    versionCode: 113
+    commit: v0.113
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/splits\ {/,+8d' build.gradle
+      - sed -i -e '/publishing {/,/^}/d' ../terminal-{emulator,view}/build.gradle
+      - sed -i -e '/publishing {/,/^}/d' ../termux-shared/build.gradle
+      - sed -i -e 's/22.0.7026061/22.1.7171670/' ../gradle.properties
+    ndk: r22b
+
+  - versionName: '0.114'
+    versionCode: 114
+    commit: v0.114
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/splits\ {/,+8d' build.gradle
+      - sed -i -e '/publishing {/,/^}/d' ../terminal-{emulator,view}/build.gradle
+      - sed -i -e '/publishing {/,/^}/d' ../termux-shared/build.gradle
+      - sed -i -e 's/22.0.7026061/22.1.7171670/' ../gradle.properties
+    ndk: r22b
+
+  - versionName: '0.115'
+    versionCode: 115
+    commit: bde9d01f766d70007f82d34a68122fc34aa1afe5
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/publishing {/,/^    }/d' ../terminal-{emulator,view}/build.gradle
+      - sed -i -e '/publishing {/,/^    }/d' ../termux-shared/build.gradle
+    ndk: r22b
+
+  - versionName: '0.116'
+    versionCode: 116
+    commit: 78be0e793eba633f5a3278f20681983877341f7a
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/publishing {/,/^    }/d' ../terminal-{emulator,view}/build.gradle
+      - sed -i -e '/publishing {/,/^    }/d' ../termux-shared/build.gradle
+    ndk: r22b
+
+  - versionName: '0.117'
+    versionCode: 117
+    commit: 9272a757affc0dae4aa044248800f3987e06c52b
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/publishing {/,/^    }/d' ../terminal-{emulator,view}/build.gradle
+      - sed -i -e '/publishing {/,/^    }/d' ../termux-shared/build.gradle
+    ndk: r22b
+
+  - versionName: 0.118.0
+    versionCode: 118
+    commit: 6e2689f55295fa444be8ac8592c527c2c5ef3253
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/publishing {/,/^    }/d' ../terminal-{emulator,view}/build.gradle
+      - sed -i -e '/publishing {/,/^    }/d' ../termux-shared/build.gradle
+    ndk: r22b
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '0.108'
-CurrentVersionCode: 108
+CurrentVersion: 0.118.0
+CurrentVersionCode: 118

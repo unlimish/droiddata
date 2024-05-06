@@ -1,33 +1,17 @@
 Categories:
-  - Multimedia
   - Internet
+  - Multimedia
 License: GPL-3.0-only
-SourceCode: https://github.com/ultrasonic/ultrasonic
-IssueTracker: https://github.com/ultrasonic/ultrasonic/issues
+WebSite: https://ultrasonic.gitlab.io/
+SourceCode: https://gitlab.com/ultrasonic/ultrasonic
+IssueTracker: https://gitlab.com/ultrasonic/ultrasonic/issues
 Translation: https://www.transifex.com/ultrasonic/ultrasonic/
-Changelog: https://github.com/ultrasonic/ultrasonic/releases
+Changelog: https://gitlab.com/ultrasonic/ultrasonic/-/tags
 
 AutoName: Ultrasonic
-Description: |-
-    Ultrasonic is a Subsonic client for Android. You can use Ultrasonic to connect
-    to a Subsonic (or Subsonic-compatible) server and listen to music.
-
-    Main features:
-
-    * Thin
-    * Fast
-    * Dark and light theme
-    * Multiple server support
-    * Offline mode
-    * Bookmarks
-    * Playlists on server
-    * Random play
-    * Jukebox mode
-    * Server chat
-    * And much more!!!
 
 RepoType: git
-Repo: https://github.com/ultrasonic/ultrasonic.git
+Repo: https://gitlab.com/ultrasonic/ultrasonic.git
 
 Builds:
   - versionName: '1.8'
@@ -47,22 +31,6 @@ Builds:
   - versionName: 2.1.0
     versionCode: 60
     commit: 2.1.0
-    subdir: ultrasonic
-    gradle:
-      - yes
-
-  - versionName: 2.2.0
-    versionCode: 61
-    disable: Offline mode does not work
-    commit: 2.2.0
-    subdir: ultrasonic
-    gradle:
-      - yes
-
-  - versionName: 2.2.1
-    versionCode: 62
-    disable: Offline mode does not work
-    commit: 2.2.1
     subdir: ultrasonic
     gradle:
       - yes
@@ -214,14 +182,251 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 2.19.1
-    versionCode: 90
-    commit: 2.19.1
+  - versionName: 3.2.0
+    versionCode: 103
+    commit: f121e297df2968d1cc8818547186fcbcf129c2a8
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.0.0
+    versionCode: 104
+    commit: 9cb77c0e676cd341d885dfa44af6e2a76fd0b517
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.1.0
+    versionCode: 105
+    commit: 395b335d420b4eb1a6d2fb64ab640c52ab36fad6
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.1.1
+    versionCode: 106
+    commit: 28f8b8ff9316acc31cbcdaebfecefb02c4fcd715
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.1.2
+    versionCode: 107
+    commit: 5222e952aacdd1630e3e267a69f3034d35696134
     subdir: ultrasonic
     gradle:
       - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
 
-AutoUpdateMode: Version %v
+  - versionName: 4.1.3
+    versionCode: 108
+    commit: a33da9925ec0b07951c74c84008d754800ce270e
+    subdir: ultrasonic
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.2.0
+    versionCode: 110
+    commit: 55b92484735405697d7813c4cfc15be3b50f80ca
+    subdir: ultrasonic
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.2.1
+    versionCode: 111
+    commit: 20e9803ebf7a988f6e9ffc7312007d3883bf2b75
+    subdir: ultrasonic
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.2.2
+    versionCode: 112
+    commit: a7d0855f7ad05bc11fd2b95ea080bbae9561a4e9
+    subdir: ultrasonic
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.3.0
+    versionCode: 113
+    commit: 2b339ccc7da78afd79a36ad29630f33465120cdb
+    subdir: ultrasonic
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.3.1
+    versionCode: 114
+    commit: d2faad60ca17f9aca8d3026a26ac81772e10d1e6
+    subdir: ultrasonic
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.3.2
+    versionCode: 115
+    commit: 82d2596c66946b84fc6c954d352b16885cbdc03a
+    subdir: ultrasonic
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.3.3
+    versionCode: 116
+    commit: 404c7c05d55c2b7b50a70e1c6832a57d0c521d62
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.3.4
+    versionCode: 117
+    commit: 3a39902c4caa0e0d92e2f263ceda76600a77ba20
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.4.1
+    versionCode: 120
+    commit: 94f29d270caacb5bda4f7d2b7fa50dedefe2f60d
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.5.0
+    versionCode: 122
+    commit: 365067f1a061ddc6d86e31e78ff7fc4a01041c81
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.6.0
+    versionCode: 123
+    commit: c5fb4e25a31ea41030b0fd227815b4732eeb496f
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.6.1
+    versionCode: 124
+    commit: 4a21db2f73cd08c6d1cd67c7a577f3af60c54789
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.6.2
+    versionCode: 125
+    commit: 698360b77a76c140ae79b2692ca2b805078f9d36
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.6.3
+    versionCode: 126
+    commit: 37935a5f8670e4748fa3c17e635d7e3b39f48eac
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.7.0
+    versionCode: 128
+    commit: 818cb96eb569fcc4cf18e8f7e636c2afff4ad65f
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.7.1
+    versionCode: 129
+    commit: 7b8d1dec9b8502051594d9ce2c5a9716c0ff002d
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+  - versionName: 4.8.0
+    versionCode: 130
+    commit: 69fc9b955ad406b7ce28995c61db94d1fccbb9e7
+    subdir: ultrasonic
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/navigationFeature/d' build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.19.1
-CurrentVersionCode: 90
+CurrentVersion: 4.8.0
+CurrentVersionCode: 130

@@ -7,15 +7,15 @@ IssueTracker: https://github.com/BramBonne/privacypolice/issues
 
 AutoName: Wi-Fi Privacy Police
 Description: |-
-    Prevents your smartphone or tablet from leaking privacy sensitive information
-    via Wi-Fi networks. It does this in two ways:
+  Prevents your smartphone or tablet from leaking privacy sensitive information
+  via Wi-Fi networks. It does this in two ways:
 
-    * It prevents your smartphone from sending out the names of Wi-Fi networks it wants to connect to over the air. This makes sure that other people in your surroundings can not see the networks you’ve connecte to, and the places you’ve visited.
-    * If your smartphone encounters an unknown access point with a known name (for example, a malicious access point pretending to be your home network), it asks whether you trust this access point before connecting. This makes sure that other people are not able to steal your data.
+  * It prevents your smartphone from sending out the names of Wi-Fi networks it wants to connect to over the air. This makes sure that other people in your surroundings can not see the networks you've connecte to, and the places you've visited.
+  * If your smartphone encounters an unknown access point with a known name (for example, a malicious access point pretending to be your home network), it asks whether you trust this access point before connecting. This makes sure that other people are not able to steal your data.
 
-    Further details are discussed in two papers, a
-    <a href="https://brambonne.com/docs/bonne14sasquatchprivacypolice.pdf">short one</a> and
-    <a href="https://brambonne.com/docs/bonne14sasquatch.pdf">long version</a>.
+  Further details are discussed in two papers, a
+  <a href="https://brambonne.com/docs/bonne14sasquatchprivacypolice.pdf">short one</a> and
+  <a href="https://brambonne.com/docs/bonne14sasquatch.pdf">long version</a>.
 
 RepoType: git
 Repo: https://github.com/BramBonne/privacypolice
@@ -28,6 +28,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e 's@lista/string@lista</string@g' src/main/res/values-pt/strings.xml
+    antifeatures:
+      - Tracking
 
   - versionName: '2.0'
     versionCode: 5
@@ -35,6 +37,8 @@ Builds:
     subdir: privacypolice
     gradle:
       - yes
+    antifeatures:
+      - Tracking
 
   - versionName: 2.0.1
     versionCode: 6
@@ -42,6 +46,8 @@ Builds:
     subdir: privacypolice
     gradle:
       - yes
+    antifeatures:
+      - Tracking
 
   - versionName: 2.1.1
     versionCode: 8
@@ -49,6 +55,8 @@ Builds:
     subdir: privacypolice
     gradle:
       - yes
+    antifeatures:
+      - Tracking
 
   - versionName: '2.2'
     versionCode: 9
@@ -56,6 +64,8 @@ Builds:
     subdir: privacypolice
     gradle:
       - yes
+    antifeatures:
+      - Tracking
 
   - versionName: 2.2.2
     versionCode: 11
@@ -63,6 +73,8 @@ Builds:
     subdir: privacypolice
     gradle:
       - yes
+    antifeatures:
+      - Tracking
 
   - versionName: 2.2.3
     versionCode: 12
@@ -70,6 +82,8 @@ Builds:
     subdir: privacypolice
     gradle:
       - yes
+    antifeatures:
+      - Tracking
 
   - versionName: 2.2.4
     versionCode: 13
@@ -78,6 +92,8 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/classpath/s/2.2.0/2.1.0/g' ../build.gradle
+    antifeatures:
+      - Tracking
 
 AutoUpdateMode: None
 UpdateCheckMode: RepoManifest

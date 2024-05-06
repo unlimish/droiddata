@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: App is tethered to blitzortung.org, which is proprietary.
 Categories:
   - Science & Education
 License: Apache-2.0
@@ -10,37 +11,9 @@ Translation: https://github.com/wuan/bo-android#translation-offers-are-welcome
 Changelog: https://github.com/wuan/bo-android/blob/HEAD/ChangeLog
 
 AutoName: Blitzortung Lightning Monitor
-Description: |-
-    Simple to use map based application visualizing real time full area
-    lightning data provided by the blitzortung.org lightning location network
-    project. The current thunderstorm situation at your fingertips.
-
-    '''Features:'''
-
-    * realtime display of lightning data
-    * display of historical lightning data of the last 24 hours
-    * for regions Europe, North & South America, Asia, Africa and Australia/New Zealand
-    * lightning strike time color coded
-    * reduced data volume and fast response
-    * current lightning strike time and lightning count
-    * optional user location marker
-    * alert function shows distance/direction of storms
-    * background service for alerts
-    * support for notifications, sound and vibration alarm
-    * single stroke display for blitzortung.org participants
-
-    Please visit [http://www.blitzortung.org] for more information regarding the
-    community based lightning location project.
-
-    The raster display ensures a fast performance of the application even if
-    there is a very high thunderstorm activity. Blitzortung.org participants can
-    visualize all stroke locations individually.
-
-    If you would like to contribute to a translation of the software in your
-    language, please do not hesitate to contact the author of the software.
 
 RepoType: git
-Repo: https://github.com/wuan/bo-android
+Repo: https://github.com/wuan/bo-android.git
 
 Builds:
   - versionName: 2.0.1
@@ -267,7 +240,148 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v_%c
+  - versionName: 2.1.5
+    versionCode: 276
+    commit: 2.1.5_276
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.6
+    versionCode: 277
+    commit: 2.1.6_277
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.7
+    versionCode: 278
+    commit: 2.1.7_278
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.7
+    versionCode: 279
+    commit: 2.1.7_279
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.8
+    versionCode: 280
+    commit: 6e2f0fdfc51375da40ef4e7fbfa87f57be135f6a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.1.9
+    versionCode: 282
+    commit: aeef114e2aabeca15e354bbbcbec4b198c1061a4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.1.10
+    versionCode: 283
+    commit: b267534f25816f66aeddfa54725d6352338b9f79
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.1.11
+    versionCode: 284
+    commit: 1b4b0f4e336cea4626ab1ad10260374c15421b4c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.1.12
+    versionCode: 286
+    commit: c45c24eda6c13137488fcd7895d0096b6bbbdf85
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.1.14
+    versionCode: 292
+    commit: 3c543af9dcc0bc61a49b146fadb388849b0e3d00
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.1.15
+    versionCode: 305
+    commit: f539b0a504912be7ddb7f3895e06f31b36c616be
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.2.0
+    versionCode: 313
+    commit: 8f9b429b330f463e107b99a59eb234909fa97b02
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.2.1
+    versionCode: 315
+    commit: c79a9aead2400d45450c8388507704d4274c853b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.2.2
+    versionCode: 316
+    commit: 05975d34aba562ee80d9ae7434eb365495d493f3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.2.3
+    versionCode: 318
+    commit: 386e189eb9ad386baceae8b56628f89ab0acdea5
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9]+\.[0-9]+\.[0-9]+\_[0-9]+$
-CurrentVersion: 2.1.4
-CurrentVersionCode: 274
+CurrentVersion: 2.2.3
+CurrentVersionCode: 318

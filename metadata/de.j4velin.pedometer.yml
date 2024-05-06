@@ -3,17 +3,17 @@ Categories:
 License: Apache-2.0
 SourceCode: https://github.com/j4velin/Pedometer
 IssueTracker: https://github.com/j4velin/Pedometer/issues
-Donate: http://www.j4velin.de/donate.php
+Donate: https://www.j4velin.de/donate.php
 
 AutoName: Pedometer
 Description: |-
-    Lightweight pedometer using the hardware step-sensor for minimal battery
-    consumption. This app is designed to be kept running all the time without having
-    any impact on your battery life! It uses the hardware step detection sensor of
-    the Nexus 5, which is already running even when not using any pedometer app.
-    Therefore the app does not drain any additional battery. Unlike other pedometer
-    apps, this app does not track your movement or your location so it doesn't need
-    to turn on your GPS sensor (again: no impact on your battery).
+  Lightweight pedometer using the hardware step-sensor for minimal battery
+  consumption. This app is designed to be kept running all the time without having
+  any impact on your battery life! It uses the hardware step detection sensor of
+  the Nexus 5, which is already running even when not using any pedometer app.
+  Therefore the app does not drain any additional battery. Unlike other pedometer
+  apps, this app does not track your movement or your location so it doesn't need
+  to turn on your GPS sensor (again: no impact on your battery).
 
 RepoType: git
 Repo: https://github.com/j4velin/Pedometer
@@ -48,18 +48,6 @@ Builds:
       - sed -i -e '/playCompile/d' build.gradle
       - touch key.properties
       - sed -i -e '/debug {/,+4d' build.gradle
-
-  - versionName: 1.4.9
-    versionCode: 149
-    disable: compilation failed
-    commit: f99688b406a65427bdbebfdb572a6a0d863a2ceb
-    gradle:
-      - fdroid
-    prebuild:
-      - sed -i -e '/playCompile/d' build.gradle
-      - touch key.properties
-      - sed -i -e '/debug {/,+4d' build.gradle
-      - sed -i -e 's/23.0.0 rc3/23.0.3/g' build.gradle
 
   - versionName: '1.5'
     versionCode: 150
@@ -105,7 +93,7 @@ Builds:
       - fdroid
     prebuild: sed -i -e '/playImplementation/d' build.gradle
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: 1.5.11
 CurrentVersionCode: 1511

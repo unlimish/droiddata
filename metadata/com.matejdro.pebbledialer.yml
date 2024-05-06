@@ -6,22 +6,22 @@ IssueTracker: https://github.com/matejdro/PebbleDialer-Android/issues
 
 AutoName: Dialer for Pebble
 Description: |-
-    Pebble dialer gives you extra options for phone calls on your pebble, such as:
+  Pebble dialer gives you extra options for phone calls on your pebble, such as:
 
-    * Answer incoming calls
-    * Outgoing calls from the pebble
-    * Mute ringer of incoming calls
-    * Toggle in-call microphone mute
-    * Toggle speakerphone
+  * Answer incoming calls
+  * Outgoing calls from the pebble
+  * Mute ringer of incoming calls
+  * Toggle in-call microphone mute
+  * Toggle speakerphone
 
-    This is intended to use with the official closed source Pebble App, but
-    https://f-droid.org/packages/nodomain.freeyourgadget.gadgetbridge from f-droid also works at least
-    partially.
+  This is intended to use with the official closed source Pebble App, but
+  https://f-droid.org/packages/nodomain.freeyourgadget.gadgetbridge from f-droid also works at least
+  partially.
 
-    The needed watchapp for the pebble can be downloaded
-    <a href="https://github.com/matejdro/PebbleDialer-Watchapp/releases/download/3.3/PebbleDialer.pbw">here</a>.
+  The needed watchapp for the pebble can be downloaded
+  <a href="https://github.com/matejdro/PebbleDialer-Watchapp/releases/download/3.3/PebbleDialer.pbw">here</a>.
 
-    Crashlytics support and internet permission have been removed.
+  Crashlytics support and internet permission have been removed.
 
 RepoType: git
 Repo: https://github.com/matejdro/PebbleDialer-Android.git
@@ -152,6 +152,25 @@ Builds:
         -e '/import com.crashlytics.android.Crashlytics/d' -e '/Crashlytics./a*/'
         -e '/Crashlytics./i/*'
       - sed -i -e '32d' src/main/java/com/matejdro/pebbledialer/PebbleDialerApplication.java
+
+  - versionName: 3.3.1
+    versionCode: 41
+    commit: fe3b32a2d3a63103a814011f7a17403ec8bfd4f6
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    extlibs:
+      - android/android-support-v13.jar
+    prebuild:
+      - sed -i -e '1,16d' build.gradle
+      - "sed -i -e '/android {/iapply plugin: \"com.android.application\"' build.gradle"
+      - sed -i -e '/crashlytics/,+2d' build.gradle
+      - sed -i -e '/android {/a lintOptions {abortOnError false}' build.gradle
+      - sed -i -e '/if (!isDebuggable)/,+1d' src/main/java/com/matejdro/pebbledialer/PebbleDialerApplication.java
+      - find . -type f -name *.java -print0 | xargs -0 sed -i -e '/import io.fabric.sdk.android.Fabric/d'
+        -e '/import com.crashlytics.android.Crashlytics/d' -e '/Crashlytics./a*/'
+        -e '/Crashlytics./i/*'
 
 AutoUpdateMode: None
 UpdateCheckMode: Tags

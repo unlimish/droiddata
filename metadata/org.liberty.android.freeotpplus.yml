@@ -7,24 +7,6 @@ Translation: https://crowdin.com/project/FreeOTPPlus
 Changelog: https://github.com/helloworld1/FreeOTPPlus/releases
 
 AutoName: FreeOTP Plus
-Description: |-
-    FreeOTP Plus is a fork of FreeOTP provided by Red Hat with the following
-    enhancements:
-
-    * Export settings to Google Drive or other document providers
-    * Import settings from Google Drive or other document providers
-    * Supports Android 6.0 permissions
-    * Enhanced UI with material design
-
-    FreeOTP is a two-factor authentication (2FA) application for systems utilizing
-    one-time password protocols (OTP). Tokens can be added easily by scanning a
-    QR-code or by manually entering in the token configuration.
-
-    FreeOTP implements open standards. This means that no proprietary server-side
-    component is necessary: use any server-side component that implements these
-    standards — for example <a href="http://www.freeipa.org">FreeIPA</a>, which uses TOTP. Any
-    standards-compliant implementation will work. Currently, FreeOTP provides
-    implementations of HOTP (RFC 4226) and TOTP (RFC 6238).
 
 RepoType: git
 Repo: https://github.com/helloworld1/FreeOTPPlus.git
@@ -147,7 +129,122 @@ Builds:
     scandelete:
       - arts/ic_launcher.zip
 
-AutoUpdateMode: Version RELEASE-%v
-UpdateCheckMode: Tags RELEASE-[0-9.]+$
-CurrentVersion: '2.3'
-CurrentVersionCode: 14
+  - versionName: '2.4'
+    versionCode: 15
+    commit: 75e8d208bd2355404314e1b1a69ca0727bed80ca
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - arts/ic_launcher.zip
+
+  - versionName: '2.5'
+    versionCode: 16
+    commit: ec87ddf324d5e093572373a43a8311832948e5a3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - arts/ic_launcher.zip
+
+  - versionName: '2.6'
+    versionCode: 17
+    commit: f375dfd7d7ce2c3fa14852150b4916f3e9b59b4c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - arts/ic_launcher.zip
+
+  - versionName: '2.7'
+    versionCode: 18
+    commit: 4ee88701676cf60f78c65b42fedf93dd43edf152
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - arts/ic_launcher.zip
+
+  - versionName: '2.8'
+    versionCode: 19
+    commit: 0c065e76480e5afb4fe3912b0b4563e86a202ae6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - arts/ic_launcher.zip
+
+  - versionName: '2.9'
+    versionCode: 20
+    commit: 5b6199723e39cb967e51473e23f4e9f816f32b86
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - arts/ic_launcher.zip
+
+  - versionName: '3.0'
+    versionCode: 21
+    commit: 868ed1ebfc9bf3aea0a235a36999287703d7a284
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - arts/ic_launcher.zip
+
+  - versionName: '3.1'
+    versionCode: 22
+    commit: a936ee97894944b472efd3cbf3d91bbd1c929901
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - arts/ic_launcher.zip
+
+  - versionName: 3.1.1
+    versionCode: 23
+    commit: 65fe1857e686a5912e4068b5dbf98e1634ab412a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - arts/ic_launcher.zip
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags RELEASE-[\d.]+$
+UpdateCheckData: build.gradle.kts|\["versionCode"\] = (\d+)|.|\["versionName"\] =
+  "([\d.]+)"
+CurrentVersion: 3.1.1
+CurrentVersionCode: 23

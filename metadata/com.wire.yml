@@ -1,0 +1,48 @@
+AntiFeatures:
+  - NonFreeAssets
+Categories:
+  - Internet
+  - Phone & SMS
+License: GPL-3.0-or-later
+SourceCode: https://github.com/wireapp/wire-android
+IssueTracker: https://github.com/wireapp/wire-android/issues
+Translation: https://crowdin.com/projects/wire
+Changelog: https://github.com/wireapp/wire-android/releases
+
+AutoName: Wire
+
+RepoType: git
+Repo: https://github.com/wireapp/wire-android.git
+
+Builds:
+  - versionName: 3.81.37
+    versionCode: 4063578
+    commit: 3.81.37
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - sed -ri '/fireBase/,/}/d' app/build.gradle
+      - sed -ri '/com.google.android.c2dm/d' app/src/main/AndroidManifest.xml
+      - 'printf "VersionCode: $$VERCODE$$\nVersionName: $$VERSION$$\n" > app/version.txt'
+    ndk: r20
+
+  - versionName: 3.82.38
+    versionCode: 4254666
+    commit: 3.82.38
+    subdir: app
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ..
+      - sed -ri '/fireBase/,/}/d' app/build.gradle
+      - sed -ri '/com.google.android.c2dm/d' app/src/main/AndroidManifest.xml
+      - 'printf "VersionCode: $$VERCODE$$\nVersionName: $$VERSION$$\n" > app/version.txt'
+    ndk: r20
+
+AutoUpdateMode: None
+UpdateCheckMode: HTTP
+UpdateCheckData: https://github.com/wireapp/wire-android/releases/latest/download/version.txt|VersionCode:\s(\d+)|.|VersionName:\s([\d.]+)
+CurrentVersion: 3.82.38
+CurrentVersionCode: 4254666

@@ -11,9 +11,9 @@ Changelog: https://github.com/citiususc/calendula/releases
 
 AutoName: Calendula
 Description: |-
-    Manage your medical prescriptions through a simple and intuitive interface.
-    Users can easily define their own daily routines (wake up, lunch, dinner, ...)
-    and then link medication intakes to them.
+  Manage your medical prescriptions through a simple and intuitive interface.
+  Users can easily define their own daily routines (wake up, lunch, dinner, ...)
+  and then link medication intakes to them.
 
 RepoType: git
 Repo: https://github.com/citiususc/calendula
@@ -166,29 +166,9 @@ Builds:
       - popd
       - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
 
-  - versionName: 2.3.5
-    versionCode: 21
-    disable: third party maven repo
-    commit: 9e42bd8dfa91a91cf6b6bd3b04053c171a02d05a
-    subdir: Calendula
-    gradle:
-      - yes
-    srclibs:
-      - ActiveAndroid@08c6335cd7324c6e72da536b0c6fffa5a798f6a2
-      - google-rfc-2445@36
-    rm:
-      - Calendula/libs/*.jar
-    prebuild:
-      - sed -i -e '/sonatype/d' -e '/michaelpardo/d' -e '/applicationVariants/,+4d'
-        build.gradle
-      - cp -fR $$ActiveAndroid$$/src/com src/main/java
-      - pushd $$google-rfc-2445$$
-      - ant
-      - popd
-      - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
-
   - versionName: 2.4.1
     versionCode: 30
+    disable: https://github.com/citiususc/calendula/issues/184, com.evernote:android-job
     commit: 1cf175cf96eb43d95c1d7112c2f944007f0561c5
     subdir: Calendula
     gradle:
@@ -203,183 +183,7 @@ Builds:
       - popd
       - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
 
-  - versionName: 2.5.1
-    versionCode: 32
-    commit: 20f515b09c437838f506193f3554495aa108dfe1
-    subdir: Calendula
-    gradle:
-      - product
-    srclibs:
-      - google-rfc-2445@6a774da03398607cd8c416aa8bd769887b970d07
-    rm:
-      - Calendula/libs/*.jar
-    prebuild:
-      - pushd $$google-rfc-2445$$
-      - ant
-      - popd
-      - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
-
-  - versionName: 2.5.2
-    versionCode: 33
-    commit: v2.5.2
-    subdir: Calendula
-    gradle:
-      - product
-    srclibs:
-      - google-rfc-2445@6a774da03398607cd8c416aa8bd769887b970d07
-    rm:
-      - Calendula/libs/*.jar
-    prebuild:
-      - pushd $$google-rfc-2445$$
-      - ant
-      - popd
-      - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
-
-  - versionName: 2.5.3
-    versionCode: 34
-    commit: v2.5.3
-    subdir: Calendula
-    gradle:
-      - product
-    srclibs:
-      - google-rfc-2445@6a774da03398607cd8c416aa8bd769887b970d07
-    rm:
-      - Calendula/libs/*.jar
-    prebuild:
-      - pushd $$google-rfc-2445$$
-      - ant
-      - popd
-      - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
-
-  - versionName: 2.5.4
-    versionCode: 35
-    commit: v2.5.4
-    subdir: Calendula
-    gradle:
-      - product
-    srclibs:
-      - google-rfc-2445@6a774da03398607cd8c416aa8bd769887b970d07
-    rm:
-      - Calendula/libs/*.jar
-    prebuild:
-      - pushd $$google-rfc-2445$$
-      - ant
-      - popd
-      - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
-
-  - versionName: 2.5.5
-    versionCode: 36
-    commit: v2.5.5
-    subdir: Calendula
-    gradle:
-      - product
-    srclibs:
-      - google-rfc-2445@6a774da03398607cd8c416aa8bd769887b970d07
-    rm:
-      - Calendula/libs/*.jar
-    prebuild:
-      - pushd $$google-rfc-2445$$
-      - ant
-      - popd
-      - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
-
-  - versionName: 2.5.6
-    versionCode: 37
-    commit: v2.5.6
-    subdir: Calendula
-    gradle:
-      - product
-    srclibs:
-      - google-rfc-2445@6a774da03398607cd8c416aa8bd769887b970d07
-    rm:
-      - Calendula/libs/*.jar
-    prebuild:
-      - pushd $$google-rfc-2445$$
-      - ant
-      - popd
-      - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
-
-  - versionName: 2.5.7
-    versionCode: 38
-    commit: v2.5.7
-    subdir: Calendula
-    gradle:
-      - product
-    srclibs:
-      - google-rfc-2445@6a774da03398607cd8c416aa8bd769887b970d07
-    rm:
-      - Calendula/libs/*.jar
-    prebuild:
-      - pushd $$google-rfc-2445$$
-      - ant
-      - popd
-      - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
-
-  - versionName: 2.5.8
-    versionCode: 39
-    commit: v2.5.8
-    subdir: Calendula
-    gradle:
-      - product
-    srclibs:
-      - google-rfc-2445@6a774da03398607cd8c416aa8bd769887b970d07
-    rm:
-      - Calendula/libs/*.jar
-    prebuild:
-      - pushd $$google-rfc-2445$$
-      - ant
-      - popd
-      - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
-
-  - versionName: 2.5.9
-    versionCode: 40
-    commit: v2.5.9
-    subdir: Calendula
-    gradle:
-      - product
-    srclibs:
-      - google-rfc-2445@6a774da03398607cd8c416aa8bd769887b970d07
-    rm:
-      - Calendula/libs/*.jar
-    prebuild:
-      - pushd $$google-rfc-2445$$
-      - ant
-      - popd
-      - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
-
-  - versionName: 2.5.10
-    versionCode: 41
-    commit: v2.5.10
-    subdir: Calendula
-    gradle:
-      - product
-    srclibs:
-      - google-rfc-2445@6a774da03398607cd8c416aa8bd769887b970d07
-    rm:
-      - Calendula/libs/*.jar
-    prebuild:
-      - pushd $$google-rfc-2445$$
-      - ant
-      - popd
-      - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
-
-  - versionName: 2.5.11
-    versionCode: 42
-    commit: v2.5.11
-    subdir: Calendula
-    gradle:
-      - product
-    srclibs:
-      - google-rfc-2445@6a774da03398607cd8c416aa8bd769887b970d07
-    rm:
-      - Calendula/libs/*.jar
-    prebuild:
-      - pushd $$google-rfc-2445$$
-      - ant
-      - popd
-      - cp $$google-rfc-2445$$/jars/rfc2445.jar libs/
-
-AutoUpdateMode: Version v%v
+AutoUpdateMode: None
 UpdateCheckMode: Tags
 CurrentVersion: 2.5.11
 CurrentVersionCode: 42

@@ -1,5 +1,6 @@
 Categories:
   - Reading
+  - Science & Education
 License: Apache-2.0
 SourceCode: https://github.com/rdoeffinger/Dictionary
 IssueTracker: https://github.com/rdoeffinger/Dictionary/issues
@@ -7,11 +8,11 @@ Changelog: https://github.com/rdoeffinger/Dictionary/releases
 
 AutoName: QuickDic
 Description: |-
-    Resurrection of https://f-droid.org/packages/com.hughes.android.dictionary to a new maintainer. Uses data
-    from Wiktionary and Beolingus to generate dictionary files that can be used
-    offline. These can be downloaded from within the app. These can also be
-    generated automatically, though documentation for the process is currently
-    missing.
+  Resurrection of https://f-droid.org/packages/com.hughes.android.dictionary to a new maintainer. Uses data
+  from Wiktionary and Beolingus to generate dictionary files that can be used
+  offline. These can be downloaded from within the app. These can also be
+  generated automatically, though documentation for the process is currently
+  missing.
 
 RepoType: git
 Repo: https://github.com/rdoeffinger/Dictionary.git
@@ -124,14 +125,6 @@ Builds:
     srclibs:
       - QuickdicUtilsRestored@819e981b344df2a
     prebuild: echo "quickdicUtilDir=$$QuickdicUtilsRestored$$" >> gradle.properties
-
-  - versionName: 5.3.2
-    versionCode: 81
-    disable: interim
-    commit: 998a3e19b0a71ab4a956db118df7df100f882468
-    submodules: true
-    gradle:
-      - yes
 
   - versionName: 5.3.3
     versionCode: 82
@@ -266,7 +259,76 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 5.5.8
+    versionCode: 113
+    commit: e3a0bf08c22551137761895367bc7b3fe29a637b
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 5.5.9
+    versionCode: 114
+    commit: abd7512d20cd6fba56002a0a7e83cae11a98146c
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 5.6.0
+    versionCode: 115
+    commit: 04065234118bcc292dba790001a4d585acd1b77d
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 5.6.1
+    versionCode: 116
+    commit: 3d8328a202eaafd7253e7c40170a3cc99937ecd6
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 5.6.2
+    versionCode: 117
+    commit: 2812182a8d0d46336a9b076a728c27315c6fe9d6
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 5.6.3
+    versionCode: 118
+    commit: fa0b0195fe0c792108b32e609337b3828defa67d
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 5.7.1
+    versionCode: 120
+    commit: 6a64728317db1c3a001ff1491a2f68f9775d9c32
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]*$
-CurrentVersion: 5.5.7
-CurrentVersionCode: 112
+CurrentVersion: 5.7.1
+CurrentVersionCode: 120

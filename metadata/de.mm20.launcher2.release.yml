@@ -1,0 +1,167 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: App uses a third party service for currency exchange rates
+Categories:
+  - System
+  - Theming
+License: GPL-3.0-or-later
+AuthorName: U. N. Owen
+WebSite: https://kvaesitso.mm20.de
+SourceCode: https://github.com/MM2-0/Kvaesitso
+IssueTracker: https://github.com/MM2-0/Kvaesitso/issues
+Donate: https://github.com/sponsors/MM2-0
+
+RepoType: git
+Repo: https://github.com/MM2-0/Kvaesitso.git
+
+Builds:
+  - versionName: 1.20.0
+    versionCode: 12000
+    commit: v1.20.0
+    subdir: app/app
+    patch:
+      - remove_ms-services_12000.patch
+      - remove_gservices_12000.patch
+    gradle:
+      - yes
+    prebuild:
+      - sed -i 's/^org\.gradle\.java\.home.*$//' ../../gradle.properties
+      - sed -i 's/exclude(group\ =\ "com\.google\.guava".*$//' build.gradle.kts
+      - sed -i 's/versionCode\ =\ versionCodeDate()/versionCode = 12000/' build.gradle.kts
+      - sed -i 's/versionNameSuffix.*$//' build.gradle.kts
+
+  - versionName: 1.21.1-fdroid
+    versionCode: 2023012300
+    commit: v1.21.2
+    subdir: app/app
+    patch:
+      - remove_ms_g_2023012300.patch
+    gradle:
+      - fdroid
+    prebuild:
+      - cd ../..
+      - sed -i 's/^org\.gradle\.java\.home.*$//' gradle.properties
+      - sed -i 's/^.*pkgs\.dev\.azure\.com.*$//' build.gradle.kts
+      - sed -i 's/exclude(group\ =\ "com\.google\.guava".*$//' app/app/build.gradle.kts
+      - for i in build.gradle.kts settings.gradle.kts app/app/build.gradle.kts app/ui/build.gradle.kts
+        data/files/build.gradle.kts services/accounts/build.gradle.kts; do sed -i
+        's/^.*:ms-services.*$//' "$i"; sed -i 's/^.*:g-services.*$//' "$i"; done
+
+  - versionName: 1.25.0-fdroid
+    versionCode: 2023051600
+    commit: 1ddee5d493db70e3d259080c82cf00c66520b7ba
+    patch:
+      - remove_ms_g_2023051600.patch
+    gradle:
+      - fdroid
+    output: app/app/build/outputs/apk/fdroid/release/app-fdroid-release-unsigned.apk
+
+  - versionName: 1.26.4-fdroid
+    versionCode: 2023071201
+    commit: v1.26.4
+    patch:
+      - remove_ms_g_2023071201.patch
+    gradle:
+      - fdroid
+    output: app/app/build/outputs/apk/fdroid/release/app-fdroid-release-unsigned.apk
+
+  - versionName: 1.27.1-fdroid
+    versionCode: 2023090800
+    commit: v1.27.1
+    sudo:
+      - apt-get update
+      - apt-get install openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    patch:
+      - remove_ms_g_2023090800.patch
+    gradle:
+      - fdroid
+    output: app/app/build/outputs/apk/fdroid/release/app-fdroid-release-unsigned.apk
+    prebuild: cp libs/g-services/consumer-rules.pro libs/nextcloud/consumer-rules.pro
+
+  - versionName: 1.28.0-fdroid
+    versionCode: 2023101300
+    commit: v1.28.0
+    sudo:
+      - apt-get update
+      - apt-get install openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    patch:
+      - remove_ms_g_2023101300.patch
+    gradle:
+      - fdroid
+    output: app/app/build/outputs/apk/fdroid/release/app-fdroid-release-unsigned.apk
+    prebuild: cp libs/g-services/consumer-rules.pro libs/nextcloud/consumer-rules.pro
+
+  - versionName: 1.29.1
+    versionCode: 2024022100
+    commit: v1.29.1
+    sudo:
+      - apt-get update
+      - apt-get install openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/app/build/outputs/apk/default/release/app-default-release-unsigned.apk
+    rm:
+      - plugins/sdk/build.gradle.kts
+    prebuild:
+      - sed -i 's/4096/3072/g' gradle.properties
+      - perl -0777 -i -pe 's/signing {.*?}//sg' core/shared/build.gradle.kts
+      - perl -0777 -i -pe 's/publishing {\n    publications.*\n}\n//sg' core/shared/build.gradle.kts
+
+MaintainerNotes: |-
+  Kvaesitso uses several external APIs for search providers.
+  Several of them require signing up to obtain a developer API
+  key: gdrive search, openweathermap, HERE and Meteorologisk
+  institutt. It's not possible for users to provide these keys
+  as explained here:
+  https://github.com/MM2-0/Kvaesitso/issues/227#issuecomment-1366826219
+  If keys are not provided, these features are automatically
+  disabled during the build.
+
+  core/shared/build.gradle.kts and plugins/sdk/build.gradle.kts
+  have configurations in them for publishing artifacts to
+  maven repos. They are not used during the build, but detected
+  by F-Droid scanner anyway. We patch it out from
+  core/shared/build.gradle.kts, since this module itself is
+  still used in compilation, and delete plugins/sdk/build.gradle.kts
+  because it's not used in app compilation.
+
+  Kvaesitso depended on different libraries used for gdrive
+  login in the past that pulled GMS dependency, however it's
+  not the case anymore:
+  https://github.com/MM2-0/Kvaesitso/issues/583#issuecomment-1775268896
+  The new libraries pull OpenTelemetry though, but it's unclear
+  if it's used (considering gdrive integration is disabled).
+
+  Max heap size is reduced in gradle.properties to avoid gradle
+  daemon being killed by OOM manager.
+
+  Older versions of Kvaesitso had onedrive integration that
+  depended on non-whitelisted maven repos, but it was removed.
+
+  Upstream provides an fdroid flavor, however there's no difference
+  with default flavor except for different versionName.
+
+  For some reason, F-Droid fails to pick up the correct gradle
+  version from distributionUrl if subdir is used.
+
+  Older patches:
+  * remove_ms-services.patch removes microsoft azure sdk maven
+  repo and its usage (onedrive integration) across the project.
+
+  * remove_gservices.patch removes gdrive integration, as one
+  of dependencies it relies on contains known non-free classes,
+  according to f-droid scanner.
+
+  * remove_ms_g_2023012300.patch removes microsoft and google
+  services from the source code, while patching of respective
+  modules build.gradle.kts files is done with sed edits, since
+  these files are changed often.
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: app/app/build.gradle.kts|versionCode\s=\s.*\?:\s(\d+)|.|versionName\s=\s"(.+)"
+CurrentVersion: 1.29.1
+CurrentVersionCode: 2024022100

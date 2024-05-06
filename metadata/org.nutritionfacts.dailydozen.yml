@@ -13,24 +13,24 @@ Bitcoin: 3GQUrb9sw36MoQeZNJ4g16CCNqgr3Va6bx
 
 AutoName: Daily Dozen
 Description: |-
-    In the years of research required to create the more than a thousand
-    evidence-based videos on NutritionFacts.org, Michael Greger, MD, FACLM, has
-    arrived at a list of what he considers the most important foods to include in a
-    healthy daily diet.
+  In the years of research required to create the more than a thousand
+  evidence-based videos on NutritionFacts.org, Michael Greger, MD, FACLM, has
+  arrived at a list of what he considers the most important foods to include in a
+  healthy daily diet.
 
-    Yes, greens are good for you, but how much should we try to eat each day? Dr.
-    Greger’s Daily Dozen details the healthiest foods and how many servings of each
-    we should try to check off every day. He explains his rationale in his book
-    <a href="https://NutritionFacts.org/book">How Not to Die</a>. All his proceeds from his
-    books, DVDs, and speaking engagements is all donated to charity.
+  Yes, greens are good for you, but how much should we try to eat each day? Dr.
+  Greger's Daily Dozen details the healthiest foods and how many servings of each
+  we should try to check off every day. He explains his rationale in his book
+  <a href="https://NutritionFacts.org/book">How Not to Die</a>. All his proceeds from his
+  books, DVDs, and speaking engagements is all donated to charity.
 
-    NutritionFacts.org is a non-commercial, nonprofit, science-based public service
-    provided by Dr. Greger, providing free daily updates on the latest in nutrition
-    research via bite-sized videos. He has nearly a thousand videos on every aspect
-    of healthy eating, with new videos and articles uploaded every day. Like this
-    app, everything on the website is both free of ads and free of charge.
+  NutritionFacts.org is a non-commercial, nonprofit, science-based public service
+  provided by Dr. Greger, providing free daily updates on the latest in nutrition
+  research via bite-sized videos. He has nearly a thousand videos on every aspect
+  of healthy eating, with new videos and articles uploaded every day. Like this
+  app, everything on the website is both free of ads and free of charge.
 
-    This app was developed thanks to the volunteer efforts of John Slavick.
+  This app was developed thanks to the volunteer efforts of John Slavick.
 
 RepoType: git
 Repo: https://github.com/nutritionfactsorg/daily-dozen-android.git
@@ -39,15 +39,6 @@ Builds:
   - versionName: '15.1'
     versionCode: 42
     commit: v15.1
-    subdir: app
-    gradle:
-      - fdroid
-    prebuild: sed -i -e '/fabric/d' -e '/crashlytics/,+2d' ../build.gradle build.gradle
-
-  - versionName: '16'
-    versionCode: 44
-    disable: non- firebase/crashlytics flavour was removed
-    commit: v16
     subdir: app
     gradle:
       - fdroid
@@ -97,7 +88,141 @@ Builds:
       - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
       - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
 
-AutoUpdateMode: Version v%v
+  - versionName: '18'
+    versionCode: 56
+    commit: v18
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '19'
+    versionCode: 57
+    commit: v19
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '19.1'
+    versionCode: 58
+    commit: v19.1
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '20'
+    versionCode: 61
+    commit: 5280502784e2705c694feccc5c8086be460b1657
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '21'
+    versionCode: 69
+    commit: 6f0edc8bcdaa2043352133649fc8b0e74cbdcce5
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '21.2'
+    versionCode: 72
+    commit: c89d6730a0b28424e1828412b1afbf12a00cffb0
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '21.3'
+    versionCode: 73
+    commit: 979e8977525c3f4240ec46d007fed20630b9c1b6
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild:
+      - sed -i -e '/fabric/d; /com.google.gms/d' ../build.gradle build.gradle
+      - sed -i -e '/com.crashlytics.sdk/d; /firebase/d' build.gradle
+
+  - versionName: '22'
+    versionCode: 82
+    commit: e8cd1de4d25e594345599ba5a4eedfbfb0b5dfce
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' {.,..}/build.gradle
+
+  - versionName: '22.1'
+    versionCode: 83
+    commit: 07a2678157e19626d1c8f3a94bf99021d8ac99e5
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' {.,..}/build.gradle
+
+  - versionName: '23'
+    versionCode: 84
+    commit: 25d82753b3010e00a4e688545261b18da91d7d55
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' {.,..}/build.gradle
+
+  - versionName: '23.1'
+    versionCode: 85
+    commit: 5059897bf98f28abf4a73f47ab22b38d155e2276
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' {.,..}/build.gradle
+
+  - versionName: '24'
+    versionCode: 86
+    commit: a2dee1e4cd591ff4a4911e9098150c8cf45fe783
+    subdir: app
+    gradle:
+      - fdroid
+    rm:
+      - archive/OriginalApp.zip
+    prebuild: sed -i -e '/gms/d' -e '/firebase/d' {.,..}/build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]*$
-CurrentVersion: '17.3'
-CurrentVersionCode: 55
+CurrentVersion: '24'
+CurrentVersionCode: 86

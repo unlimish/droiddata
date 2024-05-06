@@ -12,17 +12,13 @@ Donate: https://zephyrsoft.org/contribute
 AutoName: Track Work Time
 
 RepoType: git
-Repo: https://github.com/mathisdt/trackworktime
+Repo: https://github.com/mathisdt/trackworktime.git
 
 Builds:
   - versionName: 0.5.11
     versionCode: 14
     commit: '476'
     forceversion: true
-
-  - versionName: 0.5.12
-    versionCode: 15
-    disable: not a release yet
 
   - versionName: 0.5.15
     versionCode: 18
@@ -41,54 +37,19 @@ Builds:
       - libs/date4j*jar
     prebuild:
       - pushd $$ACRA$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$ACRA$$/target/acra-4.5.0.jar libs/
       - pushd $$SuperCSV$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$SuperCSV$$/super-csv/target/super-csv-2.1.0.jar libs/
       - pushd $$CommonsLang$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$CommonsLang$$/target/commons-lang3-3.2.1.jar libs/
       - pushd $$JUnit$$
-      - $$MVN3$$ package
-      - popd
-      - cp $$JUnit$$/target/junit-4.12-SNAPSHOT.jar libs/
-      - cp -fR $$Date4J-1.2.0$$/classes/hirondelle src/
-
-  - versionName: 0.5.17
-    versionCode: 20
-    disable: java build fails
-    commit: release-build-37
-    srclibs:
-      - ACRA@acra-4.6.2
-      - CommonsLang@LANG_3_4
-      - SuperCSV@v2.3.1
-      - Date4J-johanley@cadb47a4882859a558b58ee25483100525cac325
-      - JUnit@127f1bb2a137d611e98277a0d1e9184efc47bc05
-    forceversion: true
-    rm:
-      - libs/acra*jar
-      - libs/commons*jar
-      - libs/super*jar
-      - libs/date4j*jar
-    prebuild:
-      - pushd $$ACRA$$
-      - $$MVN3$$ package
-      - popd
-      - cp $$ACRA$$/target/acra-4.6.2.jar libs/
-      - pushd $$SuperCSV$$
-      - $$MVN3$$ package
-      - popd
-      - cp $$SuperCSV$$/super-csv/target/super-csv-2.3.1.jar libs/
-      - pushd $$CommonsLang$$
-      - $$MVN3$$ package
-      - popd
-      - cp $$CommonsLang$$/target/commons-lang3-3.4.jar libs/
-      - pushd $$JUnit$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$JUnit$$/target/junit-4.12-SNAPSHOT.jar libs/
       - cp -fR $$Date4J-1.2.0$$/classes/hirondelle src/
@@ -182,7 +143,172 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.1.8
+    versionCode: 51
+    commit: v1.1.8
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 1.1.9
+    versionCode: 53
+    commit: v1.1.9
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 1.1.11
+    versionCode: 55
+    commit: 2c605a684c712c79e01c8e3146bf8b69adc1e7da
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.12
+    versionCode: 56
+    commit: 4265b0d5728d16c5f2faabbf7c082cf6b5c8b40d
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.13
+    versionCode: 57
+    commit: add518365a74080485c8072cc1ceb9a5c631b406
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.14
+    versionCode: 58
+    commit: 6cc3ffe07b4bfa5d85489f593cfdce9c40a721f4
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.15
+    versionCode: 59
+    commit: a6cb2c97c0dafcdd4a81a77c6958171920e5b74a
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.16
+    versionCode: 60
+    commit: 5aee728a5b34fbb629ef3fc4529aa15b4d91d9d5
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.17
+    versionCode: 61
+    commit: d2877867ffc04903f6ead068dc908b31c40db41b
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.18
+    versionCode: 62
+    commit: c1018a52cbcb9fa2db8bd509a9381d619547a94a
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.19
+    versionCode: 63
+    commit: 65d7814907b7c20db50db2e7711574ac2d7d4282
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.1.20
+    versionCode: 64
+    commit: b49206982109f2005a5acc5034a1d2a668b8b165
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 1.1.21
+    versionCode: 65
+    commit: 4ead8ff979488e3e91a4a8824e8283dc18a2eb8f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.1.22
+    versionCode: 67
+    commit: c06b2714739b2d0f737de6ab821fc3b75295cdce
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 1.1.23
+    versionCode: 68
+    commit: ecf654eae6b42b2f1d4b4c23e047cfa09e67180f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.1.7
-CurrentVersionCode: 49
+CurrentVersion: 1.1.23
+CurrentVersionCode: 68

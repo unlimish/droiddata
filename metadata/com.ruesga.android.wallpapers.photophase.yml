@@ -1,5 +1,6 @@
 AntiFeatures:
-  - UpstreamNonFree
+  UpstreamNonFree:
+    en-US: Upstream includes Google Mobile Services, which are removed for our builds.
 Categories:
   - Theming
 License: Apache-2.0
@@ -9,13 +10,13 @@ IssueTracker: https://github.com/jruesga/PhotoPhase/issues
 
 AutoName: PhotoPhase
 Description: |-
-    Live wallpaper that takes a selection of images and tiles a few of them,
-    applying transitions and effects.
+  Live wallpaper that takes a selection of images and tiles a few of them,
+  applying transitions and effects.
 
-    There is an OpenGL issue with one type of chipset in v1.0.6 that can cause the
-    system to crash and the only fix is to uninstall the app. Note that Android has
-    a 'safe mode' that disables all user-installed apps at start time, allowing you
-    to uninstall troublesome apps.
+  There is an OpenGL issue with one type of chipset in v1.0.6 that can cause the
+  system to crash and the only fix is to uninstall the app. Note that Android has
+  a 'safe mode' that disables all user-installed apps at start time, allowing you
+  to uninstall troublesome apps.
 
 RepoType: git
 Repo: https://github.com/jruesga/PhotoPhase.git
@@ -56,29 +57,9 @@ Builds:
     commit: v1.0.12
     target: android-19
 
-  - versionName: 2.0.0
-    versionCode: 1015
-    disable: gradle
-    commit: v2.0.0
-    target: android-19
-
-  - versionName: 2.0.1
-    versionCode: 1016
-    disable: gradle
-    commit: v2.0.1
-    target: android-19
-
   - versionName: 2.0.2
     versionCode: 1018
     commit: v2.0.2
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 2.1.0
-    versionCode: 1019
-    disable: gradle issue
-    commit: v2.1.0
     subdir: app
     gradle:
       - yes
@@ -91,34 +72,6 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/android.signingConfigs {/,+13d' build.gradle
-
-  - versionName: 2.2.0
-    versionCode: 1021
-    disable: Uses proprietary gcm dependency
-    commit: v2.2.0
-    subdir: app
-    init: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
-    gradle:
-      - yes
-    prebuild: sed -i -e '/android.signingConfigs {/,+13d' build.gradle
-
-  - versionName: 2.2.1
-    versionCode: 1022
-    disable: Uses proprietary gcm dependency
-    commit: v2.2.1
-    subdir: app
-    init: "echo 'task wrapper(type: Wrapper) { gradleVersion = \"2.10\" }' >> ../build.gradle"
-    gradle:
-      - yes
-    prebuild: sed -i -e '/android.signingConfigs {/,+13d' build.gradle
-
-  - versionName: 2.4.3
-    versionCode: 1030
-    disable: Uses proprietary gcm dependency
-    commit: v2.4.3
-    subdir: app
-    gradle:
-      - yes
 
   - versionName: 2.5.1
     versionCode: 1033
@@ -150,7 +103,7 @@ Builds:
       - gms
     prebuild: sed -i -e "/project(':gms')/d" build.gradle
 
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 CurrentVersion: 2.7.0
 CurrentVersionCode: 1036

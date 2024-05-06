@@ -3,17 +3,17 @@ Categories:
 License: GPL-2.0-only
 AuthorName: LogixIsland.ch
 AuthorEmail: relozid@logixisland.ch
-SourceCode: https://github.com/reloZid/android-anuto
-IssueTracker: https://github.com/reloZid/android-anuto/issues
-Changelog: https://github.com/reloZid/android-anuto/releases
+SourceCode: https://github.com/mjaun/android-anuto
+IssueTracker: https://github.com/mjaun/android-anuto/issues
+Changelog: https://github.com/mjaun/android-anuto/releases
 
 AutoName: Anuto TD
 Description: |-
-    Anuto is yet another tower defense game for android. It features astonishing
-    hand-drawn graphics and a smooth gameplay.
+  Anuto is yet another tower defense game for android. It features astonishing
+  hand-drawn graphics and a smooth gameplay.
 
 RepoType: git
-Repo: https://github.com/reloZid/android-anuto
+Repo: https://github.com/mjaun/android-anuto
 
 Builds:
   - versionName: 0.1-4
@@ -156,7 +156,84 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 0.7-1
+    versionCode: 26
+    commit: 301c97670b6f5747eb611f489a653cec7e81f243
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '0.8'
+    versionCode: 27
+    commit: a9d3f3acc24a50b0cab128ba65e84b0caf6c2f64
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.8-1
+    versionCode: 28
+    commit: 83c85ec830c95038977fae1736fe8461433979c2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '0.9'
+    versionCode: 29
+    commit: 67fee44087eef28a6b95b731393c57814ca51713
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 0.9-1
+    versionCode: 30
+    commit: 0e7f25b007449c038b9a97f7b1ed788e2338cf61
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '0.10'
+    versionCode: 31
+    commit: 7e830b1f94713f4ca0f2687dd7550088ab57c0a3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: '0.11'
+    versionCode: 32
+    commit: 49db680e4b14862381f928dc4e2bc49674628abf
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '0.7'
-CurrentVersionCode: 25
+CurrentVersion: '0.11'
+CurrentVersionCode: 32

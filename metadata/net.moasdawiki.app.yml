@@ -1,9 +1,11 @@
 Categories:
   - Writing
-License: GPL-3.0-or-later
+License: GPL-3.0-only
+AuthorName: Herbert Reiter
 WebSite: https://moasdawiki.net/
 SourceCode: https://gitlab.com/moasdawiki/moasdawiki-app
-Changelog: https://gitlab.com/moasdawiki/moasdawiki-app/blob/HEAD/CHANGELOG.md
+IssueTracker: https://gitlab.com/moasdawiki/moasdawiki-app/-/issues
+Changelog: https://gitlab.com/moasdawiki/moasdawiki-app/-/blob/HEAD/CHANGELOG.md
 
 AutoName: MoasdaWiki App
 
@@ -74,7 +76,140 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: 2.5.2.1
+    versionCode: 25
+    commit: 2.5.2.1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.6.0.0
+    versionCode: 26
+    commit: 2.6.0.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.6.1.0
+    versionCode: 27
+    commit: 2.6.1.0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.2.1.0
+    versionCode: 29
+    commit: e0399f70752f17e9a13767a9a6c427eca78fd737
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.4.4.0
+    versionCode: 30
+    commit: 8f0d07b299aef39aa410744a45962ddf1abbd7d9
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.5.0.0
+    versionCode: 32
+    commit: ae6de92387796d7fa66cb45986ec628bc45510e3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.5.0.1
+    versionCode: 33
+    commit: 0011124c76ea239fffb8256d794e7abef47551fc
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.5.1.0
+    versionCode: 34
+    commit: f529528145d6b0e203ee4df2b2580b9dab4390fb
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.6.0.0
+    versionCode: 35
+    commit: 9a967c58ebb32d3a25832d05090d3243d1870357
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.6.1.0
+    versionCode: 36
+    commit: 0138b6c40daf98041b1597453bc8faf671ee69e8
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 3.6.2.1
+    versionCode: 38
+    commit: 8c0326cebbeb4424bc5c4c83277e1056433f7f67
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 3.6.3.0
+    versionCode: 39
+    commit: 10e8c2a1e6aaf49d9b11eeaa2ef81d2d064a960c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i '/android {/alintOptions{checkReleaseBuilds false}' build.gradle
+
+  - versionName: 3.6.3.1
+    versionCode: 40
+    commit: a5b1d6ab98e34342b971bdc1b51f5e487f6b6b17
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i '/android {/alintOptions{checkReleaseBuilds false}' build.gradle
+
+  - versionName: 3.7.1.0
+    versionCode: 42
+    commit: 74c539c1de414fa598683285b0287eca3cc1b729
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i '/android {/alintOptions{checkReleaseBuilds false}' build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.5.2.0
-CurrentVersionCode: 24
+CurrentVersion: 3.7.1.0
+CurrentVersionCode: 42

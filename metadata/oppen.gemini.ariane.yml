@@ -28,7 +28,23 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: 2.3.7
-CurrentVersionCode: 39
+  - versionName: 2.4.0
+    versionCode: 42
+    commit: 2.4.0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - ariadne/build
+
+ArchivePolicy: 0
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 2.4.0
+CurrentVersionCode: 42
+
+NoSourceSince: 2.4.0

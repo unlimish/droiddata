@@ -1,6 +1,6 @@
 Categories:
-  - Reading
   - Internet
+  - Reading
 License: GPL-3.0-or-later
 AuthorName: Daniel Schaal
 AuthorEmail: daniel@schaal.email
@@ -11,11 +11,11 @@ Changelog: https://github.com/schaal/ocreader/blob/HEAD/CHANGELOG.md
 
 AutoName: OCReader
 Description: |-
-    OCReader is a feed reader for <a href="https://github.com/nextcloud/news">Nextcloud
-    News</a>, just login with your ownCloud/Nextcloud credentials and you can start
-    reading your feeds.
+  OCReader is a feed reader for <a href="https://github.com/nextcloud/news">Nextcloud
+  News</a>, just login with your ownCloud/Nextcloud credentials and you can start
+  reading your feeds.
 
-    It features a simple but colorful interface.
+  It features a simple but colorful interface.
 
 RepoType: git
 Repo: https://github.com/schaal/ocreader
@@ -393,7 +393,25 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: '0.57'
+    versionCode: 57
+    commit: cd385d50cb2a16ab4a3f4632cf088bb725cc73a0
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '0.59'
+    versionCode: 59
+    commit: c0311a0ccbac01a930772a5d7d593b2367ae9ddc
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '0.56'
-CurrentVersionCode: 56
+CurrentVersion: '0.59'
+CurrentVersionCode: 59

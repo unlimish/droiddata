@@ -1,0 +1,680 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: While using the Invidious API, video content comes from Youtube.
+Categories:
+  - Internet
+  - Multimedia
+License: AGPL-3.0-or-later
+AuthorName: Paul Fauchon
+AuthorEmail: p.fauchon@gmail.com
+WebSite: https://github.com/lamarios/clipious
+SourceCode: https://github.com/lamarios/clipious
+IssueTracker: https://github.com/lamarios/clipious/issues
+Translation: https://hosted.weblate.org/projects/clipious/app-translation/
+Changelog: https://github.com/lamarios/clipious/releases
+
+AutoName: Clipious
+
+RepoType: git
+Repo: https://github.com/lamarios/clipious.git
+
+Builds:
+  - versionName: 1.18.0
+    versionCode: 40441
+    commit: 40d339aba361cb77e1ee0645eeffb886c5e20eb8
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.18.0
+    versionCode: 40442
+    commit: 40d339aba361cb77e1ee0645eeffb886c5e20eb8
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.18.0
+    versionCode: 40443
+    commit: 40d339aba361cb77e1ee0645eeffb886c5e20eb8
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.0
+    versionCode: 40451
+    commit: 34db296183c87c4fe3e874560bb66e27de212967
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.0
+    versionCode: 40452
+    commit: 34db296183c87c4fe3e874560bb66e27de212967
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.0
+    versionCode: 40453
+    commit: 34db296183c87c4fe3e874560bb66e27de212967
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.1
+    versionCode: 40461
+    commit: 5de07830506246df7457f0033509cd17a8988529
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.1
+    versionCode: 40462
+    commit: 5de07830506246df7457f0033509cd17a8988529
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.1
+    versionCode: 40463
+    commit: 5de07830506246df7457f0033509cd17a8988529
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.4
+    versionCode: 40491
+    commit: bd3b0419ea665ca3284c5d7ce2fa28828c63fd29
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.4
+    versionCode: 40492
+    commit: bd3b0419ea665ca3284c5d7ce2fa28828c63fd29
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.4
+    versionCode: 40493
+    commit: bd3b0419ea665ca3284c5d7ce2fa28828c63fd29
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.5
+    versionCode: 40501
+    commit: 72f7b436a26d4bdb85e29e85cd8c51feaaf1a43e
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.5
+    versionCode: 40502
+    commit: 72f7b436a26d4bdb85e29e85cd8c51feaaf1a43e
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.5
+    versionCode: 40503
+    commit: 72f7b436a26d4bdb85e29e85cd8c51feaaf1a43e
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.7
+    versionCode: 40521
+    commit: 7794cc4907a6a2c089db79729280d786d4287466
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.7
+    versionCode: 40522
+    commit: 7794cc4907a6a2c089db79729280d786d4287466
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+  - versionName: 1.19.7
+    versionCode: 40523
+    commit: 7794cc4907a6a2c089db79729280d786d4287466
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/lamarios/clipious/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - macos
+      - linux
+      - windows
+      - web
+    prebuild:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter pub get
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - cd ..
+      - mv com.github.lamarios.clipious /tmp/build
+      - pushd /tmp/build/
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter pub run flutter_native_splash:create
+      - submodules/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /tmp/build com.github.lamarios.clipious
+
+AllowedAPKSigningKeys: 19de04e5d68466069d30ec63c6ba7d9e3cf73b5d61cb4b3762c2b9b253ecbd03
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+VercodeOperation:
+  - 10 * %c + 1
+  - 10 * %c + 2
+  - 10 * %c + 3
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.19.7
+CurrentVersionCode: 40523

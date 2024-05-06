@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Depends on Facebook.
 Categories:
   - Internet
 License: GPL-3.0-only
@@ -46,14 +47,6 @@ Builds:
   - versionName: 2.2.4
     versionCode: 2020400
     commit: v2.2.4
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 2.3.0
-    versionCode: 2030000
-    disable: missing files in APK
-    commit: v2.3.0
     subdir: app
     gradle:
       - yes
@@ -135,7 +128,51 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 3.1.0
+    versionCode: 3010000
+    commit: 8b6c5016936fc82b3b480a1d04487c32cc21ad2a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.1.1
+    versionCode: 3010100
+    commit: 3b6de26ee105959a5ea7ee5a782509c48f1f358d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.1.2
+    versionCode: 3010200
+    commit: e33dd68045870438152004ebbca5d3c08dffe953
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 3.2.0
+    versionCode: 3020000
+    commit: 30670b14e7f5f3a7b0ef7f1ae65a3b29cbc2e389
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.0.0
-CurrentVersionCode: 3000000
+CurrentVersion: 3.2.0
+CurrentVersionCode: 3020000

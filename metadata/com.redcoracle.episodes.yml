@@ -1,3 +1,6 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: TV show data is downloaded from TheTVDB.com, which is proprietary.
 Categories:
   - Multimedia
 License: GPL-3.0-or-later
@@ -39,7 +42,65 @@ Builds:
     gradle:
       - standard
 
-AutoUpdateMode: Version %v
+  - versionName: 0.13.6
+    versionCode: 19
+    commit: 0.13.6
+    subdir: app
+    gradle:
+      - standard
+
+  - versionName: 0.14.0
+    versionCode: 20
+    commit: b116965a69794f4cecb060b06a2d47e4b74a7980
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 0.14.1
+    versionCode: 21
+    commit: 22a052ea8d9149d15bf81ab4f6c29aeb81f609b5
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 0.15.0
+    versionCode: 22
+    commit: 49d4b2d9612fca82e6c0a13650fbcf8ee5781871
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 0.15.1
+    versionCode: 23
+    commit: 75a0a40a264ce7c7c4b0ced4dc722dddeca28871
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 0.16.0
+    versionCode: 24
+    commit: 85d92413a0814866f2349c1656983a99b3470a84
+    subdir: app
+    gradle:
+      - standard
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9]+\.[0-9]+\.[0-9]+$
-CurrentVersion: 0.13.5
-CurrentVersionCode: 18
+CurrentVersion: 0.16.0
+CurrentVersionCode: 24

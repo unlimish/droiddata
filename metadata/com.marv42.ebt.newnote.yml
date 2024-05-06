@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Depends on EuroBillTracker, which is not libre.
 Categories:
   - Games
   - Internet
@@ -11,7 +12,7 @@ IssueTracker: https://github.com/marv42/EbtNewNote/issues
 AutoName: EBT New Note
 
 RepoType: git
-Repo: https://github.com/marv42/EbtNewNote
+Repo: https://github.com/marv42/EbtNewNote.git
 
 Builds:
   - versionName: '0.19'
@@ -63,7 +64,107 @@ Builds:
     gradle:
       - withoutKey
 
-AutoUpdateMode: None
-UpdateCheckMode: Tags v\d+\.\d+(\.\d+)?
-CurrentVersion: 0.49.0
-CurrentVersionCode: 4900
+  - versionName: 0.50.0
+    versionCode: 5000
+    commit: v0.50.0
+    subdir: app
+    gradle:
+      - withoutKey
+
+  - versionName: 0.51.0
+    versionCode: 5100
+    commit: v0.51.0
+    subdir: app
+    gradle:
+      - withoutKey
+
+  - versionName: 0.53.0
+    versionCode: 5300
+    commit: v0.53.0
+    subdir: app
+    gradle:
+      - withoutKey
+
+  - versionName: 0.60.0
+    versionCode: 6000
+    commit: v0.60.0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - withoutKey
+
+  - versionName: 0.64.0
+    versionCode: 6400
+    commit: v0.64.0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - withoutKey
+
+  - versionName: 0.66.0
+    versionCode: 6600
+    commit: v0.66.0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - withoutKey
+
+  - versionName: 0.68.0
+    versionCode: 6800
+    commit: 532aa3a8bcdc08da98a8f6c9252989474fff0ae4
+    subdir: app
+    gradle:
+      - withoutKey
+
+  - versionName: 0.69.0
+    versionCode: 6900
+    commit: 4c052f3ba5788973af978dfaeec08f5203bc9fb3
+    subdir: app
+    gradle:
+      - withoutKey
+
+  - versionName: 0.70.0
+    versionCode: 7000
+    commit: 6a0400058de379a8a15eb7b00c00ac3bbf3ec416
+    subdir: app
+    gradle:
+      - withoutKey
+
+  - versionName: 0.71.0
+    versionCode: 7100
+    commit: 8c5f25ebf537a2ae97c34429b55f51f01624ffc6
+    subdir: app
+    gradle:
+      - withoutKey
+
+  - versionName: 0.75.0
+    versionCode: 7500
+    commit: 87f7e55cca8ff56b1cf50318449be1f9577dbb24
+    subdir: app
+    gradle:
+      - withoutKey
+
+  - versionName: 0.77.0
+    versionCode: 7700
+    commit: bdaf9ef4c2c4da7e8f90c982f1993da9bb916dc4
+    subdir: app
+    gradle:
+      - withoutKey
+
+MaintainerNotes: ACRA is configured with the email sender only and hence strictly
+  opt-in
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v[\d.]+$
+UpdateCheckData: app/build.gradle|versionCode (\d+)|.|versionName "([\d.]+)"
+CurrentVersion: 0.77.0
+CurrentVersionCode: 7700

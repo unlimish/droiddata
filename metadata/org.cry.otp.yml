@@ -8,21 +8,21 @@ IssueTracker: https://github.com/chrismiceli/motp/issues
 
 AutoName: mOTP
 Description: |-
-    Generating OTPs without the need for a special hardware token. Using motp, hotp
-    or totp algorithms, wih multiple profiles and time-zone support.
+  Generating OTPs without the need for a special hardware token. Using motp, hotp
+  or totp algorithms, wih multiple profiles and time-zone support.
 
-    '''Support:'''
+  <b>Support:</b>
 
-    * <a href="http://motp.sourceforge.net/">mOTP</a>
-    * <a href="http://www.ietf.org/rfc/rfc4226.txt">HOTP RFC 4226</a>
-    * <a href="http://www.ietf.org/rfc/rfc6238.txt">TOTP RFC 6238</a>
+  * <a href="http://motp.sourceforge.net/">mOTP</a>
+  * <a href="http://www.ietf.org/rfc/rfc4226.txt">HOTP RFC 4226</a>
+  * <a href="http://www.ietf.org/rfc/rfc6238.txt">TOTP RFC 6238</a>
 
-    '''Features:'''
+  <b>Features:</b>
 
-    * Profiles for multiple security sites
-    * Time zone support
+  * Profiles for multiple security sites
+  * Time zone support
 
-    One time passwords provide two-factor authentication for added security.
+  One time passwords provide two-factor authentication for added security.
 
 RepoType: git
 Repo: https://github.com/chrismiceli/motp
@@ -40,7 +40,25 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '3'
+    versionCode: 22
+    commit: 3f0c727fbbf2210980fe8a646d854a70e8d9276b
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '4'
+    versionCode: 23
+    commit: 279752e62f06a9388c75e560f4e407236869c01d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: None
 UpdateCheckMode: RepoManifest
-CurrentVersion: '3'
-CurrentVersionCode: 22
+CurrentVersion: '4'
+CurrentVersionCode: 24

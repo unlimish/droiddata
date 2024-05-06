@@ -12,10 +12,10 @@ Bitcoin: 1LY6Hs6SurATjfxnihzLMDUMUuMxvQ4aEi
 
 AutoName: TermBot
 Description: |-
-    Log into your servers with SSH and authenticate with your Security Keys and
-    OpenPGP cards over NFC and USB.
+  Log into your servers with SSH and authenticate with your Security Keys and
+  OpenPGP cards over NFC and USB.
 
-    TermBot is based on ConnectBot and uses the Cotech Hardware Security SDK.
+  TermBot is based on ConnectBot and uses the Cotech Hardware Security SDK.
 
 RepoType: git
 Repo: https://github.com/cotechde/termbot
@@ -63,7 +63,21 @@ Builds:
         build.gradle
       - sed -i -e '/MAVEN_REPO_CACHE/,+6d' ../settings.gradle
 
+  - versionName: 1.9.6-termbot3
+    versionCode: 10905217
+    commit: 1.9.6-termbot3
+    subdir: app
+    gradle:
+      - oss
+    prebuild:
+      - sed -i -e '/googleImplementation/d' build.gradle
+      - sed -i -e 's/androidGitVersion.name()/"$$VERSION$$"/' build.gradle
+      - sed -i -e 's/21.3.6528147/21.4.7075529/' build.gradle
+      - sed -i -e 's|url MAVEN_REPO_CACHE|url "https://jitpack.io"|' ../build.gradle
+        ../settings.gradle
+    ndk: r21e
+
 AutoUpdateMode: None
-UpdateCheckMode: Tags ^[0-9.]+-termbot[0-9.]+$
-CurrentVersion: 1.9.5-termbot8
-CurrentVersionCode: 10905074
+UpdateCheckMode: None
+CurrentVersion: 1.9.6-termbot3
+CurrentVersionCode: 10905217

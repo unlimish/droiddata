@@ -7,14 +7,14 @@ IssueTracker: https://github.com/haiwen/seadroid/issues
 
 AutoName: Seafile
 Description: |-
-    Client for the Seafile cloud file server and project management software. If you
-    are in a small team with a few people, you can create a group in Seafile and
-    invite other team members. Team members can then maintain file libraries
-    together and collaborate around them.
+  Client for the Seafile cloud file server and project management software. If you
+  are in a small team with a few people, you can create a group in Seafile and
+  invite other team members. Team members can then maintain file libraries
+  together and collaborate around them.
 
-    You can try the <a href="https://seacloud.cc/demo">demo</a>, sign up for an account at the
-    website, or since the server-side is also free-as-in-freedom, it can be
-    installed on any server and configured to work with the app.
+  You can try the <a href="https://seacloud.cc/demo">demo</a>, sign up for an account at the
+  website, or since the server-side is also free-as-in-freedom, it can be
+  installed on any server and configured to work with the app.
 
 RepoType: git
 Repo: https://github.com/haiwen/seadroid.git
@@ -24,9 +24,9 @@ Builds:
     versionCode: 12
     commit: 0.7.1
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@f2b7b069547b
+      - ActionBarSherlock@4.4.0
+      - aFileChooser@bd54d1411f
+      - NewQuickAction3D-haiwen@f2b7b069547b
       - HttpRequest-Sawicki@http-request-5.3
     prebuild:
       - echo 'source.dir=src;$$HttpRequest-Sawicki$$' >> ant.properties
@@ -36,10 +36,10 @@ Builds:
     versionCode: 14
     commit: 0.8.1
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@f2b7b069547b
-      - 4:ViewPagerIndicator@2.4.1
+      - ActionBarSherlock@4.4.0
+      - aFileChooser@bd54d1411f
+      - NewQuickAction3D-haiwen@f2b7b069547b
+      - ViewPagerIndicator@2.4.1
       - HttpRequest-Sawicki@http-request-5.3
     prebuild:
       - echo 'source.dir=src;$$HttpRequest-Sawicki$$' >> ant.properties
@@ -51,10 +51,10 @@ Builds:
     versionCode: 15
     commit: 0.8.2
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@f2b7b069547b
-      - 4:ViewPagerIndicator@2.4.1
+      - ActionBarSherlock@4.4.0
+      - aFileChooser@bd54d1411f
+      - NewQuickAction3D-haiwen@f2b7b069547b
+      - ViewPagerIndicator@2.4.1
       - HttpRequest-Sawicki@http-request-5.3
     prebuild:
       - echo 'source.dir=src;$$HttpRequest-Sawicki$$' >> ant.properties
@@ -62,21 +62,15 @@ Builds:
       - cp libs/android-support-v4.jar $$ActionBarSherlock$$/libs/android-support-v4.jar
       - cp libs/android-support-v4.jar $$ViewPagerIndicator$$/libs/android-support-v4.jar
 
-  - versionName: 1.1.1
-    versionCode: 22
-    disable: uses upstream's own maven repo
-    commit: 1.1.1
-    maven: 'yes'
-
   - versionName: 1.4.2
     versionCode: 28
     commit: 1.4.2
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
-      - 4:ViewPagerIndicator@2.4.1
-      - 5:MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
+      - ActionBarSherlock@4.4.0
+      - aFileChooser@bd54d1411f
+      - NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
+      - ViewPagerIndicator@2.4.1
+      - MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
       - ImageLoader@v1.9.3
       - HttpRequest-Sawicki@http-request-5.6
       - CommonsIO@2.4
@@ -92,11 +86,11 @@ Builds:
       - cp libs/android-support-v4.jar $$ViewPagerIndicator$$/libs/android-support-v4.jar
       - cp libs/android-support-v4.jar $$MarkDownView$$/libs/android-support-v4.jar
       - pushd $$CommonsIO$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$CommonsIO$$/target/commons-io-2.4.jar libs/
       - pushd $$ImageLoader$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$ImageLoader$$/target/universal-image-loader-1.9.3.jar libs/
 
@@ -104,11 +98,11 @@ Builds:
     versionCode: 29
     commit: 1.5.0
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
-      - 4:ViewPagerIndicator@2.4.1
-      - 5:MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
+      - ActionBarSherlock@4.4.0
+      - aFileChooser@bd54d1411f
+      - NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
+      - ViewPagerIndicator@2.4.1
+      - MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
       - ImageLoader@v1.9.3
       - HttpRequest-Sawicki@http-request-5.6
       - CommonsIO@2.4
@@ -124,11 +118,11 @@ Builds:
       - cp libs/android-support-v4.jar $$ViewPagerIndicator$$/libs/android-support-v4.jar
       - cp libs/android-support-v4.jar $$MarkDownView$$/libs/android-support-v4.jar
       - pushd $$CommonsIO$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$CommonsIO$$/target/commons-io-2.4.jar libs/
       - pushd $$ImageLoader$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$ImageLoader$$/target/universal-image-loader-1.9.3.jar libs/
 
@@ -136,11 +130,11 @@ Builds:
     versionCode: 30
     commit: 1.5.1
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
-      - 4:ViewPagerIndicator@2.4.1
-      - 5:MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
+      - ActionBarSherlock@4.4.0
+      - aFileChooser@bd54d1411f
+      - NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
+      - ViewPagerIndicator@2.4.1
+      - MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
       - ImageLoader@v1.9.3
       - HttpRequest-Sawicki@http-request-5.6
       - CommonsIO@2.4
@@ -156,11 +150,11 @@ Builds:
       - cp libs/android-support-v4.jar $$ViewPagerIndicator$$/libs/android-support-v4.jar
       - cp libs/android-support-v4.jar $$MarkDownView$$/libs/android-support-v4.jar
       - pushd $$CommonsIO$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$CommonsIO$$/target/commons-io-2.4.jar libs/
       - pushd $$ImageLoader$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$ImageLoader$$/target/universal-image-loader-1.9.3.jar libs/
 
@@ -168,11 +162,11 @@ Builds:
     versionCode: 31
     commit: 1.6.0
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
-      - 4:ViewPagerIndicator@2.4.1
-      - 5:MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
+      - ActionBarSherlock@4.4.0
+      - aFileChooser@bd54d1411f
+      - NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
+      - ViewPagerIndicator@2.4.1
+      - MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
       - ImageLoader@v1.9.3
       - HttpRequest-Sawicki@http-request-5.6
       - CommonsIO@2.4
@@ -188,11 +182,11 @@ Builds:
       - cp libs/android-support-v4.jar $$ViewPagerIndicator$$/libs/android-support-v4.jar
       - cp libs/android-support-v4.jar $$MarkDownView$$/libs/android-support-v4.jar
       - pushd $$CommonsIO$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$CommonsIO$$/target/commons-io-2.4.jar libs/
       - pushd $$ImageLoader$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$ImageLoader$$/target/universal-image-loader-1.9.3.jar libs/
 
@@ -200,11 +194,11 @@ Builds:
     versionCode: 33
     commit: 1.6.2
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
-      - 4:ViewPagerIndicator@2.4.1
-      - 5:MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
+      - ActionBarSherlock@4.4.0
+      - aFileChooser@bd54d1411f
+      - NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
+      - ViewPagerIndicator@2.4.1
+      - MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
       - ImageLoader@v1.9.3
       - HttpRequest-Sawicki@http-request-5.6
       - CommonsIO@2.4
@@ -220,11 +214,11 @@ Builds:
       - cp libs/android-support-v4.jar $$ViewPagerIndicator$$/libs/android-support-v4.jar
       - cp libs/android-support-v4.jar $$MarkDownView$$/libs/android-support-v4.jar
       - pushd $$CommonsIO$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$CommonsIO$$/target/commons-io-2.4.jar libs/
       - pushd $$ImageLoader$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$ImageLoader$$/target/universal-image-loader-1.9.3.jar libs/
 
@@ -232,11 +226,11 @@ Builds:
     versionCode: 34
     commit: 1.6.3
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
-      - 4:ViewPagerIndicator@2.4.1
-      - 5:MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
+      - ActionBarSherlock@4.4.0
+      - aFileChooser@bd54d1411f
+      - NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
+      - ViewPagerIndicator@2.4.1
+      - MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
       - ImageLoader@v1.9.3
       - HttpRequest-Sawicki@http-request-5.6
       - CommonsIO@2.4
@@ -252,11 +246,11 @@ Builds:
       - cp libs/android-support-v4.jar $$ViewPagerIndicator$$/libs/android-support-v4.jar
       - cp libs/android-support-v4.jar $$MarkDownView$$/libs/android-support-v4.jar
       - pushd $$CommonsIO$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$CommonsIO$$/target/commons-io-2.4.jar libs/
       - pushd $$ImageLoader$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$ImageLoader$$/target/universal-image-loader-1.9.3.jar libs/
 
@@ -264,11 +258,11 @@ Builds:
     versionCode: 35
     commit: 1.7.0
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
-      - 4:ViewPagerIndicator@2.4.1
-      - 5:MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
+      - ActionBarSherlock@4.4.0
+      - aFileChooser@bd54d1411f
+      - NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
+      - ViewPagerIndicator@2.4.1
+      - MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
       - ImageLoader@v1.9.3
       - HttpRequest-Sawicki@http-request-5.6
       - CommonsIO@2.4
@@ -285,11 +279,11 @@ Builds:
       - cp libs/android-support-v4.jar $$ViewPagerIndicator$$/libs/android-support-v4.jar
       - cp libs/android-support-v4.jar $$MarkDownView$$/libs/android-support-v4.jar
       - pushd $$CommonsIO$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$CommonsIO$$/target/commons-io-2.4.jar libs/
       - pushd $$ImageLoader$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$ImageLoader$$/target/universal-image-loader-1.9.3.jar libs/
       - cp -fR $$PhotoView$$/src/main/java/uk src/
@@ -299,11 +293,11 @@ Builds:
     versionCode: 36
     commit: 1.7.1
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
-      - 4:ViewPagerIndicator@2.4.1
-      - 5:MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
+      - ActionBarSherlock@4.4.0
+      - aFileChooser@bd54d1411f
+      - NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
+      - ViewPagerIndicator@2.4.1
+      - MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
       - ImageLoader@v1.9.3
       - HttpRequest-Sawicki@http-request-5.6
       - CommonsIO@2.4
@@ -320,11 +314,11 @@ Builds:
       - cp libs/android-support-v4.jar $$ViewPagerIndicator$$/libs/android-support-v4.jar
       - cp libs/android-support-v4.jar $$MarkDownView$$/libs/android-support-v4.jar
       - pushd $$CommonsIO$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$CommonsIO$$/target/commons-io-2.4.jar libs/
       - pushd $$ImageLoader$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$ImageLoader$$/target/universal-image-loader-1.9.3.jar libs/
       - cp -fR $$PhotoView$$/src/main/java/uk src/
@@ -334,11 +328,11 @@ Builds:
     versionCode: 37
     commit: 1.8.0
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
-      - 4:ViewPagerIndicator@2.4.1
-      - 5:MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
+      - ActionBarSherlock@4.4.0
+      - aFileChooser@bd54d1411f
+      - NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
+      - ViewPagerIndicator@2.4.1
+      - MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
       - ImageLoader@v1.9.3
       - HttpRequest-Sawicki@http-request-5.6
       - CommonsIO@2.4
@@ -355,11 +349,11 @@ Builds:
       - cp libs/android-support-v4.jar $$ViewPagerIndicator$$/libs/android-support-v4.jar
       - cp libs/android-support-v4.jar $$MarkDownView$$/libs/android-support-v4.jar
       - pushd $$CommonsIO$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$CommonsIO$$/target/commons-io-2.4.jar libs/
       - pushd $$ImageLoader$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$ImageLoader$$/target/universal-image-loader-1.9.3.jar libs/
       - cp -fR $$PhotoView$$/src/main/java/uk src/
@@ -369,11 +363,11 @@ Builds:
     versionCode: 38
     commit: 1.8.1
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
-      - 4:ViewPagerIndicator@2.4.1
-      - 5:MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
+      - ActionBarSherlock@4.4.0
+      - aFileChooser@bd54d1411f
+      - NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
+      - ViewPagerIndicator@2.4.1
+      - MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
       - ImageLoader@v1.9.3
       - HttpRequest-Sawicki@http-request-5.6
       - CommonsIO@2.4
@@ -390,59 +384,15 @@ Builds:
       - cp libs/android-support-v4.jar $$ViewPagerIndicator$$/libs/android-support-v4.jar
       - cp libs/android-support-v4.jar $$MarkDownView$$/libs/android-support-v4.jar
       - pushd $$CommonsIO$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$CommonsIO$$/target/commons-io-2.4.jar libs/
       - pushd $$ImageLoader$$
-      - $$MVN3$$ package
+      - mvn package
       - popd
       - cp $$ImageLoader$$/target/universal-image-loader-1.9.3.jar libs/
       - cp -fR $$PhotoView$$/src/main/java/uk src/
       - echo -e 'java.source=1.7\njava.target=1.7' >> ant.properties
-
-  - versionName: 1.9.0
-    versionCode: 39
-    disable: missing resources
-    commit: 1.9.0
-    srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - 2:aFileChooser@bd54d1411f
-      - 3:NewQuickAction3D-haiwen@421f608b14178a59c2e42d6f063a05dc59afb85e
-      - 4:ViewPagerIndicator@2.4.1
-      - 5:MarkDownView@98b0db192bfb3bf4c0fe7520c2510e569783ba58
-      - ImageLoader@v1.9.3
-      - HttpRequest-Sawicki@http-request-5.6
-      - CommonsIO@2.4
-      - PhotoView@v1.2.4
-    rm:
-      - libs/*
-    extlibs:
-      - android/android-support-v4.jar
-      - guava-r08/guava-r08.jar
-    prebuild:
-      - echo 'source.dir=src;$$HttpRequest-Sawicki$$' >> ant.properties
-      - cp libs/android-support-v4.jar $$aFileChooser$$/libs/android-support-v4.jar
-      - cp libs/android-support-v4.jar $$ActionBarSherlock$$/libs/android-support-v4.jar
-      - cp libs/android-support-v4.jar $$ViewPagerIndicator$$/libs/android-support-v4.jar
-      - cp libs/android-support-v4.jar $$MarkDownView$$/libs/android-support-v4.jar
-      - pushd $$CommonsIO$$
-      - $$MVN3$$ package
-      - popd
-      - cp $$CommonsIO$$/target/commons-io-2.4.jar libs/
-      - pushd $$ImageLoader$$
-      - $$MVN3$$ package
-      - popd
-      - cp $$ImageLoader$$/target/universal-image-loader-1.9.3.jar libs/
-      - cp -fR $$PhotoView$$/src/main/java/uk src/
-      - echo -e 'java.source=1.7\njava.target=1.7' >> ant.properties
-
-  - versionName: 1.9.4
-    versionCode: 43
-    disable: broken, see https://github.com/haiwen/seadroid/issues/462
-    commit: 1.9.4
-    subdir: app
-    gradle:
-      - yes
 
   - versionName: 1.9.5
     versionCode: 44
@@ -627,7 +577,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/compile fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.1.20
     versionCode: 74
@@ -644,7 +594,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/compile fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.0
     versionCode: 75
@@ -661,7 +611,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/compile fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.1
     versionCode: 76
@@ -678,7 +628,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/compile fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.2
     versionCode: 77
@@ -695,7 +645,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/compile fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.3
     versionCode: 78
@@ -712,7 +662,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/compile fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.4
     versionCode: 79
@@ -729,7 +679,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.6
     versionCode: 81
@@ -746,7 +696,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.7
     versionCode: 82
@@ -763,7 +713,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.8
     versionCode: 83
@@ -780,7 +730,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.9
     versionCode: 84
@@ -797,7 +747,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.11
     versionCode: 86
@@ -814,7 +764,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.13
     versionCode: 88
@@ -831,7 +781,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.14
     versionCode: 89
@@ -848,7 +798,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.15
     versionCode: 90
@@ -865,7 +815,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.16
     versionCode: 91
@@ -882,26 +832,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/compile "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
-
-  - versionName: 2.2.17
-    versionCode: 92
-    disable: "Unexpected version/version code in output; APK: '2.2.16' / '91',  Expected:\
-        \ '2.2.17' / '92'"
-    commit: 2.2.17
-    subdir: app
-    gradle:
-      - yes
-    srclibs:
-      - android-vcard@android-vcard-1.4
-    rm:
-      - app/libs
-    prebuild:
-      - find $$android-vcard$$ -name '*.jar' -delete
-      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
-      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
-        build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.18
     versionCode: 93
@@ -916,7 +847,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.19
     versionCode: 94
@@ -931,7 +862,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.20
     versionCode: 95
@@ -946,7 +877,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.21
     versionCode: 96
@@ -961,7 +892,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.22
     versionCode: 97
@@ -976,7 +907,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.23
     versionCode: 98
@@ -991,7 +922,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.25
     versionCode: 100
@@ -1006,7 +937,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.26
     versionCode: 101
@@ -1021,7 +952,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.27
     versionCode: 102
@@ -1036,7 +967,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.28
     versionCode: 103
@@ -1051,7 +982,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.30
     versionCode: 105
@@ -1066,7 +997,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.31
     versionCode: 106
@@ -1081,7 +1012,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.32
     versionCode: 107
@@ -1096,7 +1027,7 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
   - versionName: 2.2.33
     versionCode: 108
@@ -1111,9 +1042,307 @@ Builds:
       - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
       - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
         build.gradle
-    build: $$MVN3$$ install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
 
-AutoUpdateMode: Version %v
+  - versionName: 2.2.34
+    versionCode: 109
+    commit: 2.2.34
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.35
+    versionCode: 110
+    commit: 2.2.35
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.36
+    versionCode: 111
+    commit: 2.2.36
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.38
+    versionCode: 113
+    commit: 2.2.38
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.39
+    versionCode: 114
+    commit: da6bc0cc96a2fd081439bf2ad32565b422160b6c
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.40
+    versionCode: 115
+    commit: 034ced81276227eca3b3dc492d8b67622e7c6aee
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.41
+    versionCode: 116
+    commit: 45dad57995a500b566c702d5c6b7174cd9d33fee
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.42
+    versionCode: 117
+    commit: b85eb857a97ef0a1a6ba41192376511ea150a503
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.44
+    versionCode: 119
+    commit: a503d6dfcefb1fdcf9e819a2b8b3398aefcffffc
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.45
+    versionCode: 120
+    commit: 9d700d70b7b47c45e1b7a529b2a0ac3ff3f2302f
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.46
+    versionCode: 121
+    commit: 61761ebdd48946aab8d184e2a18cb6cac42c90dc
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.47
+    versionCode: 122
+    commit: 5f102066bdaf143cd506a3d56c59deb40fa06d2f
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.2.48
+    versionCode: 123
+    commit: 485d05ef0ab46928e9e6967f57e114efb5934689
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.3.1
+    versionCode: 128
+    commit: 49ed5aef7b7924afbbf3818d8bb8a33b49583300
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y maven
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms4g -Xmx16g -XX:MaxPermSize=16g -XX:-UseGCOverheadLimit"
+        >> ../gradle.properties
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.3.2
+    versionCode: 129
+    commit: 2779c829585b49012074500a3c6248894471ee4e
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y maven
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - echo -e "\norg.gradle.jvmargs=-Xms4g -Xmx16g -XX:MaxPermSize=16g -XX:-UseGCOverheadLimit"
+        >> ../gradle.properties
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.3.5
+    versionCode: 138
+    commit: edd86098b5769a8f6da258fb3337653ec4d68b8d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y maven
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - echo -e "android.useAndroidX=true" > ../gradle.properties
+      - echo -e "\norg.gradle.jvmargs=-Xms4g -Xmx16g -XX:MaxPermSize=16g -XX:-UseGCOverheadLimit"
+        >> ../gradle.properties
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 2.3.6
+    versionCode: 139
+    commit: 4f4d7f09b4d32a0027da350c6d239245596b75ab
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y maven
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - echo -e "android.useAndroidX=true" > ../gradle.properties
+      - echo -e "\norg.gradle.jvmargs=-Xms4g -Xmx16g -XX:MaxPermSize=16g -XX:-UseGCOverheadLimit"
+        >> ../gradle.properties
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+  - versionName: 3.0.0
+    versionCode: 150
+    commit: 2f710e284b07dcef09c5f093aff254da348cfdbd
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y maven
+    gradle:
+      - yes
+    srclibs:
+      - android-vcard@android-vcard-1.4
+    prebuild:
+      - echo -e "android.useAndroidX=true" > ../gradle.properties
+      - echo -e "\norg.gradle.jvmargs=-Xms4g -Xmx16g -XX:MaxPermSize=16g -XX:-UseGCOverheadLimit"
+        >> ../gradle.properties
+      - find $$android-vcard$$ -name '*.jar' -delete
+      - sed -i -e '/repositories/a\        mavenLocal()' ../build.gradle
+      - sed -i -e 's/implementation fileTree.*/implementation "com.googlecode.android-vcard:android-vcard:1.4"/'
+        build.gradle
+    build: mvn install -f $$android-vcard$$/pom.xml -Dmaven.test.skip=true
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.2.33
-CurrentVersionCode: 108
+CurrentVersion: 3.0.0
+CurrentVersionCode: 150

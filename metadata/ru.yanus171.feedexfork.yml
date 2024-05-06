@@ -1,3 +1,7 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: Feed search is cloud.feedly.com, web search is google.com, yandex.com,
+      duckduckgo.com
 Categories:
   - Reading
 License: GPL-3.0-only
@@ -7,33 +11,7 @@ IssueTracker: https://github.com/yanus171/Handy-News-Reader/issues
 Translation: https://crowdin.com/project/handy-news-reader
 Changelog: https://github.com/yanus171/Handy-News-Reader/releases
 
-AutoName: Handy News Reader
-Description: |
-    '''Main functions:'''
-
-    * RSS feeds of articles
-    * search for a feed by keyword when adding
-    * automatic (by shedule) download offline full-text versions of articles with images
-    * import / export of the channel list from OPML
-    * filter articles by keywords or regular expressions
-    * full screen reading mode
-
-    '''Additional features:'''
-
-    * collapsing (folding) the groups of feeds
-    * hide read articles mode
-    * bold articles text font setting
-    * share a link with this app to prepare it for reading
-    * limit the number of downloadable images of the article
-    * the ability to download individual images of the article
-    * a detailed description of the process of downloading articles to understand what the application is doing at the moment
-    * the counter of the consumed traffic
-    * setting up automatic marking of articles as read while scrolling the list
-    * setting the display of the text of articles in the article list (these two items are useful for reading forums)
-    * Tap areas to go to the next / previous page while reading the article
-    * Swipe to change brightness while reading the article
-    * Quick transition to full screen mode and back, as well as showing / hiding the action bar
-    * much more ...
+AutoName: Handy Reading
 
 RepoType: git
 Repo: https://github.com/yanus171/Handy-News-Reader
@@ -41,15 +19,6 @@ Repo: https://github.com/yanus171/Handy-News-Reader
 Builds:
   - versionName: 0.7.28
     versionCode: 126
-    commit: 0.7.29
-    subdir: FlymFork
-    gradle:
-      - yes
-
-  - versionName: 0.7.29
-    versionCode: 127
-    disable: "Unexpected version/version code in output; APK: '0.7.28' / '126',  Expected:\
-        \ '0.7.29' / '127'"
     commit: 0.7.29
     subdir: FlymFork
     gradle:
@@ -209,14 +178,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 0.10.7
-    versionCode: 182
-    disable: fails to build
-    commit: v0.10.7
-    subdir: FlymFork
-    gradle:
-      - yes
-
   - versionName: 0.11.1
     versionCode: 187
     commit: v0.11.1
@@ -231,25 +192,9 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 0.11.9
-    versionCode: 193
-    disable: missing resources
-    commit: v0.11.9
-    subdir: FlymFork
-    gradle:
-      - yes
-
   - versionName: 0.12.2
     versionCode: 201
     commit: v0.12.2
-    subdir: FlymFork
-    gradle:
-      - yes
-
-  - versionName: 0.13.0
-    versionCode: 202
-    disable: https://github.com/yanus171/Handy-News-Reader/issues/453
-    commit: v0.13.0
     subdir: FlymFork
     gradle:
       - yes
@@ -310,22 +255,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 0.15.10
-    versionCode: 220
-    disable: fails to build
-    commit: v0.15.10
-    subdir: FlymFork
-    gradle:
-      - yes
-
-  - versionName: 0.15.13
-    versionCode: 223
-    disable: fails to build
-    commit: v0.15.13
-    subdir: FlymFork
-    gradle:
-      - yes
-
   - versionName: 0.15.14
     versionCode: 224
     commit: v0.15.14
@@ -340,7 +269,147 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags .*[0-9]$
-CurrentVersion: 0.15.15
-CurrentVersionCode: 225
+  - versionName: 0.15.22
+    versionCode: 231
+    commit: v0.15.22
+    subdir: FlymFork
+    gradle:
+      - yes
+
+  - versionName: 0.15.24
+    versionCode: 233
+    commit: fc5ec2ef086b3864c5be73d61b4d3a8027bc8930
+    subdir: FlymFork
+    gradle:
+      - yes
+
+  - versionName: 0.16.1
+    versionCode: 235
+    commit: 7c387f521aec96744577b6c2e4e47c48a120c5a2
+    subdir: FlymFork
+    gradle:
+      - yes
+
+  - versionName: 0.16.3
+    versionCode: 237
+    commit: 1794b9b3b208765218cb1ddc77f704e1040b7dbc
+    subdir: FlymFork
+    gradle:
+      - yes
+
+  - versionName: 0.16.4
+    versionCode: 238
+    commit: 679745b3b7143b94c278daded4ef237425378b6f
+    subdir: FlymFork
+    gradle:
+      - yes
+
+  - versionName: 0.16.7
+    versionCode: 239
+    commit: af113eab6f6cb9d8fe4344de1f1bdedb79a2dfe3
+    subdir: FlymFork
+    gradle:
+      - yes
+
+  - versionName: 0.16.12
+    versionCode: 244
+    commit: c7869fb6e67913edb38646e6cef9df5074ea8257
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+  - versionName: 0.16.15
+    versionCode: 246
+    commit: c761a4c0ae0d203316b286a097c61c0016c504f3
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+  - versionName: 0.16.21
+    versionCode: 251
+    commit: 00be1bf81ab990d5e2d70105816322207f581b71
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+  - versionName: 0.17.0
+    versionCode: 258
+    commit: fb06eefa015171ba45fac99341728fac7ea65082
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+  - versionName: 0.17.1
+    versionCode: 259
+    commit: 2c929b2f2eff7bb3718906560c9d2c3a07df5ecc
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+  - versionName: 0.17.7
+    versionCode: 265
+    commit: 056bc7a617e646b129e89cdf84135ea3c179e3fc
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+  - versionName: 0.17.12
+    versionCode: 270
+    commit: b5e6618ec84eb3a5397ffc5912d326e7fd1febb3
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+  - versionName: 0.17.14
+    versionCode: 272
+    commit: 5282efbcd9b2bdca219d8b2ccd7111b97b38f772
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+  - versionName: 0.17.22
+    versionCode: 280
+    commit: fa8dade654b2c1716e08517a2e1e4ed34143acbd
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+  - versionName: 0.18.2
+    versionCode: 285
+    commit: ae610b97e93b8499f6fbe4ef3c252b0128d3e134
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+  - versionName: 0.18.10
+    versionCode: 291
+    commit: 5d3b11334564b945bc52634cd3c312b0662d3877
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+  - versionName: 0.18.18
+    versionCode: 300
+    commit: e35e46ce86c7421929df0fd82b018bab8b3cd699
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+  - versionName: 0.19.7
+    versionCode: 317
+    commit: 743944a3df605c38b7a4ef4155e338966bbd60cb
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+  - versionName: 0.19.15
+    versionCode: 325
+    commit: d5862585f7a1f04974aed4d457602ea6f5cfed20
+    subdir: FlymFork
+    gradle:
+      - fdroid
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags .*\d$
+CurrentVersion: 0.19.15
+CurrentVersionCode: 325

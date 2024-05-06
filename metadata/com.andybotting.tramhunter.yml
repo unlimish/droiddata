@@ -11,11 +11,11 @@ IssueTracker: https://github.com/andybotting/tramhunter/issues
 
 AutoName: Tram Hunter
 Description: |-
-    Client to Yarra Trams tram TRACKER® service for real-time location of Melbourne
-    trams.
+  Client to Yarra Trams tram TRACKER® service for real-time location of Melbourne
+  trams.
 
-    Newer versions of this are available elsewhere but require proprietary software
-    to build.
+  Newer versions of this are available elsewhere but require proprietary software
+  to build.
 
 RepoType: git
 Repo: https://github.com/andybotting/tramhunter.git
@@ -28,7 +28,7 @@ Builds:
     srclibs:
       - ActionBarSherlock@9598f2bb2c
     prebuild: sed -i 's@\(android.library.reference.1=\).*@\1$$ActionBarSherlock$$@'
-        project.properties
+      project.properties
 
   - versionName: '1.1'
     versionCode: 1100
@@ -71,22 +71,6 @@ Builds:
       - sed -i 's@\(.1=\).*@\1$$ActionBarSherlock$$@' project.properties
       - mv libs/actionbarsherlock-plugin-maps-4.2.0.jar $$ActionBarSherlock$$/libs/
     target: Google Inc.:Google APIs:17
-
-  - versionName: '1.4'
-    versionCode: 1400
-    disable: Proprietary API required
-    commit: v1.4
-    subdir: android/TramHunter
-    srclibs:
-      - ActionBarSherlock@4.1.0
-    forceversion: true
-    forcevercode: true
-    extlibs:
-      - ABS-MapsPlugin/actionbarsherlock-plugin-maps-4.2.0.jar
-    prebuild:
-      - sed -i 's@\(.1=\).*@\1$$ActionBarSherlock$$@' project.properties
-      - mv libs/actionbarsherlock-plugin-maps-4.2.0.jar $$ActionBarSherlock$$/libs/
-    target: Google Inc.:Google APIs:19
 
 AutoUpdateMode: None
 UpdateCheckMode: Static

@@ -11,7 +11,7 @@ Changelog: https://github.com/LibreShift/red-moon/blob/HEAD/app/src/main/assets/
 AutoName: Red Moon
 
 RepoType: git
-Repo: https://github.com/LibreShift/red-moon
+Repo: https://github.com/LibreShift/red-moon.git
 
 Builds:
   - versionName: '2.1'
@@ -52,14 +52,6 @@ Builds:
   - versionName: 2.5.0
     versionCode: 11
     commit: v2.5.0
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 2.6.0
-    versionCode: 12
-    disable: java error
-    commit: v2.6.0
     subdir: app
     gradle:
       - yes
@@ -218,14 +210,6 @@ Builds:
     gradle:
       - fdroid
 
-  - versionName: 3.3.1
-    versionCode: 35
-    disable: syntax error in app/src/main/java/com/jmstudios/redmoon/RedMoonApplication.kt
-    commit: v3.3.1
-    subdir: app
-    gradle:
-      - fdroid
-
   - versionName: 3.3.2
     versionCode: 36
     commit: v3.3.2
@@ -247,7 +231,18 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: 4.0.0
+    versionCode: 39
+    commit: e6ee241d4efed116c085a8c6e531e9d3b414d3ab
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.5.0
-CurrentVersionCode: 38
+CurrentVersion: 4.0.0
+CurrentVersionCode: 39

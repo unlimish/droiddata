@@ -4,11 +4,9 @@ Categories:
 License: GPL-2.0-or-later
 SourceCode: https://github.com/KillerInk/FreeDcam
 IssueTracker: https://github.com/KillerInk/FreeDcam/issues
+Changelog: https://github.com/KillerInk/FreeDcam/releases
 
 AutoName: FreeDCam
-Description: |-
-    FreeDCam is an open source camera app which try to enable stuff that is
-    forgotten by the manufacturers.
 
 RepoType: git
 Repo: https://github.com/KillerInk/FreeDcam.git
@@ -70,7 +68,46 @@ Builds:
       - yes
     ndk: r12b
 
-AutoUpdateMode: Version %v
+  - versionName: 4.3.52
+    versionCode: 252
+    commit: 7447bbb515436f48d4bbd33f6171b3ff793fcf7c
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    ndk: r21e
+
+  - versionName: 4.3.65
+    versionCode: 265
+    commit: d278c2138afc50b1de4c6a86b0c002d7e9d6842e
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    ndk: r21e
+
+  - versionName: 4.3.82
+    versionCode: 282
+    commit: d1982a627650390f0433d8ae618ef0beb6ac0923
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    ndk: r21e
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 4.3.39
-CurrentVersionCode: 239
+CurrentVersion: 4.3.82
+CurrentVersionCode: 282

@@ -2,7 +2,7 @@ Categories:
   - Security
 License: GPL-3.0-only
 AuthorName: Aaron Wood
-AuthorEmail: me@aaronjwood.com
+AuthorEmail: aaronjwood@gmail.com
 AuthorWebSite: https://aaronjwood.com/
 SourceCode: https://github.com/aaronjwood/PortAuthority
 IssueTracker: https://github.com/aaronjwood/PortAuthority/issues
@@ -11,28 +11,28 @@ Donate: https://github.com/aaronjwood/PortAuthority#donate
 
 AutoName: Port Authority
 Description: |-
-    A handy systems and security-focused tool, Port Authority is a very fast port
-    scanner. It also allows you to quickly discover hosts on your network and will
-    display useful network information about your device and other hosts.
+  A handy systems and security-focused tool, Port Authority is a very fast port
+  scanner. It also allows you to quickly discover hosts on your network and will
+  display useful network information about your device and other hosts.
 
-    One of the fastest port scanners with host discovery on the market! Host
-    discovery is typically performed in less than 5 seconds. If the device you’re
-    scanning drops packets, it takes about 10 seconds to scan 1000 ports. If the
-    device you’re scanning rejects packets, it takes less than 30 seconds to scan
-    all 65,535 ports!
+  One of the fastest port scanners with host discovery on the market! Host
+  discovery is typically performed in less than 5 seconds. If the device you're
+  scanning drops packets, it takes about 10 seconds to scan 1000 ports. If the
+  device you're scanning rejects packets, it takes less than 30 seconds to scan
+  all 65,535 ports!
 
-    '''Features:'''
+  <b>Features:</b>
 
-    * Heavily threaded, no more waiting for results one at a time
-    * LAN host discovery
-    * Public IP discovery
-    * MAC address vendor detection
-    * LAN/WAN host TCP port scanning
-    * Custom port range scans
-    * Open discovered HTTP(S) services to browser
-    * Lightweight service fingerprinting (SSH/HTTP(S) server type and version)
-    * DNS record lookups supporting almost every record type
-    * Wake-on-LAN for LAN hosts
+  * Heavily threaded, no more waiting for results one at a time
+  * LAN host discovery
+  * Public IP discovery
+  * MAC address vendor detection
+  * LAN/WAN host TCP port scanning
+  * Custom port range scans
+  * Open discovered HTTP(S) services to browser
+  * Lightweight service fingerprinting (SSH/HTTP(S) server type and version)
+  * DNS record lookups supporting almost every record type
+  * Wake-on-LAN for LAN hosts
 
 RepoType: git
 Repo: https://github.com/aaronjwood/PortAuthority
@@ -145,15 +145,6 @@ Builds:
   - versionName: 1.6.5
     versionCode: 23
     commit: v1.6.5
-    subdir: app
-    gradle:
-      - free
-    prebuild: sed -i -e '/com.aaronjwood.portauthority.free/d' build.gradle
-
-  - versionName: 1.6.6
-    versionCode: 24
-    disable: non-free deps
-    commit: v1.6.6
     subdir: app
     gradle:
       - free
@@ -364,10 +355,49 @@ Builds:
     output: build/outputs/apk/free/release/PortAuthority-$$VERSION$$-free-release-unsigned.apk
     prebuild: sed -i -e '/applicationIdSuffix/d; /versionNameSuffix/d' build.gradle
 
-MaintainerNotes: |
-    Don't use flavour 'free' since it adds a versionName suffix confusing checkupdate
+  - versionName: 2.4.3
+    versionCode: 65
+    commit: 27f577170756e91f826253540070c1311e2e4893
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/free/release/PortAuthority-$$VERSION$$-free-release-unsigned.apk
+    prebuild: sed -i -e '/applicationIdSuffix/d; /versionNameSuffix/d' build.gradle
 
-AutoUpdateMode: Version v%v
+  - versionName: 2.4.4
+    versionCode: 66
+    commit: cc3e3b7ca4ce22f121bc77beaa8d03191734b62f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/free/release/PortAuthority-$$VERSION$$-free-release-unsigned.apk
+    prebuild: sed -i -e '/applicationIdSuffix/d; /versionNameSuffix/d' build.gradle
+
+  - versionName: 2.4.5
+    versionCode: 67
+    commit: 22324e4e0118245ff836b4789c7572c56c67e451
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: build/outputs/apk/free/release/PortAuthority-$$VERSION$$-free-release-unsigned.apk
+    prebuild: sed -i -e '/applicationIdSuffix/d; /versionNameSuffix/d' build.gradle
+
+MaintainerNotes: |
+  Don't use flavour 'free' since it adds a versionName suffix confusing checkupdate
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.4.1
-CurrentVersionCode: 63
+CurrentVersion: 2.4.5
+CurrentVersionCode: 67

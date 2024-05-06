@@ -1,3 +1,6 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: Tethered to the schedule site.
 Categories:
   - Time
 License: Apache-2.0
@@ -5,63 +8,71 @@ AuthorName: Tobias Preuss
 AuthorEmail: tobias.preuss+fosdem@googlemail.com
 SourceCode: https://github.com/johnjohndoe/CampFahrplan
 IssueTracker: https://github.com/EventFahrplan/EventFahrplan/issues
+Translation: https://crowdin.com/project/eventfahrplan
 Liberapay: EventFahrplan
 
 AutoName: FOSDEM Schedule
 Description: |
-    <p>Conference program app for the FOSDEM conference</p>
+  Conference program app for the FOSDEM conference
 
-    <p><a href="https://fosdem.org">https://fosdem.org</a></p>
+  https://fosdem.org
 
-    <h4>About FOSDEM</h4>
-    <p>FOSDEM is a free event that offers open source communities a
-    place to meet, share ideas and collaborate.
-    Every year, thousands of developers of free and open source
-    software from all over the world gather at the event.</p>
+  <b>About FOSDEM</b>
+  FOSDEM is a free event that offers open source communities a
+  place to meet, share ideas and collaborate.
+  Every year, thousands of developers of free and open source
+  software from all over the world gather at the event.
 
-    <h4>Features</h4>
-    * View program by day and rooms (side by side)
-    * Custom grid layout for smartphones (try landscape mode 🙃) and tablets
-    * Read detailed descriptions (speaker names, start time, room name, links, ...) of events
-    * Add events to favorites list
-    * Export favorites list
-    * Setup alarms for individual events
-    * Add events to your personal calendar
-    * Share a website link to an event with others
-    * Keep track of program changes
-    * Automatic program updates (configurable in settings)
-    * Vote and leave comments on FOSDEM talks and workshops
+  <b>Features</b>
+  * View program by day and rooms (side by side)
+  * Custom grid layout for smartphones (try landscape mode 🙃) and tablets
+  * Read detailed descriptions (speaker names, start time, room name, links, ...) of events
+  * Add events to favorites list
+  * Export favorites list
+  * Setup alarms for individual events
+  * Add events to your personal calendar
+  * Share a website link to an event with others
+  * Keep track of program changes
+  * Automatic program updates (configurable in settings)
+  * Vote and leave comments on FOSDEM talks and workshops
+  * Integration with the c3nav indoor navigation project https://nav.fosdem.org
 
-    <h4>🔤 Supported languages</h4>
-    <p><em>(Event descriptions excluded)</em></p>
-    * Dutch
-    * English
-    * French
-    * German
-    * Italian
-    * Japanese
-    * Portuguese
-    * Russian
-    * Spanish
-    * Swedish
+  <b>🔤 Supported languages</b>
+  (Event descriptions excluded)
+  * Danish
+  * Dutch
+  * English
+  * Finnish
+  * French
+  * German
+  * Italian
+  * Japanese
+  * Lithuanian
+  * Polish
+  * Portuguese
+  * Russian
+  * Spanish
+  * Swedish
+  * Turkish
 
-    <p>💡 Questions regarding the content can only be answered by the
-    FOSDEM content team. This app simply offers a way to consume and
-    personalize the conference schedule.</p>
+  💡 Questions regarding the content can only be answered by the
+  FOSDEM content team. This app simply offers a way to consume and
+  personalize the conference schedule.
 
-    <p>💣 Bug reports are very welcome. It would be awesome if you
-    can describe how to reproduce the particular error in the
-    <a href="https://github.com/EventFahrplan/EventFahrplan/issues">issue tracker</a>.</p>
+  💣 Bug reports are very welcome. It would be awesome if you
+  can describe how to reproduce the particular error in the
+  issue tracker at:
+  https://github.com/EventFahrplan/EventFahrplan/issues
 
-    <p>🏆 The app is based on the
-    <a href="https://play.google.com/store/apps/details?id=info.metadude.android.rc3.schedule">EventFahrplan app</a>
-    which was initially built for the camp and annual congress of
-    the Chaos Computer Club. The source code of the app is publicly
-    available on
-    <a href="https://github.com/johnjohndoe/CampFahrplan/tree/fosdem-2021">GitHub</a>.</p>
+  🏆 The app is based on the EventFahrplan app
+  https://f-droid.org/packages/info.metadude.android.congress.schedule
+  which was initially built for the camp and annual congress of
+  the Chaos Computer Club. The source code of the app is publicly
+  available on GitHub at:
+  https://github.com/johnjohndoe/CampFahrplan/tree/fosdem-2024.
 
-    <p>🎨 The name FOSDEM and the gear logo are registered trademarks
-    of FOSDEM VZW. Used with permission.</p>
+  🎨 The name FOSDEM and the gear logo are registered trademarks
+  of FOSDEM VZW. Used with permission.
 
 RepoType: git
 Repo: https://github.com/johnjohndoe/CampFahrplan.git
@@ -95,7 +106,60 @@ Builds:
       - cp local.properties gradle.properties
       - sed -i -e 's/6.8/6.7.1/' ../gradle/wrapper/gradle-wrapper.properties
 
+  - versionName: 1.50.0-FOSDEM-Edition
+    versionCode: 82
+    commit: v.1.50.0-FOSDEM-Edition
+    subdir: app
+    gradle:
+      - fosdem
+    prebuild: cp local.properties gradle.properties
+
+  - versionName: 1.53.1-FOSDEM-Edition
+    versionCode: 86
+    commit: v.1.53.1-FOSDEM-Edition
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - fosdem
+    prebuild: cp local.properties gradle.properties
+
+  - versionName: 1.57.0-FOSDEM-Edition
+    versionCode: 92
+    commit: v.1.57.0-FOSDEM-Edition
+    subdir: app
+    gradle:
+      - fosdem
+    prebuild: cp local.properties gradle.properties
+
+  - versionName: 1.63.0-FOSDEM-Edition
+    versionCode: 98
+    commit: v.1.63.0-FOSDEM-Edition
+    subdir: app
+    gradle:
+      - fosdem
+    prebuild: cp local.properties gradle.properties
+
+  - versionName: 1.63.1-FOSDEM-Edition
+    versionCode: 99
+    commit: v.1.63.1-FOSDEM-Edition
+    subdir: app
+    gradle:
+      - fosdem
+    prebuild: cp local.properties gradle.properties
+
+  - versionName: 1.63.2-FOSDEM-Edition
+    versionCode: 100
+    commit: v.1.63.2-FOSDEM-Edition
+    subdir: app
+    gradle:
+      - fosdem
+    prebuild: cp local.properties gradle.properties
+
+ArchivePolicy: 1
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: 1.49.1-FOSDEM-Edition
-CurrentVersionCode: 81
+CurrentVersion: 1.63.2-FOSDEM-Edition
+CurrentVersionCode: 100

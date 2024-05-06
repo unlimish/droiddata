@@ -5,14 +5,15 @@ AuthorName: GNU Taler
 AuthorWebSite: https://taler.net/
 SourceCode: https://git.taler.net/taler-android.git/
 IssueTracker: https://bugs.gnunet.org/
+Translation: https://weblate.taler.net/projects/gnu-taler/pos-android
 
 AutoName: GNU Taler Point-of-Sale
 Description: |-
-    The GNU Taler merchant POS (point of sale) terminal allows sellers to
+  The GNU Taler merchant POS (point of sale) terminal allows sellers to
 
-    * process customers’ orders by adding or removing products
-    * calculate the amount owed by the customer
-    * let the customer make a Taler payment via QR code or NFC
+  * process customers' orders by adding or removing products
+  * calculate the amount owed by the customer
+  * let the customer make a Taler payment via QR code or NFC
 
 RepoType: git
 Repo: https://git.taler.net/taler-android.git
@@ -28,7 +29,41 @@ Builds:
     rm:
       - multiplatform/wallet
 
-AutoUpdateMode: Version pos-%v
-UpdateCheckMode: Tags
-CurrentVersion: '0.1'
-CurrentVersionCode: 2
+  - versionName: 0.2.1
+    versionCode: 3
+    commit: 20003b852106fb7bafcbe41db318b4c323ffbfab
+    subdir: merchant-terminal
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 0.2.2
+    versionCode: 4
+    commit: 1290c7fe549f39a7cf0faac20f6d6beaa714a603
+    subdir: merchant-terminal
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 0.2.3
+    versionCode: 5
+    commit: 3c2bf6e27d41430718b43ec09e6b1d9d020c5478
+    subdir: merchant-terminal
+    gradle:
+      - yes
+
+  - versionName: 0.2.4
+    versionCode: 6
+    commit: 7a09de11feb868abec5bab638585f25410fd0a6b
+    subdir: merchant-terminal
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^pos-v?[0-9.]+$
+CurrentVersion: 0.2.4
+CurrentVersionCode: 6

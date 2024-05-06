@@ -1,0 +1,77 @@
+Categories:
+  - Connectivity
+License: MIT
+AuthorName: Ivo Zivkov
+AuthorEmail: izivkov@gmail.com
+SourceCode: https://github.com/izivkov/RemoteVideoCam
+IssueTracker: https://github.com/izivkov/RemoteVideoCam/issues
+Donate: https://github.com/sponsors/izivkov
+
+AutoName: RemoteVideoCam
+
+RepoType: git
+Repo: https://github.com/izivkov/RemoteVideoCam.git
+
+Builds:
+  - versionName: '2.2'
+    versionCode: 22
+    commit: 950aeb98610b158cbeb00bdbee6c9f919621d4bf
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '2.4'
+    versionCode: 24
+    commit: 76e5af0b683339ce2d9bc8d1154e179a1018df0d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '2.5'
+    versionCode: 25
+    commit: fc380817fab7d4c8fabad0444121cec8cf74f74a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '2.7'
+    versionCode: 27
+    commit: a3debabbed39acec397b39b5ebfd88d989ace65a
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '2.8'
+    versionCode: 28
+    commit: 095d2352a21e418c3c3c841a4965eec7f09c70ef
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '3.0'
+    versionCode: 30
+    commit: cf9f0edd0b0e7983059b2827ec43135af7a74fa7
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '3.0'
+CurrentVersionCode: 30

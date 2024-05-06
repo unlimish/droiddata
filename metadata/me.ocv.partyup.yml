@@ -1,0 +1,52 @@
+Categories:
+  - Connectivity
+License: MIT
+AuthorName: ed
+AuthorEmail: fdroid@ocv.me
+SourceCode: https://github.com/9001/party-up
+IssueTracker: https://github.com/9001/party-up/issues
+Changelog: https://github.com/9001/party-up/releases
+
+AutoName: Party UP! dbg
+
+RepoType: git
+Repo: https://github.com/9001/party-up
+
+Builds:
+  - versionName: 1.4.0
+    versionCode: 10400
+    commit: v1.4.0
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.5.0
+    versionCode: 10500
+    commit: 239e767487ee282206df3366886d990b4d10ab16
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.6.0
+    versionCode: 10600
+    commit: 448b02d672000cdd7911c505c5a0ce1fc0a508b3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v[0-9\.]+$
+CurrentVersion: 1.6.0
+CurrentVersionCode: 10600

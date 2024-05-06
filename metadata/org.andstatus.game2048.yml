@@ -8,8 +8,8 @@ SourceCode: https://github.com/andstatus/game2048
 IssueTracker: https://github.com/andstatus/game2048/issues
 Translation: https://crowdin.com/project/2048-open-fun-game
 Changelog: https://github.com/andstatus/game2048/blob/HEAD/README.md#changelog
-Donate: http://andstatus.org/donate.html
-LiberapayID: '34680'
+Donate: https://andstatus.org/donate.html
+Liberapay: Andstatus
 
 AutoName: 2048 Multiplatform build
 
@@ -35,7 +35,68 @@ Builds:
     rm:
       - doc
 
-AutoUpdateMode: Version %v-release
+  - versionName: 1.10.14
+    versionCode: 31
+    commit: 1.10.14-release
+    subdir: game2048-android
+    gradle:
+      - yes
+    rm:
+      - doc
+
+  - versionName: 1.10.15
+    versionCode: 32
+    commit: bde1439c73cbf07b6af27c7174b83aae3c34bc59
+    subdir: game2048-android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - doc
+
+  - versionName: 1.11.0
+    versionCode: 33
+    commit: 79a5f794c9a20609bcdc152c97e1645874c9629b
+    subdir: game2048-android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - doc
+
+  - versionName: 1.12.0
+    versionCode: 34
+    commit: af68507a00d59931fc1446a504957f0c8f7413e3
+    subdir: game2048-android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - doc
+
+  - versionName: 1.14.3
+    versionCode: 41
+    commit: 648e97dd784cf1806d657771041281f034c6e3d9
+    subdir: game2048-android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - doc
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9.]+-release$
-CurrentVersion: 1.10.11
-CurrentVersionCode: 28
+CurrentVersion: 1.14.3
+CurrentVersionCode: 41

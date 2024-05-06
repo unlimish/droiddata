@@ -2,7 +2,7 @@ AntiFeatures:
   - NonFreeNet
 Categories:
   - Science & Education
-License: GPL-3.0-only
+License: AGPL-3.0-or-later
 AuthorName: AnkiDroid Open Source Team
 AuthorEmail: public-forum@ankidroid.org
 WebSite: https://ankidroid.org/docs/help.html
@@ -14,22 +14,22 @@ OpenCollective: ankidroid
 
 AutoName: AnkiDroid
 Description: |-
-    Anki is a program which makes remembering things easy. Because it is a lot more
-    efficient than traditional study methods, you can either greatly decrease your
-    time spent studying, or greatly increase the amount you learn. AnkiDroid is the
-    Android port of Anki, and is compatible with Anki data.
+  Anki is a program which makes remembering things easy. Because it is a lot more
+  efficient than traditional study methods, you can either greatly decrease your
+  time spent studying, or greatly increase the amount you learn. AnkiDroid is the
+  Android port of Anki, and is compatible with Anki data.
 
-    Opt-in synchronization uses the non-free AnkiWeb service by default, but this can be
-    changed in the settings to use, for example, an instance of the unofficial
-    <a href="https://github.com/ankicommunity/anki-sync-server">Anki Sync Server</a>).
+  Opt-in synchronization uses the non-free AnkiWeb service by default, but this can be
+  changed in the settings to use, for example, an instance of the unofficial
+  <a href="https://github.com/ankicommunity/anki-sync-server">Anki Sync Server</a>).
 
-    Opt-in / off-by-default crash reporting will send data to a private / AnkiDroid
-    open source team controlled crash reporting server if enabled. This data is only
-    used to help fix crash bugs.
+  Opt-in / off-by-default crash reporting will send data to a private / AnkiDroid
+  open source team controlled crash reporting server if enabled. This data is only
+  used to help fix crash bugs.
 
-    Opt-in / off-by-default analytics will send data to Google Analytics via an
-    an open-source implementation of the analytics API if enabled. This data is only
-    used to focus developer efforts on popular features.
+  Opt-in / off-by-default analytics will send data to Google Analytics via an
+  an open-source implementation of the analytics API if enabled. This data is only
+  used to focus developer efforts on popular features.
 
 RepoType: git
 Repo: https://github.com/ankidroid/Anki-Android.git
@@ -38,11 +38,6 @@ Builds:
   - versionName: '0.7'
     versionCode: 21
     commit: v0.7
-
-  - versionName: '1.0'
-    versionCode: 23
-    disable: Version with Bluetooth
-    commit: unknown - see disabled
 
   - versionName: '1.1'
     versionCode: 25
@@ -55,23 +50,10 @@ Builds:
     commit: 4e4bafed59
     prebuild: sed -i -e "/key\.alias.*/d" -e "/key\.store.*/d" *.properties
 
-  - versionName: '2.0'
-    versionCode: 31
-    disable: Different version code - same version?
-    commit: unknown - see disabled
-
   - versionName: 2.0.1
     versionCode: 32
     commit: v2.0.1
     prebuild: sed -i -e "/^key\./d" *.properties
-
-  - versionName: 2.0.2beta6
-    versionCode: 37
-    disable: beta version
-
-  - versionName: 2.0.2beta8
-    versionCode: 39
-    disable: beta version
 
   - versionName: 2.0.2
     versionCode: 40
@@ -189,19 +171,9 @@ Builds:
     versionCode: 20300300
     commit: v2.3
 
-  - versionName: 2.3.1
-    versionCode: 20301302
-    disable: broken
-    commit: 2.3.1
-
   - versionName: 2.3.2
     versionCode: 20302300
     commit: 2.3.2
-
-  - versionName: 2.4alpha1
-    versionCode: 20400101
-    disable: prerelease
-    commit: v2.4alpha1
 
   - versionName: 2.4.2
     versionCode: 20402300
@@ -218,19 +190,6 @@ Builds:
   - versionName: 2.4.3
     versionCode: 20403300
     commit: v2.4.3
-    subdir: AnkiDroid
-    gradle:
-      - yes
-    rm:
-      - tools
-      - docs
-    scanignore:
-      - AnkiDroid/src/main/java/com/ichi2/libanki/hooks/ExternalHookLoader.java
-
-  - versionName: 2.4.4
-    versionCode: 20404300
-    disable: xml error
-    commit: v2.4.4
     subdir: AnkiDroid
     gradle:
       - yes
@@ -267,19 +226,6 @@ Builds:
   - versionName: 2.5.2
     versionCode: 20502300
     commit: v2.5.2
-    subdir: AnkiDroid
-    gradle:
-      - yes
-    rm:
-      - tools
-      - docs
-    scanignore:
-      - AnkiDroid/src/main/java/com/ichi2/libanki/hooks/ExternalHookLoader.java
-
-  - versionName: 2.5.4
-    versionCode: 20504300
-    disable: mis-tagged
-    commit: v2.5.4
     subdir: AnkiDroid
     gradle:
       - yes
@@ -710,9 +656,243 @@ Builds:
     prebuild: sed -i -e 's/21.1.6352462/21.3.6528147/' -e '/splits\ {/,+30d' build.gradle
     ndk: r21d
 
+  - versionName: 2.15.2
+    versionCode: 21502300
+    commit: v2.15.2
+    subdir: AnkiDroid
+    gradle:
+      - play
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e 's/22.0.7026061/22.1.7171670/' -e '/splits {/,/^    }/d' -e '/applicationVariants.all/,/^    }/d'
+        build.gradle
+      - sed -i -e '/publishing/,/^}/d' -e '/publish/d' ../api/build.gradle
+      - sed -i -e '/Temporary/,/End temporary/d' ../build.gradle
+    ndk: r22b
+
+  - versionName: 2.15.4
+    versionCode: 21504300
+    commit: v2.15.4
+    subdir: AnkiDroid
+    gradle:
+      - play
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e 's/22.0.7026061/22.1.7171670/' -e '/splits {/,/^    }/d' -e '/applicationVariants.all/,/^    }/d'
+        build.gradle
+      - sed -i -e '/publishing/,/^}/d' -e '/publish/d' ../api/build.gradle
+      - sed -i -e '/Temporary/,/End temporary/d' ../build.gradle
+    ndk: r22b
+
+  - versionName: 2.15.5
+    versionCode: 21505300
+    commit: 1493d0cca4072b7cacdaed425ca96ed16a4ac336
+    subdir: AnkiDroid
+    gradle:
+      - play
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e 's/22.0.7026061/22.1.7171670/' -e '/splits {/,/^    }/d' -e '/applicationVariants.all/,/^    }/d'
+        build.gradle
+      - sed -i -e '/publishing/,/^}/d' -e '/publish/d' ../api/build.gradle
+      - sed -i -e '/Temporary/,/End temporary/d' ../build.gradle
+    ndk: r22b
+
+  - versionName: 2.15.6
+    versionCode: 21506300
+    commit: 58c5bd15e897bfb32a2badc80018729b0a7238d6
+    subdir: AnkiDroid
+    gradle:
+      - play
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e 's/22.0.7026061/22.1.7171670/' -e '/splits {/,/^    }/d' -e '/applicationVariants.all/,/^    }/d'
+        build.gradle
+      - sed -i -e '/publishing/,/^}/d' -e '/publish/d' ../api/build.gradle
+      - sed -i -e '/Temporary/,/End temporary/d' ../build.gradle
+    ndk: r22b
+
+  - versionName: 2.16.2
+    versionCode: 21602300
+    commit: 13c103ea74337be0792e8344c62a7f0adb03aee8
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - play
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e 's/22.0.7026061/22.1.7171670/' -e '/splits {/,/^    }/d' -e '/applicationVariants.all/,/^    }/d'
+        build.gradle
+      - sed -i -e '/publishing/,/^}/d' -e '/publish/d' ../api/build.gradle
+      - sed -i -e '/Temporary/,/End temporary/d' ../build.gradle
+    ndk: r22b
+
+  - versionName: 2.16.3
+    versionCode: 21603300
+    commit: 43094e4937b4b039aac7441f0d6a7066faee872c
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - play
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e 's/22.0.7026061/22.1.7171670/' -e '/splits {/,/^    }/d' -e '/applicationVariants.all/,/^    }/d'
+        build.gradle
+      - sed -i -e '/publishing/,/^}/d' -e '/publish/d' ../api/build.gradle
+      - sed -i -e '/Temporary/,/End temporary/d' ../build.gradle
+    ndk: r22b
+
+  - versionName: 2.16.4
+    versionCode: 21604300
+    commit: 67fd45a351c44c46c844aa35a402b98a2a487f68
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e 's/22.0.7026061/22.1.7171670/' -e '/splits {/,/^    }/d' -e '/applicationVariants.all/,/^    }/d'
+        build.gradle
+      - sed -i -e '/publishing/,/^}/d' -e '/publish/d' ../api/build.gradle
+      - sed -i -e '/Temporary/,/End temporary/d' ../build.gradle
+    ndk: r22b
+
+  - versionName: 2.16.5
+    versionCode: 21605300
+    commit: 953b9bd879269910ee962b520da9705336d8bc2d
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e 's/22.0.7026061/22.1.7171670/' -e '/splits {/,/^    }/d' -e '/applicationVariants.all/,/^    }/d'
+        build.gradle
+      - sed -i -e '/publishing/,/^}/d' -e '/publish/d' ../api/build.gradle
+      - sed -i -e '/Temporary/,/End temporary/d' ../build.gradle
+    ndk: r22b
+
+  - versionName: 2.17.0
+    versionCode: 21700300
+    commit: af526585a5270c75db3f6b892d00035ad1ab17e0
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e '/splits {/,/^    }/d' -e '/applicationVariants/,/^    }/d' build.gradle
+      - sed -i -e '/publishing/,/^    }/d' -e '/publish/d' ../api/build.gradle.kts
+    ndk: r22b
+
+  - versionName: 2.17.1
+    versionCode: 21701300
+    commit: dd2f3762fb214f9dd51162b215974b23cc809713
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e '/splits {/,/^    }/d' -e '/applicationVariants/,/^    }/d' build.gradle
+      - sed -i -e '/publishing/,/^    }/d' -e '/publish/d' ../api/build.gradle.kts
+    ndk: r22b
+
+  - versionName: 2.17.4
+    versionCode: 21704300
+    commit: 103ccb54f833e7a78df8e0c4098a63e8daeacd51
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e '/splits {/,/^    }/d' -e '/applicationVariants/,/^    }/d' build.gradle
+      - sed -i -e '/publishing/,/^    }/d' -e '/publish/d' ../api/build.gradle.kts
+    ndk: r22b
+
+  - versionName: 2.17.5
+    versionCode: 21705300
+    commit: 1c1aa94ec466f37d33fd2f75020d9f9021ac811e
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e '/splits {/,/^    }/d' -e '/applicationVariants/,/^    }/d' build.gradle
+      - sed -i -e '/publishing/,/^    }/d' -e '/publish/d' ../api/build.gradle.kts
+    ndk: r22b
+
+  - versionName: 2.17.6
+    versionCode: 21706300
+    commit: 568538896be943818ca793dd2635822265712def
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e '/splits {/,/^    }/d' -e '/applicationVariants/,/^    }/d' build.gradle
+      - sed -i -e '/publishing/,/^    }/d' -e '/publish/d' ../api/build.gradle.kts
+    ndk: r22b
+
 MaintainerNotes: Uses DexLoader to load custom decks and plugins (?).
 
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]*$
-CurrentVersion: 2.14.6
-CurrentVersionCode: 21406300
+CurrentVersion: 2.17.6
+CurrentVersionCode: 21706300

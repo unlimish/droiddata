@@ -3,23 +3,13 @@ Categories:
 License: GPL-3.0-only
 AuthorName: SECUSO - Security Usability Society
 AuthorEmail: contact@secuso.org
-AuthorWebSite: https://secuso.aifb.kit.edu/english/
-WebSite: https://www.secuso.informatik.tu-darmstadt.de/index.php?id=11404&L=0
+AuthorWebSite: https://secuso.aifb.kit.edu/english/105.php
+WebSite: https://secuso.aifb.kit.edu/english/Pain_Diary.php
 SourceCode: https://github.com/SecUSo/privacy-friendly-pain-diary
 IssueTracker: https://github.com/SecUSo/privacy-friendly-pain-diary/issues
 Changelog: https://github.com/SecUSo/privacy-friendly-pain-diary/blob/HEAD/CHANGELOG.md
 
 AutoName: Pain Diary
-Description: |-
-    Privacy Friendly Pain Diary is an app which can help you track and share your
-    pain. It allows you to make daily diary entries recording your condition and the
-    intensity, location, nature and time of the pain you feel, as well as the
-    medication you take and additional notes. Records of your pain can help health
-    professionals gain an insight into the pain you are experiencing.
-
-    It belongs to the Privacy Friendly Apps group developed by the research group
-    SECUSO at Technische Universität Darmstadt. More information can be found at
-    https://secuso.org/pfa.
 
 RepoType: git
 Repo: https://github.com/SecUSo/privacy-friendly-pain-diary.git
@@ -32,7 +22,47 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: '1.2'
+    versionCode: 3
+    commit: 996c79d56f14f0cf24431dbb3a90380a92910950
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.3.0
+    versionCode: 4
+    commit: 83b523b17f87d4c3acdf5a931bea3bf9aa78ec97
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 1.3.1
+    versionCode: 5
+    commit: d81bc4a5e860426ecd2ea6620343aa697955d2d3
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+
+  - versionName: 1.3.2
+    versionCode: 6
+    commit: 2dd75a7793fc9abf1f815018c931537518c9208f
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.0'
-CurrentVersionCode: 1
+CurrentVersion: 1.3.2
+CurrentVersionCode: 6

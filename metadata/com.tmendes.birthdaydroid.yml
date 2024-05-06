@@ -9,10 +9,6 @@ Changelog: https://gitlab.com/tmendes/BirthDayDroid/tags
 Donate: https://www.paypal.com/donate/?token=r6EB8jpSeqtDPGfAb-dGXvsywjHa8S2aVxz4142MMvEYbWs7DBIeHct3mlnJAZ1bBM6WVW
 
 AutoName: BirthDayDroid
-Description: |-
-    Helps you to remember your contact's birthdays. It scans your local contact list
-    looking for birthdays. When it finds it, it will show you the contact's age,
-    sign, days until her/his birthday.
 
 RepoType: git
 Repo: https://gitlab.com/tmendes/BirthDayDroid.git
@@ -193,7 +189,29 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: 20211128_V52
+    versionCode: 52
+    commit: 3be3775c711413709ccf38c1a527f33e1e5f39fe
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 20211213_V53
+    versionCode: 53
+    commit: 26cf2fdb9d68b84028da9aec107f08db4c8adb54
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 20200802_V50
-CurrentVersionCode: 50
+CurrentVersion: 20211213_V53
+CurrentVersionCode: 53

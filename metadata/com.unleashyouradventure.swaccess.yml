@@ -7,36 +7,20 @@ IssueTracker: https://github.com/patrick-schweizer/smashwords-access-for-android
 
 AutoName: Smashwords Access
 Description: |-
-    Unofficial app for smashwords.com, a purveyor of DRM-free and gratis ebooks.
-    Enter your credentials to access purchased books.
+  Unofficial app for smashwords.com, a purveyor of DRM-free and gratis ebooks.
+  Enter your credentials to access purchased books.
 
-    Books can be loaded directly from Cool reader, FBReader or Pageturner.
+  Books can be loaded directly from Cool reader, FBReader or Pageturner.
 
 RepoType: git
 Repo: https://github.com/patrick-schweizer/smashwords-access-for-android
 
 Builds:
-  - versionName: 011 beta
-    versionCode: 11
-    disable: authentication problem:fixed in next version
-    commit: '25'
-    srclibs:
-      - 1:ActionBarSherlock@4.4.0
-      - Smashwords-API@51
-      - Google-Gson@1163
-      - ImageLoader-Novoda@imageloader-parent-1.5.0
-    extlibs:
-      - jsoup/jsoup-1.7.2.jar
-    prebuild:
-      - cp -r $$Smashwords-API$$/src/main/java/com/unleashyouradventure/swapi/ src/com/unleashyouradventure/
-      - cp -r $$ImageLoader-Novoda$$/src/main/java/com/novoda/ src/com/
-      - cp -r $$Google-Gson$$/src/main/java/com/google/ src/com/
-
   - versionName: 014 beta
     versionCode: 14
     commit: '33'
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
+      - ActionBarSherlock@4.4.0
       - Smashwords-API@58
       - ImageLoader-Novoda@imageloader-parent-1.5.8
     rm:
@@ -55,7 +39,7 @@ Builds:
     versionCode: 15
     commit: '39'
     srclibs:
-      - 1:ActionBarSherlock@4.4.0
+      - ActionBarSherlock@4.4.0
       - Smashwords-API@59
       - ImageLoader-Novoda@imageloader-parent-1.5.9
       - Google-Gson@gson-2.2.1
@@ -74,8 +58,8 @@ Builds:
       - gradle jar -p $$Smashwords-API$$
       - mv $$Smashwords-API$$/build/libs/SmashwordsAPI-1.0-SNAPSHOT.jar libs/
 
-ArchivePolicy: 0 versions
+ArchivePolicy: 0
 AutoUpdateMode: None
-UpdateCheckMode: RepoManifest
+UpdateCheckMode: None
 CurrentVersion: '0.20'
 CurrentVersionCode: 20

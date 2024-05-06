@@ -1,31 +1,30 @@
 Categories:
   - Writing
 License: Apache-2.0
-SourceCode: https://github.com/AnySoftKeyboard/LanguagePack/tree/Basque
-IssueTracker: https://github.com/AnySoftKeyboard/LanguagePack/issues
+SourceCode: https://github.com/AnySoftKeyboard/AnySoftKeyboard/
+IssueTracker: https://github.com/AnySoftKeyboard/AnySoftKeyboard/issues
 Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=KDYBGNUNMMN94&lc=US&item_name=AnySoftKeyboard
 
-Name: 'AnySoftKeyboard: Basque'
 AutoName: AnySoftKeyboard - Basque
 Description: |-
-    Basque Language pack
+  Basque Language pack
 
-    Features:
+  Features:
 
-    Basque dictionary with more than 100,000 words that includes words from unified
-    Standard Basque and from the Biscayan dialect*. Includes the ñ key. Includes the
-    zero-width space key (a.k.a. "datraolat"). Long press the d key to use it.
-    Useful for adding suffixes to hashtags in Twitter, Instagram... This is an
-    expansion language pack for AnySoftKeyboard. Install AnySoftKeyboard first, and
-    then select the Basque keyboard from AnySoftKeyboard's Settings -> Languages ->
-    Keyboards menu.
+  Basque dictionary with more than 100,000 words that includes words from unified
+  Standard Basque and from the Biscayan dialect*. Includes the ñ key. Includes the
+  zero-width space key (a.k.a. "datraolat"). Long press the d key to use it.
+  Useful for adding suffixes to hashtags in Twitter, Instagram... This is an
+  expansion language pack for AnySoftKeyboard. Install AnySoftKeyboard first, and
+  then select the Basque keyboard from AnySoftKeyboard's Settings -> Languages ->
+  Keyboards menu.
 
-    (*) Note: It's based on the dictionary created by Igor Leturia for FirefoxOS. We
-    filtered the dictionary using the spell checkers Xuxen (Standard Basque) and
-    Xuxen B (Biscayan dialect).
+  (*) Note: It's based on the dictionary created by Igor Leturia for FirefoxOS. We
+  filtered the dictionary using the spell checkers Xuxen (Standard Basque) and
+  Xuxen B (Biscayan dialect).
 
 RepoType: git
-Repo: https://github.com/AnySoftKeyboard/LanguagePack.git
+Repo: https://github.com/AnySoftKeyboard/AnySoftKeyboard.git
 
 Builds:
   - versionName: '1.0'
@@ -39,7 +38,26 @@ Builds:
     preassemble:
       - :makeDictionary
 
+  - versionName: 4.0.1396
+    versionCode: 2908
+    commit: 1.10-r4
+    subdir: addons/languages/basque
+    sudo:
+      - apt-get update
+      - apt-get install -t stretch-backports openjdk-11-jdk-headless openjdk-11-jre-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: ../../../outputs/apks/release/addons-languages-*-$$VERCODE$$.apk
+    prebuild:
+      - echo "//gradleVersion = '6.8.3'" | tee build.gradle
+      - sed -i -e '/Data\.versionCode/ c versionCode $$VERCODE$$' -e '/Data\.versionName/
+        c versionName "$$VERSION$$"' ../../../gradle/versioning_apk.gradle
+    scanignore:
+      - addons/languages/*/pack/dictionary/*.gz
+    ndk: r14b
+
 AutoUpdateMode: None
-UpdateCheckMode: RepoManifest/Basque
-CurrentVersion: '1.0'
-CurrentVersionCode: 1
+UpdateCheckMode: None
+CurrentVersion: 4.0.1396
+CurrentVersionCode: 2908

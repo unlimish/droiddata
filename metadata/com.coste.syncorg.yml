@@ -9,16 +9,16 @@ IssueTracker: https://github.com/wizmer/syncorg/issues
 
 AutoName: SyncOrg
 Description: |-
-    Note taking app that supports Emacs OrgMode.
+  Note taking app that supports Emacs OrgMode.
 
-    Features:
+  Features:
 
-    * Modern design using Android’s Material Design guidelines
-    * Automatic Git synchronization (via SSH and HTTP). Access to the raw files in case of conflict to solve.
-    * Independent of Emacs: it is no longer required to use it in conjunction with Emacs.
-    * Agenda view and Todo list view generated from the org files.
-    * Folding of items and sub-items.
-    * Share files button
+  * Modern design using Android's Material Design guidelines
+  * Automatic Git synchronization (via SSH and HTTP). Access to the raw files in case of conflict to solve.
+  * Independent of Emacs: it is no longer required to use it in conjunction with Emacs.
+  * Agenda view and Todo list view generated from the org files.
+  * Folding of items and sub-items.
+  * Share files button
 
 RepoType: git
 Repo: https://github.com/wizmer/syncorg
@@ -56,16 +56,7 @@ Builds:
       - yes
     prebuild: sed -i -e '/guardian/d' build.gradle
 
-  - versionName: 2.1.0.0
-    versionCode: 11
-    disable: Google Repository
-    commit: 2.1.0.0
-    subdir: SyncOrg
-    gradle:
-      - yes
-    prebuild: sed -i -e '/guardian/d' build.gradle
-
-AutoUpdateMode: Version %v
-UpdateCheckMode: Tags
-CurrentVersion: 2.1.0.0
-CurrentVersionCode: 11
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 2.0.5.3
+CurrentVersionCode: 10

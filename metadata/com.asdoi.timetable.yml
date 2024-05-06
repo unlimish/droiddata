@@ -7,6 +7,7 @@ WebSite: https://asdoi.gitlab.io/timetable.html
 SourceCode: https://gitlab.com/asdoi/TimeTable
 IssueTracker: https://gitlab.com/asdoi/TimeTable/-/issues
 Changelog: https://gitlab.com/asdoi/TimeTable/-/releases
+Donate: https://www.buymeacoffee.com/asdoi
 
 AutoName: TimeTable
 
@@ -56,7 +57,26 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version v%v
+  - versionName: '1.6'
+    versionCode: 16
+    commit: a5df44568cf786a1610a01f1b1a8f33c9ce4cd87
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.7'
+    versionCode: 17
+    commit: 1ab7cd6d7f5f37fd149e7e36b8b37c01ce66f886
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/android {/a lintOptions{abortOnError false}' build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.5'
-CurrentVersionCode: 15
+CurrentVersion: '1.7'
+CurrentVersionCode: 17

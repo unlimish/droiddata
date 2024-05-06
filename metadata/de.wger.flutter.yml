@@ -1,0 +1,173 @@
+Categories:
+  - Sports & Health
+License: AGPL-3.0-or-later
+SourceCode: https://github.com/wger-project/flutter
+IssueTracker: https://github.com/wger-project/flutter/issues
+
+AutoName: wger
+
+RepoType: git
+Repo: https://github.com/wger-project/flutter.git
+
+Builds:
+  - versionName: 1.4.0
+    versionCode: 24
+    commit: d17717cb1ac56358e33e0f0d273561eba7f88761
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.3
+    prebuild:
+      - echo "flutter.sdk=$$flutter$$" >> android/local.properties
+      - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
+      - echo "124f2d5115eee365df6cf3228ffbca6fc3911d16f8025bebd5b1c6e2fcfa7faf /tmp/cmdline-tools.zip"  |
+        sha256sum -c -
+      - unzip -q -o /tmp/cmdline-tools.zip -d /tmp/cmdline-tools
+      - rm /tmp/cmdline-tools.zip
+      - mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools/tools
+      - mv /tmp/cmdline-tools/cmdline-tools/* ${ANDROID_SDK_ROOT}/cmdline-tools/tools
+        || true
+      - export PATH=${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${PATH}
+      - yes | sdkmanager --licenses
+      - sdkmanager "build-tools;30.0.3" "build-tools;31.0.0" "platforms;android-31"
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.4.1
+    versionCode: 25
+    commit: 15f0203036875cc82075a902f1a161ec6bb8417d
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@2.5.3
+    prebuild:
+      - echo "flutter.sdk=$$flutter$$" >> android/local.properties
+      - wget -O /tmp/cmdline-tools.zip -t 5 "https://dl.google.com/android/repository/commandlinetools-linux-7583922_latest.zip"
+      - echo "124f2d5115eee365df6cf3228ffbca6fc3911d16f8025bebd5b1c6e2fcfa7faf /tmp/cmdline-tools.zip"  |
+        sha256sum -c -
+      - unzip -q -o /tmp/cmdline-tools.zip -d /tmp/cmdline-tools
+      - rm /tmp/cmdline-tools.zip
+      - mkdir -p ${ANDROID_SDK_ROOT}/cmdline-tools/tools
+      - mv /tmp/cmdline-tools/cmdline-tools/* ${ANDROID_SDK_ROOT}/cmdline-tools/tools
+        || true
+      - export PATH=${ANDROID_SDK_ROOT}/cmdline-tools/tools/bin:${PATH}
+      - yes | sdkmanager --licenses
+      - sdkmanager "build-tools;30.0.3" "build-tools;31.0.0" "platforms;android-31"
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.5.6
+    versionCode: 33
+    commit: 928ef7e7f76aca37dc4782c6e4711c7a1cf2b498
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.7.12
+    rm:
+      - flatpak
+      - ios
+      - linux
+      - macos
+      - web
+    prebuild:
+      - sed -i -e '/flutter_barcode_scanner/d' pubspec.yaml
+      - sed -i -e '/flutter_barcode_scanner/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.6.2
+    versionCode: 37
+    commit: 249cbf1f5f1882055f72775955e93f60dd3cfe54
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.16.0
+    rm:
+      - flatpak
+      - ios
+      - linux
+      - macos
+      - web
+    prebuild:
+      - sed -i -e '/flutter_barcode_scanner/d' pubspec.yaml
+      - sed -i -e '/flutter_barcode_scanner/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.6.3
+    versionCode: 38
+    commit: c3582a66168a431bf7f3b57d8c43c69da1cd5505
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.16.0
+    rm:
+      - flatpak
+      - ios
+      - linux
+      - macos
+      - web
+    prebuild:
+      - sed -i -e '/flutter_barcode_scanner/d' pubspec.yaml
+      - sed -i -e '/flutter_barcode_scanner/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+  - versionName: 1.6.4
+    versionCode: 39
+    commit: 4af4462498b477bd0a2e1830cf7ce7bc0ddb03c0
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@3.16.0
+    rm:
+      - flatpak
+      - ios
+      - linux
+      - macos
+      - web
+    prebuild:
+      - sed -i -e '/flutter_barcode_scanner/d' pubspec.yaml
+      - sed -i -e '/flutter_barcode_scanner/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.6.4
+CurrentVersionCode: 39

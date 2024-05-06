@@ -1,6 +1,8 @@
 AntiFeatures:
-  - NonFreeAdd
-  - NonFreeNet
+  NonFreeAdd:
+    en-US: Installs Spotify, which is a proprietary app.
+  NonFreeNet:
+    en-US: Depends on Spotify servers to download the app.
 Categories:
   - Internet
 License: MIT
@@ -11,8 +13,8 @@ Donate: https://www.paypal.me/2Ra66it
 
 AutoName: Updater for Spotify
 Description: |-
-    Updater for Spotify allows you to download the latest version of Spotify and
-    Spotify Beta to your android device.
+  Updater for Spotify allows you to download the latest version of Spotify and
+  Spotify Beta to your android device.
 
 RepoType: git
 Repo: https://github.com/2Ra66it/updater-for-spotify.git
@@ -137,7 +139,21 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: '1.37'
+    versionCode: 20
+    commit: 8f2c187c58d9403e29eea0580c4f932b3eea7ca1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '1.38'
+    versionCode: 21
+    commit: 6ff047cf14f515dffccf271307581927f34b8712
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.36'
-CurrentVersionCode: 19
+CurrentVersion: '1.38'
+CurrentVersionCode: 21

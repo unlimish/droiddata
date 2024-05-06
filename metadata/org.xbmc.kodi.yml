@@ -9,11 +9,11 @@ IssueTracker: https://github.com/xbmc/xbmc/issues
 Translation: https://github.com/xbmc/xbmc#how-to-contribute
 
 Description: |-
-    Kodi is a media player and entertainment hub for digital media.
+  Kodi is a media player and entertainment hub for digital media.
 
-    Kodi can be used to play almost all popular audio and video formats around. It was designed for network playback, so you can stream your multimedia from anywhere in the house or directly from the internet using practically any protocol available.
+  Kodi can be used to play almost all popular audio and video formats around. It was designed for network playback, so you can stream your multimedia from anywhere in the house or directly from the internet using practically any protocol available.
 
-    Point Kodi to your media and watch it scan and automagically create a personalized library complete with box covers, descriptions, and fanart. There are playlist and slideshow functions, a weather forecast feature and many audio visualizations.
+  Point Kodi to your media and watch it scan and automagically create a personalized library complete with box covers, descriptions, and fanart. There are playlist and slideshow functions, a weather forecast feature and many audio visualizations.
 
 RepoType: git
 Repo: https://github.com/xbmc/xbmc.git
@@ -24,7 +24,7 @@ Builds:
     commit: 18.0-Leia
     timeout: 10800
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y build-essential default-jdk gawk lib32stdc++6 lib32z1 lib32z1-dev
         libcurl4-openssl-dev zlib1g-dev groovy libcommons-lang-java python-dev
     patch:
@@ -60,7 +60,7 @@ Builds:
     commit: 18.2-Leia
     timeout: 10800
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y build-essential default-jdk gawk lib32stdc++6 lib32z1 lib32z1-dev
         libcurl4-openssl-dev zlib1g-dev groovy libcommons-lang-java python-dev
     patch:
@@ -96,7 +96,7 @@ Builds:
     commit: 18.3-Leia
     timeout: 14400
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y build-essential default-jdk gawk lib32stdc++6 lib32z1 lib32z1-dev
         libcurl4-openssl-dev zlib1g-dev groovy libcommons-lang-java python-dev
     patch:
@@ -133,7 +133,7 @@ Builds:
     commit: 18.8-Leia
     timeout: 7200
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y build-essential default-jdk gawk lib32stdc++6 lib32z1 lib32z1-dev
         libcurl4-openssl-dev zlib1g-dev groovy libcommons-lang-java python-dev
     patch:
@@ -172,7 +172,7 @@ Builds:
     commit: 18.9-Leia
     timeout: 7200
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y build-essential default-jdk gawk lib32stdc++6 lib32z1 lib32z1-dev
         libcurl4-openssl-dev zlib1g-dev groovy libcommons-lang-java python-dev
     patch:
@@ -211,7 +211,7 @@ Builds:
     commit: 19.0-Matrix
     timeout: 7200
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y build-essential default-jdk gawk lib32stdc++6 lib32z1 lib32z1-dev
         libcurl4-openssl-dev zlib1g-dev groovy libcommons-lang-java python-dev
     patch:
@@ -242,12 +242,521 @@ Builds:
       - make -C build apk-unsigned
     ndk: r20b
 
+  - versionName: '19.1'
+    versionCode: 1901000
+    commit: 19.1-Matrix
+    timeout: 7200
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential default-jdk gawk lib32stdc++6 lib32z1 lib32z1-dev
+        libcurl4-openssl-dev zlib1g-dev groovy libcommons-lang-java python-dev
+    patch:
+      - 19.0-groovy.patch
+    output: build/tools/android/packaging/xbmc/build/outputs/apk/releaseUnsigned/xbmc-releaseUnsigned-unsigned.apk
+    rm:
+      - tools/codegenerator/groovy/
+    prebuild:
+      - sed -i -e '/gradlew/d' -e '/gradle-wrapper.jar/d' cmake/scripts/android/Install.cmake
+      - sed -i -e 's#./gradlew#gradle#' tools/android/packaging/Makefile.in
+    scanignore:
+      - addons/webinterface.default/lib/soundmanager/swf/soundmanager2_flash_xdomain.zip
+    scandelete:
+      - lib/
+      - project/
+      - tools/
+      - xbmc/filesystem/test
+    build:
+      - pushd tools/depends/
+      - ./bootstrap
+      - ./configure --host=arm-linux-androideabi --with-sdk-path=$$SDK$$ --with-ndk-path=$$NDK$$
+        --prefix=$PWD/output --disable-debug
+      - make -j`nproc`
+      - popd
+      - make -C tools/depends/target/binary-addons -j`nproc`
+      - make -C tools/depends/target/cmakebuildsys
+      - make -C build -j`nproc`
+      - make -C build apk-unsigned
+    ndk: r20b
+
+  - versionName: '19.4'
+    versionCode: 1904000
+    commit: 19.4-Matrix
+    timeout: 14400
+    sudo:
+      - rm -fr /opt/android-sdk/build-tools/*
+      - apt-get update
+      - apt-get install -y automake build-essential cmake file gawk gperf groovy lib32stdc++6
+        lib32z1-dev libcommons-lang-java libcurl4-openssl-dev python-dev
+    patch:
+      - 19.3-groovy.patch
+    output: build/tools/android/packaging/xbmc/build/outputs/apk/releaseUnsigned/xbmc-releaseUnsigned-unsigned.apk
+    rm:
+      - tools/codegenerator/groovy/
+    prebuild:
+      - sdkmanager 'build-tools;29.0.3'
+      - sed -i -e '/gradlew/d' -e '/gradle-wrapper.jar/d' cmake/scripts/android/Install.cmake
+      - sed -i -e 's#./gradlew#gradle#' tools/android/packaging/Makefile.in
+      - sed -i -e 's/3.5.0/4.0.1/' tools/android/packaging/build.gradle
+      - sed -i -e 's/5.4.1/6.1.1/' tools/android/packaging/gradle/wrapper/gradle-wrapper.properties
+      - sed -i -e '/uses-sdk/,+2d' tools/android/packaging/xbmc/AndroidManifest.xml.in
+      - echo "android.useAndroidX=true" >> tools/android/packaging/gradle.properties
+      - sed -i -e '/apksign COPYONLY/a               ${CMAKE_BINARY_DIR}/tools/android/packaging/gradle.properties
+        COPYONLY)' cmake/scripts/android/Install.cmake
+      - sed -i -e '/apksign COPYONLY/aconfigure_file(${CMAKE_SOURCE_DIR}/tools/android/packaging/gradle.properties'
+        cmake/scripts/android/Install.cmake
+    scanignore:
+      - addons/webinterface.default/lib/soundmanager/swf/soundmanager2_flash_xdomain.zip
+    scandelete:
+      - lib/
+      - project/
+      - tools/
+      - xbmc/filesystem/test
+    build:
+      - pushd tools/depends/
+      - ./bootstrap
+      - ./configure --host=arm-linux-androideabi --with-sdk-path=$$SDK$$ --with-ndk-path=$$NDK$$
+        --prefix=$PWD/output --disable-debug
+      - make -j`nproc`
+      - popd
+      - make -C tools/depends/target/binary-addons -j`nproc`
+      - make -C tools/depends/target/cmakebuildsys
+      - make -C build -j`nproc`
+      - make -C build apk-unsigned
+    ndk: r21
+
+  - versionName: '19.4'
+    versionCode: 1904001
+    commit: 19.4-Matrix
+    timeout: 14400
+    sudo:
+      - rm -fr /opt/android-sdk/build-tools/*
+      - apt-get update
+      - apt-get install -y automake build-essential cmake file gawk gperf groovy lib32stdc++6
+        lib32z1-dev libcommons-lang-java libcurl4-openssl-dev python-dev
+    patch:
+      - 19.3-groovy.patch
+    output: build/tools/android/packaging/xbmc/build/outputs/apk/releaseUnsigned/xbmc-releaseUnsigned-unsigned.apk
+    rm:
+      - tools/codegenerator/groovy/
+    prebuild:
+      - sdkmanager 'build-tools;29.0.3'
+      - sed -i -e '/gradlew/d' -e '/gradle-wrapper.jar/d' cmake/scripts/android/Install.cmake
+      - sed -i -e 's#./gradlew#gradle#' tools/android/packaging/Makefile.in
+      - sed -i -e 's/3.5.0/4.0.1/' tools/android/packaging/build.gradle
+      - sed -i -e 's/5.4.1/6.1.1/' tools/android/packaging/gradle/wrapper/gradle-wrapper.properties
+      - sed -i -e '/uses-sdk/,+2d' tools/android/packaging/xbmc/AndroidManifest.xml.in
+      - echo "android.useAndroidX=true" >> tools/android/packaging/gradle.properties
+      - sed -i -e '/apksign COPYONLY/a               ${CMAKE_BINARY_DIR}/tools/android/packaging/gradle.properties
+        COPYONLY)' cmake/scripts/android/Install.cmake
+      - sed -i -e '/apksign COPYONLY/aconfigure_file(${CMAKE_SOURCE_DIR}/tools/android/packaging/gradle.properties'
+        cmake/scripts/android/Install.cmake
+    scanignore:
+      - addons/webinterface.default/lib/soundmanager/swf/soundmanager2_flash_xdomain.zip
+    scandelete:
+      - lib/
+      - project/
+      - tools/
+      - xbmc/filesystem/test
+    build:
+      - pushd tools/depends/
+      - ./bootstrap
+      - ./configure --host=aarch64-linux-android --with-sdk-path=$$SDK$$ --with-ndk-path=$$NDK$$
+        --prefix=$PWD/output --disable-debug
+      - make -j`nproc`
+      - popd
+      - make -C tools/depends/target/binary-addons -j`nproc`
+      - make -C tools/depends/target/cmakebuildsys
+      - make -C build -j`nproc`
+      - make -C build apk-unsigned
+    ndk: r21
+
+  - versionName: '20.2'
+    versionCode: 2002000
+    commit: 5f418d0b133535c6675154688ac7144e34f4d436
+    timeout: 28000
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential gawk lib32stdc++6 lib32z1 lib32z1-dev libcurl4-openssl-dev
+        zlib1g-dev libcommons-lang-java python-dev openjdk-11-jdk-headless openjdk-17-jdk-headless
+        m4
+    output: build/tools/android/packaging/xbmc/build/outputs/apk/release/xbmc-release-unsigned.apk
+    srclibs:
+      - groovy@GROOVY_4_0_6
+    rm:
+      - tools/codegenerator/groovy/*
+    prebuild:
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64' >> $$groovy$$/gradle.properties
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-11-openjdk-amd64' >> tools/android/packaging/gradle.properties
+      - sed -i -e '/gradlew/d' -e '/gradle-wrapper.jar/d' cmake/scripts/android/Install.cmake
+      - sed -i -e 's#./gradlew#gradle#' -e '\!@cp xbmc/build!d' tools/android/packaging/Makefile.in
+      - sed -i -e '/signingConfigs {/,+11d' -e '/signingConfig/d' tools/android/packaging/xbmc/build.gradle.in
+      - sed -i -e 's#${GROOVY_DIR}/commons-lang-${COMMONS_VER}.jar#/usr/share/java/commons-lang.jar#'
+        xbmc/interfaces/swig/CMakeLists.txt
+    scanignore:
+      - addons/webinterface.default/lib/soundmanager/swf/soundmanager2_flash_xdomain.zip
+    scandelete:
+      - lib/
+      - project/
+      - tools/
+      - xbmc/filesystem/test
+    build:
+      - pushd $$groovy$$
+      - gradle :jarjar :groovy-templates:jarjar :groovy-xml:jarjar
+      - popd
+      - mv $$groovy$$/build/libs/groovy-?.?.?.jar $$groovy$$/subprojects/groovy-templates/build/libs/groovy-templates-?.?.?.jar
+        $$groovy$$/subprojects/groovy-xml/build/libs/groovy-xml-?.?.?.jar tools/codegenerator/groovy/
+      - pushd tools/depends/
+      - ./bootstrap
+      - ./configure --host=arm-linux-androideabi --with-sdk-path=$$SDK$$ --with-ndk-path=$$NDK$$
+        --prefix=$PWD/output --disable-debug
+      - make -j $(nproc)
+      - popd
+      - make -C tools/depends/target/binary-addons -j $(nproc)
+      - make -C tools/depends/target/cmakebuildsys
+      - make -C build -j $(nproc)
+      - make -C build apk
+    ndk: r21e
+
+  - versionName: '20.2'
+    versionCode: 2002001
+    commit: 5f418d0b133535c6675154688ac7144e34f4d436
+    timeout: 28000
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential gawk lib32stdc++6 lib32z1 lib32z1-dev libcurl4-openssl-dev
+        zlib1g-dev libcommons-lang-java python-dev openjdk-11-jdk-headless openjdk-17-jdk-headless
+        m4
+    output: build/tools/android/packaging/xbmc/build/outputs/apk/release/xbmc-release-unsigned.apk
+    srclibs:
+      - groovy@GROOVY_4_0_6
+    rm:
+      - tools/codegenerator/groovy/*
+    prebuild:
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64' >> $$groovy$$/gradle.properties
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-11-openjdk-amd64' >> tools/android/packaging/gradle.properties
+      - sed -i -e '/gradlew/d' -e '/gradle-wrapper.jar/d' cmake/scripts/android/Install.cmake
+      - sed -i -e 's#./gradlew#gradle#' -e '\!@cp xbmc/build!d' tools/android/packaging/Makefile.in
+      - sed -i -e '/signingConfigs {/,+11d' -e '/signingConfig/d' tools/android/packaging/xbmc/build.gradle.in
+      - sed -i -e 's#${GROOVY_DIR}/commons-lang-${COMMONS_VER}.jar#/usr/share/java/commons-lang.jar#'
+        xbmc/interfaces/swig/CMakeLists.txt
+    scanignore:
+      - addons/webinterface.default/lib/soundmanager/swf/soundmanager2_flash_xdomain.zip
+    scandelete:
+      - lib/
+      - project/
+      - tools/
+      - xbmc/filesystem/test
+    build:
+      - pushd $$groovy$$
+      - gradle :jarjar :groovy-templates:jarjar :groovy-xml:jarjar
+      - popd
+      - mv $$groovy$$/build/libs/groovy-?.?.?.jar $$groovy$$/subprojects/groovy-templates/build/libs/groovy-templates-?.?.?.jar
+        $$groovy$$/subprojects/groovy-xml/build/libs/groovy-xml-?.?.?.jar tools/codegenerator/groovy/
+      - pushd tools/depends/
+      - ./bootstrap
+      - ./configure --host=aarch64-linux-android --with-sdk-path=$$SDK$$ --with-ndk-path=$$NDK$$
+        --prefix=$PWD/output --disable-debug
+      - make -j $(nproc)
+      - popd
+      - make -C tools/depends/target/binary-addons -j $(nproc)
+      - make -C tools/depends/target/cmakebuildsys
+      - make -C build -j $(nproc)
+      - make -C build apk
+    ndk: r21e
+
+  - versionName: '20.3'
+    versionCode: 2003000
+    commit: 6fb2bfc7ff210748a116d5b7018ee8ae222bf580
+    timeout: 28000
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential gawk lib32stdc++6 lib32z1 lib32z1-dev libcurl4-openssl-dev
+        zlib1g-dev libcommons-lang-java python-dev openjdk-11-jdk-headless openjdk-17-jdk-headless
+        m4
+    output: build/tools/android/packaging/xbmc/build/outputs/apk/release/xbmc-release-unsigned.apk
+    srclibs:
+      - groovy@GROOVY_4_0_6
+    rm:
+      - tools/codegenerator/groovy/*
+    prebuild:
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64' >> $$groovy$$/gradle.properties
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-11-openjdk-amd64' >> tools/android/packaging/gradle.properties
+      - sed -i -e '/gradlew/d' -e '/gradle-wrapper.jar/d' cmake/scripts/android/Install.cmake
+      - sed -i -e 's#./gradlew#gradle#' -e '\!@cp xbmc/build!d' tools/android/packaging/Makefile.in
+      - sed -i -e '/signingConfigs {/,+11d' -e '/signingConfig/d' tools/android/packaging/xbmc/build.gradle.in
+      - sed -i -e 's#${GROOVY_DIR}/commons-lang-${COMMONS_VER}.jar#/usr/share/java/commons-lang.jar#'
+        xbmc/interfaces/swig/CMakeLists.txt
+    scanignore:
+      - addons/webinterface.default/lib/soundmanager/swf/soundmanager2_flash_xdomain.zip
+    scandelete:
+      - lib/
+      - project/
+      - tools/
+      - xbmc/filesystem/test
+    build:
+      - pushd $$groovy$$
+      - gradle :jarjar :groovy-templates:jarjar :groovy-xml:jarjar
+      - popd
+      - mv $$groovy$$/build/libs/groovy-?.?.?.jar $$groovy$$/subprojects/groovy-templates/build/libs/groovy-templates-?.?.?.jar
+        $$groovy$$/subprojects/groovy-xml/build/libs/groovy-xml-?.?.?.jar tools/codegenerator/groovy/
+      - pushd tools/depends/
+      - ./bootstrap
+      - ./configure --host=arm-linux-androideabi --with-sdk-path=$$SDK$$ --with-ndk-path=$$NDK$$
+        --prefix=$PWD/output --disable-debug
+      - make -j $(nproc)
+      - popd
+      - make -C tools/depends/target/binary-addons -j $(nproc)
+      - make -C tools/depends/target/cmakebuildsys
+      - make -C build -j $(nproc)
+      - make -C build apk
+    ndk: r21e
+
+  - versionName: '20.3'
+    versionCode: 2003001
+    commit: 6fb2bfc7ff210748a116d5b7018ee8ae222bf580
+    timeout: 28000
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential gawk lib32stdc++6 lib32z1 lib32z1-dev libcurl4-openssl-dev
+        zlib1g-dev libcommons-lang-java python-dev openjdk-11-jdk-headless openjdk-17-jdk-headless
+        m4
+    output: build/tools/android/packaging/xbmc/build/outputs/apk/release/xbmc-release-unsigned.apk
+    srclibs:
+      - groovy@GROOVY_4_0_6
+    rm:
+      - tools/codegenerator/groovy/*
+    prebuild:
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64' >> $$groovy$$/gradle.properties
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-11-openjdk-amd64' >> tools/android/packaging/gradle.properties
+      - sed -i -e '/gradlew/d' -e '/gradle-wrapper.jar/d' cmake/scripts/android/Install.cmake
+      - sed -i -e 's#./gradlew#gradle#' -e '\!@cp xbmc/build!d' tools/android/packaging/Makefile.in
+      - sed -i -e '/signingConfigs {/,+11d' -e '/signingConfig/d' tools/android/packaging/xbmc/build.gradle.in
+      - sed -i -e 's#${GROOVY_DIR}/commons-lang-${COMMONS_VER}.jar#/usr/share/java/commons-lang.jar#'
+        xbmc/interfaces/swig/CMakeLists.txt
+    scanignore:
+      - addons/webinterface.default/lib/soundmanager/swf/soundmanager2_flash_xdomain.zip
+    scandelete:
+      - lib/
+      - project/
+      - tools/
+      - xbmc/filesystem/test
+    build:
+      - pushd $$groovy$$
+      - gradle :jarjar :groovy-templates:jarjar :groovy-xml:jarjar
+      - popd
+      - mv $$groovy$$/build/libs/groovy-?.?.?.jar $$groovy$$/subprojects/groovy-templates/build/libs/groovy-templates-?.?.?.jar
+        $$groovy$$/subprojects/groovy-xml/build/libs/groovy-xml-?.?.?.jar tools/codegenerator/groovy/
+      - pushd tools/depends/
+      - ./bootstrap
+      - ./configure --host=aarch64-linux-android --with-sdk-path=$$SDK$$ --with-ndk-path=$$NDK$$
+        --prefix=$PWD/output --disable-debug
+      - make -j $(nproc)
+      - popd
+      - make -C tools/depends/target/binary-addons -j $(nproc)
+      - make -C tools/depends/target/cmakebuildsys
+      - make -C build -j $(nproc)
+      - make -C build apk
+    ndk: r21e
+
+  - versionName: '20.4'
+    versionCode: 2004000
+    commit: 4868e9c709bf9ccaa6e301b18acb9c5b7adaa1d9
+    timeout: 28000
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential gawk lib32stdc++6 lib32z1 lib32z1-dev libcurl4-openssl-dev
+        zlib1g-dev libcommons-lang-java python-dev openjdk-11-jdk-headless openjdk-17-jdk-headless
+        m4
+    output: build/tools/android/packaging/xbmc/build/outputs/apk/release/xbmc-release-unsigned.apk
+    srclibs:
+      - groovy@GROOVY_4_0_6
+    rm:
+      - tools/codegenerator/groovy/*
+    prebuild:
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64' >> $$groovy$$/gradle.properties
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-11-openjdk-amd64' >> tools/android/packaging/gradle.properties
+      - sed -i -e '/gradlew/d' -e '/gradle-wrapper.jar/d' cmake/scripts/android/Install.cmake
+      - sed -i -e 's#./gradlew#gradle#' -e '\!@cp xbmc/build!d' tools/android/packaging/Makefile.in
+      - sed -i -e '/signingConfigs {/,+11d' -e '/signingConfig/d' tools/android/packaging/xbmc/build.gradle.in
+      - sed -i -e 's#${GROOVY_DIR}/commons-lang-${COMMONS_VER}.jar#/usr/share/java/commons-lang.jar#'
+        xbmc/interfaces/swig/CMakeLists.txt
+    scanignore:
+      - addons/webinterface.default/lib/soundmanager/swf/soundmanager2_flash_xdomain.zip
+    scandelete:
+      - lib/
+      - project/
+      - tools/
+      - xbmc/filesystem/test
+    build:
+      - pushd $$groovy$$
+      - gradle :jarjar :groovy-templates:jarjar :groovy-xml:jarjar
+      - popd
+      - mv $$groovy$$/build/libs/groovy-?.?.?.jar $$groovy$$/subprojects/groovy-templates/build/libs/groovy-templates-?.?.?.jar
+        $$groovy$$/subprojects/groovy-xml/build/libs/groovy-xml-?.?.?.jar tools/codegenerator/groovy/
+      - pushd tools/depends/
+      - ./bootstrap
+      - ./configure --host=arm-linux-androideabi --with-sdk-path=$$SDK$$ --with-ndk-path=$$NDK$$
+        --prefix=$PWD/output --disable-debug
+      - make -j $(nproc)
+      - popd
+      - make -C tools/depends/target/binary-addons -j $(nproc)
+      - make -C tools/depends/target/cmakebuildsys
+      - make -C build -j $(nproc)
+      - make -C build apk
+    ndk: r21e
+
+  - versionName: '20.4'
+    versionCode: 2004001
+    commit: 4868e9c709bf9ccaa6e301b18acb9c5b7adaa1d9
+    timeout: 28000
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential gawk lib32stdc++6 lib32z1 lib32z1-dev libcurl4-openssl-dev
+        zlib1g-dev libcommons-lang-java python-dev openjdk-11-jdk-headless openjdk-17-jdk-headless
+        m4
+    output: build/tools/android/packaging/xbmc/build/outputs/apk/release/xbmc-release-unsigned.apk
+    srclibs:
+      - groovy@GROOVY_4_0_6
+    rm:
+      - tools/codegenerator/groovy/*
+    prebuild:
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64' >> $$groovy$$/gradle.properties
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-11-openjdk-amd64' >> tools/android/packaging/gradle.properties
+      - sed -i -e '/gradlew/d' -e '/gradle-wrapper.jar/d' cmake/scripts/android/Install.cmake
+      - sed -i -e 's#./gradlew#gradle#' -e '\!@cp xbmc/build!d' tools/android/packaging/Makefile.in
+      - sed -i -e '/signingConfigs {/,+11d' -e '/signingConfig/d' tools/android/packaging/xbmc/build.gradle.in
+      - sed -i -e 's#${GROOVY_DIR}/commons-lang-${COMMONS_VER}.jar#/usr/share/java/commons-lang.jar#'
+        xbmc/interfaces/swig/CMakeLists.txt
+    scanignore:
+      - addons/webinterface.default/lib/soundmanager/swf/soundmanager2_flash_xdomain.zip
+    scandelete:
+      - lib/
+      - project/
+      - tools/
+      - xbmc/filesystem/test
+    build:
+      - pushd $$groovy$$
+      - gradle :jarjar :groovy-templates:jarjar :groovy-xml:jarjar
+      - popd
+      - mv $$groovy$$/build/libs/groovy-?.?.?.jar $$groovy$$/subprojects/groovy-templates/build/libs/groovy-templates-?.?.?.jar
+        $$groovy$$/subprojects/groovy-xml/build/libs/groovy-xml-?.?.?.jar tools/codegenerator/groovy/
+      - pushd tools/depends/
+      - ./bootstrap
+      - ./configure --host=aarch64-linux-android --with-sdk-path=$$SDK$$ --with-ndk-path=$$NDK$$
+        --prefix=$PWD/output --disable-debug
+      - make -j $(nproc)
+      - popd
+      - make -C tools/depends/target/binary-addons -j $(nproc)
+      - make -C tools/depends/target/cmakebuildsys
+      - make -C build -j $(nproc)
+      - make -C build apk
+    ndk: r21e
+
+  - versionName: '20.5'
+    versionCode: 2005000
+    commit: 4b95737efaddf7c869736e539318f18433413ff1
+    timeout: 28000
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential gawk lib32stdc++6 lib32z1 lib32z1-dev libcurl4-openssl-dev
+        zlib1g-dev libcommons-lang-java python-dev openjdk-11-jdk-headless openjdk-17-jdk-headless
+        m4
+    output: build/tools/android/packaging/xbmc/build/outputs/apk/release/xbmc-release-unsigned.apk
+    srclibs:
+      - groovy@GROOVY_4_0_6
+    rm:
+      - tools/codegenerator/groovy/*
+    prebuild:
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64' >> $$groovy$$/gradle.properties
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-11-openjdk-amd64' >> tools/android/packaging/gradle.properties
+      - sed -i -e '/gradlew/d' -e '/gradle-wrapper.jar/d' cmake/scripts/android/Install.cmake
+      - sed -i -e 's#./gradlew#gradle#' -e '\!@cp xbmc/build!d' tools/android/packaging/Makefile.in
+      - sed -i -e '/signingConfigs {/,+11d' -e '/signingConfig/d' tools/android/packaging/xbmc/build.gradle.in
+      - sed -i -e 's#${GROOVY_DIR}/commons-lang-${COMMONS_VER}.jar#/usr/share/java/commons-lang.jar#'
+        xbmc/interfaces/swig/CMakeLists.txt
+    scanignore:
+      - addons/webinterface.default/lib/soundmanager/swf/soundmanager2_flash_xdomain.zip
+    scandelete:
+      - lib/
+      - project/
+      - tools/
+      - xbmc/filesystem/test
+    build:
+      - pushd $$groovy$$
+      - gradle :jarjar :groovy-templates:jarjar :groovy-xml:jarjar
+      - popd
+      - mv $$groovy$$/build/libs/groovy-?.?.?.jar $$groovy$$/subprojects/groovy-templates/build/libs/groovy-templates-?.?.?.jar
+        $$groovy$$/subprojects/groovy-xml/build/libs/groovy-xml-?.?.?.jar tools/codegenerator/groovy/
+      - pushd tools/depends/
+      - ./bootstrap
+      - ./configure --host=arm-linux-androideabi --with-sdk-path=$$SDK$$ --with-ndk-path=$$NDK$$
+        --prefix=$PWD/output --disable-debug
+      - make -j $(nproc)
+      - popd
+      - make -C tools/depends/target/binary-addons -j $(nproc)
+      - make -C tools/depends/target/cmakebuildsys
+      - make -C build -j $(nproc)
+      - make -C build apk
+    ndk: r21e
+
+  - versionName: '20.5'
+    versionCode: 2005001
+    commit: 4b95737efaddf7c869736e539318f18433413ff1
+    timeout: 28000
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential gawk lib32stdc++6 lib32z1 lib32z1-dev libcurl4-openssl-dev
+        zlib1g-dev libcommons-lang-java python-dev openjdk-11-jdk-headless openjdk-17-jdk-headless
+        m4
+    output: build/tools/android/packaging/xbmc/build/outputs/apk/release/xbmc-release-unsigned.apk
+    srclibs:
+      - groovy@GROOVY_4_0_6
+    rm:
+      - tools/codegenerator/groovy/*
+    prebuild:
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-17-openjdk-amd64' >> $$groovy$$/gradle.properties
+      - echo 'org.gradle.java.home=/usr/lib/jvm/java-11-openjdk-amd64' >> tools/android/packaging/gradle.properties
+      - sed -i -e '/gradlew/d' -e '/gradle-wrapper.jar/d' cmake/scripts/android/Install.cmake
+      - sed -i -e 's#./gradlew#gradle#' -e '\!@cp xbmc/build!d' tools/android/packaging/Makefile.in
+      - sed -i -e '/signingConfigs {/,+11d' -e '/signingConfig/d' tools/android/packaging/xbmc/build.gradle.in
+      - sed -i -e 's#${GROOVY_DIR}/commons-lang-${COMMONS_VER}.jar#/usr/share/java/commons-lang.jar#'
+        xbmc/interfaces/swig/CMakeLists.txt
+    scanignore:
+      - addons/webinterface.default/lib/soundmanager/swf/soundmanager2_flash_xdomain.zip
+    scandelete:
+      - lib/
+      - project/
+      - tools/
+      - xbmc/filesystem/test
+    build:
+      - pushd $$groovy$$
+      - gradle :jarjar :groovy-templates:jarjar :groovy-xml:jarjar
+      - popd
+      - mv $$groovy$$/build/libs/groovy-?.?.?.jar $$groovy$$/subprojects/groovy-templates/build/libs/groovy-templates-?.?.?.jar
+        $$groovy$$/subprojects/groovy-xml/build/libs/groovy-xml-?.?.?.jar tools/codegenerator/groovy/
+      - pushd tools/depends/
+      - ./bootstrap
+      - ./configure --host=aarch64-linux-android --with-sdk-path=$$SDK$$ --with-ndk-path=$$NDK$$
+        --prefix=$PWD/output --disable-debug
+      - make -j $(nproc)
+      - popd
+      - make -C tools/depends/target/binary-addons -j $(nproc)
+      - make -C tools/depends/target/cmakebuildsys
+      - make -C build -j $(nproc)
+      - make -C build apk
+    ndk: r21e
+
 MaintainerNotes: |-
-    18.0-groovy.patch was [https://github.com/xbmc/xbmc/issues/6860#issuecomment-461122155 provided by upstream]; it makes the build use the Debian groovy package instead of a prebuilt JAR.
+  18.0-groovy.patch was <a href="https://github.com/xbmc/xbmc/issues/6860#issuecomment-461122155">provided by upstream</a>; it makes the build use the Debian groovy package instead of a prebuilt JAR.
 
-    Build instructions are available [https://github.com/xbmc/xbmc/blob/master/docs/README.Android.md here].
+  Since Kodi 20.2 we build Groovy from source because Debian ships too old version (2.4.21). Groovy 4.0 wants JDK 16+, but Kodi fails to build with JDK 17 ("Unsupported class file major version 61"), so we use two JDKs.
 
+  Build instructions are available <a href="https://github.com/xbmc/xbmc/blob/master/docs/README.Android.md">here</a>.
+
+  checkupdates will fail for this app, so that's why UpdateCheckMode is None. Please keep up-to-date manually.
+
+ArchivePolicy: 4
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: '19.0'
-CurrentVersionCode: 1900000
+CurrentVersion: '20.5'
+CurrentVersionCode: 2005001

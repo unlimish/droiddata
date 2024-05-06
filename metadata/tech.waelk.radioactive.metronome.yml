@@ -4,6 +4,8 @@ License: GPL-3.0-or-later
 SourceCode: https://notabug.org/wael/Metronome
 IssueTracker: https://notabug.org/wael/Metronome/issues
 
+AutoName: Metronome
+
 RepoType: git
 Repo: https://notabug.org/wael/Metronome.git
 
@@ -17,7 +19,16 @@ Builds:
     rm:
       - app/src/main/res/ic_launcher(1).zip
 
-AutoUpdateMode: None
-UpdateCheckMode: None
+  - versionName: Americium
+    versionCode: 12
+    commit: e358e27bdebe28d7d348df79439d8a28b8e740d9
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - app/src/main/res/ic_launcher(1).zip
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v[0-9.]*$
 CurrentVersion: Americium
-CurrentVersionCode: 11
+CurrentVersionCode: 12

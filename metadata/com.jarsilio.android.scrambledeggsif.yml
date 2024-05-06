@@ -399,7 +399,107 @@ Builds:
     gradle:
       - standard
 
-AutoUpdateMode: Version v%v
+  - versionName: 1.7.1
+    versionCode: 63
+    commit: v1.7.1
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 1.7.3
+    versionCode: 66
+    commit: v1.7.3
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 1.7.4
+    versionCode: 67
+    commit: 2491040a256f5962f0d009ed22e996866de5861e
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 1.7.5
+    versionCode: 68
+    commit: bbfe5dc187aaaa43c47af974f88b097013f1b747
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 1.7.7
+    versionCode: 70
+    commit: 1cedca128f649b1ee293912c21346908a7c60f55
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 1.7.8
+    versionCode: 71
+    commit: 6155c49b92c167f0b0578fce38c6b7fcc5d0ea01
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 1.7.9
+    versionCode: 72
+    commit: c622e6166a67dd714825ca80be58977491eb664b
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 1.7.10
+    versionCode: 73
+    commit: b23183650d32b631100ab8bb1eaee606d8a4fc98
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 1.7.11
+    versionCode: 74
+    commit: 42b5b9414aeba3159ec7b00f0aed05dd16f29105
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 1.7.12
+    versionCode: 75
+    commit: 742ae9279e497cb7869872ad10db9aac4f7f0e26
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - standard
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]+$
-CurrentVersion: '1.7'
-CurrentVersionCode: 62
+CurrentVersion: 1.7.12
+CurrentVersionCode: 75

@@ -9,14 +9,14 @@ Changelog: https://github.com/Ryosuke839/UnicodePad/releases
 
 AutoName: UnicodePad
 Description: |-
-    ''UnicodePad'' lets you input every character in Unicode. And input string can
-    be copied to the clipboard or input directly by Mushroom. You can find out
-    where selected character is in list. By long clicking, larger character and
-    code point will be shown. Favorite characters can be memorized.
+  <i>UnicodePad</i> lets you input every character in Unicode. And input string can
+  be copied to the clipboard or input directly by Mushroom. You can find out
+  where selected character is in list. By long clicking, larger character and
+  code point will be shown. Favorite characters can be memorized.
 
-    If you can’t see special characters, you have to get a font such as Noto font
-    and select it. You can download Noto fonts <a href="https://www.google.com/get/noto/
-    from">Google</a>.
+  If you can't see special characters, you have to get a font such as Noto font
+  and select it. You can download Noto fonts <a href="https://www.google.com/get/noto/
+  from">Google</a>.
 
 RepoType: git
 Repo: https://github.com/Ryosuke839/UnicodePad.git
@@ -36,15 +36,75 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 2.6.1
-    versionCode: 39
-    disable: non-FOSS libs
-    commit: v2.6.1
-    subdir: app/
+  - versionName: 2.9.1
+    versionCode: 46
+    commit: v2.9.1
+    subdir: app
     gradle:
       - yes
+    prebuild:
+      - sed -i -e '/gms/d' build.gradle
+      - sed -i -e '/gms/,/meta-data/d' src/main/AndroidManifest.xml
+      - sed -i -e '/LinearLayout adConteiner/,/^\t\t\t}/d' -e '/no-ad/,/^\t\t}/d'
+        -e '/ads/d' -e '/AdView/d' src/main/java/jp/ddo/hotmist/unicodepad/UnicodeActivity.java
+    scanignore:
+      - app/src/main/assets/namedb.zip
 
-AutoUpdateMode: None
+  - versionName: 2.10.4-fdroid
+    versionCode: 51
+    commit: 1bb4fd6c480ee53ccb1360b9d75d271444543cd4
+    subdir: app
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/assets/namedb.zip
+
+  - versionName: 2.11.0-fdroid
+    versionCode: 52
+    commit: d85611d82e081e7979585778d439693051f6d5e4
+    subdir: app
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/assets/namedb.zip
+
+  - versionName: 2.12.3-fdroid
+    versionCode: 56
+    commit: 8d8afcb18f51775d9dc91edd16a2bf74103acaad
+    subdir: app
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/assets/namedb.zip
+
+  - versionName: 2.13.1-fdroid
+    versionCode: 57
+    commit: 662bce5720b495fbbb1c0d9a18e4a7f19b0f124a
+    subdir: app
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/assets/namedb.zip
+
+  - versionName: 2.13.3-fdroid
+    versionCode: 59
+    commit: 869f78b258065ecb1098eb7eccfd8a294d28369a
+    subdir: app
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/assets/namedb.zip
+
+  - versionName: 2.13.4-fdroid
+    versionCode: 61
+    commit: 4d11745d11d169f196719b7e883718948920af75
+    subdir: app
+    gradle:
+      - fdroid
+    scanignore:
+      - app/src/main/assets/namedb.zip
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.9.1
-CurrentVersionCode: 46
+CurrentVersion: 2.13.4-fdroid
+CurrentVersionCode: 61

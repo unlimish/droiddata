@@ -6,18 +6,9 @@ AuthorEmail: skymapdevs+feedback@gmail.com
 WebSite: https://sky-map-team.github.io/stardroid/
 SourceCode: https://github.com/sky-map-team/stardroid
 IssueTracker: https://github.com/sky-map-team/stardroid/issues
+Changelog: https://github.com/sky-map-team/stardroid/releases
 
 AutoName: Sky Map
-Description: |-
-    Point your phone at the sky, and Sky Map will show the stars, planets,
-    constellations, and more to help you identify the celestial objects in view. You
-    can also browse the skies in manual mode.
-
-    The app may not be able to detect your location very well if you are not using
-    the non-Free Network Location service. It could be best to enter coordinates
-    rather than entering a town or using GPS.
-
-    The app has been built without the non-free Google Analytics library.
 
 RepoType: git
 Repo: https://github.com/sky-map-team/stardroid
@@ -38,14 +29,6 @@ Builds:
       - libs/libGoogleAnalytics.jar
       - libs/.svn/prop-base/libGoogleAnalytics.jar.svn-base
       - libs/.svn/text-base/libGoogleAnalytics.jar.svn-base
-
-  - versionName: 1.8.0
-    versionCode: 1304
-    disable: analytics
-    commit: 1.8.0-published
-    subdir: app
-    gradle:
-      - yes
 
   - versionName: 1.9.2
     versionCode: 1480
@@ -124,7 +107,47 @@ Builds:
       - sed -i -e '/gms/d' ../build.gradle
       - sed -i -e '/com.google.gms.google-services/d' build.gradle
 
-AutoUpdateMode: Version %v
+  - versionName: 1.10.0 - RC3
+    versionCode: 1532
+    commit: b4c6573638b4e9ca1cdd009acd29b26581cfd678
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - Fdroid
+    prebuild:
+      - sed -i -e '/gms/d' ../build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+
+  - versionName: 1.10.1 - RC1
+    versionCode: 1541
+    commit: 27acc1255cfe6ebfa4b69f92bb35aa72c1d31e12
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - Fdroid
+    prebuild:
+      - sed -i -e '/gms/d' ../build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+
+  - versionName: 1.10.3 - RC0
+    versionCode: 1548
+    commit: 731b200e6eebc759e8cc75ec83c301756524fc7f
+    subdir: app
+    gradle:
+      - Fdroid
+    prebuild:
+      - sed -i -e '/gms/d' ../build.gradle
+      - sed -i -e '/com.google.gms.google-services/d' build.gradle
+
+MaintainerNotes: FirebaseAnalytics is a stub
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.9.7 - RC1
-CurrentVersionCode: 1524
+CurrentVersion: 1.10.3 - RC0
+CurrentVersionCode: 1548

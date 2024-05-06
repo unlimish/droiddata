@@ -3,16 +3,16 @@ Categories:
 License: GPL-3.0-only
 AuthorName: bitfire web engineering
 WebSite: https://icsx5.bitfire.at/
-SourceCode: https://icsx5.bitfire.at/source/
-IssueTracker: https://icsx5.bitfire.at/forums/
-Changelog: https://forums.bitfire.at/category/5/icsx?tag=announcement
+SourceCode: https://github.com/bitfireAT/icsx5
+Translation: https://explore.transifex.com/bitfireAT/icsx5/
+Changelog: https://github.com/bitfireAT/icsx5/releases
 Donate: https://icsx5.bitfire.at/donate/
 Bitcoin: 1KSCy7RHztKuhW9fLLaUYqdwdC2iwbejZU
 
 AutoName: ICSx⁵
 
 RepoType: git
-Repo: https://gitlab.com/bitfireAT/icsx5.git
+Repo: https://github.com/bitfireAT/icsx5.git
 
 Builds:
   - versionName: '0.9'
@@ -255,7 +255,128 @@ Builds:
     gradle:
       - standard
 
-AutoUpdateMode: Version v%v
-UpdateCheckMode: Tags
-CurrentVersion: 1.9.1
-CurrentVersionCode: 50
+  - versionName: 1.9.2
+    versionCode: 52
+    commit: v1.9.2
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 1.9.3-beta1
+    versionCode: 53
+    commit: 931835c4369e510cd0f830a7a1edf5396a18cad7
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 1.9.3
+    versionCode: 54
+    commit: c930d1f2ae74983321ed45822c5468de42f8a0fe
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 1.9.4
+    versionCode: 56
+    commit: 95c0a7bc666cbc75e0d9529d2b3b954185e015a4
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: '2.0'
+    versionCode: 58
+    commit: 1a271ce458d2bd58fa6752f9385063ca42662ec8
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 2.0.1
+    versionCode: 59
+    commit: 9260461c6d84b18ac20ff9fbd7e70441e3a7e5ea
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 2.0.2
+    versionCode: 62
+    commit: 726f6fa77ef5ddfcd73f7b79c26f73ab397839fa
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: 2.0.3
+    versionCode: 64
+    commit: 9ff0c23f5042f6ecd3fbdbf395c71725b6de20c4
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - standard
+
+  - versionName: '2.1'
+    versionCode: 70
+    commit: 326c3c0da8d6650de16a20cbe855dda16fd97881
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: 2.1.1
+    versionCode: 72
+    commit: 6cb041146322fd0b752dd411776098a1d6e801d7
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+
+  - versionName: '2.2'
+    versionCode: 75
+    commit: 0c66c1d80c26002ba96f5deb8a342ca7b5cf4dea
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - standard
+
+  - versionName: 2.2.1
+    versionCode: 77
+    commit: e1f242728edefd4a14abe53ddf54462029caff61
+    subdir: app
+    submodules: true
+    gradle:
+      - standard
+    prebuild: sed -i -e '/getByName("bitfire/d' build.gradle.kts
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v[0-9.]*$
+CurrentVersion: 2.2.1
+CurrentVersionCode: 77

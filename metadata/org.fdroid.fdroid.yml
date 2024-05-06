@@ -5,11 +5,10 @@ WebSite: https://f-droid.org
 SourceCode: https://gitlab.com/fdroid/fdroidclient
 IssueTracker: https://gitlab.com/fdroid/fdroidclient/issues
 Translation: https://hosted.weblate.org/projects/f-droid/f-droid
-Changelog: https://gitlab.com/fdroid/fdroidclient/raw/HEAD/CHANGELOG.md
+Changelog: https://gitlab.com/fdroid/fdroidclient/-/blob/HEAD/CHANGELOG.md
 Donate: https://f-droid.org/donate
-FlattrID: '343053'
-LiberapayID: '27859'
-Bitcoin: 15u8aAPK4jJ5N8wpWJ5gutAyyeHtKX5i18
+Liberapay: F-Droid-Data
+OpenCollective: F-Droid-Euro
 
 AutoName: F-Droid
 
@@ -130,18 +129,6 @@ Builds:
   - versionName: '0.42'
     versionCode: 42
     commit: 36b815095ef51ca4f21887d973dbc0a50575cd65
-    target: android-15
-
-  - versionName: '0.43'
-    versionCode: 43
-    disable: sdk doesn't like tzm (at f2109e4e0bf1597c625221d8d2d10050f146ba5a)
-    commit: f2109e4e0bf1597c625221d8d2d10050f146ba5a
-    target: android-15
-
-  - versionName: '0.44'
-    versionCode: 44
-    disable: nasty upgrade bug
-    commit: '0.44'
     target: android-15
 
   - versionName: '0.45'
@@ -268,51 +255,6 @@ Builds:
   - versionName: 0.70-test
     versionCode: 700
     commit: 0.70-test
-    submodules: true
-    prebuild: ./ant-prepare.sh
-    androidupdate:
-      - .
-
-  - versionName: '0.71'
-    versionCode: 710
-    disable: Broken MTM/AndroidPinning
-    commit: '0.71'
-    submodules: true
-    prebuild: ./ant-prepare.sh
-    androidupdate:
-      - .
-
-  - versionName: '0.72'
-    versionCode: 720
-    disable: proguard issues
-    commit: '0.72'
-    submodules: true
-    prebuild: ./ant-prepare.sh
-    androidupdate:
-      - .
-
-  - versionName: '0.73'
-    versionCode: 730
-    disable: local repos broken
-    commit: '0.73'
-    submodules: true
-    prebuild: ./ant-prepare.sh
-    androidupdate:
-      - .
-
-  - versionName: '0.74'
-    versionCode: 740
-    disable: still some proguard issues
-    commit: '0.74'
-    submodules: true
-    prebuild: ./ant-prepare.sh
-    androidupdate:
-      - .
-
-  - versionName: '0.75'
-    versionCode: 750
-    disable: repo update progress crasher
-    commit: '0.75'
     submodules: true
     prebuild: ./ant-prepare.sh
     androidupdate:
@@ -910,54 +852,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 0.103-alpha1
-    versionCode: 103001
-    disable: no longer supported, incompatible with index-v1.json format
-    commit: v0.103-alpha1
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 0.103-alpha2
-    versionCode: 103002
-    disable: no longer supported, incompatible with index-v1.json format
-    commit: v0.103-alpha2
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 0.103-alpha3
-    versionCode: 103003
-    disable: no longer supported, incompatible with index-v1.json format
-    commit: v0.103-alpha3
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: '0.103'
-    versionCode: 103050
-    disable: no longer supported, incompatible with index-v1.json format
-    commit: v0.103
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 0.103.1
-    versionCode: 103150
-    disable: no longer supported, incompatible with index-v1.json format
-    commit: v0.103.1
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 0.103.2
-    versionCode: 103250
-    disable: no longer supported, incompatible with index-v1.json format
-    commit: v0.103.2
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: '0.104'
     versionCode: 104050
     commit: v0.104
@@ -989,22 +883,6 @@ Builds:
   - versionName: 1.0-alpha3
     versionCode: 1000003
     commit: 1.0-alpha3
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 1.0-alpha4
-    versionCode: 1000004
-    disable: totally broken upgrades
-    commit: 1.0-alpha4
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 1.0-alpha5
-    versionCode: 1000005
-    disable: totally broken upgrades
-    commit: 1.0-alpha5
     subdir: app
     gradle:
       - yes
@@ -1047,14 +925,6 @@ Builds:
   - versionName: 1.1-alpha1
     versionCode: 1001001
     commit: 1.1-alpha1
-    subdir: app
-    gradle:
-      - yes
-
-  - versionName: 1.1-alpha2
-    versionCode: 1001002
-    disable: constantly does index updates
-    commit: 1.1-alpha2
     subdir: app
     gradle:
       - yes
@@ -1204,7 +1074,7 @@ Builds:
     commit: 1.5-alpha1
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1220,7 +1090,7 @@ Builds:
     commit: 1.5-alpha2
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1236,7 +1106,7 @@ Builds:
     commit: '1.5'
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1252,7 +1122,7 @@ Builds:
     commit: 1.5.1
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1268,7 +1138,7 @@ Builds:
     commit: 1.6-alpha0
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1284,7 +1154,7 @@ Builds:
     commit: 1.6-alpha1
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1300,7 +1170,7 @@ Builds:
     commit: 1.6-alpha2
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1316,7 +1186,7 @@ Builds:
     commit: '1.6'
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1332,7 +1202,7 @@ Builds:
     commit: 1.6.1
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1348,7 +1218,7 @@ Builds:
     commit: 1.6.2
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1364,7 +1234,7 @@ Builds:
     commit: 1.7-alpha0
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1380,7 +1250,7 @@ Builds:
     commit: 1.7-alpha1
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1396,7 +1266,7 @@ Builds:
     commit: 1.7-alpha2
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1412,7 +1282,7 @@ Builds:
     commit: '1.7'
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1428,7 +1298,7 @@ Builds:
     commit: 1.7.1
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1444,7 +1314,7 @@ Builds:
     commit: 1.8-alpha0
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1460,7 +1330,7 @@ Builds:
     commit: 1.8-alpha1
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1476,7 +1346,7 @@ Builds:
     commit: 1.8-alpha2
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1492,7 +1362,7 @@ Builds:
     commit: '1.8'
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1511,7 +1381,7 @@ Builds:
     commit: '1.9'
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1530,7 +1400,7 @@ Builds:
     commit: 1.10-alpha0
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1549,7 +1419,7 @@ Builds:
     commit: 1.10-alpha1
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1568,7 +1438,7 @@ Builds:
     commit: '1.10'
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1587,7 +1457,7 @@ Builds:
     commit: '1.11'
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1606,7 +1476,7 @@ Builds:
     commit: 1.12-alpha0
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1625,7 +1495,7 @@ Builds:
     commit: 1.12-alpha1
     subdir: app
     sudo:
-      - apt-get update || apt-get update
+      - apt-get update
       - apt-get install -y disorderfs
     init:
       - cd ../..
@@ -1649,8 +1519,570 @@ Builds:
       - app/src/androidTest/assets
       - app/src/test/resources
 
-ArchivePolicy: 6 versions
+  - versionName: 1.12-alpha3
+    versionCode: 1012003
+    commit: 1.12-alpha3
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.12.1
+    versionCode: 1012051
+    commit: 1.12.1
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.13-alpha0
+    versionCode: 1013000
+    commit: 1.13-alpha0
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.13-alpha1
+    versionCode: 1013001
+    commit: 1.13-alpha1
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: '1.13'
+    versionCode: 1013050
+    commit: '1.13'
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.13.1
+    versionCode: 1013051
+    commit: 1.13.1
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.14-alpha0
+    versionCode: 1014000
+    commit: 1.14-alpha0
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.14-alpha1
+    versionCode: 1014001
+    commit: 1.14-alpha1
+    subdir: app
+    gradle:
+      - full
+    prebuild:
+      - max=$(expr $(sed -En 's,^MemAvailable:\s*([0-9]+)[^0-9]*$,\1,p' /proc/meminfo)
+        / 1024 / 1024)
+      - printf "\norg.gradle.jvmargs=-Xms1g -Xmx${max}g -XX:MaxPermSize=${max}g\n"
+        >> ../gradle.properties
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.14-alpha2
+    versionCode: 1014002
+    commit: 1.14-alpha2
+    subdir: app
+    gradle:
+      - full
+    prebuild:
+      - max=$(expr $(sed -En 's,^MemAvailable:\s*([0-9]+)[^0-9]*$,\1,p' /proc/meminfo)
+        / 1024 / 1024)
+      - printf "\norg.gradle.jvmargs=-Xms1g -Xmx${max}g -XX:MaxPermSize=${max}g\n"
+        >> ../gradle.properties
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.14-alpha3
+    versionCode: 1014003
+    commit: 1.14-alpha3
+    subdir: app
+    gradle:
+      - full
+    prebuild:
+      - max=$(expr $(sed -En 's,^MemAvailable:\s*([0-9]+)[^0-9]*$,\1,p' /proc/meminfo)
+        / 1024 / 1024)
+      - printf "\norg.gradle.jvmargs=-Xms1g -Xmx${max}g -XX:MaxPermSize=${max}g\n"
+        >> ../gradle.properties
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.14-alpha5
+    versionCode: 1014005
+    commit: 1.14-alpha5
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: '1.14'
+    versionCode: 1014050
+    commit: '1.14'
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15-alpha0
+    versionCode: 1015000
+    commit: 1.15-alpha0
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15-alpha1
+    versionCode: 1015001
+    commit: 1.15-alpha1
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: '1.15'
+    versionCode: 1015050
+    commit: '1.15'
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15.1
+    versionCode: 1015051
+    commit: 1.15.1
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15.2
+    versionCode: 1015052
+    commit: 1.15.2
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15.3
+    versionCode: 1015053
+    commit: 1.15.3
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15.4
+    versionCode: 1015054
+    commit: 1.15.4
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15.5
+    versionCode: 1015055
+    commit: 1.15.5
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.15.6
+    versionCode: 1015056
+    commit: 1.15.6
+    subdir: app
+    gradle:
+      - full
+    scanignore:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+
+  - versionName: 1.16-alpha0
+    versionCode: 1016000
+    commit: 1.16-alpha0
+    subdir: app
+    gradle:
+      - full
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.16-alpha1
+    versionCode: 1016001
+    commit: 1.16-alpha1
+    subdir: app
+    gradle:
+      - full
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.16-alpha2
+    versionCode: 1016002
+    commit: 1.16-alpha2
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.16-alpha3
+    versionCode: 1016003
+    commit: 1.16-alpha3
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.16-alpha4
+    versionCode: 1016004
+    commit: 1.16-alpha4
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: '1.16'
+    versionCode: 1016050
+    commit: '1.16'
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.16.1
+    versionCode: 1016051
+    commit: 1.16.1
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.16.2
+    versionCode: 1016052
+    commit: 1.16.2
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.16.3
+    versionCode: 1016053
+    commit: 1.16.3
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.16.4
+    versionCode: 1016054
+    commit: 1.16.4
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.17-alpha0
+    versionCode: 1017000
+    commit: 1.17-alpha0
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.17-alpha1
+    versionCode: 1017001
+    commit: 1.17-alpha1
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.17-alpha2
+    versionCode: 1017002
+    commit: e97a0c0f70ce05c2d081841a5ad90533115d7b97
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.17.0
+    versionCode: 1017050
+    commit: c1bde16dfe98ca883c69c3ca13b9ceb17076570a
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.18.0-alpha0
+    versionCode: 1018000
+    commit: b909f86a0f41c60add6a9fff5e473507ba3b0417
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.18.0
+    versionCode: 1018050
+    commit: 73ee59550fe86db59598240d2fc0a698a4017ba3
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.19.0-alpha0
+    versionCode: 1019000
+    commit: 1.19.0-alpha0
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.19.0-alpha1
+    versionCode: 1019001
+    commit: 1.19.0-alpha1
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.19.0-alpha2
+    versionCode: 1019002
+    commit: 517a3dae5da127554dd64496ce3167c0c25b7f25
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.19.0-alpha3
+    versionCode: 1019003
+    commit: ddd2b3632ea801ef5906df5bcc33d3ce15558618
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.19.0
+    versionCode: 1019050
+    commit: 11acb3d177d258ebfbc44c43fb7c4ec90b09478f
+    subdir: app
+    gradle:
+      - full
+    prebuild: printf '\nstrict.release\n' >> gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+
+  - versionName: 1.19.1
+    versionCode: 1019051
+    commit: 86ffab45bd4005e8c1a7c79a07ecb5afe5c4b3fe
+    subdir: app
+    gradle:
+      - full
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+    gradleprops:
+      - strict.release
+
+  - versionName: 1.19.2
+    versionCode: 1019052
+    commit: 24b5dd36de9dbf3190ca871575f4904ee6ce13e1
+    subdir: app
+    gradle:
+      - full
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+    gradleprops:
+      - strict.release
+
+  - versionName: 1.20.0-alpha0
+    versionCode: 1020000
+    commit: 6cba480d733ba247b51a2dda62e768dd582e1d2f
+    subdir: app
+    gradle:
+      - full
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+    gradleprops:
+      - strict.release
+
+  - versionName: 1.20.0-alpha1
+    versionCode: 1020001
+    commit: 17ce3d4d447fae70d6f5f67df071fdc632a587fc
+    subdir: app
+    gradle:
+      - full
+    scandelete:
+      - app/src/androidTest/assets
+      - app/src/test/resources
+      - libs/sharedTest/src/main/assets
+      - libs/index/src/commonTest/resources
+    gradleprops:
+      - strict.release
+
+MaintainerNotes: |
+  This is maintained in tight conjunction with fdroidclient releases.
+  Please check with the fdroidclient maintainers before making
+  changes. Don't forget to open a MR to fdroid-website/.htaccess
+  when bumping CurrentVersionCode.
+
+  If the download link version gets moved to the archive, or vice
+  versa, then edit the alias like:
+  https://gitlab.com/fdroid/fdroid-website/-/commit/a7186bbfbd4227083691b252372371e5b9a3cb9a
+
+ArchivePolicy: 5
 AutoUpdateMode: None
 UpdateCheckMode: Static
-CurrentVersion: '1.11'
-CurrentVersionCode: 1011050
+CurrentVersion: 1.19.1
+CurrentVersionCode: 1019051

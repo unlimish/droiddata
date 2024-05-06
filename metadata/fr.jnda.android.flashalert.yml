@@ -3,7 +3,7 @@ Categories:
 License: GPL-3.0-only
 SourceCode: https://gitlab.com/jnda/FlashAlert
 IssueTracker: https://gitlab.com/jnda/FlashAlert/issues
-Changelog: https://gitlab.com/jnda/FlashAlert/blob/HEAD/CHANGELOG
+Changelog: https://gitlab.com/jnda/FlashAlert/-/raw/HEAD/CHANGELOG.md
 
 AutoName: FlashAlert
 
@@ -46,7 +46,40 @@ Builds:
     gradle:
       - yes
 
-AutoUpdateMode: Version %v
+  - versionName: 2.2.0
+    versionCode: 10271104
+    commit: b96fa18d0899a4472c11fda2c8505790def8d9ab
+    subdir: FlashAlerte
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.2.1
+    versionCode: 11851004
+    commit: be1f78d9add6846faa0382a065f189b3172bb541
+    subdir: FlashAlerte
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.2.5
+    versionCode: 16499441
+    commit: 97ec061551d0bf18c63ace97ab6dce2398f86f56
+    subdir: FlashAlerte
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.1.0
-CurrentVersionCode: 7106515
+CurrentVersion: 2.2.5
+CurrentVersionCode: 16499441

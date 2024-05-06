@@ -5,12 +5,13 @@ AuthorName: GNU Taler
 AuthorWebSite: https://taler.net/
 SourceCode: https://git.taler.net/taler-android.git/
 IssueTracker: https://bugs.gnunet.org/
+Translation: https://weblate.taler.net/projects/gnu-taler/cashier-android
 
 AutoName: Taler Cashier
 Description: |-
-    The GNU Taler Cashier app allows you to take in physical cash and hand
-    electronic Taler cash in exchange. This is useful for regional or
-    organizational currencies.
+  The GNU Taler Cashier app allows you to take in physical cash and hand
+  electronic Taler cash in exchange. This is useful for regional or
+  organizational currencies.
 
 RepoType: git
 Repo: https://git.taler.net/taler-android.git
@@ -26,7 +27,34 @@ Builds:
     rm:
       - multiplatform/wallet
 
-AutoUpdateMode: Version cashier-%v
-UpdateCheckMode: Tags
-CurrentVersion: '0.1'
-CurrentVersionCode: 1
+  - versionName: '0.2'
+    versionCode: 2
+    commit: 88fd7c5679b6b39496f6c0b4834c2ff68a8734ba
+    subdir: cashier
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - wallet
+
+  - versionName: '0.3'
+    versionCode: 3
+    commit: ad029fcaafa447e040fb925cfc7e6f4b1dc565f6
+    subdir: cashier
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - wallet
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^cashier-v?[0-9.]+$
+CurrentVersion: '0.3'
+CurrentVersionCode: 3

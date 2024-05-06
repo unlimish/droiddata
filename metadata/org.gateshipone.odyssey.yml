@@ -10,21 +10,6 @@ Translation: https://github.com/gateship-one/odyssey/blob/HEAD/CONTRIBUTING.md#c
 Changelog: https://github.com/gateship-one/odyssey/blob/HEAD/CHANGELOG.md
 
 AutoName: Odyssey
-Description: |-
-    Music player that is optimized for speed (even with large music libraries). On
-    the other hand the players is designed with the Material Design Guidelines in
-    mind and we try to follow them as close as possible.
-
-    It’s main features are a fast music library (artist, album, file browser).
-
-    A basic playlist management functionality is also part of this player.
-
-    To be able to play audio books and podcast this player has a bookmark feature,
-    that allows you to save your playlist and the playback position, to resume your
-    audio book/podcast later.
-
-    For more comfort you are able to use the launcher widget to have quick control
-    over your music playback.
 
 RepoType: git
 Repo: https://github.com/gateship-one/odyssey
@@ -230,7 +215,81 @@ Builds:
     rm:
       - images/ic_launcher.zip
 
-AutoUpdateMode: Version release-%c
+  - versionName: 1.2.0
+    versionCode: 34
+    commit: 4576abc5ddfc9e79056e9ea0223b37af004ae672
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - images/ic_launcher.zip
+
+  - versionName: 1.2.1
+    versionCode: 35
+    commit: 6425904276b8e46303decfcd0b90072bf930e001
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - images/ic_launcher.zip
+
+  - versionName: 1.2.2
+    versionCode: 36
+    commit: 0129625bab48d0dbfa1cb3266b87460b7dc2b123
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - images/ic_launcher.zip
+
+  - versionName: 1.2.3
+    versionCode: 37
+    commit: 677872964ace4c5eb005ea7c062b3495fff1f582
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    rm:
+      - images/ic_launcher.zip
+
+  - versionName: 1.2.4
+    versionCode: 38
+    commit: 952c2430f207edc3f372b4e1ddd82b3588639b11
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - images/ic_launcher.zip
+
+  - versionName: 1.3.0
+    versionCode: 39
+    commit: a44d0b6d7ae2e725a901472542b0febf12c36618
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - images/ic_launcher.zip
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.1.21
-CurrentVersionCode: 33
+CurrentVersion: 1.3.0
+CurrentVersionCode: 39

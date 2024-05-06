@@ -1,6 +1,12 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: LBRY itself is not libre.
+  Tracking:
+    en-US: is sending some data to LBRY servers while not allowing user to disable
+      it.
 Categories:
-  - Multimedia
   - Money
+  - Multimedia
 License: MIT
 SourceCode: https://github.com/lbryio/lbry-fdroid
 IssueTracker: https://github.com/lbryio/lbry-fdroid/issues
@@ -196,30 +202,6 @@ Builds:
     prebuild: sed -r "s:29.0.1:29.0.2:" -i build.gradle
     ndk: r21d
 
-  - versionName: 0.16.13
-    versionCode: 16131
-    disable: Runtime issues
-    commit: v0.16.13-fdroid
-    subdir: app
-    gradle:
-      - __32bit
-    rm:
-      - .gitsecret/keys/random_seed
-    prebuild: sed -r "s:29.0.1:29.0.2:" -i build.gradle
-    ndk: r21d
-
-  - versionName: 0.16.14
-    versionCode: 16141
-    disable: Runtime issues
-    commit: v0.16.14-fdroid
-    subdir: app
-    gradle:
-      - __32bit
-    rm:
-      - .gitsecret/keys/random_seed
-    prebuild: sed -r "s:29.0.1:29.0.2:" -i build.gradle
-    ndk: r21d
-
   - versionName: 0.16.15
     versionCode: 16151
     commit: v0.16.15-fdroid
@@ -231,13 +213,35 @@ Builds:
     prebuild: sed -r "s:29.0.1:29.0.2:" -i build.gradle
     ndk: r21d
 
-MaintainerNotes: |-
-    +0: - (upstream)
-    +1: armv7 (CV)
-    +2: armv8
+  - versionName: 0.17.0
+    versionCode: 17001
+    commit: v0.17.0-fdroid
+    subdir: app
+    gradle:
+      - __32bit
+    rm:
+      - .gitsecret/keys/random_seed
+    ndk: r21e
 
-AutoUpdateMode: Version v%v-fdroid
+  - versionName: 0.17.1
+    versionCode: 17011
+    commit: 624e0d785703f11c2c1c8f3df32f9526bcd95b85
+    subdir: app
+    gradle:
+      - __32bit
+    rm:
+      - .gitsecret/keys/random_seed
+    ndk: r21e
+
+MaintainerNotes: |-
+  +0: - (upstream)
+  +1: armv7 (CV)
+  +2: armv8
+  AF see https://gitlab.com/fdroid/fdroiddata/-/merge_requests/7173
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags v\d+.\d+.\d+[a-z]?-fdroid
-VercodeOperation: '%c*10 + 1'
-CurrentVersion: 0.16.15
-CurrentVersionCode: 16151
+VercodeOperation:
+  - '%c*10 + 1'
+CurrentVersion: 0.17.1
+CurrentVersionCode: 17011

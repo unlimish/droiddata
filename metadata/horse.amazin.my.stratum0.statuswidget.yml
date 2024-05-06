@@ -1,6 +1,6 @@
 Categories:
   - Internet
-License: GPL-2.0-or-later
+License: GPL-2.0-only
 AuthorName: Valodim
 AuthorEmail: s0widget@mugenguild.com
 SourceCode: https://github.com/Valodim/Stratum0Widget
@@ -9,14 +9,14 @@ Changelog: https://github.com/Valodim/Stratum0Widget/releases
 
 AutoName: Stratum 0 Widget
 Description: |-
-    This is a widget for viewing and managing the opening status of the Stratum 0
-    Hackerspace. It’s very good.
+  This is a widget for viewing and managing the opening status of the Stratum 0
+  Hackerspace. It's very good.
 
-    Features:
+  Features:
 
-    * Display status as widget
-    * Manage status (open/close/inherit)
-    * Open door using your authorized SSH key
+  * Display status as widget
+  * Manage status (open/close/inherit)
+  * Open door using your authorized SSH key
 
 RepoType: git
 Repo: https://github.com/Valodim/Stratum0Widget
@@ -36,16 +36,22 @@ Builds:
     gradle:
       - foss
 
-  - versionName: 6.1.0-foss
-    versionCode: 24
-    disable: fails to build
-    commit: v6.1.0
+  - versionName: 8.1.0-foss
+    versionCode: 28
+    commit: bf45526af5be9ce08487794e5783b7acfeb5b17d
     subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
     gradle:
       - foss
-    prebuild: sed -i -e '/firebase/d' build.gradle
+    prebuild:
+      - sed -i -e '/gms/d' {..,.}/build.gradle
+      - sed -i -e '/firebase/d' -e "/dependencies {/a implementation 'androidx.annotation:annotation:1.4.0'"
+        build.gradle
 
-AutoUpdateMode: None
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]+$
-CurrentVersion: 6.1.0-foss
-CurrentVersionCode: 24
+CurrentVersion: 8.1.0-foss
+CurrentVersionCode: 28

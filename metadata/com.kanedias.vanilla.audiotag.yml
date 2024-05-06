@@ -6,47 +6,32 @@ AuthorEmail: kanedias@keemail.me
 SourceCode: https://github.com/vanilla-music/vanilla-music-tag-editor
 IssueTracker: https://github.com/vanilla-music/vanilla-music-tag-editor/issues
 Donate: https://www.patreon.com/kanedias
-LiberapayID: '27922'
+Liberapay: Kanedias
 
 AutoName: Tag Editor
 Description: |-
-    This app is a plugin. Prior to use it you should have
-    https://f-droid.org/packages/ch.blinkenlights.android.vanilla installed. Once both player and this plugin
-    are installed, request a context menu from library screen, select "Plugins" and
-    "Tag Editor" afterwards.
+  This app is a plugin. Prior to use it you should have
+  https://f-droid.org/packages/ch.blinkenlights.android.vanilla installed. Once both player and this plugin
+  are installed, request a context menu from library screen, select "Plugins" and
+  "Tag Editor" afterwards.
 
-    This plugin can edit metadata tags of the various music files and persist them
-    to the file being edited. Note that not all music files support storing tags in
-    metadata as this depends on format.
+  This plugin can edit metadata tags of the various music files and persist them
+  to the file being edited. Note that not all music files support storing tags in
+  metadata as this depends on format.
 
-    Also note that artwork fetching and persisting is done in another plugin,
-    https://f-droid.org/packages/com.kanedias.vanilla.coverfetch that is also available from store.
+  Also note that artwork fetching and persisting is done in another plugin,
+  https://f-droid.org/packages/com.kanedias.vanilla.coverfetch that is also available from store.
 
-    '''Features:'''
+  <b>Features:</b>
 
-    * Tag editing of multiple audiofile formats (mp3/ogg/flac)
-    * Any supported tag: Title, Album, Year, Lyrics, etc.
-    * Lightweight (640 KB in release apk)
+  * Tag editing of multiple audiofile formats (mp3/ogg/flac)
+  * Any supported tag: Title, Album, Year, Lyrics, etc.
+  * Lightweight (640 KB in release apk)
 
 RepoType: git
 Repo: https://github.com/vanilla-music/vanilla-music-tag-editor
 
 Builds:
-  - versionName: '1.0'
-    versionCode: 1
-    disable: gradle plugin outdated
-    commit: '1.0'
-    subdir: app
-    gradle:
-      - yes
-    srclibs:
-      - audiotagger-android@392c8137057304e7364b5ec6dd14a65ea45299a6
-    rm:
-      - app/libs/*jar
-    prebuild:
-      - cp -fR $$audiotagger-android$$/src/org src/main/java/
-      - sed -i -e '/jar/d' build.gradle
-
   - versionName: 1.0.1
     versionCode: 2
     commit: 1.0.1
@@ -92,23 +77,6 @@ Builds:
   - versionName: 1.0.4
     versionCode: 5
     commit: 1.0.4
-    subdir: app
-    gradle:
-      - yes
-    srclibs:
-      - audiotagger-android@392c8137057304e7364b5ec6dd14a65ea45299a6
-    rm:
-      - app/libs/*jar
-    prebuild:
-      - cp -fR $$audiotagger-android$$/src/org src/main/java/
-      - sed -i -e '/jar/d' build.gradle
-      - echo -e "android { lintOptions { disable 'MissingTranslation'\n\ndisable 'ExtraTranslation'
-        } }" >> build.gradle
-
-  - versionName: 1.1.0
-    versionCode: 6
-    disable: doesnt build
-    commit: 1.1.0
     subdir: app
     gradle:
       - yes
@@ -282,11 +250,10 @@ Builds:
       - yes
 
 MaintainerNotes: |-
-    - This app doesn't have default activity, this is normal
-    - This app requires https://f-droid.org/packages/ch.blinkenlights.android.vanilla
+  - This app doesn't have default activity, this is normal
+  - This app requires https://f-droid.org/packages/ch.blinkenlights.android.vanilla
 
-AutoUpdateMode: Version %v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-UpdateCheckIgnore: beta
 CurrentVersion: 1.4.11
 CurrentVersionCode: 28

@@ -9,24 +9,24 @@ Changelog: https://github.com/caarmen/FRCAndroidWidget/releases
 
 AutoName: French Calendar
 Description: |-
-    Resizable widget which displays the current date and time in the French
-    Revolutionary calendar. The widget supports the following preferences:
+  Resizable widget which displays the current date and time in the French
+  Revolutionary calendar. The widget supports the following preferences:
 
-    * Whether to display the current time, or the name of the object for that day of the year (ex: grape).
-    * Calculation method: method used to determine the first day of the year: Either based on the autumn equinox, or the Romme method.
-    * Language of the calendar (limited to just a few languages for now).
+  * Whether to display the current time, or the name of the object for that day of the year (ex: grape).
+  * Calculation method: method used to determine the first day of the year: Either based on the autumn equinox, or the Romme method.
+  * Language of the calendar (limited to just a few languages for now).
 
-    Other features:
+  Other features:
 
-    * Possibility to share the information about the current date.
-    * The color of the widget is customizable, but by default is different for each month.
-    * You can add the widget to your lock screen (on supported devices).
+  * Possibility to share the information about the current date.
+  * The color of the widget is customizable, but by default is different for each month.
+  * You can add the widget to your lock screen (on supported devices).
 
-    Three widget styles:
+  Three widget styles:
 
-    * Horizontal parchment
-    * Vertical parchment
-    * Minimalist
+  * Horizontal parchment
+  * Vertical parchment
+  * Minimalist
 
 RepoType: git
 Repo: https://github.com/caarmen/FRCAndroidWidget
@@ -41,7 +41,7 @@ Builds:
       - libs/*
     prebuild:
       - pushd $$FrenchRevolutionaryCalendar$$
-      - $$MVN3$$ package -Dmaven.test.skip=true
+      - mvn package -Dmaven.test.skip=true
       - popd
       - cp $$FrenchRevolutionaryCalendar$$/library/target/lib-french-revolutionary-calendar-*.jar
         libs/
@@ -98,16 +98,6 @@ Builds:
   - versionName: 1.8.1
     versionCode: 181
     commit: release-1.8.1
-    subdir: handheld
-    gradle:
-      - foss
-    scanignore:
-      - wearable/build.gradle
-
-  - versionName: 1.9.0
-    versionCode: 190
-    disable: Could not find com.google.android.gms:play-services-wearable:8.4.0.
-    commit: release-1.9.0
     subdir: handheld
     gradle:
       - foss
@@ -265,10 +255,10 @@ Builds:
       - yes
 
 MaintainerNotes: |-
-    Prior to 1.14.0, upstream checked flavor containing Foss name and enabled/disabled wear support. However,
-    when building with fdroid, we do a `gradle clean` and thus this check failed.
+  Prior to 1.14.0, upstream checked flavor containing Foss name and enabled/disabled wear support. However,
+  when building with fdroid, we do a `gradle clean` and thus this check failed.
 
-AutoUpdateMode: Version release-%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags ^release-
 CurrentVersion: 1.18.2
 CurrentVersionCode: 1182

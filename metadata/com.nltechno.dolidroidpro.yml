@@ -1,36 +1,36 @@
 Categories:
   - Internet
 License: GPL-3.0-only
-WebSite: https://framagit.org/eldy/dolidroid
-SourceCode: https://git.framasoft.org/eldy/dolidroid/tree/develop
-IssueTracker: https://framagit.org/eldy/dolidroid/issues
+WebSite: https://wiki.dolibarr.org/index.php/Application_Android_-_DoliDroid
+SourceCode: https://github.com/DoliCloud/dolidroid
+IssueTracker: https://github.com/DoliCloud/dolidroid/issues
 Translation: https://www.transifex.com/dolibarr-association/dolidroid/
-Changelog: https://framagit.org/eldy/dolidroid/blob/develop/ChangeLog
+Changelog: https://github.com/DoliCloud/dolidroid/blob/develop/ChangeLog
 
 Name: DoliDroid
 Description: |-
-    Use <a href="https://www.dolibarr.org/">Dolibarr ERP & CRM</a> from your device.
+  Use Dolibarr ERP & CRM (https://www.dolibarr.org/) from your device.
 
-    This application is not a standalone program. It is a front end client to use
-    your online hosted instance of Dolibarr ERP & CRM software (Open-source web
-    software to manage your business). The advantages of DoliDroid are:
+  This application is not a standalone program. It is a front end client to use
+  your online hosted instance of Dolibarr ERP & CRM software (Open-source web
+  software to manage your business). The advantages of DoliDroid are:
 
-    * DoliDroid is not a duplicated code of Dolibarr for Android, but rewamps your Dolibarr web installation, so all your online existing features are supported by this application. This is also true for external modules features.
-    * Upgrading Dolibarr will not break DoliDroid.
-    * DoliDroid use embedded image resources of your version, when available, to reduce bandwidth usage.
-    * DoliDroid use internal cache for pages that should not change during session (like menu page)
-    * Connections parameters (login/password) are saved. No need to enter them each time you use DoliDroid.
-    * Integration with your phone or other applications is better (Clicking on a PDF opens the PDF reader, clicking onto email or phone launch your email application or launch Android dialer, ...)
-    * A lot of other enhancement make usability of your Dolibarr from a smartphone better like:
-    * Save spaces of the menus bars by replacing the menu with a button always visible to choose your meny entry more friendly.
-    * Provide a button, always available, to make a quick search on any item.
-    * All visible date use year on 2 chars instead of 4 to save you space.
-    * When the popup calendar is opened, the keyword is no more opened if not required like it is on a common browser (Dolibarr v7 required).
-    * Components that provide help information on mouse hover are hidden to save space (they are useless without a mouse).
-    * A lot of other not useful information are hidden.
+  * DoliDroid is not a duplicated code of Dolibarr for Android, but rewamps your Dolibarr web installation, so all your online existing features are supported by this application. This is also true for external modules features.
+  * Upgrading Dolibarr will not break DoliDroid.
+  * DoliDroid use embedded image resources of your version, when available, to reduce bandwidth usage.
+  * DoliDroid use internal cache for pages that should not change during session (like menu page)
+  * Connections parameters (login/password) are saved. No need to enter them each time you use DoliDroid.
+  * Integration with your phone or other applications is better (Clicking on a PDF opens the PDF reader, clicking onto email or phone launch your email application or launch Android dialer, ...)
+  * A lot of other enhancement make usability of your Dolibarr from a smartphone better like:
+  * Save spaces of the menus bars by replacing the menu with a button always visible to choose your meny entry more friendly.
+  * Provide a button, always available, to make a quick search on any item.
+  * All visible dates use year on 2 chars instead of 4 to save you space.
+  * When the popup calendar is opened, the keyword is no more opened if not required, like it is on a common browser (Dolibarr v7 required).
+  * Components that provide help information on mouse hover are hidden to save space (they are useless without a mouse).
+  * A lot of other not useful information are hidden.
 
 RepoType: git
-Repo: https://framagit.org/eldy/dolidroid.git
+Repo: https://github.com/DoliCloud/dolidroid.git
 
 Builds:
   - versionName: '1.6'
@@ -49,7 +49,98 @@ Builds:
       - yes
     forceversion: true
 
+  - versionName: DoliDroid Pro 2.1
+    versionCode: 39
+    commit: 475ac592354b2f3cb21b6d31406f7defea805c9f
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: DoliDroid Pro 2.2
+    versionCode: 42
+    commit: 7daaa2d6a08a7b1acb8c74ccb888d71ef24ceff5
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: DoliDroid Pro 2.2
+    versionCode: 43
+    commit: 9ee8ba0ab2c557099e849919913f84c9e82962bb
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: DoliDroid Pro 2.2
+    versionCode: 46
+    commit: 02e16ad9cf1ba6e4cca48a2e89d52d7207d739d3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: DoliDroid Pro 3.0
+    versionCode: 52
+    commit: 9024e0017febc30363e69c94cb2551f3d73149d3
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: DoliDroid Pro 3.0
+    versionCode: 54
+    commit: 5b00a61006e75a6a9cc6f14c7d2fb745ebdc230c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    forceversion: true
+
+  - versionName: DoliDroid Pro 3.0
+    versionCode: 55
+    commit: e71c252b6a6075fc75b4f5bc71f423dc46a201c5
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    forceversion: true
+
+  - versionName: DoliDroid Pro 3.0
+    versionCode: 56
+    commit: 6360af520c1fd3197a916314d2fa4fda437920a2
+    subdir: app
+    gradle:
+      - yes
+    forceversion: true
+
+  - versionName: DoliDroid Pro 3.0
+    versionCode: 57
+    commit: dc40f33d6abc76559dc98a964da30f166e8d3cbc
+    subdir: app
+    gradle:
+      - yes
+    forceversion: true
+
 AutoUpdateMode: None
 UpdateCheckMode: RepoManifest
-CurrentVersion: DoliDroid Pro 2.0
-CurrentVersionCode: 39
+CurrentVersion: DoliDroid Pro 3.0
+CurrentVersionCode: 61

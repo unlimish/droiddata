@@ -1,0 +1,107 @@
+Categories:
+  - Internet
+License: Apache-2.0
+AuthorName: Jigsaw
+AuthorEmail: jigsaw-code@google.com
+WebSite: https://getoutline.org
+SourceCode: https://github.com/Jigsaw-Code/outline-client
+IssueTracker: https://github.com/Jigsaw-Code/outline-client/issues
+
+AutoName: Outline
+Description: |-
+  The Outline Client is a cross-platform VPN or proxy client. The Outline Client
+  is designed for use with the Outline Server software, but it is fully compatible
+  with any Shadowsocks server.
+
+RepoType: git
+Repo: https://github.com/Jigsaw-Code/outline-client.git
+
+Builds:
+  - versionName: 1.8.1
+    versionCode: 42
+    commit: c1facfc930353ab6ed26941a99eccf9714d729fd
+    sudo:
+      - apt-get update
+      - apt-get install -y make
+      - apt-get install -y -t bullseye-backports golang-go
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo node.tar.gz https://nodejs.org/dist/v16.18.1/node-v16.18.1-linux-x64.tar.gz
+      - echo "8949919fc52543efae3bfd057261927c616978614926682ad642915f98fe1981  node.tar.gz"
+        | sha256sum -c -
+      - tar xzf node.tar.gz --strip-components=1 -C /usr/local/
+    init:
+      - sed -i -e '/"electron/d' -e '/clang-format/d' -e '/puppeteer/d' package.json
+      - npm install
+    output: platforms/android/app/build/outputs/apk/**/*.apk
+    srclibs:
+      - outline-go-tun2socks@158941049c2db3a6b5141fa11d61870ffa8988b4
+    rm:
+      - cordova-plugin-outline/apple
+      - src/electron
+      - src/infrastructure/electron
+      - src/www/app/electron*
+      - third_party
+      - tools
+    prebuild:
+      - sed -i -e '/copy_third_party/d' cordova-plugin-outline/plugin.xml
+      - sed -i -z -E -e 's|<source-file[^>]+android/libs[^>]+>||g' cordova-plugin-outline/plugin.xml
+      - sed -i -e '/throw/d' src/build/get_build_environment.mjs
+      - npm run action cordova/setup android -- --buildMode=release
+    scandelete:
+      - node_modules
+    build:
+      - sdkmanager 'build-tools;31.0.0' 'build-tools;30.0.3' 'platforms;android-31'
+      - pushd $$outline-go-tun2socks$$
+      - make android
+      - popd
+      - mv $$outline-go-tun2socks$$/build/android/tun2socks.aar platforms/android/app/src/main/libs/tun2socks.aar
+      - npx cordova compile android --release -- --packageType=apk
+    ndk: r23c
+
+  - versionName: 1.12.1
+    versionCode: 43
+    commit: 425d6c20448578a4301a5fc9d291978b1fbdbc72
+    sudo:
+      - apt-get update
+      - apt-get install -y make npm
+      - apt-get install -y -t bookworm-backports golang-go
+      - sysctl fs.inotify.max_user_watches=524288 || true
+    init:
+      - sed -i -e '/"electron/d' -e '/puppeteer/d' -e '/engines/,/^  },/d' package.json
+      - npm install
+    output: platforms/android/app/build/outputs/apk/**/*.apk
+    srclibs:
+      - outline-go-tun2socks@v3.4.0
+    rm:
+      - src/cordova/plugin/apple
+      - src/electron
+      - src/infrastructure/electron
+      - src/www/app/electron*
+      - third_party
+      - tools
+    prebuild:
+      - sed -i -e '/copy_third_party/d' src/cordova/plugin/plugin.xml
+      - sed -i -z -E -e 's|<source-file[^>]+android/libs[^>]+>||g' src/cordova/plugin/plugin.xml
+      - sed -i -e 's/buildNumber.*/buildNumber:\ $$VERCODE$$,/' src/build/get_build_parameters.mjs
+      - sed -i -e '/throw/d' src/www/build.action.mjs
+      - npm run action cordova/setup android -- --buildMode=release --versionName=$$VERSION$$
+    scandelete:
+      - node_modules
+    build:
+      - sdkmanager 'build-tools;32.0.0' 'platforms;android-32'
+      - pushd $$outline-go-tun2socks$$
+      - make android
+      - popd
+      - cp $$outline-go-tun2socks$$/build/android/tun2socks.aar platforms/android/app/src/main/libs/tun2socks.aar
+      - mkdir -p third_party/outline-go-tun2socks/android
+      - cp $$outline-go-tun2socks$$/build/android/tun2socks.aar third_party/outline-go-tun2socks/android/tun2socks.aar
+      - npx cordova compile android --release -- --packageType=apk --gradleArg=--include-build=../../src/cordova/android/OutlineAndroidLib
+    ndk: r23b
+
+MaintainerNotes: The upstream version code is generated based on the timestamp. We
+  just increase it for every update.
+
+AutoUpdateMode: None
+UpdateCheckMode: None
+CurrentVersion: 1.12.1
+CurrentVersionCode: 43

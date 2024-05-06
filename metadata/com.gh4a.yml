@@ -1,5 +1,6 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Depends on Github, which is not libre.
 Categories:
   - Development
 License: Apache-2.0
@@ -9,34 +10,11 @@ IssueTracker: https://github.com/slapperwan/gh4a/issues
 Changelog: https://github.com/slapperwan/gh4a/releases
 
 AutoName: OctoDroid
-Description: |-
-    Supports all the basic Github.com features, such as:
-
-    * Watch/unwatch repositories
-    * View branches/tags, pull requests etc. in each repo
-    * View and comment on issues
-    * Home page feed of recent actions and news
-    * Search for repositories
-    * Diff viewer with colorized HTML
-    * Trending repos (today, week, month, forever)
-
-    Uses OAuth2: your password is used to generate a key and is then destroyed. The
-    key can be revoked any time by visiting github.com. Formerly known as GH4A. This
-    application is currently in BETA: please report any issues to the issue tracker.
 
 RepoType: git
 Repo: https://github.com/slapperwan/gh4a.git
 
 Builds:
-  - versionName: '3.6'
-    versionCode: 36
-    commit: 53d2e5bbfd76d8ad4a779913df7b3f193fb19a3e
-    patch:
-      - bugsense.patch
-    gradle:
-      - yes
-    prebuild: rm -rf libs/android-support-v4.jar
-
   - versionName: 3.7.1
     versionCode: 38
     commit: v3.7.1
@@ -58,7 +36,7 @@ Builds:
       - sed -i -e 's/apklib/aar/g' pom.xml
       - rm libs/*
       - cd ..
-      - $$MVN3$$ install
+      - mvn install
       - popd
 
   - versionName: '3.8'
@@ -99,13 +77,6 @@ Builds:
       - sed -i -e "s/0.10.+/1.0.0/" $$PreferenceFragment$$/build.gradle
       - sed -i -e '/[Cc]rashlytics/d' build.gradle AndroidManifest.xml src/com/gh4a/Gh4Application.java
 
-  - versionName: 4.0.2
-    versionCode: 45
-    disable: third party maven repos, jars, non-free deps
-    commit: v4.0.2
-    gradle:
-      - yes
-
   - versionName: 4.2.0
     versionCode: 54
     commit: v4.2.0
@@ -123,7 +94,7 @@ Builds:
     gradle:
       - foss
     prebuild: sed -i -e '/fabric/d' -e '/playstoreCompile(.*) {/,/}/d' -e s/ClientId/\'\"f0f32f2ee4a709ba3640\"\'/
-        -e s/ClientSecret/\'\"f94cffda88486696c2762ad986bc0b8b830c9cff\"\'/ build.gradle
+      -e s/ClientSecret/\'\"f94cffda88486696c2762ad986bc0b8b830c9cff\"\'/ build.gradle
 
   - versionName: 4.3.1
     versionCode: 58
@@ -132,7 +103,7 @@ Builds:
     gradle:
       - foss
     prebuild: sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' -e s/ClientId/\'\"f0f32f2ee4a709ba3640\"\'/
-        -e s/ClientSecret/\'\"f94cffda88486696c2762ad986bc0b8b830c9cff\"\'/ build.gradle
+      -e s/ClientSecret/\'\"f94cffda88486696c2762ad986bc0b8b830c9cff\"\'/ build.gradle
 
   - versionName: 4.3.2
     versionCode: 59
@@ -141,7 +112,7 @@ Builds:
     gradle:
       - foss
     prebuild: sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' -e s/ClientId/\'\"f0f32f2ee4a709ba3640\"\'/
-        -e s/ClientSecret/\'\"f94cffda88486696c2762ad986bc0b8b830c9cff\"\'/ build.gradle
+      -e s/ClientSecret/\'\"f94cffda88486696c2762ad986bc0b8b830c9cff\"\'/ build.gradle
 
   - versionName: 4.4.0
     versionCode: 60
@@ -150,7 +121,7 @@ Builds:
     gradle:
       - foss
     prebuild: sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' -e s/ClientId/\'\"f0f32f2ee4a709ba3640\"\'/
-        -e s/ClientSecret/\'\"f94cffda88486696c2762ad986bc0b8b830c9cff\"\'/ build.gradle
+      -e s/ClientSecret/\'\"f94cffda88486696c2762ad986bc0b8b830c9cff\"\'/ build.gradle
 
   - versionName: 4.5.0
     versionCode: 61
@@ -159,7 +130,7 @@ Builds:
     gradle:
       - yes
     prebuild: sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' -e s/ClientId/\'\"f0f32f2ee4a709ba3640\"\'/
-        -e s/ClientSecret/\'\"f94cffda88486696c2762ad986bc0b8b830c9cff\"\'/ build.gradle
+      -e s/ClientSecret/\'\"f94cffda88486696c2762ad986bc0b8b830c9cff\"\'/ build.gradle
 
   - versionName: 4.6.0
     versionCode: 62
@@ -205,7 +176,81 @@ Builds:
       - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
       - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
 
-AutoUpdateMode: Version %v
+  - versionName: 4.6.5
+    versionCode: 68
+    commit: b2b46f6ade91cfe0da318b20103ab33482d35b17
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.6
+    versionCode: 69
+    commit: 28b954f2ee8ebbea81de9ffca9a925cdf947e5f6
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.7
+    versionCode: 70
+    commit: df734037c42e6017fb27f50c0a4177abbca80fec
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.8
+    versionCode: 71
+    commit: 1827929624092bbae1bca16fc3b5d6010fead765
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.9
+    versionCode: 72
+    commit: 4acb91adbd72646fd5446206b3e2774423c82f65
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-11-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+  - versionName: 4.6.10
+    versionCode: 73
+    commit: 7e98b5c5d536d655f4e297a485edddb26fb882bd
+    subdir: app
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/fabric/d' -e '/playstoreImplementation(.*) {/,/}/d' build.gradle
+      - echo 'ClientId="f0f32f2ee4a709ba3640"' >> client.properties
+      - echo 'ClientSecret="f94cffda88486696c2762ad986bc0b8b830c9cff"' >> client.properties
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 4.6.4
-CurrentVersionCode: 66
+CurrentVersion: 4.6.10
+CurrentVersionCode: 73

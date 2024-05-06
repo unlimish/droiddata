@@ -5,6 +5,7 @@ AuthorName: Fynn Godau
 AuthorEmail: fynngodau@mailbox.org
 SourceCode: https://codeberg.org/fynngodau/usageDirect
 IssueTracker: https://codeberg.org/fynngodau/usageDirect/issues
+Translation: https://weblate.bubu1.eu/projects/usagedirect/
 
 AutoName: usageDirect
 
@@ -26,7 +27,29 @@ Builds:
     gradle:
       - system
 
-AutoUpdateMode: Version %v
+  - versionName: '0.7'
+    versionCode: 8
+    commit: '0.7'
+    subdir: Application
+    gradle:
+      - system
+
+  - versionName: '0.8'
+    versionCode: 9
+    commit: 4df52503a4a2811e1c27d47caf2b90804bb4d476
+    subdir: Application
+    gradle:
+      - system
+
+  - versionName: 0.8.1
+    versionCode: 10
+    commit: a973dc84ecd8601ba8e62af56281e01d02a57ed8
+    subdir: Application
+    gradle:
+      - system
+    prebuild: sed -i -e '/android {/a lintOptions {abortOnError false}' build.gradle
+
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '0.6'
-CurrentVersionCode: 7
+CurrentVersion: 0.8.1
+CurrentVersionCode: 10
