@@ -27,8 +27,9 @@ Builds:
     submodules: true
     sudo:
       - apt-get update
-      - apt-get install ninja-build build-essential libgl1-mesa-dev libstdc++6 libncurses5
-      - apt-get install -y -t bookworm-backports cmake
+      - apt-get install ninja-build libgl1-mesa-dev libstdc++6 libncurses5
+      - apt-get install -y 7zip build-essential make bookworm-backports cmake python-is-python3
+      - apt-get remove openjdk-11-jdk-headless openjdk-11-jre-headless
     output: deploy/build
     srclibs:
       - Qt5@v6.6.2
@@ -49,11 +50,11 @@ Builds:
       - export QT_HOST_BUILD=$$qt$$/build-host-qt
       - export QT_HOST_PATH=$$qt$$/v6.6.2/gcc_64
       - export QT_BUILD=$$qt$$/build-qt
-      - export QTPREFIX=$$qt$$/v6.6.2/android_armv7
+      - export QTPREFIX=$$qt$$/v6.6.2
       - rm -rf $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - mkdir -p $BUILD_DIR $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - pushd ${BUILD_DIR}
-      - COMPILER=cross-android deploy/build_android.sh libs
+      - COMPILER=cross-android ../build.sh libs
       - popd
       - pushd ${QT_HOST_BUILD}
       - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PATH -release
@@ -66,7 +67,7 @@ Builds:
       - cmake --install .
       - popd
       - pushd ${QT_BUILD}
-      - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license
+      - $$Qt5$$/configure --disable-rpath -opensource -confirm-license
         -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
         -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
         $$SDK$$ -android-ndk $$NDK$$ -android-arch armeabi-v7a -android-ndk-platform
@@ -94,8 +95,9 @@ Builds:
     submodules: true
     sudo:
       - apt-get update
-      - apt-get install ninja-build build-essential libgl1-mesa-dev libstdc++6 libncurses5
-      - apt-get install -y -t bookworm-backports cmake
+      - apt-get install ninja-build libgl1-mesa-dev libstdc++6 libncurses5
+      - apt-get install -y 7zip build-essential make bookworm-backports cmake python-is-python3
+      - apt-get remove openjdk-11-jdk-headless openjdk-11-jre-headless
     output: deploy/build
     srclibs:
       - Qt5@v6.6.2
@@ -116,11 +118,11 @@ Builds:
       - export QT_HOST_BUILD=$$qt$$/build-host-qt
       - export QT_HOST_PATH=$$qt$$/v6.6.2/gcc_64
       - export QT_BUILD=$$qt$$/build-qt
-      - export QTPREFIX=$$qt$$/v6.6.2/android_armv7
+      - export QTPREFIX=$$qt$$/v6.6.2
       - rm -rf $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - mkdir -p $BUILD_DIR $QT_HOST_PATH $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - pushd ${BUILD_DIR}
-      - COMPILER=cross-android deploy/build_android.sh libs
+      - COMPILER=cross-android ../build.sh libs
       - popd
       - pushd ${QT_HOST_BUILD}
       - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PATH -release
@@ -133,7 +135,7 @@ Builds:
       - cmake --install .
       - popd
       - pushd ${QT_BUILD}
-      - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license
+      - $$Qt5$$/configure --disable-rpath -opensource -confirm-license
         -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
         -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
         $$SDK$$ -android-ndk $$NDK$$ -android-arch armeabi-v7a -android-ndk-platform
