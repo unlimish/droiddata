@@ -13,7 +13,7 @@ IssueTracker: https://gitlab.com/beoe/beachcounter/issues
 Builds:
   - versionName: "1.0.1"
     versionCode: 5
-    commit: ee829df39b2e718bb0a387a069e7779a0bed674a
+    commit: 94f7a05d9cdc80574fe8b7f569831d194be4ae40
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@stable
@@ -29,10 +29,9 @@ Builds:
     build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
-      - $$flutter$$/bin/flutter build apk --flavor fdroid
+      - $$flutter$$/bin/flutter build apk
 
-AutoUpdateMode: Version v%v
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
-UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
 CurrentVersion: "1.0.1"
 CurrentVersionCode: 5
