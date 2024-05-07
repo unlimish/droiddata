@@ -24,19 +24,12 @@ Builds:
       - linux
       - web
       - windows
-    prebuild:
-      - version=3.13.2
-      - pushd $$flutter$$
-      - git checkout -f $version
-      - popd
-      - export PUB_CACHE=$(pwd)/.pub-cache
+    build:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
-    build:
-      - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/flutter build apk --release --split-per-abi --target-platform="android-arm64"
 
-AutoUpdateMode: Version
+AutoUpdateMode: None
 UpdateCheckMode: Static
 CurrentVersion: 1.0.1
 CurrentVersionCode: 5
