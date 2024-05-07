@@ -28,8 +28,24 @@ Builds:
       - $$flutter$$/bin/flutter config --no-analytics
       - $$flutter$$/bin/flutter pub get
       - $$flutter$$/bin/flutter build apk --release
+  - versionName: 1.0.2
+    versionCode: 6
+    commit: v1.0.2
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - macos
+      - ios
+      - linux
+      - web
+      - windows
+    build:
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+      - $$flutter$$/bin/flutter build apk --release
 
 AutoUpdateMode: None
 UpdateCheckMode: Static
-CurrentVersion: 1.0.1
-CurrentVersionCode: 5
+CurrentVersion: 1.0.2
+CurrentVersionCode: 6
