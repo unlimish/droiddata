@@ -174,9 +174,9 @@ fdroid lint config:
         ca-certificates
         curl
         git
+        python3-asn1crypto
         python3-defusedxml
         python3-git
-        python3-pyasn1-modules
         python3-pycountry
         python3-qrcode
         python3-requests
@@ -188,6 +188,7 @@ fdroid lint config:
     - if: $CI_PIPELINE_SOURCE == "merge_request_event" || $CI_PIPELINE_SOURCE == "push"
       changes:
         paths:
+          - .gitlab-ci.yml
           - config.yml
           - config/*.yml
           - config/*/*.yml
@@ -545,35 +546,3 @@ check_git_repos:
     - test -d public || mkdir public
     - cp `git status | grep -Eo 'metadata/.*\.yml'` public/ || true
     - exit $EXITVALUE
-
-sast:
-  stage: report
-  tags:
-    - saas-linux-medium-amd64
-  needs:
-    - fdroid build
-  dependencies:
-    - fdroid build
-  variables:
-    GIT_DEPTH: "1"
-
-    MOBSF_API_KEY: key
-    SAST_EXPERIMENTAL_FEATURES: "true"
-    SAST_EXCLUDED_ANALYZERS:
-      bandit, brakeman, eslint, flawfinder, gosec, kubesec,
-      nodejs-scan, phpcs-security-audit, pmd-apex, security-code-scan, semgrep, sobelow,
-      spotbugs
-
-    # Make sure the apk is searched before the manifest, so only apks are scanned
-    ANALYZER_TARGET_DIR: $CI_PROJECT_DIR/tmp/
-  allow_failure: true
-  after_script:
-    # GitLab can only display reports at this exact path
-    - mv $ANALYZER_TARGET_DIR/gl-sast-report.json gl-sast-report.json
-
-mobsf-ios-sast:
-  rules:
-    - when: never
-
-mobsf-android-sast:
-  rules: *app_verification_rules
