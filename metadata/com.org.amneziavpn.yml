@@ -88,7 +88,75 @@ Builds:
       - popd
     ndk: 26.1.10909125
 
+  - versionName: 4.5.3.0
+    versionCode: 45300
+    commit: 4.5.3.0
+    subdir: deploy
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install ninja-build libgl1-mesa-dev libstdc++6 libncurses5
+      - apt-get install -y 7zip build-essential make python-is-python3
+      - apt-get remove openjdk-11-jdk-headless openjdk-11-jre-headless
+      - apt-get install openjdk-17-jdk-headless openjdk-17-jre-headless
+      - apt-get install -y -t bookworm-backports cmake
+    output: deploy/build
+    srclibs:
+      - Qt5@v6.6.2
+    rm:
+      - client/3rd-prebuilt
+      - client/3rd
+    prebuild:
+      - sdkmanager 'platforms;android-34' 'build-tools;34.0.0'
+      - cd $$Qt5$$
+      - ./init-repository -f --module-subset=qtbase,qtdeclarative,qtimageformats,qtmultimedia,qtshadertools,qtsvg,qttools,qttranslations
+    target: android-34
+    build:
+      - export ROOT_PATH=$(readlink -f ${PWD}/..)
+      - export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+      - export ANDROID_SDK_ROOT=$$SDK$$ ANDROID_NDK_ROOT=$$NDK$$
+      - export ANDROID_API_VERSION=android-34
+      - export PATH=${JAVA_HOME}/bin:${PATH}
+      - export ANDROID_BUILD_PLATFORM=android-34
+      - export BUILD_DIR=$(readlink -f ${PWD})/android-build
+      - export QT_HOST_BUILD=$(readlink -f ${PWD}/../srclib)/build-host-qt
+      - export QT_HOST_PREFIX=$(readlink -f ${PWD}/../srclib)/qt/6.6.2/gcc_64
+      - export QT_BUILD=$(readlink -f ${PWD}/../srclib)/build-qt
+      - export QTPREFIX=$(readlink -f ${PWD}/../srclib)/qt/6.6.2/android_armv7
+      - rm -rf $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
+      - mkdir -p $BUILD_DIR $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
+      - pushd ${QT_HOST_BUILD}
+      - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PREFIX -release
+        -submodules qtbase,qttools -nomake tests -nomake examples -no-sql-mysql -no-dbus
+        -no-openssl -no-glib -no-icu -no-cups -no-fontconfig -no-gtk -no-egl -skip
+        qtsql,qtxml,qtprintsupport,qttestlib,qtwebengine,qtgamepad,qtwebchannel -skip
+        qtwebview,qtwebsockets,qtwebglplugin,qtserialport,qtnetworkauth,qt3d,qtsensors
+        -skip qtwayland,qtxmlpatterns,qtscxml,qtscript,qtconnectivity -skip qtlanguageserver,qtquicktimeline,qtquick3d,qtactiveqt
+        -skip qtcoap,qtdatavis3d,qthttpserver,qtpositioning,qtdoc,qtgrpc,qtlocation,qtlottie
+        -skip qtmqtt,qtopcua,qtquick3dphysics,qtquickeffectmaker,qtserialbus -skip
+        qtspeech,qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester
+        -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
+      - cmake --build . --parallel
+      - cmake --install .
+      - popd
+      - pushd ${QT_BUILD}
+      - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license
+        -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
+        -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
+        $$SDK$$ -android-ndk $$NDK$$ -android-arch armeabi-v7a -android-ndk-platform
+        android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics
+        -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PREFIX
+        CMAKE_INSTALL_MESSAGE=NEVER
+      - cmake --build . --parallel
+      - cmake --install .
+      - popd
+      - pushd ${ROOT_PATH}
+      - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh
+        --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
+      - popd
+    ndk: 26.1.10909125
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 4.4.0.0
-CurrentVersionCode: 44000
+CurrentVersion: 4.5.3.0
+CurrentVersionCode: 45300
