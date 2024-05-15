@@ -74,7 +74,20 @@ Builds:
     preassemble:
       - downloadDependencies
 
+  - versionName: '0.8'
+    versionCode: 8
+    commit: 93cebc0680bd81858577a2330d188bdba698ceb2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y file make
+    gradle:
+      - yes
+    ndk: 21.4.7075529
+    preassemble:
+      - downloadDependencies
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '0.7'
-CurrentVersionCode: 7
+CurrentVersion: '0.8'
+CurrentVersionCode: 8
