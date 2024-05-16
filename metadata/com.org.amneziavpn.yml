@@ -54,7 +54,7 @@ Builds:
       - export QT_HOST_BUILD=$(readlink -f ${PWD}/../srclib)/build-host-qt
       - export QT_HOST_PREFIX=$(readlink -f ${PWD}/../srclib)/qt/6.6.2/gcc_64
       - export QT_BUILD=$(readlink -f ${PWD}/../srclib)/build-qt
-      - export QTPREFIX=$(readlink -f ${PWD}/../srclib)/qt/6.6.2/android_armv7
+      - export QTPREFIX=$(readlink -f ${PWD}/../srclib)/qt/6.6.2
       - rm -rf $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - mkdir -p $BUILD_DIR $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - pushd ${QT_HOST_BUILD}
@@ -75,7 +75,7 @@ Builds:
       - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license
         -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
         -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
-        $$SDK$$ -android-ndk $$NDK$$ -android-arch armeabi-v7a -android-ndk-platform
+        $$SDK$$ -android-ndk $$NDK$$ -android-ndk-platform
         android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics
         -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PREFIX
         CMAKE_INSTALL_MESSAGE=NEVER
@@ -86,7 +86,7 @@ Builds:
       - ls $QT_HOST_PREFIX
       - ls $QT_HOST_PREFIX/..
       - ls $QTPREFIX
-      - export QT_HOST_PATH=$QTPREFIX
+      - export QT_HOST_PATH=$QT_HOST_PREFIX
       - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh
         --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
       - popd
@@ -126,7 +126,7 @@ Builds:
       - export QT_HOST_BUILD=$(readlink -f ${PWD}/../srclib)/build-host-qt
       - export QT_HOST_PREFIX=$(readlink -f ${PWD}/../srclib)/qt/6.6.2/gcc_64
       - export QT_BUILD=$(readlink -f ${PWD}/../srclib)/build-qt
-      - export QTPREFIX=$(readlink -f ${PWD}/../srclib)/qt/6.6.2/android_armv7
+      - export QTPREFIX=$(readlink -f ${PWD}/../srclib)/qt/6.6.2
       - rm -rf $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - mkdir -p $BUILD_DIR $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - pushd ${QT_HOST_BUILD}
@@ -147,7 +147,7 @@ Builds:
       - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license
         -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
         -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
-        $$SDK$$ -android-ndk $$NDK$$ -android-arch armeabi-v7a -android-ndk-platform
+        $$SDK$$ -android-ndk $$NDK$$ -android-ndk-platform
         android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics
         -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PREFIX
         CMAKE_INSTALL_MESSAGE=NEVER
@@ -158,7 +158,7 @@ Builds:
       - ls $QT_HOST_PREFIX
       - ls $QT_HOST_PREFIX/..
       - ls $QTPREFIX
-      - export QT_HOST_PATH=$QTPREFIX
+      - export QT_HOST_PATH=$QT_HOST_PREFIX
       - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh
         --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
       - popd
