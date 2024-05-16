@@ -83,7 +83,10 @@ Builds:
       - cmake --install .
       - popd
       - pushd ${ROOT_PATH}
-      - export QT_HOST_PATH=$QT_HOST_PREFIX
+      - ls $QT_HOST_PREFIX
+      - ls $QT_HOST_PREFIX/..
+      - ls $QTPREFIX
+      - export QT_HOST_PATH=$QTPREFIX
       - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh
         --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
       - popd
@@ -152,7 +155,10 @@ Builds:
       - cmake --install .
       - popd
       - pushd ${ROOT_PATH}
-      - export QT_HOST_PATH=$QT_HOST_PREFIX
+      - ls $QT_HOST_PREFIX
+      - ls $QT_HOST_PREFIX/..
+      - ls $QTPREFIX
+      - export QT_HOST_PATH=$QTPREFIX
       - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh
         --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
       - popd
