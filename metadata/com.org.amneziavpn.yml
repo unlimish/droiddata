@@ -85,8 +85,8 @@ Builds:
       - pushd ${ROOT_PATH}
       - ls $QT_HOST_PREFIX
       - ls $QT_HOST_PREFIX/..
-      - ls $QTPREFIX
-      - export QT_HOST_PATH=$QT_HOST_PREFIX
+      - ls $QTPREFIX/lib
+      - export QT_HOST_PATH=$QTPREFIX/lib
       - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh
         --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
       - popd
