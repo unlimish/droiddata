@@ -158,13 +158,12 @@ Builds:
       - popd
       - pushd ${ROOT_PATH}
       - echo "Inspecting build directories..."
-      - ls -R $QT_HOST_BUILD
-      - ls -R $QT_HOST_PREFIX
-      - ls -R $QT_BUILD
-      - ls -R $QTPREFIX
+      - ls $QT_HOST_BUILD
+      - ls $QT_HOST_PREFIX
+      - ls $QT_BUILD
+      - ls $QTPREFIX
       - export QT_HOST_PATH=$QT_HOST_PREFIX
-      - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh
-        \ --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
+      - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
       - popd
     ndk: 26.1.10909125
 
