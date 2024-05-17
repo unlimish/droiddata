@@ -59,36 +59,38 @@ Builds:
       - mkdir -p $BUILD_DIR $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - pushd ${QT_HOST_BUILD}
       - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PREFIX -release
-        -submodules qtbase,qttools -nomake tests -nomake examples -no-sql-mysql -no-dbus
-        -no-openssl -no-glib -no-icu -no-cups -no-fontconfig -no-gtk -no-egl -skip
-        qtsql,qtxml,qtprintsupport,qttestlib,qtwebengine,qtgamepad,qtwebchannel -skip
-        qtwebview,qtwebsockets,qtwebglplugin,qtserialport,qtnetworkauth,qt3d,qtsensors
-        -skip qtwayland,qtxmlpatterns,qtscxml,qtscript,qtconnectivity -skip qtlanguageserver,qtquicktimeline,qtquick3d,qtactiveqt
-        -skip qtcoap,qtdatavis3d,qthttpserver,qtpositioning,qtdoc,qtgrpc,qtlocation,qtlottie
-        -skip qtmqtt,qtopcua,qtquick3dphysics,qtquickeffectmaker,qtserialbus -skip
-        qtspeech,qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester
-        -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
+        \ -submodules qtbase,qttools -nomake tests -nomake examples -no-sql-mysql
+        -no-dbus \ -no-openssl -no-glib -no-icu -no-cups -no-fontconfig -no-gtk -no-egl
+        -skip \ qtsql,qtxml,qtprintsupport,qttestlib,qtwebengine,qtgamepad,qtwebchannel
+        -skip \ qtwebview,qtwebsockets,qtwebglplugin,qtserialport,qtnetworkauth,qt3d,qtsensors
+        \ -skip qtwayland,qtxmlpatterns,qtscxml,qtscript,qtconnectivity -skip qtlanguageserver,qtquicktimeline,qtquick3d,qtactiveqt
+        \ -skip qtcoap,qtdatavis3d,qthttpserver,qtpositioning,qtdoc,qtgrpc,qtlocation,qtlottie
+        \ -skip qtmqtt,qtopcua,qtquick3dphysics,qtquickeffectmaker,qtserialbus -skip
+        \ qtspeech,qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester
+        \ -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
       - cmake --build . --parallel
       - cmake --install .
       - popd
       - pushd ${QT_BUILD}
       - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license
-        -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
-        -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
-        $$SDK$$ -android-ndk $$NDK$$ -android-ndk-platform android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver
-        -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel
-        -qt-host-path $QT_HOST_PREFIX CMAKE_INSTALL_MESSAGE=NEVER
+        \ -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
+        \ -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
+        \ $$SDK$$ -android-ndk $$NDK$$ -android-ndk-platform android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver
+        \ -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics -skip
+        qtserialport,qtquicktimeline,qtspeech,qtwebchannel \ -qt-host-path $QT_HOST_PREFIX
+        CMAKE_INSTALL_MESSAGE=NEVER
       - cmake --build . --parallel
       - cmake --install .
       - popd
       - pushd ${ROOT_PATH}
-      - ls $QT_HOST_BUILD
-      - ls $QT_HOST_PREFIX
-      - ls $QT_BUILD
-      - ls $QTPREFIX
+      - echo "Inspecting build directories..."
+      - ls -R $QT_HOST_BUILD
+      - ls -R $QT_HOST_PREFIX
+      - ls -R $QT_BUILD
+      - ls -R $QTPREFIX
       - export QT_HOST_PATH=$QT_HOST_PREFIX
       - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh
-        --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
+        \ --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
       - popd
     ndk: 26.1.10909125
 
@@ -131,36 +133,38 @@ Builds:
       - mkdir -p $BUILD_DIR $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - pushd ${QT_HOST_BUILD}
       - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PREFIX -release
-        -submodules qtbase,qttools -nomake tests -nomake examples -no-sql-mysql -no-dbus
-        -no-openssl -no-glib -no-icu -no-cups -no-fontconfig -no-gtk -no-egl -skip
-        qtsql,qtxml,qtprintsupport,qttestlib,qtwebengine,qtgamepad,qtwebchannel -skip
-        qtwebview,qtwebsockets,qtwebglplugin,qtserialport,qtnetworkauth,qt3d,qtsensors
-        -skip qtwayland,qtxmlpatterns,qtscxml,qtscript,qtconnectivity -skip qtlanguageserver,qtquicktimeline,qtquick3d,qtactiveqt
-        -skip qtcoap,qtdatavis3d,qthttpserver,qtpositioning,qtdoc,qtgrpc,qtlocation,qtlottie
-        -skip qtmqtt,qtopcua,qtquick3dphysics,qtquickeffectmaker,qtserialbus -skip
-        qtspeech,qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester
-        -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
+        \ -submodules qtbase,qttools -nomake tests -nomake examples -no-sql-mysql
+        -no-dbus \ -no-openssl -no-glib -no-icu -no-cups -no-fontconfig -no-gtk -no-egl
+        -skip \ qtsql,qtxml,qtprintsupport,qttestlib,qtwebengine,qtgamepad,qtwebchannel
+        -skip \ qtwebview,qtwebsockets,qtwebglplugin,qtserialport,qtnetworkauth,qt3d,qtsensors
+        \ -skip qtwayland,qtxmlpatterns,qtscxml,qtscript,qtconnectivity -skip qtlanguageserver,qtquicktimeline,qtquick3d,qtactiveqt
+        \ -skip qtcoap,qtdatavis3d,qthttpserver,qtpositioning,qtdoc,qtgrpc,qtlocation,qtlottie
+        \ -skip qtmqtt,qtopcua,qtquick3dphysics,qtquickeffectmaker,qtserialbus -skip
+        \ qtspeech,qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester
+        \ -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
       - cmake --build . --parallel
       - cmake --install .
       - popd
       - pushd ${QT_BUILD}
       - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license
-        -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
-        -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
-        $$SDK$$ -android-ndk $$NDK$$ -android-ndk-platform android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver
-        -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel
-        -qt-host-path $QT_HOST_PREFIX CMAKE_INSTALL_MESSAGE=NEVER
+        \ -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
+        \ -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
+        \ $$SDK$$ -android-ndk $$NDK$$ -android-ndk-platform android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver
+        \ -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics -skip
+        qtserialport,qtquicktimeline,qtspeech,qtwebchannel \ -qt-host-path $QT_HOST_PREFIX
+        CMAKE_INSTALL_MESSAGE=NEVER
       - cmake --build . --parallel
       - cmake --install .
       - popd
       - pushd ${ROOT_PATH}
-      - ls $QT_HOST_BUILD
-      - ls $QT_HOST_PREFIX
-      - ls $QT_BUILD
-      - ls $QTPREFIX
+      - echo "Inspecting build directories..."
+      - ls -R $QT_HOST_BUILD
+      - ls -R $QT_HOST_PREFIX
+      - ls -R $QT_BUILD
+      - ls -R $QTPREFIX
       - export QT_HOST_PATH=$QT_HOST_PREFIX
       - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh
-        --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
+        \ --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
       - popd
     ndk: 26.1.10909125
 
