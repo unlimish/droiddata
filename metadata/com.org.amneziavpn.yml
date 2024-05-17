@@ -75,10 +75,9 @@ Builds:
       - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license
         -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
         -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
-        $$SDK$$ -android-ndk $$NDK$$ -android-ndk-platform
-        android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics
-        -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PREFIX
-        CMAKE_INSTALL_MESSAGE=NEVER
+        $$SDK$$ -android-ndk $$NDK$$ -android-ndk-platform android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver
+        -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel
+        -qt-host-path $QT_HOST_PREFIX CMAKE_INSTALL_MESSAGE=NEVER
       - cmake --build . --parallel
       - cmake --install .
       - popd
@@ -116,7 +115,6 @@ Builds:
       - cd $$Qt5$$
       - ./init-repository -f --module-subset=qtbase,qtdeclarative,qtimageformats,qtmultimedia,qtshadertools,qtsvg,qttools,qttranslations
     target: android-34
-    target: android-34
     build:
       - export ROOT_PATH=$(readlink -f ${PWD}/..)
       - export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
@@ -149,10 +147,9 @@ Builds:
       - $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license
         -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql
         -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk
-        $$SDK$$ -android-ndk $$NDK$$ -android-ndk-platform
-        android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics
-        -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PREFIX
-        CMAKE_INSTALL_MESSAGE=NEVER
+        $$SDK$$ -android-ndk $$NDK$$ -android-ndk-platform android-34 -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver
+        -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel
+        -qt-host-path $QT_HOST_PREFIX CMAKE_INSTALL_MESSAGE=NEVER
       - cmake --build . --parallel
       - cmake --install .
       - popd
