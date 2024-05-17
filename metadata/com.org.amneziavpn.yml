@@ -83,10 +83,11 @@ Builds:
       - cmake --install .
       - popd
       - pushd ${ROOT_PATH}
+      - ls $QT_HOST_BUILD
       - ls $QT_HOST_PREFIX
-      - ls $QT_HOST_PREFIX/..
-      - ls $QTPREFIX/lib
-      - export QT_HOST_PATH=$QTPREFIX/lib
+      - ls $QT_BUILD
+      - ls $QTPREFIX
+      - export QT_HOST_PATH=$QT_HOST_PREFIX
       - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh
         --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
       - popd
@@ -114,6 +115,7 @@ Builds:
       - sdkmanager 'platforms;android-34' 'build-tools;34.0.0'
       - cd $$Qt5$$
       - ./init-repository -f --module-subset=qtbase,qtdeclarative,qtimageformats,qtmultimedia,qtshadertools,qtsvg,qttools,qttranslations
+    target: android-34
     target: android-34
     build:
       - export ROOT_PATH=$(readlink -f ${PWD}/..)
@@ -155,8 +157,9 @@ Builds:
       - cmake --install .
       - popd
       - pushd ${ROOT_PATH}
+      - ls $QT_HOST_BUILD
       - ls $QT_HOST_PREFIX
-      - ls $QT_HOST_PREFIX/..
+      - ls $QT_BUILD
       - ls $QTPREFIX
       - export QT_HOST_PATH=$QT_HOST_PREFIX
       - COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh
