@@ -56,34 +56,36 @@ Builds:
       - rm -rf $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - mkdir -p $BUILD_DIR $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - pushd ${QT_HOST_BUILD}
-      - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PREFIX -release
-        -submodules qtbase,qttools -nomake tests -nomake examples -no-sql-mysql -no-dbus
-        -no-openssl -no-glib -no-icu -no-cups -no-fontconfig -no-gtk -no-egl -skip qtsql
-        -skip qtxml -skip qtprintsupport -skip qttestlib -skip qtwebengine -skip qtgamepad
-        -skip qtwebchannel -skip qtwebview -skip qtwebsockets -skip qtwebglplugin -skip qtserialport
-        -skip qtnetworkauth -skip qt3d -skip qtsensors -skip qtwayland -skip qtxmlpatterns
-        -skip qtscxml -skip qtscript -skip qtconnectivity -skip qtlanguageserver -skip qtquicktimeline
-        -skip qtquick3d -skip qtactiveqt -skip qtcoap -skip qtdatavis3d -skip qthttpserver
-        -skip qtpositioning -skip qtdoc -skip qtgrpc -skip qtlocation -skip qtlottie -skip qtmqtt
-        -skip qtopcua -skip qtquick3dphysics -skip qtquickeffectmaker -skip qtserialbus -skip qtspeech
-        -skip qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester -no-feature-concurrent
+      - |
+        $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PREFIX -release \
+        -submodules qtbase,qttools -nomake tests -nomake examples -no-sql-mysql -no-dbus \
+        -no-openssl -no-glib -no-icu -no-cups -no-fontconfig -no-gtk -no-egl -skip qtsql \
+        -skip qtxml -skip qtprintsupport -skip qttestlib -skip qtwebengine -skip qtgamepad \
+        -skip qtwebchannel -skip qtwebview -skip qtwebsockets -skip qtwebglplugin -skip qtserialport \
+        -skip qtnetworkauth -skip qt3d -skip qtsensors -skip qtwayland -skip qtxmlpatterns \
+        -skip qtscxml -skip qtscript -skip qtconnectivity -skip qtlanguageserver -skip qtquicktimeline \
+        -skip qtquick3d -skip qtactiveqt -skip qtcoap -skip qtdatavis3d -skip qthttpserver \
+        -skip qtpositioning -skip qtdoc -skip qtgrpc -skip qtlocation -skip qtlottie -skip qtmqtt \
+        -skip qtopcua -skip qtquick3dphysics -skip qtquickeffectmaker -skip qtserialbus -skip qtspeech \
+        -skip qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester -no-feature-concurrent \
         -- -D CMAKE_INSTALL_MESSAGE=NEVER
       - cmake --build . --parallel
       - cmake --install .
       - popd
-      - for ABI in arm64-v8a armeabi-v7a x86_64 x86; do \
-          pushd ${QT_BUILD}; \
-          export QT_PATH_ANDROID_ABI_INSTALL=${QTPREFIX}/${ABI} \
-          export QT_ANDROID_PATH_CMAKE_DIR=${QT_PATH_ANDROID_ABI_INSTALL}/lib/cmake \
+      - |
+        for ABI in arm64-v8a armeabi-v7a x86_64 x86; do
+          pushd ${QT_BUILD}
+          export QT_PATH_ANDROID_ABI_INSTALL=${QTPREFIX}/${ABI}
+          export QT_ANDROID_PATH_CMAKE_DIR=${QT_PATH_ANDROID_ABI_INSTALL}/lib/cmake
           $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license -silent \
             -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql -no-dbus -no-use-gold-linker \
             -sysconfdir /etc/xdg -opengl es2 -android-sdk $$SDK$$ -android-ndk $$NDK$$ -android-abis $ABI \
             -android-ndk-platform android-34 -skip qtcoap -skip qtopcua -skip qtwebengine -skip qt3d -skip qtlanguageserver \
             -skip qtdatavis3d -skip qtquick3d -skip qtwebview -skip qtactiveqt -skip qtquick3dphysics -skip qtserialport \
-            -skip qtquicktimeline -skip qtspeech -skip qtwebchannel -qt-host-path $QT_HOST_PREFIX CMAKE_INSTALL_MESSAGE=NEVER; \
-          cmake --build . --parallel; \
-          cmake --install .; \
-          popd; \
+            -skip qtquicktimeline -skip qtspeech -skip qtwebchannel -qt-host-path $QT_HOST_PREFIX CMAKE_INSTALL_MESSAGE=NEVER
+          cmake --build . --parallel
+          cmake --install .
+          popd
         done
       - pushd ${ROOT_PATH}
       - export QT_HOST_PATH=$QT_HOST_PREFIX
@@ -127,7 +129,7 @@ Builds:
       - rm -rf $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - mkdir -p $BUILD_DIR $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
       - pushd ${QT_HOST_BUILD}
-      - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PREFIX -release
+      - $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PREFIX -release 
         -submodules qtbase,qttools -nomake tests -nomake examples -no-sql-mysql -no-dbus
         -no-openssl -no-glib -no-icu -no-cups -no-fontconfig -no-gtk -no-egl -skip qtsql
         -skip qtxml -skip qtprintsupport -skip qttestlib -skip qtwebengine -skip qtgamepad
@@ -142,19 +144,19 @@ Builds:
       - cmake --build . --parallel
       - cmake --install .
       - popd
-      - for ABI in arm64-v8a armeabi-v7a x86_64 x86; do \
-          pushd ${QT_BUILD}; \
-          export QT_PATH_ANDROID_ABI_INSTALL=${QTPREFIX}/${ABI} \
-          export QT_ANDROID_PATH_CMAKE_DIR=${QT_PATH_ANDROID_ABI_INSTALL}/lib/cmake \
+      - for ABI in arm64-v8a armeabi-v7a x86_64 x86; do
+          pushd ${QT_BUILD}
+          export QT_PATH_ANDROID_ABI_INSTALL=${QTPREFIX}/${ABI}
+          export QT_ANDROID_PATH_CMAKE_DIR=${QT_PATH_ANDROID_ABI_INSTALL}/lib/cmake
           $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license -silent \
             -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql -no-dbus -no-use-gold-linker \
             -sysconfdir /etc/xdg -opengl es2 -android-sdk $$SDK$$ -android-ndk $$NDK$$ -android-abis $ABI \
             -android-ndk-platform android-34 -skip qtcoap -skip qtopcua -skip qtwebengine -skip qt3d -skip qtlanguageserver \
             -skip qtdatavis3d -skip qtquick3d -skip qtwebview -skip qtactiveqt -skip qtquick3dphysics -skip qtserialport \
-            -skip qtquicktimeline -skip qtspeech -skip qtwebchannel -qt-host-path $QT_HOST_PREFIX CMAKE_INSTALL_MESSAGE=NEVER; \
-          cmake --build . --parallel; \
-          cmake --install .; \
-          popd; \
+            -skip qtquicktimeline -skip qtspeech -skip qtwebchannel -qt-host-path $QT_HOST_PREFIX CMAKE_INSTALL_MESSAGE=NEVER
+          cmake --build . --parallel
+          cmake --install .
+          popd
         done
       - pushd ${ROOT_PATH}
       - export QT_HOST_PATH=$QT_HOST_PREFIX
