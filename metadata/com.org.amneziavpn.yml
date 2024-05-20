@@ -50,7 +50,7 @@ Builds:
           export QT_PATH_ANDROID_ABI_INSTALL=${QTPREFIX}/${ABI}
           export QT_ANDROID_PATH_CMAKE_DIR=${QT_PATH_ANDROID_ABI_INSTALL}/lib/cmake
           $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license \
-            -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql \
+            -silent -prefix $QTPREFIX/$ABI -release -nomake tests -nomake examples -no-sql-mysql \
             -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk $$SDK$$ \
             -android-ndk $$NDK$$ -android-abis ${ABI} -android-ndk-platform android-34 \
             -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics \
@@ -82,12 +82,13 @@ Builds:
           -skip qtcoap,qtdatavis3d,qthttpserver,qtpositioning,qtdoc,qtgrpc,qtlocation,qtlottie \
           -skip qtmqtt,qtopcua,qtquick3dphysics,qtquickeffectmaker,qtserialbus -skip \
           qtspeech,qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester \
-          -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
+          -no-feature-qml-jit -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
         cmake --build . --parallel
         cmake --install .
         popd
         pushd ${QT_BUILD}
         for ABI in arm64-v8a armeabi-v7a x86_64 x86; do
+          mkdir -p $QTPREFIX/$ABI
           configure_and_build_qt $ABI
         done
         popd
@@ -98,7 +99,7 @@ Builds:
         COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh \
           --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
         popd
-    ndk: 26.1.10909125
+    ndk: r26b
 
   - versionName: 4.5.3.0
     versionCode: 45300
@@ -130,7 +131,7 @@ Builds:
           export QT_PATH_ANDROID_ABI_INSTALL=${QTPREFIX}/${ABI}
           export QT_ANDROID_PATH_CMAKE_DIR=${QT_PATH_ANDROID_ABI_INSTALL}/lib/cmake
           $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license \
-            -silent -prefix $QTPREFIX -release -nomake tests -nomake examples -no-sql-mysql \
+            -silent -prefix $QTPREFIX/$ABI -release -nomake tests -nomake examples -no-sql-mysql \
             -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk $$SDK$$ \
             -android-ndk $$NDK$$ -android-abis ${ABI} -android-ndk-platform android-34 \
             -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics \
@@ -162,12 +163,13 @@ Builds:
           -skip qtcoap,qtdatavis3d,qthttpserver,qtpositioning,qtdoc,qtgrpc,qtlocation,qtlottie \
           -skip qtmqtt,qtopcua,qtquick3dphysics,qtquickeffectmaker,qtserialbus -skip \
           qtspeech,qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester \
-          -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
+          -no-feature-qml-jit -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
         cmake --build . --parallel
         cmake --install .
         popd
         pushd ${QT_BUILD}
         for ABI in arm64-v8a armeabi-v7a x86_64 x86; do
+          mkdir -p $QTPREFIX/$ABI
           configure_and_build_qt $ABI
         done
         popd
@@ -178,7 +180,7 @@ Builds:
         COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh \
           --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
         popd
-    ndk: 26.1.10909125
+    ndk: r26b
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
