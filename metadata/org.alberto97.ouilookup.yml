@@ -163,7 +163,15 @@ Builds:
     gradle:
       - foss
 
+  - versionName: 1.6.2
+    versionCode: 20
+    commit: c10dda87251d560bc1d32c7cdf677a3136993453
+    subdir: app
+    gradle:
+      - foss
+    prebuild: sed -i -e '/jvm/s/11/17/g' -e '/JavaVersion/s/11/17/g' build.gradle.kts
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.6.1
-CurrentVersionCode: 19
+CurrentVersion: 1.6.2
+CurrentVersionCode: 20
