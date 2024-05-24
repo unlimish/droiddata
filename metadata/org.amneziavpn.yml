@@ -91,14 +91,11 @@ Builds:
         pushd ${QT_BUILD}
         for ABI in arm64-v8a armeabi-v7a x86_64 x86; do
           configure_and_build_qt $ABI
-          ls $QTPREFIX/android_$ABI
         done
         popd
         pushd ${ROOT_PATH}
-        echo "Inspecting build directories..."
-        ls $QTPREFIX
         export QT_HOST_PATH=$QT_HOST_PREFIX
-        COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh \
+        COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh
           --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
         popd
     ndk: r26b
