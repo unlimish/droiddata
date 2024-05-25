@@ -47,13 +47,17 @@ Builds:
       - |
         configure_and_build_qt() {
           local ABI=$1
-          mkdir -p $QTPREFIX/android_$ABI
-          export QT_PATH_ANDROID_ABI_INSTALL=${QTPREFIX}/${ABI}
-          export QT_ANDROID_PATH_CMAKE_DIR=${QT_PATH_ANDROID_ABI_INSTALL}/lib/cmake
+          local ANDROID_ABI=$ABI
+          if [ "$ABI" = "arm64-v8a" ]; then
+            ANDROID_ABI="android_arm64_v8"
+          elif [ "$ABI" = "armeabi-v7a" ]; then
+            ANDROID_ABI="android_armv7"
+          fi
+          mkdir -p $QTPREFIX/$ANDROID_ABI
           $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license \
-            -silent -prefix $QTPREFIX/android_$ABI -release -nomake tests -nomake examples -no-sql-mysql \
+            -silent -prefix $QTPREFIX/$ANDROID_ABI -release -nomake tests -nomake examples -no-sql-mysql \
             -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk $$SDK$$ \
-            -android-ndk $$NDK$$ -android-arch ${ABI} -android-ndk-platform android-34 \
+            -android-abis ${ABI} -android-ndk $$NDK$$ -android-ndk-platform android-34 \
             -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics \
             -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PREFIX \
             CMAKE_INSTALL_MESSAGE=NEVER
@@ -89,7 +93,7 @@ Builds:
         cmake --install .
         popd
         pushd ${QT_BUILD}
-        for ABI in arm64-v8a armeabi-v7a x86_64 x86; do
+        for ABI in arm64-v8 armeabi-v7a x86_64 x86; do
           configure_and_build_qt $ABI
         done
         popd
