@@ -57,7 +57,7 @@ Builds:
           export QT_PATH_ANDROID_ABI_INSTALL=${QTPREFIX}/${ABI}
           export QT_ANDROID_PATH_CMAKE_DIR=${QT_PATH_ANDROID_ABI_INSTALL}/lib/cmake
           $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license \
-            -silent -prefix $QTPREFIX/android_$ANDROID_ABI -release -nomake tests -nomake examples -no-sql-mysql \
+            -silent -prefix $QTPREFIX/$ANDROID_ABI -release -nomake tests -nomake examples -no-sql-mysql \
             -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk $$SDK$$ \
             -android-abis ${ABI} -android-ndk $$NDK$$ -android-ndk-platform android-34 \
             -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics \
