@@ -54,8 +54,8 @@ Builds:
             ANDROID_ABI="android_armv7"
           fi
           mkdir -p $QTPREFIX/$ANDROID_ABI
-          export QT_PATH_ANDROID_ABI_INSTALL=${QTPREFIX}/${ANDROID_ABI}
-          export QT_ANDROID_PATH_CMAKE_DIR=${QT_PATH_ANDROID_ABI_INSTALL}/lib/cmake
+          export QT_PATH_ANDROID_ABI_${ABI}=${QTPREFIX}/${ANDROID_ABI}
+          export QT_ANDROID_PATH_CMAKE_DIR_${ABI}=${QT_PATH_ANDROID_ABI_INSTALL}/lib/cmake
           $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license \
             -silent -prefix $QTPREFIX/$ANDROID_ABI -release -nomake tests -nomake examples -no-sql-mysql \
             -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk $$SDK$$ \
