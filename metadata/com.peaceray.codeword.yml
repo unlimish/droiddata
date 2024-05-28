@@ -20,9 +20,11 @@ Builds:
     gradle:
       - yes
     srclibs:
-      - reproducible-apk-tools@v0.2.3
-    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-      'assets/*.txt' 'assets/*.html' 'assets/*.css'
+      - reproducible-apk-tools@v0.2.6
+    prebuild: echo -e '\ntasks.register<Exec>("crlf") { executable("bash"); args("-c",
+      "$$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines build/intermediates/merged_java_res/release/minifyReleaseWithR8/base.jar
+      assets/*.txt assets/*.html assets/*.css"); workingDir(project.projectDir) }\ntasks.configureEach
+      { if (name == "minifyReleaseWithR8") { finalizedBy("crlf") } }' >> build.gradle.kts
 
 AllowedAPKSigningKeys: 8926b0e272f64cb214b37ba64a78a47e24a4857a48f27ddc131ff92df4907360
 
