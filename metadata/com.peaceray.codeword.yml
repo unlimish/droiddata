@@ -21,7 +21,7 @@ Builds:
       - yes
     prebuild:
       - shopt -s globstar
-      - sed -i -e 's/$/\r/' src/main/assets/**/*.{txt,html,css}
+      - sed -i -z -e 's/\n/\r\n/g' src/main/assets/**/*.{txt,html,css}
 
 AllowedAPKSigningKeys: 8926b0e272f64cb214b37ba64a78a47e24a4857a48f27ddc131ff92df4907360
 
