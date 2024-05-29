@@ -1,7 +1,7 @@
 Categories:
   - Connectivity
-License: Apache-2.0
-SourceCode: https://github.com/xdsopl/robot36/tree/android
+License: 0BSD
+SourceCode: https://github.com/xdsopl/robot36
 IssueTracker: https://github.com/xdsopl/robot36/issues
 
 AutoName: Robot36
@@ -79,9 +79,39 @@ Builds:
     gradle:
       - yes
 
-  - versionName: '2.5'
-    versionCode: 55
-    commit: 74389205ead9cb4e880b22e8c0386d059146c202
+  - versionName: '2.7'
+    versionCode: 57
+    commit: a505e5f93707a388cf4872ad3577b1662185c0a2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y libncurses5
+    gradle:
+      - yes
+
+  - versionName: '2.9'
+    versionCode: 59
+    commit: de2c9353ad8572ca0f2fba862a8cbf59028c2b52
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y libncurses5
+    gradle:
+      - yes
+
+  - versionName: '2.10'
+    versionCode: 60
+    commit: 72eeae7b29e853a2a9f5463883d2716f8302548b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y libncurses5
+    gradle:
+      - yes
+
+  - versionName: '2.11'
+    versionCode: 61
+    commit: 879b5244f2ab4df14c107d471264ee1a90ca3940
     subdir: app
     sudo:
       - apt-get update
@@ -91,5 +121,5 @@ Builds:
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '2.5'
-CurrentVersionCode: 55
+CurrentVersion: '2.11'
+CurrentVersionCode: 61
