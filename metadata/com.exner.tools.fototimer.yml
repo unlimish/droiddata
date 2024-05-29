@@ -13,14 +13,14 @@ Repo: https://github.com/janexner/FotoTimerAndroid.git
 Binaries: https://www.jan-exner.de/software/android/fototimer/Foto_Timer_release_%v_%c.apk
 
 Builds:
-  - versionName: 1.0.3
-    versionCode: 5
-    commit: v1.0.3
+  - versionName: 1.0.4
+    versionCode: 6
+    commit: v1.0.4
     subdir: app
     gradle:
       - yes
     srclibs:
-      - reproducible-apk-tools@v0.2.6
+      - reproducible-apk-tools@v0.2.7
     postbuild: $$reproducible-apk-tools$$/inplace-fix.py --page-size 16 fix-newlines
       $$OUT$$ 'META-INF/services/*'
 
