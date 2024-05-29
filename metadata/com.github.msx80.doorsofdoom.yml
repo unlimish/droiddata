@@ -21,8 +21,7 @@ Builds:
       - apt-get install -y -t sid openjdk-8-jdk-headless
       - update-java-alternatives --set java-1.8.0-openjdk-amd64
     output: android-mvn/target/DoorsOfDoom.apk
-    prebuild: $$SDK$$/tools/bin/sdkmanager "build-tools;33.0.2" "platforms;android-26"
-      > /dev/null
+    prebuild: sdkmanager "build-tools;33.0.2" "platforms;android-26"
     build:
       - mvn -f doorsofdoom/pom.xml clean install
       - mvn -f android-mvn/pom.xml clean install android:apk
