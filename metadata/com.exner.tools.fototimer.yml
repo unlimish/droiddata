@@ -19,6 +19,10 @@ Builds:
     subdir: app
     gradle:
       - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.6
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --page-size 16 fix-newlines
+      $$OUT$$ 'META-INF/services/*'
 
 AllowedAPKSigningKeys: 3f15745561afae58a2f73ff97a517303eba059b7c608aac576fab7465df27843
 
