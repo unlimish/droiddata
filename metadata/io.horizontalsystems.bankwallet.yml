@@ -550,6 +550,7 @@ Builds:
     subdir: app
     gradle:
       - yes
+    prebuild: sed -i -e '/statsManager.sendStats/d' src/main/java/io/horizontalsystems/bankwallet/core/managers/BackgroundStateChangeListener.kt
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags

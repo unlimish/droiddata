@@ -272,14 +272,6 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 3.1.1
-    versionCode: 78
-    disable: https://github.com/dessalines/thumb-key/issues/400#issuecomment-2074526419
-    commit: 80fd38f9c8d33a5f22c946716b1b9f3ccb9ed885
-    subdir: app
-    gradle:
-      - yes
-
   - versionName: 3.1.4
     versionCode: 81
     commit: 3dd891c1c4d71f5c66e46e6c27ec959f0364b4f1
@@ -287,9 +279,33 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 3.1.5
+    versionCode: 82
+    commit: 3693d0ed914fc05783d2bcc3ec713396486f337f
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.1.9
+    versionCode: 86
+    commit: bbe00e07111785d0f8651afab273c4784ae64825
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/1024/2048/' ../gradle.properties
+
+  - versionName: 3.2.0
+    versionCode: 87
+    disable: https://github.com/dessalines/thumb-key/issues/400
+    commit: 161cd2a5f67c6243950b66722f1af75875400dd8
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/1024/2048/' ../gradle.properties
+
 AllowedAPKSigningKeys: ea7195cfce638ae6b1a8002ddc0d4863366095ea5b8d95c1cd5e25db0fe2e7c3
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.1.4
-CurrentVersionCode: 81
+CurrentVersion: 3.2.0
+CurrentVersionCode: 87
