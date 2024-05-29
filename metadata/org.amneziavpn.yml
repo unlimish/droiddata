@@ -65,8 +65,8 @@ Builds:
               -android-abis ${ABI} -android-ndk $$NDK$$ -android-ndk-platform android-34 \
               -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics \
               -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PREFIX \
-              -no-feature-qml-jit -- -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON
-          cmake --build . --parallel --verbose
+              -no-feature-qml-jit
+          cmake --build . --parallel
           cmake --install .
         }
         export ROOT_PATH=$(readlink -f ${PWD}/..)
@@ -94,7 +94,7 @@ Builds:
           -skip qtmqtt,qtopcua,qtquick3dphysics,qtquickeffectmaker,qtserialbus -skip \
           qtspeech,qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester \
           -no-feature-qml-jit -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
-        cmake --build . --parallel --verbose
+        cmake --build . --parallel
         cmake --install .
         popd
         pushd ${QT_BUILD}
