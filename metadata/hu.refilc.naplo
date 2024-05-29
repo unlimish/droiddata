@@ -20,6 +20,13 @@ Builds:
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
       - flutter@stable
+    rm:
+      - refilc/ios
+      - refilc/linux
+      - refilc/macos
+      - refilc/test
+      - refilc/web
+      - refilc/windows
     prebuild:
       - export version=$(sed -n -E 's/.*flutter-version:\ "(.*)"/\1/p' ../.github/workflows/android.yml)
       - pushd $$flutter$$
