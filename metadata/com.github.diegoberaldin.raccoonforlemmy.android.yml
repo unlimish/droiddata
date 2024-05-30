@@ -13,25 +13,22 @@ AutoName: Raccoon for Lemmy
 
 RepoType: git
 Repo: https://github.com/diegoberaldin/RaccoonForLemmy.git
-Binaries: https://github.com/diegoberaldin/RaccoonForLemmy/releases/download/%v/RaccoonForLemmy-release.apk
+Binaries: https://github.com/diegoberaldin/RaccoonForLemmy/releases/download/%v/RaccoonForLemmy-universal-release.apk
 
 Builds:
-  - versionName: 1.7.6
-    versionCode: 80
-    commit: 221e9f3480f0a61baab06dd8ca1a4d28c8563840
+  - versionName: 1.10.2
+    versionCode: 99
+    commit: 96a1316b64fd4ba7a6c0f7b113ca9d3b5f4b6854
     subdir: androidApp
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-alternatives --auto java
     gradle:
       - yes
     rm:
       - iosApp
+    prebuild: sed -i -e '/isEnable/s/true/false/' build.gradle.kts
 
 AllowedAPKSigningKeys: 694761bc0a59476e4b6b7f39d27f75d030c2a9c0c2b1f68f5ff3985728fbdd7c
 
 AutoUpdateMode: Version
-UpdateCheckMode: Tags
-CurrentVersion: 1.7.6
-CurrentVersionCode: 80
+UpdateCheckMode: Tags ^[\d.]+$
+CurrentVersion: 1.10.2
+CurrentVersionCode: 99
