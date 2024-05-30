@@ -1,0 +1,74 @@
+Categories:
+  - Internet
+License: MIT
+WebSite: https://cwtch.im
+SourceCode: https://git.openprivacy.ca/cwtch.im/cwtch-ui
+IssueTracker: https://git.openprivacy.ca/cwtch.im/cwtch-ui/issues
+Changelog: https://cwtch.im/changelog/
+Donate: https://openprivacy.ca/donate/
+
+AutoName: Cwtch
+
+RepoType: git
+Repo: https://git.openprivacy.ca/cwtch.im/cwtch-ui.git
+
+Builds:
+  - versionName: 1.9.0
+    versionCode: 35
+    commit: 2d89b30881ae81808c1c6c1b7d4d4a77def06390
+    sudo:
+      - apt-get update
+      - apt-get install -y autoconf autogen automake autopoint golang-1.17-go gcc-arm-linux-gnueabihf
+        libevent-dev libtool libssl-dev make pkg-config zlib1g-dev
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.0.5
+      - libcwtch-go@397d264bd9ff1cf0a83e62c5c079b3894c069250
+      - tor-android@3fd6787249dc83e8a1d3403043ae4ded0641977c
+    prebuild:
+      - mkdir -p android/app/src/main/jniLibs/{arm64-v8a,armeabi-v7a,x86,x86_64}
+      - sed -i -e '/InvalidPackage/aabortOnError false' android/app/build.gradle
+      - sed -i -e 's/3.5.4/4.0.1/' android/build.gradle
+      - cd $$tor-android$$
+      - sed -i -e "/$1 = 'debug/,+4d" tor-droid-make.sh
+      - sed -i -e '/dirauth/a--disable-tool-name-check --disable-asciidoc --disable-manpage
+        --disable-html-manual \\' external/Makefile
+      - ./tor-droid-make.sh fetch
+      - sdkmanager 'platforms;android-32' 'build-tools;32.0.0'
+    scandelete:
+      - integration_test
+    build:
+      - pushd $$tor-android$$
+      - ./tor-droid-make.sh build -b release | tee tor-android.log >/dev/null ; tail
+        -n 100 tor-android.log
+      - popd
+      - cp $$tor-android$$/external/lib/arm64-v8a/libtor.so android/app/src/main/jniLibs/arm64-v8a/
+      - cp $$tor-android$$/external/lib/x86_64/libtor.so android/app/src/main/jniLibs/x86_64/
+      - cp $$tor-android$$/external/lib/armeabi-v7a/libtor.so android/app/src/main/jniLibs/armeabi-v7a/
+      - cp $$tor-android$$/external/lib/x86/libtor.so android/app/src/main/jniLibs/x86/
+      - pushd $$libcwtch-go$$
+      - export GOPATH="$PWD/golang"
+      - export GOPROXY=direct
+      - export PATH="$GOPATH/bin:/usr/lib/go-1.17/bin:$PATH"
+      - go mod download
+      - go get -u golang.org/x/mobile@bdb1ca9a1e083af5929a8214e8a056d638ebbf2d
+      - go get -u golang.org/x/mobile/cmd/gomobile
+      - go get -u golang.org/x/mobile/cmd/gobind
+      - go get -u golang.org/x/mobile/bind
+      - ./switch-gomobile.sh
+      - gomobile init
+      - gomobile bind -target android -ldflags="-X cwtch.buildVer=$(git describe --tags)
+        -X cwtch.buildDate=$(date +%G-%m-%d-%H-%M)"
+      - popd
+      - mv $$libcwtch-go$$/cwtch.aar android/cwtch/
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+      - $$flutter$$/bin/flutter build apk --dart-define BUILD_VER=`git describe --tags
+        --abbrev=1` --dart-define BUILD_DATE=`date +%G-%m-%d-%H-%M`
+    ndk: r21
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: pubspec.yaml|version:\s.*\+(\d+)|.|version:\s(.*)\+
+CurrentVersion: 1.9.0
+CurrentVersionCode: 35
