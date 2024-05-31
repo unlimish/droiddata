@@ -53,20 +53,19 @@ Builds:
           elif [ "$ABI" = "armeabi-v7a" ]; then
             ANDROID_ABI="android_armv7"
           fi
-          mkdir -p $QTPREFIX/${ANDROID_ABI}
-          local QT_PATH_ANDROID_ABI=${QTPREFIX}/${ANDROID_ABI}
-          local QT_ANDROID_PATH_CMAKE_DIR=${QT_PATH_ANDROID_ABI}/lib/cmake
-          env QT_PATH_ANDROID_ABI_${ABI}=${QT_PATH_ANDROID_ABI} \
-            QT_ANDROID_PATH_CMAKE_DIR_${ABI}=${QT_ANDROID_PATH_CMAKE_DIR} \
+          export ABIS_BUILD_FILES=$QTPREFIX/build_${ANDROID_ABI}
+          mkdir -p $ABIS_BUILD_FILES $QTPREFIX/${ANDROID_ABI}
+          pushd ${ABIS_BUILD_FILES}
           $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license \
             -silent -prefix $QTPREFIX/$ANDROID_ABI -release -nomake tests -nomake examples -no-sql-mysql \
             -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk $$SDK$$ \
             -android-abis ${ABI} -android-ndk $$NDK$$ -android-ndk-platform android-34 \
             -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics \
-            -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel -qt-host-path $QT_HOST_PREFIX \
-            -no-feature-qml-jit CMAKE_INSTALL_MESSAGE=NEVER
+            -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel,qtscxml -qt-host-path $QT_HOST_PREFIX \
+            -no-feature-qml-jit
           cmake --build . --parallel
           cmake --install .
+          popd
         }
         export ROOT_PATH=$(readlink -f ${PWD}/..)
         export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
