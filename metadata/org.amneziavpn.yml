@@ -44,14 +44,16 @@ Builds:
       - ./init-repository -f --module-subset=qtbase,qtdeclarative,qtimageformats,qtmultimedia,qtshadertools,qtsvg,qttools,qttranslations,qtremoteobjects,qt5compat
     target: android-34
     build:
-     configure_and_build_qt() { local ABI=$1 local ANDROID_ABI=android_${ABI}
+      configure_and_build_qt() {
+        local ABI=$1
+        local ANDROID_ABI=android_${ABI}
         if [ "$ABI" = "arm64-v8a" ]; then
           ANDROID_ABI="android_arm64_v8"
-        elif [ "$ABI"= "armeabi-v7a" ]; then 
-          ANDROID_ABI="android_armv7" 
+        elif [ "$ABI" = "armeabi-v7a" ]; then 
+          ANDROID_ABI="android_armv7"
         fi
         export ABIS_BUILD_FILES=$QTPREFIX/build_${ANDROID_ABI}
-        mkdir -p $ABIS_BUILD_FILES $QTPREFIX/${ANDROID_ABI} 
+        mkdir -p $ABIS_BUILD_FILES $QTPREFIX/${ANDROID_ABI}
         pushd ${ABIS_BUILD_FILES}
         $$Qt5$$/configure -platform android-clang --disable-rpath -opensource -confirm-license \
           -silent -prefix $QTPREFIX/$ANDROID_ABI -release -nomake tests -nomake examples -no-sql-mysql \
@@ -61,8 +63,9 @@ Builds:
           -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel,qtscxml -qt-host-path $QT_HOST_PREFIX \
           -no-feature-qml-jit
         cmake --build . --parallel
-        cmake --install . }
-      popd
+        cmake --install .
+        popd
+      }
       export ROOT_PATH=$(readlink -f ${PWD}/..)
       export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
       export ANDROID_SDK_ROOT=$$SDK$$ ANDROID_NDK_ROOT=$$NDK$$
