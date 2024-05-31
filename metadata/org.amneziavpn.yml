@@ -68,45 +68,45 @@ Builds:
           cmake --build . --parallel
           cmake --install .
         }
-      export ROOT_PATH=$(readlink -f ${PWD}/..)
-      export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
-      export ANDROID_SDK_ROOT=$$SDK$$ ANDROID_NDK_ROOT=$$NDK$$
-      export ANDROID_API_VERSION=android-34
-      export PATH=${JAVA_HOME}/bin:${PATH}
-      export ANDROID_BUILD_PLATFORM=android-34
-      export BUILD_DIR=$(readlink -f ${PWD})/android-build
-      export QT_HOST_BUILD=$(readlink -f ${PWD}/../srclib)/build-host-qt
-      export QT_HOST_PREFIX=$(readlink -f ${PWD}/../srclib)/qt/6.6.2/gcc_64
-      export QT_BUILD=$(readlink -f ${PWD}/../srclib)/build-qt
-      export QTPREFIX=$(readlink -f ${PWD}/../srclib)/qt/6.6.2
-      rm -rf $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
-      mkdir -p $BUILD_DIR $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
-      pushd ${QT_HOST_BUILD}
-      $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PREFIX -release \
-        -submodules qtbase,qttools,qtremoteobjects,qt5compat,qtshadertools,qtimageformats \
-        -nomake tests -nomake examples -no-sql-mysql \
-        -no-dbus -no-openssl -no-glib -no-icu -no-cups -no-fontconfig -no-gtk -no-egl \
-        -skip qtsql,qtxml,qtprintsupport,qttestlib,qtwebengine,qtgamepad,qtwebchannel \
-        -skip qtwebview,qtwebsockets,qtwebglplugin,qtserialport,qtnetworkauth,qt3d,qtsensors \
-        -skip qtwayland,qtxmlpatterns,qtscxml,qtscript,qtconnectivity \
-        -skip qtlanguageserver,qtquicktimeline,qtquick3d,qtactiveqt \
-        -skip qtcoap,qtdatavis3d,qthttpserver,qtpositioning,qtdoc,qtgrpc,qtlocation,qtlottie \
-        -skip qtmqtt,qtopcua,qtquick3dphysics,qtquickeffectmaker,qtserialbus -skip \
-        qtspeech,qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester \
-        -no-feature-qml-jit -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
-      cmake --build . --parallel
-      cmake --install .
-      popd
-      pushd ${QT_BUILD}
-      for ABI in armeabi-v7a arm64-v8a x86 x86_64; do
-        configure_and_build_qt $ABI
-      done
-      popd
-      pushd ${ROOT_PATH}
-      export QT_HOST_PATH=$QT_HOST_PREFIX
-      COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh \
-        --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
-      popd
+        export ROOT_PATH=$(readlink -f ${PWD}/..)
+        export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+        export ANDROID_SDK_ROOT=$$SDK$$ ANDROID_NDK_ROOT=$$NDK$$
+        export ANDROID_API_VERSION=android-34
+        export PATH=${JAVA_HOME}/bin:${PATH}
+        export ANDROID_BUILD_PLATFORM=android-34
+        export BUILD_DIR=$(readlink -f ${PWD})/android-build
+        export QT_HOST_BUILD=$(readlink -f ${PWD}/../srclib)/build-host-qt
+        export QT_HOST_PREFIX=$(readlink -f ${PWD}/../srclib)/qt/6.6.2/gcc_64
+        export QT_BUILD=$(readlink -f ${PWD}/../srclib)/build-qt
+        export QTPREFIX=$(readlink -f ${PWD}/../srclib)/qt/6.6.2
+        rm -rf $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
+        mkdir -p $BUILD_DIR $QT_HOST_PREFIX $QT_HOST_BUILD $QTPREFIX $QT_BUILD
+        pushd ${QT_HOST_BUILD}
+        $$Qt5$$/configure -opensource -confirm-license -prefix $QT_HOST_PREFIX -release \
+          -submodules qtbase,qttools,qtremoteobjects,qt5compat,qtshadertools,qtimageformats \
+          -nomake tests -nomake examples -no-sql-mysql \
+          -no-dbus -no-openssl -no-glib -no-icu -no-cups -no-fontconfig -no-gtk -no-egl \
+          -skip qtsql,qtxml,qtprintsupport,qttestlib,qtwebengine,qtgamepad,qtwebchannel \
+          -skip qtwebview,qtwebsockets,qtwebglplugin,qtserialport,qtnetworkauth,qt3d,qtsensors \
+          -skip qtwayland,qtxmlpatterns,qtscxml,qtscript,qtconnectivity \
+          -skip qtlanguageserver,qtquicktimeline,qtquick3d,qtactiveqt \
+          -skip qtcoap,qtdatavis3d,qthttpserver,qtpositioning,qtdoc,qtgrpc,qtlocation,qtlottie \
+          -skip qtmqtt,qtopcua,qtquick3dphysics,qtquickeffectmaker,qtserialbus -skip \
+          qtspeech,qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester \
+          -no-feature-qml-jit -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
+        cmake --build . --parallel
+        cmake --install .
+        popd
+        pushd ${QT_BUILD}
+        for ABI in armeabi-v7a arm64-v8a x86 x86_64; do
+          configure_and_build_qt $ABI
+        done
+        popd
+        pushd ${ROOT_PATH}
+        export QT_HOST_PATH=$QT_HOST_PREFIX
+        COMPILER=cross-android QTBINARYDIR=$QT_HOST_PREFIX/bin deploy/build_android.sh \
+          --apk all --build-platform $ANDROID_BUILD_PLATFORM --move
+        popd
     ndk: r26b
 
 AutoUpdateMode: Version
