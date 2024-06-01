@@ -62,7 +62,7 @@ Builds:
             -android-abis ${ABI} -android-ndk $$NDK$$ -android-ndk-platform android-34 \
             -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics \
             -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel,qtscxml -qt-host-path $QT_HOST_PREFIX \
-            -no-feature-qml-jit
+            -no-feature-qml-jit CMAKE_INSTALL_MESSAGE=NEVER
           cmake --build . --parallel
           cmake --install .
           popd
