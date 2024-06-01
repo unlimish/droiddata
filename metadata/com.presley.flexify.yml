@@ -1366,6 +1366,990 @@ Builds:
       - mv /home/brandon/flexify com.presley.flexify
     ndk: r21e
 
+  - versionName: 1.0.86
+    versionCode: 931
+    commit: f9b06697340c80e10937924f9a21b49f4e6e33a6
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.86
+    versionCode: 932
+    commit: f9b06697340c80e10937924f9a21b49f4e6e33a6
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.86
+    versionCode: 933
+    commit: f9b06697340c80e10937924f9a21b49f4e6e33a6
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.92
+    versionCode: 991
+    commit: 705ac111768e58eaa5d4d0b58ca309495d9d1f46
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.92
+    versionCode: 992
+    commit: 705ac111768e58eaa5d4d0b58ca309495d9d1f46
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.92
+    versionCode: 993
+    commit: 705ac111768e58eaa5d4d0b58ca309495d9d1f46
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.93
+    versionCode: 1001
+    commit: 9ec1776f97c742fb96d4022123e1e1326dcb7a41
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.93
+    versionCode: 1002
+    commit: 9ec1776f97c742fb96d4022123e1e1326dcb7a41
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.93
+    versionCode: 1003
+    commit: 9ec1776f97c742fb96d4022123e1e1326dcb7a41
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.95
+    versionCode: 1021
+    commit: 180293f30c7033a0bc2cee44723ad80489410f62
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.95
+    versionCode: 1022
+    commit: 180293f30c7033a0bc2cee44723ad80489410f62
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.95
+    versionCode: 1023
+    commit: 180293f30c7033a0bc2cee44723ad80489410f62
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.96
+    versionCode: 1031
+    commit: e011c3441e250862f4ff4cef6f20badf1b5197a9
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.96
+    versionCode: 1032
+    commit: e011c3441e250862f4ff4cef6f20badf1b5197a9
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.96
+    versionCode: 1033
+    commit: e011c3441e250862f4ff4cef6f20badf1b5197a9
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.99
+    versionCode: 1061
+    commit: 73ff742569ab8531748b507c233e7cc4e2353436
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.99
+    versionCode: 1062
+    commit: 73ff742569ab8531748b507c233e7cc4e2353436
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.0.99
+    versionCode: 1063
+    commit: 73ff742569ab8531748b507c233e7cc4e2353436
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.1.2
+    versionCode: 1091
+    commit: 2b80137140315fb8d67d00c5b4653adc7108e795
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.1.2
+    versionCode: 1092
+    commit: 2b80137140315fb8d67d00c5b4653adc7108e795
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.1.2
+    versionCode: 1093
+    commit: 2b80137140315fb8d67d00c5b4653adc7108e795
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.1.3
+    versionCode: 1101
+    commit: 7963175ad0e76518727d5a9bbf511ab75f27a3c2
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-x86_64-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-x86_64-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-x64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.1.3
+    versionCode: 1102
+    commit: 7963175ad0e76518727d5a9bbf511ab75f27a3c2
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-armeabi-v7a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
+  - versionName: 1.1.3
+    versionCode: 1103
+    commit: 7963175ad0e76518727d5a9bbf511ab75f27a3c2
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y ninja-build
+      - mkdir -p /home/brandon
+      - chown vagrant -R /home/brandon
+    output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+    binary: https://github.com/brandonp2412/Flexify/releases/download/%v/app-arm64-v8a-release.apk
+    rm:
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - sdkmanager 'cmake;3.18.1'
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter pub get
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    scanignore:
+      - flutter/bin/cache
+    scandelete:
+      - .pub-cache
+      - flutter
+    build:
+      - cd ..
+      - mv com.presley.flexify /home/brandon/flexify
+      - pushd /home/brandon/flexify
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - flutter/bin/flutter build apk --split-per-abi --target-platform="android-arm64"
+      - popd
+      - mv /home/brandon/flexify com.presley.flexify
+    ndk: r21e
+
 AllowedAPKSigningKeys: 011ee1a6e4e5ecd675f67fbf3d78ad82614a7a7a3f24ed71cc9c417154a0f0fd
 
 AutoUpdateMode: Version
@@ -1375,5 +2359,5 @@ VercodeOperation:
   - 10 * %c + 2
   - 10 * %c + 3
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.0.82
-CurrentVersionCode: 893
+CurrentVersion: 1.1.3
+CurrentVersionCode: 1103
