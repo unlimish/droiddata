@@ -1,0 +1,39 @@
+Categories:
+  - System
+License: Apache-2.0
+AuthorName: Daniel Saynov
+AuthorEmail: lightningprogramming@proton.me
+AuthorWebSite: https://danielsaynov.com
+SourceCode: https://github.com/lightningcpu/Notification-Alerter
+IssueTracker: https://github.com/lightningcpu/Notification-Alerter/issues
+Changelog: https://github.com/lightningcpu/Notification-Alerter/releases
+Bitcoin: bc1qzt0uhrhpdnr6jnjptuxqbc1qzt0uhrhpj59pc9dnr6jnjptuxqqc5gycawyruq
+
+AutoName: Notification Alerter
+
+RepoType: git
+Repo: https://github.com/lightningcpu/Notification-Alerter.git
+Binaries: https://github.com/lightningcpu/Notification-Alerter/tree/main/app/release/notification-alerter-1.0.apk
+
+Builds:
+  - versionName: 1.0.1
+    versionCode: 1
+    commit: v1.0.1
+    subdir: app
+        srclibs:
+      - reproducible-apk-tools@v0.2.3
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+      'META-INF/services/*'
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+AllowedAPKSigningKeys: e3ff64656bbd62da61ce4b8b1eda49b98dd0029ad5413dba625d2a89c809261a
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags v[\d.]+$
+CurrentVersion: 1.0.1
+CurrentVersionCode: 1
