@@ -2,9 +2,10 @@ Categories:
   - Internet
 License: MIT
 AuthorName: qwerty287
-AuthorEmail: ndev@web.de
+AuthorEmail: qwerty287@posteo.de
 SourceCode: https://codeberg.org/qwerty287/ftpclient
 IssueTracker: https://codeberg.org/qwerty287/ftpclient/issues
+Translation: https://translate.codeberg.org/projects/ftpclient/
 Changelog: https://codeberg.org/qwerty287/ftpclient/releases
 
 AutoName: FTPClient
@@ -91,7 +92,32 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.9.1
+    versionCode: 16
+    commit: 7ba4a648cf4bb9167ac1025a406c029c8bf31818
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.9.2
+    versionCode: 17
+    commit: 22e4a783dcc2a9fe4d2256c6df05af4de664fb3b
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.9.3
+    versionCode: 18
+    commit: 2a9a90a62bc3a5639f20a1ee628ffb4db2dce08b
+    subdir: app
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.9.0
-CurrentVersionCode: 15
+CurrentVersion: 2.9.3
+CurrentVersionCode: 18

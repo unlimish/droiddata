@@ -8,7 +8,7 @@ SourceCode: https://github.com/Crazy-Marvin/Flashy
 IssueTracker: https://github.com/Crazy-Marvin/Flashy/issues
 Translation: https://hosted.weblate.org/engage/flashy/
 Changelog: https://github.com/Crazy-Marvin/Flashy/releases
-Donate: https://poopjournal.rocks/blog/donate/
+Donate: https://poopjournal.rocks/donate/
 Liberapay: PoopJournal
 Bitcoin: bc1q90duwnd6ks9tuyj9d6qyrqzvryus4msf4u3ht8
 Litecoin: ltc1q7euacwhn6ef99vcfa57mute92q572aqsc4c2j5
@@ -73,7 +73,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '2.0'
+    versionCode: 12
+    commit: 08490d8c765e150de4d98fa3a3cd804a78c21bc9
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - wear
+
+  - versionName: '2.1'
+    versionCode: 13
+    commit: 03d27c45b0a8cf0fdaa3062bf7e4ef80a1d78ce9
+    subdir: app
+    gradle:
+      - yes
+    rm:
+      - wear
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.6'
-CurrentVersionCode: 7
+CurrentVersion: '2.1'
+CurrentVersionCode: 13

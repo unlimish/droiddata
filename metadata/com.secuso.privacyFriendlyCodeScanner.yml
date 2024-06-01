@@ -168,7 +168,55 @@ Builds:
       - yes
     prebuild: sed -i -e '/maven {/,+2d' ../build.gradle
 
+  - versionName: 4.5.0
+    versionCode: 31
+    commit: e15ce4dddbc76846d04e913f7930507e1f635098
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/maven {/,+2d' ../build.gradle
+
+  - versionName: 4.5.8
+    versionCode: 39
+    commit: a530d30d4a3e44180f6c4449367f263bd20c1304
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/maven {/,+2d' ../build.gradle
+
+  - versionName: 4.5.9
+    versionCode: 40
+    commit: 2b99d7697f7572a4069dd216ea5f63947be089c0
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sed -i -e '/maven {/,+2d' ../build.gradle
+
+  - versionName: 4.6.0
+    versionCode: 42
+    commit: 8533b1dc5780af09fb0e24440c21eeb074e9b9c3
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: sed -i -e '/maven {/,+2d' ../build.gradle
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 4.4.0
-CurrentVersionCode: 30
+CurrentVersion: 4.6.0
+CurrentVersionCode: 42

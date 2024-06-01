@@ -6,7 +6,7 @@ SourceCode: https://github.com/thunderbird/thunderbird-android
 IssueTracker: https://github.com/thunderbird/thunderbird-android/issues
 Translation: https://hosted.weblate.org/projects/tb-android/
 Changelog: https://thunderbird.github.io/thunderbird-android/changelog_6.6-MAINT_branch.xml
-Donate: https://k9mail.app/go/donate
+Donate: https://mzla.link/k9-give
 
 AutoName: K-9 Mail
 
@@ -1275,11 +1275,143 @@ Builds:
     scandelete:
       - build-plugin/build
 
+  - versionName: '6.712'
+    versionCode: 37012
+    commit: '6.712'
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+    scandelete:
+      - build-plugin/build
+
+  - versionName: '6.713'
+    versionCode: 37013
+    commit: '6.713'
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+    scandelete:
+      - build-plugin/build
+
+  - versionName: '6.714'
+    versionCode: 37014
+    commit: '6.714'
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    output: app/k9mail/build/outputs/apk/release/k9mail-release-unsigned.apk
+    scandelete:
+      - build-plugin/build
+
+  - versionName: '6.715'
+    versionCode: 37015
+    commit: '6.715'
+    subdir: app-k9mail
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - build-plugin/build
+
+  - versionName: '6.716'
+    versionCode: 37016
+    commit: '6.716'
+    subdir: app-k9mail
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - build-plugin/build
+
+  - versionName: '6.717'
+    versionCode: 37017
+    commit: '6.717'
+    subdir: app-k9mail
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - build-plugin/build
+
+  - versionName: '6.800'
+    versionCode: 38000
+    commit: '6.800'
+    subdir: app-k9mail
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - build-plugin/build
+
+  - versionName: '6.801'
+    versionCode: 38001
+    commit: '6.801'
+    subdir: app-k9mail
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    scandelete:
+      - build-plugin/build
+
+  - versionName: '6.802'
+    versionCode: 38002
+    commit: '6.802'
+    subdir: app-k9mail
+    gradle:
+      - yes
+    scandelete:
+      - build-plugin/build
+
+  - versionName: '6.803'
+    versionCode: 38003
+    commit: '6.803'
+    subdir: app-k9mail
+    gradle:
+      - yes
+    scandelete:
+      - build-plugin/build
+
+  - versionName: '6.901'
+    versionCode: 39001
+    commit: '6.901'
+    subdir: app-k9mail
+    gradle:
+      - yes
+    scandelete:
+      - build-plugin/build
+
 MaintainerNotes: |-
   Use output instead of subdir to make gradlew-fdroid correctly determine the gradle version to be used.
   It doesn't work when using subdir because we are two levels deep into the directory structure.
+  From version 6.715 on this is not true anymore and subdir should be used as the app was moved to app-k9mail folder.
 
 AutoUpdateMode: None
 UpdateCheckMode: None
-CurrentVersion: '6.603'
-CurrentVersionCode: 36003
+CurrentVersion: '6.803'
+CurrentVersionCode: 38003

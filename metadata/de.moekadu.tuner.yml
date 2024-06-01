@@ -9,7 +9,7 @@ Changelog: https://github.com/thetwom/Tuner/releases
 AutoName: Tuner
 
 RepoType: git
-Repo: https://github.com/thetwom/Tuner
+Repo: https://github.com/thetwom/Tuner.git
 
 Builds:
   - versionName: 1.2.0
@@ -244,7 +244,47 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 6.6.1
+    versionCode: 33
+    commit: 9705d46a5b3857aebc47b6f819f9dfa545156983
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 6.6.2
+    versionCode: 34
+    commit: 9caf670bfe3c50eb8d290967ecdb9a732c653e1b
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 6.7.0
+    versionCode: 35
+    commit: d4f0a91dc069532b88290bd3a000059d75b5c112
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 6.8.0
+    versionCode: 36
+    commit: 7f1cf9bd65873a93b141338469f4cf7d63bc4e74
+    subdir: app
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]*$
-CurrentVersion: 6.5.0
-CurrentVersionCode: 31
+CurrentVersion: 6.8.0
+CurrentVersionCode: 36

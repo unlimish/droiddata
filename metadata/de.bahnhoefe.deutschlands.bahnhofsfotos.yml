@@ -308,7 +308,29 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 15.1.0
+    versionCode: 90
+    commit: afcc12af0c422c62ba416cb7a0474eae2489a71c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 15.2.0
+    versionCode: 91
+    commit: a86ad1d202dc47dd199fa6c6f8973c156156f141
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 15.0.4
-CurrentVersionCode: 89
+CurrentVersion: 15.2.0
+CurrentVersionCode: 91

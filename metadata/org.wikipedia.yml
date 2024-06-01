@@ -1,5 +1,7 @@
 AntiFeatures:
-  - NonFreeNet
+  NonFreeNet:
+    en-US: Depends on wikipedia.org which is free and open source, but is not changeable
+      by a user.
 Categories:
   - Internet
 License: Apache-2.0
@@ -230,18 +232,6 @@ Builds:
   - versionName: r/2.3.152-r-2016-08-18
     versionCode: 152
     commit: r/2.3.152-r-2016-08-18
-    subdir: app
-    init: sed -i '/sonatype/d' ../build.gradle
-    gradle:
-      - fdroid
-    forceversion: true
-    antifeatures:
-      - Tracking
-
-  - versionName: beta/2.4.156-beta-2016-09-19
-    versionCode: 156
-    disable: remove prerelease
-    commit: beta/2.4.156-beta-2016-09-19
     subdir: app
     init: sed -i '/sonatype/d' ../build.gradle
     gradle:
@@ -1158,34 +1148,6 @@ Builds:
     forceversion: true
     prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
 
-  - versionName: r/2.7.50399-r-2022-04-04
-    versionCode: 50399
-    disable: build failed
-    commit: 5aa5c5ab9c9a708c9f7844b89e045295689a0ddc
-    subdir: app
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-11-jdk-headless
-      - update-alternatives --auto java
-    gradle:
-      - fdroid
-    forceversion: true
-    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
-
-  - versionName: r/2.7.50402-r-2022-05-23
-    versionCode: 50402
-    disable: build failed
-    commit: 65c5d08244a7289c31b17c8b5bc2be6f4d496b5c
-    subdir: app
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-11-jdk-headless
-      - update-alternatives --auto java
-    gradle:
-      - fdroid
-    forceversion: true
-    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
-
   - versionName: r/2.7.50406-r-2022-06-14
     versionCode: 50406
     commit: 9894e93768b90f2745a49bfc625428291bcab553
@@ -1557,6 +1519,116 @@ Builds:
     forceversion: true
     prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
 
+  - versionName: r/2.7.50463-r-2023-12-04
+    versionCode: 50463
+    commit: d6d4f083da0dff13ca012de1917ae600d7e761ee
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
+  - versionName: r/2.7.50466-r-2024-01-09
+    versionCode: 50466
+    commit: 1c0f2d3ab645a74c17eae43b4ebc041c56dd9a56
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
+  - versionName: r/2.7.50467-r-2024-01-22
+    versionCode: 50467
+    commit: a6f405f74932f8c88ed442816a25cfb55771c969
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
+  - versionName: r/2.7.50471-r-2024-02-20
+    versionCode: 50471
+    commit: 18c0f50ea1d7fbe77f13051241519ae17dbb6c49
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
+  - versionName: r/2.7.50475-r-2024-03-06
+    versionCode: 50475
+    commit: 96798e990aa31f15ae8f75971dbe9584fd923adf
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
+  - versionName: r/2.7.50477-r-2024-03-15
+    versionCode: 50477
+    commit: b8e9badd448fd5332b0c8117a7a6323529d0df24
+    subdir: app
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
+  - versionName: r/2.7.50479-r-2024-03-21
+    versionCode: 50479
+    commit: 4fc4d67015ab4f08d93f8b9748e005ee39ab195e
+    subdir: app
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
+  - versionName: r/2.7.50481-r-2024-04-01
+    versionCode: 50481
+    commit: 19fc6180c64f0c9e5a15e3b223b8a6cf92c7f9e4
+    subdir: app
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
+  - versionName: r/2.7.50484-r-2024-04-19
+    versionCode: 50484
+    commit: 7eb37df3cf084e42273a76d108af6c6298fdc183
+    subdir: app
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
+  - versionName: r/2.7.50489-r-2024-05-20
+    versionCode: 50489
+    commit: 7c8ca0651c4875c65969f0346d05d42b303fe728
+    subdir: app
+    gradle:
+      - fdroid
+    forceversion: true
+    prebuild: echo 'android { lintOptions { abortOnError false } }' >> build.gradle
+
 MaintainerNotes: |-
   * whitelist app/build.gradle for microsoft appcenter SDK. It's actually open source but might
     pull in google dependencies. In this case it doesn't
@@ -1569,5 +1641,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^r
-CurrentVersion: r/2.7.50460-r-2023-11-21
-CurrentVersionCode: 50460
+CurrentVersion: r/2.7.50489-r-2024-05-20
+CurrentVersionCode: 50489

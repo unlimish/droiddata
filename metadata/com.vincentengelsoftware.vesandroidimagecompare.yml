@@ -8,7 +8,7 @@ SourceCode: https://github.com/VincentEngel/VES-Image-Compare
 IssueTracker: https://github.com/VincentEngel/VES-Image-Compare/issues
 Changelog: https://github.com/VincentEngel/VES-Image-Compare/releases
 
-AutoName: VES - Image and Photo Compare
+AutoName: vesIC
 
 RepoType: git
 Repo: https://github.com/VincentEngel/VES-Image-Compare.git
@@ -292,7 +292,25 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.2.6
+    versionCode: 41
+    commit: 4f7ca3f75101965e05b267e1bfbea7f6d4181ac9
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.2.7
+    versionCode: 42
+    commit: 690554cae300a195b87120fdc55f86ebf8158e2e
+    subdir: app
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^fdroid
-CurrentVersion: 2.2.5
-CurrentVersionCode: 40
+CurrentVersion: 2.2.7
+CurrentVersionCode: 42

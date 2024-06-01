@@ -25,10 +25,9 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 0.7.9
-    versionCode: 26
-    disable: not reproducible
-    commit: 007f853393e454725272ad94f6eaa33ad491c32a
+  - versionName: 0.8.0
+    versionCode: 27
+    commit: 811db0ed8870923c4d36843c7b4d4c585e02f458
     subdir: app
     sudo:
       - apt-get update
@@ -37,9 +36,20 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 0.8.0
-    versionCode: 27
-    commit: 811db0ed8870923c4d36843c7b4d4c585e02f458
+  - versionName: 0.8.1
+    versionCode: 28
+    commit: 93c9bbe5f9af0ebc85c7abf8c61b54f5393d914f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 0.9.0
+    versionCode: 29
+    commit: 809bf75153f6d7fb2351f26c1de065f49e43faab
     subdir: app
     sudo:
       - apt-get update
@@ -54,5 +64,5 @@ AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: buildSrc/src/main/kotlin/Config.kt|versionCode = (\d+)|.|versionName
   = "(.*)"
-CurrentVersion: 0.8.0
-CurrentVersionCode: 27
+CurrentVersion: 0.9.0
+CurrentVersionCode: 29

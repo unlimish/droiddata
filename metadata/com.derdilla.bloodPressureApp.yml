@@ -9,7 +9,7 @@ Changelog: https://github.com/NobodyForNothing/blood-pressure-monitor-fl/release
 AutoName: blood pressure app
 
 RepoType: git
-Repo: https://github.com/NobodyForNothing/blood-pressure-monitor-fl
+Repo: https://github.com/NobodyForNothing/blood-pressure-monitor-fl.git
 
 Builds:
   - versionName: 1.3.0
@@ -342,8 +342,158 @@ Builds:
       - export PUB_CACHE=$(pwd)/.pub-cache
       - $$flutter$$/bin/flutter build apk --flavor fdroid
 
+  - versionName: 1.5.8
+    versionCode: 29
+    commit: f616c8675f3bcd1469ffcaa2ff5bcb0bd12f868e
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.10.6
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 1.6.0
+    versionCode: 30
+    commit: aeb58e6beac95ab1530eb7aa27ef28a66dd5ec09
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.10.6
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 1.6.1
+    versionCode: 31
+    commit: 3d05c2a5f2b8ee07af08a03e653f9039a3c27a1b
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.10.6
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 1.6.2
+    versionCode: 32
+    commit: 591f790ffddde0da954d550ab900024048c349fc
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - export flutterVersion=$(sed -n -E "s/.*flutter-version:\s'(.*)'/\1/p" .github/workflows/CI.yml|head
+        -1)
+      - pushd $$flutter$$
+      - git checkout -f $flutterVersion
+      - popd
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 1.6.3
+    versionCode: 33
+    commit: 5ab56f41566244bf8241d26bad4524c69ae5cf63
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - web
+      - windows
+    prebuild:
+      - export flutterVersion=$(sed -n -E "s/.*flutter-version:\s'(.*)'/\1/p" .github/workflows/CI.yml|head
+        -1)
+      - pushd $$flutter$$
+      - git checkout -f $flutterVersion
+      - popd
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid
+
+  - versionName: 1.6.4
+    versionCode: 34
+    commit: 330b9203f9aa63373ced9a9944a85d29a4115988
+    subdir: app
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@beta
+    rm:
+      - app/ios
+      - app/linux
+      - app/macos
+      - app/web
+      - app/windows
+      - app/test
+      - docs
+    prebuild:
+      - export flutterVersion=$(sed -n -E "s/.*f-droid-flutter:\s*(.*)/\1/p" pubspec.yaml)
+      - '[[ $flutterVersion ]] || exit 1'
+      - pushd $$flutter$$
+      - git checkout -f $flutterVersion
+      - popd
+      - export PUB_CACHE=.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+    scandelete:
+      - app/.pub-cache
+    build:
+      - export PUB_CACHE=.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release --obfuscate --split-debug-info=./build/debug-info
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-UpdateCheckData: android/app/build.gradle|versionCode (\d+)|.|versionName "(.+)"
-CurrentVersion: 1.5.7
-CurrentVersionCode: 28
+UpdateCheckData: app/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.6.4
+CurrentVersionCode: 34

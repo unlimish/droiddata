@@ -3,8 +3,8 @@ Categories:
 License: GPL-3.0-or-later
 AuthorName: SECUSO - Security Usability Society
 AuthorEmail: contact@secuso.org
-AuthorWebSite: https://secuso.aifb.kit.edu/english/
-WebSite: https://secuso.org/pfa
+AuthorWebSite: https://secuso.aifb.kit.edu/english/105.php
+WebSite: https://secuso.aifb.kit.edu/english/Notes.php
 SourceCode: https://github.com/SecUSo/privacy-friendly-notes
 IssueTracker: https://github.com/SecUSo/privacy-friendly-notes/issues
 Changelog: https://github.com/SecUSo/privacy-friendly-notes/blob/HEAD/CHANGELOG.md
@@ -157,7 +157,19 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 1.4.5
+    versionCode: 18
+    commit: 4ca489530993788c37d7b23490f3067b9c264b83
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.4.4
-CurrentVersionCode: 17
+CurrentVersion: 1.4.5
+CurrentVersionCode: 18

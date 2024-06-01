@@ -213,14 +213,38 @@ Builds:
       - build-conventions-secant/build
     ndk: r25
 
-  - versionName: 2.2.14
-    versionCode: 20214800
-    commit: 40ff48a61df99b9b4242c60df684efba06ea2149
+  - versionName: 2.2.11
+    versionCode: 20211800
+    commit: ecac110779208c2a3ac377c202e8eeadbc21ab68
     subdir: app
     sudo:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
       - update-alternatives --auto java
+    gradle:
+      - zcashmainnet
+    scandelete:
+      - build-conventions-secant/build
+    ndk: r25
+
+  - versionName: 2.2.12
+    versionCode: 20212800
+    commit: 33da88eeb0f760e62558aa6ad799a0c78853bedb
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - zcashmainnet
+    scandelete:
+      - build-conventions-secant/build
+    ndk: r25
+
+  - versionName: 2.2.14
+    versionCode: 20214800
+    commit: 40ff48a61df99b9b4242c60df684efba06ea2149
+    subdir: app
     gradle:
       - zcashmainnet
     scandelete:

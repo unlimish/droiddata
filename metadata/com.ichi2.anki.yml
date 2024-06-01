@@ -800,9 +800,141 @@ Builds:
       - sed -i -e '/Temporary/,/End temporary/d' ../build.gradle
     ndk: r22b
 
+  - versionName: 2.17.0
+    versionCode: 21700300
+    commit: af526585a5270c75db3f6b892d00035ad1ab17e0
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e '/splits {/,/^    }/d' -e '/applicationVariants/,/^    }/d' build.gradle
+      - sed -i -e '/publishing/,/^    }/d' -e '/publish/d' ../api/build.gradle.kts
+    ndk: r22b
+
+  - versionName: 2.17.1
+    versionCode: 21701300
+    commit: dd2f3762fb214f9dd51162b215974b23cc809713
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e '/splits {/,/^    }/d' -e '/applicationVariants/,/^    }/d' build.gradle
+      - sed -i -e '/publishing/,/^    }/d' -e '/publish/d' ../api/build.gradle.kts
+    ndk: r22b
+
+  - versionName: 2.17.4
+    versionCode: 21704300
+    commit: 103ccb54f833e7a78df8e0c4098a63e8daeacd51
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e '/splits {/,/^    }/d' -e '/applicationVariants/,/^    }/d' build.gradle
+      - sed -i -e '/publishing/,/^    }/d' -e '/publish/d' ../api/build.gradle.kts
+    ndk: r22b
+
+  - versionName: 2.17.5
+    versionCode: 21705300
+    commit: 1c1aa94ec466f37d33fd2f75020d9f9021ac811e
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e '/splits {/,/^    }/d' -e '/applicationVariants/,/^    }/d' build.gradle
+      - sed -i -e '/publishing/,/^    }/d' -e '/publish/d' ../api/build.gradle.kts
+    ndk: r22b
+
+  - versionName: 2.17.6
+    versionCode: 21706300
+    commit: 568538896be943818ca793dd2635822265712def
+    subdir: AnkiDroid
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e '/splits {/,/^    }/d' -e '/applicationVariants/,/^    }/d' build.gradle
+      - sed -i -e '/publishing/,/^    }/d' -e '/publish/d' ../api/build.gradle.kts
+    ndk: r22b
+
+  - versionName: 2.18.0
+    versionCode: 21800300
+    commit: 464cf290cc77c3f2c562cb03b408b78a13be261b
+    subdir: AnkiDroid
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e '/splits {/,/^    }/d' -e '/applicationVariants/,/^    }/d' build.gradle
+      - sed -i -e '/publishing/,/^    }/d' -e '/publish/d' ../api/build.gradle.kts
+    ndk: r22b
+
+  - versionName: 2.18.1
+    versionCode: 21801300
+    commit: 5d13819ba811c6baea34dc747fce0568c755f31a
+    subdir: AnkiDroid
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e '/splits {/,/^    }/d' -e '/applicationVariants/,/^    }/d' build.gradle
+      - sed -i -e '/publishing/,/^    }/d' -e '/publish/d' ../api/build.gradle.kts
+    ndk: r22b
+
+  - versionName: 2.18.2
+    versionCode: 21802300
+    commit: f624ca684f2bee10203c67ed4f801aa4c5423b95
+    subdir: AnkiDroid
+    gradle:
+      - full
+    rm:
+      - tools
+      - docs
+    prebuild:
+      - sed -i -e '/splits {/,/^    }/d' -e '/applicationVariants/,/^    }/d' build.gradle
+      - sed -i -e '/publishing/,/^    }/d' -e '/publish/d' ../api/build.gradle.kts
+    ndk: r22b
+
 MaintainerNotes: Uses DexLoader to load custom decks and plugins (?).
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v[0-9.]*$
-CurrentVersion: 2.16.5
-CurrentVersionCode: 21605300
+CurrentVersion: 2.18.2
+CurrentVersionCode: 21802300

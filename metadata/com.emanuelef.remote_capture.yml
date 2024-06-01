@@ -656,10 +656,82 @@ Builds:
       - submodules/nDPI/tests
     ndk: r25b
 
+  - versionName: 1.6.9
+    versionCode: 72
+    commit: a1b6ec38ab36a0bcae32fa1dd733f4a119e3169e
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential libpcap-dev autogen libjson-c-dev libnuma-dev
+        libpcre2-dev
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - app/src/main/jni/tests/
+      - submodules/nDPI/tests
+    ndk: r25b
+
+  - versionName: 1.7.0
+    versionCode: 73
+    commit: 854e9038acf59d8f64eb4646b552a8424cc983c7
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential libpcap-dev autogen libjson-c-dev libnuma-dev
+        libpcre2-dev
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - app/src/main/jni/tests/
+      - submodules/nDPI/tests
+    ndk: 26.1.10909125
+
+  - versionName: 1.7.1
+    versionCode: 74
+    commit: bc340af2be496a4c501e2588c42956bfc0538008
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential libpcap-dev autogen libjson-c-dev libnuma-dev
+        libpcre2-dev
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - app/src/main/jni/tests/
+      - submodules/nDPI/tests
+    ndk: 26.1.10909125
+
+  - versionName: 1.7.2
+    versionCode: 75
+    commit: 014ee91ed2105db419771e249ee13b329e708928
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y build-essential libpcap-dev autogen libjson-c-dev libnuma-dev
+        libpcre2-dev
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - app/src/main/jni/tests/
+      - submodules/nDPI/tests
+    ndk: 26.1.10909125
+
 MaintainerNotes: Ignored files are the DB-IP country lite db and the DB-IP ASN lite
   db licensed under CC-BY-4.0.
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.6.8
-CurrentVersionCode: 71
+CurrentVersion: 1.7.2
+CurrentVersionCode: 75

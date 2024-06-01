@@ -679,8 +679,67 @@ Builds:
     scanignore:
       - app/src/main/assets/device-names.bin
 
+  - versionName: 6.18.0
+    versionCode: 212
+    commit: 1c3905c12904b36557ad61023352b18e6aac428a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - noGoogleApi
+      - directVersion
+      - productionServer
+    scanignore:
+      - app/src/main/assets/device-names.bin
+
+  - versionName: 6.19.0
+    versionCode: 213
+    commit: 3f35001af10bd3ee407a3e6a095175a37e22c4b9
+    subdir: app
+    gradle:
+      - noGoogleApi
+      - directVersion
+      - productionServer
+    scanignore:
+      - app/src/main/assets/device-names.bin
+
+  - versionName: 6.20.0
+    versionCode: 214
+    commit: bd3ca9bd4331c2d0b3df975ea3398038a4aff8f6
+    subdir: app
+    gradle:
+      - noGoogleApi
+      - directVersion
+      - productionServer
+    scanignore:
+      - app/src/main/assets/device-names.bin
+
+  - versionName: 6.20.1
+    versionCode: 215
+    commit: 8a2f7ceb797745bc24a171d766547f1df661b352
+    subdir: app
+    gradle:
+      - noGoogleApi
+      - directVersion
+      - productionServer
+    scanignore:
+      - app/src/main/assets/device-names.bin
+
+  - versionName: 7.0.0
+    versionCode: 216
+    commit: b5a65530a9e1aaa5a48fea35ed2caa8c87e0b7e5
+    subdir: app
+    gradle:
+      - noGoogleApi
+      - directVersion
+      - productionServer
+    scanignore:
+      - app/src/main/assets/device-names.bin
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckName: io.timelimit.android
-CurrentVersion: 6.17.0
-CurrentVersionCode: 211
+CurrentVersion: 7.0.0
+CurrentVersionCode: 216

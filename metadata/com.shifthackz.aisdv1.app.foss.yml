@@ -70,9 +70,101 @@ Builds:
       - sed -i -e "s/onnxruntimeVersion = 'latest.release'/onnxruntimeVersion = '1.15.1'/"
         ../dependencies.gradle
 
+  - versionName: 0.5.3
+    versionCode: 166
+    commit: 9c3a819e546e0fe883be442ae12eac2a840a3585
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/gms/d' -e '/firebase/d' ../build.gradle
+      - sed -i -e '/plugins.gradle/d' build.gradle
+      - sed -i -e "s/onnxruntimeVersion = 'latest.release'/onnxruntimeVersion = '1.15.1'/"
+        ../dependencies.gradle
+
+  - versionName: 0.5.7
+    versionCode: 171
+    commit: 842ac38e1bd11a2aa7009ddec12fc45dd1f47333
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/gms/d' -e '/firebase/d' ../build.gradle
+      - sed -i -e '/plugins.gradle/d' build.gradle
+      - sed -i -e "s/onnxruntimeVersion = 'latest.release'/onnxruntimeVersion = '1.15.1'/"
+        ../dependencies.gradle
+
+  - versionName: 0.5.8
+    versionCode: 174
+    commit: 8db1449f62dfab7e71c86917ff4eff6930707335
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/gms/d' -e '/firebase/d' ../build.gradle
+      - sed -i -e '/plugins.gradle/d' build.gradle
+      - sed -i -e "s/onnxruntimeVersion = 'latest.release'/onnxruntimeVersion = '1.15.1'/"
+        ../dependencies.gradle
+
+  - versionName: 0.5.11
+    versionCode: 177
+    commit: 474aa2354ad7284cb5182bae152ad4f63108e13c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/gms/d' -e '/firebase/d' ../build.gradle
+      - sed -i -e '/plugins.gradle/d' build.gradle
+      - sed -i -e "s/onnxruntimeVersion = 'latest.release'/onnxruntimeVersion = '1.15.1'/"
+        ../dependencies.gradle
+
+  - versionName: 0.6.0
+    versionCode: 179
+    commit: d09b710d8a254b8f1550b93bcfa7f2df63e6ea52
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/gms/d' -e '/firebase/d' ../build.gradle
+      - sed -i -e '/plugins.gradle/d' build.gradle
+      - sed -i -e "s/onnxruntimeVersion = 'latest.release'/onnxruntimeVersion = '1.15.1'/"
+        ../dependencies.gradle
+
+  - versionName: 0.6.1
+    versionCode: 180
+    commit: fc2a6ac48a33804bbcfe9e26ad191ccaeaf3f41a
+    subdir: app
+    gradle:
+      - foss
+    prebuild:
+      - sed -i -e '/gms/d' -e '/firebase/d' ../build.gradle
+      - sed -i -e '/plugins.gradle/d' build.gradle
+      - sed -i -e "s/onnxruntimeVersion = 'latest.release'/onnxruntimeVersion = '1.15.1'/"
+        ../dependencies.gradle
+
 AllowedAPKSigningKeys: 8974efc853e2d5e93eb29dd809fc57cae7411fcfaca03de3f7c152f441a90064
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 0.5.2
-CurrentVersionCode: 165
+CurrentVersion: 0.6.1
+CurrentVersionCode: 180

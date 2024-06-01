@@ -37,9 +37,61 @@ Builds:
       - yes
     prebuild: sed -i -e '/INTERNET/d' src/main/AndroidManifest.xml
 
+  - versionName: 2.1.0
+    versionCode: 21000
+    commit: 5d5d1d38fff28045e120ad6acf6f5a57649cc6ee
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/INTERNET/d' src/main/AndroidManifest.xml
+
+  - versionName: 2.1.0
+    versionCode: 21009
+    commit: 97e1d2089e0cb7a93465ba1b0cde50b36337c8e2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/INTERNET/d' src/main/AndroidManifest.xml
+
+  - versionName: 2.1.0
+    versionCode: 21040
+    commit: 396de276c8a613a70df47885529e8b2b4b75449f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild: sed -i -e '/INTERNET/d' src/main/AndroidManifest.xml
+
+  - versionName: 2.1.1
+    versionCode: 21108
+    commit: c8513ae702fb014723fd47514a012effca70f27d
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/INTERNET/d' src/main/AndroidManifest.xml
+
+  - versionName: 2.1.2
+    versionCode: 21204
+    commit: 3510ea658dff358a0ea0716997082d0e06234c83
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e '/INTERNET/d' src/main/AndroidManifest.xml
+
 AllowedAPKSigningKeys: 784605dd5075be058278a5425cbde5213162cbb4591b4428f44e75e08cc6438a
 
 AutoUpdateMode: Version
-UpdateCheckMode: Tags
-CurrentVersion: 2.0.0
-CurrentVersionCode: 20079
+UpdateCheckMode: Tags ^[\d.]+-\d+$
+CurrentVersion: 2.1.2
+CurrentVersionCode: 21204

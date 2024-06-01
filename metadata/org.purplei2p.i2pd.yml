@@ -19,31 +19,6 @@ RepoType: git
 Repo: https://github.com/PurpleI2P/i2pd-android.git
 
 Builds:
-  - versionName: 2.40.0
-    versionCode: 24000
-    disable: versions below 2.41.0 may crash due to new SSU2 transport protocol
-    commit: 98f3cae41570caf5906d37245d7bfce90d60c447
-    subdir: app
-    submodules: true
-    sudo:
-      - apt-get update
-      - apt-get install -y g++ rename
-    gradle:
-      - yes
-    rm:
-      - app/jni/openssl/fuzz
-      - app/jni/openssl/boringssl/fuzz
-    prebuild:
-      - sed -i -e 's/enable true/enable false/' build.gradle
-      - sed -i -e 's/d+2/d+0/' jni/boost/build-android.sh
-    build:
-      - pushd jni
-      - ./build_boost.sh
-      - ./build_openssl.sh
-      - ./build_miniupnpc.sh
-      - popd
-    ndk: r23b
-
   - versionName: 2.41.0
     versionCode: 24100
     commit: 4ee4f94c18a68d3a478ecf32bc615b85b7a4b533
@@ -184,29 +159,6 @@ Builds:
       - ./build_miniupnpc.sh
       - popd
     ndk: r21e
-
-  - versionName: 2.45.0
-    versionCode: 2450000
-    disable: broken internal storage access
-    commit: 8132dbde08b16e96f7cd364317e819edbac355ba
-    subdir: app
-    submodules: true
-    sudo:
-      - apt-get update
-      - apt-get install -y bzip2 cmake g++ make
-    gradle:
-      - yes
-    rm:
-      - app/jni/openssl/fuzz
-      - app/jni/openssl/boringssl/fuzz
-    prebuild: sed -i -e 's/enable true/enable false/' build.gradle
-    build:
-      - pushd jni
-      - ./build_boost.sh
-      - ./build_openssl.sh
-      - ./build_miniupnpc.sh
-      - popd
-    ndk: r23c
 
   - versionName: 2.45.0.1
     versionCode: 2450001
@@ -406,7 +358,99 @@ Builds:
       - popd
     ndk: r23c
 
+  - versionName: 2.50.0
+    versionCode: 2500000
+    commit: 226c7e20e39ce88cbfdf07b1272597ea6c63395b
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y bzip2 cmake g++ make
+    gradle:
+      - yes
+    rm:
+      - app/jni/openssl/fuzz
+      - app/jni/openssl/boringssl/fuzz
+    prebuild: sed -i -e 's/enable true/enable false/' build.gradle
+    build:
+      - pushd jni
+      - ./build_boost.sh
+      - ./build_openssl.sh
+      - ./build_miniupnpc.sh
+      - popd
+    ndk: r23c
+
+  - versionName: 2.50.2
+    versionCode: 2500200
+    commit: 938a85bc3ce4bd7002a4aa16bdafe81513162ebf
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y bzip2 cmake g++ make
+    gradle:
+      - yes
+    rm:
+      - app/jni/openssl/fuzz
+      - app/jni/openssl/boringssl/fuzz
+    prebuild: sed -i -e 's/enable true/enable false/' build.gradle
+    build:
+      - pushd jni
+      - ./build_boost.sh
+      - ./build_openssl.sh
+      - ./build_miniupnpc.sh
+      - popd
+    ndk: r23c
+
+  - versionName: 2.51.0
+    versionCode: 2510000
+    commit: ca3ef80981ccdca19d84c94783e92784135fac29
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y bzip2 cmake g++ make
+    gradle:
+      - yes
+    rm:
+      - app/jni/openssl/fuzz
+      - app/jni/openssl/boringssl/fuzz
+    prebuild:
+      - sed -i -e 's/enable true/enable false/' build.gradle
+      - echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+    build:
+      - pushd jni
+      - ./build_boost.sh
+      - ./build_openssl.sh
+      - ./build_miniupnpc.sh
+      - popd
+    ndk: r23c
+
+  - versionName: 2.52.0
+    versionCode: 2520000
+    commit: 8dba5a00e50864497e14d2c4e6f5b7d45a1879a1
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y bzip2 cmake g++ make
+    gradle:
+      - yes
+    rm:
+      - app/jni/openssl/fuzz
+      - app/jni/openssl/boringssl/fuzz
+    prebuild:
+      - sed -i -e 's/enable true/enable false/' build.gradle
+      - echo -e "\norg.gradle.jvmargs=-Xmx4096m" >> ../gradle.properties
+    build:
+      - pushd jni
+      - ./build_boost.sh
+      - ./build_openssl.sh
+      - ./build_miniupnpc.sh
+      - popd
+    ndk: r23c
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.49.0
-CurrentVersionCode: 2490000
+CurrentVersion: 2.52.0
+CurrentVersionCode: 2520000

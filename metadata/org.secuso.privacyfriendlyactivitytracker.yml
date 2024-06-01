@@ -3,7 +3,7 @@ Categories:
 License: GPL-3.0-or-later
 AuthorName: SECUSO - Security Usability Society
 AuthorEmail: pfa@secuso.org
-AuthorWebSite: https://secuso.aifb.kit.edu/english/
+AuthorWebSite: https://secuso.aifb.kit.edu/english/105.php
 WebSite: https://secuso.aifb.kit.edu/english/Pedometer.php
 SourceCode: https://github.com/SecUSo/privacy-friendly-pedometer
 IssueTracker: https://github.com/SecUSo/privacy-friendly-pedometer/issues
@@ -101,7 +101,19 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 3.1.0
+    versionCode: 16
+    commit: e3343a1e66e756f344d946b9f62a5e5a6cc8b5d4
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 3.0.1
-CurrentVersionCode: 15
+CurrentVersion: 3.1.0
+CurrentVersionCode: 16

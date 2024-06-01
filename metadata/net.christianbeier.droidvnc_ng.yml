@@ -289,7 +289,65 @@ Builds:
     prebuild: sdkmanager 'cmake;3.10.2.4988404'
     ndk: r21e
 
+  - versionName: 2.1.7
+    versionCode: 28
+    commit: 9d22a8a8e7dbd9058c829f2225aac9ee20eecba0
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.10.2.4988404'
+    ndk: 25.1.8937393
+
+  - versionName: 2.2.0
+    versionCode: 29
+    commit: cb4cfd39c0797551f8a411a231afe9b412bef2f3
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.10.2.4988404'
+    ndk: 25.1.8937393
+
+  - versionName: 2.3.0
+    versionCode: 30
+    commit: 2519eb506026ebd81a59ed33e3c499f163891af4
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.10.2.4988404'
+    ndk: 25.1.8937393
+
+  - versionName: 2.3.1
+    versionCode: 31
+    commit: 0645922df59b4aa375328f70201c5d60433a5097
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.10.2.4988404'
+    ndk: 25.1.8937393
+
+  - versionName: 2.4.0
+    versionCode: 32
+    commit: 13f2d6074015a61cbd2883779580867c61997d56
+    subdir: app
+    submodules: true
+    gradle:
+      - yes
+    prebuild: sdkmanager 'cmake;3.10.2.4988404'
+    ndk: 26.1.10909125
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.1.6
-CurrentVersionCode: 27
+CurrentVersion: 2.4.0
+CurrentVersionCode: 32

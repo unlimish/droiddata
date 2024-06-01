@@ -11,7 +11,7 @@ Changelog: https://github.com/stefan-niedermann/nextcloud-deck/tags
 Donate: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZD39ZE7MGEGBL&source=url
 Liberapay: stefan-niedermann
 
-AutoName: Nextcloud Deck
+AutoName: communis Deck
 
 RepoType: git
 Repo: https://github.com/stefan-niedermann/nextcloud-deck.git
@@ -711,7 +711,18 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 1.24.1
+    versionCode: 1024001
+    commit: 67cdbab5c75b2faaef4b6a42e8d3349f5b564c3e
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.23.4
-CurrentVersionCode: 1023004
+CurrentVersion: 1.24.1
+CurrentVersionCode: 1024001

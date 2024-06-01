@@ -200,10 +200,9 @@ Builds:
     gradle:
       - yes
 
-  - versionName: 2.6.2
-    versionCode: 45
-    disable: https://github.com/dessalines/thumb-key/issues/400
-    commit: 530bab699139dc0034e5e0c803c737200999fa77
+  - versionName: 2.6.4
+    versionCode: 47
+    commit: 11f798251bcc8d68c9de6d0152fa09b09f7073ca
     subdir: app
     sudo:
       - apt-get update
@@ -212,9 +211,109 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 2.6.6
+    versionCode: 49
+    commit: b143fde760b49836d10078bd0a57edc507a847f4
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.6.8
+    versionCode: 51
+    commit: 1ac4469ba7ed991488f7e279ba36cdc8592b7566
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.6.9
+    versionCode: 52
+    commit: cefdea562b6eb3af900580f41594dea98f9e690f
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: 2.7.1
+    versionCode: 70
+    commit: 34e89eb9c1ae66db6dfe714feca8ecfc9fbf365a
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.7.2
+    versionCode: 71
+    commit: 2271625a3efc7c50655e35f87b2fda0fa681906a
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.7.3
+    versionCode: 72
+    commit: 235bb8a0ecc97ae9a5999d5a882c54c0e34d501c
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 2.7.6
+    versionCode: 75
+    commit: 173f118f1e9be51866411c60b55cfdab66f84366
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.1.4
+    versionCode: 81
+    commit: 3dd891c1c4d71f5c66e46e6c27ec959f0364b4f1
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.1.5
+    versionCode: 82
+    commit: 3693d0ed914fc05783d2bcc3ec713396486f337f
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 3.1.9
+    versionCode: 86
+    commit: bbe00e07111785d0f8651afab273c4784ae64825
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/1024/2048/' ../gradle.properties
+
+  - versionName: 3.2.0
+    versionCode: 87
+    disable: https://github.com/dessalines/thumb-key/issues/400
+    commit: 161cd2a5f67c6243950b66722f1af75875400dd8
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/1024/2048/' ../gradle.properties
+
+  - versionName: 3.2.1
+    versionCode: 88
+    commit: 4089c2e4b1ebeea94866169ff3d2d45fa641ffc0
+    subdir: app
+    gradle:
+      - yes
+    prebuild: sed -i -e 's/1024/2048/' ../gradle.properties
+
 AllowedAPKSigningKeys: ea7195cfce638ae6b1a8002ddc0d4863366095ea5b8d95c1cd5e25db0fe2e7c3
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 2.6.2
-CurrentVersionCode: 45
+CurrentVersion: 3.2.1
+CurrentVersionCode: 88

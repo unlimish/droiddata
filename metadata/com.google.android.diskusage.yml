@@ -1,6 +1,7 @@
 Categories:
   - System
 License: GPL-2.0-or-later
+AuthorName: Ivan Volosyuk
 SourceCode: https://github.com/IvanVolosyuk/diskusage
 IssueTracker: https://github.com/ivanvolosyuk/diskusage/issues
 
@@ -107,11 +108,29 @@ Builds:
       - app/src/main/res/raw/mimes
     build: $$NDK$$/ndk-build
 
+  - versionName: 5.0-alpha0
+    versionCode: 5000
+    commit: 15e9cad98daedfea04d7e1314833949a2a53e01f
+    subdir: app
+    gradle:
+      - yes
+    scanignore:
+      - app/src/main/res/raw/mimes
+    ndk: r26b
+
+  - versionName: 5.0-alpha1
+    versionCode: 5001
+    commit: 7b2c42e4d0ad87b4885e06363698ba5e126bcdcd
+    subdir: app
+    gradle:
+      - yes
+    ndk: r26b
+
 MaintainerNotes: |-
   The system.jar is from AOSP - see extra/system.jar.README and
   <a href="https://github.com/ivanvolosyuk/diskusage/issues/19">https://github.com/ivanvolosyuk/diskusage/issues/19</a>
 
-AutoUpdateMode: None
-UpdateCheckMode: RepoManifest
-CurrentVersion: 4.0.2
-CurrentVersionCode: 4002
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 5.0-alpha1
+CurrentVersionCode: 5001

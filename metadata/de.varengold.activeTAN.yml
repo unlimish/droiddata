@@ -42,7 +42,31 @@ Builds:
       - prod
     output: build/outputs/apk/VARProd/release/app-VAR-prod-release-unsigned.apk
 
+  - versionName: '2023-09-25'
+    versionCode: 41
+    commit: 78dc423d4a0bab699462f34c6668ec6c01eba7d2
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - VAR
+    output: build/outputs/apk/VAR/release/app-VAR-release-unsigned.apk
+
+  - versionName: '2024-02-05'
+    versionCode: 47
+    commit: 8b029863d300ab33daadded66fe78f7393654c8a
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - VAR
+    output: build/outputs/apk/VAR/release/app-VAR-release-unsigned.apk
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '2023-03-01'
-CurrentVersionCode: 38
+CurrentVersion: '2024-02-05'
+CurrentVersionCode: 47

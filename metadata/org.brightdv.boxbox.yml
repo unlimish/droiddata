@@ -286,8 +286,98 @@ Builds:
       - export PUB_CACHE=$(pwd)/.pub-cache
       - .flutter/bin/flutter build apk
 
+  - versionName: 0.7.0
+    versionCode: 29
+    commit: cf97b71dcee7acb22a232a0ce60419eea0770a6b
+    submodules: true
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - .flutter/bin/flutter config --no-analytics
+      - .flutter/bin/flutter pub get
+    scanignore:
+      - .flutter/bin/cache
+    scandelete:
+      - .flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - .flutter/bin/flutter build apk
+
+  - versionName: 0.7.1
+    versionCode: 30
+    commit: 7a0bbb3e40d9b47f137b6c29a1c1670c5c924dc5
+    submodules: true
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - .flutter/bin/flutter config --no-analytics
+      - .flutter/bin/flutter pub get
+    scanignore:
+      - .flutter/bin/cache
+    scandelete:
+      - .flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - .flutter/bin/flutter build apk
+
+  - versionName: 0.7.2
+    versionCode: 31
+    commit: e53e85e826c185016cb880fd7dd5d3c801409e54
+    submodules: true
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - .flutter/bin/flutter config --no-analytics
+      - .flutter/bin/flutter pub get
+    scanignore:
+      - .flutter/bin/cache
+    scandelete:
+      - .flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - .flutter/bin/flutter build apk
+
+  - versionName: 0.7.3
+    versionCode: 32
+    commit: 5b24b142ddcd566d7f22a8fe98cd0e1b8dc31631
+    submodules: true
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - .flutter/bin/flutter config --no-analytics
+      - .flutter/bin/flutter pub get
+    scanignore:
+      - .flutter/bin/cache
+    scandelete:
+      - .flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - .flutter/bin/flutter build apk
+
+  - versionName: 0.7.4
+    versionCode: 33
+    commit: 3df7f6e8fc3501139121927fad09abe9f7fe1fa2
+    submodules: true
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - .flutter/bin/flutter config --no-analytics
+      - .flutter/bin/flutter pub get
+    scanignore:
+      - .flutter/bin/cache
+    scandelete:
+      - .flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - .flutter/bin/flutter build apk
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 0.6.5
-CurrentVersionCode: 28
+CurrentVersion: 0.7.4
+CurrentVersionCode: 33

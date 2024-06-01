@@ -2069,6 +2069,1119 @@ Builds:
       - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
         --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
 
+  - versionName: 1.1.15
+    versionCode: 1111
+    commit: 23e0125b98ae05550ee5b7ad66e60a37470c1a41
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.15
+    versionCode: 1112
+    commit: 23e0125b98ae05550ee5b7ad66e60a37470c1a41
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.15
+    versionCode: 1113
+    commit: 23e0125b98ae05550ee5b7ad66e60a37470c1a41
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.16
+    versionCode: 1121
+    commit: 65ade7b597f982d80a52c942d9772821fe89773f
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.16
+    versionCode: 1122
+    commit: 65ade7b597f982d80a52c942d9772821fe89773f
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.16
+    versionCode: 1123
+    commit: 65ade7b597f982d80a52c942d9772821fe89773f
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.17
+    versionCode: 1131
+    commit: 94cc373160ab82c3a841f816a7e059cee2e54681
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.17
+    versionCode: 1132
+    commit: 94cc373160ab82c3a841f816a7e059cee2e54681
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.17
+    versionCode: 1133
+    commit: 94cc373160ab82c3a841f816a7e059cee2e54681
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.18
+    versionCode: 1141
+    commit: 3c1fd90fe4d1fbf01fe44602b22cb9587fe11f9b
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.18
+    versionCode: 1142
+    commit: 3c1fd90fe4d1fbf01fe44602b22cb9587fe11f9b
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.18
+    versionCode: 1143
+    commit: 3c1fd90fe4d1fbf01fe44602b22cb9587fe11f9b
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.20
+    versionCode: 1161
+    commit: 74cedbaec4ee78929f8353d3e88ec8270f48ecbd
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.20
+    versionCode: 1162
+    commit: 74cedbaec4ee78929f8353d3e88ec8270f48ecbd
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.20
+    versionCode: 1163
+    commit: 74cedbaec4ee78929f8353d3e88ec8270f48ecbd
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.21
+    versionCode: 1181
+    commit: 814a502176688d9c1e6eaa1a5df7187f1235e29f
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.21
+    versionCode: 1182
+    commit: 814a502176688d9c1e6eaa1a5df7187f1235e29f
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.21
+    versionCode: 1183
+    commit: 814a502176688d9c1e6eaa1a5df7187f1235e29f
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.22
+    versionCode: 1191
+    commit: a9b56cf04285c1164508b8a417a0ac91239e4fbc
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.22
+    versionCode: 1192
+    commit: a9b56cf04285c1164508b8a417a0ac91239e4fbc
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.22
+    versionCode: 1193
+    commit: a9b56cf04285c1164508b8a417a0ac91239e4fbc
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.24
+    versionCode: 1211
+    commit: 9a4e43a20cd936534783f4e51536b6de5b262343
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.24
+    versionCode: 1212
+    commit: 9a4e43a20cd936534783f4e51536b6de5b262343
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.24
+    versionCode: 1213
+    commit: 9a4e43a20cd936534783f4e51536b6de5b262343
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.25
+    versionCode: 1221
+    commit: b257ce40c0cc4f04b9d84dbd3e3ae65e3a0b18f8
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.25
+    versionCode: 1222
+    commit: b257ce40c0cc4f04b9d84dbd3e3ae65e3a0b18f8
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.25
+    versionCode: 1223
+    commit: b257ce40c0cc4f04b9d84dbd3e3ae65e3a0b18f8
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.26
+    versionCode: 1231
+    commit: 7cc4274cf6bf9629d7532fcb7ca32e346e96ce0c
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.26
+    versionCode: 1232
+    commit: 7cc4274cf6bf9629d7532fcb7ca32e346e96ce0c
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.26
+    versionCode: 1233
+    commit: 7cc4274cf6bf9629d7532fcb7ca32e346e96ce0c
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.29
+    versionCode: 1261
+    commit: 4b085c2e8b1c98da45b05e80fc669250bfa0d242
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.29
+    versionCode: 1262
+    commit: 4b085c2e8b1c98da45b05e80fc669250bfa0d242
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.29
+    versionCode: 1263
+    commit: 4b085c2e8b1c98da45b05e80fc669250bfa0d242
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.31
+    versionCode: 1291
+    commit: 7dd67fddfc68d8637023953654cc4a0aae949287
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.31
+    versionCode: 1292
+    commit: 7dd67fddfc68d8637023953654cc4a0aae949287
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.31
+    versionCode: 1293
+    commit: 7dd67fddfc68d8637023953654cc4a0aae949287
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.32
+    versionCode: 1301
+    commit: 2e9f4422d2cbf2d55b34ad8d3b9a3d2316086bcf
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.32
+    versionCode: 1302
+    commit: 2e9f4422d2cbf2d55b34ad8d3b9a3d2316086bcf
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.32
+    versionCode: 1303
+    commit: 2e9f4422d2cbf2d55b34ad8d3b9a3d2316086bcf
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.34
+    versionCode: 1341
+    commit: e2f837c5b78a26310ced9155a692ad0271092716
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.34
+    versionCode: 1342
+    commit: e2f837c5b78a26310ced9155a692ad0271092716
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.34
+    versionCode: 1343
+    commit: e2f837c5b78a26310ced9155a692ad0271092716
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.35
+    versionCode: 1351
+    commit: 06c1907c57e4ad8eae1f6233a772511281773b00
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.35
+    versionCode: 1352
+    commit: 06c1907c57e4ad8eae1f6233a772511281773b00
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.35
+    versionCode: 1353
+    commit: 06c1907c57e4ad8eae1f6233a772511281773b00
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.38
+    versionCode: 1381
+    commit: e61f17c90987ccf9350a0fab070efc26bee4ca09
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.38
+    versionCode: 1382
+    commit: e61f17c90987ccf9350a0fab070efc26bee4ca09
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.38
+    versionCode: 1383
+    commit: e61f17c90987ccf9350a0fab070efc26bee4ca09
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
+  - versionName: 1.1.39
+    versionCode: 1391
+    commit: 404d18201d982d5f1ea0127c5c441adbc9256879
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-x64"
+
+  - versionName: 1.1.39
+    versionCode: 1392
+    commit: 404d18201d982d5f1ea0127c5c441adbc9256879
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm"
+
+  - versionName: 1.1.39
+    versionCode: 1393
+    commit: 404d18201d982d5f1ea0127c5c441adbc9256879
+    submodules: true
+    output: build/app/outputs/flutter-apk/app-*-localmonero-release.apk
+    prebuild:
+      - sed -i -e '/ndk {/,/^        }/d' android/app/build.gradle
+      - sed -i -e 's/download.flutter.io/maven.google.com/' android/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter config --no-analytics
+      - submodules/flutter/bin/flutter packages pub get
+    scanignore:
+      - submodules/flutter/bin/cache
+    scandelete:
+      - submodules/flutter
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - submodules/flutter/bin/flutter packages pub run build_runner build --delete-conflicting-outputs
+      - submodules/flutter/bin/flutter build apk --flavor localmonero --dart-define=app.flavor=localmonero
+        --dart-define=app.includeFcm=false --split-per-abi --target-platform="android-arm64"
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags v[\d.]+-fdroid-lm$
 VercodeOperation:
@@ -2076,5 +3189,5 @@ VercodeOperation:
   - '%c * 10 + 2'
   - '%c * 10 + 3'
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 1.1.14
-CurrentVersionCode: 1103
+CurrentVersion: 1.1.39
+CurrentVersionCode: 1393

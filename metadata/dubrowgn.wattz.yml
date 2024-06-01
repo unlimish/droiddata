@@ -106,7 +106,40 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '1.14'
+    versionCode: 14
+    commit: 9b2a0b629c6374166357f3bc6f604cf21ec1c4cc
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.17'
+    versionCode: 17
+    commit: 800f1b7e46d0d64de38a0ea6e7df73267d54670d
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '1.18'
+    versionCode: 18
+    commit: dfa4c5c1d412dc3cc034efbfdaab115f33797d37
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '1.13'
-CurrentVersionCode: 13
+CurrentVersion: '1.18'
+CurrentVersionCode: 18

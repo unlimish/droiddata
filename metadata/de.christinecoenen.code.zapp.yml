@@ -510,7 +510,43 @@ Builds:
     gradle:
       - yes
 
+  - versionName: 8.4.0
+    versionCode: 69
+    commit: e38a07781d66a0538b90686c39e5ace7ed966937
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 8.5.0
+    versionCode: 70
+    commit: 998acf90b170de56d4d54b553644726f8f56c44c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 8.5.1
+    versionCode: 71
+    commit: 0f83a923c2bcdb3c50331a2f0df92779fdce65f8
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: 8.5.2
+    versionCode: 72
+    commit: 737e17a1c6df72de5136e2d6c21bb13cd04c8e38
+    subdir: app
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v\d+\.\d+\.\d+$
-CurrentVersion: 8.3.2
-CurrentVersionCode: 68
+CurrentVersion: 8.5.2
+CurrentVersionCode: 72

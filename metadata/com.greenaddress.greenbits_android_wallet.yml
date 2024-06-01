@@ -1,3 +1,8 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: Connects to countly.blockstream.com on app start
+  Tracking:
+    en-US: Sends analytics to countly.blockstream.com by default
 Categories:
   - Money
 License: GPL-3.0-only
@@ -11,11 +16,47 @@ Changelog: https://github.com/blockstream/green_android/releases
 
 AutoName: Green
 Description: |-
-  Blockstream Green is a Bitcoin Wallet for Android.
+  Blockstream Green is a simple and secure Bitcoin wallet that makes it easy to get started sending and receiving Bitcoin and Liquid-based assets such as Liquid Bitcoin (L-BTC) and Tether’s USDt.
 
-  Other Bitcoin wallets offer a choice between convenience, security, and control.
+  Built by Blockstream, one of the most security-focused teams in the Bitcoin industry, Blockstream Green is supported across multiple platforms and is designed for Bitcoin beginners and power users alike.
 
-  With Blockstream Green, you get all three.
+  EASY SETUP
+  No registration or personal details are required to get started, just write down your recovery phrase and start making Bitcoin transactions right away.
+
+  FASTER & CHEAPER BITCOIN TRANSACTIONS
+  Smart fee estimation ensures your Bitcoin payments arrive on time without being charged excessive fees.
+
+  MULTILINGUAL
+  We speak your language. Green includes support for Brazilian Portuguese, Chinese (Simplified), Dutch, English, French, German, Hebrew, Italian, Japanese, Korean, Russian, Spanish, Ukrainian, Vietnamese. And more to come!
+
+  BITCOIN LAYER-2 SUPPORT
+  Send and receive Liquid Bitcoin L-BTC, Tether’s USDt, and any other Liquid-based assets with a Liquid account.
+
+  TWO-FACTOR MULTISIG SECURITY
+  Unique dual-key security with one key protected by two-factor authentication. Multiple authentication options are available including, Google Authenticator, SMS, and email.
+
+  Bitcoin power users will feel right at home with a wide range of advanced features and industry-firsts:
+
+  FEE CONTROL
+  Fully customizable transaction fees with replace-by-fee support so that you can start low and adjust the fee if necessary. Great for pushing through urgent transactions without overpaying.
+
+  HARDWARE WALLET SUPPORT
+  Integration with Blockstream Jade, Ledger Nano S and X, Trezor One and T (see our help desk for latest compatibility across the various supported platforms).
+
+  TWO-FACTOR THRESHOLDS
+  Require two-factor authentication for large payments only, by setting a two-factor threshold. Total payments up to the threshold can be completed without 2FA.
+
+  WATCH-ONLY WALLETS
+  Keep an eye on your Bitcoin balances while on the go and receive payments from others without needing to grant payment permissions to your device.
+
+  TESTNET SUPPORT
+  Easily make test transactions on Bitcoin testnet.
+
+  PRIVACY
+  No documents, personal information, or KYC required. An email address is needed for wallet recovery purposes only. Connect via Tor at the tap of a button, no other apps needed.
+
+  CONNECT TO YOUR OWN NODE
+  Verify transactions on your own full node with SPV support.
 
 RepoType: git
 Repo: https://github.com/blockstream/green_android.git
@@ -2278,16 +2319,14 @@ Builds:
         ./prepare_gdk_clang.sh
     ndk: r25c
 
-  - versionName: 4.0.8
-    versionCode: 22000408
-    disable: https://github.com/Blockstream/green_android/issues/173
-    commit: 5a08deb40b79fd343f9b177b85eaea51f1479b7c
-    timeout: 25200
+  - versionName: 4.0.20
+    versionCode: 22000420
+    commit: 57e8c490c8ef0a1bd25b8f566fdaa03d20461c1d
     subdir: green
     sudo:
       - apt-get update
       - apt-get install -y automake clang cmake jq libffi-dev libtool make pkg-config
-        swig virtualenv
+        swig virtualenv xz-utils
       - apt-get install -y openjdk-17-jdk-headless
       - update-java-alternatives -a
     gradle:
@@ -2295,19 +2334,163 @@ Builds:
     srclibs:
       - rustup@1.25.2
     prebuild:
-      - sed -i -e '/mvn.breez/d' ../build.gradle.kts
+      - sed -i -e '/mvn.breez/d' -e '/zendesk/d' ../build.gradle.kts
+      - sed -i -e '/libs.breez.sdk.kmp/d' -e 's!// api(libs.breez.sdk.android)!api(libs.breez.sdk.android)!'
+        ../common/build.gradle.kts
       - sed -i -e '/signingConfigs {/,+8d' -e '/signingConfigs.getByName/,+3d' -e
         '/versionNameSuffix/d' build.gradle.kts
+      - sed -i -e '/jetbrains.space/d' ../settings.gradle.kts
     build:
       - $$rustup$$/rustup-init.sh -y
       - source $HOME/.cargo/env
       - rustup install 1.68.0
-      - rustup target add aarch64-linux-android armv7-linux-androideabi x86_64-linux-android
-        i686-linux-android
-      - cd ../crypto
+      - rustup target add aarch64-linux-android armv7-linux-androideabi
+      - pushd ../gdk
       - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
-        ./prepare_gdk_clang.sh
-    ndk: r25c
+        ./prepare_gdk_clang.sh arm64-v8a
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh armeabi-v7a
+      - popd
+    ndk: 25.1.8937393
+
+  - versionName: 4.0.21
+    versionCode: 22000421
+    commit: ed6ca44f16494103ec2b6865e00ae1e3be7a8fbc
+    subdir: green
+    sudo:
+      - apt-get update
+      - apt-get install -y automake clang cmake jq libffi-dev libtool make pkg-config
+        swig virtualenv xz-utils
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - production
+    srclibs:
+      - rustup@1.25.2
+    prebuild:
+      - sed -i -e '/mvn.breez/d' -e '/zendesk/d' ../build.gradle.kts
+      - sed -i -e '/libs.breez.sdk.kmp/d' -e 's!// api(libs.breez.sdk.android)!api(libs.breez.sdk.android)!'
+        ../common/build.gradle.kts
+      - sed -i -e '/signingConfigs {/,+8d' -e '/signingConfigs.getByName/,+3d' -e
+        '/versionNameSuffix/d' build.gradle.kts
+      - sed -i -e '/jetbrains.space/d' ../settings.gradle.kts
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.68.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi
+      - pushd ../gdk
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh arm64-v8a
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh armeabi-v7a
+      - popd
+    ndk: 25.1.8937393
+
+  - versionName: 4.0.24
+    versionCode: 22000424
+    disable: https://github.com/Blockstream/green_android/issues/173#issuecomment-1933621114
+    commit: 1ca3fe104969abd3a106efca9b02ee569acd96b1
+    subdir: green
+    sudo:
+      - apt-get update
+      - apt-get install -y automake clang cmake jq libffi-dev libtool make pkg-config
+        swig virtualenv xz-utils
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - production
+    srclibs:
+      - rustup@1.25.2
+    prebuild:
+      - sed -i -e '/mvn.breez/d' -e '/zendesk/d' ../build.gradle.kts
+      - sed -i -e '/libs.breez.sdk.kmp/d' -e 's!// api(libs.breez.sdk.android)!api(libs.breez.sdk.android)!'
+        ../common/build.gradle.kts
+      - sed -i -e '/signingConfigs {/,+8d' -e '/signingConfigs.getByName/,+3d' -e
+        '/versionNameSuffix/d' build.gradle.kts
+      - sed -i -e '/jetbrains.space/d' ../settings.gradle.kts
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.68.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi
+      - pushd ../gdk
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh arm64-v8a
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh armeabi-v7a
+      - popd
+    ndk: 25.1.8937393
+
+  - versionName: 4.0.28
+    versionCode: 22000428
+    commit: a14807e77150f00764f5579ccbe6c469d4257dd5
+    subdir: green
+    sudo:
+      - apt-get update
+      - apt-get install -y automake clang cmake jq libffi-dev libtool make pkg-config
+        swig virtualenv xz-utils
+    gradle:
+      - production
+      - FDroid
+    srclibs:
+      - rustup@1.25.2
+    rm:
+      - gradle/verification-metadata.xml
+    prebuild:
+      - sed -i -e '/mvn.breez/d' -e '/zendesk/d' ../build.gradle.kts
+      - sed -i -e '/libs.breez.sdk.kmp/d' -e 's!// api(libs.breez.sdk.android)!api(libs.breez.sdk.android)!'
+        ../common/build.gradle.kts
+      - sed -i -e '/signingConfigs {/,+8d' -e '/signingConfigs.getByName/,+3d' -e
+        '/versionNameSuffix/d' build.gradle.kts
+      - sed -i -e '/jetbrains.space/d' ../settings.gradle.kts
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.68.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi
+      - pushd ../gdk
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh arm64-v8a
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh armeabi-v7a
+      - popd
+    ndk: 25.1.8937393
+
+  - versionName: 4.0.29
+    versionCode: 22000429
+    commit: a5fe83e903f580007dc5ec5316fa143be91aa6db
+    subdir: green
+    sudo:
+      - apt-get update
+      - apt-get install -y automake clang cmake jq libffi-dev libtool make pkg-config
+        swig virtualenv xz-utils
+    gradle:
+      - production
+      - FDroid
+    srclibs:
+      - rustup@1.25.2
+    rm:
+      - gradle/verification-metadata.xml
+    prebuild:
+      - sed -i -e '/mvn.breez/d' -e '/zendesk/d' ../build.gradle.kts
+      - sed -i -e '/libs.breez.sdk.kmp/d' -e 's!// api(libs.breez.sdk.android!api(libs.breez.sdk.android!'
+        -e 's!// implementation("${libs.jna!implementation("${libs.jna!' ../common/build.gradle.kts
+      - sed -i -e '/signingConfigs {/,+8d' -e '/signingConfigs.getByName/,+3d' -e
+        '/versionNameSuffix/d' build.gradle.kts
+      - sed -i -e '/jetbrains.space/d' ../settings.gradle.kts
+    build:
+      - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
+      - rustup install 1.68.0
+      - rustup target add aarch64-linux-android armv7-linux-androideabi
+      - pushd ../gdk
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh arm64-v8a
+      - JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::") PATH=$HOME/.local/bin:$PATH
+        ./prepare_gdk_clang.sh armeabi-v7a
+      - popd
+    ndk: 26.1.10909125
 
 MaintainerNotes: |-
   Watch prepare_gdk_clang.sh for changes on new builds.
@@ -2318,9 +2501,10 @@ MaintainerNotes: |-
   for each chain runnin on localhost. They are used to speed up SPV verification when possible and they
   can be verified independently by checking each hash against the blockchain.
 
-AutoUpdateMode: None
+AutoUpdateMode: Version
 UpdateCheckMode: Tags
 VercodeOperation:
   - 22000000 + %c
-CurrentVersion: 4.0.20
-CurrentVersionCode: 22000420
+UpdateCheckData: green/build.gradle.kts|versionCode\s=\s(\d+)|.|versionName\s=\s"([\d.]+)"
+CurrentVersion: 4.0.29
+CurrentVersionCode: 22000429

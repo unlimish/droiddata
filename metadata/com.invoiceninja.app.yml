@@ -1547,11 +1547,451 @@ Builds:
       - $$flutter$$/bin/flutter build apk
     ndk: r20
 
+  - versionName: 5.0.143
+    versionCode: 143
+    commit: b403b7ec4c6d33d7abad58610db461a7840ee180
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "flutter\:\ " codemagic.yaml | tr -d ' ' | cut -d ":"
+        -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/pinput.dart.foss lib/ui/app/pinput.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - sed -i -e '/google_sign_in/d' -e '/in_app_review/d' -e '/in_app_purchase/d'
+        pubspec.yaml
+      - sed -i -e '/^  google_sign_in/,/version:/d' -e '/^  in_app_review/,/version:/d'
+        -e '/^  in_app_purchase/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.145
+    versionCode: 145
+    commit: f8ab5f1d8e1cb5d91ab84f26d22b57cab8dc2659
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "flutter\:\ " codemagic.yaml | tr -d ' ' | cut -d ":"
+        -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/pinput.dart.foss lib/ui/app/pinput.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - sed -i -e '/google_sign_in/d' -e '/in_app_review/d' -e '/in_app_purchase/d'
+        pubspec.yaml
+      - sed -i -e '/^  google_sign_in/,/version:/d' -e '/^  in_app_review/,/version:/d'
+        -e '/^  in_app_purchase/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.146
+    versionCode: 146
+    commit: 7ec91083ad4ddd5561702e2f5f3b37a88c91c6da
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "flutter\:\ " codemagic.yaml | tr -d ' ' | cut -d ":"
+        -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/pinput.dart.foss lib/ui/app/pinput.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - sed -i -e '/google_sign_in/d' -e '/in_app_review/d' -e '/in_app_purchase/d'
+        pubspec.yaml
+      - sed -i -e '/^  google_sign_in/,/version:/d' -e '/^  in_app_review/,/version:/d'
+        -e '/^  in_app_purchase/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.148
+    versionCode: 148
+    commit: a0fcc6b5b69f0c4785086d70f98406ff11d67b64
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "flutter\:\ " codemagic.yaml | tr -d ' ' | cut -d ":"
+        -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/pinput.dart.foss lib/ui/app/pinput.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - sed -i -e '/google_sign_in/d' -e '/in_app_review/d' -e '/in_app_purchase/d'
+        pubspec.yaml
+      - sed -i -e '/^  google_sign_in/,/version:/d' -e '/^  in_app_review/,/version:/d'
+        -e '/^  in_app_purchase/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.152
+    versionCode: 152
+    commit: ee52f16fbd88e61faea165af1ba1ef5a273c30ef
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "flutter\:\ " codemagic.yaml | tr -d ' ' | cut -d ":"
+        -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/pinput.dart.foss lib/ui/app/pinput.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - sed -i -e '/google_sign_in/d' -e '/in_app_review/d' -e '/in_app_purchase/d'
+        pubspec.yaml
+      - sed -i -e '/^  google_sign_in/,/version:/d' -e '/^  in_app_review/,/version:/d'
+        -e '/^  in_app_purchase/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.154
+    versionCode: 154
+    commit: 095b3a13a7eef964e6be7f47705ffdf5f786f763
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "flutter\:\ " codemagic.yaml | tr -d ' ' | cut -d ":"
+        -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/pinput.dart.foss lib/ui/app/pinput.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - sed -i -e '/google_sign_in/d' -e '/in_app_review/d' -e '/in_app_purchase/d'
+        pubspec.yaml
+      - sed -i -e '/^  google_sign_in/,/version:/d' -e '/^  in_app_review/,/version:/d'
+        -e '/^  in_app_purchase/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.155
+    versionCode: 155
+    commit: a9c00437489a1a549858aae47806b1d801b737fb
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "flutter\:\ " codemagic.yaml | tr -d ' ' | cut -d ":"
+        -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/pinput.dart.foss lib/ui/app/pinput.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - sed -i -e '/google_sign_in/d' -e '/in_app_review/d' -e '/in_app_purchase/d'
+        pubspec.yaml
+      - sed -i -e '/^  google_sign_in/,/version:/d' -e '/^  in_app_review/,/version:/d'
+        -e '/^  in_app_purchase/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.156
+    versionCode: 156
+    commit: 35276f9bc0285a2c72d49fe9fdce55380029a17d
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "flutter\:\ " codemagic.yaml | tr -d ' ' | cut -d ":"
+        -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/pinput.dart.foss lib/ui/app/pinput.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - sed -i -e '/google_sign_in/d' -e '/in_app_review/d' -e '/in_app_purchase/d'
+        pubspec.yaml
+      - sed -i -e '/^  google_sign_in/,/version:/d' -e '/^  in_app_review/,/version:/d'
+        -e '/^  in_app_purchase/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.157
+    versionCode: 157
+    commit: ed82d5f7f5f32212dd961eb0d19dae208176880e
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "flutter\:\ " codemagic.yaml | tr -d ' ' | cut -d ":"
+        -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/pinput.dart.foss lib/ui/app/pinput.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - sed -i -e '/google_sign_in/d' -e '/in_app_review/d' -e '/in_app_purchase/d'
+        pubspec.yaml
+      - sed -i -e '/^  google_sign_in/,/version:/d' -e '/^  in_app_review/,/version:/d'
+        -e '/^  in_app_purchase/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
+  - versionName: 5.0.160
+    versionCode: 160
+    commit: 9bb00fb03228ad2217b89ac6de3a8c4636c409fe
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - ios
+      - linux
+      - macos
+      - samples
+      - snap
+      - test_driver
+      - web
+      - windows
+    prebuild:
+      - export version=$(grep "flutter\:\ " codemagic.yaml | tr -d ' ' | cut -d ":"
+        -f2)
+      - pushd $$flutter$$
+      - git checkout -f $version
+      - popd
+      - cp lib/.env.dart.example lib/.env.dart
+      - cp android/app/build.gradle.dev android/app/build.gradle
+      - cp android/build.gradle.foss android/build.gradle
+      - cp lib/utils/app_review.dart.foss lib/utils/app_review.dart
+      - cp lib/utils/oauth.dart.foss lib/utils/oauth.dart
+      - cp lib/ui/app/pinput.dart.foss lib/ui/app/pinput.dart
+      - cp lib/ui/app/upgrade_dialog.dart.foss lib/ui/app/upgrade_dialog.dart
+      - cp android/app/src/main/AndroidManifest.foss.xml android/app/src/main/AndroidManifest.xml
+      - cp pubspec.foss.yaml pubspec.yaml
+      - sed -i -e '/google_sign_in/d' -e '/in_app_review/d' -e '/in_app_purchase/d'
+        pubspec.yaml
+      - sed -i -e '/^  google_sign_in/,/version:/d' -e '/^  in_app_review/,/version:/d'
+        -e '/^  in_app_purchase/,/version:/d' pubspec.lock
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+    ndk: r20
+
 MaintainerNotes: server soft uses Elastic-2.0 license which is approved neither by
   OSI nor FSF, see https://invoiceninja.github.io/docs/legal/license/
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
 UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 5.0.142
-CurrentVersionCode: 142
+CurrentVersion: 5.0.160
+CurrentVersionCode: 160

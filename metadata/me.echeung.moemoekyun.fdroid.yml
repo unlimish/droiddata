@@ -26,7 +26,7 @@ Description: |-
   * Help translate this app into your language: https://osfmofb.oneskyapp.com/collaboration/project?id=271507
 
 RepoType: git
-Repo: https://github.com/LISTEN-moe/android-app
+Repo: https://github.com/LISTEN-moe/android-app.git
 
 Builds:
   - versionName: 1.6.4
@@ -81,15 +81,6 @@ Builds:
   - versionName: 3.0.3
     versionCode: 58
     commit: v3.0.3
-    subdir: app
-    gradle:
-      - fdroid
-
-  - versionName: 3.0.4
-    versionCode: 59
-    disable: 'ProGuard: Unsupported class version number [53.0] (maximum 52.0, Java
-      1.8)'
-    commit: v3.0.4
     subdir: app
     gradle:
       - fdroid
@@ -177,16 +168,6 @@ Builds:
     subdir: app
     gradle:
       - fdroid
-
-  - versionName: 5.1.0
-    versionCode: 87
-    disable: gms code through exoplayer-cast plugin
-    commit: v5.1.0
-    subdir: app
-    gradle:
-      - fdroid
-    scandelete:
-      - .gradle
 
   - versionName: 5.2.0
     versionCode: 90
@@ -307,8 +288,19 @@ Builds:
     gradle:
       - fdroid
 
+  - versionName: 6.0.2
+    versionCode: 206
+    commit: 386c3600e962db25d85f62d819b8b4852dac4d20
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - fdroid
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-UpdateCheckName: me.echeung.moemoekyun
-CurrentVersion: 5.4.3
-CurrentVersionCode: 106
+UpdateCheckData: app/build.gradle.kts|versionCode\s=\s(\d+)|.|versionName\s=\s"(.+)"
+CurrentVersion: 6.0.2
+CurrentVersionCode: 206

@@ -2082,6 +2082,173 @@ Builds:
       - gradle :syncthing:buildNative
     ndk: 25.2.9519653
 
+  - versionName: 1.27.0
+    versionCode: 4373
+    commit: 179a45ce656b5008e4c40818ad1ce5b6b81e3473
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    srclibs:
+      - go@go1.20.11
+    prebuild: sed -i -e '/signingConfig/d' build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    build:
+      - pushd $$go$$/src
+      - ./make.bash
+      - popd
+      - export PATH=$$go$$/bin:$PATH
+      - gradle :syncthing:buildNative
+    ndk: 25.2.9519653
+
+  - versionName: 1.27.1
+    versionCode: 4375
+    commit: a3199871ea26935bd903d546b6f81c075e6f94d3
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    srclibs:
+      - go@go1.20.11
+    prebuild: sed -i -e '/signingConfig/d' build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    build:
+      - pushd $$go$$/src
+      - ./make.bash
+      - popd
+      - export PATH=$$go$$/bin:$PATH
+      - gradle :syncthing:buildNative
+    ndk: 25.2.9519653
+
+  - versionName: 1.27.1.1
+    versionCode: 4377
+    commit: e553a5e357e4633fd1af16f97cb274dfbebda871
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    srclibs:
+      - go@go1.20.11
+    prebuild: sed -i -e '/signingConfig/d' build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    build:
+      - pushd $$go$$/src
+      - ./make.bash
+      - popd
+      - export PATH=$$go$$/bin:$PATH
+      - gradle :syncthing:buildNative
+    ndk: 25.2.9519653
+
+  - versionName: 1.27.2.1
+    versionCode: 4381
+    commit: 89e3723e868a22dd073c2097a1b7f586c3bc35f2
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    srclibs:
+      - go@go1.20.11
+    prebuild: sed -i -e '/signingConfig/d' build.gradle
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    build:
+      - pushd $$go$$/src
+      - ./make.bash
+      - popd
+      - export PATH=$$go$$/bin:$PATH
+      - gradle :syncthing:buildNative
+    ndk: 25.2.9519653
+
+  - versionName: 1.27.3
+    versionCode: 4384
+    commit: b1194b9f11bc611360dbaf8d277c419433f63724
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bullseye-backports golang-go
+    gradle:
+      - yes
+    srclibs:
+      - go@go1.20.11
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' -e '/buildNative/d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    build:
+      - pushd $$go$$/src
+      - ./make.bash
+      - popd
+      - export PATH=$$go$$/bin:$PATH
+      - gradle :syncthing:buildNative
+    ndk: 25.2.9519653
+
+  - versionName: 1.27.5
+    versionCode: 4387
+    commit: 3127951ad40835e5f55e58be4152909677bf7805
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' -e '/buildNative/d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    build: gradle :syncthing:buildNative
+    ndk: 25.2.9519653
+
+  - versionName: 1.27.6
+    versionCode: 4388
+    commit: 3b305f852dded1b0c1bd0e722f8a99973745d652
+    subdir: app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y autogen automake autopoint bzip2 g++ libc-dev make gettext
+        libtool pkg-config rename shtool
+      - apt-get install -y -t bookworm-backports golang-go
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e '/signingConfig/,+2d' -e '/buildNative/d' build.gradle.kts
+      - sed -i -e 's/java.net.URI/uri/' ../settings.gradle.kts
+    scanignore:
+      - syncthing/src/github.com/syncthing/syncthing/lib/model/testdata
+    build: gradle :syncthing:buildNative
+    ndk: 25.2.9519653
+
 MaintainerNotes: |-
   The submodule in syncthing/src/github.com/syncthing/syncthing must be
   pristine, as the version/release information is taken from git.
@@ -2092,5 +2259,5 @@ MaintainerNotes: |-
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^[0-9.]*$
-CurrentVersion: 1.26.1
-CurrentVersionCode: 4371
+CurrentVersion: 1.27.6
+CurrentVersionCode: 4388

@@ -523,72 +523,73 @@ Builds:
         ../settings.gradle
       - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
 
-  - versionName: 6.0.5-e104be1b
-    versionCode: 51663
-    commit: 76248abe72954b5fee2f3db2755fd8faf24cff94
+  - versionName: 6.3-e46a1948
+    versionCode: 51709
+    commit: 3996a938b8ccc8ada4b4d4e72ba84bd61f33b2cc
     subdir: assembly
+    submodules: true
     sudo:
       - apt-get update
-      - apt-get install -y --no-install-recommends openjdk-11-jdk-headless
+      - apt-get install -y openjdk-17-jdk-headless
       - update-alternatives --auto java
     gradle:
       - complete
       - fdroid
-    srclibs:
-      - deagle@2430a73ecb0fb3f0d0f9cdf443b7863eb07a988d
-      - setupwizard@android12--mainline-release
     rm:
       - assembly/google-services.json
       - shared/src/main/res/xml/analytics_tracker.xml
     prebuild:
-      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
-        ../settings.gradle
       - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+      - sed -i -e '/core-google-shortcuts/,+2d' ../mobile/build.gradle
+    scanignore:
+      - libs/setup-wizard/library/self.gradle
+    scandelete:
+      - libs/setup-wizard/tools/docs/
 
-  - versionName: 6.0.5-d6ec6ee3
-    versionCode: 51666
-    commit: b47611bb2957a02cefd7c2ec45419b21747d6a47
+  - versionName: 6.3-4f363088
+    versionCode: 51733
+    commit: d47dc6d83883e389f8a0f7a17c95b9f14307f650
     subdir: assembly
+    submodules: true
     sudo:
       - apt-get update
-      - apt-get install -y --no-install-recommends openjdk-11-jdk-headless
+      - apt-get install -y openjdk-17-jdk-headless
       - update-alternatives --auto java
     gradle:
       - complete
       - fdroid
-    srclibs:
-      - deagle@2430a73ecb0fb3f0d0f9cdf443b7863eb07a988d
-      - setupwizard@android12--mainline-release
     rm:
       - assembly/google-services.json
       - shared/src/main/res/xml/analytics_tracker.xml
     prebuild:
-      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
-        ../settings.gradle
       - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+      - sed -i -e '/core-google-shortcuts/,+2d' ../mobile/build.gradle
+    scanignore:
+      - libs/setup-wizard/library/self.gradle
+    scandelete:
+      - libs/setup-wizard/tools/docs/
 
-  - versionName: 6.0.5-1733c7cc
-    versionCode: 51668
-    commit: 3cc6cab71920f789166cdf78a79bb90d3039464b
+  - versionName: 6.4-66cd8034
+    versionCode: 51777
+    commit: 399077ba3ffdc2ef715e5857970d0394e7f1eb08
     subdir: assembly
-    sudo:
-      - apt-get update
-      - apt-get install -y --no-install-recommends openjdk-11-jdk-headless
+    submodules: true
     gradle:
       - complete
       - fdroid
-    srclibs:
-      - deagle@2430a73ecb0fb3f0d0f9cdf443b7863eb07a988d
-      - setupwizard@android12--mainline-release
     rm:
       - assembly/google-services.json
       - shared/src/main/res/xml/analytics_tracker.xml
     prebuild:
-      - sed -i -e 's!..\/deagle!$$deagle$$!' -e 's!..\/setup-wizard!$$setupwizard$$!'
-        ../settings.gradle
       - echo 'org.gradle.jvmargs=-Xmx4096m' >> ../gradle.properties
+      - sed -i -e '/core-google-shortcuts/,+2d' ../mobile/build.gradle
+    scanignore:
+      - libs/setup-wizard/library/self.gradle
+    scandelete:
+      - libs/setup-wizard/tools/docs/
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags v[\d.]+-\w+$
-CurrentVersion: 6.0.5-1733c7cc
-CurrentVersionCode: 51668
+UpdateCheckName: Ignore
+CurrentVersion: 6.4-66cd8034
+CurrentVersionCode: 51777

@@ -156,26 +156,6 @@ Builds:
     antifeatures:
       - Tracking
 
-  - versionName: 1.3.0
-    versionCode: 713
-    disable: https://github.com/flipperdevices/Flipper-Android-App/issues/476
-    commit: 9cb156e34a9a2d007c101636b521c16b324c0e49
-    subdir: instances/app
-    gradle:
-      - yes
-    prebuild:
-      - sed -i -e 's/ApkConfig.VERSION_CODE/$$VERCODE$$/' -e 's/ApkConfig.VERSION_NAME/"$$VERSION$$"/'
-        ../../build-logic/plugins/convention/src/main/kotlin/commonAndroid.kt
-      - sed -i -e '/glitchless.ru/d' ../../{build-logic,.}/settings.gradle.kts
-      - sdkmanager 'cmake;3.22.1'
-    scandelete:
-      - build-logic/plugins/convention/build
-    ndk: r25b
-    gradleprops:
-      - IS_GOOGLE_FEATURE_AVAILABLE=false
-    antifeatures:
-      - Tracking
-
   - versionName: 1.4.0
     versionCode: 724
     commit: 841aae5c17feb2aaba4fb8daea53fbf268368b0d
@@ -494,8 +474,49 @@ Builds:
       - is_sentry_publish=false
       - is_metric_enabled=false
 
+  - versionName: 1.6.8
+    versionCode: 1419
+    commit: 86800b2da43a140d66be27d544f70b9225313b12
+    subdir: instances/app
+    submodules: true
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+    prebuild:
+      - printf "\nversion_code=$$VERCODE$$\nversion_name=$$VERSION$$" >> ../../gradle.properties
+      - sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - build-logic/plugins/convention/build
+    ndk: 26.1.10909125
+    gradleprops:
+      - is_google_feature=false
+      - is_sentry_publish=false
+      - is_metric_enabled=false
+
+  - versionName: 1.6.9
+    versionCode: 1598
+    commit: d21431188cd7beacfecc7929aa5b44d4e03d3fa9
+    subdir: instances/android/app
+    submodules: true
+    gradle:
+      - yes
+    prebuild:
+      - sed -i -e 's/version_code", Integer.MAX_VALUE/version_code", $$VERCODE$$/'
+        -e 's/version_name", DEBUG_VERSION/version_name", "$$VERSION$$"/'  ../../../build-logic/plugins/convention/src/main/kotlin/com/flipperdevices/buildlogic/ApkConfig.kt
+      - sdkmanager 'cmake;3.22.1'
+    scandelete:
+      - build-logic/plugins/convention/build
+    ndk: 26.1.10909125
+    gradleprops:
+      - is_google_feature=false
+      - is_sentry_publish=false
+      - is_metric_enabled=false
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags (\d+\.){3}\d+-release
 UpdateCheckData: '|[\d.]+\.(\d+)-release||([\d.]+)\.\d+-release'
-CurrentVersion: 1.6.7
-CurrentVersionCode: 1326
+CurrentVersion: 1.6.9
+CurrentVersionCode: 1598

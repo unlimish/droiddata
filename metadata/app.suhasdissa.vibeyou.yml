@@ -40,9 +40,34 @@ Builds:
     gradle:
       - yes
 
+  - versionName: '3.0'
+    versionCode: 3
+    commit: 087650c99e446cfe9c2406f68b4af876ab366bf8
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-alternatives --auto java
+    gradle:
+      - yes
+
+  - versionName: '4.0'
+    versionCode: 4
+    commit: 1242d7ac7dd0ad2f6e5d67b6026ba9af45ed83e2
+    subdir: app
+    gradle:
+      - yes
+
+  - versionName: '4.1'
+    versionCode: 5
+    commit: 6d1679f60d937f50942cae73e42a4954711e2d85
+    subdir: app
+    gradle:
+      - yes
+
 AllowedAPKSigningKeys: b3bc73b117df5dfe38130c6c2b946852ae7088557fe8e433f0d9983a6b55cc95
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: '2.0'
-CurrentVersionCode: 2
+CurrentVersion: '4.1'
+CurrentVersionCode: 5

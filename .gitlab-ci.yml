@@ -43,7 +43,7 @@ variables:
   - apt-get --allow-releaseinfo-change update
   - apt-get -qy dist-upgrade
   - echo "locales locales/locales_to_be_generated multiselect en_US.UTF-8 UTF-8" | debconf-set-selections
-  - apt-get install -qy --no-install-recommends fdroidserver apksigner mercurial git git-svn brz locales curl
+  - apt-get install -qy --no-install-recommends fdroidserver apksigner mercurial git git-svn brz python3-launchpadlib locales curl
 
 .get_target_source_refs: &get_target_source_refs
   - |
@@ -145,6 +145,7 @@ fdroid lint:
     - export fdroidserver=$PWD/fdroidserver
     - *install_fdroid_server
   script:
+    - cp tools/lint_config.yml config.yml
     - *get_changed_apps
     - export EXITVALUE=0
     - function set_error() { export EXITVALUE=1; printf "\x1b[31mERROR `history|tail -2|head -1|cut -b 6-500`\x1b[0m\n"; }
@@ -160,6 +161,43 @@ fdroid lint:
         }
       fi
     - exit $EXITVALUE
+
+
+fdroid lint config:
+  stage: test
+  needs: []
+  image: debian:bookworm-slim
+  before_script:
+    - apt-get -qy update
+    - apt-get -qy dist-upgrade
+    - apt-get -qy install --no-install-recommends
+        ca-certificates
+        curl
+        git
+        python3-asn1crypto
+        python3-defusedxml
+        python3-git
+        python3-pycountry
+        python3-qrcode
+        python3-requests
+        python3-ruamel.yaml
+        yamllint
+    - export fdroidserver=$CI_PROJECT_DIR/fdroidserver
+    - *install_fdroid_server
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" || $CI_PIPELINE_SOURCE == "push"
+      changes:
+        paths:
+          - .gitlab-ci.yml
+          - config.yml
+          - config/*.yml
+          - config/*/*.yml
+  script:
+    - fdroid lint config/*.yml config/*/*.yml
+    # TODO once config.yml is added to fdroiddata, add it to the line above
+    - test -e config.yml || exit 0
+    - fdroid lint config.yml
+
 
 lint:
   stage: test
@@ -226,7 +264,7 @@ trigger-issuebot:
 schedule-issuebot:
   stage: test
   needs: []
-  image: alpine
+  image: debian:bookworm-slim
   only:
     variables:
       - $SCHEDULE_ISSUEBOT
@@ -241,9 +279,8 @@ schedule-issuebot:
   script:
     - mkdir logs
     - export | grep -F CI_ | grep -vFi -e password -e token > logs/export.txt
-    - apk add --no-cache bash curl ca-certificates python3
-    - python3 -m ensurepip
-    - $pip install python-gitlab
+    - apt-get update
+    - apt-get -qy install --no-install-recommends bash curl ca-certificates python3-gitlab
     - ./tools/schedule-issuebot.py
 
 checkupdates_runner:
@@ -264,6 +301,11 @@ checkupdates_runner:
     - apt-get install -y openssh-client
     - git config --global user.email "fdroidci@bubu1.eu"
     - git config --global user.name "F-Droid checkupdates bot"
+
+    # gitlab.com was still vulnerable to https://terrapin-attack.com/ when this was added
+    - printf 'Ciphers -chacha20-poly1305@openssh.com,*-cbc\nMACs -*etm*,*-sha1*\n'
+        > /etc/ssh/ssh_config.d/0-terrapin-workaround.conf
+
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
     - cp "${GITLAB_KNOWN_HOSTS}" ~/.ssh/known_hosts
@@ -323,7 +365,7 @@ fdroid build:
   needs: []
   # Some env vars are setup in https://gitlab.com/fdroid/fdroidserver/-/blob/master/buildserver/setup-env-vars
   # home_vagrant=/home/vagrant
-  image: registry.gitlab.com/fdroid/fdroidserver:buildserver-bullseye
+  image: registry.gitlab.com/fdroid/fdroidserver:buildserver-bookworm
   tags:
     - saas-linux-medium-amd64
   artifacts:
@@ -353,9 +395,8 @@ fdroid build:
 
     - test -n "$fdroidserver" || source /etc/profile.d/bsenv.sh
 
-    - rm -rf $ANDROID_HOME/tools  # TODO remove once sdkmanager can upgrade installed packages
     # These packages are needed to make this env like the production buildserver.
-    - sdkmanager "tools" "platform-tools" "build-tools;31.0.0"
+    - sdkmanager "platform-tools" "build-tools;31.0.0"
 
     - *install_fdroid_server
 
@@ -407,14 +448,15 @@ fdroid build:
           ln -s $CI_PROJECT_DIR/../.gitconfig $home_vagrant/.gitconfig;
           $fdroid fetchsrclibs $build --verbose;
           rm $home_vagrant/fdroiddata $home_vagrant/.gitconfig;
-          $fdroid build --verbose --test --scan-binary --on-server --no-tarball $build;
+          $fdroid build --verbose --test --refresh-scanner --scan-binary --on-server --no-tarball $build;
           popd;
           rm -rf $home_vagrant/build || true;
-          apt-get install -y openjdk-11-jdk-headless;
-          update-alternatives --set java /usr/lib/jvm/java-11-openjdk-amd64/bin/java;
+          rm -rf $ANDROID_HOME/ndk || true;
+          apt-get install -y openjdk-17-jdk-headless;
+          update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java;
           ./tools/build-contains-signatures.py $build || continue;
           apt-get install sudo;
-          $fdroid publish --verbose $build;
+          $fdroid publish --verbose --error-on-failed $build;
       done
 
     - ./tools/audit-gradle.py $CHANGED;
@@ -432,7 +474,7 @@ fdroid build:
 # to GitLab Pages.
 pages:
   stage: deploy
-  image: registry.gitlab.com/fdroid/fdroidserver:buildserver-bullseye
+  image: registry.gitlab.com/fdroid/fdroidserver:buildserver-bookworm
   only:
     refs:
       - branches
@@ -454,6 +496,7 @@ pages:
     - apt-get install
          python3-github
          python3-gitlab
+         python3-defusedxml
          python3-javaproperties
          python3-requests-cache
          python3-venv
@@ -502,35 +545,3 @@ check_git_repos:
     - test -d public || mkdir public
     - cp `git status | grep -Eo 'metadata/.*\.yml'` public/ || true
     - exit $EXITVALUE
-
-sast:
-  stage: report
-  tags:
-    - saas-linux-medium-amd64
-  needs:
-    - fdroid build
-  dependencies:
-    - fdroid build
-  variables:
-    GIT_DEPTH: "1"
-
-    MOBSF_API_KEY: key
-    SAST_EXPERIMENTAL_FEATURES: "true"
-    SAST_EXCLUDED_ANALYZERS:
-      bandit, brakeman, eslint, flawfinder, gosec, kubesec,
-      nodejs-scan, phpcs-security-audit, pmd-apex, security-code-scan, semgrep, sobelow,
-      spotbugs
-
-    # Make sure the apk is searched before the manifest, so only apks are scanned
-    ANALYZER_TARGET_DIR: $CI_PROJECT_DIR/tmp/
-  allow_failure: true
-  after_script:
-    # GitLab can only display reports at this exact path
-    - mv $ANALYZER_TARGET_DIR/gl-sast-report.json gl-sast-report.json
-
-mobsf-ios-sast:
-  rules:
-    - when: never
-
-mobsf-android-sast:
-  rules: *app_verification_rules

@@ -1205,22 +1205,6 @@ Builds:
     scandelete:
       - android/libs/*
 
-  - versionName: 2.2.0
-    versionCode: 753
-    disable: missing libs, crashing
-    commit: ef4ff6ae84c230798ef080d2b268d20feb0e8928
-    subdir: android
-    sudo:
-      - apt-get update
-      - apt-get install -y openjdk-17-jdk-headless
-      - update-java-alternatives -a
-    gradle:
-      - yes
-    rm:
-      - desktop
-      - ios
-    prebuild: sdkmanager 'platforms;android-31' 'build-tools;30.0.2'
-
   - versionName: 2.2.1
     versionCode: 754
     commit: ce6d400ec914e301f937917cae0a34763f0d7fb6
@@ -1236,8 +1220,75 @@ Builds:
       - ios
     prebuild: sdkmanager 'platforms;android-31' 'build-tools;30.0.2'
 
+  - versionName: 2.3.0
+    versionCode: 765
+    commit: 8c318c9075e89c3ec871eab82f02803061a16657
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - desktop
+      - ios
+    prebuild: sdkmanager 'platforms;android-31' 'build-tools;30.0.2'
+
+  - versionName: 2.3.1
+    versionCode: 767
+    commit: df43a1721532f90d9e94b8db5bf88648ac6a39b7
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - desktop
+      - ios
+    prebuild: sdkmanager 'platforms;android-31' 'build-tools;30.0.2'
+
+  - versionName: 2.3.2
+    versionCode: 768
+    commit: 425c90135d7d666dd1f4715f165dca91a7fb449e
+    subdir: android
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    rm:
+      - desktop
+      - ios
+    prebuild: sdkmanager 'platforms;android-31' 'build-tools;30.0.2'
+
+  - versionName: 2.4.0
+    versionCode: 780
+    commit: 1f6b82b6228f5aaf63f73419284b3501862388d0
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+      - ios
+    prebuild: sdkmanager 'platforms;android-31' 'build-tools;30.0.2'
+
+  - versionName: 2.4.1
+    versionCode: 781
+    commit: 11dd2e9cd058065607608f4ce353922dd7890fe6
+    subdir: android
+    gradle:
+      - yes
+    rm:
+      - desktop
+      - ios
+    prebuild: sdkmanager 'platforms;android-31' 'build-tools;30.0.2'
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
 UpdateCheckData: build.gradle|appVersionCode = (\d+)|.|appVersionName = ['"](.*)['"]
-CurrentVersion: 2.2.1
-CurrentVersionCode: 754
+CurrentVersion: 2.4.1
+CurrentVersionCode: 781

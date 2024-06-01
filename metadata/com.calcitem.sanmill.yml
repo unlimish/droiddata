@@ -2500,13 +2500,482 @@ Builds:
       - $$flutter$$/bin/flutter build apk --flavor fdroid --release
     ndk: r25b
 
-MaintainerNotes: |-
-  Builds will fail when the srclib ref of flutter and the version with which
-  upstream has been built with differ.
-  In that case we need to manually give the correct ref to srclib.
+  - versionName: 4.0.3
+    versionCode: 3849
+    commit: c2299172535cb0460fa3ffe082f75cbfd4560313
+    subdir: src/ui/flutter_app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.16.5
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
+
+  - versionName: 4.0.4
+    versionCode: 3884
+    commit: eda09fe65b90b26f891f1972e0d89ae4f37a031e
+    subdir: src/ui/flutter_app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.16.5
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
+
+  - versionName: 4.0.5
+    versionCode: 3893
+    commit: f88ac97ebae998f08cbc8567054b9166a4fd9830
+    subdir: src/ui/flutter_app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.16.5
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
+
+  - versionName: 4.0.6
+    versionCode: 3908
+    commit: 251de5e4a33c9e89c75401262e45f038d1ceb736
+    subdir: src/ui/flutter_app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.16.5
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
+
+  - versionName: 4.0.7
+    versionCode: 3918
+    commit: 0eaedfdf3de84e7c37a7db09634e51421cf5c18d
+    subdir: src/ui/flutter_app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.16.5
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
+
+  - versionName: 4.0.8
+    versionCode: 3920
+    commit: 334ace601ddd4fb83a4ac1ef3d9bf7ecd6a12690
+    subdir: src/ui/flutter_app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@3.16.5
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
+
+  - versionName: 4.0.9
+    versionCode: 3929
+    commit: ce732b431d76644af3ed05f723fe4eebc52ba97a
+    subdir: src/ui/flutter_app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - export FLUTTER_VERSION=$(sed -n -E "s/.*flutter-version:\s'(.*)'/\1/p" ../../../.github/workflows/flutter.yml
+        | head -n 1)
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
+
+  - versionName: 4.0.10
+    versionCode: 3937
+    commit: d738866cb62c491d3aaedaafd02f5c7bb5165335
+    subdir: src/ui/flutter_app
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - export FLUTTER_VERSION=$(sed -n -E "s/.*flutter-version:\s'(.*)'/\1/p" ../../../.github/workflows/flutter.yml
+        | head -n 1)
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
+
+  - versionName: 4.1.0
+    versionCode: 3942
+    commit: 8e1e0d6f7f7b2ba8cc2e7e2df322acfbf4f4ab36
+    subdir: src/ui/flutter_app
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - export FLUTTER_VERSION=$(sed -n -E "s/.*flutter-version:\s'(.*)'/\1/p" ../../../.github/workflows/flutter.yml
+        | head -n 1)
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
+
+  - versionName: 4.2.0
+    versionCode: 4019
+    commit: 091330118d64a552286d0cf1ab0f68f0f9ad1b1b
+    subdir: src/ui/flutter_app
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - export FLUTTER_VERSION=$(sed -n -E "s/.*flutter-version:\s'(.*)'/\1/p" ../../../.github/workflows/flutter.yml
+        | head -n 1)
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
+
+  - versionName: 4.7.0
+    versionCode: 4091
+    commit: 6f27e776d59cd411bd2ff90c95c5026a326ecc96
+    subdir: src/ui/flutter_app
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - export FLUTTER_VERSION=$(sed -n -E "s/.*flutter-version:\s'(.*)'/\1/p" ../../../.github/workflows/flutter.yml
+        | head -n 1)
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
+
+  - versionName: 4.7.3
+    versionCode: 4101
+    commit: 98001fce121045404d65cae90bac4b504c380018
+    subdir: src/ui/flutter_app
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - export FLUTTER_VERSION=$(sed -n -E "s/.*flutter-version:\s'(.*)'/\1/p" ../../../.github/workflows/flutter.yml
+        | head -n 1)
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
+
+  - versionName: 4.8.0
+    versionCode: 4105
+    commit: 84dff422c25e8b416cd083cb53e25ffa4d81a1e8
+    subdir: src/ui/flutter_app
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - export FLUTTER_VERSION=$(sed -n -E "s/.*flutter-version:\s'(.*)'/\1/p" ../../../.github/workflows/flutter.yml
+        | head -n 1)
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
+
+  - versionName: 4.10.0
+    versionCode: 4122
+    commit: 6a57ebb5dd2d73a2d6c9d17e33eca5fe8906b40b
+    subdir: src/ui/flutter_app
+    output: build/app/outputs/flutter-apk/app-fdroid-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - src/test
+      - src/ui/flutter_app/ios
+      - src/ui/flutter_app/linux
+      - src/ui/flutter_app/macos
+      - src/ui/flutter_app/windows
+      - src/ui/flutter_app/test
+      - src/ui/qt
+      - tests
+    prebuild:
+      - export FLUTTER_VERSION=$(sed -n -E "s/.*flutter-version:\s'(.*)'/\1/p" ../../../.github/workflows/flutter.yml
+        | head -n 1)
+      - pushd $$flutter$$
+      - git checkout -f $FLUTTER_VERSION
+      - popd
+      - mv android/app/build.gradle_fdroid android/app/build.gradle
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - export PATH=$$flutter$$/bin:$PATH
+      - cd ../../..
+      - ./flutter-init.sh
+    scandelete:
+      - src/ui/flutter_app/.pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --flavor fdroid --release
+    ndk: r25b
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^v.*$
 UpdateCheckData: src/ui/flutter_app/pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
-CurrentVersion: 3.8.0
-CurrentVersionCode: 3779
+CurrentVersion: 4.10.0
+CurrentVersionCode: 4122

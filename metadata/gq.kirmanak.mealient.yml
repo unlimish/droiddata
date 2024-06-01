@@ -58,10 +58,9 @@ Builds:
     scandelete:
       - build-logic/convention/build
 
-  - versionName: 0.4.3
-    versionCode: 32
-    disable: https://github.com/kirmanak/Mealient/issues/184
-    commit: 5408329604421dcc9530e76dab8cd1954b361751
+  - versionName: 0.4.4
+    versionCode: 33
+    commit: 4301c623c9253d4586a2a78d2cb2366dc8c61c94
     sudo:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
@@ -72,9 +71,22 @@ Builds:
     scandelete:
       - build-logic/convention/build
 
-  - versionName: 0.4.4
-    versionCode: 33
-    commit: 4301c623c9253d4586a2a78d2cb2366dc8c61c94
+  - versionName: 0.4.5
+    versionCode: 34
+    commit: 94f12820bc8554e4ab4d1e58910d1036d2e2114c
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+    output: app/build/outputs/apk/release/*.apk
+    scandelete:
+      - build-logic/convention/build
+
+  - versionName: 0.4.6
+    versionCode: 35
+    commit: 09f09980bb7af0528857d5baf35b5a53cbe02440
     sudo:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
@@ -89,5 +101,5 @@ AllowedAPKSigningKeys: 7115ad9dcd3c79a4e2fbc0ba850359c7d8caf54e3879f5b3319a4439b
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 0.4.4
-CurrentVersionCode: 33
+CurrentVersion: 0.4.6
+CurrentVersionCode: 35

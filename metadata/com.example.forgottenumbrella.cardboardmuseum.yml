@@ -98,7 +98,36 @@ Builds:
     prebuild: sed -i -e '/testImplementation/d' -e '/signingConfigs {/,/^    }/d'
       -e '/signingConfigs/d' -e '/keystoreProperties/d' build.gradle
 
+  - versionName: 2.0.0
+    versionCode: 16
+    commit: c672c1993e67be9be910d21bd75e8d46b7d649b6
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.1.0
+    versionCode: 17
+    commit: 0e4055e4cb089ce8c1728ded5f7b0f7d6993f264
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y openjdk-17-jdk-headless
+      - update-java-alternatives -a
+    gradle:
+      - yes
+
+  - versionName: 2.2.0
+    versionCode: 18
+    commit: 0935adaf0c6d9b0d7043e642cbf0cf3ced6fe050
+    subdir: app
+    gradle:
+      - yes
+
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
-CurrentVersion: 1.2.3
-CurrentVersionCode: 15
+CurrentVersion: 2.2.0
+CurrentVersionCode: 18
