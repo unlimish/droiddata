@@ -19,11 +19,6 @@ Builds:
   - versionName: 1.0.1
     versionCode: 1
     commit: v1.0.1
-    subdir: app
-        srclibs:
-      - reproducible-apk-tools@v0.2.3
-    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-      'META-INF/services/*'
     sudo:
       - apt-get update
       - apt-get install -y openjdk-17-jdk-headless
@@ -34,6 +29,6 @@ Builds:
 AllowedAPKSigningKeys: e3ff64656bbd62da61ce4b8b1eda49b98dd0029ad5413dba625d2a89c809261a
 
 AutoUpdateMode: Version
-UpdateCheckMode: Tags v[\d.]+$
+UpdateCheckMode: Tags
 CurrentVersion: 1.0.1
 CurrentVersionCode: 1
