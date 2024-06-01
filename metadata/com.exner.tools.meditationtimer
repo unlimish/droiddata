@@ -1,0 +1,32 @@
+Categories:
+  - Sports & Health
+  - Time
+License: Apache-2.0
+WebSite: https://www.jan-exner.de/software/android/feditationtimer
+SourceCode: https://github.com/janexner/MeditationTimerAndroid
+IssueTracker: https://github.com/janexner/MeditationTimerAndroid/issues
+
+AutoName: Meditation Timer
+
+RepoType: git
+Repo: https://github.com/janexner/MeditationTimerAndroid.git
+Binaries: https://www.jan-exner.de/software/android/feditationtimer/Meditation_Timer_release_%v_%c.apk
+
+Builds:
+  - versionName: 1.0.0
+    versionCode: 4
+    commit: c322adc1deb075d9500079a74e905cf69990036c
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.2.7
+    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --page-size 16 fix-newlines
+      $$OUT$$ 'META-INF/services/*'
+
+AllowedAPKSigningKeys: 3f15745561afae58a2f73ff97a517303eba059b7c608aac576fab7465df27843
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.0
+CurrentVersionCode: 4
