@@ -1024,12 +1024,9 @@ Builds:
     rm:
       - app/libs/*.aar
     build:
-      - $$rustup$$/rustup-init.sh -y
+      - $$rustup$$/rustup-init.sh -y --default-toolchain 1.78.0 --target aarch64-linux-android
+        armv7-linux-androideabi i686-linux-android x86_64-linux-android
       - source $HOME/.cargo/env
-      - pushd $$rustup$$
-      - rustup toolchain install stable
-      - rustup target add i686-linux-android x86_64-linux-android armv7-linux-androideabi aarch64-linux-android
-      - popd
       - pushd $$libchewingAndroidAppModule$$
       - ../gradlew bundleReleaseAar
       - popd
