@@ -1025,6 +1025,7 @@ Builds:
       - app/libs/*.aar
     build:
       - $$rustup$$/rustup-init.sh -y
+      - source $HOME/.cargo/env
       - pushd $$rustup$$
       - rustup toolchain install stable
       - rustup target add i686-linux-android x86_64-linux-android armv7-linux-androideabi aarch64-linux-android
