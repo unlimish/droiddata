@@ -11,22 +11,17 @@ Changelog: https://github.com/NielsLee/FoodRecords/releases
 AutoName: Fridgey
 
 RepoType: git
-Repo: https://github.com/NielsLee/FoodRecords
+Repo: https://github.com/NielsLee/FoodRecords.git
 
 Builds:
   - versionName: '1.0'
     versionCode: 1
-    commit: v1.0.0
+    commit: 495f2c7b1385cbc078563074366525984ab6bdee
     subdir: app
-    sudo:
-      - apt-get update
-      - apt-get install -y librsvg2-bin openjdk-17-jdk-headless
-      - update-alternatives --auto java
     gradle:
       - yes
 
 AutoUpdateMode: Version
-UpdateCheckMode: Tags v[\d.]+$
-UpdateCheckData: app/build.gradle|versionCode (\d+)|.|versionName "(.*)"
+UpdateCheckMode: Tags
 CurrentVersion: '1.0'
 CurrentVersionCode: 1
