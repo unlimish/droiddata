@@ -29,6 +29,7 @@ Builds:
     init:
       - pushd ../..
       - npm install
+      - PATCH_NONFREE_FORCE=1 npm run patch-nonfree
       - touch www/index.html
       - npx cap update android
       - npm run fetch-nnue
