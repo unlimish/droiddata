@@ -3232,7 +3232,7 @@ Builds:
     submodules: true
     sudo:
       - apt-get update
-      - apt-get install -y g++ make
+      - apt-get install -y g++ make xz-utils
       - curl -Lo node.tar.gz https://nodejs.org/dist/v20.11.1/node-v20.11.1-linux-x64.tar.gz
       - echo "bf3a779bef19452da90fb88358ec2c57e0d2f882839b20dc6afc297b6aafc0d7 node.tar.gz"
         | sha256sum -c -
@@ -3243,6 +3243,12 @@ Builds:
     rm:
       - app-ios
     prebuild:
+      - pushd $$emscripten$$
+      - ./emsdk install latest
+      - ./emsdk activate latest
+      - source ./emsdk_env.sh
+      - export PATH=$PATH:$$emscripten$$/upstream/bin
+      - popd
       - cd ../..
       - node buildSrc/fixFdroidDeps.js
       - npm install
