@@ -126,7 +126,21 @@ Builds:
     scandelete:
       - Q3E/src/main/jni
 
+  - versionName: 1.1.0harmattan51natasha
+    versionCode: 11051
+    commit: 3458da7e19f5cc32dade4375b9bc07a0206343ee
+    subdir: idTech4Amm
+    sudo:
+      - apt-get update
+      - apt-get install -y g++ libc-dev make libtinfo5
+    gradle:
+      - yes
+    scanignore:
+      - idTech4Amm/src/main/assets/source
+    scandelete:
+      - Q3E/src/main/jni
+
 AutoUpdateMode: Version +natasha %v
 UpdateCheckMode: Tags .*-free
-CurrentVersion: 1.1.0harmattan50
-CurrentVersionCode: 11050
+CurrentVersion: 1.1.0harmattan51
+CurrentVersionCode: 11051

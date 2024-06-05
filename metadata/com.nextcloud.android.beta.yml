@@ -13697,9 +13697,69 @@ Builds:
     scandelete:
       - app/src/androidTest/assets
 
-  - versionName: '20240521'
-    versionCode: 20240521
-    commit: 5b7d6a2e84e591df4d77b01e0be3c8991bc20bab
+  - versionName: '20240523'
+    versionCode: 20240523
+    commit: 18902ea10106830ea6992eaf88ceac1476c2c1bc
+    subdir: app
+    gradle:
+      - versionDev
+    rm:
+      - user_manual
+    prebuild:
+      - mkdir -p $HOME/.gradle
+      - echo "org.gradle.jvmargs=-Xmx9g -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError"
+        > $HOME/.gradle/gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+
+  - versionName: '20240524'
+    versionCode: 20240524
+    commit: 499b6af9e97b2cb63f26dc13418664c981502484
+    subdir: app
+    gradle:
+      - versionDev
+    rm:
+      - user_manual
+    prebuild:
+      - mkdir -p $HOME/.gradle
+      - echo "org.gradle.jvmargs=-Xmx9g -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError"
+        > $HOME/.gradle/gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+
+  - versionName: '20240530'
+    versionCode: 20240530
+    commit: a08ad8cbc01e5924aa7364697ed6ed6f1a1cc3f4
+    subdir: app
+    gradle:
+      - versionDev
+    rm:
+      - user_manual
+    prebuild:
+      - mkdir -p $HOME/.gradle
+      - echo "org.gradle.jvmargs=-Xmx9g -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError"
+        > $HOME/.gradle/gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+
+  - versionName: '20240603'
+    versionCode: 20240603
+    commit: 7ff6c75f4ae7dd9d65207f60355064454b6ca9df
+    subdir: app
+    gradle:
+      - versionDev
+    rm:
+      - user_manual
+    prebuild:
+      - mkdir -p $HOME/.gradle
+      - echo "org.gradle.jvmargs=-Xmx9g -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError"
+        > $HOME/.gradle/gradle.properties
+    scandelete:
+      - app/src/androidTest/assets
+
+  - versionName: '20240604'
+    versionCode: 20240604
+    commit: c7ab344d0dac59ddcd7c22089b8e8287d78d7992
     subdir: app
     gradle:
       - versionDev
@@ -13716,5 +13776,5 @@ MaintainerNotes: Tags get removed. See https://github.com/nextcloud/android/issu
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags ^dev
-CurrentVersion: '20240521'
-CurrentVersionCode: 20240521
+CurrentVersion: '20240604'
+CurrentVersionCode: 20240604
