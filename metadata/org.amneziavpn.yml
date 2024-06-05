@@ -27,10 +27,10 @@ Builds:
     submodules: true
     sudo:
       - apt-get update
-      - apt-get install ninja-build libgl1-mesa-dev libstdc++6 libncurses5
+      - apt-get install -y ninja-build libgl1-mesa-dev libstdc++6 libncurses5
       - apt-get install -y 7zip build-essential make python-is-python3
-      - apt-get remove openjdk-11-jdk-headless openjdk-11-jre-headless
-      - apt-get install openjdk-17-jdk-headless openjdk-17-jre-headless
+      - apt-get remove -y openjdk-11-jdk-headless openjdk-11-jre-headless
+      - apt-get install -y openjdk-17-jdk-headless openjdk-17-jre-headless
       - apt-get install -y -t bookworm-backports cmake
     output: deploy/build
     srclibs:
@@ -50,7 +50,7 @@ Builds:
           local ANDROID_ABI=android_${ABI}
           if [ "$ABI" = "arm64-v8a" ]; then
             ANDROID_ABI="android_arm64_v8"
-          elif [ "$ABI" = "armeabi-v7a" ];  then
+          elif [ "$ABI" = "armeabi-v7a" ]; then
             ANDROID_ABI="android_armv7"
           fi
           export ABIS_BUILD_FILES=$QTPREFIX/build_${ANDROID_ABI}
@@ -60,9 +60,12 @@ Builds:
             -silent -prefix $QTPREFIX/$ANDROID_ABI -release -nomake tests -nomake examples -no-sql-mysql \
             -no-dbus -no-use-gold-linker -sysconfdir /etc/xdg -opengl es2 -android-sdk $$SDK$$ \
             -android-abis ${ABI} -android-ndk $$NDK$$ -android-ndk-platform android-34 \
-            -skip qtcoap,qtopcua,qtwebengine,qt3d,qtlanguageserver -skip qtdatavis3d,qtquick3d,qtwebview,qtactiveqt,qtquick3dphysics \
-            -skip qtserialport,qtquicktimeline,qtspeech,qtwebchannel,qtscxml -qt-host-path $QT_HOST_PREFIX \
-            -no-feature-qml-jit CMAKE_INSTALL_MESSAGE=NEVER
+            -skip qtcoap -skip qtopcua -skip qtwebengine -skip qt3d -skip qtlanguageserver \
+            -skip qtdatavis3d -skip qtquick3d -skip qtwebview -skip qtactiveqt -skip qtquick3dphysics \
+            -skip qtserialport -skip qtquicktimeline -skip qtspeech -skip qtwebchannel -skip qtscxml \
+            -qt-host-path $QT_HOST_PREFIX \
+            -no-feature-qml-jit \
+            CMAKE_INSTALL_MESSAGE=NEVER
           cmake --build . --parallel
           cmake --install .
           popd
@@ -85,13 +88,13 @@ Builds:
           -submodules qtbase,qttools,qtremoteobjects,qt5compat,qtshadertools,qtimageformats \
           -nomake tests -nomake examples -no-sql-mysql \
           -no-dbus -no-openssl -no-glib -no-icu -no-cups -no-fontconfig -no-gtk -no-egl \
-          -skip qtsql,qtxml,qtprintsupport,qttestlib,qtwebengine,qtgamepad,qtwebchannel \
-          -skip qtwebview,qtwebsockets,qtwebglplugin,qtserialport,qtnetworkauth,qt3d,qtsensors \
-          -skip qtwayland,qtxmlpatterns,qtscxml,qtscript,qtconnectivity \
-          -skip qtlanguageserver,qtquicktimeline,qtquick3d,qtactiveqt \
-          -skip qtcoap,qtdatavis3d,qthttpserver,qtpositioning,qtdoc,qtgrpc,qtlocation,qtlottie \
-          -skip qtmqtt,qtopcua,qtquick3dphysics,qtquickeffectmaker,qtserialbus -skip \
-          qtspeech,qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester \
+          -skip qtsql -skip qtxml -skip qtprintsupport -skip qttestlib -skip qtwebengine -skip qtgamepad -skip qtwebchannel \
+          -skip qtwebview -skip qtwebsockets -skip qtwebglplugin -skip qtserialport -skip qtnetworkauth -skip qt3d -skip qtsensors \
+          -skip qtwayland -skip qtxmlpatterns -skip qtscxml -skip qtscript -skip qtconnectivity \
+          -skip qtlanguageserver -skip qtquicktimeline -skip qtquick3d -skip qtactiveqt \
+          -skip qtcoap -skip qtdatavis3d -skip qthttpserver -skip qtpositioning -skip qtdoc -skip qtgrpc -skip qtlocation -skip qtlottie \
+          -skip qtmqtt -skip qtopcua -skip qtquick3dphysics -skip qtquickeffectmaker -skip qtserialbus -skip \
+          qtspeech -skip qtvirtualkeyboard -no-opengl -no-feature-debug -no-feature-itemmodeltester \
           -no-feature-qml-jit -no-feature-concurrent -- -D CMAKE_INSTALL_MESSAGE=NEVER
         cmake --build . --parallel
         cmake --install .
