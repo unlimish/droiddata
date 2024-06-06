@@ -14,17 +14,6 @@ Repo: https://github.com/antoinepirlot/Satunes.git
 Binaries: https://github.com/antoinepirlot/Satunes/releases/download/v%v/Satunes_v%v.apk
 
 Builds:
-  - versionName: 1.0.2
-    versionCode: 29
-    commit: a417f95d98317d90cd232a5057804f0c1c1826bf
-    subdir: app
-    gradle:
-      - yes
-    srclibs:
-      - reproducible-apk-tools@v0.2.3
-    postbuild: $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
-      'META-INF/services/*'
-
   - versionName: 1.0.3
     versionCode: 30
     commit: b3bd9a24ea1620e7d954ee84ac21cad0e2d4201a
