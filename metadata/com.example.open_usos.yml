@@ -10,21 +10,36 @@ RepoType: git
 Repo: https://github.com/OpenUSOS/OpenUSOS.git
 
 Builds:
-  - versionName: 0.2.0
+  - versionName: 0.5.0
     versionCode: 1
-    commit: 19d7e911e3aaa0bb9554ba4752cbbb9dcb510b0f
+    commit: 0fd489e6d7ef17dc2446239538d4304b76c07ffe
+    submodules: true
     output: build/app/outputs/flutter-apk/app-release.apk
     srclibs:
-      - flutter@3.19.6
+      - transistor-background-fetch@44fa41067fa12a2417dd404b5fac567fb68013d3
+    rm:
+      - ios
+      - test
     prebuild:
       - export PUB_CACHE=$(pwd)/.pub-cache
-      - $$flutter$$/bin/flutter config --no-analytics
-      - $$flutter$$/bin/flutter packages pub get
+      - flutter/bin/flutter config --no-analytics
+      - flutter/bin/flutter packages pub get
+    scanignore:
+      - .pub-cache/hosted/pub.dev/background_fetch-1.3.5/android/build.gradle
+      - android/build.gradle
+      - flutter/bin/cache
     scandelete:
+      - flutter
       - .pub-cache
     build:
       - export PUB_CACHE=$(pwd)/.pub-cache
-      - $$flutter$$/bin/flutter build apk
+      - pushd $$transistor-background-fetch$$/android/tsbackgroundfetch/
+      - gradle assembleRelease
+      - gradle publishToMavenLocal
+      - popd
+      - mv $$transistor-background-fetch$$/android/tsbackgroundfetch/build/outputs/aar/tsbackgroundfetch-release.aar
+        $PUB_CACHE/hosted/pub.dev/background_fetch-1.3.5/android/libs/com/transistorsoft/tsbackgroundfetch/1.0.2/tsbackgroundfetch-1.0.2.aar
+      - flutter/bin/flutter build apk
 
 AutoUpdateMode: None
 UpdateCheckMode: None
