@@ -17,59 +17,87 @@ RepoType: git
 Repo: https://github.com/vector-im/element-x-android.git
 
 Builds:
-  - versionName: 0.4.13
-    versionCode: 40004131
-    commit: v0.4.13
+  - versionName: 0.4.14
+    versionCode: 40004141
+    commit: v0.4.14
     subdir: app
     gradle:
       - fdroid
     rm:
       - libraries/pushproviders/firebase
-    prebuild: sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
-      "x86", "arm64-v8a", "x86_64")/("armeabi-v7a")/' -e '/ndk {/,/^        }/d' -e
-      '/gplayImplementation/d' build.gradle.kts
+    prebuild:
+      - sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
+        "x86", "arm64-v8a", "x86_64")/("armeabi-v7a")/' -e '/ndk {/,/^        }/d' -e
+        '/gplayImplementation/d' build.gradle.kts
+      - echo -e "\nservices.maptiler.apikey=agdgS5zCgFZF5gDi9VXS" >> ../local.properties
+      - echo -e "\nservices.maptiler.darkMapId=dea61faf-292b-4774-9660-58fcef89a7f3"
+        >> ../local.properties
+      - echo -e "\nservices.maptiler.lightMapId=9bc819c8-e627-474a-a348-ec144fe3d810"
+        >> ../local.properties
+      - sed -i -e 's/gitBranchName() = .*/gitBranchName() = "main"/' ../plugins/src/main/kotlin/extension/Utils.kt
     scandelete:
       - plugins
 
-  - versionName: 0.4.13
-    versionCode: 40004132
-    commit: v0.4.13
+  - versionName: 0.4.14
+    versionCode: 40004142
+    commit: v0.4.14
     subdir: app
     gradle:
       - fdroid
     rm:
       - libraries/pushproviders/firebase
-    prebuild: sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
-      "x86", "arm64-v8a", "x86_64")/("arm64-v8a")/' -e '/ndk {/,/^        }/d' -e
-      '/gplayImplementation/d' build.gradle.kts
+    prebuild:
+      - sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
+        "x86", "arm64-v8a", "x86_64")/("arm64-v8a")/' -e '/ndk {/,/^        }/d' -e
+        '/gplayImplementation/d' build.gradle.kts
+      - echo -e "\nservices.maptiler.apikey=agdgS5zCgFZF5gDi9VXS" >> ../local.properties
+      - echo -e "\nservices.maptiler.darkMapId=dea61faf-292b-4774-9660-58fcef89a7f3"
+        >> ../local.properties
+      - echo -e "\nservices.maptiler.lightMapId=9bc819c8-e627-474a-a348-ec144fe3d810"
+        >> ../local.properties
+      - sed -i -e 's/gitBranchName() = .*/gitBranchName() = "main"/' ../plugins/src/main/kotlin/extension/Utils.kt
     scandelete:
       - plugins
 
-  - versionName: 0.4.13
-    versionCode: 40004133
-    commit: v0.4.13
+  - versionName: 0.4.14
+    versionCode: 40004143
+    commit: v0.4.14
     subdir: app
     gradle:
       - fdroid
     rm:
       - libraries/pushproviders/firebase
-    prebuild: sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
-      "x86", "arm64-v8a", "x86_64")/("x86")/' -e '/ndk {/,/^        }/d' -e '/gplayImplementation/d'
-      build.gradle.kts
+    prebuild:
+      - sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
+        "x86", "arm64-v8a", "x86_64")/("x86")/' -e '/ndk {/,/^        }/d' -e '/gplayImplementation/d'
+        build.gradle.kts
+      - echo -e "\nservices.maptiler.apikey=agdgS5zCgFZF5gDi9VXS" >> ../local.properties
+      - echo -e "\nservices.maptiler.darkMapId=dea61faf-292b-4774-9660-58fcef89a7f3"
+        >> ../local.properties
+      - echo -e "\nservices.maptiler.lightMapId=9bc819c8-e627-474a-a348-ec144fe3d810"
+        >> ../local.properties
+      - sed -i -e 's/gitBranchName() = .*/gitBranchName() = "main"/' ../plugins/src/main/kotlin/extension/Utils.kt
     scandelete:
       - plugins
 
-  - versionName: 0.4.13
-    versionCode: 40004134
-    commit: v0.4.13
+  - versionName: 0.4.14
+    versionCode: 40004144
+    commit: v0.4.14
     subdir: app
     gradle:
       - fdroid
     rm:
       - libraries/pushproviders/firebase
-    prebuild: sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
-      "x86", "arm64-v8a", "x86_64")/("x86_64")/' -e '/ndk {/,/^        }/d' -e '/gplayImplementation/d'
-      build.gradle.kts
+    prebuild:
+      - sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
+        "x86", "arm64-v8a", "x86_64")/("x86_64")/' -e '/ndk {/,/^        }/d' -e '/gplayImplementation/d'
+        build.gradle.kts
+      - echo -e "\nservices.maptiler.apikey=agdgS5zCgFZF5gDi9VXS" >> ../local.properties
+      - echo -e "\nservices.maptiler.darkMapId=dea61faf-292b-4774-9660-58fcef89a7f3"
+        >> ../local.properties
+      - echo -e "\nservices.maptiler.lightMapId=9bc819c8-e627-474a-a348-ec144fe3d810"
+        >> ../local.properties
+      - sed -i -e 's/gitBranchName() = .*/gitBranchName() = "main"/' ../plugins/src/main/kotlin/extension/Utils.kt
     scandelete:
       - plugins
 
@@ -86,5 +114,5 @@ VercodeOperation:
   - 4 + %c
 UpdateCheckData: https://api.github.com/repos/element-hq/element-x-android/releases/latest|"name"\
   *:\ *"(\d+)|.|"tag_name":"v(\d+\.\d+\.\d+)"
-CurrentVersion: 0.4.13
-CurrentVersionCode: 40004134
+CurrentVersion: 0.4.14
+CurrentVersionCode: 40004144
