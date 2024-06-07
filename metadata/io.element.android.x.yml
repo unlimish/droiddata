@@ -27,8 +27,8 @@ Builds:
       - libraries/pushproviders/firebase
     prebuild:
       - sed -i -e 's/UniversalApk = .*/UniversalApk = false/' -e 's/("armeabi-v7a",
-        "x86", "arm64-v8a", "x86_64")/("armeabi-v7a")/' -e '/ndk {/,/^        }/d' -e
-        '/gplayImplementation/d' build.gradle.kts
+        "x86", "arm64-v8a", "x86_64")/("armeabi-v7a")/' -e '/ndk {/,/^        }/d'
+        -e '/gplayImplementation/d' build.gradle.kts
       - echo -e "\nservices.maptiler.apikey=agdgS5zCgFZF5gDi9VXS" >> ../local.properties
       - echo -e "\nservices.maptiler.darkMapId=dea61faf-292b-4774-9660-58fcef89a7f3"
         >> ../local.properties
