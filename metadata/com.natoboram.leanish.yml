@@ -1,0 +1,56 @@
+Categories:
+  - Internet
+  - Multimedia
+  - Reading
+License: AGPL-3.0-or-later
+WebSite: https://github.com/NatoBoram/Leanish
+SourceCode: https://github.com/NatoBoram/Leanish
+IssueTracker: https://github.com/NatoBoram/Leanish/issues
+Changelog: https://github.com/NatoBoram/Leanish/releases
+Donate: https://github.com/sponsors/NatoBoram
+
+AutoName: Leanish
+
+RepoType: git
+Repo: https://github.com/NatoBoram/Leanish.git
+
+Builds:
+  - versionName: 0.0.3
+    versionCode: 4
+    commit: v0.0.3
+    subdir: android/app
+    sudo:
+      - apt update
+      - apt install -y openjdk-17-jdk-headless xz-utils
+      - update-alternatives --auto java
+      - curl -Lo node.tar.xz https://nodejs.org/dist/v21.4.0/node-v21.4.0-linux-x64.tar.xz
+      - echo '9f3b4447a689c1c0f6c08f61967f2a8e50d2c8187805e85ad67701ef84c0095c node.tar.xz'
+        | sha256sum -c -
+      - tar xJf node.tar.xz --strip-components=1 -C /usr/local/
+    init:
+      - corepack enable
+      - pnpm install --frozen-lockfile
+      - pnpm run build:csr
+      - pnpm exec cap sync android
+    gradle:
+      - yes
+    output: build/outputs/apk/release/app-release-unsigned.apk
+    prebuild: sdkmanager --install "build-tools;33.0.2" "platforms;android-33"
+    scandelete:
+      - node_modules
+
+MaintainerNotes: |-
+  This app is build using Capacitor.
+
+  1. Fill `android/key.properties`
+  2. Install Android dependencies with `sdkmanager --install "build-tools;33.0.2" "platforms;android-33"`
+  3. Install Node dependencies with `pnpm install`
+  4. Build with `pnpm run build:apk`
+
+  The `.apk` will be in `android/app/build/outputs/apk/release/app-release.apk`.
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: android/variables.gradle|versionCode\s=\s(\d+)|.|versionName\s=\s'(.+)'
+CurrentVersion: 0.0.3
+CurrentVersionCode: 4
