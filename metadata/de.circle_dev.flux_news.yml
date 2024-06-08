@@ -616,7 +616,7 @@ Builds:
 
   - versionName: 1.4.3
     versionCode: 2024060811
-    commit: 9fdc8b11c7b0545c06f009d3c238a3cc3359b629
+    commit: 2eb5ab0c4166e5a33c6ce7c5840aa6d0a324484a
     submodules: true
     output: build/app/outputs/flutter-apk/app-x86_64-release.apk
     rm:
@@ -632,11 +632,11 @@ Builds:
       - .pub-cache
     build:
       - export PUB_CACHE=$(pwd)/.pub-cache
-      - vendor/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-x64" --dart-define=cronetHttpNoPlay=true
+      - vendor/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-x64" --dart-define=cronetHttpNoPlay=true -v
 
   - versionName: 1.4.3
     versionCode: 2024060812
-    commit: 9fdc8b11c7b0545c06f009d3c238a3cc3359b629
+    commit: 2eb5ab0c4166e5a33c6ce7c5840aa6d0a324484a
     submodules: true
     output: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
     rm:
@@ -652,11 +652,11 @@ Builds:
       - .pub-cache
     build:
       - export PUB_CACHE=$(pwd)/.pub-cache
-      - vendor/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm" --dart-define=cronetHttpNoPlay=true
+      - vendor/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm" --dart-define=cronetHttpNoPlay=true -v
 
   - versionName: 1.4.3
     versionCode: 2024060813
-    commit: 9fdc8b11c7b0545c06f009d3c238a3cc3359b629
+    commit: 2eb5ab0c4166e5a33c6ce7c5840aa6d0a324484a
     submodules: true
     output: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
     rm:
@@ -672,7 +672,7 @@ Builds:
       - .pub-cache
     build:
       - export PUB_CACHE=$(pwd)/.pub-cache
-      - vendor/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm64" --dart-define=cronetHttpNoPlay=true
+      - vendor/flutter/bin/flutter build apk --release --split-per-abi --target-platform="android-arm64" --dart-define=cronetHttpNoPlay=true -v
 
 AutoUpdateMode: Version
 UpdateCheckMode: Tags
