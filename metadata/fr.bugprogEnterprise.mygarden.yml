@@ -1,0 +1,50 @@
+AntiFeatures:
+  NonFreeAssets:
+    en-US: vegetables Images and vegetables data are restricted to copyright
+Categories:
+  - Science & Education
+  - Sports & Health
+License: GPL-3.0-only
+AuthorName: DERACHE Adrien
+AuthorEmail: contacts@bugprog.studio
+AuthorWebSite: https://bugprog.studio/
+WebSite: https://m9712.gitlab.io/vegetables-db/
+SourceCode: https://gitlab.com/m9712/mygarden
+IssueTracker: https://gitlab.com/m9712/mygarden/-/issues
+Translation: https://m9712.gitlab.io/vegetables-db/Getting%20started/How_to_translate_MyGarden/
+Changelog: https://gitlab.com/m9712/mygarden/-/blob/master/CHANGELOG
+Liberapay: MyGarden
+
+AutoName: MyGarden
+
+RepoType: git
+Repo: https://gitlab.com/m9712/mygarden.git
+
+Builds:
+  - versionName: '2.0'
+    versionCode: 13
+    commit: 44dbaef2071cd02c4e2da0e72959687088fa2731
+    subdir: android/app/
+    sudo:
+      - sysctl fs.inotify.max_user_watches=524288 || true
+      - curl -Lo node.tar.gz https://nodejs.org/download/release/v18.12.1/node-v18.12.1-linux-x64.tar.gz
+      - echo "a8fcacb8033504e6d704bdee821f7005ee3774db25c799bcf2a13b5bda7de172 node.tar.gz"
+        | sha256sum -c -
+      - tar xzf node.tar.gz --strip-components=1 -C /usr/local/
+      - npm install -g @ionic/cli
+    init:
+      - cd ../..
+      - npm install --build-from-source
+    gradle:
+      - yes
+    prebuild:
+      - ionic build
+      - ionic cap sync android
+      - ls
+    scandelete:
+      - node_modules/
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: '2.0'
+CurrentVersionCode: 13
