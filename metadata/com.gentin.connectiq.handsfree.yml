@@ -1,0 +1,25 @@
+Categories:
+  - Phone & SMS
+License: MIT
+SourceCode: https://github.com/grigorye/Handsfree
+
+Name: Handsfree for Garmin
+AutoName: Handsfree
+
+RepoType: git
+Repo: https://github.com/grigorye/Handsfree
+
+Builds:
+  - versionName: 0.0.1
+    versionCode: 54
+    commit: v0.0.1
+    subdir: AndroidApp/app
+    gradle:
+      - yes
+    output: build/outputs/apk/selfHosted/release/app-selfHosted-release-unsigned.apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+UpdateCheckData: AndroidApp/gradle.properties|versionCode=(\d+)|.|versionName=(.*)
+CurrentVersion: 0.0.1
+CurrentVersionCode: 54
