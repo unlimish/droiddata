@@ -1,0 +1,42 @@
+Categories:
+  - Sports & Health
+License: MIT
+SourceCode: https://gitlab.com/beoe/beachcounter
+IssueTracker: https://gitlab.com/beoe/beachcounter/issues
+
+AutoName: Beachcounter
+Description: Simple flutter app to not loose the score when watching beachvolleyball matches
+
+RepoType: git
+Repo: https://gitlab.com/beoe/beachcounter.git
+
+Builds:
+  - versionName: 1.0.2
+    versionCode: 6
+    commit: 0537d072a1df24bf6522707444301b50fd451434
+    output: build/app/outputs/flutter-apk/app-release.apk
+    srclibs:
+      - flutter@stable
+    rm:
+      - macos
+      - ios
+      - linux
+      - web
+      - windows
+    prebuild:
+      - flutterVersion=3.13.2
+      - '[[ $flutterVersion ]] || exit 1'
+      - git -C $$flutter$$ checkout -f $flutterVersion
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk --release
+
+AutoUpdateMode: None
+UpdateCheckMode: Static
+CurrentVersion: 1.0.2
+CurrentVersionCode: 6
