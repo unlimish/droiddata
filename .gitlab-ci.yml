@@ -9,8 +9,6 @@ workflow:
     - if: $CI_COMMIT_BRANCH
 
 default:
-  tags:
-    - saas-linux-large-amd64
 
 stages:
   - prepare
@@ -97,6 +95,8 @@ variables:
 checkupdates:
   stage: test
   needs: []
+  tags:
+    - saas-linux-large-amd64
   image: debian:bookworm-slim
   rules: *app_verification_rules
   before_script:
@@ -356,6 +356,8 @@ checkupdates_runner:
 fdroid build:
   stage: build
   needs: []
+  tags:
+    - saas-linux-large-amd64
   # Some env vars are setup in https://gitlab.com/fdroid/fdroidserver/-/blob/master/buildserver/setup-env-vars
   # home_vagrant=/home/vagrant
   image: registry.gitlab.com/fdroid/fdroidserver:buildserver-bookworm
@@ -465,6 +467,8 @@ fdroid build:
 # to GitLab Pages.
 pages:
   stage: deploy
+  tags:
+    - saas-linux-large-amd64
   image: registry.gitlab.com/fdroid/fdroidserver:buildserver-bookworm
   only:
     refs:
