@@ -1,14 +1,34 @@
 Categories:
+  - Science & Education
+  - System
   - Writing
 License: Apache-2.0
 WebSite: https://gorry.haun.org/android/nicownng
-SourceCode: https://bitbucket-archive.softwareheritage.org/projects/da/dalb8/nicownng.html
+SourceCode: https://github.com/gorry/nicoWnnG
+IssueTracker: https://github.com/gorry/nicoWnnG/issues
 
 AutoName: nicoWnnG
 Description: |-
-  IME based on OpenWnn with full qwerty and a variety of Japanese layouts.
+  60-key Software Full Keyboard IME
+  Based on OpenWnn/nicoWnn
 
-  Website is in Japanese. Original source is in a zip under dist/old.
+  Changelog since version 2014.1204.1 (translated from Japanese):
+
+  Ver.2023.0807.1
+  - Fixed correct behavior when displaying a keyboard with "unassigned keys" (e.g. in JIS kana shift mode)
+  Ver.2023.0805.1
+  - Fixed read/write issues with various settings files. The location of the settings files has also changed from /mnt/sdcard/nicoWnnG to /storage/emulated/0/Android/data/net.gorry.android.input.nicownng/files/nicoWnnG
+  Ver.2023.0803.1
+  - Improved compatibility with Android 13 and platforms that don't support 32bit binaries (Pixel 7 and later)
+  Ver.2016.0710.1
+  - Fixed "Extra action triggered on Enter key" issue
+  2016.0605.1
+  - When the OS is set to a different language than Japanese, the "Initial text entry mode" will now fall back to alphabet mode in case of error
+  - Fixed an an issue with the "start search with enter key" function
+  - Improved speed of conversion candidate display
+
+RepoType: git
+Repo: https://github.com/gorry/nicoWnnG.git
 
 Builds:
   - versionName: 2012.1125.1.1305
@@ -60,9 +80,26 @@ Builds:
       - yes
     ndk: r9b
 
-AutoUpdateMode: None
-UpdateCheckMode: None
-CurrentVersion: 2014.1204.1.1305
-CurrentVersionCode: 201412041
+  - versionName: 2023.0807.1.1305
+    versionCode: 202308071
+    commit: 53eb497aeaf99ede848c2653b03b7b311840bf4c
+    subdir: app
+    sudo:
+      - apt-get update
+      - apt-get install -y file make libtinfo5
+    gradle:
+      - master
+    prebuild: sed -i -e '/signingConfigs.gradle/d' build.gradle
+    ndk: r17c
 
-NoSourceSince: 2014.1204.1.1305
+MaintainerNotes: |-
+  Previous versions were built from david8black's fork that was hosted
+  on Bitbucket (https://bitbucket.org/dalb8/nicownng) and later archived.
+
+  The upstream developer has resumed development in 2023 and
+  moved their repository to GitHub. Current versions are pulled from there.
+
+AutoUpdateMode: None
+UpdateCheckMode: RepoManifest
+CurrentVersion: 2023.0807.1.1305
+CurrentVersionCode: 202308071
