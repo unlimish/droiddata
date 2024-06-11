@@ -1,0 +1,46 @@
+AntiFeatures:
+  NonFreeNet:
+    en-US: Depends on dev server at ztomz.github.io/supaquiz/auth
+Categories:
+  - Games
+  - Internet
+License: MIT
+AuthorName: Tom Vogel
+AuthorEmail: tom.vogel.dev@gmail.com
+SourceCode: https://github.com/zTomz/supaquiz
+IssueTracker: https://github.com/zTomz/supaquiz/issues
+Translation: https://hosted.weblate.org/projects/supaquiz/
+Changelog: https://github.com/zTomz/supaquiz/blob/HEAD/CHANGELOG.md
+
+AutoName: supaquiz
+
+RepoType: git
+Repo: https://github.com/zTomz/supaquiz.git
+
+Builds:
+  - versionName: 1.1.0
+    versionCode: 1
+    commit: 4899ef9802f553175873368435edc8ccb9d26fd3
+    output: build/app/outputs/apk/release/app-release-unsigned.apk
+    srclibs:
+      - flutter@3.19.6
+    rm:
+      - .github
+      - test
+      - web
+      - windows
+    prebuild:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter config --no-analytics
+      - $$flutter$$/bin/flutter packages pub get
+    scandelete:
+      - .pub-cache
+    build:
+      - export PUB_CACHE=$(pwd)/.pub-cache
+      - $$flutter$$/bin/flutter build apk
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^v.*$
+UpdateCheckData: pubspec.yaml|version:\s.+\+(\d+)|.|version:\s(.+)\+
+CurrentVersion: 1.1.0
+CurrentVersionCode: 1
