@@ -1,0 +1,34 @@
+Categories:
+  - Internet
+  - Reading
+License: GPL-3.0-only
+AuthorName: Diego Beraldin
+AuthorEmail: diego.beraldin@gmail.com
+AuthorWebSite: https://github.com/diegoberaldin
+SourceCode: https://github.com/diegoberaldin/RaccoonForLemmy
+IssueTracker: https://github.com/diegoberaldin/RaccoonForLemmy/issues
+Changelog: https://github.com/diegoberaldin/RaccoonForLemmy/releases
+
+AutoName: Raccoon for Lemmy
+
+RepoType: git
+Repo: https://github.com/diegoberaldin/RaccoonForLemmy.git
+Binaries: https://github.com/diegoberaldin/RaccoonForLemmy/releases/download/%v/RaccoonForLemmy-universal-release.apk
+
+Builds:
+  - versionName: 1.11.0-20240529-pre
+    versionCode: 102
+    commit: dbaa8bd8a2ba07b430a86d4b52f5b00117ffeed5
+    subdir: androidApp
+    gradle:
+      - yes
+    rm:
+      - iosApp
+    prebuild: sed -i -e '/isEnable/s/true/false/' build.gradle.kts
+
+AllowedAPKSigningKeys: 694761bc0a59476e4b6b7f39d27f75d030c2a9c0c2b1f68f5ff3985728fbdd7c
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags ^[\d.]+$
+CurrentVersion: 1.11.0-20240529-pre
+CurrentVersionCode: 101
