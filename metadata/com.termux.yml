@@ -753,7 +753,13 @@ Builds:
       - sed -i -e '/publishing {/,/^    }/d' ../termux-shared/build.gradle
     ndk: r22b
 
+MaintainerNotes: |
+  Version names and codes are generated from GitHub release tags.
+  Stable releases like `major.minor.patch` are auto-added based on UpdateCheckMode tag regex.
+  Pre-releases like `major.minor.patch-beta.1` need to be manually-added without updating
+  `CurrentVersion` and `CurrentVersionCode`, so that they don't show as `Suggested` versions to users.
+
 AutoUpdateMode: Version
-UpdateCheckMode: Tags
+UpdateCheckMode: Tags ^v[0-9]+\.[0-9]+\.[0-9]+$
 CurrentVersion: 0.118.0
 CurrentVersionCode: 118
